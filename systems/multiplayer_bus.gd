@@ -19,8 +19,8 @@ func join_server(ip : String, port : String) -> void:
 	multiplayer.multiplayer_peer = peer
 	in_game = true
 
-func _process(delta: float) -> void:
-	if in_game and multiplayer.is_server():
+func _input(event: InputEvent) -> void:
+	if in_game and multiplayer.is_server() and event.is_action_pressed("ui_accept"):
 		print_hello()
 
 @rpc
