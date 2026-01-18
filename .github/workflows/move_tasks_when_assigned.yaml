@@ -14,5 +14,5 @@ jobs:
           fields: Status
           values: In Progress
           github_token: ${{ secrets.PROJECT_AUTOMATION_SECRET }}
-          project_url: https://github.com/orgs/gmuGADIG/projects/11
+          project_url: https://github.com/orgs/gmuGADIG/projects/13
           
