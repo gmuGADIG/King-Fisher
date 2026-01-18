@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="King Fisher"
+run/main_scene="uid://dih1wbmgk3wkg"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://temp/temp_art/icon.svg"
+
+[autoload]
+
+MultiplayerBus="*res://systems/multiplayer_bus.tscn"
 
 [file_customization]
 
