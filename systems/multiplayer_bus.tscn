@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc8cjw7hsx0vc"]
+
+[ext_resource type="Script" uid="uid://cghtjkhqrxcwg" path="res://systems/multiplayer_bus.gd" id="1_4mqg5"]
+
+[node name="MultiplayerBus" type="Node"]
+script = ExtResource("1_4mqg5")
