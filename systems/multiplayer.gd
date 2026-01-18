@@ -12,9 +12,13 @@ var player_list: Dictionary[int,String] = {}
 
 
 func _ready() -> void:
+	player_list.set(1,"Player")
 	multiplayer.peer_connected.connect(_on_peer_connected)
 
 func _on_peer_connected(id: int) -> void:
+	if not multiplayer.is_server():
+		return
+	
 	print("peer connected")
 	player_list.set(id,"Player")
 	new_player.emit(id)
