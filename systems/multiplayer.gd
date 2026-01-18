@@ -5,7 +5,10 @@ signal new_player(id: int)
 const PORT = 25575
 const MAX_CLIENTS = 3
 
-var player_list: Array[int] = []
+
+var allow_connections : bool = true
+
+var player_list: Dictionary[int,String] = {}
 
 
 func _ready() -> void:
@@ -13,7 +16,7 @@ func _ready() -> void:
 
 func _on_peer_connected(id: int) -> void:
 	print("peer connected")
-	player_list.push_back(id)
+	player_list.set(id,"Player")
 	new_player.emit(id)
 	
 	if multiplayer.is_server():
@@ -23,7 +26,7 @@ func _on_peer_connected(id: int) -> void:
 func learn_players(new_player_list: Array[int]) -> void:
 	for player in new_player_list:
 		if not player in player_list:
-			player_list.push_back(player)
+			player_list.set(player,"Player")
 			new_player.emit(player)
 
 
