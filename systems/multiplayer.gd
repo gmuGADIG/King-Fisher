@@ -7,13 +7,16 @@ const MAX_CLIENTS = 3
 
 var player_list: Array[int] = []
 
+func _ready() -> void:
+	multiplayer.peer_connected.connect(_on_peer_connected)
+
 func _on_peer_connected(id: int) -> void:
+	print("peer connected")
 	player_list.push_back(id)
 	new_player.emit(id)
 	
 	if multiplayer.is_server():
 		learn_players.rpc_id(id, player_list)
-
 
 @rpc("reliable")
 func learn_players(new_player_list: Array[int]) -> void:
@@ -22,9 +25,6 @@ func learn_players(new_player_list: Array[int]) -> void:
 			player_list.push_back(player)
 			new_player.emit(player)
 
-
-func _ready() -> void:
-	pass
 
 func create_server() -> void:
 	var peer = ENetMultiplayerPeer.new()
