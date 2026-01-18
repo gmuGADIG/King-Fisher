@@ -1,0 +1,17 @@
+name: Add Assignee to Parent Task
+
+on:
+  issues:
+    types: [assigned]
+
+permissions:
+  issues: write
+
+jobs:
+  assign-creep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: gmuGADIG/assign-creep@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
