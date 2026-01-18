@@ -28,9 +28,8 @@ func _process(_delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	print("playerlist:")
-	for player in Multiplayer.player_list:
-		print(player)
+	if event.is_action_pressed("print_players"):
+		Debug.print_players()
 
 @rpc
 func sync_velocity(vel: Vector2) -> void:
