@@ -32,6 +32,10 @@ func learn_players(new_player_list: Array[int]) -> void:
 		if not player in player_list:
 			player_list.set(player,"Player")
 			new_player.emit(player)
+	print("Player List:")
+	for player_id in Multiplayer.player_list:
+		print(player_id)
+		
 
 
 func create_server() -> void:
