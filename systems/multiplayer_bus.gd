@@ -11,6 +11,10 @@ func create_server() -> void:
 	peer.create_server(PORT, MAX_CLIENTS)
 	multiplayer.multiplayer_peer = peer
 
-@rpc
 func _process(delta: float) -> void:
+	if multiplayer.is_server():
+		print_hello()
+
+@rpc
+func print_hello() -> void:
 	print("hello")
