@@ -12,7 +12,7 @@ config_version=5
 
 config/name="King Fisher"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://temp/temp_art/icon.svg"
+config/icon="uid://b3tmja6unn2ao"
 
 [file_customization]
 
