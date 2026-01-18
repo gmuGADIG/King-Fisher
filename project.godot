@@ -17,7 +17,7 @@ config/icon="res://temp/temp_art/icon.svg"
 
 [autoload]
 
-MultiplayerBus="*res://systems/multiplayer_bus.tscn"
+Multiplayer="*res://systems/multiplayer.gd"
 
 [file_customization]
 

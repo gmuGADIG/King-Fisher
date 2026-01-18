@@ -50,11 +50,6 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 placeholder_text = "IP"
 
-[node name="Port" type="LineEdit" parent="VBoxContainer/JoinGame"]
-layout_mode = 2
-placeholder_text = "Port"
-max_length = 5
-
 [node name="ConnectButton" type="Button" parent="VBoxContainer/JoinGame"]
 layout_mode = 2
 text = "Connect"
