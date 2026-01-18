@@ -27,6 +27,11 @@ func _process(_delta: float) -> void:
 	sync_velocity.rpc(velocity)
 	move_and_slide()
 
+func _input(event: InputEvent) -> void:
+	print("playerlist:")
+	for player in Multiplayer.player_list:
+		print(player)
+
 @rpc
 func sync_velocity(vel: Vector2) -> void:
 	velocity = vel
