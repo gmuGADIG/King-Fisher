@@ -7,6 +7,7 @@ const MAX_CLIENTS = 3
 
 var player_list: Array[int] = []
 
+
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
 
