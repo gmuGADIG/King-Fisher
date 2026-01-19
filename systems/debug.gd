@@ -5,6 +5,18 @@ func client_id() -> String:
 	
 func log(...args: Array) -> void:
 	var output : String = "["+client_id()+"] "
+
+	# get caller
+	if OS.is_debug_build():
+		# 0 = us
+		# 1 = caller
+		var caller: Dictionary = get_stack()[1]
+		var source_file: String = caller.source
+		source_file = source_file.split('/')[-1]
+		output += ("[%s:%d]" % [source_file, caller.line])
+	
+	output = output.rpad(35, ' ')
+
 	for s in args:
 		output += str(s)
 	print(output)
