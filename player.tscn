@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bffxe171rcnea"]
+
+[ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bx8rb13al7o7e" path="res://player.gd" id="1_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
+size = Vector2(82, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(40, 46)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_onrkg"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_onrkg")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.65625, 0.65625)
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4flbx")
+
+[node name="BoxingGlove" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Icon2" type="Sprite2D" parent="BoxingGlove"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.3125, 0.37499994)
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxingGlove"]
+shape = SubResource("RectangleShape2D_i3pqv")
+debug_color = Color(0.9999998, 0.009163613, 0.066349596, 0.41960785)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_onrkg")
+
+[connection signal="body_entered" from="BoxingGlove" to="." method="_on_boxing_glove_body_entered"]

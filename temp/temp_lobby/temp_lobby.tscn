@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://q2un246g7ypw"]
+
+[ext_resource type="Script" uid="uid://b7p5yawjrvo70" path="res://temp/temp_lobby/temp_lobby.gd" id="1_j4wm1"]
+
+[node name="TempLobby" type="Node2D"]
+script = ExtResource("1_j4wm1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Hello"
