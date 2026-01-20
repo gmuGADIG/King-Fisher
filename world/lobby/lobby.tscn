@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1tkdnfdxej7n"]
+
+[ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cv4rh"]
+
+[node name="Lobby" instance=ExtResource("1_cv4rh")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(12.941168, 0, 0, 0, 1.0000005, 0, 0, 0, 11.586485, 0, -0.23607445, 0)
+mesh = SubResource("PlaneMesh_cv4rh")

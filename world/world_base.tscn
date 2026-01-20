@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctsviqutuqw5l"]
+[gd_scene load_steps=3 format=3 uid="uid://ctsviqutuqw5l"]
 
 [ext_resource type="Script" uid="uid://dbpteyodpmjq3" path="res://world/world_base.gd" id="1_p433e"]
 [ext_resource type="PackedScene" uid="uid://bffxe171rcnea" path="res://player/player.tscn" id="2_bl271"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_bl271"]
 
 [node name="WorldBase" type="Node3D"]
 script = ExtResource("1_p433e")
@@ -21,10 +19,6 @@ offset_bottom = 40.0
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 text = "Hello"
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(12.941168, 0, 0, 0, 1.0000005, 0, 0, 0, 11.586485, 0, -0.23607445, 0)
-mesh = SubResource("PlaneMesh_bl271")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5577596, 0.83000255, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
