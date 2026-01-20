@@ -3,16 +3,7 @@ extends CharacterBody3D
 
 @export var speed := 10.
 
-
-func quantize_direction(vec: Vector2, directions: int) -> Vector2:
-	if vec == Vector2.ZERO:
-		return Vector2.ZERO
-	
-	var angle = vec.angle()
-	var sector_size = TAU / directions
-	var snapped_angle = round(angle / sector_size) * sector_size
-	
-	return Vector2.from_angle(snapped_angle)
+var last_pos : Vector3 = Vector3.ZERO
 
 func _process(_delta: float) -> void:
 	if not is_multiplayer_authority(): 
