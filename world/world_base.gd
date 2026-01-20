@@ -26,6 +26,7 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	Debug.log("Creating player of id ",id)
 	var new_player: Player = player.instantiate()
 	new_player.set_multiplayer_authority(id)
-	new_player.global_position = pos
+	
 	
 	add_child(new_player)
+	new_player.global_position = pos

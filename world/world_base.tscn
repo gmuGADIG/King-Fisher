@@ -10,7 +10,7 @@ script = ExtResource("1_p433e")
 player = ExtResource("2_bl271")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.80968326, 0.5868671, 0, -0.5868671, 0.80968326, 0, 2.3054986, 3.2149339)
+transform = Transform3D(1, 0, 0, 0, 0.8096833, 0.58686715, 0, -0.58686715, 0.8096833, 0, 3.7539306, 4.5953226)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -23,7 +23,7 @@ layout_mode = 2
 text = "Hello"
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(12.941168, 0, 0, 0, 1.0000005, 0, 0, 0, 11.586485, 0, -1.1990725, 0)
+transform = Transform3D(12.941168, 0, 0, 0, 1.0000005, 0, 0, 0, 11.586485, 0, 0, 0)
 mesh = SubResource("PlaneMesh_bl271")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
