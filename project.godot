@@ -18,7 +18,7 @@ config/icon="uid://b3tmja6unn2ao"
 [autoload]
 
 Multiplayer="*res://systems/multiplayer.gd"
-Debug="*res://systems/debug.gd"
+Debug="*res://systems/debug.tscn"
 
 [file_customization]
 

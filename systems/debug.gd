@@ -6,7 +6,7 @@ enum LogMode{
 	CLIENT = 2
 }
 
-const log_mode : LogMode = LogMode.SERVER
+@export var log_mode : LogMode = LogMode.ALL
 
 func client_id() -> String:
 	return str(multiplayer.get_unique_id()).lpad(10,"0")
