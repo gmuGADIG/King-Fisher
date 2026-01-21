@@ -3,7 +3,7 @@ name: Task - SFX
 about: SFX asset for sound team to make.
 title: "[SFX] "
 labels: discipline:sound, team:sfx
-assignees: connorheyz
+assignees: ''
 
 ---
 
