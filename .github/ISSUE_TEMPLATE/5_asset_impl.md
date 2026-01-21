@@ -1,7 +1,7 @@
 ---
 name: Task - Asset Implementation
 about: Finished asset for programmers to implement.
-title: '[PROG] Asset: '
+title: "[PROG] Asset: "
 labels: discipline:programming
 assignees: ''
 
