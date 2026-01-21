@@ -1,7 +1,7 @@
 ---
 name: Task Group - Design
 about: Contains sub-tasks for other teams and User Stories.
-title: '[GROUP] '
+title: "[GROUP] "
 labels: discipline:design
 assignees: ''
 
@@ -11,4 +11,3 @@ assignees: ''
 
 
 **Description:**
-
