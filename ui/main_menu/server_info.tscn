@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cksuxnaqh3sqr"]
+
+[ext_resource type="Script" uid="uid://df6i8q0vfa0xv" path="res://ui/main_menu/server_info.gd" id="1_7crmb"]
+
+[node name="ServerInfo" type="PanelContainer" unique_id=859087533]
+custom_minimum_size = Vector2(300, 0)
+script = ExtResource("1_7crmb")
+ip = "192.168.1.2"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1430094084]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=564481778]
+layout_mode = 2
+
+[node name="IPLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=165369734]
+unique_name_in_owner = true
+layout_mode = 2
+text = "192.168.1.2"
+
+[node name="JoinButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1509485563]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Join"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

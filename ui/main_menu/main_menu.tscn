@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dih1wbmgk3wkg"]
+[gd_scene format=3 uid="uid://dih1wbmgk3wkg"]
 
 [ext_resource type="Script" uid="uid://b5jmr5v1ieumc" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=245152877]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uhj5c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=44045274]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -25,37 +25,34 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HostLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Host Game"
-horizontal_alignment = 1
-
-[node name="HostButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Host"
-
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="JoinLabel" type="Label" parent="VBoxContainer"]
+[node name="JoinLabel" type="Label" parent="VBoxContainer" unique_id=1423046525]
 layout_mode = 2
 text = "Join Game"
 horizontal_alignment = 1
 
-[node name="JoinGame" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Panel" type="PanelContainer" parent="VBoxContainer" unique_id=1518235674]
 layout_mode = 2
 
-[node name="IP" type="LineEdit" parent="VBoxContainer/JoinGame"]
-custom_minimum_size = Vector2(150, 0)
+[node name="ServerInfoParent" type="VBoxContainer" parent="VBoxContainer/Panel" unique_id=1149710568]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 216)
 layout_mode = 2
-placeholder_text = "IP"
 
-[node name="ConnectButton" type="Button" parent="VBoxContainer/JoinGame"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=369293543]
 layout_mode = 2
-text = "Connect"
+theme_override_constants/separation = 10
 
-[node name="DisplayName" type="VBoxContainer" parent="."]
+[node name="HostLabel" type="Label" parent="VBoxContainer" unique_id=878563602]
+layout_mode = 2
+text = "Host Game"
+horizontal_alignment = 1
+
+[node name="HostButton" type="Button" parent="VBoxContainer" unique_id=1159664938]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Host"
+
+[node name="DisplayName" type="VBoxContainer" parent="." unique_id=927114755]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -64,16 +61,15 @@ offset_top = -58.0
 offset_right = 150.0
 grow_vertical = 0
 
-[node name="NameLabel" type="Label" parent="DisplayName"]
+[node name="NameLabel" type="Label" parent="DisplayName" unique_id=283235027]
 layout_mode = 2
 text = "Display name"
 horizontal_alignment = 1
 
-[node name="NameInput" type="LineEdit" parent="DisplayName"]
+[node name="NameInput" type="LineEdit" parent="DisplayName" unique_id=2144933206]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 placeholder_text = "Enter name..."
 alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/JoinGame/ConnectButton" to="." method="_on_connect_button_pressed"]
