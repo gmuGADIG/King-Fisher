@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 @export var speed := 10.
+signal readied
 
 var last_pos : Vector3 = Vector3.ZERO
 
@@ -19,6 +20,18 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
+	if event.is_action_pressed("ready_up"):
+		#if not is_host:
+			#if is_ready:
+				#unready
+			#if not is_ready:
+				#ready
+				emit_signal("readied")
+		#if is_host:
+			#if all_players_ready:
+				#startGame()
+		
+		
 
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
