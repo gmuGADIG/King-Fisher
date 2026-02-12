@@ -20,7 +20,7 @@ func on_player_join(id : int) -> void:
 	
 	
 	for player_id in Multiplayer.player_list:
-		if player_id != id:
+		if player_id != id: #checks if client is not the server host
 			spawn_player.rpc_id(id,player_id,Vector3.ZERO)
 	spawn_player.rpc(id,Vector3.ZERO)
 	

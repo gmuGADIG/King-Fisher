@@ -9,6 +9,7 @@ const SCAN_MSG = "iwannaplay"
 
 var allow_connections : bool = true
 var player_list: Dictionary[int,String] = {}
+var max_player_count := 4
 
 var scan_server: UDPServer
 var scan_for_servers := true
@@ -53,7 +54,10 @@ func _on_peer_connected(id: int) -> void:
 	Debug.log("on peer connect")
 	if not multiplayer.is_server():
 		return
-	
+	##if player_list.size() >= max_player_count:
+	##	join_error.rpc_id(id, "SERVER_FULL")
+	##	return 
+		##This function DOES NOT make the 5th client not load the players; that is something else in the code that I have not found.
 	Debug.log("peer ",id," connected")
 	player_list.set(id,"Player")
 	new_player.emit(id)
@@ -85,3 +89,9 @@ func join_server(ip : String) -> void:
 	player_list.set(multiplayer.get_unique_id(),"Player")
 	
 	scan_for_servers = false
+
+@rpc
+func join_error(err_type : String) -> void:
+	match err_type:
+		"SERVER_FULL": print("The server is full")
+		
