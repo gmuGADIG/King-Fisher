@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 @export var speed := 10.
+@export var player_model: String
 
 var last_pos : Vector3 = Vector3.ZERO
 
