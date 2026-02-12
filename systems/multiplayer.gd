@@ -2,6 +2,7 @@ extends Node
 
 signal new_player(id: int)
 signal found_server(ip: String, name: String)
+signal client_status(id: int)
 
 const PORT = 25575
 const MAX_CLIENTS = 3

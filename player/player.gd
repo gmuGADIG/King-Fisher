@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody3D
 
+signal client_space(id: int)
+
 @export var speed := 10.
 
 var last_pos : Vector3 = Vector3.ZERO
