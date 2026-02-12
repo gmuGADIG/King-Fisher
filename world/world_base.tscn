@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://dbpteyodpmjq3" path="res://world/world_base.gd" id="1_p433e"]
 [ext_resource type="PackedScene" uid="uid://bffxe171rcnea" path="res://player/player.tscn" id="2_bl271"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bl271"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bl271"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d640b"]
+size = Vector3(10, 0.5, 10)
+
 [node name="WorldBase" type="Node3D" unique_id=1821617715]
 script = ExtResource("1_p433e")
 player = ExtResource("2_bl271")
@@ -22,3 +30,14 @@ text = "Hello"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1620714622]
 transform = Transform3D(1, 0, 0, 0, 0.5577596, 0.83000255, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1709405094]
+physics_material_override = SubResource("PhysicsMaterial_bl271")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1909413061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_bl271")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1302149341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_d640b")
