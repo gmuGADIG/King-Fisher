@@ -7,12 +7,14 @@ const PORT = 25575
 const MAX_CLIENTS = 3
 const SCAN_MSG = "iwannaplay"
 
+
 var allow_connections : bool = true
-var player_list: Dictionary[int,String] = {}
+var player_list: Dictionary[int,ServerConnection] = {}
 
 var scan_server: UDPServer
 var scan_for_servers := true
 var scan_client: PacketPeerUDP
+
 
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -85,3 +87,16 @@ func join_server(ip : String) -> void:
 	player_list.set(multiplayer.get_unique_id(),"Player")
 	
 	scan_for_servers = false
+
+func _input(event: InputEvent) -> void:
+		if event.is_action_pressed("ready_up"):
+		#if not is_host:
+			#if is_ready:
+				#unready
+			#if not is_ready:
+				#ready
+			rpc
+		#if multiplayer.is:
+			#if all_players_ready:
+				#startGame()
+		
