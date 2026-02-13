@@ -1,11 +1,8 @@
 class_name Player
 extends CharacterBody3D
 
-<<<<<<< Updated upstream
 @export var speed := 10.
 @export var player_model: String
-=======
->>>>>>> Stashed changes
 
 # Physic Related Variables
 @export_group("Movement Settings")
