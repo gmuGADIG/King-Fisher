@@ -3,11 +3,19 @@
 [ext_resource type="Script" uid="uid://dbpteyodpmjq3" path="res://world/world_base.gd" id="1_p433e"]
 [ext_resource type="PackedScene" uid="uid://bffxe171rcnea" path="res://player/player.tscn" id="2_bl271"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl271"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bl271"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bl271"]
+size = Vector3(20.052, 0.1, 22.402)
+
 [node name="WorldBase" type="Node3D" unique_id=1821617715]
 script = ExtResource("1_p433e")
 player = ExtResource("2_bl271")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=219250379]
+[node name="WorldCamera" type="Camera3D" parent="." unique_id=219250379]
 transform = Transform3D(1, 0, 0, 0, 0.8096833, 0.58686715, 0, -0.58686715, 0.8096833, 0, 3.7539306, 4.5953226)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=729566259]
@@ -22,3 +30,19 @@ text = "Hello"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1620714622]
 transform = Transform3D(1, 0, 0, 0, 0.5577596, 0.83000255, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1183903251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013128638, 0)
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1797751163]
+transform = Transform3D(10, 0, 0, 0, 1.005, 0, 0, 0, 11.287, 0, 0, 0)
+layers = 3
+material_override = SubResource("StandardMaterial3D_bl271")
+mesh = SubResource("PlaneMesh_bl271")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=955356274]
+transform = Transform3D(0.99998516, 2.3802602e-10, 0.0054454003, -2.3802602e-10, 1, -6.4874506e-13, -0.0054454003, -6.4874506e-13, 0.99998516, 0.03842163, -0.0058363676, 0.009765625)
+shape = SubResource("BoxShape3D_bl271")

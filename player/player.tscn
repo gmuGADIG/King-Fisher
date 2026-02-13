@@ -11,11 +11,19 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
+<<<<<<< Updated upstream
 [node name="Player" type="CharacterBody3D" unique_id=420552441]
 collision_mask = 0
 motion_mode = 1
+=======
+[node name="Player" type="CharacterBody3D" unique_id=1200574820]
+collision_layer = 3
+collision_mask = 3
+>>>>>>> Stashed changes
 script = ExtResource("1_onrkg")
+override_gravity = true
 
+<<<<<<< Updated upstream
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=662124277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_oul6g")
@@ -25,4 +33,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_rkbax")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=553648607]
+=======
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1184798490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1536798502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_rkbax")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1867148413]
+>>>>>>> Stashed changes
 replication_config = SubResource("SceneReplicationConfig_onrkg")
+
+[node name="player_camera" type="Camera3D" parent="." unique_id=767116372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5831857, 0)
