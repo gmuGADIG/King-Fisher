@@ -4,5 +4,3 @@
 
 [node name="rhythm_engine" type="Node" unique_id=749923115]
 script = ExtResource("1_2xtxi")
-
-[node name="Timer" type="Timer" parent="." unique_id=698646300]
