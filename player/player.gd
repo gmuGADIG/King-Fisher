@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 @export var speed := 10.
-@export var held_item: Item
+var held_item: Item
 
 var last_pos : Vector3 = Vector3.ZERO
 
