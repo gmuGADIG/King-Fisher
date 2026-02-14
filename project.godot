@@ -30,6 +30,10 @@ folder_colors={
 "res://temp/": "gray"
 }
 
+[global_group]
+
+Player=""
+
 [input]
 
 move_left={
