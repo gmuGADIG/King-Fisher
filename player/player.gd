@@ -41,9 +41,10 @@ func pick_up_item(item: Item) -> void:
 	held_item.is_held = true
 	held_item.position = Vector3.ZERO
 
-@rpc("call_local")
+@rpc("authority","call_local")
 func use_held_item() -> void:
 	# If you don't have an item, don't try and use a nonexistent item.
 	if held_item==null:return
+	
 	held_item.use()
 	held_item=null

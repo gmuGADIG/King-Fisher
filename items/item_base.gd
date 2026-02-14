@@ -20,12 +20,12 @@ func _on_body_entered(body: Node3D) -> void:
 		# No fucking with the scene tree before physics is done happening!
 		body.pick_up_item.call_deferred(self)
 	else:
-		print("Player does not have pick_up_item function!")
+		Debug.log_err("Player does not have pick_up_item function!")
 	
 	
 ## The generic use function. You can write your own in a class that extends Item.
 func use() -> void:
-	if !is_held: print("Item was used while not held, WTF?")
+	if !is_held: Debug.log_err("Item was used while not held, WTF?")
 	else:
-		print("Base Item used.")
+		Debug.log("Base Item used.")
 		queue_free()

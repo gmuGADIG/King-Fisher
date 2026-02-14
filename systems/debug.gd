@@ -10,21 +10,15 @@ enum LogMode{
 
 func client_id() -> String:
 	return str(multiplayer.get_unique_id()).lpad(10,"0")
-	
-func log(...args: Array) -> void:
-	var uid : int = multiplayer.get_unique_id()
-	if log_mode == LogMode.SERVER && uid != 1:
-		return
-	if log_mode == LogMode.CLIENT && uid == 1:
-		return
-	
+
+func create_debug_string(args: Array) -> String:
 	var output : String = "["+client_id()+"] "
 
 	# get caller
 	if OS.is_debug_build():
 		# 0 = us
 		# 1 = caller
-		var caller: Dictionary = get_stack()[1]
+		var caller: Dictionary = get_stack()[2]
 		var source_file: String = caller.source
 		source_file = source_file.split('/')[-1]
 		output += ("[%s:%d]" % [source_file, caller.line])
@@ -33,7 +27,24 @@ func log(...args: Array) -> void:
 
 	for s in args:
 		output += str(s)
-	print(output)
+	return output
+
+func log_mode_enabled() -> bool:
+	var uid : int = multiplayer.get_unique_id()
+	if log_mode == LogMode.SERVER && uid != 1:
+		return false
+	if log_mode == LogMode.CLIENT && uid == 1:
+		return false
+	return true
+
+func log(...args: Array) -> void:
+	if not log_mode_enabled():
+		return
+	print(create_debug_string(args))
+
+func log_err(... args: Array) -> void:
+	push_error(create_debug_string(args))
+
 
 func print_players() -> void:
 	print("["+client_id()+"] Detected Players:")
