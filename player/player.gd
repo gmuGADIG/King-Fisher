@@ -18,8 +18,14 @@ func _process(_delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("print_players"):
-		Debug.print_players()
+	if event.is_action_pressed("scoreboard"):
+		# Get the current scene (your WorldBase node)
+		var world = get_tree().get_current_scene() as WorldBase
+		if world != null:
+			# Spawn the ragdoll slightly above the player
+			world.spawn_ragdoll(global_position + Vector3(0, 1, 0))
+		else:
+			print("WorldBase not found!")
 
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:

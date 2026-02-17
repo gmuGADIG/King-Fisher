@@ -15,6 +15,8 @@ properties/0/replication_mode = 1
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_onrkg")
+speed = null
+player_model = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=662124277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
