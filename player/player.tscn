@@ -6,17 +6,12 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_onrkg"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_oul6g"]
 
 [node name="Player" type="CharacterBody3D" unique_id=420552441]
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_onrkg")
-speed = null
-player_model = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=662124277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -26,5 +21,5 @@ mesh = SubResource("CapsuleMesh_oul6g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_rkbax")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=553648607]
-replication_config = SubResource("SceneReplicationConfig_onrkg")
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=892154261]
+replication_config = SubResource("SceneReplicationConfig_oul6g")

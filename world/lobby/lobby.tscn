@@ -6,13 +6,8 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_cv4rh"]
 
 [node name="Lobby" unique_id=1648274230 instance=ExtResource("1_cv4rh")]
-ragdoll_spawner = ExtResource("2_va0p7")
+ragdoll = ExtResource("2_va0p7")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="3" unique_id=1350888017]
 transform = Transform3D(12.941168, 0, 0, 0, 1.0000005, 0, 0, 0, 11.586485, 0, -0.23607445, 0)
 mesh = SubResource("PlaneMesh_cv4rh")
-
-[node name="ragdoll_spawner" type="MultiplayerSpawner" parent="." index="4" unique_id=1035593328]
-spawn_path = NodePath("../spawn_root")
-
-[node name="spawn_root" type="Node3D" parent="." index="5" unique_id=822926320]

@@ -1,5 +1,5 @@
 class_name Ragdoll
-extends Player
+extends RigidBody3D
 
 @export var length := 10
 @onready var player_mesh = $MeshInstance3D
