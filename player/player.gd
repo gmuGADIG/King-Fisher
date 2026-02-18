@@ -6,7 +6,6 @@ var held_item: Item
 
 var last_pos : Vector3 = Vector3.ZERO
 
-
 func _process(_delta: float) -> void:
 	if not is_multiplayer_authority(): 
 		move_and_slide()
@@ -21,6 +20,12 @@ func _process(_delta: float) -> void:
 @rpc("reliable","authority","call_local")
 func set_authority(id : int):
 	set_multiplayer_authority(id)
+	update_camera()
+
+@rpc("reliable","authority","call_remote")
+func update_camera() -> void:
+	var is_correct_camera = get_multiplayer_authority() == multiplayer.get_unique_id()
+	$CameraMount/Camera3D.current = is_correct_camera
 
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
