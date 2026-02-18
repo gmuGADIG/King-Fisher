@@ -28,7 +28,12 @@ DebugMenu="*uid://bojr30uqdlyje"
 [file_customization]
 
 folder_colors={
-"res://temp/": "gray"
+"res://items/": "red",
+"res://player/": "orange",
+"res://systems/": "yellow",
+"res://temp/": "gray",
+"res://ui/": "green",
+"res://world/": "blue"
 }
 
 [global_group]
