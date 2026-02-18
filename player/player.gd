@@ -18,6 +18,10 @@ func _process(_delta: float) -> void:
 	sync_velocity.rpc(velocity)
 	move_and_slide()
 
+@rpc("reliable","authority","call_local")
+func set_authority(id : int):
+	set_multiplayer_authority(id)
+
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
 	if event.is_action_pressed("print_players"):
