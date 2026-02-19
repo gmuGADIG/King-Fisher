@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bgjdwnhkngufk"]
+[gd_scene format=3 uid="uid://cw872lin7slft"]
+
+[ext_resource type="Script" uid="uid://c12k8l1exwkfs" path="res://ui/pause_menu/lobby_menu.gd" id="1_xy58u"]
 
 [node name="PauseMenu" type="Control" unique_id=1167419055]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xy58u")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=20371457]
 

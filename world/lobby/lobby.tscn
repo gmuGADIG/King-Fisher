@@ -13,7 +13,7 @@ transform = Transform3D(12.941168, 0, 0, 0, 1.0000005, 0, 0, 0, 11.586485, 0, -0
 mesh = SubResource("PlaneMesh_cv4rh")
 
 [node name="ItemTest1" parent="." index="4" unique_id=1566519324 instance=ExtResource("2_7tkdc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694867, 0, -5.357811)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.709293, -0.00049972534, -5.357811)
 
 [node name="Item" parent="." index="5" unique_id=1674373162 instance=ExtResource("3_c06ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9393296, 0, -6.180363)
