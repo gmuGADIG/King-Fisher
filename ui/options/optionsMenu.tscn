@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://basxyodwljv48"]
+
+[ext_resource type="Script" uid="uid://bp1ga0y2284ok" path="res://ui/options/options_menu.gd" id="1_ab0kw"]
+[ext_resource type="Script" uid="uid://bmgr6prbedois" path="res://ui/options/audio_stream_player.gd" id="2_0v65f"]
+[ext_resource type="AudioStream" uid="uid://crho3l0hcp0cc" path="res://temp/temp_sfx/test_unlock.wav" id="2_ydver"]
+
+[node name="OptionsMenu" type="CanvasLayer" unique_id=1094477806]
+script = ExtResource("1_ab0kw")
+
+[node name="MasterSlider" type="HSlider" parent="." unique_id=1298916152]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 3.0
+offset_top = 21.0
+offset_right = 103.0
+offset_bottom = 37.0
+
+[node name="Label" type="Label" parent="MasterSlider" unique_id=1691523698]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -19.0
+offset_right = 56.0
+offset_bottom = 4.0
+text = "Master"
+
+[node name="SFXSlider" type="HSlider" parent="." unique_id=828654360]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 4.0
+offset_top = 88.0
+offset_right = 104.0
+offset_bottom = 104.0
+
+[node name="Label" type="Label" parent="SFXSlider" unique_id=746531404]
+layout_mode = 0
+offset_top = -20.0
+offset_right = 105.0
+offset_bottom = 3.0
+text = "SFX"
+
+[node name="MusicSlider" type="HSlider" parent="." unique_id=2014264038]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 3.0
+offset_top = 57.0
+offset_right = 103.0
+offset_bottom = 73.0
+
+[node name="Label" type="Label" parent="MusicSlider" unique_id=1469816710]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -19.0
+offset_right = 47.0
+offset_bottom = 4.0
+text = "Music"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1132284020]
+stream = ExtResource("2_ydver")
+script = ExtResource("2_0v65f")
+
+[connection signal="value_changed" from="MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="SFXSlider" to="AudioStreamPlayer" method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]
