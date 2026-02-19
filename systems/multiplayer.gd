@@ -98,9 +98,13 @@ func _input(event: InputEvent) -> void:
 					return
 			emit_signal("start_game")
 				#startGame()
-		
+func start_game():
+	#TODO: countdown
+	#TODO: load characters into map
+	#TODO: Second countdown
+	return
 @rpc("any_peer","call_local","reliable")
-func set_ready(event: InputEvent) -> void:
+func set_ready():
 	var sender = multiplayer.get_remote_sender_id();
 	player_list.get(sender).ready = !player_list.get(sender).ready;
 		
