@@ -11,5 +11,8 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_sfx_slider_value_changed(value: float) -> void:
+#func _on_sfx_slider_value_changed(value: float) -> void:
+	#
+
+func _on_sfx_slider_drag_ended(value_changed: bool) -> void:
 	self.play()
