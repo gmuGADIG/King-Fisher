@@ -23,10 +23,11 @@ func set_authority(id : int):
 	set_multiplayer_authority(id)
 
 func _input(event: InputEvent) -> void:
-	if not is_multiplayer_authority(): return
 	if event.is_action_pressed("scoreboard"):
 		var world = get_tree().get_current_scene()
-		world.spawn_ragdoll.rpc_id(multiplayer.get_unique_id(), global_position)
+		world.spawn_ragdoll.rpc(global_position)
+		# world.print_test.rpc("Test")
+	if not is_multiplayer_authority(): return
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	if event.is_action_pressed("use_item"):

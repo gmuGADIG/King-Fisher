@@ -25,11 +25,13 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	new_player.set_authority.rpc(id)
 	new_player.position = pos
 	
-@rpc("reliable", "call_local")
+@rpc("reliable", "call_local", "any_peer")
 func spawn_ragdoll(_position: Vector3) -> void:
 	Debug.log("Spawning ragdoll at ", _position, "by player ", multiplayer.get_remote_sender_id())
 	var new_ragdoll: Ragdoll = ragdoll.instantiate()
 	add_child(new_ragdoll)
 	new_ragdoll.position = _position
-	print(new_ragdoll.get_children())
-	print(new_ragdoll.get_node_or_null("MultiplayerSynchronizer"))
+
+@rpc("reliable", "call_local", "any_peer")
+func print_test(_msg: String) -> void:
+	print("Message sent from: ", multiplayer.get_remote_sender_id(), " with message: ", _msg, "recieved by: ", multiplayer.get_unique_id())

@@ -6,6 +6,8 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yd5sc"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yd5sc"]
+
 [node name="Ragdoll" type="RigidBody3D" unique_id=2038592171]
 script = ExtResource("1_yd5sc")
 
@@ -14,3 +16,6 @@ shape = SubResource("CapsuleShape3D_ioulv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=836052756]
 mesh = SubResource("CapsuleMesh_yd5sc")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=214799757]
+replication_config = SubResource("SceneReplicationConfig_yd5sc")
