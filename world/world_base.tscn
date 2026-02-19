@@ -2,12 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dbpteyodpmjq3" path="res://world/world_base.gd" id="1_p433e"]
 [ext_resource type="PackedScene" uid="uid://bffxe171rcnea" path="res://player/player.tscn" id="2_bl271"]
-[ext_resource type="PackedScene" uid="uid://cyptguwrplmqc" path="res://player/ragdoll.tscn" id="3_d640b"]
 
 [node name="WorldBase" type="Node3D" unique_id=1821617715]
 script = ExtResource("1_p433e")
 player = ExtResource("2_bl271")
-ragdoll = ExtResource("3_d640b")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=219250379]
 transform = Transform3D(1, 0, 0, 0, 0.8096833, 0.58686715, 0, -0.58686715, 0.8096833, 0, 3.7539306, 4.5953226)

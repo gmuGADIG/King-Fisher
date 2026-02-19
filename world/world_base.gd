@@ -2,7 +2,6 @@ class_name WorldBase
 extends Node3D
 
 @export var player : PackedScene
-@export var ragdoll : PackedScene
 
 func _ready() -> void:
 	
@@ -24,15 +23,3 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	$Players.add_child(new_player,true)
 	new_player.set_authority.rpc(id)
 	new_player.position = pos
-	
-@rpc("reliable", "call_local", "any_peer")
-func spawn_ragdoll(_position: Vector3) -> void:
-	Debug.log("Spawning ragdoll at ", _position, "by player ", multiplayer.get_remote_sender_id(), " on client: ", multiplayer.get_unique_id())
-	Debug.log("----------\n")
-	var new_ragdoll: Ragdoll = ragdoll.instantiate()
-	add_child(new_ragdoll)
-	new_ragdoll.position = _position
-
-@rpc("reliable", "call_local", "any_peer")
-func print_test(_msg: String) -> void:
-	print("Message sent from: ", multiplayer.get_remote_sender_id(), " with message: ", _msg, "recieved by: ", multiplayer.get_unique_id())

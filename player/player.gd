@@ -1,6 +1,10 @@
 class_name Player
 extends CharacterBody3D
 
+# Ragdoll
+@export var ragdoll : PackedScene
+@export var ragdolled := false
+
 @export var speed := 10.
 var held_item: Item
 
@@ -12,6 +16,9 @@ func _process(_delta: float) -> void:
 		move_and_slide()
 		return
 	
+	#Blocks input if player is ragdolled
+	if is_ragdolled(): return
+
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = Vector3(input.x,0,input.y) * speed
 	
@@ -22,11 +29,18 @@ func _process(_delta: float) -> void:
 func set_authority(id : int):
 	set_multiplayer_authority(id)
 
+func is_ragdolled() -> bool:
+	return self.ragdolled
+
+func set_ragdolled(val: bool) -> void:
+	print("Updating ragdolled value of player ", self, " to ", val)
+	self.ragdolled = val
+
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
 	if event.is_action_pressed("scoreboard"):
-		var world = get_tree().get_current_scene()
-		world.spawn_ragdoll.rpc(global_position)
+		spawn_ragdoll.rpc(5, global_position)
+		# print(is_ragdolled())
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	if event.is_action_pressed("use_item"):
@@ -54,3 +68,25 @@ func use_held_item() -> void:
 	if held_item==null:return
 	held_item.use()
 	held_item=null
+
+@rpc("reliable", "call_local")
+func spawn_ragdoll(duration: float,_position: Vector3) -> void:
+	if is_ragdolled(): return
+	# Prep for ragdoll
+	set_ragdolled(true)
+
+	# Creates Ragdoll
+	Debug.log("Spawning agdoll at ", _position, "by player ", multiplayer.get_remote_sender_id(), " on client: ", multiplayer.get_unique_id())
+	Debug.log("----------\n")
+	var new_ragdoll: Ragdoll = ragdoll.instantiate()
+	add_sibling(new_ragdoll)
+	new_ragdoll.position = _position
+	self.hide()
+
+	# Timer before resetting
+	await get_tree().create_timer(duration).timeout
+
+	# Cleanup
+	new_ragdoll.queue_free()
+	self.show()
+	set_ragdolled(false)
