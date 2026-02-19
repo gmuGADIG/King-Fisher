@@ -23,9 +23,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _process(delta: float) -> void:
-	if not is_multiplayer_authority(): 
-		move_and_slide()
-		return
+	
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))
@@ -33,10 +31,10 @@ func _process(delta: float) -> void:
 	velocity.z = movement_dir.y * speed
 	if input != Vector2.ZERO:
 		$Body.turn_towards(movement_dir,delta)
-	
 
 func _physics_process(delta: float) -> void:
-	sync_velocity.rpc(velocity)
+	if is_multiplayer_authority():
+		sync_velocity.rpc(velocity)
 	move_and_slide()
 
 @rpc("reliable","authority","call_local")
