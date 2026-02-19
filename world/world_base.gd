@@ -27,7 +27,8 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	
 @rpc("reliable", "call_local", "any_peer")
 func spawn_ragdoll(_position: Vector3) -> void:
-	Debug.log("Spawning ragdoll at ", _position, "by player ", multiplayer.get_remote_sender_id())
+	Debug.log("Spawning ragdoll at ", _position, "by player ", multiplayer.get_remote_sender_id(), " on client: ", multiplayer.get_unique_id())
+	Debug.log("----------\n")
 	var new_ragdoll: Ragdoll = ragdoll.instantiate()
 	add_child(new_ragdoll)
 	new_ragdoll.position = _position
