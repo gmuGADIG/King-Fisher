@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cii25od3gem26"]
-
-[ext_resource type="Script" uid="uid://c18oid0wh34tc" path="res://systems/rhythm/rhythm_engine.gd" id="1_2xtxi"]
-
-[node name="rhythm_engine" type="Node" unique_id=749923115]
-script = ExtResource("1_2xtxi")

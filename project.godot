@@ -23,22 +23,12 @@ config/icon="uid://b3tmja6unn2ao"
 
 Multiplayer="*res://systems/multiplayer.gd"
 Debug="*res://systems/debug.tscn"
-DebugMenu="*uid://bojr30uqdlyje"
 
 [file_customization]
 
 folder_colors={
-"res://items/": "red",
-"res://player/": "orange",
-"res://systems/": "yellow",
-"res://temp/": "gray",
-"res://ui/": "green",
-"res://world/": "blue"
+"res://temp/": "gray"
 }
-
-[global_group]
-
-Player=""
 
 [input]
 
@@ -95,11 +85,6 @@ codex={
 catch_fish={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
-]
-}
-debug_menu={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":96,"location":0,"echo":false,"script":null)
 ]
 }
 
