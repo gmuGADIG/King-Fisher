@@ -56,8 +56,10 @@ stream = ExtResource("2_ydver")
 volume_db = 10.62
 script = ExtResource("2_0v65f")
 
+[connection signal="drag_ended" from="MasterSlider" to="AudioStreamPlayer" method="_on_master_slider_drag_ended"]
 [connection signal="value_changed" from="MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="drag_ended" from="SFXSlider" to="AudioStreamPlayer" method="_on_sfx_slider_drag_ended"]
-[connection signal="value_changed" from="SFXSlider" to="AudioStreamPlayer" method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="SFXSlider" to="AudioStreamPlayer" method="_on_sfx_slider_value_changed"]
+[connection signal="drag_ended" from="MusicSlider" to="AudioStreamPlayer" method="_on_music_slider_drag_ended"]
 [connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]

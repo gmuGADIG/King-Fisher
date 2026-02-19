@@ -13,10 +13,10 @@ func _process(delta: float) -> void:
 		visible = not visible
 
 func _on_master_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), value / 30)
 
 func _on_sfx_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), value)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("SFX"), value / 30)
 
 func _on_music_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Music"), value / 30)

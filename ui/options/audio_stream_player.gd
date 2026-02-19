@@ -15,4 +15,14 @@ func _process(delta: float) -> void:
 	#
 
 func _on_sfx_slider_drag_ended(value_changed: bool) -> void:
+	self.bus = "SFX"
 	self.play()
+
+func _on_master_slider_drag_ended(value_changed: bool) -> void:
+	self.bus = "Master"
+	self.play() # Replace with function body.
+
+
+func _on_music_slider_drag_ended(value_changed: bool) -> void:
+	self.bus = "Music"
+	self.play() # Replace with function body.
