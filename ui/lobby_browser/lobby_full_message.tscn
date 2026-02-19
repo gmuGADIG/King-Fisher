@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dcgv3nadx2p1q"]
+
+[ext_resource type="Texture2D" uid="uid://co2rns2do68f5" path="res://ui/lobby_browser/full lobby.png" id="1_3nil7"]
+[ext_resource type="Texture2D" uid="uid://dulsgafuwhloq" path="res://ui/lobby_browser/K.png" id="2_lbr5l"]
+[ext_resource type="Script" uid="uid://baubbl3mek0vb" path="res://ui/lobby_browser/lobby_full_accept.gd" id="3_lbr5l"]
+
+[node name="LobbyFullMessage" type="Control" unique_id=1749594153]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=117167802]
+position = Vector2(580, 260.00003)
+scale = Vector2(1.7249999, 1.7249999)
+texture = ExtResource("1_3nil7")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=791490886]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 505.0
+offset_right = 688.0
+offset_bottom = 605.0
+action_mode = 0
+texture_normal = ExtResource("2_lbr5l")
+script = ExtResource("3_lbr5l")
