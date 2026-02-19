@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bgjdwnhkngufk"]
+
+[ext_resource type="Script" uid="uid://8ubhbs58phke" path="res://ui/pause_menu/pause_menu.gd" id="1_mnjdh"]
+[ext_resource type="Script" uid="uid://50r4hbklgyap" path="res://ui/pause_menu/canvas_layer.gd" id="2_jbgdu"]
+
+[node name="PauseMenu" type="Control" unique_id=1167419055]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mnjdh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=20371457]
+script = ExtResource("2_jbgdu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1643422080]
+visible = false
+offset_left = 426.0
+offset_top = 259.0
+offset_right = 742.0
+offset_bottom = 389.0
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1758009679]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -58.5
+offset_right = 55.0
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Label"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer" unique_id=368690632]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 19.0
+offset_right = 152.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TestButton" type="Button" parent="CanvasLayer" unique_id=633439220]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -15.5
+offset_right = 150.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pause More?"
