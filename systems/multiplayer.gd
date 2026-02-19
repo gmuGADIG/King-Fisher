@@ -10,7 +10,6 @@ const SCAN_INTERVAL := 5.
 
 var allow_connections : bool = true
 var player_list: Dictionary[int,String] = {}
-var max_player_count := 4
 
 var scan_server: UDPServer
 
@@ -73,10 +72,6 @@ func _on_peer_connected(id: int) -> void:
 	Debug.log("on peer connect")
 	if not multiplayer.is_server():
 		return
-	##if player_list.size() >= max_player_count:
-	##	join_error.rpc_id(id, "SERVER_FULL")
-	##	return 
-		##This function DOES NOT make the 5th client not load the players; that is something else in the code that I have not found.
 	Debug.log("peer ",id," connected")
 	player_list.set(id,"Player")
 	new_player.emit(id)
@@ -93,7 +88,7 @@ func learn_players(new_player_list: Dictionary[int,String]) -> void:
 
 func create_server() -> void:
 	var peer = ENetMultiplayerPeer.new()
-	peer.create_server(PORT, MAX_CLIENTS)
+	printerr(peer.create_server(PORT, MAX_CLIENTS))
 	multiplayer.multiplayer_peer = peer
 	player_list.set(1,"Player")
 
@@ -104,14 +99,12 @@ func create_server() -> void:
 
 func join_server(ip : String) -> void:
 	var peer = ENetMultiplayerPeer.new()
-	peer.create_client(ip, PORT)
+	printerr(peer.create_client(ip, PORT))
+	multiplayer.connection_failed.connect(
+		func back_to_lobby_browser() -> void:
+			Debug.log("Could not connect to server!")
+			get_tree().change_scene_to_file("res://ui/lobby_browser/lobby_full_message.tscn")
+	)
 	multiplayer.multiplayer_peer = peer
 	player_list.set(multiplayer.get_unique_id(),"Player")
-	
 	scan_for_servers = false
-
-@rpc
-func join_error(err_type : String) -> void:
-	match err_type:
-		"SERVER_FULL": print("The server is full")
-		
