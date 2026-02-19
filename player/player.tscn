@@ -9,6 +9,7 @@
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_oul6g"]
 
 [node name="Player" type="CharacterBody3D" unique_id=420552441]
+[node name="Player" type="CharacterBody3D" unique_id=1653185810 groups=["Player"]]
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_onrkg")
@@ -23,3 +24,13 @@ shape = SubResource("CapsuleShape3D_rkbax")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=892154261]
 replication_config = SubResource("SceneReplicationConfig_oul6g")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=951967374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1812883740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_rkbax")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1979522579]
+replication_config = SubResource("SceneReplicationConfig_onrkg")

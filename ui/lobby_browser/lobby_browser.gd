@@ -1,5 +1,7 @@
 extends Control
 
+@export var server_info_packed : PackedScene
+
 @onready var name_text := $DisplayName/NameInput
 var seen_ips: Dictionary[String, bool]
 
@@ -19,7 +21,7 @@ func _on_found_server(ip: String) -> void:
 	if ip in seen_ips: return
 	seen_ips[ip] = true
 
-	var server_info: ServerInfo = load("res://ui/main_menu/server_info.tscn").instantiate()
+	var server_info: ServerInfo = server_info_packed.instantiate()
 
 	# hacky way to create an alternating bg color effect for the list
 	# there's probably an intended way of doing this, but ¯\_(ツ)_/¯

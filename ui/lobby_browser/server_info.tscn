@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cksuxnaqh3sqr"]
 
-[ext_resource type="Script" uid="uid://df6i8q0vfa0xv" path="res://ui/main_menu/server_info.gd" id="1_7crmb"]
+[ext_resource type="Script" uid="uid://df6i8q0vfa0xv" path="res://ui/lobby_browser/server_info.gd" id="1_7crmb"]
 
 [node name="ServerInfo" type="PanelContainer" unique_id=859087533]
 custom_minimum_size = Vector2(300, 0)

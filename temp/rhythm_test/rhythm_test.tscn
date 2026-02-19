@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cfdknv20kocua"]
+
+[ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="1_kllk1"]
+[ext_resource type="Script" uid="uid://bkc0xh7ce72gt" path="res://temp/rhythm_test/indicator.gd" id="2_7b8xy"]
+[ext_resource type="PackedScene" uid="uid://cii25od3gem26" path="res://systems/rhythm/rhythm_engine.tscn" id="2_bwxlg"]
+
+[node name="RhythmTest" type="Node2D" unique_id=499445986]
+
+[node name="Indicator" type="Sprite2D" parent="." unique_id=818248086]
+position = Vector2(580, 359)
+texture = ExtResource("1_kllk1")
+script = ExtResource("2_7b8xy")
+
+[node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("2_bwxlg")]
