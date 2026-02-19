@@ -22,3 +22,9 @@ text = "Hello"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1620714622]
 transform = Transform3D(1, 0, 0, 0, 0.5577596, 0.83000255, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1699929159]
+_spawnable_scenes = PackedStringArray("uid://bffxe171rcnea")
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node3D" parent="." unique_id=1891362098]
