@@ -91,10 +91,16 @@ func join_server(ip : String) -> void:
 func _input(event: InputEvent) -> void:
 		if not multiplayer.is_server():
 			if event.is_action_pressed("ready_up"):
-				check_ready.rpc_id(multiplayer.get_instance_id());
+				set_ready.rpc_id(multiplayer.get_instance_id());
+		if multiplayer.is_server():
+			for player in player_list:
+				if not player_list.get(player).ready:
+					return
+			emit_signal("start_game")
+				#startGame()
 		
-@rpc("any_peer","call_remote","reliable")
-func check_ready(event: InputEvent) -> void:
+@rpc("any_peer","call_local","reliable")
+func set_ready(event: InputEvent) -> void:
 	var sender = multiplayer.get_remote_sender_id();
 	player_list.get(sender).ready = !player_list.get(sender).ready;
 		
