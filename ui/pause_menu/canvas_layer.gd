@@ -18,3 +18,6 @@ func _input(event: InputEvent) -> void:
 			show()
 		else:
 			hide()
+
+
+# weoweoeoweoweowowow
