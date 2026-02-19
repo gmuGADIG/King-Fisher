@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cyptguwrplmqc"]
+
+[ext_resource type="Script" uid="uid://bk4yewx3w76ks" path="res://player/ragdoll.gd" id="1_yd5sc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ioulv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yd5sc"]
+
+[node name="Ragdoll" type="RigidBody3D" unique_id=2038592171]
+script = ExtResource("1_yd5sc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2081514374]
+shape = SubResource("CapsuleShape3D_ioulv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=836052756]
+mesh = SubResource("CapsuleMesh_yd5sc")
