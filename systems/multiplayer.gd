@@ -101,9 +101,10 @@ func join_server(ip : String) -> void:
 	var peer = ENetMultiplayerPeer.new()
 	printerr(peer.create_client(ip, PORT))
 	multiplayer.connection_failed.connect(
-		func back_to_lobby_browser() -> void:
+		func to_join_error_message() -> void:
 			Debug.log("Could not connect to server!")
 			get_tree().change_scene_to_file("res://ui/lobby_browser/lobby_full_message.tscn")
+			#TODO: Change this to a more general "failed to connect" screen, make a seperate way to detect full servers (waiting for "Add name and player count to server browser" git issue to be merged to main)
 	)
 	multiplayer.multiplayer_peer = peer
 	player_list.set(multiplayer.get_unique_id(),"Player")
