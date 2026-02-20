@@ -43,3 +43,7 @@ func is_ragdolled() -> bool: return player.ragdolled
 func set_ragdolled(val: bool) -> void: player.ragdolled = val
 
 func toggle_ragdoll() -> void: player.set_ragdolled(not player.is_ragdolled())
+
+# Todo: Make it so that the function checks if the player is on actual ground
+func is_valid_ground() -> bool: 
+	return player.is_on_floor()
