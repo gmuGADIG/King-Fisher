@@ -10,6 +10,7 @@ const SCAN_INTERVAL := 5.
 
 var allow_connections : bool = true
 var player_list: Dictionary[int,String] = {}
+var game_in_progress: bool = false
 
 var scan_server: UDPServer
 
@@ -70,6 +71,10 @@ func _process(delta: float) -> void:
 # when a player connects to the server,
 func _on_peer_connected(id: int) -> void:
 	Debug.log("on peer connect")
+	if (game_in_progress == true):
+		disconnect_with_message(id, "match in progress")
+	if (player_list.size() >= MAX_CLIENTS + 1):
+		disconnect_with_message(id, "lobby full")
 	if not multiplayer.is_server():
 		return
 	Debug.log("peer ",id," connected")
@@ -88,7 +93,7 @@ func learn_players(new_player_list: Dictionary[int,String]) -> void:
 
 func create_server() -> void:
 	var peer = ENetMultiplayerPeer.new()
-	printerr(peer.create_server(PORT, MAX_CLIENTS))
+	peer.create_server(PORT, MAX_CLIENTS)
 	multiplayer.multiplayer_peer = peer
 	player_list.set(1,"Player")
 
@@ -99,13 +104,34 @@ func create_server() -> void:
 
 func join_server(ip : String) -> void:
 	var peer = ENetMultiplayerPeer.new()
-	printerr(peer.create_client(ip, PORT))
-	multiplayer.connection_failed.connect(
-		func to_join_error_message() -> void:
-			Debug.log("Could not connect to server!")
-			get_tree().change_scene_to_file("res://ui/lobby_browser/lobby_full_message.tscn")
-			#TODO: Change this to a more general "failed to connect" screen, make a seperate way to detect full servers (waiting for "Add name and player count to server browser" git issue to be merged to main)
-	)
+	peer.create_client(ip, PORT)
+	multiplayer.connection_failed.connect(show_disconnected_message.bind("join error"))
+	multiplayer.server_disconnected.connect(show_disconnected_message)
 	multiplayer.multiplayer_peer = peer
 	player_list.set(multiplayer.get_unique_id(),"Player")
 	scan_for_servers = false
+
+# host disconnecting client
+func disconnect_with_message(id: int, msg : String) -> void:
+	show_disconnected_message.rpc_id(id, msg)
+	await get_tree().create_timer(1).timeout # this timer gives the rpc time to send out
+	multiplayer.multiplayer_peer.disconnect_peer(id)
+	return
+
+# client displaying error message when disconnected
+@rpc("reliable")
+func show_disconnected_message(msg : String) -> void:
+	match msg:
+		"lobby full":
+			Debug.log("Client disconnected due to join attempt on full lobby!") # This error goes unused, as the client is not connected to the game in the first place.
+			#TODO: Make a seperate way to detect full lobbies (waiting for "Add name and player count to server browser" git issue to be merged to main)
+			get_tree().change_scene_to_file("res://ui/lobby_browser/lobby_full_message.tscn")
+		"match in progress": 
+			Debug.log("Client disconnected due to join attempt during in-progress match!")
+			get_tree().change_scene_to_file("res://ui/lobby_browser/lobby_full_message.tscn") #TODO: Change this to a "lobby full" screen
+		"join error":
+			Debug.log("Client failed to join!")
+			get_tree().change_scene_to_file("res://ui/lobby_browser/lobby_full_message.tscn") #TODO: Change this to a "join error" screen
+		_:
+			Debug.log("Client disconnected due to undisclosed reason!")
+			get_tree().change_scene_to_file("res://ui/lobby_browser/lobby_full_message.tscn") #TODO: Change this to an "unknown error" screen
