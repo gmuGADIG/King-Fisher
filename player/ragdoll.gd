@@ -1,6 +1,7 @@
 class_name Ragdoll
 extends RigidBody3D
 
+var model : MeshInstance3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
