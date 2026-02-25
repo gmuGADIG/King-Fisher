@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bx8rb13al7o7e" path="res://player/player.gd" id="1_onrkg"]
 
-[ext_resource type="Script" path="res://player/player_mesh.gd" id="2_rkbax"]
+[ext_resource type="Script" path="res://player/player_mesh.gd" id="2_pmesh"]
 [ext_resource type="PackedScene" uid="uid://cyptguwrplmqc" path="res://player/ragdoll.tscn" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://bi2km4p68tb0m" path="res://player/ragdoll_utils.gd" id="3_g1dw6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
 
-[sub_resource type="Curve" id="Curve_rkbax"]
+[sub_resource type="Curve" id="Curve_pmesh"]
 _limits = [0.0, 20.0, 0.0, 3.14]
 _data = [Vector2(0, 7.5629826), 0.0, 0.0, 0, 0, Vector2(2.3698115, 20), 0.0, 0.0, 0, 0, Vector2(3.14, 20), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -35,8 +35,8 @@ ragdoll = ExtResource("2_rkbax")
 [node name="Body" type="MeshInstance3D" parent="." unique_id=951967374]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_oul6g")
-script = ExtResource("2_rkbax")
-rotation_speed_curve = SubResource("Curve_rkbax")
+script = ExtResource("2_pmesh")
+rotation_speed_curve = SubResource("Curve_pmesh")
 
 [node name="HeadBox" type="MeshInstance3D" parent="Body" unique_id=1978921108]
 transform = Transform3D(0.6664331, 0, 0, 0, 0.3895061, 0, 0, 0, 0.64187926, 0.18, 0.571, 0)

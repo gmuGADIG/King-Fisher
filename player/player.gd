@@ -27,7 +27,7 @@ var held_item: Item
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	# don't move when being ragdolled.
 	# we are invisible, the ragdolling is doing all the movement
 	# TODO: update ragdoll code with player character and skeleton
@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
 	if input != Vector2.ZERO:
-		$Body.turn_towards(movement_dir,delta)
+		$Body.turn_towards(movement_dir, delta)
 
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
