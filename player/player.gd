@@ -4,26 +4,25 @@ extends CharacterBody3D
 # Ragdoll
 @export_group("Scenes")
 @export var ragdoll : PackedScene
+@export var is_ragdolled := false
 
 @export_category("Variables")
 @export var speed := 10.
-var held_item: Item
 
+var held_item: Item
 var last_pos : Vector3 = Vector3.ZERO
 
-var ply_util : PlayerUtil
-func _ready() -> void:
-	ply_util = PlayerUtil.new(self)
-	add_child(ply_util)
+@onready var rd_utils: RagdollUtils = %RagdollUtils
 
 func _process(_delta: float) -> void:
+	# don't move when being ragdolled.
+	# we are invisible, the ragdolling is doing all the movement
+	# TODO: update ragdoll code with player character and skeleton
+	if is_ragdolled: return
 	if not is_multiplayer_authority(): 
 		move_and_slide()
 		return
 	
-	#Blocks input if player is ragdolled
-	if ply_util.is_ragdolled(): return
-
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = Vector3(input.x,0,input.y) * speed
 	
@@ -37,7 +36,7 @@ func set_authority(id : int):
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
 	if event.is_action_pressed("scoreboard"):
-		ply_util.spawn_ragdoll.rpc(5)
+		rd_utils.spawn_ragdoll.rpc(5)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	if event.is_action_pressed("use_item"):

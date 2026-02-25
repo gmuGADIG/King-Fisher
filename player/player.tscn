@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bx8rb13al7o7e" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://cyptguwrplmqc" path="res://player/ragdoll.tscn" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://bi2km4p68tb0m" path="res://player/ragdoll_utils.gd" id="3_g1dw6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
 
@@ -29,3 +30,8 @@ shape = SubResource("CapsuleShape3D_rkbax")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1979522579]
 replication_config = SubResource("SceneReplicationConfig_onrkg")
+
+[node name="RagdollUtils" type="Node" parent="." unique_id=1212185737]
+unique_name_in_owner = true
+script = ExtResource("3_g1dw6")
+metadata/_custom_type_script = "uid://bi2km4p68tb0m"
