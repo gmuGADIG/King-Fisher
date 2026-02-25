@@ -3,63 +3,79 @@
 [ext_resource type="Script" uid="uid://bp1ga0y2284ok" path="res://ui/options/options_menu.gd" id="1_ab0kw"]
 [ext_resource type="Script" uid="uid://bmgr6prbedois" path="res://ui/options/audio_stream_player.gd" id="2_0v65f"]
 [ext_resource type="AudioStream" uid="uid://crho3l0hcp0cc" path="res://temp/temp_sfx/test_unlock.wav" id="2_ydver"]
+[ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="4_rndup"]
 
-[node name="OptionsMenu" type="CanvasLayer" unique_id=1094477806]
+[node name="Options Menu" type="NinePatchRect" unique_id=161047400]
+anchors_preset = -1
+anchor_left = 0.36077777
+anchor_top = 0.19800001
+anchor_right = 0.611
+anchor_bottom = 0.79
+offset_left = 0.3840027
+offset_top = -0.3040161
+offset_right = 0.12799072
+offset_bottom = 0.07998657
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rndup")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
 script = ExtResource("1_ab0kw")
+metadata/_edit_use_anchors_ = true
 
-[node name="MasterSlider" type="HSlider" parent="." unique_id=1298916152]
-custom_minimum_size = Vector2(100, 0)
-offset_left = 521.0
-offset_top = 274.0
-offset_right = 621.0
-offset_bottom = 290.0
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1016617078]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -72.5
+offset_right = 50.0
+offset_bottom = 72.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="MasterSlider" unique_id=1691523698]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -19.0
-offset_right = 56.0
-offset_bottom = 4.0
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1691523698]
+layout_mode = 2
 text = "Master"
 
-[node name="SFXSlider" type="HSlider" parent="." unique_id=828654360]
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer" unique_id=1298916152]
 custom_minimum_size = Vector2(100, 0)
-offset_left = 522.0
-offset_top = 341.0
-offset_right = 622.0
-offset_bottom = 357.0
+layout_mode = 2
 
-[node name="Label" type="Label" parent="SFXSlider" unique_id=746531404]
-layout_mode = 0
-offset_top = -20.0
-offset_right = 105.0
-offset_bottom = 3.0
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=2106889632]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=746531404]
+layout_mode = 2
 text = "SFX"
 
-[node name="MusicSlider" type="HSlider" parent="." unique_id=2014264038]
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer" unique_id=828654360]
 custom_minimum_size = Vector2(100, 0)
-offset_left = 521.0
-offset_top = 310.0
-offset_right = 621.0
-offset_bottom = 326.0
+layout_mode = 2
 
-[node name="Label" type="Label" parent="MusicSlider" unique_id=1469816710]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -19.0
-offset_right = 47.0
-offset_bottom = 4.0
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=415445095]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1469816710]
+layout_mode = 2
 text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer" unique_id=2014264038]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1132284020]
 stream = ExtResource("2_ydver")
 volume_db = 10.62
 script = ExtResource("2_0v65f")
 
-[connection signal="drag_ended" from="MasterSlider" to="AudioStreamPlayer" method="_on_master_slider_drag_ended"]
-[connection signal="value_changed" from="MasterSlider" to="." method="_on_master_slider_value_changed"]
-[connection signal="drag_ended" from="SFXSlider" to="AudioStreamPlayer" method="_on_sfx_slider_drag_ended"]
-[connection signal="value_changed" from="SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="SFXSlider" to="AudioStreamPlayer" method="_on_sfx_slider_value_changed"]
-[connection signal="drag_ended" from="MusicSlider" to="AudioStreamPlayer" method="_on_music_slider_drag_ended"]
-[connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="drag_ended" from="VBoxContainer/MasterSlider" to="AudioStreamPlayer" method="_on_master_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/SFXSlider" to="AudioStreamPlayer" method="_on_sfx_slider_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/SFXSlider" to="AudioStreamPlayer" method="_on_sfx_slider_value_changed"]
+[connection signal="drag_ended" from="VBoxContainer/MusicSlider" to="AudioStreamPlayer" method="_on_music_slider_drag_ended"]
