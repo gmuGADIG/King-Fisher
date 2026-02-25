@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 		velocity += GRAVITY * delta * Vector3.DOWN
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
-		velocity.y = 10.
+		velocity.y = 15.
 
 	if input != Vector2.ZERO:
 		$Body.turn_towards(movement_dir, delta)

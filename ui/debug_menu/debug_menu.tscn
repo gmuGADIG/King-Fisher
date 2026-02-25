@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bojr30uqdlyje"]
 
 [ext_resource type="Script" uid="uid://bgbsvtifnsja3" path="res://ui/debug_menu/debug_menu.gd" id="1_2lwgs"]
+[ext_resource type="Script" uid="uid://ckw10nfpvhrap" path="res://ui/debug_menu/scene_button.gd" id="2_bvele"]
 
 [node name="DebugMenu" type="CanvasLayer" unique_id=1060676430]
 script = ExtResource("1_2lwgs")
@@ -33,6 +34,26 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Debug Menu"
+
+[node name="Separator2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1476855931]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1043753688]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Open Terrain Test"
+script = ExtResource("2_bvele")
+scene_path = "res://world/heightmap_test/heightmap_test.tscn"
+
+[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1316961276]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Open Lobby Browser"
+script = ExtResource("2_bvele")
+scene_path = "res://ui/lobby_browser/lobby_browser.tscn"
 
 [node name="Separator" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=613846581]
 layout_mode = 2
