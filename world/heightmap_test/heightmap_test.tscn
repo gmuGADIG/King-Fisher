@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ckyu2qoam3n7x"]
+
+[ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_kdmys"]
+[ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_e1k8i"]
+[ext_resource type="Resource" uid="uid://bq2j3836eeqkr" path="res://world/heightmap_test/terrain/data.hterrain" id="3_76bih"]
+[ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_v7pb5"]
+[ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_v7pb5"]
+
+[sub_resource type="Resource" id="Resource_kv1g5"]
+script = ExtResource("4_v7pb5")
+mode = 0
+textures = [[ExtResource("5_v7pb5"), null], [null, null]]
+
+[node name="HeightmapTest" unique_id=1821617715 instance=ExtResource("1_kdmys")]
+
+[node name="HTerrain" type="Node3D" parent="." index="5" unique_id=451826460]
+script = ExtResource("2_e1k8i")
+map_scale = Vector3(0.05, 1, 0.05)
+centered = true
+_terrain_data = ExtResource("3_76bih")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_kv1g5")
+render_layers = 1
+cast_shadow = 0
+shader_params/u_ground_uv_scale_per_texture = null
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = true
+shader_params/u_tile_reduction = null
+shader_params/u_globalmap_blend_start = null
+shader_params/u_globalmap_blend_distance = null
+shader_params/u_colormap_opacity_per_texture = null
+metadata/_custom_type_script = "uid://cb6f5am52xc7"
