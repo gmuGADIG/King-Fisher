@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 		velocity.y = 15.
 
 	if input != Vector2.ZERO:
-		$Body.turn_towards(movement_dir, delta)
+		$Body.turn_towards(movement_dir.rotated(-PI/2), delta)
 
 func _physics_process(_delta: float) -> void:
 	if is_multiplayer_authority():
