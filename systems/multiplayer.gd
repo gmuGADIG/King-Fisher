@@ -1,7 +1,7 @@
 extends Node
 
 signal new_player(id: int)
-signal found_server(ip: String, name: String)
+signal found_server(ip: String, hostname: String, playerCount: String)
 
 const PORT = 25575
 const MAX_CLIENTS = 3
@@ -16,6 +16,9 @@ var scan_server: UDPServer
 
 var scan_for_servers := true
 var scan_client: PacketPeerUDP
+
+var displayName: String
+
 
 func _ready() -> void:
 	# listen for when clients connect -- runs on both client and server
@@ -32,8 +35,9 @@ func _process_scan_server() -> void:
 		if peer.get_var(0) == SCAN_MSG:
 			Debug.log("sending something to the client.")
 			# TODO: send meaningful data, like our username or something
-			peer.put_var("icanplay")
-
+			var playersOnlineString: String = str(int(multiplayer.get_peers().size())+1) + "/" + str(MAX_CLIENTS+1)
+			peer.put_var([displayName, playersOnlineString])
+			
 # measure the time since we shouted into the void
 var scan_clock := 0.
 func _process_scan_for_servers(delta: float) -> void:
@@ -57,11 +61,14 @@ func _process_scan_for_servers(delta: float) -> void:
 	
 	# also make sure to listen for responses to our shouts
 	while scan_client.get_available_packet_count() > 0:
-		scan_client.get_packet()
+		var s = scan_client.get_var()
 		var server_ip = scan_client.get_packet_ip()
-
+		var foundHostName: String = s[0]
+		var playersOnlineString: String = s[1]
 		Debug.log("scan_client recieved something from %s!" % server_ip)
-		found_server.emit(server_ip)
+
+		
+		found_server.emit(server_ip, foundHostName, playersOnlineString)
 
 func _process(delta: float) -> void:
 	if scan_server: _process_scan_server()
