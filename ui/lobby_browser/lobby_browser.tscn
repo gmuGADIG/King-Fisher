@@ -70,6 +70,7 @@ text = "Display name"
 horizontal_alignment = 1
 
 [node name="NameInput" type="LineEdit" parent="DisplayName" unique_id=2144933206]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 placeholder_text = "Enter name..."
