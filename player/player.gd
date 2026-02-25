@@ -61,7 +61,7 @@ func update_camera() -> void:
 
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		camera_yaw += -event.relative.x
 		$CameraMount.rotation.y = deg_to_rad(camera_yaw)
 	if event.is_action_pressed("scoreboard"):
