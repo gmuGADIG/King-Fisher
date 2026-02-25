@@ -1,0 +1,2 @@
+class_name Ragdoll
+extends RigidBody3D

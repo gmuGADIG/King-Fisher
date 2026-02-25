@@ -3,8 +3,6 @@ extends Node3D
 
 @export var player : PackedScene
 
-
-
 func _ready() -> void:
 	
 	if multiplayer.is_server():
@@ -25,4 +23,3 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	$Players.add_child(new_player,true)
 	new_player.set_authority.rpc(id)
 	new_player.position = pos
-	
