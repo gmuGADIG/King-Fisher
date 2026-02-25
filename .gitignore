@@ -15,3 +15,7 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 .vscode/settings.json
+
+# ignore build folder, but do keep the file that keeps the build folder in the project
+.builds/*
+!.builds/.gitkeep
