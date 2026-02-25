@@ -1,13 +1,18 @@
 class_name Player
 extends CharacterBody3D
 
+# Ragdoll
+@export_group("Scenes")
+@export var ragdoll : PackedScene
+@export var is_ragdolled := false
+
+@export_category("Variables")
 @export var speed := 10.
-var held_item: Item
-
-
-
 
 var last_pos : Vector3 = Vector3.ZERO
+var held_item: Item
+
+@onready var rd_utils: RagdollUtils = %RagdollUtils
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -22,7 +27,14 @@ var last_pos : Vector3 = Vector3.ZERO
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	# don't move when being ragdolled.
+	# we are invisible, the ragdolling is doing all the movement
+	# TODO: update ragdoll code with player character and skeleton
+	if is_ragdolled: return
+	if not is_multiplayer_authority(): 
+		move_and_slide()
+		return
 	
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -52,6 +64,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		camera_yaw += -event.relative.x
 		$CameraMount.rotation.y = deg_to_rad(camera_yaw)
+	if event.is_action_pressed("scoreboard"):
+		rd_utils.spawn_ragdoll.rpc(5)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	if event.is_action_pressed("use_item"):

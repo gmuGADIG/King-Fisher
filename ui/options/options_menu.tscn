@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://n6fltg0vkvl"]
+
+[ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="1_o42co"]
+[ext_resource type="Script" uid="uid://bp1ga0y2284ok" path="res://ui/options/options_menu.gd" id="2_gacm8"]
+
+[node name="OptionsMenu" type="Control" unique_id=1087068024]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_gacm8")
+
+[node name="OptionsPanel" type="NinePatchRect" parent="." unique_id=810038643]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33333334
+anchor_top = 0.09876543
+anchor_right = 0.6666667
+anchor_bottom = 0.8888889
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o42co")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel" unique_id=243079951]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -72.5
+offset_right = 50.0
+offset_bottom = 72.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=1155885265]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=1419737254]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="OptionsPanel/VBoxContainer" unique_id=1665212673]
+layout_mode = 2
+
+[node name="SFXVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=682179707]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=19544409]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="OptionsPanel/VBoxContainer" unique_id=1327836431]
+layout_mode = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=231721356]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=1407488349]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
