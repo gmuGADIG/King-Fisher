@@ -25,6 +25,10 @@ Multiplayer="*res://systems/multiplayer.gd"
 Debug="*res://systems/debug.tscn"
 DebugMenu="*uid://bojr30uqdlyje"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
