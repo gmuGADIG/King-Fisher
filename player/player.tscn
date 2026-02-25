@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://bffxe171rcnea"]
 
 [ext_resource type="Script" uid="uid://bx8rb13al7o7e" path="res://player/player.gd" id="1_onrkg"]
-
-[ext_resource type="Script" path="res://player/player_mesh.gd" id="2_pmesh"]
+[ext_resource type="Script" uid="uid://b0w3b5ncyaqf2" path="res://player/player_mesh.gd" id="2_pmesh"]
 [ext_resource type="PackedScene" uid="uid://cyptguwrplmqc" path="res://player/ragdoll.tscn" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://bi2km4p68tb0m" path="res://player/ragdoll_utils.gd" id="3_g1dw6"]
 
@@ -28,7 +27,6 @@ properties/1/replication_mode = 1
 [node name="Player" type="CharacterBody3D" unique_id=1653185810 groups=["Player"]]
 collision_layer = 3
 collision_mask = 3
-motion_mode = 1
 script = ExtResource("1_onrkg")
 ragdoll = ExtResource("2_rkbax")
 
@@ -55,6 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 0.96732086, 0.25355536, 0, -0.25355536, 0.96
 
 [node name="Camera3D" type="Camera3D" parent="CameraMount" unique_id=1888578000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.945792, 6.341495)
+
 [node name="RagdollUtils" type="Node" parent="." unique_id=1212185737]
 unique_name_in_owner = true
 script = ExtResource("3_g1dw6")

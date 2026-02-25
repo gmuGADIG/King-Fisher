@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody3D
 
+const GRAVITY := 30.
+
 # Ragdoll
 @export_group("Scenes")
 @export var ragdoll : PackedScene
@@ -32,19 +34,22 @@ func _process(delta: float) -> void:
 	# we are invisible, the ragdolling is doing all the movement
 	# TODO: update ragdoll code with player character and skeleton
 	if is_ragdolled: return
-	if not is_multiplayer_authority(): 
-		move_and_slide()
-		return
-	
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
+
+	if not is_on_floor():
+		velocity += GRAVITY * delta * Vector3.DOWN
+	
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
+		velocity.y = 10.
+
 	if input != Vector2.ZERO:
 		$Body.turn_towards(movement_dir, delta)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
 	move_and_slide()

@@ -6,6 +6,5 @@ extends MeshInstance3D
 func turn_towards(target_direction : Vector2, delta : float) -> void:
 	var angle = angle_difference(rotation.y,-target_direction.angle())
 	var rotation_speed : float = delta * rotation_speed_curve.sample(abs(angle))
-	print(angle,", ",rotation_speed)
 	angle = clampf(angle,-rotation_speed,rotation_speed)
 	rotation.y += angle
