@@ -12,15 +12,21 @@ func _ready() -> void:
 			SpawnPoints.append(child)
 			# Overengineering for fun. Deletes the Label3D that shows where the spawn point is to devs.
 			# Delete these lines and the Label3D from the player_spawn_point.tscn scene if this is overkill.
-			for grandchild in child.get_children():
-				if grandchild is Label3D: grandchild.queue_free()
+			#for grandchild in child.get_children():
+				#if grandchild is Label3D: grandchild.queue_free()
 
 
 func get_safe_spawn_point() -> Vector3:
+	print("Getting safe spawn point...")
 	SpawnPoints.shuffle()
 	for spawnPoint in SpawnPoints:
-		if spawnPoint.has_overlapping_bodies(): continue
-		else: return spawnPoint.global_position
+		print("Checking " + spawnPoint.name)
+		if spawnPoint.has_overlapping_bodies(): 
+			print(spawnPoint.name + " had overlapping bodies.")
+			continue
+		else: 
+			print(spawnPoint.name + " seems clear.")
+			return spawnPoint.global_position
  
 	Debug.log_err("get_safe_spawn_point did not find a safe spawn point.")
 	return Vector3.ZERO
