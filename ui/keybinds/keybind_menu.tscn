@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vpljqilqhkbb"]
 
-[ext_resource type="Script" uid="uid://bp1ga0y2284ok" path="res://ui/options/options_menu.gd" id="1_kckta"]
+[ext_resource type="Script" uid="uid://87m7v2osfe3g" path="res://ui/keybinds/keybind.gd" id="1_s866l"]
 [ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="2_lngt1"]
 
 [node name="KeybindMenu" type="Control" unique_id=1087068024]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_kckta")
+script = ExtResource("1_s866l")
 
 [node name="KeybindPanel" type="NinePatchRect" parent="." unique_id=810038643]
 layout_mode = 1
