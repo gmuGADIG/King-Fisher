@@ -1,5 +1,6 @@
 extends Control
 class_name Options
+signal closed
 static var mouse_sensitivity : float = 1
 static var master_volume : float = 1
 static var sfx_volume : float = 1
@@ -37,3 +38,8 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 func _on_mouse_sensitivty_slider_value_changed(value: float) -> void:
 	mouse_sensitivity = value
+
+func _on_button_pressed() -> void:
+	closed.emit()
+	print("Options Menu!")
+	visible = not visible

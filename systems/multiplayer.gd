@@ -14,7 +14,7 @@ var player_list: Dictionary[int,String] = {}
 var scan_server: UDPServer
 
 
-var scan_for_servers := true
+var scan_for_servers : bool = true
 var scan_client: PacketPeerUDP
 
 var displayName: String

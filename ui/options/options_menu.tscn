@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="1_o42co"]
 [ext_resource type="Script" uid="uid://bp1ga0y2284ok" path="res://ui/options/options_menu.gd" id="2_gacm8"]
+[ext_resource type="AudioStream" uid="uid://crho3l0hcp0cc" path="res://temp/temp_sfx/test_unlock.wav" id="3_8hrnt"]
 
 [node name="OptionsMenu" type="Control" unique_id=1087068024]
 layout_mode = 3
@@ -87,7 +88,33 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 value = 100.0
 
+[node name="Button" type="Button" parent="." unique_id=21460394]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34461805
+anchor_top = 0.11265432
+anchor_right = 0.3898125
+anchor_bottom = 0.16014814
+offset_right = -0.06400013
+offset_bottom = 0.22399998
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Button" unique_id=1166047107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1061228079]
+stream = ExtResource("3_8hrnt")
+
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MouseSensitivtySlider" to="." method="_on_mouse_sensitivty_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
