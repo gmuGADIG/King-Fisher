@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqgaomu3tr1ym"]
+[gd_scene format=3 uid="uid://dqgaomu3tr1ym"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/texture_editor/set_editor/source_file_item_editor.gd" id="2"]
 

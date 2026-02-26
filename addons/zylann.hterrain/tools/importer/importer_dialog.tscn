@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://on7x7xkovsc8"]
+[gd_scene format=3 uid="uid://on7x7xkovsc8"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/importer/importer_dialog.gd" id="1"]
 [ext_resource type="PackedScene" path="res://addons/zylann.hterrain/tools/inspector/inspector.tscn" id="2"]

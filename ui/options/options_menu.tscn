@@ -35,12 +35,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -72.5
-offset_right = 50.0
-offset_bottom = 72.5
+offset_left = -63.0
+offset_top = -164.0
+offset_right = 73.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MouseSensitivityLabel" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=1884671566]
+layout_mode = 2
+text = "Mouse Sensitivity"
+
+[node name="MouseSensitivtySlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=962304467]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 
 [node name="MasterVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=1155885265]
 layout_mode = 2
@@ -72,6 +80,7 @@ text = "Music"
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/MouseSensitivtySlider" to="." method="_on_mouse_sensitivty_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
