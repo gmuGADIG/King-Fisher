@@ -79,7 +79,7 @@ func _input(event: InputEvent) -> void:
 
 
 
-@rpc("unreliable_ordered")
+@rpc("any_peer","call_local","unreliable_ordered",1)
 func sync_velocity(vel: Vector3) -> void:
 	velocity = vel
 

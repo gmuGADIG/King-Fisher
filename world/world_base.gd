@@ -15,11 +15,12 @@ func _ready() -> void:
 	pass
 
 func on_player_join(id : int) -> void:
-	spawn_player(id,Vector3.ZERO)
+	spawn_player(id,Vector3(randf_range(-10,10),0,0))
 
 func spawn_player(id: int, pos: Vector3) -> void:
 	Debug.log("Creating player of id ",id)
 	var new_player: Player = player.instantiate()
+	new_player.position = pos
 	$Players.add_child(new_player,true)
 	new_player.set_authority.rpc(id)
 	#new_player.update_camera.rpc_id(id)
