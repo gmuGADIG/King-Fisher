@@ -4,6 +4,8 @@
 
 [node name="ServerInfo" type="PanelContainer" unique_id=859087533]
 custom_minimum_size = Vector2(300, 0)
+offset_right = 519.0
+offset_bottom = 51.0
 script = ExtResource("1_7crmb")
 ip = "192.168.1.2"
 hostname = "- Hostname -"
@@ -21,26 +23,46 @@ layout_mode = 2
 [node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=673213215]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Hostname"
+text = "- Hostname -"
 
-[node name="SpaceLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=7792534]
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer" unique_id=687801402]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-text = "-"
+theme_override_constants/separation = 20
+
+[node name="IPLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=165369734]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "192.168.1.2"
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer" unique_id=1352451913]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="CountLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=817665762]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0/0"
 
-[node name="IPLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=165369734]
-unique_name_in_owner = true
-visible = false
+[node name="Players" type="Label" parent="MarginContainer/HBoxContainer" unique_id=150747524]
 layout_mode = 2
-text = "192.168.1.2"
+text = "Players"
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/HBoxContainer" unique_id=424302932]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="IngameLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1836198390]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ingame?"
 
 [node name="JoinButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1509485563]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "Join"
+text = "  Join  "
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://sebpacttibvk" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
 [ext_resource type="PackedScene" uid="uid://cksuxnaqh3sqr" path="res://ui/lobby_browser/server_info.tscn" id="2_csvqp"]
-[ext_resource type="PackedScene" uid="uid://n6fltg0vkvl" path="res://ui/options/options_menu.tscn" id="3_pxnt7"]
+[ext_resource type="Texture2D" uid="uid://dqsfednh0xijm" path="res://art/2d-ui/lobby waiting.png" id="3_5eayx"]
+[ext_resource type="Texture2D" uid="uid://ctk0goiprrums" path="res://art/2d-ui/cancel.png" id="4_uxqk6"]
+[ext_resource type="Script" uid="uid://cif4u2yhgqih4" path="res://ui/lobby_browser/lobby_in_game_cancel.gd" id="5_uxqk6"]
 
 [node name="LobbyBrowser" type="Control" unique_id=245152877]
 layout_mode = 3
@@ -14,55 +16,13 @@ grow_vertical = 2
 script = ExtResource("1_k67f4")
 server_info_packed = ExtResource("2_csvqp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=44045274]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="JoinLabel" type="Label" parent="VBoxContainer" unique_id=1423046525]
-layout_mode = 2
-text = "Join Game"
-horizontal_alignment = 1
-
-[node name="Panel" type="PanelContainer" parent="VBoxContainer" unique_id=1518235674]
-layout_mode = 2
-
-[node name="ServerInfoParent" type="VBoxContainer" parent="VBoxContainer/Panel" unique_id=1149710568]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 216)
-layout_mode = 2
-
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=369293543]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="HostLabel" type="Label" parent="VBoxContainer" unique_id=878563602]
-layout_mode = 2
-text = "Host Game"
-horizontal_alignment = 1
-
-[node name="HostButton" type="Button" parent="VBoxContainer" unique_id=1159664938]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Host"
-
 [node name="DisplayName" type="VBoxContainer" parent="." unique_id=927114755]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = -1
+anchor_right = 0.179
 anchor_bottom = 1.0
-offset_top = -58.0
-offset_right = 150.0
-grow_vertical = 0
+offset_right = -0.20800781
+metadata/_edit_use_anchors_ = true
 
 [node name="NameLabel" type="Label" parent="DisplayName" unique_id=283235027]
 layout_mode = 2
@@ -76,7 +36,87 @@ layout_mode = 2
 placeholder_text = "Enter name..."
 alignment = 1
 
-[node name="OptionsMenu" parent="." unique_id=1087068024 instance=ExtResource("3_pxnt7")]
+[node name="BackButton" type="Button" parent="." unique_id=328806063]
 layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -125.0
+offset_right = 204.0
+grow_vertical = 0
+text = "Main Menu"
 
-[connection signal="pressed" from="VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[node name="RefreshButton" type="Button" parent="." unique_id=1592148746]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.94100004
+anchor_right = 1.0
+anchor_bottom = 0.048
+offset_left = -0.032104492
+offset_bottom = -0.10400009
+grow_horizontal = 0
+text = "Refresh
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="LobbyBrowserProper" type="Panel" parent="." unique_id=1083870304]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.215
+anchor_top = 0.2345679
+anchor_right = 0.77800006
+anchor_bottom = 0.9382716
+offset_left = 8.319992
+offset_right = -0.25604248
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LobbyBrowserProper" unique_id=44045274]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="LobbyBrowserProper/VBoxContainer" unique_id=1518235674]
+layout_mode = 2
+
+[node name="ServerInfoParent" type="VBoxContainer" parent="LobbyBrowserProper/VBoxContainer/Panel" unique_id=1149710568]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 216)
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="LobbyBrowserProper/VBoxContainer" unique_id=369293543]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HostLabel" type="Label" parent="LobbyBrowserProper/VBoxContainer" unique_id=878563602]
+layout_mode = 2
+text = "Host Game"
+horizontal_alignment = 1
+
+[node name="HostButton" type="Button" parent="LobbyBrowserProper/VBoxContainer" unique_id=1159664938]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Host"
+
+[node name="LobbyInGame" type="Sprite2D" parent="." unique_id=128183771]
+unique_name_in_owner = true
+visible = false
+position = Vector2(576, 324)
+texture = ExtResource("3_5eayx")
+
+[node name="TextureButton" type="TextureButton" parent="LobbyInGame" unique_id=95174705]
+offset_left = -132.5
+offset_top = 25.0
+offset_right = 142.5
+offset_bottom = 125.0
+texture_normal = ExtResource("4_uxqk6")
+script = ExtResource("5_uxqk6")
+
+[connection signal="pressed" from="LobbyBrowserProper/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
