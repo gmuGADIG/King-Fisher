@@ -72,9 +72,11 @@ func _process(delta: float) -> void:
 func _on_peer_connected(id: int) -> void:
 	Debug.log("on peer connect")
 	if (game_in_progress == true):
-		disconnect_with_message(id, "match in progress")
+		disconnect_client(id, "match in progress")
+		return
 	if (player_list.size() >= MAX_CLIENTS + 1):
-		disconnect_with_message(id, "lobby full")
+		disconnect_client(id, "lobby full")
+		return
 	if not multiplayer.is_server():
 		return
 	Debug.log("peer ",id," connected")
@@ -112,10 +114,11 @@ func join_server(ip : String) -> void:
 	scan_for_servers = false
 
 # host disconnecting client
-func disconnect_with_message(id: int, msg : String) -> void:
+func disconnect_client(id: int, msg : String) -> void:
 	show_disconnected_message.rpc_id(id, msg)
 	await get_tree().create_timer(1).timeout # this timer gives the rpc time to send out
 	multiplayer.multiplayer_peer.disconnect_peer(id)
+	player_list.erase(id)
 	return
 
 # client displaying error message when disconnected
