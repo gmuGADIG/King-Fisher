@@ -12,8 +12,8 @@ func _ready() -> void:
 			SpawnPoints.append(child)
 			# Overengineering for fun. Deletes the Label3D that shows where the spawn point is to devs.
 			# Delete these lines and the Label3D from the player_spawn_point.tscn scene if this is overkill.
-			#for grandchild in child.get_children():
-				#if grandchild is Label3D: grandchild.queue_free()
+			for grandchild in child.get_children():
+				if grandchild is Label3D: grandchild.queue_free()
 
 
 func get_safe_spawn_point() -> Vector3:
