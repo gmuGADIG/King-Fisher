@@ -1,6 +1,10 @@
 extends Control
-
-@onready var audo_player : AudioStreamPlayer = $AudioStreamPlayer
+class_name Options
+static var mouse_sensitivity : float = 1
+static var master_volume : float = 1
+static var sfx_volume : float = 1
+static var music_volume : float = 1
+@onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,15 +18,22 @@ func _process(delta: float) -> void:
 
 func _on_master_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), value / 30)
-	audo_player.bus = "Master"
-	audo_player.play()
+	audio_player.bus = "Master"
+	audio_player.play()
+	master_volume = value
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("SFX"), value / 30)
-	audo_player.bus = "SFX"
-	audo_player.play()
-
+	audio_player.bus = "SFX"
+	audio_player.play()
+	sfx_volume = value
+	
+	
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Music"), value / 30)
-	audo_player.bus = "Music"
-	audo_player.play()
+	audio_player.bus = "Music"
+	audio_player.play()
+	music_volume = value
+
+func _on_mouse_sensitivty_slider_value_changed(value: float) -> void:
+	mouse_sensitivity = value

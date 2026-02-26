@@ -1,8 +1,10 @@
-[gd_scene format=3 uid="uid://dih1wbmgk3wkg"]
+[gd_scene format=3 uid="uid://bsb5oljuapge6"]
 
-[ext_resource type="Script" uid="uid://sebpacttibvk" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
-[ext_resource type="PackedScene" uid="uid://cksuxnaqh3sqr" path="res://ui/lobby_browser/server_info.tscn" id="2_csvqp"]
+[ext_resource type="Script" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
 [ext_resource type="PackedScene" uid="uid://n6fltg0vkvl" path="res://ui/options/options_menu.tscn" id="3_pxnt7"]
+
+[sub_resource type="Resource" id="Resource_csvqp"]
+metadata/__load_path__ = "res://ui/main_menu/server_info.tscn"
 
 [node name="LobbyBrowser" type="Control" unique_id=245152877]
 layout_mode = 3
@@ -12,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k67f4")
-server_info_packed = ExtResource("2_csvqp")
+server_info_packed = SubResource("Resource_csvqp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=44045274]
 layout_mode = 1
