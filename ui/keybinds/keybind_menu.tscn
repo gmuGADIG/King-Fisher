@@ -27,16 +27,23 @@ patch_margin_top = 15
 patch_margin_right = 15
 patch_margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="KeybindPanel" unique_id=243079951]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -72.5
-offset_right = 50.0
-offset_bottom = 72.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="KeybindPanel" unique_id=640497245]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 29.0
+offset_right = 340.0
+offset_bottom = 480.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeybindPanel/ScrollContainer" unique_id=243079951]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="KeybindPanel/ScrollContainer/VBoxContainer" unique_id=1438515188]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="KeybindPanel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1161519030]
+layout_mode = 2
+text = "Control whatefver it is"
+
+[node name="Button" type="Button" parent="KeybindPanel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1555108729]
+layout_mode = 2
+text = "Key that it is"
