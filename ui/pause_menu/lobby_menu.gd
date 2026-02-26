@@ -33,4 +33,9 @@ func _on_save_button_pressed() -> void:
 	print(musicSelect)
 	
 	
+func _process(delta: float) -> void:
+	if(Input.is_action_just_pressed("Menu") && multiplayer.is_server()):
+		print("Menu pressed")
+		print("Authority checked")
+		$CanvasLayer/Panel.visible = !$CanvasLayer/Panel.visible
 	

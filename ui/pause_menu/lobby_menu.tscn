@@ -14,6 +14,7 @@ script = ExtResource("1_xy58u")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=20371457]
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1030955089]
+visible = false
 anchors_preset = -1
 anchor_left = 0.48600003
 anchor_top = 0.499
