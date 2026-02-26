@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://vpljqilqhkbb"]
+
+[ext_resource type="Script" uid="uid://bp1ga0y2284ok" path="res://ui/options/options_menu.gd" id="1_kckta"]
+[ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="2_lngt1"]
+
+[node name="KeybindMenu" type="Control" unique_id=1087068024]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kckta")
+
+[node name="KeybindPanel" type="NinePatchRect" parent="." unique_id=810038643]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33333334
+anchor_top = 0.09876543
+anchor_right = 0.6666667
+anchor_bottom = 0.8888889
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lngt1")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeybindPanel" unique_id=243079951]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -72.5
+offset_right = 50.0
+offset_bottom = 72.5
+grow_horizontal = 2
+grow_vertical = 2
