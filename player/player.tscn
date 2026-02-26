@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://bffxe171rcnea"]
 
 [ext_resource type="Script" uid="uid://bx8rb13al7o7e" path="res://player/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://b0w3b5ncyaqf2" path="res://player/player_mesh.gd" id="2_pmesh"]
+[ext_resource type="PackedScene" uid="uid://cyptguwrplmqc" path="res://player/ragdoll.tscn" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://bi2km4p68tb0m" path="res://player/ragdoll_utils.gd" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://c0h4ahbau2lur" path="res://art/3d-assets/Bean.glb" id="5_qjkh3"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
+[sub_resource type="Curve" id="Curve_pmesh"]
+_limits = [0.0, 20.0, 0.0, 3.14]
+_data = [Vector2(0, 7.5629826), 0.0, 0.0, 0, 0, Vector2(2.3698115, 20), 0.0, 0.0, 0, 0, Vector2(3.14, 20), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -10,15 +17,20 @@
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+properties/1/path = NodePath("Body:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D" unique_id=1653185810 groups=["Player"]]
-collision_mask = 0
-motion_mode = 1
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_onrkg")
+ragdoll = ExtResource("2_rkbax")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=951967374]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_oul6g")
+[node name="Body" parent="." unique_id=2063756673 instance=ExtResource("5_qjkh3")]
+transform = Transform3D(1.1906586, 0, 0, 0, 1.1906586, 0, 0, 0, 1.1906586, 0, 0, 0)
+script = ExtResource("2_pmesh")
+rotation_speed_curve = SubResource("Curve_pmesh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1812883740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -26,3 +38,14 @@ shape = SubResource("CapsuleShape3D_rkbax")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1979522579]
 replication_config = SubResource("SceneReplicationConfig_onrkg")
+
+[node name="CameraMount" type="Node3D" parent="." unique_id=1278792868]
+transform = Transform3D(1, 0, 0, 0, 0.96732086, 0.25355536, 0, -0.25355536, 0.96732086, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraMount" unique_id=1888578000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.945792, 6.341495)
+
+[node name="RagdollUtils" type="Node" parent="." unique_id=1212185737]
+unique_name_in_owner = true
+script = ExtResource("3_g1dw6")
+metadata/_custom_type_script = "uid://bi2km4p68tb0m"
