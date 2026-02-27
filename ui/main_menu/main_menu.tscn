@@ -48,103 +48,76 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_6q35d")
 
-[node name="Divider" type="HBoxContainer" parent="MainMenuContainer" unique_id=1572834957]
+[node name="Divider2" type="TextureRect" parent="MainMenuContainer" unique_id=915958547]
 layout_mode = 0
-offset_left = 176.0
-offset_right = 466.0
+offset_left = 192.0
+offset_right = 482.0
 offset_bottom = 648.0
-metadata/_edit_group_ = true
-
-[node name="DividerImage" type="TextureRect" parent="MainMenuContainer/Divider" unique_id=915958547]
-layout_mode = 2
 texture = ExtResource("4_joh67")
 
-[node name="Title" type="VBoxContainer" parent="MainMenuContainer" unique_id=61706508]
+[node name="LeftSide" type="VBoxContainer" parent="MainMenuContainer" unique_id=82524344]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -172.0
-offset_top = 42.0
-offset_right = 440.5
-offset_bottom = 217.0
+anchors_preset = -1
+anchor_left = 0.013888889
+anchor_right = 0.39062503
+anchor_bottom = 0.97530866
+offset_right = -3.0517578e-05
+grow_vertical = 2
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=717160080]
+custom_minimum_size = Vector2(350, 165)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("7_w2r0d")
+stretch_mode = 4
+
+[node name="FishDexBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=224562787]
+custom_minimum_size = Vector2(375, 165)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("8_4e78x")
+stretch_mode = 4
+
+[node name="SettingsBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=358863002]
+custom_minimum_size = Vector2(400, 165)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("9_s4pem")
+stretch_mode = 4
+
+[node name="RightSide" type="VBoxContainer" parent="MainMenuContainer" unique_id=61706508]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4375
+anchor_top = 0.024691358
+anchor_right = 0.9652778
+anchor_bottom = 0.80246913
 grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
-[node name="TitleImage" type="TextureRect" parent="MainMenuContainer/Title" unique_id=287736822]
+[node name="TitleImage" type="TextureRect" parent="MainMenuContainer/RightSide" unique_id=287736822]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 2
 texture = ExtResource("1_p6djx")
+expand_mode = 5
 
-[node name="FindLobby" type="VBoxContainer" parent="MainMenuContainer" unique_id=1722521922]
-layout_mode = 0
-offset_left = 507.0
-offset_top = 264.0
-offset_right = 956.0
-offset_bottom = 556.0
-metadata/_edit_group_ = true
-
-[node name="FindLobbyBtn" type="Button" parent="MainMenuContainer/FindLobby" unique_id=1649576549]
+[node name="FindLobbyBtn" type="TextureButton" parent="MainMenuContainer/RightSide" unique_id=1689423804]
+custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
-size_flags_vertical = 3
-icon = ExtResource("2_ctg6d")
-flat = true
-expand_icon = true
-
-[node name="LeftSideButtons" type="Control" parent="MainMenuContainer" unique_id=394990495]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Quit" type="VBoxContainer" parent="MainMenuContainer/LeftSideButtons" unique_id=1358919494]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 64.0
-offset_right = 356.0
-offset_bottom = 211.0
-metadata/_edit_group_ = true
-
-[node name="QuitBtn" type="Button" parent="MainMenuContainer/LeftSideButtons/Quit" unique_id=1093653096]
-layout_mode = 2
-size_flags_vertical = 3
-icon = ExtResource("7_w2r0d")
-flat = true
-expand_icon = true
-
-[node name="FishDex" type="VBoxContainer" parent="MainMenuContainer/LeftSideButtons" unique_id=1564006278]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 235.0
-offset_right = 391.0
-offset_bottom = 414.0
-metadata/_edit_group_ = true
-
-[node name="FishDexBtn" type="Button" parent="MainMenuContainer/LeftSideButtons/FishDex" unique_id=458249957]
-layout_mode = 2
-size_flags_vertical = 3
-icon = ExtResource("8_4e78x")
-flat = true
-expand_icon = true
-
-[node name="Settings" type="VBoxContainer" parent="MainMenuContainer/LeftSideButtons" unique_id=1205451113]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 413.0
-offset_right = 412.0
-offset_bottom = 612.0
-metadata/_edit_group_ = true
-
-[node name="SettingsBtn" type="Button" parent="MainMenuContainer/LeftSideButtons/Settings" unique_id=1796653312]
-layout_mode = 2
-size_flags_vertical = 3
-icon = ExtResource("9_s4pem")
-flat = true
-expand_icon = true
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("2_ctg6d")
+stretch_mode = 5
 
 [connection signal="closed" from="OptionsMenu" to="." method="_on_options_closed"]
 [connection signal="closed" from="LobbyBrowser" to="." method="_on_lobby_browser_closed"]
 [connection signal="closed" from="Fishdex" to="." method="_on_fishdex_closed"]
-[connection signal="pressed" from="MainMenuContainer/FindLobby/FindLobbyBtn" to="." method="find_lobby_pressed"]
-[connection signal="pressed" from="MainMenuContainer/LeftSideButtons/Quit/QuitBtn" to="." method="quit_pressed"]
-[connection signal="pressed" from="MainMenuContainer/LeftSideButtons/FishDex/FishDexBtn" to="." method="fishdex_pressed"]
-[connection signal="pressed" from="MainMenuContainer/LeftSideButtons/Settings/SettingsBtn" to="." method="settings_pressed"]
+[connection signal="pressed" from="MainMenuContainer/LeftSide/QuitBtn" to="." method="quit_pressed"]
+[connection signal="pressed" from="MainMenuContainer/LeftSide/FishDexBtn" to="." method="fishdex_pressed"]
+[connection signal="pressed" from="MainMenuContainer/LeftSide/SettingsBtn" to="." method="settings_pressed"]
+[connection signal="pressed" from="MainMenuContainer/RightSide/FindLobbyBtn" to="." method="find_lobby_pressed"]
