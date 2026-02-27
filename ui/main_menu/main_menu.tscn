@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://buov3yp7bnbcr"]
+
+[ext_resource type="Script" uid="uid://m8ni6fp80eqq" path="res://ui/main_menu/main_menu.gd" id="1_ctg6d"]
+[ext_resource type="Texture2D" uid="uid://dag2vvg6chu2c" path="res://temp/temp_art/main_menu.png" id="1_p6djx"]
+[ext_resource type="PackedScene" uid="uid://n6fltg0vkvl" path="res://ui/options/options_menu.tscn" id="2_3c04x"]
+[ext_resource type="Texture2D" uid="uid://duxid346lllhp" path="res://temp/temp_art/find_lobby.png" id="2_ctg6d"]
+[ext_resource type="PackedScene" uid="uid://dih1wbmgk3wkg" path="res://ui/lobby_browser/lobby_browser.tscn" id="2_i5wg5"]
+[ext_resource type="PackedScene" uid="uid://b8jevivyblc6q" path="res://ui/fish_dex/fishdex.tscn" id="4_4e78x"]
+[ext_resource type="Texture2D" uid="uid://mlx8ko4crkr" path="res://temp/temp_art/main_menu_divider.png" id="4_joh67"]
+[ext_resource type="Texture2D" uid="uid://0hryqho1k81p" path="res://temp/temp_art/main_menu_quit.png" id="7_w2r0d"]
+[ext_resource type="Texture2D" uid="uid://bwph74o74qu6y" path="res://temp/temp_art/main_menu_fishdex.png" id="8_4e78x"]
+[ext_resource type="Texture2D" uid="uid://dpm27hd64xm3y" path="res://temp/temp_art/main_menu_settings.png" id="9_s4pem"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6q35d"]
+
+[node name="MainMenu" type="Control" unique_id=470134769]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ctg6d")
+
+[node name="OptionsMenu" parent="." unique_id=1087068024 instance=ExtResource("2_3c04x")]
+layout_mode = 1
+
+[node name="LobbyBrowser" parent="." unique_id=245152877 instance=ExtResource("2_i5wg5")]
+layout_mode = 1
+
+[node name="Fishdex" parent="." unique_id=1890729006 instance=ExtResource("4_4e78x")]
+layout_mode = 1
+
+[node name="MainMenuContainer" type="Control" parent="." unique_id=1931984883]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="MainMenuContainer" unique_id=277350682]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_6q35d")
+
+[node name="Divider" type="HBoxContainer" parent="MainMenuContainer" unique_id=1572834957]
+layout_mode = 0
+offset_left = 176.0
+offset_right = 466.0
+offset_bottom = 648.0
+metadata/_edit_group_ = true
+
+[node name="DividerImage" type="TextureRect" parent="MainMenuContainer/Divider" unique_id=915958547]
+layout_mode = 2
+texture = ExtResource("4_joh67")
+
+[node name="Title" type="VBoxContainer" parent="MainMenuContainer" unique_id=61706508]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -172.0
+offset_top = 42.0
+offset_right = 440.5
+offset_bottom = 217.0
+grow_horizontal = 2
+metadata/_edit_group_ = true
+
+[node name="TitleImage" type="TextureRect" parent="MainMenuContainer/Title" unique_id=287736822]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_p6djx")
+
+[node name="FindLobby" type="VBoxContainer" parent="MainMenuContainer" unique_id=1722521922]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 264.0
+offset_right = 956.0
+offset_bottom = 556.0
+metadata/_edit_group_ = true
+
+[node name="FindLobbyBtn" type="Button" parent="MainMenuContainer/FindLobby" unique_id=1649576549]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("2_ctg6d")
+flat = true
+expand_icon = true
+
+[node name="LeftSideButtons" type="Control" parent="MainMenuContainer" unique_id=394990495]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Quit" type="VBoxContainer" parent="MainMenuContainer/LeftSideButtons" unique_id=1358919494]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 64.0
+offset_right = 356.0
+offset_bottom = 211.0
+metadata/_edit_group_ = true
+
+[node name="QuitBtn" type="Button" parent="MainMenuContainer/LeftSideButtons/Quit" unique_id=1093653096]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("7_w2r0d")
+flat = true
+expand_icon = true
+
+[node name="FishDex" type="VBoxContainer" parent="MainMenuContainer/LeftSideButtons" unique_id=1564006278]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 235.0
+offset_right = 391.0
+offset_bottom = 414.0
+metadata/_edit_group_ = true
+
+[node name="FishDexBtn" type="Button" parent="MainMenuContainer/LeftSideButtons/FishDex" unique_id=458249957]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("8_4e78x")
+flat = true
+expand_icon = true
+
+[node name="Settings" type="VBoxContainer" parent="MainMenuContainer/LeftSideButtons" unique_id=1205451113]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 413.0
+offset_right = 412.0
+offset_bottom = 612.0
+metadata/_edit_group_ = true
+
+[node name="SettingsBtn" type="Button" parent="MainMenuContainer/LeftSideButtons/Settings" unique_id=1796653312]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("9_s4pem")
+flat = true
+expand_icon = true
+
+[connection signal="closed" from="OptionsMenu" to="." method="_on_options_closed"]
+[connection signal="closed" from="LobbyBrowser" to="." method="_on_lobby_browser_closed"]
+[connection signal="closed" from="Fishdex" to="." method="_on_fishdex_closed"]
+[connection signal="pressed" from="MainMenuContainer/FindLobby/FindLobbyBtn" to="." method="find_lobby_pressed"]
+[connection signal="pressed" from="MainMenuContainer/LeftSideButtons/Quit/QuitBtn" to="." method="quit_pressed"]
+[connection signal="pressed" from="MainMenuContainer/LeftSideButtons/FishDex/FishDexBtn" to="." method="fishdex_pressed"]
+[connection signal="pressed" from="MainMenuContainer/LeftSideButtons/Settings/SettingsBtn" to="." method="settings_pressed"]
