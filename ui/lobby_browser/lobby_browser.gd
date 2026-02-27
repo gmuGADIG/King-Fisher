@@ -1,5 +1,8 @@
 extends Control
 
+# Todo: Implement a function that utilizes this
+signal closed
+
 @export var server_info_packed : PackedScene
 
 @onready var name_text := $DisplayName/NameInput
