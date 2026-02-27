@@ -9,4 +9,3 @@ func _process(_delta: float) -> void:
 
 func _on_close_button_pressed() -> void:
 	hide()
-

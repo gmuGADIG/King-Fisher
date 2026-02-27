@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c12k8l1exwkfs" path="res://ui/pause_menu/lobby_menu.gd" id="1_xy58u"]
 
-[node name="PauseMenu" type="Control" unique_id=1167419055]
+[node name="LobbyMenu" type="Control" unique_id=1167419055]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,6 @@ script = ExtResource("1_xy58u")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=20371457]
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1030955089]
-visible = false
 anchors_preset = -1
 anchor_left = 0.48600003
 anchor_top = 0.499
@@ -40,7 +39,7 @@ offset_bottom = 324.676
 [node name="Title Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=2037557473]
 layout_mode = 2
 theme_override_font_sizes/font_size = 33
-text = "LOBBY OPTIONS"
+text = "Game Settings"
 horizontal_alignment = 1
 
 [node name="Timer Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1361939677]

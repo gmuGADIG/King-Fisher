@@ -1,11 +1,22 @@
+class_name LobbySettings
 extends Control
 
-@export var roundTimer:int 
-@export var itemSpawn:int
-@export var fishSpawn:int
-@export var itemSelect:String
-@export var mapSelect:String
-@export var musicSelect:String
+
+@export var defaultRoundTimer:int 
+@export var defaultItemSpawn:int
+@export var defaultFishSpawn:int
+@export var defaultItemSelect:String
+@export var defaultMapSelect:String
+@export var defaultMusicSelect:String
+
+static var roundTimer:int
+static var itemSpawn:int
+static var fishSpawn:int
+static var itemSelect:String
+static var mapSelect:String
+static var musicSelect:String
+
+
 
 @onready var timerSpinBox:SpinBox = $"CanvasLayer/Panel/VBoxContainer/Timer SpinBox"
 @onready var itemSpinBox:SpinBox = $"CanvasLayer/Panel/VBoxContainer/Item Spawn SpinBox"
@@ -14,8 +25,8 @@ extends Control
 @onready var mapButton:OptionButton = $"CanvasLayer/Panel/VBoxContainer/Map OptionButton"
 @onready var musicButton:OptionButton = $"CanvasLayer/Panel/VBoxContainer/Music OptionButton"
 
-
-
+func _ready() -> void:
+	$CanvasLayer/Panel.hide()
 
 
 func _on_save_button_pressed() -> void:
@@ -33,8 +44,8 @@ func _on_save_button_pressed() -> void:
 	print(musicSelect)
 	
 	
-func _process(delta: float) -> void:
-	if(Input.is_action_just_pressed("Menu") && multiplayer.is_server()):
+func _input(event: InputEvent) -> void:
+	if(event.is_action_pressed("Menu") && multiplayer.is_server()):
 		print("Menu pressed")
 		print("Authority checked")
 		$CanvasLayer/Panel.visible = !$CanvasLayer/Panel.visible
