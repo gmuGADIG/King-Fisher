@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dbpteyodpmjq3" path="res://world/world_base.gd" id="1_p433e"]
 [ext_resource type="PackedScene" uid="uid://bffxe171rcnea" path="res://player/player.tscn" id="2_bl271"]
+[ext_resource type="Script" uid="uid://b6jnwssa8pgx8" path="res://systems/player_spawn_manager.gd" id="3_3xj4d"]
+[ext_resource type="PackedScene" uid="uid://c60phfujl8qwv" path="res://systems/player_spawn_point.tscn" id="4_lgvll"]
 
 [node name="WorldBase" type="Node3D" unique_id=1821617715]
 script = ExtResource("1_p433e")
@@ -25,3 +27,16 @@ _spawnable_scenes = PackedStringArray("uid://bffxe171rcnea")
 spawn_path = NodePath("../Players")
 
 [node name="Players" type="Node3D" parent="." unique_id=1891362098]
+script = ExtResource("3_3xj4d")
+
+[node name="PlayerSpawnPoint" parent="Players" unique_id=1956364351 instance=ExtResource("4_lgvll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6582527, 2.3841858e-07, -1.3005657)
+
+[node name="PlayerSpawnPoint2" parent="Players" unique_id=927445426 instance=ExtResource("4_lgvll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1069605, 0, -1.3090582)
+
+[node name="PlayerSpawnPoint3" parent="Players" unique_id=805091295 instance=ExtResource("4_lgvll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.194099, 2.3841858e-07, 1.6227422)
+
+[node name="PlayerSpawnPoint4" parent="Players" unique_id=909904993 instance=ExtResource("4_lgvll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7846797, 0, 1.7462559)

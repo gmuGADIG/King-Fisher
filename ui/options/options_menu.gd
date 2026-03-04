@@ -7,6 +7,8 @@ static var sfx_volume : float = 1
 static var music_volume : float = 1
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 
+signal closed
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()

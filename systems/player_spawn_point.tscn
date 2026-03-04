@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c60phfujl8qwv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fxej3"]
+
+[node name="PlayerSpawnPoint" type="Area3D" unique_id=1956364351]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Label" type="Label3D" parent="." unique_id=1071404007]
+transform = Transform3D(2.3369606, 0, 0, 0, 1.5772508, 0, 0, 0, 1, 0, 0, 0)
+offset = Vector2(0, -21)
+text = "PLAYER
+SPAWN
+HERE
+
+|
+V
++"
+vertical_alignment = 2
+line_spacing = -10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1129522706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_fxej3")
