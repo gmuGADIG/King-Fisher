@@ -1,10 +1,11 @@
 extends Control
 class_name Options
-signal closed
+
 static var mouse_sensitivity : float = 1
 static var master_volume : float = 1
 static var sfx_volume : float = 1
 static var music_volume : float = 1
+
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 
 signal closed
@@ -14,7 +15,7 @@ func _ready() -> void:
 	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("options"):
 		print("Options Menu!")
 		visible = not visible
