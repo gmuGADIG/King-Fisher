@@ -25,7 +25,7 @@ var held_item: Item
 			camera_yaw = new_val + 360.0
 		else:
 			camera_yaw = new_val
-		
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -100,3 +100,6 @@ func use_held_item() -> void:
 	if held_item==null:return
 	held_item.use()
 	held_item=null
+
+func give_fish(fish : Fish) -> void:
+	Debug.log("Player got fish!")
