@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://3jux6npjxhxf"]
+
+[ext_resource type="Script" uid="uid://bvr3jlrk3064w" path="res://systems/item_spawner.gd" id="1_ptd0p"]
+[ext_resource type="PackedScene" uid="uid://dsnep0jd62s78" path="res://items/item_test_1.tscn" id="2_lcldm"]
+[ext_resource type="PackedScene" uid="uid://ck8obcgulgo8p" path="res://items/item_test_2.tscn" id="3_h2xnj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4r7rn"]
+size = Vector3(20, 0.001, 20)
+
+[node name="ItemSpawner" type="CollisionShape3D" unique_id=1588789630]
+shape = SubResource("BoxShape3D_4r7rn")
+script = ExtResource("1_ptd0p")
+items = Array[PackedScene]([ExtResource("2_lcldm"), ExtResource("3_h2xnj")])
+
+[node name="Label" type="Label3D" parent="." unique_id=318015826]
+transform = Transform3D(2.3369606, 0, 0, 0, 1.5772508, 0, 0, 0, 1, 0, 0, 0)
+offset = Vector2(0, -21)
+text = "ITEM
+SPAWNER
+
++"
+vertical_alignment = 2
+line_spacing = -10.0
