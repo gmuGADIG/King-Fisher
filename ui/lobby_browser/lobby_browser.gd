@@ -48,4 +48,4 @@ func _on_found_server(ip: String, hostname: String, playerCount: String) -> void
 
 
 func _on_refresh_button_pressed() -> void:
-	pass # Replace with function body.
+	Multiplayer.scan_clock = 0
