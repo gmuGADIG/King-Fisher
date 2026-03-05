@@ -27,6 +27,7 @@ var held_item: Item
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$LivewellMenu/CanvasLayer/Panel.visible = false
 
 func _process(delta: float) -> void:
 	# don't move when being ragdolled.
@@ -75,7 +76,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("use_item"):
 		#TODO: Don't let this happen if the player is aiming.
 		use_held_item.rpc()
-
+	
 
 
 @rpc("unreliable_ordered")
@@ -102,6 +103,8 @@ func use_held_item() -> void:
 
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
+	$LivewellMenu.addFish(fish)
 	
 func take_fish(fish : Fish) -> void:
 	Debug.log("Player lost fish!")
+	$LivewellMenu.removeFish(fish)

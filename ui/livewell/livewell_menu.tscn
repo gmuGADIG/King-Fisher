@@ -11,6 +11,7 @@ grow_vertical = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1542204172]
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1600842300]
+visible = false
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.497
@@ -37,26 +38,5 @@ offset_bottom = 227.64398
 layout_mode = 2
 text = "Score: 0"
 
-[node name="Fish1" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1535753956]
-layout_mode = 2
-
-[node name="Fish2" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1548217133]
-layout_mode = 2
-
-[node name="Fish3" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=25680263]
-layout_mode = 2
-
-[node name="Fish4" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=416039807]
-layout_mode = 2
-
-[node name="Fish5" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1057496055]
-layout_mode = 2
-
-[node name="Fish6" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=15858115]
-layout_mode = 2
-
-[node name="Fish7" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1229347786]
-layout_mode = 2
-
-[node name="Fish8" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1602754420]
+[node name="Fish" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1535753956]
 layout_mode = 2
