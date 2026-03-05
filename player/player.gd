@@ -15,7 +15,6 @@ var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
 
 @onready var rd_utils: RagdollUtils = %RagdollUtils
-
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
 	set(new_val):
@@ -25,7 +24,7 @@ var held_item: Item
 			camera_yaw = new_val + 360.0
 		else:
 			camera_yaw = new_val
-		
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -67,7 +66,7 @@ func update_camera() -> void:
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		camera_yaw += -event.relative.x
+		camera_yaw += -event.relative.x * Options.mouse_sensitivity
 		$CameraMount.rotation.y = deg_to_rad(camera_yaw)
 	if event.is_action_pressed("scoreboard"):
 		rd_utils.spawn_ragdoll.rpc(5)
@@ -100,3 +99,6 @@ func use_held_item() -> void:
 	if held_item==null:return
 	held_item.use()
 	held_item=null
+
+func give_fish(fish : Fish) -> void:
+	Debug.log("Player got fish!")

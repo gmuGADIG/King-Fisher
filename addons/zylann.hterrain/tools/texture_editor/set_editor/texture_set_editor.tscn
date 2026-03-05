@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0e7ifnoygvr6"]
+[gd_scene format=3 uid="uid://c0e7ifnoygvr6"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/texture_editor/set_editor/texture_set_editor.gd" id="1"]
 [ext_resource type="Shader" path="res://addons/zylann.hterrain/tools/texture_editor/display_alpha.gdshader" id="2"]

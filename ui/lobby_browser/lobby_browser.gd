@@ -1,11 +1,15 @@
 extends Control
 
+# Todo: Implement a function that utilizes this
+signal closed
+
 @export var server_info_packed : PackedScene
 
 @onready var name_text := $DisplayName/NameInput
 var seen_ips: Dictionary[String, bool]
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Multiplayer.found_server.connect(_on_found_server)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0f3h46ugtni6"]
+[gd_scene format=3 uid="uid://b0f3h46ugtni6"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/progress_window.gd" id="1"]
 
