@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://dlvx57h3on4id"]
+
+[ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_sgynd"]
+[ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_wox4p"]
+[ext_resource type="Resource" uid="uid://db712r706tn6l" path="res://world/level-docks/terrain/data.hterrain" id="3_nv64i"]
+[ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_4k232"]
+[ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/Docks.glb" id="5_nv64i"]
+
+[sub_resource type="Resource" id="Resource_qen0n"]
+script = ExtResource("4_4k232")
+mode = 0
+textures = [[], []]
+
+[node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_sgynd")]
+
+[node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
+transform = Transform3D(-0.46515113, 0.49374622, 0.7347442, -0.88523126, -0.2594425, -0.38607663, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
+
+[node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13561, 7.2492437, 9.360338)
+
+[node name="PlayerSpawnPoint2" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="1" unique_id=927445426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.116386, 5.6120586, 8.699876)
+
+[node name="PlayerSpawnPoint3" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="2" unique_id=805091295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.620895, 5.1907063, 55.58141)
+
+[node name="PlayerSpawnPoint4" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="3" unique_id=909904993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5899878, 5.873664, 56.146492)
+
+[node name="HTerrain" type="Node3D" parent="." index="4" unique_id=1200428160]
+script = ExtResource("2_wox4p")
+_terrain_data = ExtResource("3_nv64i")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_qen0n")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+metadata/_custom_type_script = "uid://cb6f5am52xc7"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="5" unique_id=2144106914]
+transform = Transform3D(50.01, 0, 0, 0, 1, 0, 0, 0, 49.05304, 30.85643, 1.9940205, 31.936342)
+
+[node name="Docks11" parent="." index="6" unique_id=2067378663 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.350761, 4.5185165, 32.210533)
+
+[node name="Docks2" parent="." index="7" unique_id=2045940672 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.265274, 4.5185165, 32.210533)
+
+[node name="Docks10" parent="." index="8" unique_id=233028629 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.516697, 4.5185165, 32.210533)
+
+[node name="Docks3" parent="." index="9" unique_id=1982895608 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.431845, 4.5185165, 32.210533)
+
+[node name="Docks8" parent="." index="10" unique_id=43447427 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.694339, 4.5185165, 32.210533)
+
+[node name="Docks9" parent="." index="11" unique_id=955457025 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.876319, 4.5185165, 32.210533)
+
+[node name="Docks4" parent="." index="12" unique_id=447497974 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.599445, 4.5185165, 32.210533)
+
+[node name="Docks5" parent="." index="13" unique_id=95869364 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.785, 4.5185165, 32.210533)
+
+[node name="Docks7" parent="." index="14" unique_id=905623523 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.093805, 4.5185165, 32.210533)
+
+[node name="Docks12" parent="." index="15" unique_id=1160646447 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3123293, 4.5185165, 32.210533)
+
+[node name="Docks6" parent="." index="16" unique_id=160120196 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9875145, 4.5185165, 32.210533)
+
+[node name="Docks33" parent="." index="17" unique_id=1256496276 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.204315, 4.5185165, 32.210533)
+
+[node name="Docks34" parent="." index="18" unique_id=998546858 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.118828, 4.5185165, 32.210533)
+
+[node name="Docks35" parent="." index="19" unique_id=1928145153 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.370255, 4.5185165, 32.210533)
+
+[node name="Docks36" parent="." index="20" unique_id=11905247 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.2854, 4.5185165, 32.210533)
+
+[node name="Docks37" parent="." index="21" unique_id=93255960 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.547894, 4.5185165, 32.210533)
+
+[node name="Docks38" parent="." index="22" unique_id=558529172 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.729874, 4.5185165, 32.210533)
+
+[node name="Docks39" parent="." index="23" unique_id=749873857 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.453003, 4.5185165, 32.210533)
+
+[node name="Docks40" parent="." index="24" unique_id=364815851 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.638557, 4.5185165, 32.210533)
+
+[node name="Docks41" parent="." index="25" unique_id=1399002972 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.94736, 4.5185165, 32.210533)
+
+[node name="Docks43" parent="." index="26" unique_id=1823294553 instance=ExtResource("5_nv64i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.841072, 4.5185165, 32.210533)
+
+[node name="Docks13" parent="." index="27" unique_id=675659557 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 26.469818)
+
+[node name="Docks15" parent="." index="28" unique_id=88103135 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 22.635754)
+
+[node name="Docks16" parent="." index="29" unique_id=859677501 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 24.550901)
+
+[node name="Docks17" parent="." index="30" unique_id=164467483 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 18.813396)
+
+[node name="Docks18" parent="." index="31" unique_id=419730382 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 14.995377)
+
+[node name="Docks19" parent="." index="32" unique_id=1852586267 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 20.718502)
+
+[node name="Docks20" parent="." index="33" unique_id=801303274 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 16.904057)
+
+[node name="Docks21" parent="." index="34" unique_id=925548762 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 11.212862)
+
+[node name="Docks22" parent="." index="35" unique_id=1884129258 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 9.431385)
+
+[node name="Docks23" parent="." index="36" unique_id=829491998 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 13.106571)
+
+[node name="Docks14" parent="." index="37" unique_id=817216064 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 52.025482)
+
+[node name="Docks24" parent="." index="38" unique_id=833751318 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 48.191414)
+
+[node name="Docks25" parent="." index="39" unique_id=1225535140 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 50.106564)
+
+[node name="Docks26" parent="." index="40" unique_id=394951675 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 44.369057)
+
+[node name="Docks27" parent="." index="41" unique_id=898687969 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 40.55104)
+
+[node name="Docks28" parent="." index="42" unique_id=864775041 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 46.274162)
+
+[node name="Docks29" parent="." index="43" unique_id=530053493 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 42.459717)
+
+[node name="Docks30" parent="." index="44" unique_id=864332346 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 36.768524)
+
+[node name="Docks31" parent="." index="45" unique_id=1788622589 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 34.987045)
+
+[node name="Docks32" parent="." index="46" unique_id=165777091 instance=ExtResource("5_nv64i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 38.66223)
