@@ -7,13 +7,6 @@ extends CanvasLayer
 @onready var loading_screen : ColorRect = $ColorRect
 
 var m_path : String
-var process : Array
-
-func _process(delta: float) -> void:
-	var loadStatus := ResourceLoader.load_threaded_get_status(m_path, process)
-	if(loadStatus != 0):
-		print(loadStatus)
-	
 
 func change_to_packed(path: String):
 	loading_screen.modulate.a = 0
@@ -29,6 +22,10 @@ func change_to_packed(path: String):
 	await anim.animation_finished
 	## Fade into scene
 	ResourceLoader.load_threaded_request(path)
+	var progress : Array = []
+	var loadStatus := ResourceLoader.load_threaded_get_status(path, progress)
+	while loadStatus != ResourceLoader.THREAD_LOAD_LOADED:
+		loadStatus = ResourceLoader.load_threaded_get_status(path, progress)
 	get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(path))
 	tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
