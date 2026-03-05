@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://sebpacttibvk" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
 [ext_resource type="PackedScene" uid="uid://cksuxnaqh3sqr" path="res://ui/lobby_browser/server_info.tscn" id="2_csvqp"]
 [ext_resource type="Texture2D" uid="uid://dqsfednh0xijm" path="res://art/2d-ui/lobby waiting.png" id="3_5eayx"]
+[ext_resource type="Texture2D" uid="uid://b6ht3duijryp7" path="res://art/2d-ui/bulletin board.png" id="3_wdg8x"]
 [ext_resource type="Texture2D" uid="uid://ctk0goiprrums" path="res://art/2d-ui/cancel.png" id="4_uxqk6"]
 [ext_resource type="Script" uid="uid://cif4u2yhgqih4" path="res://ui/lobby_browser/lobby_in_game_cancel.gd" id="5_uxqk6"]
 
@@ -16,42 +17,49 @@ grow_vertical = 2
 script = ExtResource("1_k67f4")
 server_info_packed = ExtResource("2_csvqp")
 
-[node name="DisplayName" type="VBoxContainer" parent="." unique_id=927114755]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.179
-anchor_bottom = 1.0
-offset_right = -0.20800781
-metadata/_edit_use_anchors_ = true
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=870494962]
+position = Vector2(576, 324)
+texture = ExtResource("3_wdg8x")
 
-[node name="NameLabel" type="Label" parent="DisplayName" unique_id=283235027]
-layout_mode = 2
-text = "Display name"
-horizontal_alignment = 1
-
-[node name="NameInput" type="LineEdit" parent="DisplayName" unique_id=2144933206]
+[node name="NameInput" type="LineEdit" parent="." unique_id=2144933206]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083000004
+anchor_top = 0.79
+anchor_right = 0.28300002
+anchor_bottom = 0.83800006
+offset_left = 0.38399506
+offset_top = 0.07998657
+offset_right = -0.016021729
+offset_bottom = -0.024047852
 placeholder_text = "Enter name..."
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="BackButton" type="Button" parent="." unique_id=328806063]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -125.0
-offset_right = 204.0
+anchors_preset = -1
+anchor_left = 0.771
+anchor_top = 0.70400006
+anchor_right = 0.9480001
+anchor_bottom = 0.897
+offset_left = -0.1920166
+offset_top = -0.19204712
+offset_right = -0.096069336
+offset_bottom = -0.25598145
 grow_vertical = 0
 text = "Main Menu"
+metadata/_edit_use_anchors_ = true
 
 [node name="RefreshButton" type="Button" parent="." unique_id=1592148746]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.94100004
-anchor_right = 1.0
-anchor_bottom = 0.048
+anchor_left = 0.798639
+anchor_top = 0.11111111
+anchor_right = 0.9444444
+anchor_bottom = 0.23318519
 offset_left = -0.032104492
 offset_bottom = -0.10400009
 grow_horizontal = 0
@@ -78,6 +86,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -56.0
+offset_right = 8.0
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -119,4 +131,5 @@ offset_bottom = 125.0
 texture_normal = ExtResource("4_uxqk6")
 script = ExtResource("5_uxqk6")
 
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="LobbyBrowserProper/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]

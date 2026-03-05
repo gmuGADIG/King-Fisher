@@ -1,4 +1,5 @@
 extends Control
+signal closed
 
 @export var server_info_packed : PackedScene
 
@@ -41,3 +42,7 @@ func _on_found_server(ip: String, hostname: String, playerCount: String) -> void
 	)
 
 	%ServerInfoParent.add_child(server_info)
+
+
+func _on_back_button_pressed() -> void:
+	closed.emit()
