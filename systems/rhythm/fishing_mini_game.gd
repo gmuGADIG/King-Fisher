@@ -2,15 +2,23 @@ extends CanvasLayer
 #@export var sequence_visual_length:float
 @onready var sequence_line: Line2D = $SequenceLine
 @onready var sequence_line_length = (sequence_line.points[1]-sequence_line.points[0]).length()
-@onready var rhythm_engine: Node = $rhythm_engine
+@onready var rhythm_engine: RhythmEngine = $rhythm_engine
 @onready var indicator: Sprite2D = $SequenceLine/Indicator
 @export var track:Track
 @export var tick_sprite:CompressedTexture2D
 @export var note_marker_sprite:CompressedTexture2D
 @export var tick_scale:float = 1.0
 @export var note_marker_scale:float = 1.0
+
+@export_category("Test")
+@export var hit_sfx : AudioStream
+@export var hit_sfx_art : AudioStream
+
 const TRACK_LENGTH:int = 8
 # Called when the node enters the scene tree for the first time.
+
+var current_note_index : int = 0
+
 func _ready() -> void:
 	place_ticks()
 	indicator.position = Vector2(0,0)
@@ -19,6 +27,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	indicator.position.x = ms_to_position(rhythm_engine.current_time_ms)
+	#print(current_note_index)
+	if current_note_index < track.notes.size():
+		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(track.notes[current_note_index].beat_position):
+			$AudioStreamPlayer.stream = hit_sfx_art if track.notes[current_note_index].is_articulated else hit_sfx
+			$AudioStreamPlayer.play()
+			current_note_index += 1
+			
+			print("yay")
 	
 func place_ticks() -> void:
 	var spacing = sequence_line_length/8

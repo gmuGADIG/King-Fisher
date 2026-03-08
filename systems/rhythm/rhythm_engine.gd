@@ -1,11 +1,10 @@
 extends Node
+class_name RhythmEngine
 
 const SECONDS_TO_MS : float = 1000.0
 const MS_TO_SECONDS : float = 0.001
 const BPM_TO_BPS : float = 1.0/60.0
 const BPS_TO_BPM : float = 60.0
-
-@onready var timer : Timer = $Timer
 
 #@export var beats_per_minute : int = 140
 #@export var offset_ms : int = 0
