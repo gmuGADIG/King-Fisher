@@ -15,6 +15,7 @@ func spawn_ragdoll(duration: float) -> void:
 	# Creates Ragdoll
 	var new_ragdoll: Ragdoll = player.ragdoll.instantiate()
 	player.add_sibling(new_ragdoll)
+	print("Spawning ragdoll at: ", player.global_position)
 	new_ragdoll.position = player.global_position
 	player.hide()
 
@@ -22,6 +23,11 @@ func spawn_ragdoll(duration: float) -> void:
 	await player.get_tree().create_timer(duration).timeout
 
 	# TODO: test for if the player entered water
+	if false:
+		print("Player entered water, skipping ragdoll cleanup.")
+		return
+	else:
+		player.position = new_ragdoll.position
 
 	# Cleanup
 	new_ragdoll.queue_free()
