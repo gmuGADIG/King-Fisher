@@ -90,9 +90,9 @@ func _input(event: InputEvent) -> void:
 		camera_mount.rotation.y = deg_to_rad(camera_yaw)
 	# Test case.
 	if event.is_action_pressed("scoreboard"):
-		ragdoll_phys.ragdoll(5)
-	if event.is_action_pressed("test1"):
 		pass
+	if event.is_action_pressed("test1"):
+		ragdoll_phys.ragdoll(5)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	if event.is_action_pressed("use_item"):
