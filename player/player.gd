@@ -20,11 +20,6 @@ var held_item: Item
 
 @onready var camera_mount : Node3D = $CameraMount
 @onready var camera : Camera3D = camera_mount.get_node("Camera3D")
-@onready var ragdoll_camera_mount : Node3D = ragdoll_phys.get_node("Physical Bone Pelvis/PelvisCameraMount")
-@onready var ragdoll_camera : Camera3D = ragdoll_camera_mount.get_node("RagdollCamera")
-# Defaults to player cam
-@onready var active_mount : Node3D = camera_mount
-@onready var active_camera : Camera3D = camera
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -40,13 +35,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _process(delta: float) -> void:
-	# don't move when being ragdolled.
-	# we are invisible, the ragdolling is doing all the movement
-	# TODO: update ragdoll code with player character and skeleton
-	if is_ragdolled: 
-		velocity = Vector3.ZERO
-		move_and_slide()
-		return
+	if is_ragdolled: return
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))
@@ -62,35 +51,27 @@ func _process(delta: float) -> void:
 	if input != Vector2.ZERO:
 		$Body.turn_towards(movement_dir.rotated(-PI/2), delta)
 
-var test1 = 0.0
-var test2 = 0.0
-var old_cam_pos = Vector3.ZERO
-
 func _physics_process(_delta: float) -> void:
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
-		test1 = test1 + _delta
-		
-		if is_ragdolled:
-			if old_cam_pos == Vector3.ZERO:
-				old_cam_pos = camera.position
-
-			var target_pos = ragdoll_phys.get_node("Physical Bone Pelvis").global_position
-			camera_mount.global_position = target_pos
-			camera.position = old_cam_pos
-		else:
-			if old_cam_pos != Vector3.ZERO:
-				camera.position = old_cam_pos
-				old_cam_pos = Vector3.ZERO
-			camera_mount.position = Vector3.ZERO
-		
-		if test2 < test1:
-			print("----------")
-			print("Ragdolled: ", is_ragdolled)
-			print("Cam_Mount Angle: ", camera_mount.rotation)
-			test2 = test1 + 2
+		handle_camera_position()
 
 	move_and_slide()
+
+var old_cam_pos = Vector3.ZERO
+func handle_camera_position() -> void:
+	if is_ragdolled:
+		if old_cam_pos == Vector3.ZERO:
+			old_cam_pos = camera.position
+
+		var target_pos = ragdoll_phys.get_node("Physical Bone Pelvis").global_position
+		camera_mount.global_position = target_pos
+		camera.position = old_cam_pos
+	else:
+		if old_cam_pos != Vector3.ZERO:
+			camera.position = old_cam_pos
+			old_cam_pos = Vector3.ZERO
+		camera_mount.position = Vector3.ZERO
 
 @rpc("reliable","authority","call_local")
 func set_authority(id : int):
@@ -102,29 +83,15 @@ func update_camera() -> void:
 	var is_correct_camera = get_multiplayer_authority() == multiplayer.get_unique_id()
 	camera.current = is_correct_camera
 
-func toggle_ragdoll_camera(toggle: bool) -> void:
-	if !is_multiplayer_authority(): return
-	if true: return
-	ragdoll_camera.current = toggle
-
-	if toggle:
-		ragdoll_camera.global_position = camera.global_position
-		ragdoll_camera.global_rotation = camera.global_rotation
-		active_mount = ragdoll_camera_mount
-	else:
-		update_camera()
-		active_mount = camera_mount
-
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		camera_yaw += -event.relative.x
-		active_mount.rotation.y = deg_to_rad(camera_yaw)
+		camera_mount.rotation.y = deg_to_rad(camera_yaw)
 	# Test case.
 	if event.is_action_pressed("scoreboard"):
-		ragdoll_phys.ragdoll(3)
+		ragdoll_phys.ragdoll(5)
 	if event.is_action_pressed("test1"):
-		# print_entire_tree()
 		pass
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()

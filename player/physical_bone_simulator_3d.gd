@@ -45,16 +45,13 @@ func is_valid_ground() -> bool:
 @rpc("any_peer", "call_local", "reliable")
 func trigger_ragdoll(duration: float):
 	if not multiplayer.is_server() and multiplayer.get_remote_sender_id() != 1:
-		print("Not the server, and not the client that triggered this, ignoring")
+		Debug.log("Not the server, and not the client that triggered this, ignoring")
 		return
 	if player.is_ragdolled: return
-	if is_multiplayer_authority():
-		player.toggle_ragdoll_camera(true)
-	
+
 	player.is_ragdolled = true
 	physical_bones_start_simulation()
 
-	# The timer runs independently on every client
 	await get_tree().create_timer(duration).timeout
 
 	var ragdoll_pos = self.get_node("Physical Bone Pelvis").global_position
@@ -72,5 +69,3 @@ func trigger_ragdoll(duration: float):
 	physical_bones_stop_simulation()
 	player.is_ragdolled = false
 	skeleton.reset_bone_poses()
-	if is_multiplayer_authority():
-		player.toggle_ragdoll_camera(false)
