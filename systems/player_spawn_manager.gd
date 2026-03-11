@@ -1,5 +1,5 @@
 extends Node3D
-
+class_name SpawnpointSelector
 ## SPAWN MANAGER
 ## This script looks for at least four player_spawn_point.tscn children. It spawns the players at them randomly.
 ## If a spawn point is occupied, it tries a different point.
@@ -19,6 +19,7 @@ func _ready() -> void:
 func get_safe_spawn_point() -> Vector3:
 	print("Getting safe spawn point...")
 	SpawnPoints.shuffle()
+	print(SpawnPoints)
 	for spawnPoint in SpawnPoints:
 		print("Checking " + spawnPoint.name)
 		if spawnPoint.has_overlapping_bodies(): 

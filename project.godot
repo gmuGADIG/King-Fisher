@@ -48,6 +48,7 @@ folder_colors={
 [global_group]
 
 Player=""
+Spawnpoints=""
 
 [input]
 
@@ -134,6 +135,10 @@ test1={
 3d_physics/layer_3="Pickup"
 3d_physics/layer_4="Ragdoll"
 3d_physics/layer_5="Rigid"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
 
 [rendering]
 

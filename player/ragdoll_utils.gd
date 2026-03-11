@@ -1,3 +1,4 @@
+# Old Code, not used anymore, but keeping for reference until the new system is fully tested and implemented.
 extends Node
 class_name RagdollUtils
 
