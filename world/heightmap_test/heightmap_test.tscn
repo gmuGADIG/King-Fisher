@@ -74,7 +74,7 @@ points = PackedVector3Array(-30.507132, 45.23537, 2.9917831, -41.646812, 1.82202
 
 [node name="HeightmapTest" unique_id=1821617715 instance=ExtResource("1_kdmys")]
 
-[node name="Players" parent="." index="3" unique_id=1891362098 groups=["Spawnpoints"]]
+[node name="Players" parent="." index="3" unique_id=1891362098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.800728, 14.189088, 0.37104893)
 
 [node name="HTerrain" type="Node3D" parent="." index="4" unique_id=451826460]

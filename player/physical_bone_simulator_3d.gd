@@ -3,13 +3,10 @@ extends PhysicalBoneSimulator3D
 var player: Player
 var skeleton: Skeleton3D
 
-@onready var selector = $"../../../../SpawnpointSelector"
-
 # Syncs player entity and skeleton of the player
 func _ready() -> void:
 	player = $"../../../.."
 	skeleton = get_parent()
-	print(skeleton)
 
 # Call this function
 func ragdoll(duration: float):
@@ -25,7 +22,6 @@ func ragdoll_request(duration: float):
 
 func ragdoll_ground_check() -> bool:
 	var pelvis_pos = player.ragdoll_phys.get_node("Physical Bone Pelvis").global_position
-	print(pelvis_pos)
 	var query = PhysicsRayQueryParameters3D.create(pelvis_pos, pelvis_pos + Vector3(0, -10, 0))
 	query.collision_mask = 1
 	query.exclude = [player.get_rid()]
@@ -65,9 +61,9 @@ func trigger_ragdoll(duration: float):
 	if ragdoll_ground_check():
 		player.global_position = ragdoll_pos
 	if not is_valid_ground():
-		var spawner = get_tree().get_first_node_in_group("Spawnpoints")
-		if spawner:
-			player.global_position = spawner.get_safe_spawn_point()
+		var playerSpawns = get_tree().root.get_node("World/Players")
+		if playerSpawns:
+			player.global_position = playerSpawns.get_safe_spawn_point()
 		else:
 			Debug.log_err("No spawner found in scene, and player ragdolled onto invalid ground. Player will be teleported to world origin.")
 			player.global_position = Vector3.ZERO
