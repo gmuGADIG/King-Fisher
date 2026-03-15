@@ -77,7 +77,8 @@ func end_ragdoll() -> void:
 	skeleton.reset_bone_poses()
 
 func can_ragdoll() -> bool:
-	if player_items.has_helmet:
+	if player_items.helmet:
 		Debug.log("Player has helmet, cannot ragdoll.")
+		player_items.helmet = false
 		return false
 	return true
