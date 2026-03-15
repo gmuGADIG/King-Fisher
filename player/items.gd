@@ -1,4 +1,7 @@
 extends Node
 class_name PlayerItemManager
 
-var helmet: bool = false
+var helmet
+
+func _ready() -> void:
+	helmet = false

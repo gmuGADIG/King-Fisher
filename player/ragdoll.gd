@@ -5,7 +5,11 @@ var skeleton: Skeleton3D
 var player_items: PlayerItemManager
 
 # Syncs player entity and skeleton of the player
-func _ready() -> void:
+# Deferred due to needing to wait for player_items to have been initialized
+func _ready():
+	call_deferred("do_setup")
+
+func do_setup():
 	player = $"../../../.."
 	player_items = player.items
 	skeleton = get_parent()
@@ -50,7 +54,7 @@ func start_ragdoll(duration: float):
 		Debug.log("Not the server, and not the client that triggered this, ignoring")
 		return
 	if player.is_ragdolled: return
-	if !player.can_ragdoll(): return
+	if !can_ragdoll(): return
 
 	player.is_ragdolled = true
 	physical_bones_start_simulation()
