@@ -15,11 +15,13 @@ var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
 
 # Unused
-# @onready var rd_utils: RagdollUtils = %RagdollUtils
 @onready var ragdoll_phys : PhysicalBoneSimulator3D = $Body/Armature/Skeleton3D/Bones
 
 @onready var camera_mount : Node3D = $CameraMount
 @onready var camera : Camera3D = camera_mount.get_node("Camera3D")
+
+# Item Variables
+@onready var items: PlayerItemManager = $PlayerItemManager
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -92,7 +94,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
-		ragdoll_phys.ragdoll(5)
+		# ragdoll_phys.ragdoll(5)
+		pass
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	if event.is_action_pressed("use_item"):
