@@ -90,9 +90,8 @@ func update_camera() -> void:
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		camera_yaw += -event.relative.x
-		camera_mount.rotation.y = deg_to_rad(camera_yaw)
-	# Test case.
+		camera_yaw += -event.relative.x * Options.mouse_sensitivity
+		$CameraMount.rotation.y = deg_to_rad(camera_yaw)
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
@@ -125,3 +124,6 @@ func use_held_item() -> void:
 	if held_item==null:return
 	held_item.use()
 	held_item=null
+
+func give_fish(fish : Fish) -> void:
+	Debug.log("Player got fish!")

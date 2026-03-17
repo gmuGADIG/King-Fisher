@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://gt402qqhab7j"]
+[gd_scene format=3 uid="uid://gt402qqhab7j"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/resize_dialog/resize_dialog.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://b4ya0po3a4nqa" path="res://addons/zylann.hterrain/tools/icons/icon_heightmap_unmask.svg" id="2"]

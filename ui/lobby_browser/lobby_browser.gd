@@ -45,3 +45,7 @@ func _on_found_server(ip: String, hostname: String, playerCount: String) -> void
 	)
 
 	%ServerInfoParent.add_child(server_info)
+
+
+func _on_refresh_button_pressed() -> void:
+	Multiplayer.scan_clock = 0

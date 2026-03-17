@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")
 [file_customization]
 
 folder_colors={
+"res://fish/": "pink",
 "res://items/": "red",
 "res://player/": "orange",
 "res://systems/": "yellow",

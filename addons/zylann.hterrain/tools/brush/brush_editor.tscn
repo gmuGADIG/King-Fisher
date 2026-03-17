@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd42ig216p216"]
+[gd_scene format=3 uid="uid://bd42ig216p216"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/brush/brush_editor.gd" id="1"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/util/interval_slider.gd" id="3"]
