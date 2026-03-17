@@ -22,8 +22,7 @@ var held_item: Item
 @onready var ragdoll_phys : PhysicalBoneSimulator3D = $Body/Armature/Skeleton3D/Bones
 
 # Item Variables
-@onready var items: PlayerItemManager = $PlayerItemManager
-
+var wearing_helmet := false
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:

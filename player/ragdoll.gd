@@ -2,16 +2,11 @@ extends PhysicalBoneSimulator3D
 
 var player: Player
 var skeleton: Skeleton3D
-var player_items: PlayerItemManager
 
 # Syncs player entity and skeleton of the player
 # Deferred due to needing to wait for player_items to have been initialized
 func _ready():
-	call_deferred("do_setup")
-
-func do_setup():
 	player = $"../../../.."
-	player_items = player.items
 	skeleton = get_parent()
 
 # Call this function
@@ -81,8 +76,8 @@ func end_ragdoll() -> void:
 	skeleton.reset_bone_poses()
 
 func can_ragdoll() -> bool:
-	if player_items.helmet:
+	if player.wearing_helmet:
 		Debug.log("Player has helmet, cannot ragdoll.")
-		player_items.helmet = false
+		player.wearing_helmet = false
 		return false
 	return true
