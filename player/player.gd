@@ -14,7 +14,16 @@ const GRAVITY := 30.
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
 
-@onready var rd_utils: RagdollUtils = %RagdollUtils
+
+@onready var camera_mount : Node3D = $CameraMount
+@onready var camera : Camera3D = camera_mount.get_node("Camera3D")
+
+# Ragdoll
+@onready var ragdoll_phys : PhysicalBoneSimulator3D = $Body/Armature/Skeleton3D/Bones
+
+# Item Variables
+var wearing_helmet := false
+
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
 	set(new_val):
@@ -29,9 +38,6 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _process(delta: float) -> void:
-	# don't move when being ragdolled.
-	# we are invisible, the ragdolling is doing all the movement
-	# TODO: update ragdoll code with player character and skeleton
 	if is_ragdolled: return
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -51,7 +57,24 @@ func _process(delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
+		handle_camera_position()
+
 	move_and_slide()
+
+var old_cam_pos = Vector3.ZERO
+func handle_camera_position() -> void:
+	if is_ragdolled:
+		if old_cam_pos == Vector3.ZERO:
+			old_cam_pos = camera.position
+
+		var target_pos = ragdoll_phys.get_node("Physical Bone Pelvis").global_position
+		camera_mount.global_position = target_pos
+		camera.position = old_cam_pos
+	else:
+		if old_cam_pos != Vector3.ZERO:
+			camera.position = old_cam_pos
+			old_cam_pos = Vector3.ZERO
+		camera_mount.position = Vector3.ZERO
 
 @rpc("reliable","authority","call_local")
 func set_authority(id : int):
@@ -61,7 +84,7 @@ func set_authority(id : int):
 @rpc("reliable","authority","call_remote")
 func update_camera() -> void:
 	var is_correct_camera = get_multiplayer_authority() == multiplayer.get_unique_id()
-	$CameraMount/Camera3D.current = is_correct_camera
+	camera.current = is_correct_camera
 
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
@@ -69,14 +92,15 @@ func _input(event: InputEvent) -> void:
 		camera_yaw += -event.relative.x * Options.mouse_sensitivity
 		$CameraMount.rotation.y = deg_to_rad(camera_yaw)
 	if event.is_action_pressed("scoreboard"):
-		rd_utils.spawn_ragdoll.rpc(5)
+		pass
+	if event.is_action_pressed("test1"):
+		ragdoll_phys.ragdoll(5)
+		pass
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	if event.is_action_pressed("use_item"):
 		#TODO: Don't let this happen if the player is aiming.
 		use_held_item.rpc()
-
-
 
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
