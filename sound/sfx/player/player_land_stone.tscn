@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://player_land_stone_0001"]
+
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/stone/se_player_land_stone-001.ogg" id="1_land_stone_001"]
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/stone/se_player_land_stone-002.ogg" id="2_land_stone_002"]
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/stone/se_player_land_stone-003.ogg" id="3_land_stone_003"]
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/stone/se_player_land_stone-004.ogg" id="4_land_stone_004"]
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/stone/se_player_land_stone-005.ogg" id="5_land_stone_005"]
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/stone/se_player_land_stone-006.ogg" id="6_land_stone_006"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_land_stone"]
+streams_count = 6
+stream_0/stream = ExtResource("1_land_stone_001")
+stream_1/stream = ExtResource("2_land_stone_002")
+stream_2/stream = ExtResource("3_land_stone_003")
+stream_3/stream = ExtResource("4_land_stone_004")
+stream_4/stream = ExtResource("5_land_stone_005")
+stream_5/stream = ExtResource("6_land_stone_006")
+
+[node name="PlayerLandStone" type="AudioStreamPlayer3D" unique_id=301000002]
+stream = SubResource("AudioStreamRandomizer_land_stone")
+

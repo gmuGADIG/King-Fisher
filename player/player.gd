@@ -21,6 +21,12 @@ var is_aiming := false
 @onready var camera : Camera3D = camera_mount.get_node("Camera3D")
 @onready var audio_listener : AudioListener3D = $AudioListener3D
 
+#Jump sound
+@onready var jump_sound : AudioStreamPlayer3D = $Sounds/PlayerJump
+
+@onready var landing_grass_sound : AudioStreamPlayer3D = $Sounds/PlayerLandGrass
+@onready var landing_stone_sound : AudioStreamPlayer3D = $Sounds/PlayerLandStone
+
 # Footsteps
 @onready var footsteps_grass : AudioStreamPlayer3D = $Sounds/FootstepsGrass
 @onready var footsteps_stone : AudioStreamPlayer3D = $Sounds/FootstepsStone
@@ -29,12 +35,20 @@ var is_aiming := false
 @export var footstep_distance : float = 1.0
 @export var min_footstep_period : float = 0.5
 
+@export var landing_velocity_threshold: float = 6.0
+@export var min_landing_period: float = 0.15
+
 enum FootstepState {GRASS, STONE, SNOW}
 var footstep_state : FootstepState = FootstepState.GRASS
 
 # footstep timing.
 var _footstep_accum_distance := 0.0
 var _footstep_time_since_last := 0.0
+
+var _landing_time_since_last := 0.0
+
+var _jump_event_id: int = 0
+var _last_played_jump_event_id: int = -1
 
 # Ragdoll
 @onready var ragdoll_phys : PhysicalBoneSimulator3D = $Body/Armature/Skeleton3D/Bones
@@ -58,6 +72,9 @@ func _ready() -> void:
 	_footstep_accum_distance = 0.0
 	# Allow an immediate first step once enough distance is accumulated.
 	_footstep_time_since_last = min_footstep_period
+	_landing_time_since_last = min_landing_period
+	_jump_event_id = 0
+	_last_played_jump_event_id = -1
 
 func _process(delta: float) -> void:
 	# don't process input if ragdolled
@@ -77,6 +94,9 @@ func _process(delta: float) -> void:
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = 15.
+		_jump_event_id += 1
+		_on_jump_event(_jump_event_id)
+		sync_jump_event.rpc(_jump_event_id)
 
 	if input != Vector2.ZERO:
 		$Body.turn_towards(movement_dir.rotated(-PI/2), delta)
@@ -88,12 +108,15 @@ func _process(delta: float) -> void:
 		Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
 
 func _physics_process(delta: float) -> void:
+	var was_on_floor := is_on_floor()
+	var pre_velocity_y := velocity.y
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
 		handle_camera_position()
 
 	move_and_slide()
 	_update_footsteps(delta)
+	_update_landing_sfx(delta, was_on_floor, pre_velocity_y)
 
 var old_cam_pos = Vector3.ZERO
 func handle_camera_position() -> void:
@@ -143,6 +166,22 @@ func _input(event: InputEvent) -> void:
 func sync_velocity(vel: Vector3) -> void:
 	velocity = vel
 
+@rpc("unreliable")
+func sync_jump_event(event_id: int) -> void:
+	_on_jump_event(event_id)
+
+func _on_jump_event(event_id: int) -> void:
+	if event_id <= _last_played_jump_event_id:
+		return
+	if is_ragdolled:
+		return
+
+	_last_played_jump_event_id = event_id
+
+	if jump_sound.playing:
+		jump_sound.stop()
+	jump_sound.play()
+
 func _update_footsteps(delta: float) -> void:
 	if is_ragdolled:
 		_footstep_accum_distance = 0.0
@@ -189,6 +228,45 @@ func _play_footstep() -> void:
 		FootstepState.SNOW:
 			# No SNOW stream wired yet
 			p = footsteps_grass
+
+	if p == null:
+		return
+
+	if p.playing:
+		p.stop()
+	p.play()
+
+func _update_landing_sfx(delta: float, was_on_floor: bool, pre_velocity_y: float) -> void:
+	_landing_time_since_last += delta
+
+	if is_ragdolled:
+		_landing_time_since_last = min_landing_period
+		return
+
+	if was_on_floor:
+		return
+	if not is_on_floor():
+		return
+
+	if _landing_time_since_last < min_landing_period:
+		return
+
+	var impact_speed := -pre_velocity_y
+	if impact_speed < landing_velocity_threshold:
+		return
+
+	_play_landing_sfx()
+	_landing_time_since_last = 0.0
+
+func _play_landing_sfx() -> void:
+	var p: AudioStreamPlayer3D = landing_grass_sound
+	match footstep_state:
+		FootstepState.GRASS:
+			p = landing_grass_sound
+		FootstepState.STONE:
+			p = landing_stone_sound
+		FootstepState.SNOW:
+			p = landing_grass_sound
 
 	if p == null:
 		return
