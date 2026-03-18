@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 const GRAVITY := 30.
+const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 
 # Ragdoll
 @export_group("Scenes")
@@ -18,6 +19,22 @@ var is_aiming := false
 
 @onready var camera_mount : Node3D = $CameraMount
 @onready var camera : Camera3D = camera_mount.get_node("Camera3D")
+@onready var audio_listener : AudioListener3D = $AudioListener3D
+
+# Footsteps
+@onready var footsteps_grass : AudioStreamPlayer3D = $Sounds/FootstepsGrass
+@onready var footsteps_stone : AudioStreamPlayer3D = $Sounds/FootstepsStone
+
+# Distance between footstep sounds
+@export var footstep_distance : float = 1.0
+@export var min_footstep_period : float = 0.5
+
+enum FootstepState {GRASS, STONE, SNOW}
+var footstep_state : FootstepState = FootstepState.GRASS
+
+# footstep timing.
+var _footstep_accum_distance := 0.0
+var _footstep_time_since_last := 0.0
 
 # Ragdoll
 @onready var ragdoll_phys : PhysicalBoneSimulator3D = $Body/Armature/Skeleton3D/Bones
@@ -37,6 +54,10 @@ var wearing_helmet := false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	last_pos = global_position
+	_footstep_accum_distance = 0.0
+	# Allow an immediate first step once enough distance is accumulated.
+	_footstep_time_since_last = min_footstep_period
 
 func _process(delta: float) -> void:
 	# don't process input if ragdolled
@@ -66,12 +87,13 @@ func _process(delta: float) -> void:
 		%Aiming.stop_aiming()
 		Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
 		handle_camera_position()
 
 	move_and_slide()
+	_update_footsteps(delta)
 
 var old_cam_pos = Vector3.ZERO
 func handle_camera_position() -> void:
@@ -92,11 +114,12 @@ func handle_camera_position() -> void:
 func set_authority(id : int):
 	set_multiplayer_authority(id)
 	update_camera()
+	if id == multiplayer.get_unique_id():
+		audio_listener.make_current()
 
 @rpc("reliable","authority","call_remote")
 func update_camera() -> void:
-	var is_correct_camera = get_multiplayer_authority() == multiplayer.get_unique_id()
-	camera.current = is_correct_camera
+	camera.current = get_multiplayer_authority() == multiplayer.get_unique_id()
 
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
@@ -119,6 +142,60 @@ func _input(event: InputEvent) -> void:
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
 	velocity = vel
+
+func _update_footsteps(delta: float) -> void:
+	if is_ragdolled:
+		_footstep_accum_distance = 0.0
+		_footstep_time_since_last = min_footstep_period
+		last_pos = global_position
+		return
+
+	_footstep_time_since_last += delta
+
+	# Horizontal distance traveled since last physics tick.
+	var current_pos := global_position
+	var delta_pos := current_pos - last_pos
+	delta_pos.y = 0.0
+	last_pos = current_pos
+	var horiz_dist := delta_pos.length()
+
+	if not is_on_floor():
+		_footstep_accum_distance = 0.0
+		return
+
+	var horiz_speed := Vector2(velocity.x, velocity.z).length()
+	if horiz_speed < FOOTSTEP_MIN_HORIZONTAL_SPEED:
+		_footstep_accum_distance = 0.0
+		return
+
+	_footstep_accum_distance += horiz_dist
+
+	if footstep_distance <= 0.0:
+		return
+
+	# Enforce a max footstep rate
+	if _footstep_accum_distance >= footstep_distance and _footstep_time_since_last >= min_footstep_period:
+		_play_footstep()
+		_footstep_accum_distance = max(0.0, _footstep_accum_distance - footstep_distance)
+		_footstep_time_since_last = 0.0
+
+func _play_footstep() -> void:
+	var p: AudioStreamPlayer3D = footsteps_grass
+	match footstep_state:
+		FootstepState.GRASS:
+			p = footsteps_grass
+		FootstepState.STONE:
+			p = footsteps_stone
+		FootstepState.SNOW:
+			# No SNOW stream wired yet
+			p = footsteps_grass
+
+	if p == null:
+		return
+
+	if p.playing:
+		p.stop()
+	p.play()
 
 func pick_up_item(item: Item) -> void:
 	# TODO: Parent it to the player's hand?
