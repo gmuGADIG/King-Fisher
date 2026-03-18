@@ -4,27 +4,30 @@ extends Node3D
 @export var player : PackedScene
 
 func _ready() -> void:
-	
+	Multiplayer.new_player.connect(on_player_join)
 	if multiplayer.is_server():
-		Multiplayer.new_player.connect(on_player_join)
 		Debug.log("Creating player...")
-		spawn_player(1)
+		spawn_player.rpc(1, $Players.get_safe_spawn_point())
 		$CanvasLayer/VBoxContainer/Label.text = "Server"
 	else:
 		$CanvasLayer/VBoxContainer/Label.text = "Client"
-	pass
 
 func on_player_join(id : int) -> void:
-	spawn_player(id)
+	if not multiplayer.is_server():
+		return
+	
+	
+	for player_id in Multiplayer.player_list:
+		if player_id != id:
+			spawn_player.rpc_id(id,player_id,Vector3.ZERO)
+	spawn_player.rpc(id,Vector3.ZERO)
+	
 
-func spawn_player(id: int) -> void:
+@rpc("reliable", "call_local")
+func spawn_player(id: int, pos: Vector3) -> void:
 	Debug.log("Creating player of id ",id)
 	var new_player: Player = player.instantiate()
-	# WARNING you HAVE to set position before adding child or else you DIE.
-	new_player.position = $Players.get_safe_spawn_point()
-	$Players.add_child(new_player,true)
+	new_player.set_multiplayer_authority(id)
 	
-	new_player.set_authority.rpc(id)
-	#new_player.update_camera.rpc_id(id)`
-	
-	Debug.log(new_player.position)
+	add_child(new_player)
+	new_player.position = pos
