@@ -192,7 +192,7 @@ transform = Transform3D(-2.4748346e-09, 0, 0.056617618, 0, 0.056617618, 0, -0.05
 shape = SubResource("ConvexPolygonShape3D_yiiti")
 
 [node name="Water" parent="." index="10" unique_id=264827860 instance=ExtResource("13_xedpn")]
-transform = Transform3D(4.3635206, 0, 2.7110884, 0, 5.1371503, 0, -2.7110884, 0, 4.3635206, -6.453546, 8.38803, 9.909109)
+transform = Transform3D(4.990994, 0, -1.2166736, 0, 5.1371503, 0, 1.2166736, 0, 4.990994, -6.7974133, 8.388029, 10.1483135)
 
 [editable path="KF_smooth_small-mushroom1"]
 [editable path="KF_tall_mushroom1"]
