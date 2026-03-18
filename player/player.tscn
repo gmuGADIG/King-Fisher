@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c0h4ahbau2lur" path="res://art/3d-assets/Bean.glb" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://bqpwk0pccci1t" path="res://player/ragdoll.gd" id="6_boad6"]
 [ext_resource type="Script" uid="uid://c3ahl7fgjexil" path="res://player/aiming.gd" id="6_g6k8r"]
+[ext_resource type="PackedScene" uid="uid://gepb6fuq6ysv" path="res://sound/sfx/footsteps/footsteps_grass.tscn" id="7_rgyib"]
+[ext_resource type="PackedScene" uid="uid://5aei5tauflq7" path="res://sound/sfx/footsteps/footsteps_stone.tscn" id="8_hg6s5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -85,6 +87,8 @@ height = 0.33034313
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_onrkg")
+footstep_distance = 3.5
+min_footstep_period = 0.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1812883740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -99,6 +103,9 @@ transform = Transform3D(1, 0, 0, 0, 0.96732086, 0.25355536, 0, -0.25355536, 0.96
 [node name="Camera3D" type="Camera3D" parent="CameraMount" unique_id=1888578000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.945792, 6.341495)
 
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1888578001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6547399, 0)
+
 [node name="RagdollUtils" type="Node" parent="." unique_id=1212185737]
 unique_name_in_owner = true
 
@@ -107,10 +114,10 @@ transform = Transform3D(1.1906586, 0, 0, 0, 1.1906586, 0, 0, 0, 1.1906586, 0, 0,
 script = ExtResource("2_pmesh")
 rotation_speed_curve = SubResource("Curve_pmesh")
 
-[node name="Bean" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 876268180) index="0" unique_id=155860391]
+[node name="Bean" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 854206497) index="0" unique_id=1061560466]
 layers = 2
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 876268180) index="1" unique_id=1885720731]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 854206497) index="1" unique_id=1885720731]
 script = ExtResource("6_boad6")
 
 [node name="Physical Bone Pelvis" type="PhysicalBone3D" parent="Body/Armature/Skeleton3D/Bones" unique_id=1014286577]
@@ -1211,5 +1218,11 @@ mesh = SubResource("SphereMesh_boad6")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 target_position = Vector3(0, -10, 0)
+
+[node name="Sounds" type="Node" parent="." unique_id=1646215265]
+
+[node name="FootstepsGrass" parent="Sounds" unique_id=1032111526 instance=ExtResource("7_rgyib")]
+
+[node name="FootstepsStone" parent="Sounds" unique_id=728023090 instance=ExtResource("8_hg6s5")]
 
 [editable path="Body"]
