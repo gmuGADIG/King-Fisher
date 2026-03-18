@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dm41gwejdfgy" path="res://player/player_id.gd" id="5_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://c0h4ahbau2lur" path="res://art/3d-assets/Bean.glb" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://bqpwk0pccci1t" path="res://player/ragdoll.gd" id="6_boad6"]
+[ext_resource type="Script" uid="uid://c3ahl7fgjexil" path="res://player/aiming.gd" id="6_g6k8r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -77,6 +78,8 @@ height = 0.16894531
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e7oew"]
 radius = 0.15673828
 height = 0.33034313
+
+[sub_resource type="SphereMesh" id="SphereMesh_boad6"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1653185810 groups=["Player"]]
 collision_layer = 2
@@ -1195,5 +1198,18 @@ text = "1234"
 font_size = 47
 outline_size = 25
 script = ExtResource("5_g6k8r")
+
+[node name="Aiming" type="Node3D" parent="." unique_id=1376626479]
+unique_name_in_owner = true
+script = ExtResource("6_g6k8r")
+
+[node name="AimIndicator" type="MeshInstance3D" parent="Aiming" unique_id=286163285]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_boad6")
+
+[node name="AimRayCast" type="RayCast3D" parent="Aiming" unique_id=1055354609]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+target_position = Vector3(0, -10, 0)
 
 [editable path="Body"]
