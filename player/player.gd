@@ -38,7 +38,10 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _process(delta: float) -> void:
+	# don't process input if ragdolled
 	if is_ragdolled: return
+	# don't process input if this is not our player
+	if not is_multiplayer_authority(): return
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))
