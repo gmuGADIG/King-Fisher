@@ -84,7 +84,7 @@ func _process(delta: float) -> void:
 	# don't process input if this is not our player
 	if not is_multiplayer_authority(): return
 	
-	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var input := Input.get_vector("Move Left", "Move Right", "Move Up", "Move Down")
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += GRAVITY * delta * Vector3.DOWN
 	
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if is_on_floor() and Input.is_action_just_pressed("Jump"):
 		velocity.y = 15.
 		_jump_event_id += 1
 		_on_jump_event(_jump_event_id)
@@ -101,9 +101,9 @@ func _process(delta: float) -> void:
 	if input != Vector2.ZERO:
 		$Body.turn_towards(movement_dir.rotated(-PI/2), delta)
 	
-	if Input.is_action_just_pressed("cast_rod"):
+	if Input.is_action_just_pressed("Cast Rod"):
 		%Aiming.start_aiming()
-	if Input.is_action_just_released("cast_rod"):
+	if Input.is_action_just_released("Cast Rod"):
 		%Aiming.stop_aiming()
 		Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
 
@@ -147,15 +147,15 @@ func update_camera() -> void:
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority(): return
 
-	if event.is_action_pressed("scoreboard"):
+	if event.is_action_pressed("Scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
 		ragdoll_phys.ragdoll(5)
-	if event.is_action_pressed("print_players"):
+	if event.is_action_pressed("Print Players"):
 		Debug.print_players()
 	
 	if not is_aiming:
-		if event.is_action_pressed("use_item"):
+		if event.is_action_pressed("Use Item"):
 			use_held_item.rpc()
 		if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			camera_yaw += -event.relative.x * Options.mouse_sensitivity
