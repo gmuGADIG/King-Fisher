@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://pqpwm6albbas"]
 
+[ext_resource type="Script" uid="uid://cnmecejcex102" path="res://world/water/water.gd" id="1_delex"]
 [ext_resource type="Shader" uid="uid://bdinw1hgi5x7s" path="res://world/water/water.tres" id="1_nl8eq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s33lq"]
 render_priority = 0
 shader = ExtResource("1_nl8eq")
+shader_parameter/displacement = 0.1
 shader_parameter/base_color = Color(0.116, 0.348, 0.58, 1)
 shader_parameter/noise_intensity = 2.0
 shader_parameter/noise_speed = 0.1
@@ -15,6 +17,9 @@ subdivide_width = 32
 subdivide_depth = 32
 
 [node name="Water" type="Node3D" unique_id=264827860]
+script = ExtResource("1_delex")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1707239035]
 mesh = SubResource("PlaneMesh_delex")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

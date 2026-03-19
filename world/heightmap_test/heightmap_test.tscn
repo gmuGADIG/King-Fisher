@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_kdmys"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_e1k8i"]
-[ext_resource type="Resource" uid="uid://bq2j3836eeqkr" path="res://world/heightmap_test/terrain/data.hterrain" id="3_76bih"]
+[ext_resource type="Resource" path="res://world/heightmap_test/terrain/data.hterrain" id="3_76bih"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_v7pb5"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_v7pb5"]
 [ext_resource type="Texture2D" uid="uid://ju1r6htpq1lg" path="res://art/2d-fish/549125607-cba34d9c-72a2-4935-aae4-7168c4c57bba.png" id="6_v7pb5"]
@@ -118,7 +118,7 @@ texture = ExtResource("8_prfaa")
 [node name="KF_smooth_small-mushroom1" parent="." index="7" unique_id=2050632169 instance=ExtResource("7_yiiti")]
 transform = Transform3D(0.99999946, 0, 0, 0, 1, 0, 0, 0, 0.99999946, 19.254784, 10.29523, 7.2669277)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001" parent_id_path=PackedInt32Array(2050632169, 1562407774) index="0" unique_id=1568313466]
+[node name="StaticBody3D" type="StaticBody3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001" parent_id_path=PackedInt32Array(2050632169, 969612916) index="0" unique_id=1568313466]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001/StaticBody3D" index="0" unique_id=1103290081]
 shape = SubResource("ConvexPolygonShape3D_3ke4q")
@@ -159,7 +159,7 @@ shape = SubResource("ConvexPolygonShape3D_1e8c5")
 [node name="KF_tall_mushroom1" parent="." index="8" unique_id=527376360 instance=ExtResource("8_xedpn")]
 transform = Transform3D(-1.0062615, 0, -1.1372514, 0, 1.518521, 0, 1.1372514, 0, -1.0062615, 24.312057, 8.415833, -3.8102906)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="KF_tall_mushroom1/tall_mushroom" parent_id_path=PackedInt32Array(527376360, 226729056) index="0" unique_id=895767342]
+[node name="StaticBody3D" type="StaticBody3D" parent="KF_tall_mushroom1/tall_mushroom" parent_id_path=PackedInt32Array(527376360, 716404379) index="0" unique_id=895767342]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KF_tall_mushroom1/tall_mushroom/StaticBody3D" index="0" unique_id=959880080]
 shape = SubResource("ConvexPolygonShape3D_3ntwh")
@@ -173,7 +173,7 @@ shape = SubResource("ConvexPolygonShape3D_j5ttv")
 [node name="CampFire2" parent="." index="9" unique_id=647019613 instance=ExtResource("7_4yewi")]
 transform = Transform3D(13.450294, 0, 0, 0, 13.450294, 0, 0, 0, 13.450294, 6.981497, 12.203914, -2.9359941)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CampFire2/Node/CampFire" parent_id_path=PackedInt32Array(647019613, 1287320665) index="0" unique_id=786697091]
+[node name="StaticBody3D" type="StaticBody3D" parent="CampFire2/Node/CampFire" parent_id_path=PackedInt32Array(647019613, 2090562524) index="0" unique_id=786697091]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CampFire2/Node/CampFire/StaticBody3D" index="0" unique_id=1433640708]
 shape = SubResource("ConvexPolygonShape3D_2t4rl")
@@ -196,7 +196,7 @@ shape = SubResource("BoxShape3D_yiiti")
 [node name="Tent" parent="." index="11" unique_id=416493273 instance=ExtResource("10_rtmia")]
 transform = Transform3D(-2.4748346e-09, 0, 0.056617618, 0, 0.056617618, 0, -0.056617618, 0, -2.4748346e-09, 6.3443394, 12.331709, -10.152442)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Tent/Node/Box003" parent_id_path=PackedInt32Array(416493273, 694099233) index="0" unique_id=1047692201]
+[node name="StaticBody3D" type="StaticBody3D" parent="Tent/Node/Box003" parent_id_path=PackedInt32Array(416493273, 1265050396) index="0" unique_id=1047692201]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tent/Node/Box003/StaticBody3D" index="0" unique_id=951231013]
 shape = SubResource("ConvexPolygonShape3D_yiiti")
