@@ -7,24 +7,18 @@
 [ext_resource type="AudioStream" uid="uid://cn1uje7bnu2bc" path="res://temp/temp_sfx/test_explode_small.wav" id="5_6b33u"]
 [ext_resource type="Texture2D" uid="uid://c0g1tho1n5fbj" path="res://temp/temp_art/exploding-head.png" id="5_8v4n0"]
 [ext_resource type="PackedScene" uid="uid://cii25od3gem26" path="res://systems/rhythm/rhythm_engine.tscn" id="5_mq61g"]
-[ext_resource type="Texture2D" uid="uid://iaien10yw0dm" path="res://temp/temp_art/fish-seven.png" id="5_qtk6o"]
 [ext_resource type="Texture2D" uid="uid://bmxsuarykfoe3" path="res://temp/temp_art/smiley.png" id="5_v1gag"]
 [ext_resource type="AudioStream" uid="uid://u26laeo3h1xe" path="res://temp/temp_sfx/test_click.wav" id="6_8v4n0"]
-[ext_resource type="Texture2D" uid="uid://iuoaof0oh7dp" path="res://temp/temp_art/evil-burger2.png" id="7_yhodo"]
 
 [node name="FishingMiniGame" type="CanvasLayer" unique_id=332912207]
 script = ExtResource("1_qgtvk")
 track = ExtResource("2_6b33u")
 tick_sprite = ExtResource("2_5yaa5")
 note_marker_sprite = ExtResource("3_6g0ko")
-note_marker_articulated_sprite = ExtResource("5_qtk6o")
 tap_marker_sprite = ExtResource("5_8v4n0")
-tap_marker_articulated_sprite = ExtResource("7_yhodo")
 tick_scale = 0.05
 note_marker_scale = 0.2
-note_marker_articulated_scale = 0.2
-tap_marker_articulated_scale = 0.2
-tap_marker_scale = 0.5
+tap_marker_scale = null
 hit_sfx = ExtResource("5_6b33u")
 hit_sfx_art = ExtResource("6_8v4n0")
 
@@ -36,7 +30,7 @@ default_color = Color(0.73683435, 0.8248663, 1, 1)
 [node name="PlayerLine" type="Line2D" parent="." unique_id=378649705]
 position = Vector2(150, 583)
 points = PackedVector2Array(0, 0, 800, 0)
-default_color = Color(1, 0.6926795, 0.64385, 1)
+default_color = Color(0.73683435, 0.8248663, 1, 1)
 
 [node name="Indicator" type="Sprite2D" parent="PlayerLine" unique_id=1567962701]
 z_index = 2
