@@ -10,6 +10,7 @@ var current_action: StringName
 var current_button: Button
 
 func _ready() -> void:
+	load_keybinds()
 	for action in InputMap.get_actions():
 		if action.begins_with("ui_") or action.begins_with("debug_"): continue
 		var binding = binding_prototype.duplicate()
@@ -35,7 +36,25 @@ func _input(event: InputEvent) -> void:
 		current_button.text = event.as_text()
 		current_button.release_focus()
 		current_button = null
+		save_keybinds()
 	#else:  # Useful for checking if an input is bound to an action
 		#for action in keybind_buttons.keys():
 			#if (event.is_action(action)):
 				#print("%s binds to %s!" % [event.as_text(), action])
+
+func save_keybinds() -> void:
+	var keybind_dict: Dictionary[StringName, InputEvent]
+	for action in keybind_buttons.keys():
+		keybind_dict[action] = InputMap.action_get_events(action)[0]
+	var save_file = FileAccess.open("user://keybinds.cfg", FileAccess.WRITE)
+	save_file.store_var(keybind_dict, true)
+
+func load_keybinds() -> void:
+	var save_file = FileAccess.open("user://keybinds.cfg", FileAccess.READ)
+	if save_file:
+		var keybind_dict: Dictionary[StringName, InputEvent] = save_file.get_var(true)
+		for action in keybind_dict:
+			print(keybind_dict[action].as_text())
+			InputMap.action_erase_events(action)
+			InputMap.action_add_event(action, keybind_dict[action])
+		print("KEYBINDS LOADED")
