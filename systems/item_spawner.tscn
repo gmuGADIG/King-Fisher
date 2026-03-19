@@ -7,17 +7,25 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r7rn"]
 size = Vector3(20, 0.001, 20)
 
-[node name="ItemSpawner" type="CollisionShape3D" unique_id=1588789630]
+[node name="ItemSpawner" type="CollisionShape3D" unique_id=1588789630 node_paths=PackedStringArray("spawnTimer")]
 shape = SubResource("BoxShape3D_4r7rn")
 script = ExtResource("1_ptd0p")
 items = Array[PackedScene]([ExtResource("2_lcldm"), ExtResource("3_h2xnj")])
+spawnRate = 0.8
+spawnTimer = NodePath("SpawnTimer")
 
 [node name="Label" type="Label3D" parent="." unique_id=318015826]
-transform = Transform3D(2.3369606, 0, 0, 0, 1.5772508, 0, 0, 0, 1, 0, 0, 0)
-offset = Vector2(0, -21)
+transform = Transform3D(23.259226, 17.372992, 3.0908645e-08, 0, -1.0739504e-06, 1.0000007, 23.259226, -17.372992, -3.0908637e-08, 0, 0, 0)
+modulate = Color(1, 1, 1, 0.18431373)
+outline_modulate = Color(0, 0, 0, 0.21176471)
 text = "ITEM
 SPAWNER
-
-+"
-vertical_alignment = 2
+SPAWNS
+ITEMS"
 line_spacing = -10.0
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1364103827]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
