@@ -5,6 +5,8 @@ class_name Note extends Resource
 ##If selected, the player will need to hit the articulation button instead
 @export var is_articulated: bool
 
-func _init(_beat_position: float, _is_articulated: bool = false) -> void:
+
+
+func _init(_beat_position: float = 0, _is_articulated: bool = false) -> void:
 	beat_position = _beat_position
 	is_articulated = _is_articulated
