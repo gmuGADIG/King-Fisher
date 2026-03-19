@@ -41,10 +41,13 @@ func getItemSpawnLocation() -> void:
 		# Fire raycast
 		
 		var space_state = get_world_3d().direct_space_state
-		var query = PhysicsRayQueryParameters3D.create(rayCastOrigin, rayCastDestination, 1)
+		var query = PhysicsRayQueryParameters3D.create(rayCastOrigin, rayCastDestination)
+		query.collide_with_areas = true
 		var result = space_state.intersect_ray(query)
 		
 		# Check if you hit anything. Because the query is masked to only look at layer 1, "World".
+		var resultCollider: Node3D = result["collider"]
+		print(resultCollider.collision_layer)
 		if result:
 			print("Hit at point: ", result.position)
 			# If so, spawn random fish

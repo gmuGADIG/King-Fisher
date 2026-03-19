@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ck8obcgulgo8p" path="res://items/item_test_2.tscn" id="3_h2xnj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r7rn"]
-size = Vector3(20, 0.001, 20)
+size = Vector3(25.931152, 0.001, 19.972504)
 
 [node name="ItemSpawner" type="CollisionShape3D" unique_id=1588789630 node_paths=PackedStringArray("spawnTimer")]
 shape = SubResource("BoxShape3D_4r7rn")
