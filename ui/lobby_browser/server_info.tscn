@@ -6,6 +6,7 @@
 custom_minimum_size = Vector2(300, 0)
 script = ExtResource("1_7crmb")
 ip = "192.168.1.2"
+hostname = "- Hostname -"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1430094084]
 layout_mode = 2
@@ -17,8 +18,23 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=564481778]
 layout_mode = 2
 
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=673213215]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hostname"
+
+[node name="SpaceLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=7792534]
+layout_mode = 2
+text = "-"
+
+[node name="CountLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=817665762]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0/0"
+
 [node name="IPLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=165369734]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "192.168.1.2"
 

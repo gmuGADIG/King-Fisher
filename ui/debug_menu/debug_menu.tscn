@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bojr30uqdlyje"]
 
 [ext_resource type="Script" uid="uid://bgbsvtifnsja3" path="res://ui/debug_menu/debug_menu.gd" id="1_2lwgs"]
+[ext_resource type="PackedScene" uid="uid://cuxqh6ibre0ni" path="res://ui/debug_menu/debug_scene_button.tscn" id="2_bvele"]
 
 [node name="DebugMenu" type="CanvasLayer" unique_id=1060676430]
 script = ExtResource("1_2lwgs")
@@ -33,6 +34,23 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Debug Menu"
+
+[node name="Separator2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1476855931]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HeightMap" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=312352702 instance=ExtResource("2_bvele")]
+layout_mode = 2
+
+[node name="LobbyBrowser" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2129658815 instance=ExtResource("2_bvele")]
+layout_mode = 2
+text = "Lobby Browser"
+scene_path = "lobby_browser"
+
+[node name="MainMenu" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=658329568 instance=ExtResource("2_bvele")]
+layout_mode = 2
+text = "Open Main Menu"
+scene_path = "res://ui/main_menu/main_menu.tscn"
 
 [node name="Separator" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=613846581]
 layout_mode = 2
