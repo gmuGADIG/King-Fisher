@@ -1,5 +1,7 @@
 extends Control
 
+var input_mappings : Dictionary[StringName,InputEvent]
+
 @export var binding_prototype: HBoxContainer
 
 @onready var vbox: VBoxContainer = $KeybindPanel/ScrollContainer/VBoxContainer
@@ -11,13 +13,15 @@ var current_button: Button
 
 func _ready() -> void:
 	for action in InputMap.get_actions():
+		
 		if action.begins_with("ui_") or action.begins_with("debug_"): continue
+		#input_mappings.set(action,keycode)
 		var binding = binding_prototype.duplicate()
 		var binding_label: Label = binding.get_node("Label")
 		var binding_button: Button = binding.get_node("Button")
 		binding_label.text = action
 		binding_button.pressed.connect(_on_keybind_button_pressed.bind(action, binding_button))
-		binding_button.text = InputMap.action_get_events(action)[0].as_text()
+		binding_button.text = _check_string(InputMap.action_get_events(action)[0].as_text())
 		keybind_buttons[action] = binding
 		vbox.add_child(binding)
 	binding_prototype.queue_free()
@@ -39,3 +43,14 @@ func _input(event: InputEvent) -> void:
 		#for action in keybind_buttons.keys():
 			#if (event.is_action(action)):
 				#print("%s binds to %s!" % [event.as_text(), action])
+func _check_string(s: String) -> String:
+	s = s.replace("- Physical","")
+	#if character_dict.has(s):
+		#s = character_dict.get(s)
+	#if s.contains("BkS"):
+		#s = "Backslash (\\)"
+	#if s.contains("QuoteLeft"):
+		#s = "Quote Left (\")"
+	#if s.contains("Spe"):
+		#s = "Space"
+	return s
