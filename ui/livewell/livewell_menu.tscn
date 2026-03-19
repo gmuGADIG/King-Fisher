@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dyc2qekcn8phe"]
 
+[ext_resource type="Script" uid="uid://tdrxdvr5hlfn" path="res://ui/livewell/livewell.gd" id="1_7nkjd"]
+
 [node name="LivewellMenu" type="Control" unique_id=1231020864]
 layout_mode = 3
 anchors_preset = 15
@@ -7,11 +9,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7nkjd")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1542204172]
-
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1600842300]
+[node name="Panel" type="Panel" parent="." unique_id=1600842300]
 visible = false
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.497
@@ -22,7 +24,7 @@ offset_top = -322.056
 offset_right = 575.0
 offset_bottom = 321.944
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=253453426]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=253453426]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -34,9 +36,9 @@ offset_top = -242.35602
 offset_right = 393.34894
 offset_bottom = 227.64398
 
-[node name="Score" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1557745147]
+[node name="Score" type="Label" parent="Panel/VBoxContainer" unique_id=1557745147]
 layout_mode = 2
 text = "Score: 0"
 
-[node name="Fish" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1535753956]
+[node name="Fish" type="Label" parent="Panel/VBoxContainer" unique_id=1535753956]
 layout_mode = 2

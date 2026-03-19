@@ -2,6 +2,8 @@ extends Node
 
 var livewellInventory = []
 @export var currentFish : String
+@onready var livewellPanel : Panel = $Panel
+@onready var fish : Label = $Panel/VBoxContainer/Fish
 
 func addFish(fish : Fish) -> void:
 	livewellInventory.append(fish)
@@ -15,8 +17,8 @@ func updateVisual() -> void:
 	currentFish = ""
 	for fish in livewellInventory:
 		currentFish = currentFish + fish.fish_name + "\n"  
-	$CanvasLayer/Panel/VBoxContainer/Fish.text = currentFish
+	fish.text = currentFish
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("livewell_menu"):
-		$CanvasLayer/Panel.visible = !$CanvasLayer/Panel.visible
+		livewellPanel.visible = !livewellPanel.visible

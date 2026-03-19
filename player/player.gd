@@ -14,6 +14,8 @@ const GRAVITY := 30.
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
 
+@onready var livewell : Control = $LivewellMenu
+
 @onready var rd_utils: RagdollUtils = %RagdollUtils
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -27,7 +29,6 @@ var held_item: Item
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$LivewellMenu/CanvasLayer/Panel.visible = false
 
 func _process(delta: float) -> void:
 	# don't move when being ragdolled.
@@ -103,8 +104,8 @@ func use_held_item() -> void:
 
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
-	$LivewellMenu.addFish(fish)
+	livewell.addFish(fish)
 	
 func take_fish(fish : Fish) -> void:
 	Debug.log("Player lost fish!")
-	$LivewellMenu.removeFish(fish)
+	livewell.removeFish(fish)
