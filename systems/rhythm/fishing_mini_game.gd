@@ -54,12 +54,12 @@ func populate_sequence(input_track:Track):
 		var new_note_marker = Sprite2D.new()
 		new_note_marker.texture = note_marker_sprite
 		new_note_marker.position.y = sequence_line.points[0].y
-		new_note_marker.position.x = sequence_line.points[0].x + spacing * i.beat_position
+		new_note_marker.position.x = sequence_line.points[0].x + spacing * (i.beat_position - 1)
 		new_note_marker.scale = Vector2(note_marker_scale,note_marker_scale)
 		sequence_line.add_child(new_note_marker)
 		
 func ms_to_position(ms:float) -> float:
 	var position
-	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH)
+	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH + 1)
 	position = (ms * sequence_line_length)/total_ms
 	return position
