@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/KF_tall_mushroom1.glb" id="8_xedpn"]
 [ext_resource type="PackedScene" uid="uid://qga41o832tta" path="res://art/3d-assets/DockEnd.glb" id="9_2t4rl"]
 [ext_resource type="PackedScene" uid="uid://bfbfl0n0rkaur" path="res://art/3d-assets/Tent.glb" id="10_rtmia"]
+[ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="13_xedpn"]
 
 [sub_resource type="Resource" id="Resource_kv1g5"]
 script = ExtResource("4_v7pb5")
@@ -74,10 +75,10 @@ points = PackedVector3Array(-30.507132, 45.23537, 2.9917831, -41.646812, 1.82202
 
 [node name="HeightmapTest" unique_id=1821617715 instance=ExtResource("1_kdmys")]
 
-[node name="Players" parent="." index="3" unique_id=1891362098]
+[node name="Players" parent="." index="2" unique_id=1891362098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.800728, 14.189088, 0.37104893)
 
-[node name="HTerrain" type="Node3D" parent="." index="4" unique_id=451826460]
+[node name="HTerrain" type="Node3D" parent="." index="3" unique_id=451826460]
 script = ExtResource("2_e1k8i")
 centered = true
 _terrain_data = ExtResource("3_76bih")
@@ -85,23 +86,26 @@ chunk_size = 32
 collision_enabled = true
 collision_layer = 1
 collision_mask = 1
-shader_type = "Classic4Lite"
+shader_type = "Classic4"
 custom_shader = null
 custom_globalmap_shader = null
 texture_set = SubResource("Resource_kv1g5")
 render_layers = 1
 cast_shadow = 0
-shader_params/u_ground_uv_scale = 5.535
+shader_params/u_ground_uv_scale_per_texture = null
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = true
 shader_params/u_tile_reduction = Vector4(0.37, 0, 0, 0)
+shader_params/u_globalmap_blend_start = null
+shader_params/u_globalmap_blend_distance = null
+shader_params/u_colormap_opacity_per_texture = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
 
-[node name="FishSeven" type="Sprite3D" parent="." index="5" unique_id=1553077177]
+[node name="FishSeven" type="Sprite3D" parent="." index="4" unique_id=1553077177]
 transform = Transform3D(0.039282322, 0, -3.1877742, 0, 3.188016, 0, 3.1877742, 0, 0.039282322, 37.19567, 15.55937, 1.679636)
 texture = ExtResource("6_v7pb5")
 
-[node name="KF_smooth_small-mushroom1" parent="." index="6" unique_id=2050632169 instance=ExtResource("7_yiiti")]
+[node name="KF_smooth_small-mushroom1" parent="." index="5" unique_id=2050632169 instance=ExtResource("7_yiiti")]
 transform = Transform3D(0.99999946, 0, 0, 0, 1, 0, 0, 0, 0.99999946, 19.254784, 10.29523, 7.2669277)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001" parent_id_path=PackedInt32Array(2050632169, 623575084) index="0" unique_id=1568313466]
@@ -142,7 +146,7 @@ shape = SubResource("ConvexPolygonShape3D_w0j3k")
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001/StaticBody3D" index="11" unique_id=1168481287]
 shape = SubResource("ConvexPolygonShape3D_1e8c5")
 
-[node name="KF_tall_mushroom1" parent="." index="7" unique_id=527376360 instance=ExtResource("8_xedpn")]
+[node name="KF_tall_mushroom1" parent="." index="6" unique_id=527376360 instance=ExtResource("8_xedpn")]
 transform = Transform3D(-1.0062615, 0, -1.1372514, 0, 1.518521, 0, 1.1372514, 0, -1.0062615, 24.312057, 8.415833, -3.8102906)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="KF_tall_mushroom1/tall_mushroom" parent_id_path=PackedInt32Array(527376360, 1172377576) index="0" unique_id=895767342]
@@ -156,7 +160,7 @@ shape = SubResource("ConvexPolygonShape3D_t7blp")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="KF_tall_mushroom1/tall_mushroom/StaticBody3D" index="2" unique_id=129725191]
 shape = SubResource("ConvexPolygonShape3D_j5ttv")
 
-[node name="CampFire2" parent="." index="8" unique_id=647019613 instance=ExtResource("7_4yewi")]
+[node name="CampFire2" parent="." index="7" unique_id=647019613 instance=ExtResource("7_4yewi")]
 transform = Transform3D(13.450294, 0, 0, 0, 13.450294, 0, 0, 0, 13.450294, 6.981497, 12.203914, -2.9359941)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CampFire2/Node/CampFire" parent_id_path=PackedInt32Array(647019613, 532960009) index="0" unique_id=786697091]
@@ -164,7 +168,7 @@ transform = Transform3D(13.450294, 0, 0, 0, 13.450294, 0, 0, 0, 13.450294, 6.981
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CampFire2/Node/CampFire/StaticBody3D" index="0" unique_id=1433640708]
 shape = SubResource("ConvexPolygonShape3D_2t4rl")
 
-[node name="Docks2" parent="." index="9" unique_id=509556396 instance=ExtResource("8_rtmia")]
+[node name="Docks2" parent="." index="8" unique_id=509556396 instance=ExtResource("8_rtmia")]
 transform = Transform3D(3.360016, 0, 0, 0, 3.360016, 0, 0, 0, 3.360016, 16.746553, 10.864052, 0.15280342)
 
 [node name="Docks3" parent="Docks2" index="1" unique_id=1424492564 instance=ExtResource("8_rtmia")]
@@ -179,13 +183,16 @@ transform = Transform3D(0.9999952, 0, 0, 0, 0.9999952, 0, 0, 0, 0.9999952, 3.726
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1299434, -0.046630383, 0)
 shape = SubResource("BoxShape3D_yiiti")
 
-[node name="Tent" parent="." index="10" unique_id=416493273 instance=ExtResource("10_rtmia")]
+[node name="Tent" parent="." index="9" unique_id=416493273 instance=ExtResource("10_rtmia")]
 transform = Transform3D(-2.4748346e-09, 0, 0.056617618, 0, 0.056617618, 0, -0.056617618, 0, -2.4748346e-09, 6.3443394, 12.331709, -10.152442)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Tent/Node/Box003" parent_id_path=PackedInt32Array(416493273, 1874759488) index="0" unique_id=1047692201]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tent/Node/Box003/StaticBody3D" index="0" unique_id=951231013]
 shape = SubResource("ConvexPolygonShape3D_yiiti")
+
+[node name="Water" parent="." index="10" unique_id=264827860 instance=ExtResource("13_xedpn")]
+transform = Transform3D(4.990994, 0, -1.2166736, 0, 5.1371503, 0, 1.2166736, 0, 4.990994, -6.7974133, 8.388029, 10.1483135)
 
 [editable path="KF_smooth_small-mushroom1"]
 [editable path="KF_tall_mushroom1"]
