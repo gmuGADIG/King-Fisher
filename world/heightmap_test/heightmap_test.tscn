@@ -205,7 +205,7 @@ shape = SubResource("ConvexPolygonShape3D_yiiti")
 transform = Transform3D(4.990994, 0, -1.2166736, 0, 5.1371503, 0, 1.2166736, 0, 4.990994, -6.7974133, 8.388029, 10.1483135)
 
 [node name="ItemSpawner" parent="." index="13" unique_id=1588789630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9655762, 100, 7.2479095)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4393387, 100, 8.533325)
 
 [editable path="KF_smooth_small-mushroom1"]
 [editable path="KF_tall_mushroom1"]
