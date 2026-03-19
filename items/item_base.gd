@@ -21,8 +21,7 @@ func _on_body_entered(body: Node3D) -> void:
 		body.pick_up_item.call_deferred(self)
 	else:
 		Debug.log_err("Player does not have pick_up_item function!")
-	
-	
+
 ## The generic use function. You can write your own in a class that extends Item.
 func use() -> void:
 	if !is_held: Debug.log_err("Item was used while not held, WTF?")
