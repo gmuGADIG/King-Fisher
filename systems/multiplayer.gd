@@ -9,7 +9,7 @@ const SCAN_MSG = "iwannaplay"
 const SCAN_INTERVAL := 5.
 
 var allow_connections : bool = true
-var player_list: Dictionary[int,String] = {}
+var player_list: Dictionary[int,ServerConnection] = {}
 
 var scan_server: UDPServer
 
@@ -17,7 +17,6 @@ var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
 var displayName: String
-
 
 func _ready() -> void:
 	# listen for when clients connect -- runs on both client and server
@@ -92,7 +91,38 @@ func learn_players(new_player_list: Dictionary[int,String]) -> void:
 			player_list.set(player,"Player")
 			new_player.emit(player)
 
+func start_game():
+	#TODO: countdown
+	var timer : Timer = Timer.new()
+	timer.connect("timeout", _on_timeout)
+	add_child(timer)
+	timer.one_shot = true;
+	timer.start(5);
+	#TODO: load characters into map
+	#TODO: Second countdown
+	return
+func _on_timeout():
+	load_players()
+	
+func load_players():
+	return
+	
+func _input(event: InputEvent) -> void:
+	if not multiplayer.is_server():
+		if event.is_action_pressed("ready_up"):
+			set_ready.rpc_id(multiplayer.get_instance_id());
+	if multiplayer.is_server():
+		for player in player_list:
+			if not player_list.get(player).ready:
+				return
+		emit_signal("start_game")
+		start_game()
 
+@rpc("any_peer","call_local","reliable")
+func set_ready():
+	var sender = multiplayer.get_remote_sender_id();
+	player_list.get(sender).ready = !player_list.get(sender).ready;
+	
 func create_server() -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT, MAX_CLIENTS)
