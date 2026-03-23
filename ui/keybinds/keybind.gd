@@ -16,9 +16,9 @@ func _ready() -> void:
 		var binding = binding_prototype.duplicate()
 		var binding_label: Label = binding.get_node("Label")
 		var binding_button: Button = binding.get_node("Button")
-		binding_label.text = action
+		binding_label.text = action.capitalize()
 		binding_button.pressed.connect(_on_keybind_button_pressed.bind(action, binding_button))
-		binding_button.text = InputMap.action_get_events(action)[0].as_text()
+		binding_button.text = InputMap.action_get_events(action)[0].as_text().replace(' - Physical', '')
 		keybind_buttons[action] = binding
 		vbox.add_child(binding)
 	binding_prototype.queue_free()
