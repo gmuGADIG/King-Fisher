@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
 [ext_resource type="PackedScene" uid="uid://cw872lin7slft" path="res://ui/pause_menu/lobby_menu.tscn" id="4_c06ik"]
-[ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_goldenworm.tscn" id="4_vh6de"]
+[ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="4_vh6de"]
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="5_vh6de"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
@@ -38,5 +38,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.14792, 1.7071879, -5.61335
 collision_mask = 3
 item_name = "Helmet"
 
-[node name="Item" parent="." index="7" unique_id=1566519324 instance=ExtResource("4_vh6de")]
+[node name="Golden Helmet" parent="." index="7" unique_id=1566519324 instance=ExtResource("4_vh6de")]
 transform = Transform3D(0.018621637, 0, -0.9998266, 0, 1, 0, 0.9998266, 0, 0.018621637, 0, 0, -6.2953863)

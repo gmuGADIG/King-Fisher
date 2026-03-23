@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://tfsb8cebqr51"
-path="res://.godot/imported/GoldWorm.glb-93e6c94c9a3a337fd205a0f5004dbde3.scn"
+path="res://.godot/imported/item_golden_worm.glb-704c6a4f2388282fb1f99f333b87a02d.scn"
 
 [deps]
 
-source_file="res://items/item_goldenworm/GoldWorm.glb"
-dest_files=["res://.godot/imported/GoldWorm.glb-93e6c94c9a3a337fd205a0f5004dbde3.scn"]
+source_file="res://items/item_goldenworm/item_golden_worm.glb"
+dest_files=["res://.godot/imported/item_golden_worm.glb-704c6a4f2388282fb1f99f333b87a02d.scn"]
 
 [params]
 

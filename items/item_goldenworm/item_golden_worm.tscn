@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b3ebo5famew2u"]
 
 [ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base/item_base.tscn" id="1_2087j"]
-[ext_resource type="PackedScene" uid="uid://tfsb8cebqr51" path="res://items/item_goldenworm/GoldWorm.glb" id="2_kahv6"]
+[ext_resource type="PackedScene" uid="uid://tfsb8cebqr51" path="res://items/item_goldenworm/item_golden_worm.glb" id="2_kahv6"]
 
 [node name="Item" unique_id=1566519324 instance=ExtResource("1_2087j")]
+item_name = "Golden Worm"
 
 [node name="Sprite3D" parent="." index="0" unique_id=525106753]
 visible = false
