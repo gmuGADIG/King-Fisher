@@ -37,11 +37,8 @@ func getItemSpawnLocation() -> void:
 	while(!locationFound):
 		
 		# Get random point in area
-		var rng = RandomNumberGenerator.new()
-		rng.randomize()
-		
-		var rayOffsetX: float = rng.randf_range(-shape.size.x/2, shape.size.x/2)
-		var rayOffsetZ: float = rng.randf_range(-shape.size.z/2, shape.size.z/2)
+		var rayOffsetX: float = randf_range(-shape.size.x/2, shape.size.x/2)
+		var rayOffsetZ: float = randf_range(-shape.size.z/2, shape.size.z/2)
 		
 		var rayCastOrigin = Vector3(self.position.x + rayOffsetX, self.position.y, self.position.z + rayOffsetZ)
 		var rayCastDestination: Vector3 = rayCastOrigin - Vector3(0,200,0)
@@ -62,7 +59,7 @@ func getItemSpawnLocation() -> void:
 			
 			# If so, spawn random fish
 			if items.size()!=0:
-				var itemIndex = rng.randi_range(0, items.size()-1)
+				var itemIndex = randi_range(0, items.size()-1)
 				spawnItem.rpc(itemIndex, result.position)
 				locationFound=true
 				# Increments to make sure no more than max_items lie around at once.
