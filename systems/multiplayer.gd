@@ -137,7 +137,6 @@ func disconnect_client(msg : String) -> void:
 	multiplayer.multiplayer_peer.disconnect_peer(multiplayer.get_unique_id())
 	#player_list.erase(id)
 	#if my_id == id:
-		
 	get_tree().change_scene_to_file("res://ui/lobby_browser/lobby_browser.tscn")
 	return
 #
