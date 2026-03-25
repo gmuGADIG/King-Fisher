@@ -55,6 +55,7 @@ var _last_played_jump_event_id: int = -1
 # Item Variables
 var wearing_helmet := false
 var golden_worm_active := false
+var has_ziplock_bag := false
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
