@@ -5,6 +5,8 @@ var livewellInventory = []
 @onready var livewellPanel : Panel = $Panel
 @onready var fish : Label = $Panel/VBoxContainer/Fish
 @onready var score : Label = $Panel/VBoxContainer/Score
+@onready var sprites : TextureRect = $Panel/VBoxContainer/Score/TextureRect
+@onready var fishCount : Label = $Panel/VBoxContainer/Score/TextureRect/fishCount
 var intScore : int = 0;
 
 func changeScore(change : int):
@@ -21,6 +23,7 @@ func removeFish() -> void:
 	if(livewellInventory.size() == 0):
 		return
 	livewellInventory.remove_at(0)
+	sprites.texture = null
 	changeScore(-100)
 	if(intScore < 0):
 		changeScore(100)
@@ -32,8 +35,13 @@ func updateVisual() -> void:
 		var gradeType = 0
 		if(printFish.grade == printFish.Grade.SUSHI):
 			gradeType += 1
+			sprites.texture = printFish.sprite
 		currentFish = currentFish + printFish.fish_name + " (" + str(gradeType) + ")\n"  
 	fish.text = currentFish
+	if(!livewellInventory.size()):
+		fishCount.text = ""
+	else:
+		fishCount.text = "x" + str(livewellInventory.size())
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("livewell_menu"):

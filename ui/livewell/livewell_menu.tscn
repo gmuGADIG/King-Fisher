@@ -12,7 +12,6 @@ grow_vertical = 2
 script = ExtResource("1_7nkjd")
 
 [node name="Panel" type="Panel" parent="." unique_id=1600842300]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -39,6 +38,24 @@ offset_bottom = 227.64398
 [node name="Score" type="Label" parent="Panel/VBoxContainer" unique_id=1557745147]
 layout_mode = 2
 text = "Score: 0"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/Score" unique_id=2127708389]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41700003
+anchor_top = 3.2830002
+anchor_right = 0.41700003
+anchor_bottom = 3.2830002
+offset_left = -58.426025
+offset_top = -55.509003
+offset_right = 58.573975
+offset_bottom = 55.490997
+
+[node name="fishCount" type="Label" parent="Panel/VBoxContainer/Score/TextureRect" unique_id=932061151]
+layout_mode = 0
+offset_left = 146.0
+offset_right = 186.0
+offset_bottom = 23.0
 
 [node name="Fish" type="Label" parent="Panel/VBoxContainer" unique_id=1535753956]
 layout_mode = 2
