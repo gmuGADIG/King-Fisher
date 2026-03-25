@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://gepb6fuq6ysv"]
+
+[ext_resource type="AudioStream" uid="uid://cgxgx0qg7xkq" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-001.ogg" id="1_o5r2f"]
+[ext_resource type="AudioStream" uid="uid://djyptf8kexwxk" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-002.ogg" id="2_nd36r"]
+[ext_resource type="AudioStream" uid="uid://ccvm2tt4brqv" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-011.ogg" id="3_b3pq6"]
+[ext_resource type="AudioStream" uid="uid://cxnvvb8nh4gdx" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-012.ogg" id="4_isdrn"]
+[ext_resource type="AudioStream" uid="uid://da8aosamglsat" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-013.ogg" id="5_vll1n"]
+[ext_resource type="AudioStream" uid="uid://stb6q2g5aelg" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-003.ogg" id="6_5b2sx"]
+[ext_resource type="AudioStream" uid="uid://blfy60wl43mow" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-004.ogg" id="7_yaw12"]
+[ext_resource type="AudioStream" uid="uid://mn02s0o30xv0" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-005.ogg" id="8_renf8"]
+[ext_resource type="AudioStream" uid="uid://t6vqeicqlf8p" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-006.ogg" id="9_illh7"]
+[ext_resource type="AudioStream" uid="uid://bwcyjbsq10p5w" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-007.ogg" id="10_1bjet"]
+[ext_resource type="AudioStream" uid="uid://3b8khydc7ufw" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-008.ogg" id="11_dnx2o"]
+[ext_resource type="AudioStream" uid="uid://d3cmfrybh1ksw" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-009.ogg" id="12_w6bga"]
+[ext_resource type="AudioStream" uid="uid://bq2r3d6kxwydy" path="res://sound/sfx/player/footsteps/grass/se_player_step_grass-010.ogg" id="13_6gumc"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_33vym"]
+streams_count = 13
+stream_0/stream = ExtResource("1_o5r2f")
+stream_1/stream = ExtResource("2_nd36r")
+stream_2/stream = ExtResource("6_5b2sx")
+stream_3/stream = ExtResource("7_yaw12")
+stream_4/stream = ExtResource("8_renf8")
+stream_5/stream = ExtResource("9_illh7")
+stream_6/stream = ExtResource("10_1bjet")
+stream_7/stream = ExtResource("11_dnx2o")
+stream_8/stream = ExtResource("12_w6bga")
+stream_9/stream = ExtResource("13_6gumc")
+stream_10/stream = ExtResource("3_b3pq6")
+stream_11/stream = ExtResource("4_isdrn")
+stream_12/stream = ExtResource("5_vll1n")
+
+[node name="FootstepsGrass" type="AudioStreamPlayer3D" unique_id=1032111526]
+stream = SubResource("AudioStreamRandomizer_33vym")

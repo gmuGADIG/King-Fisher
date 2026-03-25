@@ -1,26 +1,8 @@
-[gd_resource type="Resource" script_class="Track" format=3 uid="uid://dgk07hmulm4go"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://l12n0ltutq24"]
 
 [ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_saywd"]
 [ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_kas55"]
 
-[sub_resource type="Resource" id="Resource_saywd"]
-script = ExtResource("1_saywd")
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_kas55"]
-script = ExtResource("1_saywd")
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_qcnnd"]
-script = ExtResource("1_saywd")
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_y535p"]
-script = ExtResource("1_saywd")
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
 [resource]
 script = ExtResource("2_kas55")
-bpm = 60.0
-notes = Array[ExtResource("1_saywd")]([SubResource("Resource_saywd"), SubResource("Resource_kas55"), SubResource("Resource_qcnnd"), SubResource("Resource_y535p")])
 metadata/_custom_type_script = "uid://duodpj15swkyd"

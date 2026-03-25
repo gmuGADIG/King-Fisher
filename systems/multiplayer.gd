@@ -14,8 +14,7 @@ var game_in_progress: bool = false
 
 var scan_server: UDPServer
 
-
-var scan_for_servers := true
+var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
 var displayName: String

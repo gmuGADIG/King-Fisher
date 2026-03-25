@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cba6k3hrwhrke"]
+[gd_scene format=3 uid="uid://cba6k3hrwhrke"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/minimap/minimap.gd" id="1"]
 [ext_resource type="Shader" path="res://addons/zylann.hterrain/tools/minimap/minimap_normal.gdshader" id="2"]

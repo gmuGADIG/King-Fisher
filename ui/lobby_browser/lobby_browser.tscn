@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://sebpacttibvk" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
 [ext_resource type="PackedScene" uid="uid://cksuxnaqh3sqr" path="res://ui/lobby_browser/server_info.tscn" id="2_csvqp"]
-[ext_resource type="PackedScene" uid="uid://n6fltg0vkvl" path="res://ui/options/options_menu.tscn" id="3_pxnt7"]
 
 [node name="LobbyBrowser" type="Control" unique_id=245152877]
 layout_mode = 3
@@ -41,6 +40,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 216)
 layout_mode = 2
 
+[node name="RefreshButton" type="Button" parent="VBoxContainer" unique_id=674890748]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Refresh"
+
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=369293543]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -76,7 +80,5 @@ layout_mode = 2
 placeholder_text = "Enter name..."
 alignment = 1
 
-[node name="OptionsMenu" parent="." unique_id=1087068024 instance=ExtResource("3_pxnt7")]
-layout_mode = 1
-
+[connection signal="pressed" from="VBoxContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
