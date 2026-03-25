@@ -19,6 +19,7 @@ func _ready() -> void:
 func get_safe_spawn_point() -> Vector3:
 	print("Getting safe spawn point...")
 	SpawnPoints.shuffle()
+	print(SpawnPoints)
 	for spawnPoint in SpawnPoints:
 		print("Checking " + spawnPoint.name)
 		if spawnPoint.has_overlapping_bodies(): 
@@ -27,6 +28,6 @@ func get_safe_spawn_point() -> Vector3:
 		else: 
 			print(spawnPoint.name + " seems clear.")
 			return spawnPoint.global_position
- 
+
 	Debug.log_err("get_safe_spawn_point did not find a safe spawn point.")
 	return Vector3.ZERO
