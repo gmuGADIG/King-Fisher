@@ -4,7 +4,7 @@ signal new_player(id: int)
 signal found_server(ip: String, hostname: String, playerCount: String)
 
 const PORT = 25575
-const MAX_CLIENTS = 1
+const MAX_CLIENTS = 4
 const SCAN_MSG = "iwannaplay"
 const SCAN_INTERVAL := 5.
 
@@ -88,8 +88,9 @@ func _on_peer_connected(id: int) -> void:
 		return
 	if (player_list.size() >= MAX_CLIENTS):
 		disconnect_client.rpc_id(id, "lobby full")
-		
+		player_list.erase(id)
 		return
+	
 	Debug.log("peer ",id," connected")
 	player_list.set(id,"Player")
 	new_player.emit(id)

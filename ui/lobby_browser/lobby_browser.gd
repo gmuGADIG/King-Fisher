@@ -6,6 +6,8 @@ extends Control
 var seen_ips: Dictionary[String, bool]
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Multiplayer.scan_for_servers = true;
 	Multiplayer.found_server.connect(_on_found_server)
 
 
