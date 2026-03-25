@@ -47,6 +47,10 @@ func is_ragdoll_on_floor() -> bool:
 		return false
 
 # This validates if the player is on valid ground/has valid ground beneath them
+# Returns an array where:
+#     The first element is true|false for the ground position above the player
+#     The second element is where the ground is below the player, or Vector3.ZERO 
+#     if there's no ground below the player
 func is_valid_ground() -> Array:
 	var pelvis_pos = player.ragdoll_phys.get_node("Physical Bone Pelvis").global_position
 	var query = PhysicsRayQueryParameters3D.create(pelvis_pos, pelvis_pos + Vector3(0, -25, 0))
