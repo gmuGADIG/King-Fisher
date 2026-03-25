@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfjip6c4olemn"]
+[gd_scene format=3 uid="uid://dfjip6c4olemn"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/inspector/inspector.gd" id="1"]
 

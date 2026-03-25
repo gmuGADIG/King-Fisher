@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci0da54goyo5o"]
+[gd_scene format=3 uid="uid://ci0da54goyo5o"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/generate_mesh_dialog.gd" id="1"]
 [ext_resource type="PackedScene" path="res://addons/zylann.hterrain/tools/util/dialog_fitter.tscn" id="2"]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cuxqh6ibre0ni"]
+
+[ext_resource type="Script" uid="uid://ckw10nfpvhrap" path="res://ui/debug_menu/scene_button.gd" id="1_idsw1"]
+
+[node name="Button2" type="Button" unique_id=312352702]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Open Terrain Test"
+script = ExtResource("1_idsw1")
+scene_path = "res://world/heightmap_test/heightmap_test.tscn"

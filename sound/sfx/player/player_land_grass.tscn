@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://player_land_grass_0001"]
+
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/grass/se_player_land_grass-001.ogg" id="1_land_grass_001"]
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/grass/se_player_land_grass-002.ogg" id="2_land_grass_002"]
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/grass/se_player_land_grass-003.ogg" id="3_land_grass_003"]
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/grass/se_player_land_grass-004.ogg" id="4_land_grass_004"]
+[ext_resource type="AudioStream" path="res://sound/sfx/player/land/grass/se_player_land_grass-005.ogg" id="5_land_grass_005"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_land_grass"]
+streams_count = 5
+stream_0/stream = ExtResource("1_land_grass_001")
+stream_1/stream = ExtResource("2_land_grass_002")
+stream_2/stream = ExtResource("3_land_grass_003")
+stream_3/stream = ExtResource("4_land_grass_004")
+stream_4/stream = ExtResource("5_land_grass_005")
+
+[node name="PlayerLandGrass" type="AudioStreamPlayer3D" unique_id=301000001]
+stream = SubResource("AudioStreamRandomizer_land_grass")
+

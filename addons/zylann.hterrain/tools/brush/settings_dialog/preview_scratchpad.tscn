@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ng00jipfeucy"]
+[gd_scene format=3 uid="uid://ng00jipfeucy"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/brush/settings_dialog/preview_scratchpad.gd" id="1"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/tools/brush/settings_dialog/preview_painter.gd" id="2"]
