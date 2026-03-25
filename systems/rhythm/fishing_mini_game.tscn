@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bpo4nvgeh8dat"]
+
+[ext_resource type="Script" uid="uid://p0f46s1vcsvg" path="res://systems/rhythm/fishing_mini_game.gd" id="1_qgtvk"]
+[ext_resource type="Texture2D" uid="uid://b3tmja6unn2ao" path="res://temp/temp_art/tmplogo.png" id="2_5yaa5"]
+[ext_resource type="Resource" uid="uid://y4inlgyvwye" path="res://temp/rhythm_test/track1_test.tres" id="2_6b33u"]
+[ext_resource type="Texture2D" uid="uid://c1m08d1w1cq5" path="res://temp/temp_art/fish.png" id="3_6g0ko"]
+[ext_resource type="AudioStream" uid="uid://cn1uje7bnu2bc" path="res://temp/temp_sfx/test_explode_small.wav" id="5_6b33u"]
+[ext_resource type="PackedScene" uid="uid://cii25od3gem26" path="res://systems/rhythm/rhythm_engine.tscn" id="5_mq61g"]
+[ext_resource type="Texture2D" uid="uid://bmxsuarykfoe3" path="res://temp/temp_art/smiley.png" id="5_v1gag"]
+[ext_resource type="AudioStream" uid="uid://u26laeo3h1xe" path="res://temp/temp_sfx/test_click.wav" id="6_8v4n0"]
+
+[node name="FishingMiniGame" type="CanvasLayer" unique_id=332912207]
+script = ExtResource("1_qgtvk")
+track = ExtResource("2_6b33u")
+tick_sprite = ExtResource("2_5yaa5")
+note_marker_sprite = ExtResource("3_6g0ko")
+tick_scale = 0.05
+note_marker_scale = 0.2
+hit_sfx = ExtResource("5_6b33u")
+hit_sfx_art = ExtResource("6_8v4n0")
+
+[node name="SequenceLine" type="Line2D" parent="." unique_id=567685213]
+position = Vector2(150, 513)
+points = PackedVector2Array(0, 0, 800, 0)
+default_color = Color(0.73683435, 0.8248663, 1, 1)
+
+[node name="Indicator" type="Sprite2D" parent="SequenceLine" unique_id=1567962701]
+z_index = 2
+position = Vector2(2, 40)
+scale = Vector2(0.11470588, 0.11470589)
+texture = ExtResource("5_v1gag")
+
+[node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("5_mq61g")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1138960120]
