@@ -7,7 +7,9 @@ const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 # Ragdoll
 @export_group("Scenes")
 @export var ragdoll : PackedScene
-@export var is_ragdolled := false
+var is_ragdolled := false
+@onready var ragdoll_phys : PhysicalBoneSimulator3D = $Body/Armature/Skeleton3D/Bones
+var can_exit_ragdoll := false
 
 @export_category("Variables")
 @export var speed := 10.
@@ -50,9 +52,6 @@ var _landing_time_since_last := 0.0
 var _jump_event_id: int = 0
 var _last_played_jump_event_id: int = -1
 
-# Ragdoll
-@onready var ragdoll_phys : PhysicalBoneSimulator3D = $Body/Armature/Skeleton3D/Bones
-
 # Item Variables
 var wearing_helmet := false
 
@@ -78,8 +77,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# don't process input if ragdolled
-	if is_ragdolled: 
+	if is_ragdolled:
 		%Aiming.stop_aiming()
+		velocity = Vector3.ZERO
+		if (can_exit_ragdoll or ragdoll_phys.is_moving()) and Input.is_action_just_pressed("jump"):
+			ragdoll_phys.end_ragdoll()
 		return
 	# don't process input if this is not our player
 	if not is_multiplayer_authority(): return
@@ -150,7 +152,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
-		ragdoll_phys.ragdoll(5)
+		ragdoll_phys.ragdoll(10, true)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	
