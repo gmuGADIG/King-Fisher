@@ -1,0 +1,114 @@
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://3u4cqch8hp02"]
+
+[ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_e7v72"]
+[ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_kje6x"]
+
+[sub_resource type="Resource" id="Resource_h7q4i"]
+script = ExtResource("1_e7v72")
+beat_position = 1.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_ijcj2"]
+script = ExtResource("1_e7v72")
+beat_position = 1.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_ii4ld"]
+script = ExtResource("1_e7v72")
+beat_position = 2.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_pwk34"]
+script = ExtResource("1_e7v72")
+beat_position = 2.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_poxwp"]
+script = ExtResource("1_e7v72")
+beat_position = 3.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_ehdgw"]
+script = ExtResource("1_e7v72")
+beat_position = 3.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_vg4pn"]
+script = ExtResource("1_e7v72")
+beat_position = 4.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_ekigv"]
+script = ExtResource("1_e7v72")
+beat_position = 4.125
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_vpi7y"]
+script = ExtResource("1_e7v72")
+beat_position = 4.25
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_mdmcn"]
+script = ExtResource("1_e7v72")
+beat_position = 4.375
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_gij0r"]
+script = ExtResource("1_e7v72")
+beat_position = 4.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_nnxn3"]
+script = ExtResource("1_e7v72")
+beat_position = 5.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_ug4ux"]
+script = ExtResource("1_e7v72")
+beat_position = 5.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_2cnel"]
+script = ExtResource("1_e7v72")
+beat_position = 6.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_vs5sg"]
+script = ExtResource("1_e7v72")
+beat_position = 6.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_tmmpm"]
+script = ExtResource("1_e7v72")
+beat_position = 7.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_svc4f"]
+script = ExtResource("1_e7v72")
+beat_position = 7.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_8f1jp"]
+script = ExtResource("1_e7v72")
+beat_position = 8.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_741lp"]
+script = ExtResource("1_e7v72")
+beat_position = 8.125
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_0qkqx"]
+script = ExtResource("1_e7v72")
+beat_position = 8.25
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_w0fb8"]
+script = ExtResource("1_e7v72")
+beat_position = 8.375
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[resource]
+script = ExtResource("2_kje6x")
+notes = Array[ExtResource("1_e7v72")]([SubResource("Resource_h7q4i"), SubResource("Resource_ijcj2"), SubResource("Resource_ii4ld"), SubResource("Resource_pwk34"), SubResource("Resource_poxwp"), SubResource("Resource_ehdgw"), SubResource("Resource_vg4pn"), SubResource("Resource_ekigv"), SubResource("Resource_vpi7y"), SubResource("Resource_mdmcn"), SubResource("Resource_gij0r"), SubResource("Resource_nnxn3"), SubResource("Resource_ug4ux"), SubResource("Resource_2cnel"), SubResource("Resource_vs5sg"), SubResource("Resource_tmmpm"), SubResource("Resource_svc4f"), SubResource("Resource_8f1jp"), SubResource("Resource_741lp"), SubResource("Resource_0qkqx"), SubResource("Resource_w0fb8")])
+metadata/_custom_type_script = "uid://duodpj15swkyd"

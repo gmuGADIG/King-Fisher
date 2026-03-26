@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://p0f46s1vcsvg" path="res://systems/rhythm/fishing_mini_game.gd" id="1_qgtvk"]
 [ext_resource type="Texture2D" uid="uid://b3tmja6unn2ao" path="res://temp/temp_art/tmplogo.png" id="2_5yaa5"]
-[ext_resource type="Resource" uid="uid://4yvfj5xj42w8" path="res://systems/rhythm/tracks/schultzMedium5.tres" id="2_6b33u"]
+[ext_resource type="Resource" uid="uid://dngs2lbh5xdcq" path="res://systems/rhythm/tracks/schultzHard5.tres" id="2_6b33u"]
 [ext_resource type="Texture2D" uid="uid://c1m08d1w1cq5" path="res://temp/temp_art/fish.png" id="3_6g0ko"]
 [ext_resource type="AudioStream" uid="uid://cn1uje7bnu2bc" path="res://temp/temp_sfx/test_explode_small.wav" id="5_6b33u"]
 [ext_resource type="PackedScene" uid="uid://cii25od3gem26" path="res://systems/rhythm/rhythm_engine.tscn" id="5_mq61g"]
