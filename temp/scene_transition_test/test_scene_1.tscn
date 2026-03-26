@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ce4tplvc35dgd"]
 
 [ext_resource type="Script" uid="uid://8u6kgaub30jb" path="res://temp/scene_transition_test/scene_switch_test.gd" id="1_4gx3k"]
-[ext_resource type="PackedScene" uid="uid://bg3ck202pjqam" path="res://temp/scene_transition_test/test_scene_2.tscn" id="2_c2wor"]
 
 [node name="TestScene1" type="Control" unique_id=1245124781]
 layout_mode = 3
@@ -11,7 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4gx3k")
-packed_scene = ExtResource("2_c2wor")
 file_scene = "uid://bg3ck202pjqam"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=189070359]
@@ -48,13 +46,8 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PackedButton" type="Button" parent="HBoxContainer" unique_id=626451068]
-layout_mode = 2
-text = "Load Test Scene 2 (Packed)"
-
 [node name="FileButton" type="Button" parent="HBoxContainer" unique_id=1462435359]
 layout_mode = 2
 text = "Load Test Scene 2 (File)"
 
-[connection signal="pressed" from="HBoxContainer/PackedButton" to="." method="_on_packed_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/FileButton" to="." method="_on_file_button_pressed"]

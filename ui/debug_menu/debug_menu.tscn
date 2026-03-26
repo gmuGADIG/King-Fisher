@@ -45,7 +45,7 @@ layout_mode = 2
 [node name="LobbyBrowser" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2129658815 instance=ExtResource("2_bvele")]
 layout_mode = 2
 text = "Lobby Browser"
-scene_path = "lobby_browser"
+scene_path = "C:/Godot/King-Fisher/ui/lobby_browser/lobby_browser.tscn"
 
 [node name="MainMenu" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=658329568 instance=ExtResource("2_bvele")]
 layout_mode = 2

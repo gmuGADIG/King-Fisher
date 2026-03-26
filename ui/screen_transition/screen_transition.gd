@@ -8,7 +8,7 @@ extends CanvasLayer
 
 var m_path : String
 
-func change_to_packed(path: String):
+func change_to_file(path: String):
 	loading_screen.modulate.a = 0
 	loading_screen.visible = true
 	anim.play("loading")
@@ -41,7 +41,3 @@ func change_to_packed(path: String):
 	loading_screen.modulate.a = 0
 	loading_screen.visible = false
 	anim.stop()
-
-func change_to_file(path: String):
-	m_path = path
-	change_to_packed(path)
