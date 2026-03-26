@@ -11,6 +11,9 @@ var current_button: Button
 
 func _ready() -> void:
 	load_keybinds()
+	reflow_ui()
+
+func reflow_ui() -> void:
 	for action in InputMap.get_actions():
 		if action.begins_with("ui_") or action.begins_with("debug_"): continue
 		var binding = binding_prototype.duplicate()
@@ -21,7 +24,7 @@ func _ready() -> void:
 		binding_button.text = InputMap.action_get_events(action)[0].as_text().replace(' - Physical', '')
 		keybind_buttons[action] = binding
 		vbox.add_child(binding)
-	binding_prototype.queue_free()
+	# binding_prototype.queue_free()
 
 func _on_keybind_button_pressed(keybind: StringName, button: Button) -> void:
 	button.text = "Listening..."
@@ -58,3 +61,7 @@ func load_keybinds() -> void:
 			InputMap.action_erase_events(action)
 			InputMap.action_add_event(action, keybind_dict[action])
 		print("KEYBINDS LOADED")
+
+func _on_reset_button_pressed() -> void:
+	InputMap.load_from_project_settings()
+	reflow_ui()

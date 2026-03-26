@@ -35,7 +35,7 @@ offset_top = 13.0
 offset_right = 360.0
 offset_bottom = 509.0
 
-[node name="Button" type="Button" parent="KeybindPanel/VBoxContainer" unique_id=1489181848]
+[node name="ResetButton" type="Button" parent="KeybindPanel/VBoxContainer" unique_id=1489181848]
 layout_mode = 2
 text = "Reset Bindings to Default"
 
@@ -59,3 +59,5 @@ text = "Control whatefver it is"
 [node name="Button" type="Button" parent="KeybindPanel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1555108729]
 layout_mode = 2
 text = "Key that it is"
+
+[connection signal="pressed" from="KeybindPanel/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
