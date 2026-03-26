@@ -117,10 +117,10 @@ transform = Transform3D(1.1906586, 0, 0, 0, 1.1906586, 0, 0, 0, 1.1906586, 0, 0,
 script = ExtResource("2_pmesh")
 rotation_speed_curve = SubResource("Curve_pmesh")
 
-[node name="Bean" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 854206497) index="0" unique_id=1061560466]
+[node name="Bean" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 748870742) index="0" unique_id=1781140071]
 layers = 2
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 854206497) index="1" unique_id=1885720731]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 748870742) index="1" unique_id=1885720731]
 script = ExtResource("6_boad6")
 
 [node name="Physical Bone Pelvis" type="PhysicalBone3D" parent="Body/Armature/Skeleton3D/Bones" unique_id=1014286577]

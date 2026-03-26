@@ -32,6 +32,7 @@ func _input(event: InputEvent) -> void:
 		_aim_pos.x += dv.x
 		_aim_pos.y += dv.y
 		_aim_pos = _aim_pos.limit_length(max_aim_distance)
+		
 
 func start_aiming() -> void:
 	player.is_aiming = true

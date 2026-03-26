@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://m7588ksp1cms" path="res://art/2d-fish/fishadow.png" id="1_mhqgw"]
 [ext_resource type="Script" uid="uid://cy6ni1kh0sd6h" path="res://world/water/fish_shadow.gd" id="1_stlbo"]
 
-[node name="FishShadow" type="Node3D" unique_id=117176018]
+[node name="FishShadow" type="Node3D" unique_id=117176018 groups=["Fish Shadows"]]
 script = ExtResource("1_stlbo")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=604068063]

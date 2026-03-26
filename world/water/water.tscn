@@ -16,10 +16,19 @@ material = SubResource("ShaderMaterial_s33lq")
 subdivide_width = 32
 subdivide_depth = 32
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_s33lq"]
+size = Vector3(2, 0.001, 1.9999993)
+
 [node name="Water" type="Node3D" unique_id=264827860]
 script = ExtResource("1_delex")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1707239035]
 mesh = SubResource("PlaneMesh_delex")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1942989557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5762787e-07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=553294994]
+shape = SubResource("BoxShape3D_s33lq")
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

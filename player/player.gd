@@ -56,6 +56,9 @@ var _last_played_jump_event_id: int = -1
 # Item Variables
 var wearing_helmet := false
 
+# How far away from the center of the aim indicator a fish shadow can be for a cast to succeed.
+var max_distance_to_fish := 2
+
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
 	set(new_val):
@@ -105,7 +108,12 @@ func _process(delta: float) -> void:
 		%Aiming.start_aiming()
 	if Input.is_action_just_released("cast_rod"):
 		%Aiming.stop_aiming()
-		Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
+		# Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
+		for i in get_tree().get_nodes_in_group("Fish Shadows"):
+			if %Aiming.get_aim_pos().distance_squared_to(i.global_position) < max_distance_to_fish * max_distance_to_fish:
+				Debug.log("Hit the fish at ", i.global_position)
+				return
+		Debug.log("No fish were hit")
 
 func _physics_process(delta: float) -> void:
 	var was_on_floor := is_on_floor()

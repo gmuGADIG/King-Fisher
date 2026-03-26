@@ -50,6 +50,7 @@ folder_colors={
 
 Player=""
 Spawnpoints=""
+"Fish Shadows"="Group of all fish shadows. Used to determine whether a rod cast hits a fish."
 
 [input]
 
@@ -136,6 +137,7 @@ test1={
 3d_physics/layer_3="Pickup"
 3d_physics/layer_4="Ragdoll"
 3d_physics/layer_5="Rigid"
+3d_physics/layer_6="Fish"
 
 [physics]
 
