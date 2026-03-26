@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ck8obcgulgo8p" path="res://items/item_test_2.tscn" id="3_c06ik"]
 [ext_resource type="PackedScene" uid="uid://cw872lin7slft" path="res://ui/pause_menu/lobby_menu.tscn" id="4_c06ik"]
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="5_vh6de"]
+[ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
 
@@ -46,3 +47,5 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.14792, 1.7071879, -5.6133504)
 collision_mask = 3
 item_name = "Helmet"
+
+[node name="LobbyHud" parent="." index="9" unique_id=510906849 instance=ExtResource("6_56mmg")]

@@ -6,6 +6,7 @@ extends Node3D
 func _ready() -> void:
 	# TODO: do this without looking at the name
 	if name != "Lobby":
+		Multiplayer.report_loaded.rpc()
 		if not multiplayer.is_server():
 			spawn_request.rpc_id(1)
 	

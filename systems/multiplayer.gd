@@ -2,6 +2,8 @@ extends Node
 
 signal new_player(id: int)
 signal found_server(ip: String, hostname: String, playerCount: String)
+signal player_loaded(id: int)
+signal start_game
 
 const PORT = 25575
 const MAX_CLIENTS = 3
@@ -10,6 +12,7 @@ const SCAN_INTERVAL := 5.
 
 var allow_connections : bool = true
 var player_list: Dictionary[int,ServerConnection] = {}
+var loaded_players: Array[int]
 
 var scan_server: UDPServer
 
@@ -17,8 +20,8 @@ var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
 var displayName: String
+#var HUD = LobbyHUD.new();
 
-signal start_game
 
 func _ready() -> void:
 	# listen for when clients connect -- runs on both client and server
@@ -87,11 +90,11 @@ func _on_peer_connected(id: int) -> void:
 	player_list.set(id,server)
 	new_player.emit(id)
 	# tell the new player about all the other players connected to the server.
-	learn_players.rpc_id(id, player_list)
+	learn_players.rpc_id(id, player_list.keys())
 
 @rpc("reliable")
-func learn_players(new_player_list: Dictionary[int,String]) -> void:
-	for player in new_player_list:
+func learn_players(new_player_ids: Array[int]) -> void:
+	for player in new_player_ids:
 		if not player in player_list:
 			var server = ServerConnection.new()
 			server.playerName = "Player"
@@ -99,23 +102,30 @@ func learn_players(new_player_list: Dictionary[int,String]) -> void:
 			player_list.set(player,server)
 			new_player.emit(player)
 
+func _countdown(duration: int) -> void:
+	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
+	label.duration = duration
+	label.position = Vector2(500, 500)
+	get_tree().current_scene.add_child(label)
+	label.start()
+	await label.finished
+	label.queue_free()
+
 @rpc("call_local")
 func start_the_game():
-	#TODO: countdown
-	var timer : Timer = Timer.new()
-	timer.connect("timeout", _on_timeout)
-	add_child(timer)
-	timer.one_shot = true;
-	timer.start(1);
-	#TODO: load characters into map
-	#TODO: Second countdown
-	return
-func _on_timeout():
+	await _countdown(5)
 	load_players()
+	Debug.log(player_list.size())
+	for i in range(player_list.size()):
+		await player_loaded
+	await get_tree().process_frame
+	await _countdown(5)
+	#TODO game goes
+	
+
 	
 func load_players():
 	ScreenTransition.change_to_file("res://world/heightmap_test/heightmap_test.tscn")
-	return
 	
 func _handle_ready_up() -> void:
 	if get_tree().get_first_node_in_group("Lobby") == null:
@@ -164,3 +174,8 @@ func join_server(ip : String) -> void:
 	server.ready = false
 	player_list.set(multiplayer.get_unique_id(),server)
 	scan_for_servers = false
+
+@rpc("any_peer", "call_local")
+func report_loaded() -> void:
+	loaded_players.push_back(multiplayer.get_remote_sender_id())
+	player_loaded.emit(multiplayer.get_remote_sender_id())
