@@ -42,6 +42,7 @@ func _input(event: InputEvent) -> void:
 			#if (event.is_action(action)):
 				#print("%s binds to %s!" % [event.as_text(), action])
 
+## Saves the currently configured keybinds to the user's local data directory.
 func save_keybinds() -> void:
 	var keybind_dict: Dictionary[StringName, InputEvent]
 	for action in keybind_buttons.keys():
@@ -49,7 +50,10 @@ func save_keybinds() -> void:
 	var save_file = FileAccess.open("user://keybinds.cfg", FileAccess.WRITE)
 	save_file.store_var(keybind_dict, true)
 
-func load_keybinds() -> void:
+## Loads the previously saved keybinds.
+## If a saved file exists and the keybinds are loaded successfully, returns true.
+## Otherwise, returns false.
+func load_keybinds() -> bool:
 	var save_file = FileAccess.open("user://keybinds.cfg", FileAccess.READ)
 	if save_file:
 		var keybind_dict: Dictionary[StringName, InputEvent] = save_file.get_var(true)
@@ -58,3 +62,5 @@ func load_keybinds() -> void:
 			InputMap.action_erase_events(action)
 			InputMap.action_add_event(action, keybind_dict[action])
 		print("KEYBINDS LOADED")
+		return true
+	return false
