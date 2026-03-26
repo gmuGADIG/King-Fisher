@@ -5,6 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s33lq"]
 render_priority = 0
 shader = ExtResource("1_nl8eq")
+shader_parameter/displacement = 0.1
 shader_parameter/base_color = Color(0.116, 0.348, 0.58, 1)
 shader_parameter/noise_intensity = 2.0
 shader_parameter/noise_speed = 0.1
@@ -14,7 +15,14 @@ material = SubResource("ShaderMaterial_s33lq")
 subdivide_width = 32
 subdivide_depth = 32
 
-[node name="Water" type="Node3D" unique_id=264827860]
+[sub_resource type="BoxShape3D" id="BoxShape3D_nl8eq"]
+size = Vector3(2, 0.25, 2)
+
+[node name="Water" type="Area3D" unique_id=1605700850]
+collision_layer = 32
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1707239035]
 mesh = SubResource("PlaneMesh_delex")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1660059637]
+shape = SubResource("BoxShape3D_nl8eq")
