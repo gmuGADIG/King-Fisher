@@ -106,7 +106,7 @@ func start_the_game():
 	timer.connect("timeout", _on_timeout)
 	add_child(timer)
 	timer.one_shot = true;
-	timer.start(5);
+	timer.start(1);
 	#TODO: load characters into map
 	#TODO: Second countdown
 	return
@@ -117,17 +117,24 @@ func load_players():
 	ScreenTransition.change_to_file("res://world/heightmap_test/heightmap_test.tscn")
 	return
 	
-func _input(event: InputEvent) -> void:
+func _handle_ready_up() -> void:
+	if get_tree().get_first_node_in_group("Lobby") == null:
+		return
+	
 	if not multiplayer.is_server():
-		if event.is_action_pressed("ready_up"):
-			set_ready.rpc_id(1);
+		set_ready.rpc_id(1);
+			
 	if multiplayer.is_server():
-		if event.is_action_pressed("ready_up"):
-			for player in player_list:
+		for player in player_list:
 				if not player_list.get(player).ready:
 					return
-			start_game.emit()
-			start_the_game.rpc()
+		start_game.emit()
+		start_the_game.rpc()
+			
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ready_up"):
+		_handle_ready_up()
 
 @rpc("any_peer","call_local","reliable")
 func set_ready():

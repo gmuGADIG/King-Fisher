@@ -4,6 +4,11 @@ extends Node3D
 @export var player : PackedScene
 
 func _ready() -> void:
+	# TODO: do this without looking at the name
+	if name != "Lobby":
+		if not multiplayer.is_server():
+			spawn_request.rpc_id(1)
+	
 	Multiplayer.new_player.connect(on_player_join)
 	if multiplayer.is_server():
 		Debug.log("Creating player...")
@@ -11,6 +16,10 @@ func _ready() -> void:
 		$CanvasLayer/VBoxContainer/Label.text = "Server"
 	else:
 		$CanvasLayer/VBoxContainer/Label.text = "Client"
+
+@rpc("any_peer")
+func spawn_request():
+	on_player_join(multiplayer.get_remote_sender_id())
 
 func on_player_join(id : int) -> void:
 	# this function only runs on the server

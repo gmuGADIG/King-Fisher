@@ -11,7 +11,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_c06ik"]
 size = Vector3(43.546143, 0.17199707, 42.95099)
 
-[node name="Lobby" unique_id=1751753838 instance=ExtResource("1_cv4rh")]
+[node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
 [node name="ItemTest1" parent="." index="3" unique_id=1566519324 instance=ExtResource("2_7tkdc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694867, 0, -5.357811)
