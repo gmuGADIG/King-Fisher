@@ -18,6 +18,8 @@ var scan_client: PacketPeerUDP
 
 var displayName: String
 
+signal start_game
+
 func _ready() -> void:
 	# listen for when clients connect -- runs on both client and server
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -79,7 +81,10 @@ func _on_peer_connected(id: int) -> void:
 		return
 	
 	Debug.log("peer ",id," connected")
-	player_list.set(id,"Player")
+	var server = ServerConnection.new()
+	server.playerName = "Player"
+	server.ready = false
+	player_list.set(id,server)
 	new_player.emit(id)
 	# tell the new player about all the other players connected to the server.
 	learn_players.rpc_id(id, player_list)
@@ -88,10 +93,14 @@ func _on_peer_connected(id: int) -> void:
 func learn_players(new_player_list: Dictionary[int,String]) -> void:
 	for player in new_player_list:
 		if not player in player_list:
-			player_list.set(player,"Player")
+			var server = ServerConnection.new()
+			server.playerName = "Player"
+			server.ready = false
+			player_list.set(player,server)
 			new_player.emit(player)
 
-func start_game():
+@rpc("call_local")
+func start_the_game():
 	#TODO: countdown
 	var timer : Timer = Timer.new()
 	timer.connect("timeout", _on_timeout)
@@ -105,29 +114,34 @@ func _on_timeout():
 	load_players()
 	
 func load_players():
+	ScreenTransition.change_to_file("res://world/heightmap_test/heightmap_test.tscn")
 	return
 	
 func _input(event: InputEvent) -> void:
 	if not multiplayer.is_server():
 		if event.is_action_pressed("ready_up"):
-			set_ready.rpc_id(multiplayer.get_instance_id());
+			set_ready.rpc_id(1);
 	if multiplayer.is_server():
-		for player in player_list:
-			if not player_list.get(player).ready:
-				return
-		emit_signal("start_game")
-		start_game()
+		if event.is_action_pressed("ready_up"):
+			for player in player_list:
+				if not player_list.get(player).ready:
+					return
+			start_game.emit()
+			start_the_game.rpc()
 
 @rpc("any_peer","call_local","reliable")
 func set_ready():
 	var sender = multiplayer.get_remote_sender_id();
-	player_list.get(sender).ready = !player_list.get(sender).ready;
+	player_list[sender].ready = !player_list[sender].ready;
 	
 func create_server() -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT, MAX_CLIENTS)
 	multiplayer.multiplayer_peer = peer
-	player_list.set(1,"Player")
+	var server = ServerConnection.new()
+	server.playerName = "Player"
+	server.ready = true
+	player_list.set(1, server)
 
 	scan_server = UDPServer.new()
 	scan_server.listen(PORT + 1)
@@ -138,6 +152,8 @@ func join_server(ip : String) -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip, PORT)
 	multiplayer.multiplayer_peer = peer
-	player_list.set(multiplayer.get_unique_id(),"Player")
-	
+	var server = ServerConnection.new()
+	server.playerName = "Player"
+	server.ready = false
+	player_list.set(multiplayer.get_unique_id(),server)
 	scan_for_servers = false
