@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		var dv: Vector2 = event.relative
 		dv *= 0.075
-		dv *= Options.mouse_sensitivity
+		dv *= Options.aim_sesntivity
 		dv = dv.rotated(deg_to_rad(-player.camera_yaw))
 
 		_aim_pos.x += dv.x
