@@ -45,4 +45,4 @@ func _on_mouse_sensitivty_slider_value_changed(value: float) -> void:
 func _on_button_pressed() -> void:
 	closed.emit()
 	print("Options Menu!")
-	visible = not visible
+	hide()
