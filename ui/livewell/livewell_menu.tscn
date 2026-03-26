@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_7nkjd")
 
 [node name="Panel" type="Panel" parent="." unique_id=1600842300]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
