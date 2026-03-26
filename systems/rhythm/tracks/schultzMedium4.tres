@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://dlywc77q8nsh6"]
+
+[ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_0x3pr"]
+[ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_g85o2"]
+
+[sub_resource type="Resource" id="Resource_0x3pr"]
+script = ExtResource("1_0x3pr")
+beat_position = 1.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_g85o2"]
+script = ExtResource("1_0x3pr")
+beat_position = 1.75
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_4b2e3"]
+script = ExtResource("1_0x3pr")
+beat_position = 2.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_kw70p"]
+script = ExtResource("1_0x3pr")
+beat_position = 3.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_edoku"]
+script = ExtResource("1_0x3pr")
+beat_position = 3.75
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_yq6sp"]
+script = ExtResource("1_0x3pr")
+beat_position = 4.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_oanw4"]
+script = ExtResource("1_0x3pr")
+beat_position = 5.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_61dgc"]
+script = ExtResource("1_0x3pr")
+beat_position = 5.75
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_0ee3d"]
+script = ExtResource("1_0x3pr")
+beat_position = 6.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_ltm5s"]
+script = ExtResource("1_0x3pr")
+beat_position = 7.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_3v27i"]
+script = ExtResource("1_0x3pr")
+beat_position = 7.75
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_judos"]
+script = ExtResource("1_0x3pr")
+beat_position = 8.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[resource]
+script = ExtResource("2_g85o2")
+notes = Array[ExtResource("1_0x3pr")]([SubResource("Resource_0x3pr"), SubResource("Resource_g85o2"), SubResource("Resource_4b2e3"), SubResource("Resource_kw70p"), SubResource("Resource_edoku"), SubResource("Resource_yq6sp"), SubResource("Resource_oanw4"), SubResource("Resource_61dgc"), SubResource("Resource_0ee3d"), SubResource("Resource_ltm5s"), SubResource("Resource_3v27i"), SubResource("Resource_judos")])
+metadata/_custom_type_script = "uid://duodpj15swkyd"
