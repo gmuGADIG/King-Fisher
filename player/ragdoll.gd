@@ -76,6 +76,8 @@ func start_ragdoll(duration: float, prevent_move_check: bool):
 	player.is_ragdolled = true
 	physical_bones_start_simulation()
 
+	player.get_node("PlayerId").visible = false
+
 	await get_tree().create_timer(duration).timeout
 	if player.is_ragdolled:
 		player.can_exit_ragdoll = true
@@ -108,6 +110,7 @@ func confirm_end_ragdoll():
 
 	physical_bones_stop_simulation()
 	player.is_ragdolled = false
+	player.get_node("PlayerId").visible = true
 	skeleton.reset_bone_poses()
 
 	#Reset values
