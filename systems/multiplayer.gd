@@ -80,7 +80,7 @@ func _on_peer_connected(id: int) -> void:
 		return
 	
 	Debug.log("peer ",id," connected")
-	player_list.set(id,"Player")
+	player_list.set(id,"Client") #how the host ids others [need to figure out]
 	new_player.emit(id)
 	# tell the new player about all the other players connected to the server.
 	learn_players.rpc_id(id, player_list)
@@ -97,7 +97,7 @@ func create_server() -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT, MAX_CLIENTS)
 	multiplayer.multiplayer_peer = peer
-	player_list.set(1,"Player")
+	player_list.set(1,displayName) #How the host ids self [works :)]
 
 	scan_server = UDPServer.new()
 	scan_server.listen(PORT + 1)
@@ -108,6 +108,6 @@ func join_server(ip : String) -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip, PORT)
 	multiplayer.multiplayer_peer = peer
-	player_list.set(multiplayer.get_unique_id(),"Player")
+	player_list.set(multiplayer.get_unique_id(),displayName) #how clients know about themselves [works :)]
 	
 	scan_for_servers = false

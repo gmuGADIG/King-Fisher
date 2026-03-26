@@ -20,6 +20,7 @@ func on_player_join(id : int) -> void:
 	for child in get_children():
 		if child is Player:
 			var p: Player = child
+			Debug.log("dict", get_node("/root/Multiplayer").player_list)
 			spawn_player.rpc_id(id, p.get_multiplayer_authority(), p.position)
 	
 	spawn_player.rpc(id,$Players.get_safe_spawn_point())

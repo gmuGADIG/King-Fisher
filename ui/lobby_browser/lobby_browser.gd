@@ -16,8 +16,9 @@ func _ready() -> void:
 func _on_host_button_pressed() -> void:
 	#if name_text.text.length() == 0:
 		#name_text.text = "Player"+str(randi_range(1,999))
-	Multiplayer.create_server()
 	Multiplayer.displayName = %NameInput.text
+	Multiplayer.create_server()
+	#Multiplayer.displayName = %NameInput.text
 	Debug.log("Host Created")
 	get_tree().change_scene_to_file("res://world/lobby/lobby.tscn")
 
