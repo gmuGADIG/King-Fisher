@@ -30,6 +30,8 @@ Debug="*res://systems/debug.tscn"
 DebugMenu="*uid://bojr30uqdlyje"
 ScreenTransition="*uid://ie0c43cmrtky"
 
+project/assembly_name="King Fisher"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")
