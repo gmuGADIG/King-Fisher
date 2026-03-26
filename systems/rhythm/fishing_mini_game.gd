@@ -24,8 +24,11 @@ extends CanvasLayer
 @export var hit_window_radius_ms:float = 500.0
 @export var perfect_window_radius_ms:float = 100.0
 
+var score:float = 0
+
 var taps:Array[float] 
 var tap_type:int
+
 
 @export_category("Test")
 @export var hit_sfx : AudioStream
@@ -36,6 +39,7 @@ const TRACK_LENGTH:int = 8
 
 var current_note_index : int = 0 
 var current_note:Note
+var current_note_index_sfx:int = 0
 
 enum{
 	NON_ARTICULATED,
@@ -52,28 +56,37 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	indicator.position.x = ms_to_position(rhythm_engine.current_time_ms)
 	#print(current_note_index)
+	
+	if (current_note_index_sfx < track.notes.size()):
+		var current_note_sfx = track.notes[current_note_index_sfx]
+		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note_sfx.beat_position):
+			$AudioStreamPlayer.stream = hit_sfx_art if current_note_sfx.is_articulated else hit_sfx
+			$AudioStreamPlayer.play()
+			current_note_index_sfx +=1
+	
 	if current_note_index < track.notes.size():
 		current_note = track.notes[current_note_index]
-		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position):
-			$AudioStreamPlayer.stream = hit_sfx_art if current_note.is_articulated else hit_sfx
-			$AudioStreamPlayer.play()
-			current_note_index += 1
+
+		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position) + hit_window_radius_ms:
+			current_note_index+=1
+			print(current_note_index)
 			 
-			print("yay")
 	if Input.is_action_just_pressed("catch_fish_main") or Input.is_action_just_pressed("catch_fish_secondary"):
 		if Input.is_action_just_pressed("catch_fish_main"):
 			tap_type = NON_ARTICULATED
 			add_tap_marker(NON_ARTICULATED)
-			determine_accuracy(NON_ARTICULATED)
+			score += determine_accuracy(NON_ARTICULATED)
 		else:
 			tap_type = ARTICULATED
 			add_tap_marker(ARTICULATED)
-			determine_accuracy(ARTICULATED)
+			score += determine_accuracy(ARTICULATED)
+		print("score:", score)
 		
 		#taps.append(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms))
 		#print(taps)
 	
 func determine_accuracy(tap_type: int) -> float:
+	print(current_note_index)
 	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position)
 	var current_time : float = rhythm_engine.current_time_ms
 	
@@ -81,24 +94,29 @@ func determine_accuracy(tap_type: int) -> float:
 	
 	if (difference > hit_window_radius_ms):
 		print("Early!")
+		current_note_index += 1
 		return 0
 	elif (difference < -hit_window_radius_ms):
 		print("Late!")
+		current_note_index += 1
 		return 0
 	else:
 		print("Hit!")
 		if (note_is_tap_type(current_note, tap_type)):
 			print("Match!")
 		else:
+			current_note_index += 1
 			return 0
 		if (abs(difference) < perfect_window_radius_ms):
 			print("Perfect!")
+			current_note_index += 1
 			return perfect_hit_score
 		else:
 			print("OK!")
+			current_note_index += 1
 			return good_hit_score
 	
-	current_note_index += 1
+	
 	
 	return 0
 
