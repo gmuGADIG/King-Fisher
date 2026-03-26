@@ -46,7 +46,18 @@ func _on_save_button_pressed() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("Menu") && multiplayer.is_server()):
+		if($CanvasLayer/Panel.visible):
+			print("Hiding menu!")
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			print("Showing menu")
+			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 		print("Menu pressed")
 		print("Authority checked")
 		$CanvasLayer/Panel.visible = !$CanvasLayer/Panel.visible
 	
+
+
+func _on_return_button_pressed() -> void:
+	$CanvasLayer/Panel.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

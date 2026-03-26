@@ -125,3 +125,4 @@ layout_mode = 2
 text = "Return"
 
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Save Button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Return Button" to="." method="_on_return_button_pressed"]
