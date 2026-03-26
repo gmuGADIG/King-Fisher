@@ -22,6 +22,7 @@ var displayName: String
 func _ready() -> void:
 	# listen for when clients connect -- runs on both client and server
 	multiplayer.peer_connected.connect(_on_peer_connected)
+	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	scan_client = PacketPeerUDP.new() # listener for scan packets on LAN scanning screen
 
 # listen for clients looking for servers
@@ -111,3 +112,7 @@ func join_server(ip : String) -> void:
 	player_list.set(multiplayer.get_unique_id(),"Player")
 	
 	scan_for_servers = false
+
+func _on_peer_disconnected(playerId: int) -> void:
+	if playerId == 1:
+		multiplayer.Close()
