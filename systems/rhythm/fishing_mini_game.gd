@@ -20,8 +20,9 @@ extends CanvasLayer
 @export var tap_marker_scale:float = 1.0
 
 @export var good_hit_score:float = 0.7
-@export var bad_hit_score:float = 1.0
-@export var hit_window_size_ms:float = 500.0
+@export var perfect_hit_score:float = 1.0
+@export var hit_window_radius_ms:float = 500.0
+@export var perfect_window_radius_ms:float = 100.0
 
 var taps:Array[float] 
 var tap_type:int
@@ -63,13 +64,47 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("catch_fish_main"):
 			tap_type = NON_ARTICULATED
 			add_tap_marker(NON_ARTICULATED)
+			determine_accuracy(NON_ARTICULATED)
 		else:
 			tap_type = ARTICULATED
 			add_tap_marker(ARTICULATED)
+			determine_accuracy(ARTICULATED)
 		
 		#taps.append(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms))
 		#print(taps)
 	
+func determine_accuracy(tap_type: int) -> float:
+	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position)
+	var current_time : float = rhythm_engine.current_time_ms
+	
+	var difference : float = note_position_ms - current_time
+	
+	if (difference > hit_window_radius_ms):
+		print("Early!")
+		return 0
+	elif (difference < -hit_window_radius_ms):
+		print("Late!")
+		return 0
+	else:
+		print("Hit!")
+		if (note_is_tap_type(current_note, tap_type)):
+			print("Match!")
+		else:
+			return 0
+		if (abs(difference) < perfect_window_radius_ms):
+			print("Perfect!")
+			return perfect_hit_score
+		else:
+			print("OK!")
+			return good_hit_score
+	
+	current_note_index += 1
+	
+	return 0
+
+func note_is_tap_type(note: Note, beat_type: int) -> bool:	
+	return note.is_articulated == (beat_type == ARTICULATED)
+
 func place_ticks_sequence_line() -> void:
 	var spacing = sequence_line_length/8
 	for i in TRACK_LENGTH+1:
