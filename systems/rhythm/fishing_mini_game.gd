@@ -26,6 +26,10 @@ extends CanvasLayer
 @export var perfect_window_radius_ms:float = 100.0
 
 var score:float = 0
+var perfect_hits:int = 0
+var good_hits:int = 0
+var misses:int = 0
+
 
 var taps:Array[float] 
 var tap_type:int
@@ -42,6 +46,7 @@ var current_note_index : int = 0
 var current_note:Note
 var current_note_index_sfx:int = 0
 var state:int = 1
+
 
 enum{
 	NON_ARTICULATED,
@@ -68,7 +73,7 @@ func _process(delta: float) -> void:
 			pass
 		states.PLAYER_RESPONSE:
 			player_indicator.position.x = ms_to_position(rhythm_engine.current_time_ms)
-			#print(current_note_index)w
+			#print(current_note_index)
 			if (current_note_index_sfx < track.notes.size()):
 				var current_note_sfx = track.notes[current_note_index_sfx]
 				if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note_sfx.beat_position):
@@ -82,6 +87,7 @@ func _process(delta: float) -> void:
 					current_note_index+=1
 					#print(current_note_index)
 					print("Miss!")
+					misses+=1
 			if Input.is_action_just_pressed("catch_fish_main") or Input.is_action_just_pressed("catch_fish_secondary"):
 				if Input.is_action_just_pressed("catch_fish_main"):
 					tap_type = NON_ARTICULATED
@@ -95,6 +101,7 @@ func _process(delta: float) -> void:
 						score += determine_accuracy(ARTICULATED)
 				#print("score:", score)
 			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) > 8:
+				print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 				state=states.MINIGAME_FINISH
 				#print("score:", score)
 		states.MINIGAME_FINISH:
@@ -112,26 +119,32 @@ func determine_accuracy(tap_type: int) -> float:
 	if (difference > hit_window_radius_ms):
 		print("Early!")
 		current_note_index += 1
+		misses += 1
 		return 0
 	elif (difference < -hit_window_radius_ms):
 		print("Late!")
 		current_note_index += 1
+		misses += 1
 		return 0
 	else:
 		#print("Hit!")
 		if (note_is_tap_type(current_note, tap_type)):
-			print("Match!")
+			#print("Match!")
+			pass
 		else:
 			current_note_index += 1
 			return 0
 		if (abs(difference) < perfect_window_radius_ms):
 			print("Perfect!")
 			current_note_index += 1
+			perfect_hits += 1
 			return perfect_hit_score
 		else:
-			print("OK!")
+			print("Good!")
 			current_note_index += 1
+			good_hits += 1
 			return good_hit_score
+			
 	
 	
 	

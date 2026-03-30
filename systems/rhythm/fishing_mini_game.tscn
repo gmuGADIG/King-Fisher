@@ -26,6 +26,7 @@ note_marker_scale = 0.2
 note_marker_articulated_scale = 0.2
 tap_marker_articulated_scale = 0.2
 tap_marker_scale = 0.5
+hit_window_radius_ms = 300.0
 perfect_window_radius_ms = 50.0
 hit_sfx = ExtResource("5_6b33u")
 hit_sfx_art = ExtResource("6_8v4n0")
