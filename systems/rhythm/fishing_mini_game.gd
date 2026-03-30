@@ -66,14 +66,15 @@ enum HitQuality{
 }
 
 func _ready() -> void:
-	place_ticks_sequence_line()
-	place_ticks_player_line()
+	place_ticks(player_line)
+	place_ticks(sequence_line)
 	player_indicator.position = Vector2(0,0)
 	fish_indicator.position = Vector2(0,0)
 	populate_sequence(track)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#print("target ms: ",rhythm_engine.beat_to_ms(track.notes[current_note_index].beat_position), ", current ms: ",rhythm_engine.current_time_ms)
 	## Update Indicator
 	if state == Phase.FISH_CALL:
 		fish_indicator.position.x = ms_to_position(rhythm_engine.current_time_ms)
@@ -91,20 +92,21 @@ func _process(delta: float) -> void:
 					current_note_index_sfx +=1
 			
 			##Transition to response
-			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 8:
+			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH:
 				state = Phase.PLAYER_RESPONSE
-				rhythm_engine.current_time_ms -= rhythm_engine.beat_to_ms(9)
+				rhythm_engine.current_time_ms -= rhythm_engine.beat_to_ms(TRACK_LENGTH)
 		Phase.PLAYER_RESPONSE:
 			
 			## Miss if no input pressed in the time window
 			if current_note_index < track.notes.size():
 				current_note = track.notes[current_note_index]
-				if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position) + hit_window_radius_ms:
+				##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
+				if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position+1) + hit_window_radius_ms:
 					current_note_index+=1
 					print("Miss!")
 					misses+=1
 			
-			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) > 8:
+			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) > TRACK_LENGTH:
 				print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 				state=Phase.MINIGAME_FINISH
 				#print("score:", score)
@@ -127,8 +129,9 @@ func _input(event: InputEvent) -> void:
 			return
 		
 		var hit_quality : HitQuality = determine_accuracy()
-		var expected_note_type : NoteType = NoteType.ARTICULATED if track.notes[current_note_index].is_articulated else NoteType.NON_ARTICULATED
 		
+		var expected_note_type : NoteType = NoteType.ARTICULATED if track.notes[current_note_index].is_articulated else NoteType.NON_ARTICULATED
+		print(hit_quality)
 		if expected_note_type != input_type or hit_quality == HitQuality.MISS:
 			print("miss :(")
 			misses += 1
@@ -160,11 +163,13 @@ func _input(event: InputEvent) -> void:
 
 func determine_accuracy() -> HitQuality:
 	print(current_note_index)
+	##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
+	current_note = track.notes[current_note_index]
 	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position)
 	var current_time : float = rhythm_engine.current_time_ms
 	
 	var difference : float = note_position_ms - current_time
-	
+	print("diff: ",difference)
 	if (difference > hit_window_radius_ms):
 		return HitQuality.MISS
 	elif (difference < -hit_window_radius_ms):
@@ -180,29 +185,21 @@ func determine_accuracy() -> HitQuality:
 func note_is_tap_type(note: Note, beat_type: NoteType) -> bool:	
 	return note.is_articulated == (beat_type == NoteType.ARTICULATED)
 
-func place_ticks_sequence_line() -> void:
-	var spacing = sequence_line_length/8
+func place_ticks(line : Line2D) -> void:
+	var line_length : float = absf(line.points[1].x-line.points[0].x)
+	var spacing = line_length/TRACK_LENGTH
+	
 	for i in TRACK_LENGTH+1:
 		var new_tick = Sprite2D.new()
 		new_tick.texture = tick_sprite
-		new_tick.position.y = sequence_line.points[0].y
-		new_tick.position.x = sequence_line.points[0].x + spacing * i
+		new_tick.position.y = line.points[0].y
+		new_tick.position.x = line.points[0].x + spacing * i
 		new_tick.scale = Vector2(tick_scale,tick_scale)
-		sequence_line.add_child(new_tick)
-		
-func place_ticks_player_line() -> void:
-	var spacing = player_line_length/8
-	for i in TRACK_LENGTH+1:
-		var new_tick = Sprite2D.new()
-		new_tick.texture = tick_sprite
-		new_tick.position.y = player_line.points[0].y
-		new_tick.position.x = player_line.points[0].x + spacing * i
-		new_tick.scale = Vector2(tick_scale,tick_scale)
-		player_line.add_child(new_tick)
+		line.add_child(new_tick)
 
 func populate_sequence(input_track:Track):
 	print("input track:",input_track.notes.size())
-	var spacing = sequence_line_length/8
+	var spacing = sequence_line_length/TRACK_LENGTH
 	for i in input_track.notes:
 		print("i'm a note")
 		var new_note_marker = Sprite2D.new()
@@ -214,7 +211,7 @@ func populate_sequence(input_track:Track):
 		
 func add_tap_marker(note_type : NoteType) -> void:
 	var new_tap_marker = Sprite2D.new()
-	var spacing = player_line_length/8
+	var spacing = player_line_length/TRACK_LENGTH
 	if note_type == NoteType.NON_ARTICULATED:
 		new_tap_marker.texture = tap_marker_sprite
 		new_tap_marker.scale = Vector2(tap_marker_scale,tap_marker_scale)
@@ -226,6 +223,6 @@ func add_tap_marker(note_type : NoteType) -> void:
 	
 func ms_to_position(ms:float) -> float:
 	var position
-	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH + 1)
+	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH)
 	position = (ms * sequence_line_length)/total_ms
 	return position
