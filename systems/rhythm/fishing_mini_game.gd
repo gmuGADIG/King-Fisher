@@ -91,7 +91,7 @@ func _process(delta: float) -> void:
 					current_note_index_sfx +=1
 			
 			##Transition to response
-			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) > 7:
+			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 8:
 				state = Phase.PLAYER_RESPONSE
 				rhythm_engine.current_time_ms -= rhythm_engine.beat_to_ms(9)
 		Phase.PLAYER_RESPONSE:
@@ -208,7 +208,7 @@ func populate_sequence(input_track:Track):
 		var new_note_marker = Sprite2D.new()
 		new_note_marker.texture = note_marker_sprite if !i.is_articulated else note_marker_articulated_sprite
 		new_note_marker.position.y = sequence_line.points[0].y
-		new_note_marker.position.x = sequence_line.points[0].x + spacing * (i.beat_position - 1)
+		new_note_marker.position.x = sequence_line.points[0].x + spacing * (i.beat_position)
 		new_note_marker.scale = Vector2(note_marker_scale,note_marker_scale) if !i.is_articulated else Vector2(note_marker_articulated_scale,note_marker_articulated_scale)
 		sequence_line.add_child(new_note_marker)
 		
