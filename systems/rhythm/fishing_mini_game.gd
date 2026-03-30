@@ -32,7 +32,7 @@ var misses:int = 0
 
 
 var taps:Array[float] 
-var tap_type:int
+var tap_type : NoteType
 
 
 @export_category("Test")
@@ -45,18 +45,24 @@ const TRACK_LENGTH:int = 8
 var current_note_index : int = 0 
 var current_note:Note
 var current_note_index_sfx:int = 0
-var state:int = 1
+var state : Phase = Phase.FISH_CALL
 
 
-enum{
+enum NoteType{
 	NON_ARTICULATED,
 	ARTICULATED
 }
 
-enum states{
+enum Phase{
 	FISH_CALL,
 	PLAYER_RESPONSE,
 	MINIGAME_FINISH
+}
+
+enum HitQuality{
+	MISS,
+	GOOD,
+	PERFECT
 }
 
 func _ready() -> void:
@@ -68,48 +74,91 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	## Update Indicator
+	if state == Phase.FISH_CALL:
+		fish_indicator.position.x = ms_to_position(rhythm_engine.current_time_ms)
+	elif state == Phase.PLAYER_RESPONSE:
+		player_indicator.position.x = ms_to_position(rhythm_engine.current_time_ms)
+	
 	match state:
-		states.FISH_CALL:
-			pass
-		states.PLAYER_RESPONSE:
-			player_indicator.position.x = ms_to_position(rhythm_engine.current_time_ms)
-			#print(current_note_index)
+		Phase.FISH_CALL:
+			##Call Audio Playback
 			if (current_note_index_sfx < track.notes.size()):
 				var current_note_sfx = track.notes[current_note_index_sfx]
 				if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note_sfx.beat_position):
 					$AudioStreamPlayer.stream = hit_sfx_art if current_note_sfx.is_articulated else hit_sfx
 					$AudioStreamPlayer.play()
 					current_note_index_sfx +=1
-					
+			
+			##Transition to response
+			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) > 7:
+				state = Phase.PLAYER_RESPONSE
+				rhythm_engine.current_time_ms -= rhythm_engine.beat_to_ms(9)
+		Phase.PLAYER_RESPONSE:
+			
+			## Miss if no input pressed in the time window
 			if current_note_index < track.notes.size():
 				current_note = track.notes[current_note_index]
 				if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position) + hit_window_radius_ms:
 					current_note_index+=1
-					#print(current_note_index)
 					print("Miss!")
 					misses+=1
-			if Input.is_action_just_pressed("catch_fish_main") or Input.is_action_just_pressed("catch_fish_secondary"):
-				if Input.is_action_just_pressed("catch_fish_main"):
-					tap_type = NON_ARTICULATED
-					add_tap_marker(NON_ARTICULATED)
-					if current_note_index < track.notes.size():
-						score += determine_accuracy(NON_ARTICULATED)
-				else:
-					tap_type = ARTICULATED
-					add_tap_marker(ARTICULATED)
-					if current_note_index < track.notes.size():
-						score += determine_accuracy(ARTICULATED)
-				#print("score:", score)
+			
 			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) > 8:
 				print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
-				state=states.MINIGAME_FINISH
+				state=Phase.MINIGAME_FINISH
 				#print("score:", score)
-		states.MINIGAME_FINISH:
+		Phase.MINIGAME_FINISH:
 			pass
 		#taps.append(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms))
 		#print(taps)
-	
-func determine_accuracy(tap_type: int) -> float:
+
+func _input(event: InputEvent) -> void:
+	if state == Phase.PLAYER_RESPONSE:
+		if current_note_index >= track.notes.size():
+			return
+		
+		var input_type : NoteType
+		if event.is_action_pressed("catch_fish_main"):
+			input_type = NoteType.NON_ARTICULATED
+		elif event.is_action_pressed("catch_fish_secondary"):
+			input_type = NoteType.ARTICULATED
+		else: ##Not a note in the thing
+			return
+		
+		var hit_quality : HitQuality = determine_accuracy()
+		var expected_note_type : NoteType = NoteType.ARTICULATED if track.notes[current_note_index].is_articulated else NoteType.NON_ARTICULATED
+		
+		if expected_note_type != input_type or hit_quality == HitQuality.MISS:
+			print("miss :(")
+			misses += 1
+		elif hit_quality == HitQuality.GOOD:
+			print("Good")
+			good_hits += 1
+		elif hit_quality == HitQuality.PERFECT:
+			print("Perfect!")
+			perfect_hits += 1
+		else:
+			assert(false, "Edge case detected")
+		
+		## Draw marker to screen
+		add_tap_marker(input_type)
+		current_note_index += 1
+		
+		#if event.is_action_pressed("catch_fish_main"):
+			#tap_type = NoteType.NON_ARTICULATED
+			#add_tap_marker(NoteType.NON_ARTICULATED)
+			#if current_note_index < track.notes.size():
+				#score += determine_accuracy(NoteType.NON_ARTICULATED)
+		#elif 
+			#tap_type = NoteType.ARTICULATED
+			#add_tap_marker(NoteType.ARTICULATED)
+			#if current_note_index < track.notes.size():
+				#score += determine_accuracy(NoteType.ARTICULATED)
+			#print("score:", score)
+
+
+func determine_accuracy() -> HitQuality:
 	print(current_note_index)
 	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position)
 	var current_time : float = rhythm_engine.current_time_ms
@@ -117,41 +166,19 @@ func determine_accuracy(tap_type: int) -> float:
 	var difference : float = note_position_ms - current_time
 	
 	if (difference > hit_window_radius_ms):
-		print("Early!")
-		current_note_index += 1
-		misses += 1
-		return 0
+		return HitQuality.MISS
 	elif (difference < -hit_window_radius_ms):
-		print("Late!")
-		current_note_index += 1
-		misses += 1
-		return 0
+		return HitQuality.MISS
+	
+	var distance : float = absf(difference)
+	
+	if distance < perfect_window_radius_ms:
+		return HitQuality.PERFECT
 	else:
-		#print("Hit!")
-		if (note_is_tap_type(current_note, tap_type)):
-			#print("Match!")
-			pass
-		else:
-			current_note_index += 1
-			return 0
-		if (abs(difference) < perfect_window_radius_ms):
-			print("Perfect!")
-			current_note_index += 1
-			perfect_hits += 1
-			return perfect_hit_score
-		else:
-			print("Good!")
-			current_note_index += 1
-			good_hits += 1
-			return good_hit_score
-			
-	
-	
-	
-	return 0
+		return HitQuality.GOOD
 
-func note_is_tap_type(note: Note, beat_type: int) -> bool:	
-	return note.is_articulated == (beat_type == ARTICULATED)
+func note_is_tap_type(note: Note, beat_type: NoteType) -> bool:	
+	return note.is_articulated == (beat_type == NoteType.ARTICULATED)
 
 func place_ticks_sequence_line() -> void:
 	var spacing = sequence_line_length/8
@@ -185,18 +212,18 @@ func populate_sequence(input_track:Track):
 		new_note_marker.scale = Vector2(note_marker_scale,note_marker_scale) if !i.is_articulated else Vector2(note_marker_articulated_scale,note_marker_articulated_scale)
 		sequence_line.add_child(new_note_marker)
 		
-func add_tap_marker(note_type:int) -> void:
+func add_tap_marker(note_type : NoteType) -> void:
 	var new_tap_marker = Sprite2D.new()
 	var spacing = player_line_length/8
-	if note_type == 0:
+	if note_type == NoteType.NON_ARTICULATED:
 		new_tap_marker.texture = tap_marker_sprite
 		new_tap_marker.scale = Vector2(tap_marker_scale,tap_marker_scale)
-	elif note_type == 1:
+	elif note_type == NoteType.ARTICULATED:
 		new_tap_marker.texture = tap_marker_articulated_sprite
 		new_tap_marker.scale = Vector2(tap_marker_articulated_scale,tap_marker_articulated_scale)
 	new_tap_marker.position = player_indicator.position
-	
 	player_line.add_child(new_tap_marker)
+	
 func ms_to_position(ms:float) -> float:
 	var position
 	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH + 1)
