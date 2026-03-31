@@ -33,3 +33,4 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	new_player.position = pos
 	add_child(new_player)
 	new_player.set_authority(id) # we don't need to use RPC here since this function call is RPC'd
+	Multiplayer.player_instances[id] = new_player
