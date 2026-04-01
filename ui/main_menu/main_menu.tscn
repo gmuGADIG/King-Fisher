@@ -16,6 +16,10 @@
 [sub_resource type="GDScript" id="GDScript_4e78x"]
 script/source = "extends Button
 
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://ui/keybinds/keybind_menu.tscn\")
 func _on_pressed() -> void:
 	get_tree().change_scene_to_file(\"res://temp/start_test/world/world.tscn\")
 "
@@ -121,7 +125,14 @@ size_flags_vertical = 6
 texture_normal = ExtResource("2_ctg6d")
 stretch_mode = 5
 
+[node name="Button2" type="Button" parent="." unique_id=297064891]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 110.0
+text = "Keybinds"
+
 [node name="Button" type="Button" parent="." unique_id=75611758]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -142,4 +153,5 @@ script = SubResource("GDScript_4e78x")
 [connection signal="pressed" from="MainMenuContainer/LeftSide/FishDexBtn" to="." method="fishdex_pressed"]
 [connection signal="pressed" from="MainMenuContainer/LeftSide/SettingsBtn" to="." method="settings_pressed"]
 [connection signal="pressed" from="MainMenuContainer/RightSide/FindLobbyBtn" to="." method="find_lobby_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
