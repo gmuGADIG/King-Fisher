@@ -39,7 +39,7 @@ var tap_type : NoteType
 @export var hit_sfx : AudioStream
 @export var hit_sfx_art : AudioStream
 
-const TRACK_LENGTH:int = 8
+const TRACK_LENGTH:int = 9
 # Called when the node enters the scene tree for the first time.
 
 var current_note_index : int = 0 
@@ -74,6 +74,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#print(int(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms)))
 	#print("target ms: ",rhythm_engine.beat_to_ms(track.notes[current_note_index].beat_position), ", current ms: ",rhythm_engine.current_time_ms)
 	## Update Indicator
 	if state == Phase.FISH_CALL:
@@ -86,13 +87,13 @@ func _process(delta: float) -> void:
 			##Call Audio Playback
 			if (current_note_index_sfx < track.notes.size()):
 				var current_note_sfx = track.notes[current_note_index_sfx]
-				if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note_sfx.beat_position):
+				if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note_sfx.beat_position+1):
 					$AudioStreamPlayer.stream = hit_sfx_art if current_note_sfx.is_articulated else hit_sfx
 					$AudioStreamPlayer.play()
 					current_note_index_sfx +=1
 			
 			##Transition to response
-			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH:
+			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH-1:
 				state = Phase.PLAYER_RESPONSE
 				rhythm_engine.current_time_ms -= rhythm_engine.beat_to_ms(TRACK_LENGTH)
 		Phase.PLAYER_RESPONSE:
@@ -106,7 +107,7 @@ func _process(delta: float) -> void:
 					print("Miss!")
 					misses+=1
 			
-			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) > TRACK_LENGTH:
+			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH - 1:
 				print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 				state=Phase.MINIGAME_FINISH
 				#print("score:", score)
@@ -127,6 +128,9 @@ func _input(event: InputEvent) -> void:
 			input_type = NoteType.ARTICULATED
 		else: ##Not a note in the thing
 			return
+		
+		$AudioStreamPlayer.stream = hit_sfx_art if input_type == NoteType.ARTICULATED else hit_sfx
+		$AudioStreamPlayer.play()
 		
 		var hit_quality : HitQuality = determine_accuracy()
 		
@@ -165,7 +169,8 @@ func determine_accuracy() -> HitQuality:
 	print(current_note_index)
 	##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
 	current_note = track.notes[current_note_index]
-	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position)
+	print("input: ",rhythm_engine.beat_to_ms(current_note.beat_position))
+	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position+1)
 	var current_time : float = rhythm_engine.current_time_ms
 	
 	var difference : float = note_position_ms - current_time
@@ -187,9 +192,9 @@ func note_is_tap_type(note: Note, beat_type: NoteType) -> bool:
 
 func place_ticks(line : Line2D) -> void:
 	var line_length : float = absf(line.points[1].x-line.points[0].x)
-	var spacing = line_length/TRACK_LENGTH
+	var spacing = line_length/(TRACK_LENGTH-1)
 	
-	for i in TRACK_LENGTH+1:
+	for i in TRACK_LENGTH:
 		var new_tick = Sprite2D.new()
 		new_tick.texture = tick_sprite
 		new_tick.position.y = line.points[0].y
@@ -199,7 +204,7 @@ func place_ticks(line : Line2D) -> void:
 
 func populate_sequence(input_track:Track):
 	print("input track:",input_track.notes.size())
-	var spacing = sequence_line_length/TRACK_LENGTH
+	var spacing = sequence_line_length/(TRACK_LENGTH-1)
 	for i in input_track.notes:
 		print("i'm a note")
 		var new_note_marker = Sprite2D.new()
@@ -223,6 +228,6 @@ func add_tap_marker(note_type : NoteType) -> void:
 	
 func ms_to_position(ms:float) -> float:
 	var position
-	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH + 1)
+	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH)
 	position = (ms * sequence_line_length)/total_ms
 	return position
