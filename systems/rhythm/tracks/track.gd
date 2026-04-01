@@ -7,5 +7,7 @@ class_name Track extends Resource
 @export_range(0, 500, 1, "suffix:ms") var hit_leniency : float = 50
 ##The backing track audio stream (drag in an mp3, wav, ogg, etc.)
 @export var backing_track : AudioStream
+##The minimum required percent accuracy to successfully catch a fish
+@export_range(0, 100, 1, "suffix:%") var target_accuracy: float = 80.0
 ##The list of when the player needs to press inputs to the beat. 1 beat = 1 quarter note
 @export var notes: Array[Note]
