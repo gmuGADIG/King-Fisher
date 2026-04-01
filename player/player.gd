@@ -287,6 +287,8 @@ func pick_up_item(item: Item) -> void:
 	held_item = item
 	held_item.is_held = true
 	held_item.position = Vector3.ZERO
+	# Hide the item. Nobody will know you have it until you use it.
+	held_item.visible=false
 
 @rpc("call_local")
 func use_held_item() -> void:

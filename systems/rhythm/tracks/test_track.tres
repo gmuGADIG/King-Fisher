@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://cynir17pueipr"]
+
+[ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_dy871"]
+[ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_m6yja"]
+
+[sub_resource type="Resource" id="Resource_dy871"]
+script = ExtResource("1_dy871")
+beat_position = 1.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_m6yja"]
+script = ExtResource("1_dy871")
+beat_position = 2.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_21o42"]
+script = ExtResource("1_dy871")
+beat_position = 3.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_wlmgi"]
+script = ExtResource("1_dy871")
+beat_position = 4.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_unbe0"]
+script = ExtResource("1_dy871")
+beat_position = 5.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_ry5bq"]
+script = ExtResource("1_dy871")
+beat_position = 6.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_qpxd3"]
+script = ExtResource("1_dy871")
+beat_position = 7.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_e1fxb"]
+script = ExtResource("1_dy871")
+beat_position = 8.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[resource]
+script = ExtResource("2_m6yja")
+notes = Array[ExtResource("1_dy871")]([SubResource("Resource_dy871"), SubResource("Resource_m6yja"), SubResource("Resource_21o42"), SubResource("Resource_wlmgi"), SubResource("Resource_unbe0"), SubResource("Resource_ry5bq"), SubResource("Resource_qpxd3"), SubResource("Resource_e1fxb")])
+metadata/_custom_type_script = "uid://duodpj15swkyd"
