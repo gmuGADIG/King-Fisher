@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bffxe171rcnea"]
 
 [ext_resource type="Script" uid="uid://bx8rb13al7o7e" path="res://player/player.gd" id="1_onrkg"]
-[ext_resource type="Script" path="res://player/player_mesh.gd" id="2_pmesh"]
-[ext_resource type="Script" path="res://player/player_id.gd" id="5_g6k8r"]
+[ext_resource type="Script" uid="uid://b0w3b5ncyaqf2" path="res://player/player_mesh.gd" id="2_pmesh"]
+[ext_resource type="Script" uid="uid://dm41gwejdfgy" path="res://player/player_id.gd" id="5_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://c0h4ahbau2lur" path="res://art/3d-assets/Bean.glb" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://bqpwk0pccci1t" path="res://player/ragdoll.gd" id="6_boad6"]
 [ext_resource type="Script" uid="uid://c3ahl7fgjexil" path="res://player/aiming.gd" id="6_g6k8r"]
@@ -117,10 +117,10 @@ transform = Transform3D(1.1906586, 0, 0, 0, 1.1906586, 0, 0, 0, 1.1906586, 0, 0,
 script = ExtResource("2_pmesh")
 rotation_speed_curve = SubResource("Curve_pmesh")
 
-[node name="Bean" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 543271203) index="0" unique_id=2067573586]
+[node name="Bean" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 819542161) index="0" unique_id=515078765]
 layers = 2
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 543271203) index="1" unique_id=1885720731]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 819542161) index="1" unique_id=1885720731]
 script = ExtResource("6_boad6")
 
 [node name="Physical Bone Pelvis" type="PhysicalBone3D" parent="Body/Armature/Skeleton3D/Bones" unique_id=1014286577]
