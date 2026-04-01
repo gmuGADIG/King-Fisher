@@ -1,0 +1,176 @@
+[gd_scene load_steps=16 format=3 uid="uid://w8v26m5aemb3"]
+
+[ext_resource type="Script" uid="uid://r4bm0mknm2rj" path="res://watercan/watercan.gd" id="1_p7hrf"]
+[ext_resource type="PackedScene" uid="uid://mqfmpypccn4t" path="res://tool/tool.tscn" id="1_ss0h0"]
+[ext_resource type="PackedScene" uid="uid://bb12rb2k53b11" path="res://water_drop/water_drop.tscn" id="2_napvh"]
+[ext_resource type="Texture2D" uid="uid://dcinjfte7gowy" path="res://watercan/watercan.webp" id="2_tiu6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s04fw"]
+size = Vector2(200, 200)
+
+[sub_resource type="Animation" id="Animation_tyn82"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Watercan:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1cgvm"]
+resource_name = "pouring"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Watercan:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(0.0647042, 0.307786, 1),
+"update": 0,
+"values": [0.0, -1.08207, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_waters"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6ty5"]
+_data = {
+&"RESET": SubResource("Animation_tyn82"),
+&"pouring": SubResource("Animation_1cgvm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8i6j"]
+size = Vector2(201, 201)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmfdo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4srst"]
+bg_color = Color(0, 0.392157, 1, 1)
+
+[sub_resource type="Animation" id="Animation_k4jit"]
+resource_name = "Drained"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Watercan:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(2.21914, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.168627, 0.0588235, 0.0941176, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xvdm4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Watercan:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vmb0c"]
+resource_name = "Refilled"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Watercan:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.7),
+"transitions": PackedFloat32Array(1.6245, 0.164939),
+"update": 0,
+"values": [Color(0.168627, 0.0588235, 0.0941176, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hesx2"]
+_data = {
+&"Drained": SubResource("Animation_k4jit"),
+&"RESET": SubResource("Animation_xvdm4"),
+&"Refilled": SubResource("Animation_vmb0c")
+}
+
+[node name="Watercan" type="Area2D"]
+script = ExtResource("1_p7hrf")
+water_count = 10
+water_scene = ExtResource("2_napvh")
+
+[node name="Watercan" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_tiu6w")
+offset = Vector2(80, 100)
+
+[node name="WaterSpawnPosition" type="Marker2D" parent="Watercan"]
+unique_name_in_owner = true
+position = Vector2(48, 38)
+
+[node name="Tool" parent="." instance=ExtResource("1_ss0h0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tool"]
+position = Vector2(-4, 5)
+shape = SubResource("RectangleShape2D_s04fw")
+
+[node name="TiltAnimation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_g6ty5")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 4.5)
+shape = SubResource("RectangleShape2D_g8i6j")
+
+[node name="WaterBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -92.0
+offset_top = 79.0
+offset_right = 93.0
+offset_bottom = 87.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_xmfdo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4srst")
+value = 50.0
+
+[node name="ModulateAnimation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_hesx2")
+}
+
+[connection signal="used" from="Tool" to="." method="_on_tool_used"]
+[connection signal="animation_changed" from="TiltAnimation" to="." method="_on_tilt_animation_animation_changed"]
+[connection signal="animation_finished" from="TiltAnimation" to="." method="_on_animation_player_animation_finished"]
