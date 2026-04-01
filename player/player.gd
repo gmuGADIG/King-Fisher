@@ -56,6 +56,8 @@ var wearing_helmet := false
 var golden_worm_active := false
 var has_ziplock_bag := false
 
+@onready var livewell : Control = $LivewellMenu
+
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
 	set(new_val):
@@ -156,6 +158,10 @@ func _input(event: InputEvent) -> void:
 		ragdoll_phys.ragdoll(10, true)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
+	if event.is_action_pressed("use_item"):
+		#TODO: Don't let this happen if the player is aiming.
+		use_held_item.rpc()
+	
 	
 	if not is_aiming:
 		if event.is_action_pressed("use_item"):
@@ -300,6 +306,11 @@ func use_held_item() -> void:
 
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
+	livewell.addFish(fish)
+	
+func take_fish(fish : Fish) -> void:
+	Debug.log("Player lost fish!")
+	livewell.removeFish(fish)
 
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val
