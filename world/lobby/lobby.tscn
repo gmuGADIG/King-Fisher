@@ -5,24 +5,31 @@
 [ext_resource type="PackedScene" uid="uid://ck8obcgulgo8p" path="res://items/item_test_2.tscn" id="3_c06ik"]
 [ext_resource type="PackedScene" uid="uid://cw872lin7slft" path="res://ui/pause_menu/lobby_menu.tscn" id="4_c06ik"]
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="5_vh6de"]
+[ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c06ik"]
-size = Vector3(43.546143, 0.17199707, 42.95099)
+size = Vector3(61.3161, 0.17199707, 50.24202)
 
-[node name="Lobby" unique_id=1751753838 instance=ExtResource("1_cv4rh")]
+[node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
 [node name="ItemTest1" parent="." index="3" unique_id=1566519324 instance=ExtResource("2_7tkdc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694867, 0, -5.357811)
+collision_layer = 1
 collision_mask = 1
 
 [node name="Item" parent="." index="4" unique_id=1674373162 instance=ExtResource("3_c06ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9393296, 0, -6.180363)
+collision_layer = 1
 collision_mask = 1
 
+[node name="ItemSpawner" parent="." index="5" unique_id=1588789630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.467327, 100, 0)
+disable_spawning = true
+spawn_rate = 1.0
+
 [node name="RigidBody3D" type="RigidBody3D" parent="." index="6" unique_id=1793351237]
-collision_layer = 3
 collision_mask = 3
 freeze = true
 
@@ -32,17 +39,19 @@ layers = 3
 mesh = SubResource("PlaneMesh_7tkdc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="1" unique_id=1749416138]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.194458, -0.093811035, 0.48214722)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.610321, -0.093811035, -0.15758514)
 shape = SubResource("BoxShape3D_c06ik")
 
-[node name="Label3D" type="Label3D" parent="." index="7" unique_id=1976693241]
+[node name="Label3D" type="Label3D" parent="." index="6" unique_id=1976693241]
 transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 0, 3.3720021, -9.835437)
 text = "#myawesomelobby"
 
-[node name="PauseMenu" parent="." index="8" unique_id=1167419055 instance=ExtResource("4_c06ik")]
+[node name="PauseMenu" parent="." index="7" unique_id=1167419055 instance=ExtResource("4_c06ik")]
 visible = false
 
-[node name="Helmet" parent="." index="9" unique_id=621433209 instance=ExtResource("5_vh6de")]
+[node name="Helmet" parent="." index="8" unique_id=621433209 instance=ExtResource("5_vh6de")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.14792, 1.7071879, -5.6133504)
 collision_mask = 3
 item_name = "Helmet"
+
+[node name="LobbyHud" parent="." index="9" unique_id=510906849 instance=ExtResource("6_56mmg")]

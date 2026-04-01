@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://3jux6npjxhxf"]
+
+[ext_resource type="Script" uid="uid://bvr3jlrk3064w" path="res://systems/item_spawner.gd" id="1_ptd0p"]
+[ext_resource type="PackedScene" uid="uid://dsnep0jd62s78" path="res://items/item_test_1.tscn" id="2_lcldm"]
+[ext_resource type="PackedScene" uid="uid://ck8obcgulgo8p" path="res://items/item_test_2.tscn" id="3_h2xnj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4r7rn"]
+size = Vector3(22.279373, 0.001, 20.828817)
+
+[node name="ItemSpawner" type="CollisionShape3D" unique_id=1588789630 node_paths=PackedStringArray("spawn_timer")]
+shape = SubResource("BoxShape3D_4r7rn")
+script = ExtResource("1_ptd0p")
+items = Array[PackedScene]([ExtResource("2_lcldm"), ExtResource("3_h2xnj")])
+spawn_rate = 0.8
+spawn_timer = NodePath("SpawnTimer")
+
+[node name="Label" type="Label3D" parent="." unique_id=318015826]
+transform = Transform3D(23.259226, 17.372992, 3.0908645e-08, 0, -1.0739504e-06, 1.0000007, 23.259226, -17.372992, -3.0908637e-08, 0, 0, 0)
+modulate = Color(1, 1, 1, 0.18431373)
+outline_modulate = Color(0, 0, 0, 0.21176471)
+text = "ITEM
+SPAWNER
+SPAWNS
+ITEMS"
+line_spacing = -10.0
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1364103827]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

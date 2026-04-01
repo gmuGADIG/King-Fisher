@@ -223,6 +223,6 @@ func add_tap_marker(note_type : NoteType) -> void:
 	
 func ms_to_position(ms:float) -> float:
 	var position
-	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH)
+	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH + 1)
 	position = (ms * sequence_line_length)/total_ms
 	return position
