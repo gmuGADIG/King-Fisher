@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3ebo5famew2u"]
 
-[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base/item_base.tscn" id="1_2087j"]
+[ext_resource type="PackedScene" path="res://items/item_base.tscn" id="1_2087j"]
 [ext_resource type="Script" uid="uid://yj6uyant2k5" path="res://items/item_goldenworm/item_golden_worm.gd" id="2_byajs"]
 [ext_resource type="PackedScene" uid="uid://tfsb8cebqr51" path="res://items/item_goldenworm/item_golden_worm.glb" id="2_kahv6"]
 
