@@ -107,6 +107,7 @@ texture = ExtResource("1_p6djx")
 expand_mode = 5
 
 [node name="FindLobbyBtn" type="TextureButton" parent="MainMenuContainer/RightSide" unique_id=1689423804]
+visible = false
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
 size_flags_horizontal = 4
