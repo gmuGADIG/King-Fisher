@@ -13,6 +13,15 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6q35d"]
 
+[sub_resource type="GDScript" id="GDScript_4e78x"]
+script/source = "extends Button
+
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://ui/keybinds/keybind_menu.tscn\")
+"
+
 [node name="MainMenu" type="Control" unique_id=470134769]
 layout_mode = 3
 anchors_preset = 15
@@ -107,13 +116,19 @@ texture = ExtResource("1_p6djx")
 expand_mode = 5
 
 [node name="FindLobbyBtn" type="TextureButton" parent="MainMenuContainer/RightSide" unique_id=1689423804]
-visible = false
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 texture_normal = ExtResource("2_ctg6d")
 stretch_mode = 5
+
+[node name="Button2" type="Button" parent="." unique_id=297064891]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 110.0
+text = "Keybinds"
+script = SubResource("GDScript_4e78x")
 
 [connection signal="closed" from="OptionsMenu" to="." method="_on_options_closed"]
 [connection signal="closed" from="LobbyBrowser" to="." method="_on_lobby_browser_closed"]
@@ -122,3 +137,4 @@ stretch_mode = 5
 [connection signal="pressed" from="MainMenuContainer/LeftSide/FishDexBtn" to="." method="fishdex_pressed"]
 [connection signal="pressed" from="MainMenuContainer/LeftSide/SettingsBtn" to="." method="settings_pressed"]
 [connection signal="pressed" from="MainMenuContainer/RightSide/FindLobbyBtn" to="." method="find_lobby_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
