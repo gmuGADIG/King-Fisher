@@ -97,6 +97,17 @@ func _on_peer_connected(id: int) -> void:
 	# tell the new player about all the other players connected to the server.
 	learn_players.rpc_id(id, player_list)
 
+func disconnect_from_game() -> void:
+	_disconnect_request.rpc_id(1)
+
+@rpc("any_peer", "call_local")
+func _disconnect_request() -> void:
+	if get_multiplayer_authority() != 1: return
+	if player_list.size() == 1:
+		_on_peer_disconnected(1)
+	else:
+		multiplayer.multiplayer_peer.disconnect_peer(multiplayer.get_remote_sender_id())
+
 func _on_peer_disconnected(id : int) -> void:
 	Debug.log(id, " left")
 	if multiplayer.is_server():

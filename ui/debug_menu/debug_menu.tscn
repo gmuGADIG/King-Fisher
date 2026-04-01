@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgbsvtifnsja3" path="res://ui/debug_menu/debug_menu.gd" id="1_2lwgs"]
 [ext_resource type="PackedScene" uid="uid://cuxqh6ibre0ni" path="res://ui/debug_menu/debug_scene_button.tscn" id="2_bvele"]
+[ext_resource type="Script" uid="uid://bwijktv11v0b2" path="res://ui/debug_menu/return_buttons.gd" id="3_oh284"]
 
 [node name="DebugMenu" type="CanvasLayer" unique_id=1060676430]
 script = ExtResource("1_2lwgs")
@@ -45,11 +46,13 @@ layout_mode = 2
 [node name="LobbyBrowser" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2129658815 instance=ExtResource("2_bvele")]
 layout_mode = 2
 text = "Lobby Browser"
-scene_path = "lobby_browser"
+script = ExtResource("3_oh284")
+scene_path = "res://ui/lobby_browser/lobby_browser.tscn"
 
 [node name="MainMenu" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=658329568 instance=ExtResource("2_bvele")]
 layout_mode = 2
 text = "Open Main Menu"
+script = ExtResource("3_oh284")
 scene_path = "res://ui/main_menu/main_menu.tscn"
 
 [node name="Separator" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=613846581]
