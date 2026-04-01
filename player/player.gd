@@ -18,7 +18,6 @@ var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
 var is_aiming := false
 
-
 @onready var camera_mount : Node3D = $CameraMount
 @onready var camera : Camera3D = camera_mount.get_node("Camera3D")
 @onready var audio_listener : AudioListener3D = $AudioListener3D
@@ -54,6 +53,8 @@ var _last_played_jump_event_id: int = -1
 
 # Item Variables
 var wearing_helmet := false
+var golden_worm_active := false
+var has_ziplock_bag := false
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
