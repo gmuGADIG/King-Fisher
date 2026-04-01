@@ -20,6 +20,8 @@ script/source = "extends Button
 
 func _on_pressed() -> void:
 	get_tree().change_scene_to_file(\"res://ui/keybinds/keybind_menu.tscn\")
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://temp/start_test/world/world.tscn\")
 "
 
 [node name="MainMenu" type="Control" unique_id=470134769]
@@ -128,6 +130,18 @@ layout_mode = 0
 offset_right = 253.0
 offset_bottom = 110.0
 text = "Keybinds"
+[node name="Button" type="Button" parent="." unique_id=75611758]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.96500003
+anchor_top = 0.29000002
+anchor_right = 0.96500003
+anchor_bottom = 0.809
+offset_left = -499.68005
+offset_top = 0.07998657
+offset_right = 0.3199463
+offset_bottom = 0.26800537
 script = SubResource("GDScript_4e78x")
 
 [connection signal="closed" from="OptionsMenu" to="." method="_on_options_closed"]
@@ -138,3 +152,4 @@ script = SubResource("GDScript_4e78x")
 [connection signal="pressed" from="MainMenuContainer/LeftSide/SettingsBtn" to="." method="settings_pressed"]
 [connection signal="pressed" from="MainMenuContainer/RightSide/FindLobbyBtn" to="." method="find_lobby_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

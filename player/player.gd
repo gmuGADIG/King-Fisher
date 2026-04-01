@@ -18,7 +18,6 @@ var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
 var is_aiming := false
 
-
 @onready var camera_mount : Node3D = $CameraMount
 @onready var camera : Camera3D = camera_mount.get_node("Camera3D")
 @onready var audio_listener : AudioListener3D = $AudioListener3D
@@ -54,6 +53,8 @@ var _last_played_jump_event_id: int = -1
 
 # Item Variables
 var wearing_helmet := false
+var golden_worm_active := false
+var has_ziplock_bag := false
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -287,6 +288,8 @@ func pick_up_item(item: Item) -> void:
 	held_item = item
 	held_item.is_held = true
 	held_item.position = Vector3.ZERO
+	# Hide the item. Nobody will know you have it until you use it.
+	held_item.visible=false
 
 @rpc("call_local")
 func use_held_item() -> void:
@@ -297,3 +300,6 @@ func use_held_item() -> void:
 
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
+
+func set_name_visible(val : bool) -> void:
+	$PlayerId.visible = val
