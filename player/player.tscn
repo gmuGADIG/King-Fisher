@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dqg3ndn6eihef" path="res://sound/sfx/player/player_jump.tscn" id="9_hg6s5"]
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_grass.tscn" id="11_2ieo8"]
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_stone.tscn" id="11_land_stone"]
+[ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="12_ebec5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -117,10 +118,10 @@ transform = Transform3D(1.1906586, 0, 0, 0, 1.1906586, 0, 0, 0, 1.1906586, 0, 0,
 script = ExtResource("2_pmesh")
 rotation_speed_curve = SubResource("Curve_pmesh")
 
-[node name="Bean" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 1990635821) index="0" unique_id=31764839]
+[node name="Bean" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 1626350502) index="0" unique_id=941881188]
 layers = 2
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 1990635821) index="1" unique_id=1885720731 node_paths=PackedStringArray("player")]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="Body/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1691841410, 1626350502) index="1" unique_id=1885720731 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
 
@@ -1234,5 +1235,7 @@ target_position = Vector3(0, -10, 0)
 [node name="PlayerLandStone" parent="Sounds" unique_id=301000011 instance=ExtResource("11_land_stone")]
 
 [node name="PlayerLandGrass" parent="Sounds" unique_id=301000001 instance=ExtResource("11_2ieo8")]
+
+[node name="LivewellMenu" parent="." unique_id=1231020864 instance=ExtResource("12_ebec5")]
 
 [editable path="Body"]

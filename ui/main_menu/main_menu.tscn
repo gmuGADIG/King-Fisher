@@ -13,13 +13,19 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6q35d"]
 
+[sub_resource type="GDScript" id="GDScript_s4pem"]
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://ui/keybinds/keybind_menu.tscn\")
+"
+
 [sub_resource type="GDScript" id="GDScript_4e78x"]
 script/source = "extends Button
 
 
 
-func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://ui/keybinds/keybind_menu.tscn\")
+
 func _on_pressed() -> void:
 	get_tree().change_scene_to_file(\"res://temp/start_test/world/world.tscn\")
 "
@@ -130,6 +136,7 @@ layout_mode = 0
 offset_right = 253.0
 offset_bottom = 110.0
 text = "Keybinds"
+script = SubResource("GDScript_s4pem")
 
 [node name="Button" type="Button" parent="." unique_id=75611758]
 visible = false
