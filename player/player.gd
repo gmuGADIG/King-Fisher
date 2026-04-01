@@ -299,3 +299,6 @@ func use_held_item() -> void:
 
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
+
+func set_name_visible(val : bool) -> void:
+	$PlayerId.visible = val
