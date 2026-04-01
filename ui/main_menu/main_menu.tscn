@@ -130,7 +130,9 @@ layout_mode = 0
 offset_right = 253.0
 offset_bottom = 110.0
 text = "Keybinds"
+
 [node name="Button" type="Button" parent="." unique_id=75611758]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
