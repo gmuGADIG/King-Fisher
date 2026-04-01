@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ciwe1r3d8igj2"]
+
+[ext_resource type="Script" uid="uid://c8mjj0lyvba2a" path="res://ui/HUD/countdown_label.gd" id="1_u3f8x"]
+
+[node name="CountdownLabel" type="Label" unique_id=1331630343]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 68
+text = "5"
+script = ExtResource("1_u3f8x")

@@ -2,6 +2,7 @@ extends Control
 
 # Hide Everything that isn't the Main Menu
 func _ready() -> void:
+	get_tree().change_scene_to_file("res://temp/")
 	$LobbyBrowser.hide()
 	$Fishdex.hide()
 	$OptionsMenu.hide()

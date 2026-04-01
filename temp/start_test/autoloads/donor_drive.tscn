@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbijywlay6tsg"]
+
+[ext_resource type="Script" uid="uid://c84kfi4wjgbkr" path="res://autoloads/donor_drive.gd" id="1_deiwt"]
+
+[node name="DonorDrive" type="Node"]
+script = ExtResource("1_deiwt")

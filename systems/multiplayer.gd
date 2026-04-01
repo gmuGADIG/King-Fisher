@@ -2,6 +2,8 @@ extends Node
 
 signal new_player(id: int)
 signal found_server(ip: String, hostname: String, playerCount: String)
+signal player_loaded(id: int)
+signal start_game
 
 const PORT = 25575
 const MAX_CLIENTS = 3
@@ -9,7 +11,8 @@ const SCAN_MSG = "iwannaplay"
 const SCAN_INTERVAL := 5.
 
 var allow_connections : bool = true
-var player_list: Dictionary[int,String] = {}
+var player_list: Dictionary[int,ServerConnection] = {}
+var loaded_players: Array[int]
 
 var scan_server: UDPServer
 
@@ -17,6 +20,7 @@ var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
 var displayName: String
+#var HUD = LobbyHUD.new();
 
 
 func _ready() -> void:
@@ -80,24 +84,81 @@ func _on_peer_connected(id: int) -> void:
 		return
 	
 	Debug.log("peer ",id," connected")
-	player_list.set(id,"Player")
+	var server = ServerConnection.new()
+	server.playerName = "Player"
+	server.ready = false
+	player_list.set(id,server)
 	new_player.emit(id)
 	# tell the new player about all the other players connected to the server.
-	learn_players.rpc_id(id, player_list)
+	learn_players.rpc_id(id, player_list.keys())
 
 @rpc("reliable")
-func learn_players(new_player_list: Dictionary[int,String]) -> void:
-	for player in new_player_list:
+func learn_players(new_player_ids: Array[int]) -> void:
+	for player in new_player_ids:
 		if not player in player_list:
-			player_list.set(player,"Player")
+			var server = ServerConnection.new()
+			server.playerName = "Player"
+			server.ready = false
+			player_list.set(player,server)
 			new_player.emit(player)
 
+func _countdown(duration: int) -> void:
+	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
+	label.duration = duration
+	label.position = Vector2(500, 500)
+	get_tree().current_scene.add_child(label)
+	label.start()
+	await label.finished
+	label.queue_free()
 
+@rpc("call_local")
+func start_the_game():
+	await _countdown(5)
+	load_players()
+	Debug.log(player_list.size())
+	for i in range(player_list.size()):
+		await player_loaded
+	await get_tree().process_frame
+	await _countdown(5)
+	#TODO game goes
+	
+
+	
+func load_players():
+	ScreenTransition.change_to_file("res://world/heightmap_test/heightmap_test.tscn")
+	
+func _handle_ready_up() -> void:
+	if get_tree().get_first_node_in_group("Lobby") == null:
+		return
+	
+	if not multiplayer.is_server():
+		set_ready.rpc_id(1);
+			
+	if multiplayer.is_server():
+		for player in player_list:
+				if not player_list.get(player).ready:
+					return
+		start_game.emit()
+		start_the_game.rpc()
+			
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ready_up"):
+		_handle_ready_up()
+
+@rpc("any_peer","call_local","reliable")
+func set_ready():
+	var sender = multiplayer.get_remote_sender_id();
+	player_list[sender].ready = !player_list[sender].ready;
+	
 func create_server() -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT, MAX_CLIENTS)
 	multiplayer.multiplayer_peer = peer
-	player_list.set(1,"Player")
+	var server = ServerConnection.new()
+	server.playerName = "Player"
+	server.ready = true
+	player_list.set(1, server)
 
 	scan_server = UDPServer.new()
 	scan_server.listen(PORT + 1)
@@ -108,6 +169,13 @@ func join_server(ip : String) -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip, PORT)
 	multiplayer.multiplayer_peer = peer
-	player_list.set(multiplayer.get_unique_id(),"Player")
-	
+	var server = ServerConnection.new()
+	server.playerName = "Player"
+	server.ready = false
+	player_list.set(multiplayer.get_unique_id(),server)
 	scan_for_servers = false
+
+@rpc("any_peer", "call_local")
+func report_loaded() -> void:
+	loaded_players.push_back(multiplayer.get_remote_sender_id())
+	player_loaded.emit(multiplayer.get_remote_sender_id())
