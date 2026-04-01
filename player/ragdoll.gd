@@ -1,6 +1,6 @@
 extends PhysicalBoneSimulator3D
 
-var player: Player
+@export var player: Player
 var skeleton: Skeleton3D
 # This is for if the item prevents getting up from not moving
 var check_movement_toggle = true
@@ -8,7 +8,6 @@ var check_movement_toggle = true
 # Syncs player entity and skeleton of the player
 # Deferred due to needing to wait for player_items to have been initialized
 func _ready():
-	player = $"../../../.."
 	skeleton = get_parent()
 
 var timer := 0.0
@@ -76,7 +75,7 @@ func start_ragdoll(duration: float, prevent_move_check: bool):
 	player.is_ragdolled = true
 	physical_bones_start_simulation()
 
-	player.get_node("PlayerId").visible = false
+	player.set_name_visible(false)
 
 	await get_tree().create_timer(duration).timeout
 	if player.is_ragdolled:
@@ -110,7 +109,7 @@ func confirm_end_ragdoll():
 
 	physical_bones_stop_simulation()
 	player.is_ragdolled = false
-	player.get_node("PlayerId").visible = true
+	player.set_name_visible(true)
 	skeleton.reset_bone_poses()
 
 	#Reset values
