@@ -9,6 +9,10 @@ extends Area3D
 
 var is_held: bool = false
 
+# Tells the item spawner that it isn't lying around anymore.
+# The item spawner only lets there be a certain max # of items around, so it needs to know when a slot opens
+signal item_got_picked_up
+
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
 
@@ -16,6 +20,7 @@ func _on_body_entered(body: Node3D) -> void:
 	# Items don't care about collisions if they're from non-players or if the item is already held.
 	if is_held || !body.is_in_group("Player"): return
 	if body.has_method("pick_up_item"): 
+		item_got_picked_up.emit()
 		# We call deferred because this is physics and getting picked up involves reparenting.
 		# No fucking with the scene tree before physics is done happening!
 		body.pick_up_item.call_deferred(self)

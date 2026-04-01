@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://delv6icnrfl48"]
+
+[ext_resource type="Script" uid="uid://cim6vi021qldl" path="res://persistant_audio_stream_player/persistant_audio_stream_player.gd" id="1_dnvmb"]
+
+[node name="PersistantAudioStreamPlayer" type="AudioStreamPlayer"]
+script = ExtResource("1_dnvmb")
