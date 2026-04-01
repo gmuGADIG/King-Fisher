@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 var livewellInventory = []
 @export var currentFish : String
@@ -8,6 +8,9 @@ var livewellInventory = []
 @onready var sprites : TextureRect = $Panel/VBoxContainer/Score/TextureRect
 @onready var fishCount : Label = $Panel/VBoxContainer/Score/TextureRect/fishCount
 var intScore : int = 0;
+
+func _ready() -> void:
+	hide()
 
 func changeScore(change : int):
 	intScore += change
@@ -45,7 +48,7 @@ func updateVisual() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("livewell_menu"):
-		livewellPanel.visible = !livewellPanel.visible
+		visible = !visible
 	if event.is_action_pressed("add_fish"):
 		var newFish : Fish = load("res://fish/sushi/test_fish.tres")
 		addFish(newFish)
