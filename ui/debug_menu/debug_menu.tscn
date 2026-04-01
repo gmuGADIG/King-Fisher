@@ -52,6 +52,16 @@ layout_mode = 2
 text = "Open Main Menu"
 scene_path = "res://ui/main_menu/main_menu.tscn"
 
+[node name="OpenKeybinds" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=274295704 instance=ExtResource("2_bvele")]
+layout_mode = 2
+text = "Open Keybinds"
+scene_path = "res://ui/keybinds/keybind_menu.tscn"
+
+[node name="OpenRhythmTest" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=40959084 instance=ExtResource("2_bvele")]
+layout_mode = 2
+text = "Open Fishing Minigame (test)"
+scene_path = "res://systems/rhythm/fishing_mini_game.tscn"
+
 [node name="Separator" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=613846581]
 layout_mode = 2
 size_flags_vertical = 3
