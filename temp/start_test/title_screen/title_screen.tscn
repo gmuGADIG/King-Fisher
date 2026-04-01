@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://f7qamlnquf4d"]
+
+[ext_resource type="Texture2D" uid="uid://cvcy23pxk2uti" path="res://title_screen/mmts.webp" id="1_2m2gd"]
+[ext_resource type="Script" uid="uid://bheusfh27q0v1" path="res://title_screen/title_screen.gd" id="1_oqrgu"]
+[ext_resource type="Texture2D" uid="uid://bspnx1v41cy1j" path="res://title_screen/MichaelsMansionLogo.webp" id="2_1jaa1"]
+[ext_resource type="Texture2D" uid="uid://dykg8x5bfqcwx" path="res://title_screen/Quit.webp" id="3_psct1"]
+[ext_resource type="Theme" uid="uid://bj0qir4d820h8" path="res://title_screen/invisible.tres" id="4_0m3ch"]
+[ext_resource type="Texture2D" uid="uid://brarw7u4dnrbt" path="res://buttons/Play.webp" id="4_ai64g"]
+[ext_resource type="Script" uid="uid://b0jr4qu75hyyd" path="res://title_screen/donor_drive_label.gd" id="6_fk0fn"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_oqrgu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2m2gd")
+expand_mode = 1
+stretch_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="MichaelsMansionLogo" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1207, 665)
+scale = Vector2(0.26506, 0.26506)
+texture = ExtResource("2_1jaa1")
+metadata/_edit_lock_ = true
+
+[node name="Quit" type="Sprite2D" parent="."]
+position = Vector2(1041, 509)
+scale = Vector2(0.449037, 0.449037)
+texture = ExtResource("3_psct1")
+
+[node name="Control" type="Control" parent="Quit"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("4_0m3ch")
+
+[node name="QuitButton" type="Button" parent="Quit/Control"]
+layout_mode = 0
+offset_left = -474.0
+offset_top = 223.0
+offset_right = 472.0
+offset_bottom = 357.0
+
+[node name="QuitButton2" type="Button" parent="Quit/Control"]
+layout_mode = 0
+offset_left = 247.0
+offset_top = -339.0
+offset_right = 472.0
+offset_bottom = 357.0
+
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 379.0
+offset_right = 526.0
+offset_bottom = 569.0
+texture_normal = ExtResource("4_ai64g")
+texture_pressed = ExtResource("4_ai64g")
+texture_hover = ExtResource("4_ai64g")
+texture_disabled = ExtResource("4_ai64g")
+texture_focused = ExtResource("4_ai64g")
+
+[node name="DonorDriveLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 664.0
+offset_right = 416.0
+offset_bottom = 709.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 28
+text = "DonorDrive not connected"
+script = ExtResource("6_fk0fn")
+
+[connection signal="pressed" from="Quit/Control/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Quit/Control/QuitButton2" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
