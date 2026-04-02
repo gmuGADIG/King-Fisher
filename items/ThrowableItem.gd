@@ -12,12 +12,8 @@ enum type{
 @export var speed : float = 2.0
 
 func _process(delta: float) -> void:
-	if(thrown):
-		global_position += targetDirection * speed * delta
-		if(abs(targetPosition - global_position) < Vector3(0.1,0.1,0.1)):
-			thrown = false
-			reparent(get_tree().current_scene,true)
-	else:
+	if(abs(targetPosition - global_position) < Vector3(0.1,0.1,0.1)):
+		reparent(get_tree().current_scene,true)
 		if(throwType == type.IMPACT):
 			end_throwable()
 		if(throwType == type.LINGER):
@@ -25,9 +21,11 @@ func _process(delta: float) -> void:
 				
 
 func use_throwable(targetPos) -> void:
-	thrown = true
 	targetPosition = targetPos
-	targetDirection = targetPosition - global_position
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(self, "position", targetPos, 1.0)
+	
 	
 	
 func end_throwable() -> void:
