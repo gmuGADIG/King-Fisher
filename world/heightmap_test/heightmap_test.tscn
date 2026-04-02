@@ -207,7 +207,6 @@ transform = Transform3D(4.990994, 0, -1.2166736, 0, 5.1371503, 0, 1.2166736, 0, 
 
 [node name="Item" parent="." index="13" unique_id=1566519324 instance=ExtResource("16_6ic86")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2086656, 14.063985, -4.862622)
-throwType = 1
 
 [editable path="KF_smooth_small-mushroom1"]
 [editable path="KF_tall_mushroom1"]

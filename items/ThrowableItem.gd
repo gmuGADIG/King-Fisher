@@ -24,7 +24,7 @@ func use_throwable(targetPos) -> void:
 	targetPosition = targetPos
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(self, "position", targetPos, 1.0)
+	tween.tween_property(self, "global_position", targetPos, 1.0)
 	
 	
 	
