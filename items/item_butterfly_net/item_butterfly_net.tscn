@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://e0xpyuvnvcs5"]
+
+[ext_resource type="PackedScene" uid="uid://bqg6ww6eapw01" path="res://items/swingable_item.tscn" id="1_qsp0l"]
+[ext_resource type="Script" uid="uid://dnehcw056tvg4" path="res://items/item_butterfly_net/item_butterfly_net.gd" id="2_gqaq4"]
+
+[node name="Item" unique_id=1566519324 instance=ExtResource("1_qsp0l")]
+script = ExtResource("2_gqaq4")
+
+[node name="Sprite3D" parent="." index="0" unique_id=525106753]
+modulate = Color(0.8420001, 0.20999998, 1, 1)
+
+[node name="Label3D" type="Label3D" parent="Sprite3D" index="0" unique_id=742251804]
+billboard = 1
+render_priority = 1
+text = "BUTTERFLY 
+NET LOL"
+font_size = 82
