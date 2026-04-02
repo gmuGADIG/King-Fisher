@@ -80,8 +80,8 @@ func _on_peer_connected(id: int) -> void:
 		return
 	
 	Debug.log("peer ",id," connected")
-	player_list.set(id,"Client") #how the host ids others [need to figure out]
 	new_player.emit(id)
+	player_list.set(id,displayName) #how the host ids others [need to figure out]
 	# tell the new player about all the other players connected to the server.
 	learn_players.rpc_id(id, player_list)
 
@@ -89,7 +89,7 @@ func _on_peer_connected(id: int) -> void:
 func learn_players(new_player_list: Dictionary[int,String]) -> void:
 	for player in new_player_list:
 		if not player in player_list:
-			player_list.set(player,"Player")
+			player_list.set(player,new_player_list[player]) #how joining clients learn about existing players [works]
 			new_player.emit(player)
 
 
