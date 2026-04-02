@@ -50,6 +50,8 @@ var _landing_time_since_last := 0.0
 var _jump_event_id: int = 0
 var _last_played_jump_event_id: int = -1
 
+var used_throwable: bool = false
+
 # Ragdoll
 @onready var ragdoll_phys : PhysicalBoneSimulator3D = $Body/Armature/Skeleton3D/Bones
 
@@ -106,6 +108,16 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("cast_rod"):
 		%Aiming.stop_aiming()
 		Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
+		
+	if Input.is_action_just_pressed("use_item") && is_instance_of(held_item, ThrowableItem):
+		%Aiming.start_aiming(true)
+	if Input.is_action_just_released("use_item") && is_instance_of(held_item, ThrowableItem):
+		var item := held_item as ThrowableItem
+		item.use_throwable(%Aiming.get_aim_pos())
+		held_item = null
+		item = null
+		%Aiming.stop_aiming()
+		
 
 func _physics_process(delta: float) -> void:
 	var was_on_floor := is_on_floor()
@@ -155,8 +167,8 @@ func _input(event: InputEvent) -> void:
 		Debug.print_players()
 	
 	if not is_aiming:
-		if event.is_action_pressed("use_item"):
-			use_held_item.rpc()
+		if event.is_action_pressed("use_item") && !is_instance_of(held_item,ThrowableItem):
+				use_held_item.rpc()
 		if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			camera_yaw += -event.relative.x * Options.mouse_sensitivity
 			$CameraMount.rotation.y = deg_to_rad(camera_yaw)
@@ -295,3 +307,5 @@ func use_held_item() -> void:
 
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
+	
+	

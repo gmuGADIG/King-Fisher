@@ -4,6 +4,8 @@ var player: Player
 
 ## How far away from the player the player can aim.
 @export var max_aim_distance := 5.
+@export var max_throw_distance := 10
+var is_throwing : bool
 
 var _aim_pos := Vector2.ZERO
 
@@ -31,10 +33,14 @@ func _input(event: InputEvent) -> void:
 
 		_aim_pos.x += dv.x
 		_aim_pos.y += dv.y
-		_aim_pos = _aim_pos.limit_length(max_aim_distance)
+		if(is_throwing):
+			_aim_pos = _aim_pos.limit_length(max_throw_distance)
+		else:
+			_aim_pos = _aim_pos.limit_length(max_aim_distance)
 
-func start_aiming() -> void:
+func start_aiming(throwing := false) -> void:
 	player.is_aiming = true
+	is_throwing = throwing
 	%AimIndicator.show()
 	_aim_pos = Vector2.ZERO
 

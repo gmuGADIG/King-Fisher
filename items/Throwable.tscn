@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bivry6ihrxe25"]
+
+[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_sytiu"]
+[ext_resource type="Script" uid="uid://baawe5a701sn4" path="res://items/ThrowableItem.gd" id="2_m7mw2"]
+[ext_resource type="Texture2D" uid="uid://bmxsuarykfoe3" path="res://temp/temp_art/smiley.png" id="3_m7mw2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m7mw2"]
+
+[node name="Item" unique_id=1566519324 instance=ExtResource("1_sytiu")]
+script = ExtResource("2_m7mw2")
+throwType = 0
+speed = 2.0
+
+[node name="Sprite3D" parent="." index="0" unique_id=525106753]
+texture = ExtResource("3_m7mw2")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="2" unique_id=143034488]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0" unique_id=1115808195]
+shape = SubResource("SphereShape3D_m7mw2")
