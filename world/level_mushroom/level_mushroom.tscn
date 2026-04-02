@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_of031"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_dowhw"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_of031"]
-[ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/KF_tall_mushroom1.glb" id="8_i3fk3"]
+[ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom1.glb" id="8_i3fk3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ay7c0"]
 size = Vector3(17.19535, 0.001, 16.858868)
@@ -61,19 +61,19 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
 
-[node name="Water" parent="HTerrain" index="1" unique_id=1605700850 instance=ExtResource("6_of031")]
+[node name="Water" parent="HTerrain" index="0" unique_id=1605700850 instance=ExtResource("6_of031")]
 transform = Transform3D(11.138882, 0, 0, 0, 1, 0, 0, 0, 9.9169445, 32.628723, -4.777133, 30.759897)
 
-[node name="Water2" parent="HTerrain" index="2" unique_id=429017865 instance=ExtResource("6_of031")]
+[node name="Water2" parent="HTerrain" index="1" unique_id=429017865 instance=ExtResource("6_of031")]
 transform = Transform3D(8.75695, 0, 0, 0, 1, 0, 0, 0, 5.7919073, 26.565742, -3.3631854, 9.38976)
 
-[node name="Water3" parent="HTerrain" index="3" unique_id=265385136 instance=ExtResource("6_of031")]
+[node name="Water3" parent="HTerrain" index="2" unique_id=265385136 instance=ExtResource("6_of031")]
 transform = Transform3D(7.200865, 0, 0, 0, 0.99999964, 0, 0, 0, 6.4258895, 10.164045, -2.9697218, 17.617495)
 
-[node name="Water4" parent="HTerrain" index="4" unique_id=146894997 instance=ExtResource("6_of031")]
+[node name="Water4" parent="HTerrain" index="3" unique_id=146894997 instance=ExtResource("6_of031")]
 transform = Transform3D(9.580714, 0, 0, 0, 1, 0, 0, 0, 7.1253176, 35.588486, -3.2199435, 54.410217)
 
-[node name="Water5" parent="HTerrain" index="5" unique_id=981405356 instance=ExtResource("6_of031")]
+[node name="Water5" parent="HTerrain" index="4" unique_id=981405356 instance=ExtResource("6_of031")]
 transform = Transform3D(7.303905, 0, 0, 0, 1, 0, 0, 0, 7.1924877, 54.173332, -3.2857285, 43.778774)
 
 [node name="KF_tall_mushroom1" parent="." index="6" unique_id=1348784426 instance=ExtResource("8_i3fk3")]

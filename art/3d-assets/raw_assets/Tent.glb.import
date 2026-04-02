@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://qga41o832tta"
-path="res://.godot/imported/DockEnd.glb-9ea7b53dd32608cc0d2f29c1cc324792.scn"
+uid="uid://bfbfl0n0rkaur"
+path="res://.godot/imported/Tent.glb-69bc8f392a3229627721ec2bbda23039.scn"
 
 [deps]
 
-source_file="res://art/3d-assets/DockEnd.glb"
-dest_files=["res://.godot/imported/DockEnd.glb-9ea7b53dd32608cc0d2f29c1cc324792.scn"]
+source_file="res://art/3d-assets/raw_assets/Tent.glb"
+dest_files=["res://.godot/imported/Tent.glb-69bc8f392a3229627721ec2bbda23039.scn"]
 
 [params]
 
