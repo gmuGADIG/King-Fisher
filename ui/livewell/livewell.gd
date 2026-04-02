@@ -1,50 +1,56 @@
 extends Control
 
-var livewellInventory = []
-@export var currentFish : String
+var fish_inventory: Dictionary[String, livewell_fish_info] = {}
+var current_fish : Fish
 @onready var livewellPanel : Panel = $Panel
-@onready var fish : Label = $Panel/VBoxContainer/Fish
-@onready var score : Label = $Panel/VBoxContainer/Score
-@onready var sprites : TextureRect = $Panel/VBoxContainer/Score/TextureRect
-@onready var fishCount : Label = $Panel/VBoxContainer/Score/TextureRect/fishCount
-var intScore : int = 0;
+@onready var score : Label = $Panel/Score
+@onready var top_fish_container : VBoxContainer = $Panel/VBoxContainer/TopFishContainer
+var current_score : int = 0;
 
 func _ready() -> void:
 	hide()
 
-func changeScore(change : int):
-	intScore += change
-	score.text = "Score " + str(intScore)
-	updateVisual()
-
-func addFish(newFish : Fish) -> void:
-	livewellInventory.append(newFish)
-	changeScore(100)
-	updateVisual()
-
-func removeFish() -> void:
-	if(livewellInventory.size() == 0):
-		return
-	livewellInventory.remove_at(0)
-	sprites.texture = null
-	changeScore(-100)
-	if(intScore < 0):
-		changeScore(100)
-	updateVisual()
+func addFish(new_fish : Fish, amount : int = 1) -> void:
+	current_fish = new_fish
+	if fish_inventory.has(new_fish.fish_name):
+		fish_inventory[new_fish.fish_name].fish_count += amount
+	else:
+		fish_inventory[new_fish.fish_name] = livewell_fish_info.new()
+		fish_inventory[new_fish.fish_name].fish = new_fish
+		fish_inventory[new_fish.fish_name].fish_count = amount
 	
+	changeScore(new_fish.get_score())
+	updateVisual()
+
+func changeScore(change : int):
+	current_score += change
+	# Failsafe to prevent negative score
+	if current_score < 0:
+		current_score = 0
+	score.text = str(current_score) + " pts"
+
+func removeFish(fish : Fish, amount : int = 0) -> void:
+	if(fish_inventory.size() == 0 or !fish_inventory.has(fish.fish_name)):
+		return
+	if fish_inventory[fish.fish_name].fish_count >= amount:
+		fish_inventory[fish.fish_name].fish_count = 0
+	else:
+		fish_inventory[fish.fish_name].fish_count -= amount
+	changeScore(-fish.get_score())
+	updateVisual()
+
 func updateVisual() -> void:
-	currentFish = ""
-	for printFish in livewellInventory:
-		var gradeType = 0
-		if(printFish.grade == printFish.Grade.SUSHI):
+	for fish in fish_inventory:
+		var grade = Fish.Grade.UNSET
+		if(fish.grade == printFish.Grade.SUSHI):
 			gradeType += 1
 			sprites.texture = printFish.sprite
-		currentFish = currentFish + printFish.fish_name + " (" + str(gradeType) + ")\n"  
-	fish.text = currentFish
-	if(!livewellInventory.size()):
+		current_fish = current_fish + printFish.fish_name + " (" + str(gradeType) + ")\n"  
+	fish.text = current_fish
+	if(!fish_inventory.size()):
 		fishCount.text = ""
 	else:
-		fishCount.text = "x" + str(livewellInventory.size())
+		fishCount.text = "x" + str(fish_inventory.size())
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("livewell_menu"):
