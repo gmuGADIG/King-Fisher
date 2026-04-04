@@ -79,6 +79,8 @@ func _ready() -> void:
 	_last_played_jump_event_id = -1
 
 func _process(delta: float) -> void:
+	# Prevents errors when disconnection happens
+	if not multiplayer.has_multiplayer_peer(): return
 	# don't process input if ragdolled
 	if is_ragdolled:
 		%Aiming.stop_aiming()
@@ -113,6 +115,8 @@ func _process(delta: float) -> void:
 		Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
 
 func _physics_process(delta: float) -> void:
+	# Prevents errors when disconnection happens
+	if not multiplayer.has_multiplayer_peer(): return
 	var was_on_floor := is_on_floor()
 	var pre_velocity_y := velocity.y
 	if is_multiplayer_authority():
@@ -150,6 +154,8 @@ func update_camera() -> void:
 	camera.current = get_multiplayer_authority() == multiplayer.get_unique_id()
 
 func _input(event: InputEvent) -> void:
+	# Prevents errors when disconnection happens
+	if not multiplayer.has_multiplayer_peer(): return
 	if not is_multiplayer_authority(): return
 
 	if event.is_action_pressed("scoreboard"):
