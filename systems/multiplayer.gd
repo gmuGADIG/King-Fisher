@@ -99,21 +99,23 @@ func _on_peer_connected(id: int) -> void:
 	server.ready = false
 	player_list.set(id,server)
 	new_player.emit(id)
-	# tell the new player about all the other players connected to the server.
-	learn_players.rpc_id(id, player_list.keys())
 
 func _on_peer_disconnected(id : int) -> void:
 	Debug.log(id, " left")
 	
 @rpc("reliable")
-func learn_players(new_player_ids: Array[int]) -> void:
-	for player in new_player_ids:
-		if not player in player_list:
-			var server = ServerConnection.new()
-			server.playerName = "Player"
-			server.ready = false
-			player_list.set(player,server)
-			new_player.emit(player)
+func learn_player(player_id: int, player_name: String, player_path: NodePath) -> void:
+	player_list.get_or_add(player_id)
+	var server_conn = ServerConnection.new()
+	server_conn.playerName = player_name
+	server_conn.player = get_node(player_path)
+	player_list.set(player_id, server_conn)
+
+func broadcast_player_info() -> void:
+	await get_tree().process_frame
+	for player_id in player_list.keys():
+		var server_conn = player_list.get(player_id)
+		learn_player.rpc(player_id, server_conn.playerName, server_conn.player.get_path())
 
 func _countdown(duration: int) -> void:
 	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
@@ -189,6 +191,12 @@ func join_server(ip : String) -> void:
 	server.ready = false
 	player_list.set(multiplayer.get_unique_id(),server)
 	scan_for_servers = false
+
+func _on_server_disconnected() -> void:
+	multiplayer.multiplayer_peer = null
+	player_list.clear()
+	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
+	server_disconnected.emit()
 
 @rpc("any_peer", "call_local")
 func report_loaded() -> void:
