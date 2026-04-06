@@ -1,6 +1,8 @@
 extends Control
 
-var fish_inventory: Dictionary[String, livewell_fish_info] = {}
+@export var fish_info_packed : PackedScene
+
+var fish_inventory: Dictionary[String, LivewellFishInfo] = {}
 var current_fish : Fish
 @onready var livewellPanel : Panel = $Panel
 @onready var score : Label = $Panel/Score
@@ -13,11 +15,13 @@ func _ready() -> void:
 func addFish(new_fish : Fish, amount : int = 1) -> void:
 	current_fish = new_fish
 	if fish_inventory.has(new_fish.fish_name):
-		fish_inventory[new_fish.fish_name].fish_count += amount
+		fish_inventory.get(new_fish.fish_name).fish_count += amount
 	else:
-		fish_inventory[new_fish.fish_name] = livewell_fish_info.new()
-		fish_inventory[new_fish.fish_name].fish = new_fish
-		fish_inventory[new_fish.fish_name].fish_count = amount
+		var fish_info = LivewellFishInfo.new()
+		fish_info.fish = new_fish
+		fish_info.fish_count = amount
+		fish_info.grade = new_fish.grade
+		fish_inventory.set(new_fish.fish_name, fish_info)
 	
 	changeScore(new_fish.get_score())
 	updateVisual()
@@ -40,26 +44,19 @@ func removeFish(fish : Fish, amount : int = 0) -> void:
 	updateVisual()
 
 func updateVisual() -> void:
-	for fish in fish_inventory:
-		var grade = Fish.Grade.UNSET
-		if(fish.grade == printFish.Grade.SUSHI):
-			gradeType += 1
-			sprites.texture = printFish.sprite
-		current_fish = current_fish + printFish.fish_name + " (" + str(gradeType) + ")\n"  
-	fish.text = current_fish
-	if(!fish_inventory.size()):
-		fishCount.text = ""
-	else:
-		fishCount.text = "x" + str(fish_inventory.size())
+	for fish in fish_inventory.values():
+		var fish_info : LivewellFishInfo = fish_info_packed.instantiate()
+		fish_info.set_fish(fish.fish_file_name, fish.fish_type)
+		
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("livewell_menu"):
 		visible = !visible
 	if event.is_action_pressed("add_fish"):
 		var newFish : Fish = load("res://fish/sushi/test_fish.tres")
+		var newFish1 : Fish = load("res://fish/sushi/fish_seven.tres")
 		addFish(newFish)
+		addFish(newFish1)
 	if event.is_action_pressed("remove_fish"):
-		removeFish()
-			
-		
-		
+		var newFish : Fish = load("res://fish/sushi/test_fish.tres")
+		removeFish(newFish)
