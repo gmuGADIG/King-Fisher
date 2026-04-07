@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://o1613vdgdphk"]
 
-[sub_resource type="GDScript" id="GDScript_ids66"]
-script/source = "extends Control
-class_name LivewellFishInfo
-"
+[ext_resource type="Script" uid="uid://b2hq2uotntsbe" path="res://ui/livewell/livewell_fish.gd" id="1_sk1y1"]
 
 [node name="LivewellFish" type="Control" unique_id=516879486]
 layout_mode = 3
@@ -12,4 +9,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_ids66")
+script = ExtResource("1_sk1y1")

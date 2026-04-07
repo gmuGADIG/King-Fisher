@@ -2,7 +2,7 @@ extends Control
 
 @export var fish_info_packed : PackedScene
 
-var fish_inventory: Dictionary[String, LivewellFishInfo] = {}
+var fish_inventory: Dictionary[String, livewell_fish_info] = {}
 var current_fish : Fish
 @onready var livewellPanel : Panel = $Panel
 @onready var score : Label = $Panel/Score
@@ -17,7 +17,7 @@ func addFish(new_fish : Fish, amount : int = 1) -> void:
 	if fish_inventory.has(new_fish.fish_name):
 		fish_inventory.get(new_fish.fish_name).fish_count += amount
 	else:
-		var fish_info = LivewellFishInfo.new()
+		var fish_info = livewell_fish_info.new()
 		fish_info.fish = new_fish
 		fish_info.fish_count = amount
 		fish_info.grade = new_fish.grade
@@ -45,7 +45,7 @@ func removeFish(fish : Fish, amount : int = 0) -> void:
 
 func updateVisual() -> void:
 	for fish in fish_inventory.values():
-		var fish_info : LivewellFishInfo = fish_info_packed.instantiate()
+		var fish_info : LivewellFish = fish_info_packed.instantiate()
 		fish_info.set_fish(fish.fish_file_name, fish.fish_type)
 		
 	
