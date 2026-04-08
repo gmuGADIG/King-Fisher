@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bgbsvtifnsja3" path="res://ui/debug_menu/debug_menu.gd" id="1_2lwgs"]
 [ext_resource type="PackedScene" uid="uid://cuxqh6ibre0ni" path="res://ui/debug_menu/debug_scene_button.tscn" id="2_bvele"]
-[ext_resource type="Script" uid="uid://bxerb2igllke2" path="res://ui/debug_menu/menu_lobby_button.gd" id="3_oh284"]
 
 [node name="DebugMenu" type="CanvasLayer" unique_id=1060676430]
 script = ExtResource("1_2lwgs")
@@ -36,6 +35,13 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Debug Menu"
 
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=642024621]
+layout_mode = 2
+text = "Being able to switch scenes with
+multiplayer support is WIP and will disconnect you
+for the time being"
+horizontal_alignment = 1
+
 [node name="Separator2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1476855931]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -43,16 +49,9 @@ layout_mode = 2
 [node name="HeightMap" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=312352702 instance=ExtResource("2_bvele")]
 layout_mode = 2
 
-[node name="LobbyBrowser" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2129658815 instance=ExtResource("2_bvele")]
-layout_mode = 2
-text = "Lobby Browser"
-script = ExtResource("3_oh284")
-scene_path = "res://ui/lobby_browser/lobby_browser.tscn"
-
 [node name="MainMenu" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=658329568 instance=ExtResource("2_bvele")]
 layout_mode = 2
 text = "Open Main Menu"
-script = ExtResource("3_oh284")
 scene_path = "res://ui/main_menu/main_menu.tscn"
 
 [node name="OpenKeybinds" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=274295704 instance=ExtResource("2_bvele")]

@@ -6,4 +6,6 @@ func _ready() -> void:
 	pressed.connect(func():
 		ScreenTransition.change_to_file(scene_path)
 		DebugMenu.close_debug_menu()
+		if multiplayer.has_multiplayer_peer():
+			Multiplayer.disconnect_from_game()
 	)
