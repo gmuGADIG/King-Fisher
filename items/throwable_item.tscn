@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bivry6ihrxe25"]
+
+[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_sytiu"]
+[ext_resource type="Script" uid="uid://baawe5a701sn4" path="res://items/throwable_item.gd" id="2_m7mw2"]
+[ext_resource type="Texture2D" uid="uid://bmxsuarykfoe3" path="res://temp/temp_art/smiley.png" id="3_m7mw2"]
+
+[node name="ThrowableItem" unique_id=1566519324 instance=ExtResource("1_sytiu")]
+script = ExtResource("2_m7mw2")
+
+[node name="Sprite3D" parent="." index="0" unique_id=525106753]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+texture = ExtResource("3_m7mw2")

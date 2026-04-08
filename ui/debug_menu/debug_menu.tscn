@@ -35,17 +35,19 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Debug Menu"
 
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=642024621]
+layout_mode = 2
+text = "Being able to switch scenes with
+multiplayer support is WIP and will disconnect you
+for the time being"
+horizontal_alignment = 1
+
 [node name="Separator2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1476855931]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
 [node name="HeightMap" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=312352702 instance=ExtResource("2_bvele")]
 layout_mode = 2
-
-[node name="LobbyBrowser" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2129658815 instance=ExtResource("2_bvele")]
-layout_mode = 2
-text = "Lobby Browser"
-scene_path = "lobby_browser"
 
 [node name="MainMenu" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=658329568 instance=ExtResource("2_bvele")]
 layout_mode = 2

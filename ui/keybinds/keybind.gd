@@ -66,7 +66,7 @@ static func load_keybinds() -> void:
 	if save_file:
 		var keybind_dict: Dictionary[StringName, InputEvent] = save_file.get_var(true)
 		for action in keybind_dict:
-			print(keybind_dict[action].as_text())
+			# print(keybind_dict[action].as_text())
 			InputMap.action_erase_events(action)
 			InputMap.action_add_event(action, keybind_dict[action])
 		print("KEYBINDS LOADED")
