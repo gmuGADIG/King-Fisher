@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://tm0h3rinwtna" path="res://fish/sprites/fish_seven.png" id="2_08u7x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5awuv"]
+resource_local_to_scene = true
 corner_radius_top_left = 550
 corner_radius_top_right = 550
 corner_radius_bottom_right = 550
@@ -11,9 +12,10 @@ corner_radius_bottom_left = 550
 
 [node name="LivewellFish" type="Control" unique_id=516879486]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.172
+anchor_bottom = 0.307
+offset_right = -18.144012
+offset_bottom = 70.063995
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sk1y1")
@@ -23,14 +25,44 @@ layout_mode = 0
 offset_left = 6.1035156e-05
 offset_right = 586.00006
 offset_bottom = 586.0
-scale = Vector2(0.3520516, 0.3520516)
+scale = Vector2(0.3069825, 0.3069825)
 theme_override_styles/panel = SubResource("StyleBoxFlat_5awuv")
 
 [node name="FishSprite" type="TextureRect" parent="Background" unique_id=1503231097]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 31.0
-offset_right = 551.0
-offset_bottom = 543.0
+offset_left = 48.35553
+offset_top = 28.159508
+offset_right = 560.3555
+offset_bottom = 540.1595
 texture = ExtResource("2_08u7x")
 expand_mode = 1
+
+[node name="Points" type="Label" parent="." unique_id=1675818774]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 180.0
+offset_right = 125.0
+offset_bottom = 208.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 20
+text = "100 pts"
+horizontal_alignment = 1
+
+[node name="PointsUnderline" type="ColorRect" parent="." unique_id=887462705]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 59.0
+offset_top = 208.0
+offset_right = 120.0
+offset_bottom = 210.0
+size_flags_vertical = 2
+
+[node name="Count" type="Label" parent="." unique_id=1285688]
+layout_mode = 0
+offset_top = 166.0
+offset_right = 40.0
+offset_bottom = 189.0
+text = "2x"
+horizontal_alignment = 1
+vertical_alignment = 1
