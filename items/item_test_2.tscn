@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ck8obcgulgo8p"]
 
-[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_qegak"]
+[ext_resource type="PackedScene" path="res://items/item_base.tscn" id="1_qegak"]
 [ext_resource type="Script" uid="uid://d221j7c4ucih3" path="res://items/item_test_2.gd" id="2_078a7"]
 
 [node name="Item" unique_id=1566519324 instance=ExtResource("1_qegak")]
