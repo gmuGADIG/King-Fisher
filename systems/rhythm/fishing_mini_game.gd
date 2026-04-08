@@ -71,6 +71,7 @@ func _ready() -> void:
 	player_indicator.position = Vector2(0,0)
 	fish_indicator.position = Vector2(0,0)
 	populate_sequence(track)
+	rhythm_engine.play(track)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
