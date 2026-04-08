@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="5_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="6_cuuia"]
+[ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="7_cuuia"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
 
@@ -51,3 +52,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4872055, 1.2721875, -2.0485
 
 [node name="Rock 1" parent="." index="10" unique_id=774182813 instance=ExtResource("6_cuuia")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 0.069156766, 2)
+
+[node name="ThrowableItem" parent="." index="11" unique_id=1772206853 instance=ExtResource("7_cuuia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.687525, 0.8821875, 3.4783401)

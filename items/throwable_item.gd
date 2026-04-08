@@ -21,6 +21,7 @@ enum type{
 
 
 func use_throwable(targetPos) -> void:
+	show()
 	targetPosition = targetPos
 	
 	var dist : float = global_position.distance_to(targetPosition)
