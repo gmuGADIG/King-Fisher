@@ -1,11 +1,10 @@
 extends Node
+class_name RhythmEngine
 
 const SECONDS_TO_MS : float = 1000.0
 const MS_TO_SECONDS : float = 0.001
 const BPM_TO_BPS : float = 1.0/60.0
 const BPS_TO_BPM : float = 60.0
-
-@onready var timer : Timer = $Timer
 
 #@export var beats_per_minute : int = 140
 #@export var offset_ms : int = 0
@@ -20,10 +19,6 @@ var current_time_ms : float = 0
 
 var current_beat : int = 0
 var beats_per_second : float 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	play(preload("res://systems/rhythm/tracks/track_common_1.tres"))
 
 ## Starts 
 func play(track : Track) -> void:
@@ -44,7 +39,7 @@ func _process(delta: float) -> void:
 ## Converts the number of beats into the song into the number of ms into the song
 func beat_to_ms(beat : float) -> float:
 	assert(current_track != null, "No track selected!")
-	return (beat * SECONDS_TO_MS * BPS_TO_BPM) / current_track.bpm
+	return (((beat - 1.0) * BPS_TO_BPM) / current_track.bpm) * SECONDS_TO_MS
 
 ## Converts the number of ms into the song into the number of beats into the song
 func ms_to_beat(ms : float) -> float:

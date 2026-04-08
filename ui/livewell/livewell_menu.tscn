@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dyc2qekcn8phe"]
+
+[ext_resource type="Script" uid="uid://tdrxdvr5hlfn" path="res://ui/livewell/livewell.gd" id="1_7nkjd"]
+
+[node name="LivewellMenu" type="Control" unique_id=1231020864]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7nkjd")
+
+[node name="Panel" type="Panel" parent="." unique_id=1600842300]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.497
+anchor_right = 0.5
+anchor_bottom = 0.497
+offset_left = -576.0
+offset_top = -322.056
+offset_right = 575.0
+offset_bottom = 321.944
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=253453426]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.499
+anchor_right = 0.50100005
+anchor_bottom = 0.499
+offset_left = -383.5
+offset_top = -242.35602
+offset_right = 393.34894
+offset_bottom = 227.64398
+
+[node name="Score" type="Label" parent="Panel/VBoxContainer" unique_id=1557745147]
+layout_mode = 2
+text = "Score: 0"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/Score" unique_id=2127708389]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41700003
+anchor_top = 3.2830002
+anchor_right = 0.41700003
+anchor_bottom = 3.2830002
+offset_left = -58.426025
+offset_top = -55.509003
+offset_right = 58.573975
+offset_bottom = 55.490997
+
+[node name="fishCount" type="Label" parent="Panel/VBoxContainer/Score/TextureRect" unique_id=932061151]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 2.022
+anchor_right = 0.5
+anchor_bottom = 2.022
+offset_left = 87.5
+offset_top = -224.442
+offset_right = 127.5
+offset_bottom = -201.442
+vertical_alignment = 2
+
+[node name="Fish" type="Label" parent="Panel/VBoxContainer" unique_id=1535753956]
+layout_mode = 2

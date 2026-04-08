@@ -14,4 +14,4 @@ enum Grade{
 @export var sprite : Texture
 
 func _init() -> void:
-	assert(grade != Grade.UNSET, "Please set the fish grade")
+	return
