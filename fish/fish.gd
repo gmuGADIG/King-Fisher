@@ -16,6 +16,19 @@ enum Grade{
 func _init() -> void:
 	return
 
+func get_grade_string() -> String:
+	match grade:
+		Grade.LEFTOVERS:
+			return "Leftovers"
+		Grade.FRESH:
+			return "Fresh"
+		Grade.PREMIUM:
+			return "Premium"
+		Grade.SUSHI:
+			return "Sushi"
+		_:
+			return "Unset"
+
 func get_score() -> int:
 	match grade:
 		Grade.LEFTOVERS:

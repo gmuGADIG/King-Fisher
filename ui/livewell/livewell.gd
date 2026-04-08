@@ -4,9 +4,10 @@ extends Control
 
 var fish_inventory: Dictionary[String, livewell_fish_info] = {}
 var current_fish : Fish
-@onready var livewellPanel : Panel = $Panel
-@onready var score : Label = $Panel/Score
-@onready var top_fish_container : VBoxContainer = $Panel/VBoxContainer/TopFishContainer
+@onready var livewellPanel : Panel = $Background
+@onready var score : Label = $Background/Score
+@onready var top_fish_container : VBoxContainer = $Background/TopFishPanel/TopFishContainer
+var top_fish : Array = []
 var current_score : int = 0;
 
 func _ready() -> void:
@@ -20,7 +21,6 @@ func addFish(new_fish : Fish, amount : int = 1) -> void:
 		var fish_info = livewell_fish_info.new()
 		fish_info.fish = new_fish
 		fish_info.fish_count = amount
-		fish_info.grade = new_fish.grade
 		fish_inventory.set(new_fish.fish_name, fish_info)
 	
 	changeScore(new_fish.get_score())
@@ -46,9 +46,18 @@ func removeFish(fish : Fish, amount : int = 0) -> void:
 func updateVisual() -> void:
 	for fish in fish_inventory.values():
 		var fish_info : LivewellFish = fish_info_packed.instantiate()
-		fish_info.set_fish(fish.fish_file_name, fish.fish_type)
+		if top_fish.has(fish.fish_name()):
+			fish_info = top_fish.get(top_fish.find(fish.name))
+		fish_info.name = fish.fish_name()
+		# fish_info.set_fish("res://fish/"+fish.fish.get_grade_string().to_lower()+"/"+fish.fish_name()+".tres", fish)
+		fish_info.set_fish(fish.fish.sprite.get_path(), fish)
+		top_fish_container.add_child(fish_info)
+		if not top_fish.has(fish.name):
+			top_fish.append(fish_info)
+
 		
-	
+	for fish in fish_inventory.values():
+		print("Fish: " + fish.fish_name() + " Count: " + str(fish.fish_count) + " Grade: " + fish.fish.get_grade_string())
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("livewell_menu"):
 		visible = !visible
