@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://qga41o832tta" path="res://art/3d-assets/DockEnd.glb" id="9_2t4rl"]
 [ext_resource type="PackedScene" uid="uid://bfbfl0n0rkaur" path="res://art/3d-assets/Tent.glb" id="10_rtmia"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="13_xedpn"]
-[ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/Throwable.tscn" id="16_6ic86"]
+[ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="16_6ic86"]
 
 [sub_resource type="Resource" id="Resource_kv1g5"]
 script = ExtResource("4_v7pb5")
