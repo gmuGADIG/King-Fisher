@@ -20,10 +20,6 @@ var current_time_ms : float = 0
 var current_beat : int = 0
 var beats_per_second : float 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	play(preload("res://systems/rhythm/tracks/track_common_1.tres"))
-
 ## Starts 
 func play(track : Track) -> void:
 	current_track = track
@@ -43,7 +39,7 @@ func _process(delta: float) -> void:
 ## Converts the number of beats into the song into the number of ms into the song
 func beat_to_ms(beat : float) -> float:
 	assert(current_track != null, "No track selected!")
-	return ((beat - 1.0) * SECONDS_TO_MS * BPS_TO_BPM) / current_track.bpm
+	return (((beat - 1.0) * BPS_TO_BPM) / current_track.bpm) * SECONDS_TO_MS
 
 ## Converts the number of ms into the song into the number of beats into the song
 func ms_to_beat(ms : float) -> float:
