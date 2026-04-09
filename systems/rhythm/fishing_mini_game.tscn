@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpo4nvgeh8dat"]
 
 [ext_resource type="Script" uid="uid://p0f46s1vcsvg" path="res://systems/rhythm/fishing_mini_game.gd" id="1_qgtvk"]
-[ext_resource type="Resource" uid="uid://y4inlgyvwye" path="res://temp/rhythm_test/track1_test.tres" id="2_2nsaa"]
+[ext_resource type="Resource" uid="uid://8x1n8tnj21lk" path="res://systems/rhythm/tracks/Intermediate 2.tres" id="2_2nsaa"]
 [ext_resource type="Texture2D" uid="uid://b3tmja6unn2ao" path="res://temp/temp_art/tmplogo.png" id="2_5yaa5"]
 [ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="4_2nsaa"]
 [ext_resource type="AudioStream" uid="uid://cn1uje7bnu2bc" path="res://temp/temp_sfx/test_explode_small.wav" id="5_6b33u"]
