@@ -56,14 +56,9 @@ texture = ExtResource("5_v1gag")
 
 [node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("5_mq61g")]
 
-<<<<<<< Updated upstream
 [node name="MainAudioStream" type="AudioStreamPlayer" parent="." unique_id=1138960120]
 
 [node name="TempoAudioStream" type="AudioStreamPlayer" parent="." unique_id=440330173]
-=======
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1138960120]
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1343048352]
 
 [node name="WinLose" type="Sprite2D" parent="." unique_id=1017937469]
 visible = false
@@ -72,4 +67,3 @@ position = Vector2(545.00006, 290.00003)
 scale = Vector2(3.46875, 3.46875)
 texture = ExtResource("13_dsd34")
 hframes = 2
->>>>>>> Stashed changes
