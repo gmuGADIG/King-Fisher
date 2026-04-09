@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://u26laeo3h1xe" path="res://temp/temp_sfx/test_click.wav" id="6_8v4n0"]
 [ext_resource type="Texture2D" uid="uid://iuoaof0oh7dp" path="res://temp/temp_art/evil-burger2.png" id="7_yhodo"]
 [ext_resource type="Texture2D" uid="uid://cjnwf45j1c0rv" path="res://temp/temp_art/king-fisher.png" id="10_2nsaa"]
+[ext_resource type="Texture2D" uid="uid://bbub80p362odf" path="res://systems/rhythm/art/winlose_temp.png" id="13_dsd34"]
 
 [node name="FishingMiniGame" type="CanvasLayer" unique_id=332912207]
 script = ExtResource("1_qgtvk")
@@ -55,6 +56,20 @@ texture = ExtResource("5_v1gag")
 
 [node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("5_mq61g")]
 
+<<<<<<< Updated upstream
 [node name="MainAudioStream" type="AudioStreamPlayer" parent="." unique_id=1138960120]
 
 [node name="TempoAudioStream" type="AudioStreamPlayer" parent="." unique_id=440330173]
+=======
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1138960120]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1343048352]
+
+[node name="WinLose" type="Sprite2D" parent="." unique_id=1017937469]
+visible = false
+texture_filter = 1
+position = Vector2(545.00006, 290.00003)
+scale = Vector2(3.46875, 3.46875)
+texture = ExtResource("13_dsd34")
+hframes = 2
+>>>>>>> Stashed changes
