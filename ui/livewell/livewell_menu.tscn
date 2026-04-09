@@ -22,6 +22,16 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
+[node name="ScoreUnderline" type="ColorRect" parent="Background" unique_id=2013261677]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 133.0
+offset_bottom = 74.0
+scale = Vector2(1.3200006, 1)
+size_flags_vertical = 2
+
 [node name="Score" type="Label" parent="Background" unique_id=1966849759]
 layout_mode = 0
 offset_left = 36.0
@@ -40,9 +50,9 @@ anchor_top = 0.324
 anchor_right = 0.5
 anchor_bottom = 0.324
 offset_left = -531.0
-offset_top = -113.951996
+offset_top = -97.951996
 offset_right = 537.0
-offset_bottom = 114.048004
+offset_bottom = 130.048
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gmmwj")
 
 [node name="TopFishContainer" type="HBoxContainer" parent="Background/TopFishPanel" unique_id=58572591]
@@ -51,10 +61,33 @@ layout_mode = 2
 [node name="BottomFishPanel" type="PanelContainer" parent="Background" unique_id=1550300391]
 layout_mode = 0
 offset_left = 45.0
-offset_top = 353.0
+offset_top = 369.0
 offset_right = 1113.0
-offset_bottom = 600.0
+offset_bottom = 616.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_kg36v")
 
 [node name="BottomFishContainer" type="HBoxContainer" parent="Background/BottomFishPanel" unique_id=736676455]
 layout_mode = 2
+
+[node name="ActiveBuffs" type="Label" parent="Background" unique_id=2115363097]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 16.0
+offset_right = 804.1389
+offset_bottom = 88.0
+scale = Vector2(1.44, 1)
+theme_override_font_sizes/font_size = 25
+text = "Nothing"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="ActiveBuffsUnderline" type="ColorRect" parent="Background" unique_id=1095170143]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 0
+offset_left = 551.0
+offset_top = 72.0
+offset_right = 612.0
+offset_bottom = 75.0
+scale = Vector2(2.6703322, 1)
+size_flags_vertical = 2
