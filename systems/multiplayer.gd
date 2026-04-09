@@ -4,6 +4,7 @@ signal new_player(id: int)
 signal found_server(ip: String, hostname: String, playerCount: String)
 signal player_loaded(id: int)
 signal start_game
+signal round_begun
 
 const PORT = 25575
 const MAX_CLIENTS = 4
@@ -134,7 +135,7 @@ func start_the_game():
 	await get_tree().process_frame
 	await _countdown(5)
 	#TODO game goes
-	
+	round_begun.emit()
 
 	
 func load_players():
