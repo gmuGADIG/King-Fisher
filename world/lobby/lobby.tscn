@@ -55,3 +55,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 0.069156766, 2)
 
 [node name="ThrowableItem" parent="." index="11" unique_id=1772206853 instance=ExtResource("7_cuuia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.687525, 0.8821875, 3.4783401)
+
+[node name="Walls" parent="." index="12" unique_id=972242853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.016973, 0, -27.679245)
