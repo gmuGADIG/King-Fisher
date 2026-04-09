@@ -55,4 +55,6 @@ texture = ExtResource("5_v1gag")
 
 [node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("5_mq61g")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1138960120]
+[node name="MainAudioStream" type="AudioStreamPlayer" parent="." unique_id=1138960120]
+
+[node name="TempoAudioStream" type="AudioStreamPlayer" parent="." unique_id=440330173]

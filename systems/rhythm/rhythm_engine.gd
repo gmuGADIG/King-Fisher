@@ -20,6 +20,8 @@ var current_time_ms : float = 0
 var current_beat : int = 0
 var beats_per_second : float 
 
+@onready var tempo_audio_stream : AudioStreamPlayer = $"../TempoAudioStream"
+
 ## Starts 
 func play(track : Track) -> void:
 	current_track = track
@@ -27,9 +29,13 @@ func play(track : Track) -> void:
 	##TODO: Add manual offset based on the player's settings
 	current_time_ms = -audio_delay_ms
 	##TODO: Play backing track
+	tempo_audio_stream.stream = track.backing_track
+	tempo_audio_stream.play()
+	
 
 func stop() -> void:
 	current_track = null
+	tempo_audio_stream.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

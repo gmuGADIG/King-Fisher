@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var rhythm_engine: RhythmEngine = $rhythm_engine
 @onready var player_indicator: Sprite2D = $PlayerLine/PlayerIndicator
 @onready var fish_indicator: Sprite2D = $SequenceLine/FishIndicator
+@onready var main_audio_stream: AudioStreamPlayer = $MainAudioStream
 @export var track:Track
 @export var tick_sprite:CompressedTexture2D
 @export var note_marker_sprite:CompressedTexture2D
@@ -89,8 +90,8 @@ func _process(delta: float) -> void:
 			if (current_note_index_sfx < track.notes.size()):
 				var current_note_sfx = track.notes[current_note_index_sfx]
 				if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note_sfx.beat_position+1):
-					$AudioStreamPlayer.stream = hit_sfx_art if current_note_sfx.is_articulated else hit_sfx
-					$AudioStreamPlayer.play()
+					main_audio_stream.stream = hit_sfx_art if current_note_sfx.is_articulated else hit_sfx
+					main_audio_stream.play()
 					current_note_index_sfx +=1
 			
 			##Transition to response
@@ -130,8 +131,8 @@ func _input(event: InputEvent) -> void:
 		else: ##Not a note in the thing
 			return
 		
-		$AudioStreamPlayer.stream = hit_sfx_art if input_type == NoteType.ARTICULATED else hit_sfx
-		$AudioStreamPlayer.play()
+		main_audio_stream.stream = hit_sfx_art if input_type == NoteType.ARTICULATED else hit_sfx
+		main_audio_stream.play()
 		
 		var hit_quality : HitQuality = determine_accuracy()
 		
