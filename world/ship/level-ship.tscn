@@ -52,6 +52,3 @@ transform = Transform3D(1, 0, 0, 0, 0.99998146, -0.0060737133, 0, 0.0060737133, 
 
 [node name="Water2" parent="HTerrain" index="5" unique_id=100645748 instance=ExtResource("6_ke6vo")]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 50.53743, -1.1901283, 18.376266)
-
-[node name="Water3" parent="HTerrain" index="6" unique_id=882152154 instance=ExtResource("6_ke6vo")]
-transform = Transform3D(2.4487374, 0, -4.3593216, 0, 5, 0, 4.3593216, 0, 2.4487374, 8.163254, -1.4362688, 18.332394)
