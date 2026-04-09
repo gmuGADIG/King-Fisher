@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cjp3ikwa1365e"]
+
+[ext_resource type="Texture2D" uid="uid://c1m08d1w1cq5" path="res://temp/temp_art/fish.png" id="1_a41xj"]
+
+[node name="NoteMarker" type="Sprite2D" unique_id=536423763]
+texture = ExtResource("1_a41xj")

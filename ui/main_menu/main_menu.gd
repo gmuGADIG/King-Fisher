@@ -2,6 +2,7 @@ extends Control
 
 # Hide Everything that isn't the Main Menu
 func _ready() -> void:
+	Keybinds.load_keybinds()
 	$LobbyBrowser.hide()
 	$Fishdex.hide()
 	$OptionsMenu.hide()
