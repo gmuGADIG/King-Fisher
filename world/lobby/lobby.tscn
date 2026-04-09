@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="6_cuuia"]
 [ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="7_cuuia"]
+[ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="8_2ii5k"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
 
@@ -55,3 +56,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 0.069156766, 2)
 
 [node name="ThrowableItem" parent="." index="11" unique_id=1772206853 instance=ExtResource("7_cuuia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.687525, 0.8821875, 3.4783401)
+
+[node name="BananaPeel" parent="." index="12" unique_id=350210431 instance=ExtResource("8_2ii5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9469748, 0.83635616, 0)
