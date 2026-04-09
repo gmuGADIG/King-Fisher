@@ -111,7 +111,7 @@ func _process(delta: float) -> void:
 			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH - 1:
 				print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 				state=Phase.MINIGAME_FINISH
-				#print("score:", score)
+				print("score:", score)
 		Phase.MINIGAME_FINISH:
 			pass
 		#taps.append(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms))
@@ -142,16 +142,20 @@ func _input(event: InputEvent) -> void:
 			misses += 1
 		elif hit_quality == HitQuality.GOOD:
 			print("Good")
+			score += good_hit_score
 			good_hits += 1
+			current_note_index += 1
 		elif hit_quality == HitQuality.PERFECT:
 			print("Perfect!")
+			score += perfect_hit_score
 			perfect_hits += 1
+			current_note_index += 1
 		else:
 			assert(false, "Edge case detected")
 		
 		## Draw marker to screen
 		add_tap_marker(input_type)
-		current_note_index += 1
+		
 		
 		#if event.is_action_pressed("catch_fish_main"):
 			#tap_type = NoteType.NON_ARTICULATED
@@ -227,6 +231,8 @@ func add_tap_marker(note_type : NoteType) -> void:
 	new_tap_marker.position = player_indicator.position
 	player_line.add_child(new_tap_marker)
 	
+#func calculate_total_accuracy()
+
 func ms_to_position(ms:float) -> float:
 	var position
 	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH)
