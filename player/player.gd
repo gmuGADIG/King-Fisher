@@ -1,6 +1,12 @@
 class_name Player
 extends CharacterBody3D
 
+enum AimMode{
+	NONE,
+	FISHING_ROD,
+	ITEM
+}
+
 const GRAVITY := 30.
 const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 
@@ -16,8 +22,7 @@ var can_exit_ragdoll := false
 
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
-var is_aiming := false
-
+var aim_mode : AimMode = AimMode.NONE
 
 @onready var camera_mount : Node3D = $CameraMount
 @onready var camera : Camera3D = camera_mount.get_node("Camera3D")
@@ -54,6 +59,10 @@ var _last_played_jump_event_id: int = -1
 
 # Item Variables
 var wearing_helmet := false
+var golden_worm_active := false
+var has_ziplock_bag := false
+
+@onready var livewell : Control = $LivewellMenu
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -76,6 +85,8 @@ func _ready() -> void:
 	_last_played_jump_event_id = -1
 
 func _process(delta: float) -> void:
+	# Prevents errors when disconnection happens
+	if not multiplayer.has_multiplayer_peer(): return
 	# don't process input if ragdolled
 	if is_ragdolled:
 		%Aiming.stop_aiming()
@@ -103,13 +114,12 @@ func _process(delta: float) -> void:
 	if input != Vector2.ZERO:
 		$Body.turn_towards(movement_dir.rotated(-PI/2), delta)
 	
-	if Input.is_action_just_pressed("cast_rod"):
-		%Aiming.start_aiming()
-	if Input.is_action_just_released("cast_rod"):
-		%Aiming.stop_aiming()
-		Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
+	
+		
 
 func _physics_process(delta: float) -> void:
+	# Prevents errors when disconnection happens
+	if not multiplayer.has_multiplayer_peer(): return
 	var was_on_floor := is_on_floor()
 	var pre_velocity_y := velocity.y
 	if is_multiplayer_authority():
@@ -147,6 +157,8 @@ func update_camera() -> void:
 	camera.current = get_multiplayer_authority() == multiplayer.get_unique_id()
 
 func _input(event: InputEvent) -> void:
+	# Prevents errors when disconnection happens
+	if not multiplayer.has_multiplayer_peer(): return
 	if not is_multiplayer_authority(): return
 
 	if event.is_action_pressed("scoreboard"):
@@ -156,13 +168,56 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	
-	if not is_aiming:
-		if event.is_action_pressed("use_item"):
-			use_held_item.rpc()
-		if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			camera_yaw += -event.relative.x * Options.mouse_sensitivity
-			$CameraMount.rotation.y = deg_to_rad(camera_yaw)
-
+	
+	##
+	match aim_mode:
+		AimMode.NONE:
+			if event.is_action_pressed("cast_rod"):
+				%Aiming.start_aiming()
+			if event.is_action_pressed("use_item"):
+				if held_item == null:
+					return
+				print("item aim")
+				if held_item is ThrowableItem:
+					print("item aim")
+					%Aiming.start_aiming(AimMode.ITEM)
+				else:
+					use_held_item.rpc()
+			if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+				camera_yaw += -event.relative.x * Options.mouse_sensitivity
+				$CameraMount.rotation.y = deg_to_rad(camera_yaw)
+		AimMode.FISHING_ROD:
+			if event.is_action_released("cast_rod"):
+				%Aiming.stop_aiming()
+		AimMode.ITEM:
+			##This point should only reachable if the item held is throwable
+			if event.is_action_released("use_item"):
+				assert(held_item != null, "Item is null somehow")
+				assert(held_item is ThrowableItem, "Thrown item is somehow not throable")
+				var throw_item : ThrowableItem = held_item
+				throw_item.use_throwable(%Aiming.get_aim_pos())
+				held_item = null
+				%Aiming.stop_aiming()
+			pass
+		_:
+			assert(false,"Invalid Aim Mode")
+		
+		
+		###AAAAAAAAAAa
+		#if Input.is_action_just_pressed("cast_rod"):
+			#%Aiming.start_aiming()
+	#if Input.is_action_just_released("cast_rod"):
+		#%Aiming.stop_aiming()
+		#Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
+		#
+	#if Input.is_action_just_pressed("use_item") && is_instance_of(held_item, ThrowableItem):
+		#%Aiming.start_aiming(true)
+	#if Input.is_action_just_released("use_item") && is_instance_of(held_item, ThrowableItem):
+		#var item := held_item as ThrowableItem
+		#item.use_throwable(%Aiming.get_aim_pos())
+		#held_item = null
+		#item = null
+		#%Aiming.stop_aiming()
 
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
@@ -287,6 +342,8 @@ func pick_up_item(item: Item) -> void:
 	held_item = item
 	held_item.is_held = true
 	held_item.position = Vector3.ZERO
+	# Hide the item. Nobody will know you have it until you use it.
+	held_item.visible=false
 
 @rpc("call_local")
 func use_held_item() -> void:
@@ -297,3 +354,11 @@ func use_held_item() -> void:
 
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
+	livewell.addFish(fish)
+	
+func take_fish(fish : Fish) -> void:
+	Debug.log("Player lost fish!")
+	livewell.removeFish(fish)
+
+func set_name_visible(val : bool) -> void:
+	$PlayerId.visible = val
