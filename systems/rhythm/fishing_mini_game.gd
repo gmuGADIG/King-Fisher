@@ -4,8 +4,6 @@ extends CanvasLayer
 @onready var sequence_line_length = (sequence_line.points[1]-sequence_line.points[0]).length()
 @onready var player_line: Line2D = $PlayerLine
 @onready var player_line_length = (player_line.points[1]-player_line.points[0]).length()
-@onready var win_lose_sprite: Sprite2D = $WinLose
-
 
 @onready var rhythm_engine: RhythmEngine = $rhythm_engine
 @onready var player_indicator: Sprite2D = $PlayerLine/PlayerIndicator
@@ -32,12 +30,10 @@ var score:float = 0
 var perfect_hits:int = 0
 var good_hits:int = 0
 var misses:int = 0
-var win:bool = false
 
-#var taps:Array[float] 
+
+var taps:Array[float] 
 var tap_type : NoteType
-var total_taps:int = 0
-var total_accuracy:float
 
 
 @export_category("Test")
@@ -77,7 +73,6 @@ func _ready() -> void:
 	fish_indicator.position = Vector2(0,0)
 	populate_sequence(track)
 	rhythm_engine.play(track)
-	win_lose_sprite.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -116,21 +111,8 @@ func _process(delta: float) -> void:
 			
 			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH - 1:
 				print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
-				print("score:", score)
-				print("taps:", total_taps)
-				total_accuracy = score / total_taps	
-				print("accuracy:", total_accuracy)
-				if total_accuracy >= track.target_accuracy * .01:
-					print("WIN!")
-					win_lose_sprite.frame = 0
-					win_lose_sprite.visible = true
-				else:
-					print("LOSE!")
-					win_lose_sprite.frame = 1
-					win_lose_sprite.visible = true
-				
 				state=Phase.MINIGAME_FINISH
-				
+				print("score:", score)
 		Phase.MINIGAME_FINISH:
 			pass
 		#taps.append(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms))
@@ -250,8 +232,7 @@ func add_tap_marker(note_type : NoteType) -> void:
 	new_tap_marker.position = player_indicator.position
 	player_line.add_child(new_tap_marker)
 	
-func calculate_total_accuracy() -> void:
-	pass
+#func calculate_total_accuracy()
 
 func ms_to_position(ms:float) -> float:
 	var position
