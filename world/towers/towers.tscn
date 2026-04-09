@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_neon0"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_elsoy"]
-[ext_resource type="Resource" path="res://world/data.hterrain" id="3_aextg"]
+[ext_resource type="Resource" uid="uid://barqr64i821s5" path="res://world/data.hterrain" id="3_aextg"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_sn6vi"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_ljgpp"]
 [ext_resource type="PackedScene" uid="uid://d1tkdnfdxej7n" path="res://world/lobby/lobby.tscn" id="6_2x1oj"]
+[ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="7_sn6vi"]
+[ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/Docks.glb" id="8_ljgpp"]
 
 [sub_resource type="Resource" id="Resource_wjdpo"]
 script = ExtResource("4_sn6vi")
@@ -33,26 +35,33 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="HTerrain" index="1" unique_id=1331787006]
-transform = Transform3D(0.049668096, 0, -8.964047, 0, 0.5362759, 0, 0.76145416, 0, 0.5847063, 61.227165, 6.6914988, 30.76094)
-size = Vector3(21.308, 23.353481, 1.242)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="HTerrain" index="2" unique_id=2094384511]
-transform = Transform3D(0.049668096, 0, -8.964047, 0, 0.5362759, 0, 0.76145416, 0, 0.5847063, 62.034077, 9.115312, 45.125122)
-size = Vector3(16.384811, 1, 0.6972422)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="HTerrain" index="3" unique_id=1796559619]
-transform = Transform3D(-0.056696195, 0, 8.958263, 0, 0.5362758, 0, -0.76096296, 0, -0.6674428, 62.757427, 9.891988, 56.93134)
-size = Vector3(7.759079, 1, 0.6495855)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="HTerrain" index="4" unique_id=268584140]
-transform = Transform3D(-0.056696195, 0, 8.958263, 0, 0.5362758, 0, -0.76096296, 0, -0.6674428, 61.123764, 9.891988, 59.222954)
-size = Vector3(4.004434, 1, 1.0259646)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="HTerrain" index="5" unique_id=154954282]
-transform = Transform3D(-0.056696195, 0, 8.958263, 0, 0.5362758, 0, -0.76096296, 0, -0.6674428, 46.82591, 9.891988, 60.229965)
-size = Vector3(4.004434, 1, 1.0259646)
-
 [node name="Lobby" parent="." index="5" unique_id=1751753838 instance=ExtResource("6_2x1oj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.242474, 13.1149845, 18.527054)
 visible = false
+
+[node name="Water" parent="." index="7" unique_id=1605700850 instance=ExtResource("7_sn6vi")]
+transform = Transform3D(8.243, 0, 0, 0, 1, 0, 0, 0, 4.245, 31.358013, -1.4601479, 32.128445)
+
+[node name="Docks2" parent="." index="8" unique_id=1640372290 instance=ExtResource("8_ljgpp")]
+transform = Transform3D(0.14107774, 0, -2.7656736, 0, 1, 0, 3.2312155, 0, 0.12075177, 32.396202, -1.5264564, 20.214071)
+
+[node name="Docks3" parent="." index="9" unique_id=1026864206 instance=ExtResource("8_ljgpp")]
+transform = Transform3D(0.14107774, 0, -2.7656736, 0, 1, 0, 3.2312155, 0, 0.12075177, 31.709263, -1.4097514, 39.426414)
+
+[node name="Water2" parent="." index="10" unique_id=1163369224 instance=ExtResource("7_sn6vi")]
+transform = Transform3D(6.471116, 0, 0, 0, 1, 0, 0, 0, 4.945994, 31.22961, 1.2951088, 7.063241)
+
+[node name="Water3" parent="." index="11" unique_id=1531117147 instance=ExtResource("7_sn6vi")]
+transform = Transform3D(6.88, 0, 0, 0, 1, 0, 0, 0, 5.465, 32.590458, 4.3158493, 56.074265)
+
+[node name="Docks4" parent="." index="12" unique_id=1151312493 instance=ExtResource("8_ljgpp")]
+transform = Transform3D(0.14107774, 0, -2.7656736, 0, 1, 0, 3.2312155, 0, 0.12075177, 16.70027, -1.9042482, 35.10196)
+
+[node name="Docks5" parent="." index="13" unique_id=335883087 instance=ExtResource("8_ljgpp")]
+transform = Transform3D(0.14107774, 0, -2.7656736, 0, 1, 0, 3.2312155, 0, 0.12075177, 16.60682, -1.7745056, 24.838549)
+
+[node name="Docks6" parent="." index="14" unique_id=976909351 instance=ExtResource("8_ljgpp")]
+transform = Transform3D(0.14107774, 0, -2.7656736, 0, 1, 0, 3.2312155, 0, 0.12075177, 48.365273, -1.145298, 22.531364)
+
+[node name="Docks7" parent="." index="15" unique_id=779586711 instance=ExtResource("8_ljgpp")]
+transform = Transform3D(0.14107774, 0, -2.7656736, 0, 1, 0, 3.2312155, 0, 0.12075177, 48.625202, -1.7171543, 31.621597)
