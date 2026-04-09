@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]
 script = ExtResource("1_6yxs5")
-bpm = 120.0
+bpm = 150.0
 backing_track = ExtResource("1_6vchk")
 notes = Array[ExtResource("1_n2fmx")]([SubResource("Resource_ay1ok"), SubResource("Resource_ldoxp"), SubResource("Resource_6vchk"), SubResource("Resource_x07r7"), SubResource("Resource_jpndr"), SubResource("Resource_2dmby"), SubResource("Resource_jdc8r")])
 metadata/_custom_type_script = "uid://duodpj15swkyd"

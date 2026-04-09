@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bpo4nvgeh8dat"]
+[gd_scene format=3 uid="uid://bj7u3lltpgaov"]
 
 [ext_resource type="Script" uid="uid://p0f46s1vcsvg" path="res://systems/rhythm/fishing_mini_game.gd" id="1_qgtvk"]
 [ext_resource type="Resource" uid="uid://y4inlgyvwye" path="res://temp/rhythm_test/track1_test.tres" id="2_2nsaa"]
