@@ -1,6 +1,12 @@
 class_name Player
 extends CharacterBody3D
 
+enum AimMode{
+	NONE,
+	FISHING_ROD,
+	ITEM
+}
+
 const GRAVITY := 30.
 const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 
@@ -15,7 +21,7 @@ var can_exit_ragdoll := false
 
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
-var is_aiming := false
+var aim_mode : AimMode = AimMode.NONE
 
 @onready var camera_mount : Node3D = $CameraMount
 @onready var camera : Camera3D = camera_mount.get_node("Camera3D")
@@ -107,11 +113,8 @@ func _process(delta: float) -> void:
 	if input != Vector2.ZERO:
 		player_mesh.turn_towards(movement_dir.rotated(-PI/2), delta)
 	
-	if Input.is_action_just_pressed("cast_rod"):
-		%Aiming.start_aiming()
-	if Input.is_action_just_released("cast_rod"):
-		%Aiming.stop_aiming()
-		Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
+	
+		
 
 func _physics_process(delta: float) -> void:
 	# Prevents errors when disconnection happens
@@ -163,18 +166,57 @@ func _input(event: InputEvent) -> void:
 		ragdoll_phys.ragdoll(10, true)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
-	if event.is_action_pressed("use_item"):
-		#TODO: Don't let this happen if the player is aiming.
-		use_held_item.rpc()
 	
 	
-	if not is_aiming:
-		if event.is_action_pressed("use_item"):
-			use_held_item.rpc()
-		if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			camera_yaw += -event.relative.x * Options.mouse_sensitivity
-			$CameraMount.rotation.y = deg_to_rad(camera_yaw)
-
+	##
+	match aim_mode:
+		AimMode.NONE:
+			if event.is_action_pressed("cast_rod"):
+				%Aiming.start_aiming()
+			if event.is_action_pressed("use_item"):
+				if held_item == null:
+					return
+				print("item aim")
+				if held_item is ThrowableItem:
+					print("item aim")
+					%Aiming.start_aiming(AimMode.ITEM)
+				else:
+					use_held_item.rpc()
+			if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+				camera_yaw += -event.relative.x * Options.mouse_sensitivity
+				$CameraMount.rotation.y = deg_to_rad(camera_yaw)
+		AimMode.FISHING_ROD:
+			if event.is_action_released("cast_rod"):
+				%Aiming.stop_aiming()
+		AimMode.ITEM:
+			##This point should only reachable if the item held is throwable
+			if event.is_action_released("use_item"):
+				assert(held_item != null, "Item is null somehow")
+				assert(held_item is ThrowableItem, "Thrown item is somehow not throable")
+				var throw_item : ThrowableItem = held_item
+				throw_item.use_throwable(%Aiming.get_aim_pos())
+				held_item = null
+				%Aiming.stop_aiming()
+			pass
+		_:
+			assert(false,"Invalid Aim Mode")
+		
+		
+		###AAAAAAAAAAa
+		#if Input.is_action_just_pressed("cast_rod"):
+			#%Aiming.start_aiming()
+	#if Input.is_action_just_released("cast_rod"):
+		#%Aiming.stop_aiming()
+		#Debug.log("TODO: fire fishing rod at global position ", %Aiming.get_aim_pos())
+		#
+	#if Input.is_action_just_pressed("use_item") && is_instance_of(held_item, ThrowableItem):
+		#%Aiming.start_aiming(true)
+	#if Input.is_action_just_released("use_item") && is_instance_of(held_item, ThrowableItem):
+		#var item := held_item as ThrowableItem
+		#item.use_throwable(%Aiming.get_aim_pos())
+		#held_item = null
+		#item = null
+		#%Aiming.stop_aiming()
 
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
