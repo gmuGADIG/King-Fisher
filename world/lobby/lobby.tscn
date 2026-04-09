@@ -6,16 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="4_56mmg"]
 [ext_resource type="PackedScene" uid="uid://cw872lin7slft" path="res://ui/pause_menu/lobby_menu.tscn" id="4_c06ik"]
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="5_vh6de"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_c06ik"]
-size = Vector3(60.713543, 0.17199707, 61.283077)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_56mmg"]
-size = Vector3(3.8935547, 1, 1.6055908)
+[ext_resource type="PackedScene" uid="uid://d3ykir648kj0n" path="res://world/props/lobby_boat.tscn" id="7_cuuia"]
 
 [node name="Lobby" unique_id=1751753838 instance=ExtResource("1_cv4rh")]
+
+[node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3848615, 2.0226789, -11.422371)
+
+[node name="PlayerSpawnPoint2" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="1" unique_id=927445426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.231362, 1.9496746, -8.3700695)
+
+[node name="PlayerSpawnPoint3" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="2" unique_id=805091295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.903038, 2.0436332, -11.6372)
+
+[node name="PlayerSpawnPoint4" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="3" unique_id=909904993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9578114, 1.9372004, -8.337071)
 
 [node name="ItemTest1" parent="." index="3" unique_id=1566519324 instance=ExtResource("2_7tkdc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.694867, 0, -5.357811)
@@ -35,41 +40,16 @@ spawn_rate = 1.0
 [node name="Water" parent="." index="6" unique_id=1605700850 instance=ExtResource("4_56mmg")]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." index="7" unique_id=1793351237]
-collision_mask = 3
-freeze = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" index="0" unique_id=677414344]
-transform = Transform3D(14.142136, 0, 14.142136, 0, 1, 0, -14.142136, 0, 14.142136, 0, 0, 0)
-layers = 3
-mesh = SubResource("PlaneMesh_7tkdc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="1" unique_id=1749416138]
-transform = Transform3D(0.45961937, 0, 0.45961937, 0, 0.65, 0, -0.45961937, 0, 0.45961937, -0.073533535, 0, 0.18874168)
-shape = SubResource("BoxShape3D_c06ik")
-
-[node name="RigidBody3D2" type="RigidBody3D" parent="." index="8" unique_id=1703387591]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.75317)
-collision_mask = 3
-freeze = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2" index="0" unique_id=701330669]
-transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 6, 0, 0, 0)
-layers = 3
-mesh = SubResource("PlaneMesh_7tkdc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" index="1" unique_id=100604462]
-transform = Transform3D(7.58, 0, 0, 0, 0.65, 0, 0, 0, 7.58, -0.22577125, 0, -0.07726288)
-shape = SubResource("BoxShape3D_56mmg")
-
-[node name="Label3D" type="Label3D" parent="." index="9" unique_id=1976693241]
-transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 0, 3.3720021, -9.835437)
+[node name="Label3D" type="Label3D" parent="." index="7" unique_id=1976693241]
+transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 0, 3.3720021, -16.979517)
 text = "#myawesomelobby"
 
-[node name="PauseMenu" parent="." index="10" unique_id=1167419055 instance=ExtResource("4_c06ik")]
+[node name="PauseMenu" parent="." index="8" unique_id=1167419055 instance=ExtResource("4_c06ik")]
 visible = false
 
-[node name="Helmet" parent="." index="11" unique_id=621433209 instance=ExtResource("5_vh6de")]
+[node name="Helmet" parent="." index="9" unique_id=621433209 instance=ExtResource("5_vh6de")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.14792, 1.7071879, -5.6133504)
 collision_mask = 3
 item_name = "Helmet"
+
+[node name="Boat" parent="." index="11" unique_id=245968247 instance=ExtResource("7_cuuia")]
