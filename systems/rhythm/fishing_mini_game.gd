@@ -71,6 +71,7 @@ func _ready() -> void:
 	place_ticks(player_line)
 	place_ticks(sequence_line)
 	player_indicator.position = Vector2(0,0)
+	player_indicator.hide()
 	fish_indicator.position = Vector2(0,0)
 	populate_sequence(track)
 	rhythm_engine.play(track)
@@ -98,14 +99,16 @@ func _process(delta: float) -> void:
 			call_index +=1
 	
 	if state == Phase.FISH_CALL:
-		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH:
+		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH+0.5:
 			state = Phase.PLAYER_RESPONSE
+			player_indicator.show()
+			fish_indicator.hide()
 	
 	##Response
 	if state == Phase.PLAYER_RESPONSE and response_index < track.notes.size():
 		current_note = track.notes[response_index]
 		##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
-		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position+TRACK_LENGTH+1) + hit_window_radius_ms:
+		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position+TRACK_LENGTH) + hit_window_radius_ms:
 			response_index+=1
 			print("Miss!")
 			misses+=1
