@@ -32,6 +32,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fh8yv")
+defaultMapSelect = 7
+defaultItemSelect = 15
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=313001227]
 clip_contents = true
@@ -219,6 +221,7 @@ custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
 [node name="MoreButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons" unique_id=730368332]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 offset_right = 20.0
@@ -229,6 +232,7 @@ theme_override_font_sizes/font_size = 8
 text = "+"
 
 [node name="LessButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons" unique_id=1461640249]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 anchors_preset = 2
@@ -461,11 +465,30 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -22.0
+offset_left = -37.0
 offset_top = -31.0
-offset_right = 22.0
+offset_right = 7.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Save"
 
+[node name="Reset Button" type="Button" parent="Background" unique_id=515205326]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -31.0
+offset_right = 64.00073
+grow_horizontal = 2
+grow_vertical = 0
+text = "Reset"
+
+[connection signal="pressed" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons/MoreButton" to="." method="_on_timer_more_button_pressed"]
+[connection signal="pressed" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons/LessButton" to="." method="_on_timer_less_button_pressed"]
+[connection signal="editing_toggled" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/MinuteBox" to="." method="_on_minute_box_editing_toggled"]
+[connection signal="pressed" from="Background/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Background/Save Button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Background/Reset Button" to="." method="_on_reset_button_pressed"]
