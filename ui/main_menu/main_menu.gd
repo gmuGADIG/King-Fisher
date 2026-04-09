@@ -6,6 +6,7 @@ func _ready() -> void:
 	$LobbyBrowser.hide()
 	$Fishdex.hide()
 	$OptionsMenu.hide()
+	$Itemdex.hide()
 
 # Menu Buttons
 func find_lobby_pressed() -> void:
@@ -20,6 +21,10 @@ func fishdex_pressed() -> void:
 	$MainMenuContainer.hide()
 	$Fishdex.show()
 
+func itemdex_pressed() -> void:
+	$MainMenuContainer.hide()
+	$Itemdex.show()
+	
 func settings_pressed() -> void:
 	$MainMenuContainer.hide()
 	$OptionsMenu.show()
@@ -38,4 +43,8 @@ func _on_fishdex_closed() -> void:
 # When returning to Main Menu from Settings
 func _on_options_closed() -> void:
 	$OptionsMenu.hide()
+	$MainMenuContainer.show()
+
+func _on_itemdex_closed() -> void:
+	$Fishdex.hide()
 	$MainMenuContainer.show()

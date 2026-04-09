@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dih1wbmgk3wkg" path="res://ui/lobby_browser/lobby_browser.tscn" id="2_i5wg5"]
 [ext_resource type="PackedScene" uid="uid://b8jevivyblc6q" path="res://ui/fish_dex/fishdex.tscn" id="4_4e78x"]
 [ext_resource type="Texture2D" uid="uid://mlx8ko4crkr" path="res://temp/temp_art/main_menu_divider.png" id="4_joh67"]
+[ext_resource type="PackedScene" uid="uid://cfvmitsnw0i5e" path="res://ui/item_dex/itemdex.tscn" id="5_xio0d"]
+[ext_resource type="Script" uid="uid://vb1awxq2xekc" path="res://ui/item_dex/itemdex.gd" id="6_tf5ef"]
 [ext_resource type="Texture2D" uid="uid://0hryqho1k81p" path="res://temp/temp_art/main_menu_quit.png" id="7_w2r0d"]
 [ext_resource type="Texture2D" uid="uid://bwph74o74qu6y" path="res://temp/temp_art/main_menu_fishdex.png" id="8_4e78x"]
 [ext_resource type="Texture2D" uid="uid://dpm27hd64xm3y" path="res://temp/temp_art/main_menu_settings.png" id="9_s4pem"]
@@ -31,6 +33,10 @@ layout_mode = 1
 [node name="Fishdex" parent="." unique_id=1890729006 instance=ExtResource("4_4e78x")]
 layout_mode = 1
 
+[node name="Itemdex" parent="." unique_id=1235124030 instance=ExtResource("5_xio0d")]
+layout_mode = 0
+script = ExtResource("6_tf5ef")
+
 [node name="MainMenuContainer" type="Control" parent="." unique_id=1931984883]
 layout_mode = 1
 anchors_preset = 15
@@ -50,27 +56,31 @@ texture = SubResource("CanvasTexture_6q35d")
 
 [node name="Divider2" type="TextureRect" parent="MainMenuContainer" unique_id=915958547]
 layout_mode = 0
-offset_left = 192.0
-offset_right = 482.0
-offset_bottom = 648.0
+offset_left = 202.0
+offset_top = -28.0
+offset_right = 492.0
+offset_bottom = 703.0
 texture = ExtResource("4_joh67")
+flip_v = true
 
 [node name="LeftSide" type="VBoxContainer" parent="MainMenuContainer" unique_id=82524344]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.013888889
-anchor_right = 0.39062503
-anchor_bottom = 0.97530866
+anchor_left = 0.0234375
+anchor_top = -0.040123455
+anchor_right = 0.37065974
+anchor_bottom = 0.97376543
 offset_right = -3.0517578e-05
+grow_horizontal = 0
 grow_vertical = 2
 alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="QuitBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=717160080]
-custom_minimum_size = Vector2(350, 165)
+[node name="SettingsBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=358863002]
+custom_minimum_size = Vector2(400, 165)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("7_w2r0d")
+texture_normal = ExtResource("9_s4pem")
 stretch_mode = 4
 
 [node name="FishDexBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=224562787]
@@ -80,24 +90,30 @@ size_flags_horizontal = 0
 texture_normal = ExtResource("8_4e78x")
 stretch_mode = 4
 
-[node name="SettingsBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=358863002]
-custom_minimum_size = Vector2(400, 165)
+[node name="ItemDexBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=2115040141]
+custom_minimum_size = Vector2(375, 150)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("9_s4pem")
+texture_normal = ExtResource("8_4e78x")
+stretch_mode = 4
+
+[node name="QuitBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=717160080]
+custom_minimum_size = Vector2(350, 165)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("7_w2r0d")
 stretch_mode = 4
 
 [node name="RightSide" type="VBoxContainer" parent="MainMenuContainer" unique_id=61706508]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4375
-anchor_top = 0.024691358
-anchor_right = 0.9652778
-anchor_bottom = 0.80246913
+anchor_left = 0.41493055
+anchor_top = -0.018518519
+anchor_right = 1.0138888
+anchor_bottom = 0.8240741
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-metadata/_edit_group_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="TitleImage" type="TextureRect" parent="MainMenuContainer/RightSide" unique_id=287736822]
@@ -117,7 +133,9 @@ stretch_mode = 5
 [connection signal="closed" from="OptionsMenu" to="." method="_on_options_closed"]
 [connection signal="closed" from="LobbyBrowser" to="." method="_on_lobby_browser_closed"]
 [connection signal="closed" from="Fishdex" to="." method="_on_fishdex_closed"]
-[connection signal="pressed" from="MainMenuContainer/LeftSide/QuitBtn" to="." method="quit_pressed"]
-[connection signal="pressed" from="MainMenuContainer/LeftSide/FishDexBtn" to="." method="fishdex_pressed"]
+[connection signal="closed" from="Itemdex" to="." method="_on_itemdex_closed"]
 [connection signal="pressed" from="MainMenuContainer/LeftSide/SettingsBtn" to="." method="settings_pressed"]
+[connection signal="pressed" from="MainMenuContainer/LeftSide/FishDexBtn" to="." method="fishdex_pressed"]
+[connection signal="pressed" from="MainMenuContainer/LeftSide/ItemDexBtn" to="." method="itemdex_pressed"]
+[connection signal="pressed" from="MainMenuContainer/LeftSide/QuitBtn" to="." method="quit_pressed"]
 [connection signal="pressed" from="MainMenuContainer/RightSide/FindLobbyBtn" to="." method="find_lobby_pressed"]
