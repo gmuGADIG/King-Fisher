@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var sequence_line: Line2D = $SequenceLine
 @onready var sequence_line_length = (sequence_line.points[1]-sequence_line.points[0]).length()
 @onready var player_line: Line2D = $PlayerLine
-@onready var player_line_length = (player_line.points[1]-player_line.points[0]).length()
+@onready var player_line_length : float = (player_line.points[1]-player_line.points[0]).length()
 @onready var win_lose_sprite: Sprite2D = $WinLose
 
 
@@ -81,6 +81,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(rhythm_engine.current_time_ms)
+	#print(ms_to_position())
 	#print(int(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms)))
 	#print("target ms: ",rhythm_engine.beat_to_ms(track.notes[current_note_index].beat_position), ", current ms: ",rhythm_engine.current_time_ms)
 	## Update Indicator
@@ -100,7 +102,7 @@ func _process(delta: float) -> void:
 					current_note_index_sfx +=1
 			
 			##Transition to response
-			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH-1:
+			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH+1:
 				state = Phase.PLAYER_RESPONSE
 				rhythm_engine.current_time_ms -= rhythm_engine.beat_to_ms(TRACK_LENGTH)
 		Phase.PLAYER_RESPONSE:
@@ -109,12 +111,12 @@ func _process(delta: float) -> void:
 			if current_note_index < track.notes.size():
 				current_note = track.notes[current_note_index]
 				##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
-				if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position+1) + hit_window_radius_ms:
+				if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position) + hit_window_radius_ms:
 					current_note_index+=1
 					print("Miss!")
 					misses+=1
 			
-			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH - 1:
+			if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH + 1:
 				print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 				print("score:", score)
 				print("taps:", total_taps)
@@ -194,7 +196,7 @@ func determine_accuracy() -> HitQuality:
 	##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
 	current_note = track.notes[current_note_index]
 	print("input: ",rhythm_engine.beat_to_ms(current_note.beat_position))
-	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position+1)
+	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position)
 	var current_time : float = rhythm_engine.current_time_ms
 	
 	var difference : float = note_position_ms - current_time
@@ -234,7 +236,7 @@ func populate_sequence(input_track:Track):
 		var new_note_marker = Sprite2D.new()
 		new_note_marker.texture = note_marker_sprite if !i.is_articulated else note_marker_articulated_sprite
 		new_note_marker.position.y = sequence_line.points[0].y
-		new_note_marker.position.x = sequence_line.points[0].x + spacing * (i.beat_position)
+		new_note_marker.position.x = sequence_line.points[0].x + spacing * (i.beat_position - 1)
 		new_note_marker.scale = Vector2(note_marker_scale,note_marker_scale) if !i.is_articulated else Vector2(note_marker_articulated_scale,note_marker_articulated_scale)
 		sequence_line.add_child(new_note_marker)
 		
@@ -254,7 +256,7 @@ func calculate_total_accuracy() -> void:
 	pass
 
 func ms_to_position(ms:float) -> float:
-	var position
-	var total_ms = rhythm_engine.beat_to_ms(TRACK_LENGTH)
-	position = (ms * sequence_line_length)/total_ms
+	
+	var spacing : float = player_line_length/TRACK_LENGTH
+	var position : float = (rhythm_engine.ms_to_beat(ms)-1) * spacing
 	return position
