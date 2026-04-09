@@ -1,12 +1,66 @@
 [gd_scene format=3 uid="uid://d1tkdnfdxej7n"]
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
+[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="2_gc6gh"]
 [ext_resource type="PackedScene" uid="uid://cw872lin7slft" path="res://ui/pause_menu/lobby_menu.tscn" id="4_c06ik"]
 [ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="4_vh6de"]
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="5_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="6_cuuia"]
 [ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="7_cuuia"]
+[ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_2ii5k"]
+
+[sub_resource type="GDScript" id="GDScript_aeea4"]
+script/source = "extends Item
+
+func use() -> void:
+	if !is_held: Debug.log_err(\"Item was used while not held, WTF?\")
+	else:
+		Debug.log(\"I'm item_test_1!! I'm fuckin awesome!!!\")
+		queue_free()
+"
+
+[sub_resource type="PackedScene" id="PackedScene_f28u6"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array()],
+"names": PackedStringArray("ItemTest1", "script", "item_name", "Sprite3D", "modulate"),
+"node_count": 2,
+"node_ids": PackedInt32Array(1566519324, 525106753),
+"node_paths": [NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 2, 1, 1, 2, 2, 0, 1073741824, -1, 2147483647, 262147, -1, 1, 4, 3, 0),
+"variants": [ExtResource("2_gc6gh"), SubResource("GDScript_aeea4"), "Test 1", Color(0.38, 0.8036667, 1, 1)],
+"version": 3
+}
+
+[sub_resource type="GDScript" id="GDScript_1qdmm"]
+script/source = "extends Item
+
+func use() -> void:
+	if !is_held: Debug.log_err(\"Item was used while not held, WTF?\")
+	else:
+		Debug.log(\"My name is item_test_2 and I'm just O.K. That's all. Take care.\")
+		queue_free()
+"
+
+[sub_resource type="PackedScene" id="PackedScene_r32gm"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array()],
+"names": PackedStringArray("Item", "script", "item_name", "Sprite3D", "modulate"),
+"node_count": 2,
+"node_ids": PackedInt32Array(1566519324, 525106753),
+"node_paths": [NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 2, 1, 1, 2, 2, 0, 1073741824, -1, 2147483647, 262147, -1, 1, 4, 3, 0),
+"variants": [ExtResource("2_gc6gh"), SubResource("GDScript_1qdmm"), "Test 2", Color(1, 0.20999998, 0.20999998, 1)],
+"version": 3
+}
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
 
@@ -18,6 +72,7 @@ size = Vector3(61.3161, 0.17199707, 50.24202)
 [node name="ItemSpawner" parent="." index="3" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.467327, 100, 0)
 disable_spawning = true
+items = Array[PackedScene]([SubResource("PackedScene_f28u6"), SubResource("PackedScene_r32gm"), ExtResource("8_2ii5k")])
 spawn_rate = 1.0
 
 [node name="Label3D" type="Label3D" parent="." index="4" unique_id=1976693241]
@@ -55,3 +110,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 0.069156766, 2)
 
 [node name="ThrowableItem" parent="." index="11" unique_id=1772206853 instance=ExtResource("7_cuuia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.687525, 0.8821875, 3.4783401)
+
+[node name="Item2" parent="." index="12" unique_id=27100053 instance=ExtResource("8_2ii5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.356824, 1.2721875, 1.6023965)

@@ -25,7 +25,11 @@ func addFish(newFish : Fish) -> void:
 func removeFish() -> void:
 	if(livewellInventory.size() == 0):
 		return
-	livewellInventory.remove_at(0)
+	
+	# Max here. Editing this function, Kaiden says by default this should take a random fish.
+	var fishIndexToTake: int = randi_range(1, livewellInventory.size())-1
+	livewellInventory.remove_at(fishIndexToTake)
+	
 	sprites.texture = null
 	changeScore(-100)
 	if(intScore < 0):
