@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cur3ita1x152q"]
+
+[ext_resource type="Texture2D" uid="uid://ck3bm1irl43x2" path="res://fish/sprites/sasha_splash.png" id="1_yqy8o"]
+
+[node name="HangingFish" type="Control" unique_id=826188047]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hook" type="ColorRect" parent="." unique_id=944352986]
+layout_mode = 0
+offset_left = 66.0
+offset_right = 71.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Fish_Image" type="TextureRect" parent="." unique_id=965798515]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 191.0
+offset_right = 224.0
+offset_bottom = 361.0
+rotation = -3.1415927
+texture = ExtResource("1_yqy8o")
+expand_mode = 1
