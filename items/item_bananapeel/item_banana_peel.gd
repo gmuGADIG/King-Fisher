@@ -25,6 +25,5 @@ func _on_land() -> void:
 
 func on_player_collide(body: Node3D) -> void:
 	if(hit_ground && body is Player):
-		var ragdoll = body.get_node("Body/Armature/Skeleton3D/Bones")
-		ragdoll.ragdoll(ragdollTime,true)
+		body.ragdoll_phys.ragdoll(ragdollTime, true)
 		queue_free()
