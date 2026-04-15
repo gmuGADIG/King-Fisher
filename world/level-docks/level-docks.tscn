@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://dlvx57h3on4id"]
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_sgynd"]
-[ext_resource type="PackedScene" uid="uid://dsnep0jd62s78" path="res://items/item_test_1.tscn" id="2_intjl"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_wox4p"]
 [ext_resource type="Resource" uid="uid://db712r706tn6l" path="res://world/level-docks/terrain/data.hterrain" id="3_nv64i"]
-[ext_resource type="PackedScene" uid="uid://ck8obcgulgo8p" path="res://items/item_test_2.tscn" id="3_nx4m1"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_4k232"]
-[ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="4_6h1wp"]
 [ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/Docks.glb" id="5_nv64i"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="8_hbmjt"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="9_b1un7"]
@@ -22,7 +19,7 @@ textures = [[ExtResource("8_hbmjt")], [null]]
 [node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_sgynd")]
 
 [node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
-transform = Transform3D(-0.46515113, 0.49374622, 0.7347442, -0.88523126, -0.2594425, -0.38607663, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
+transform = Transform3D(0.59285706, -0.4491682, -0.66840756, 0.805308, 0.33067176, 0.49207285, 1.2519363e-08, -0.83000255, 0.55775964, 0, 11.385282, 8.448111)
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13561, 7.2492437, 9.360338)
@@ -39,7 +36,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5899878, 5.873664, 56.14649
 [node name="ItemSpawner" parent="." index="3" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.191938, 5.777874, 33.10114)
 visible = false
-items = Array[PackedScene]([ExtResource("2_intjl"), ExtResource("3_nx4m1"), ExtResource("4_6h1wp")])
 
 [node name="HTerrain" type="Node3D" parent="." index="4" unique_id=1200428160]
 script = ExtResource("2_wox4p")
