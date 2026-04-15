@@ -31,8 +31,8 @@ enum HitQuality{
 @export var tap_marker_articulated_scale:float = 1.0
 @export var tap_marker_scale:float = 1.0
 
-@export var good_hit_score:float = 0.7
-@export var perfect_hit_score:float = 1.0
+@export_range(0.0,1.0,0.01) var good_hit_accuracy:float = 0.7
+const perfect_hit_accuracy : float = 1.0
 @export var hit_window_radius_ms:float = 500.0
 @export var perfect_window_radius_ms:float = 100.0
 
@@ -68,6 +68,9 @@ var state : Phase = Phase.FISH_CALL
 @onready var main_audio_stream: AudioStreamPlayer = $MainAudioStream
 
 func _ready() -> void:
+	##Uncomment this when the actual backing UI is done
+	#$PlayerLine.default_color.a = 0
+	#$SequenceLine.default_color.a = 0
 	place_ticks(player_line)
 	place_ticks(sequence_line)
 	player_indicator.position = Vector2(0,0)
@@ -115,50 +118,17 @@ func _process(delta: float) -> void:
 	
 	if state == Phase.PLAYER_RESPONSE:
 		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 2*TRACK_LENGTH:
+			player_indicator.hide()
+			##Percentage accuracy from 0 to 1
+			var accuracy : float = calculate_accuracy()
+			print("accuracy: ", accuracy)
 			print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 			state = Phase.MINIGAME_FINISH
-			
-	#match state:
-		#Phase.FISH_CALL:
-			###Call Audio Playback
-			#
-			#pass
-			###Transition to response
-			#if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH+1:
-				#state = Phase.PLAYER_RESPONSE
-				#rhythm_engine.current_time_ms -= rhythm_engine.beat_to_ms(TRACK_LENGTH)
-		#Phase.PLAYER_RESPONSE:
-			#
-			### Miss if no input pressed in the time window
-			#if current_note_index < track.notes.size():
-				#current_note = track.notes[current_note_index]
-				###HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
-				#if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position) + hit_window_radius_ms:
-					#current_note_index+=1
-					#print("Miss!")
-					#misses+=1
-			#
-			#if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= TRACK_LENGTH + 1:
-				#print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
-				#print("score:", score)
-				#print("taps:", total_taps)
-				#total_accuracy = score / total_taps	
-				#print("accuracy:", total_accuracy)
-				#if total_accuracy >= track.target_accuracy * .01:
-					#print("WIN!")
-					#win_lose_sprite.frame = 0
-					#win_lose_sprite.visible = true
-				#else:
-					#print("LOSE!")
-					#win_lose_sprite.frame = 1
-					#win_lose_sprite.visible = true
-				#
-				#state=Phase.MINIGAME_FINISH
-				#
-		#Phase.MINIGAME_FINISH:
-			#pass
-		#taps.append(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms))
-		#print(taps)
+
+func calculate_accuracy() -> float:
+	var presses : int = misses+good_hits+perfect_hits
+	var accuracy : float = (good_hit_accuracy * good_hits + perfect_hit_accuracy * perfect_hits)/presses
+	return accuracy
 
 func _input(event: InputEvent) -> void:
 	if state == Phase.PLAYER_RESPONSE:
@@ -240,19 +210,21 @@ func note_is_tap_type(note: Note, beat_type: NoteType) -> bool:
 
 func place_ticks(line : Line2D) -> void:
 	var line_length : float = absf(line.points[1].x-line.points[0].x)
-	var spacing = line_length/(TRACK_LENGTH)
+	var spacing = line_length/(TRACK_LENGTH*2-2)
 	
-	for i in TRACK_LENGTH+1:
+	for i in range(-1,TRACK_LENGTH*2):
 		var new_tick = Sprite2D.new()
 		new_tick.texture = tick_sprite
 		new_tick.position.y = line.points[0].y
 		new_tick.position.x = line.points[0].x + spacing * i
 		new_tick.scale = Vector2(tick_scale,tick_scale)
+		if i%2 == 0:
+			new_tick.scale *= 1.5
 		line.add_child(new_tick)
 
 func populate_sequence(input_track:Track):
 	print("input track:",input_track.notes.size())
-	var spacing = sequence_line_length/(TRACK_LENGTH)
+	var spacing = sequence_line_length/(TRACK_LENGTH-1)
 	for i in input_track.notes:
 		print("i'm a note")
 		var new_note_marker = Sprite2D.new()
@@ -264,7 +236,7 @@ func populate_sequence(input_track:Track):
 		
 func add_tap_marker(note_type : NoteType) -> void:
 	var new_tap_marker = Sprite2D.new()
-	var spacing = player_line_length/(TRACK_LENGTH+1)
+	var spacing = player_line_length/(TRACK_LENGTH)
 	if note_type == NoteType.NON_ARTICULATED:
 		new_tap_marker.texture = tap_marker_sprite
 		new_tap_marker.scale = Vector2(tap_marker_scale,tap_marker_scale)
@@ -279,6 +251,6 @@ func calculate_total_accuracy() -> void:
 
 func ms_to_position(ms:float) -> float:
 	
-	var spacing : float = player_line_length/(TRACK_LENGTH)
+	var spacing : float = player_line_length/(TRACK_LENGTH-1)
 	var position : float = (rhythm_engine.ms_to_beat(ms)-1) * spacing
 	return position
