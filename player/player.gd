@@ -61,7 +61,7 @@ var wearing_helmet := false
 var golden_worm_active := false
 var has_ziplock_bag := false
 
-@onready var livewell : Control = $LivewellMenu
+@onready var livewell : Livewell = $LivewellMenu
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -339,10 +339,13 @@ func pick_up_item(item: Item) -> void:
 	
 	# If you already have an item, don't pick up another one.
 	if held_item!=null: return
-	item.reparent(self, false)
+	# TODO: Parent to player hand instead, with an offset for appropriate placement.
+	# Item origin is center/pickup area. Item hold point is offset in pos+rot.
+	item.reparent($DefaultPlayer, false)
 	held_item = item
+	held_item.player = self
 	held_item.is_held = true
-	held_item.position = Vector3.ZERO
+	held_item.position = Vector3.ZERO + Vector3(0,1,0)
 	# Hide the item. Nobody will know you have it until you use it.
 	held_item.visible=false
 
@@ -350,6 +353,7 @@ func pick_up_item(item: Item) -> void:
 func use_held_item() -> void:
 	# If you don't have an item, don't try and use a nonexistent item.
 	if held_item==null:return
+	held_item.visible = true
 	held_item.use()
 	held_item=null
 
@@ -357,9 +361,5 @@ func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
 	livewell.addFish(fish)
 	
-func take_fish(fish : Fish) -> void:
-	Debug.log("Player lost fish!")
-	livewell.removeFish(fish)
-
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val

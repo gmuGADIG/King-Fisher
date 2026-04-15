@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="6_cuuia"]
 [ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="8_2ii5k"]
+[ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_gc6gh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
 
@@ -59,4 +60,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.016973, 0, -27.679245)
 
 [node name="BananaPeel" parent="." index="12" unique_id=2098705378 instance=ExtResource("8_2ii5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.114732, 1.2796102, -5.3503637)
-ragdollTime = 1.0
+
+[node name="Item2" parent="." index="13" unique_id=1634365743 instance=ExtResource("8_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.751864, 0.62704825, -3.7903962)
+
+[node name="Item3" parent="." index="14" unique_id=1690239968 instance=ExtResource("8_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.155457, 0.7194357, 0.6018014)
+
+[node name="Item4" parent="." index="15" unique_id=940916699 instance=ExtResource("8_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.131427, 0.6604345, 4.9127903)
+
+[node name="Item5" parent="." index="16" unique_id=81069125 instance=ExtResource("8_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.601209, 0.6604345, 5.470289)
+
+[node name="Item6" parent="." index="17" unique_id=1582068991 instance=ExtResource("8_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.153288, 0.6604345, -1.213263)
