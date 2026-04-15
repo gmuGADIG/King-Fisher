@@ -128,7 +128,14 @@ func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("Menu") && multiplayer.is_server()):
 		print("Menu pressed")
 		print("Authority checked")
-		panel.visible = !panel.visible
+		visible = not visible
+		panel.visible = visible
+		# panel.visible = !panel.visible
+
+		if visible:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_timer_more_button_pressed() -> void:
 	if (roundTime < maximumRoundTime):
