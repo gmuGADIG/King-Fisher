@@ -9,7 +9,9 @@ func use() -> void:
 		Debug.log("Golden Worm used.")
 		visible = false
 		(get_parent() as Player).golden_worm_active = true
+		(get_parent() as Player).livewell.add_buff("Golden Worm")
 		await get_tree().create_timer(duration).timeout
 		(get_parent() as Player).golden_worm_active = false
+		(get_parent() as Player).livewell.remove_buff("Golden Worm")
 		Debug.log("Golden Worm deleted.")
 		queue_free()

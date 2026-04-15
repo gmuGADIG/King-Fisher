@@ -163,7 +163,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
-		ragdoll_phys.ragdoll(10, true)
+		# ragdoll_phys.ragdoll(10, true)
+		for i in livewell.fish_inventory.keys():
+			Debug.log(i)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	
