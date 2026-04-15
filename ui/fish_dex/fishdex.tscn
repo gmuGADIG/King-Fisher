@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="2_r31bl"]
 [ext_resource type="PackedScene" uid="uid://cur3ita1x152q" path="res://ui/fish_dex/hanging_fish.tscn" id="3_23nti"]
 [ext_resource type="Texture2D" uid="uid://b7e1yq8e8neff" path="res://ui/fish_dex/stall.png" id="3_mukbb"]
+[ext_resource type="Script" uid="uid://bco87e2884pxw" path="res://ui/fish_dex/hanging_fish.gd" id="5_y04r0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mukbb"]
 bg_color = Color(0, 0, 0, 0)
@@ -45,6 +46,7 @@ offset_left = 298.0
 offset_top = 155.0
 offset_right = -713.0
 offset_bottom = -294.0
+script = ExtResource("5_y04r0")
 
 [node name="Stall" type="TextureRect" parent="." unique_id=251214534]
 layout_mode = 0
@@ -71,7 +73,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mukbb")
 layout_mode = 0
 offset_left = 2.0
 offset_top = 3.0
-offset_right = 236.0
+offset_right = 252.0
 offset_bottom = 43.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Fish Name Here"
@@ -113,7 +115,7 @@ offset_top = 3.0
 offset_right = 118.0
 offset_bottom = 43.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Rarity"
+text = "Worth"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
@@ -156,4 +158,34 @@ text = "Description of the fish goes here"
 autowrap_mode = 3
 clip_text = true
 
+[node name="Selectable_Fish_2" parent="." unique_id=1633206601 instance=ExtResource("3_23nti")]
+layout_mode = 1
+offset_left = 746.0
+offset_top = 157.0
+offset_right = -297.0
+offset_bottom = -292.0
+script = ExtResource("5_y04r0")
+
+[node name="Button" type="Button" parent="Selectable_Fish_2" unique_id=752180875]
+layout_mode = 0
+offset_right = 109.0
+offset_bottom = 197.0
+flat = true
+
+[node name="Selectable_Fish_1" parent="." unique_id=438384103 instance=ExtResource("3_23nti")]
+layout_mode = 1
+offset_left = 624.0
+offset_top = 155.0
+offset_right = -418.0
+offset_bottom = -294.0
+script = ExtResource("5_y04r0")
+
+[node name="Button" type="Button" parent="Selectable_Fish_1" unique_id=2031469355]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 109.0
+offset_bottom = 199.0
+flat = true
+
+[connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
