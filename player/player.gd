@@ -11,10 +11,9 @@ const GRAVITY := 30.
 const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 
 # Ragdoll
-@export_group("Scenes")
-@export var ragdoll : PackedScene
+@export var player_mesh: PlayerMesh
+@onready var ragdoll_phys : PhysicalBoneSimulator3D = player_mesh.bones
 var is_ragdolled := false
-@onready var ragdoll_phys : PhysicalBoneSimulator3D = $Body/Armature/Skeleton3D/Bones
 var can_exit_ragdoll := false
 
 @export_category("Variables")
@@ -112,7 +111,7 @@ func _process(delta: float) -> void:
 		sync_jump_event.rpc(_jump_event_id)
 
 	if input != Vector2.ZERO:
-		$Body.turn_towards(movement_dir.rotated(-PI/2), delta)
+		player_mesh.turn_towards(movement_dir.rotated(-PI/2), delta)
 	
 	
 		
@@ -164,7 +163,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
-		ragdoll_phys.ragdoll(10, true)
+		# ragdoll_phys.ragdoll(10, true)
+		for i in livewell.fish_inventory.keys():
+			Debug.log(i)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	
