@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dyucerm5153qy"]
+
+[ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="1_xy448"]
+
+[node name="NoteMarker" type="Sprite2D" unique_id=1716091473]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_xy448")
