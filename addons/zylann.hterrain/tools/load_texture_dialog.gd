@@ -19,4 +19,3 @@ func _on_close():
 	var cons = get_signal_connection_list("file_selected")
 	for con in cons:
 		file_selected.disconnect(con.callable)
-
