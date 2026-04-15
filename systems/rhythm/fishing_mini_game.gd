@@ -20,16 +20,10 @@ enum HitQuality{
 }
 
 @export var track:Track
-@export var tick_sprite:CompressedTexture2D
-@export var note_marker_sprite:CompressedTexture2D
-@export var note_marker_articulated_sprite:CompressedTexture2D
-@export var tap_marker_sprite:CompressedTexture2D
-@export var tap_marker_articulated_sprite:CompressedTexture2D
-@export var tick_scale:float = 1.0
-@export var note_marker_scale:float = 1.0
-@export var note_marker_articulated_scale:float = 1.0
-@export var tap_marker_articulated_scale:float = 1.0
-@export var tap_marker_scale:float = 1.0
+@export var tick_marker : PackedScene
+@export var note_marker : PackedScene
+@export var note_articulated_marker : PackedScene
+
 
 @export_range(0.0,1.0,0.01) var good_hit_accuracy:float = 0.7
 const perfect_hit_accuracy : float = 1.0
@@ -69,8 +63,8 @@ var state : Phase = Phase.FISH_CALL
 
 func _ready() -> void:
 	##Uncomment this when the actual backing UI is done
-	#$PlayerLine.default_color.a = 0
-	#$SequenceLine.default_color.a = 0
+	$PlayerLine.default_color.a = 0
+	$SequenceLine.default_color.a = 0
 	place_ticks(player_line)
 	place_ticks(sequence_line)
 	player_indicator.position = Vector2(0,0)
@@ -121,7 +115,7 @@ func _process(delta: float) -> void:
 			player_indicator.hide()
 			##Percentage accuracy from 0 to 1
 			var accuracy : float = calculate_accuracy()
-			print("accuracy: ", accuracy)
+			$ScoreLabel.text = str("%.2f" % (accuracy*100.0)) + "%"
 			print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 			state = Phase.MINIGAME_FINISH
 
@@ -213,38 +207,39 @@ func place_ticks(line : Line2D) -> void:
 	var spacing = line_length/(TRACK_LENGTH*2-2)
 	
 	for i in range(-1,TRACK_LENGTH*2):
-		var new_tick = Sprite2D.new()
-		new_tick.texture = tick_sprite
+		var new_tick : Sprite2D = tick_marker.instantiate()
 		new_tick.position.y = line.points[0].y
 		new_tick.position.x = line.points[0].x + spacing * i
-		new_tick.scale = Vector2(tick_scale,tick_scale)
+		#new_tick.scale = Vector2(tick_scale,tick_scale)
 		if i%2 == 0:
-			new_tick.scale *= 1.5
+			new_tick.scale *= 1.25
 		line.add_child(new_tick)
 
 func populate_sequence(input_track:Track):
 	print("input track:",input_track.notes.size())
 	var spacing = sequence_line_length/(TRACK_LENGTH-1)
-	for i in input_track.notes:
+	for note in input_track.notes:
 		print("i'm a note")
-		var new_note_marker = Sprite2D.new()
-		new_note_marker.texture = note_marker_sprite if !i.is_articulated else note_marker_articulated_sprite
+		var new_note_marker : Sprite2D
+		if note.is_articulated:
+			new_note_marker = note_articulated_marker.instantiate()
+		else:
+			new_note_marker = note_marker.instantiate()
+		
 		new_note_marker.position.y = sequence_line.points[0].y
-		new_note_marker.position.x = sequence_line.points[0].x + spacing * (i.beat_position - 1)
-		new_note_marker.scale = Vector2(note_marker_scale,note_marker_scale) if !i.is_articulated else Vector2(note_marker_articulated_scale,note_marker_articulated_scale)
+		new_note_marker.position.x = sequence_line.points[0].x + spacing * (note.beat_position - 1)
 		sequence_line.add_child(new_note_marker)
 		
 func add_tap_marker(note_type : NoteType) -> void:
-	var new_tap_marker = Sprite2D.new()
+	
 	var spacing = player_line_length/(TRACK_LENGTH)
-	if note_type == NoteType.NON_ARTICULATED:
-		new_tap_marker.texture = tap_marker_sprite
-		new_tap_marker.scale = Vector2(tap_marker_scale,tap_marker_scale)
-	elif note_type == NoteType.ARTICULATED:
-		new_tap_marker.texture = tap_marker_articulated_sprite
-		new_tap_marker.scale = Vector2(tap_marker_articulated_scale,tap_marker_articulated_scale)
-	new_tap_marker.position = player_indicator.position
-	player_line.add_child(new_tap_marker)
+	var new_note_marker : Sprite2D
+	if note_type == NoteType.ARTICULATED:
+		new_note_marker = note_articulated_marker.instantiate()
+	else:
+		new_note_marker = note_marker.instantiate()
+	new_note_marker.position = player_indicator.position
+	player_line.add_child(new_note_marker)
 	
 func calculate_total_accuracy() -> void:
 	pass

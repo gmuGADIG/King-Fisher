@@ -2,31 +2,22 @@
 
 [ext_resource type="Script" uid="uid://p0f46s1vcsvg" path="res://systems/rhythm/fishing_mini_game.gd" id="1_qgtvk"]
 [ext_resource type="Resource" uid="uid://y4inlgyvwye" path="res://temp/rhythm_test/track1_test.tres" id="2_2nsaa"]
-[ext_resource type="Texture2D" uid="uid://b3tmja6unn2ao" path="res://temp/temp_art/tmplogo.png" id="2_5yaa5"]
-[ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="4_2nsaa"]
+[ext_resource type="PackedScene" uid="uid://dgt8coyxp6ff" path="res://systems/rhythm/markers/tick_marker.tscn" id="3_dsd34"]
+[ext_resource type="PackedScene" uid="uid://dyucerm5153qy" path="res://systems/rhythm/markers/note_marker.tscn" id="4_yhodo"]
+[ext_resource type="PackedScene" uid="uid://lfclmap4n8vd" path="res://systems/rhythm/markers/note_articulated_marker.tscn" id="5_2nsaa"]
 [ext_resource type="AudioStream" uid="uid://cn1uje7bnu2bc" path="res://temp/temp_sfx/test_explode_small.wav" id="5_6b33u"]
-[ext_resource type="Texture2D" uid="uid://c0g1tho1n5fbj" path="res://temp/temp_art/exploding-head.png" id="5_8v4n0"]
 [ext_resource type="PackedScene" uid="uid://cii25od3gem26" path="res://systems/rhythm/rhythm_engine.tscn" id="5_mq61g"]
-[ext_resource type="Texture2D" uid="uid://iaien10yw0dm" path="res://temp/temp_art/fish-seven.png" id="5_qtk6o"]
 [ext_resource type="Texture2D" uid="uid://bmxsuarykfoe3" path="res://temp/temp_art/smiley.png" id="5_v1gag"]
 [ext_resource type="AudioStream" uid="uid://u26laeo3h1xe" path="res://temp/temp_sfx/test_click.wav" id="6_8v4n0"]
-[ext_resource type="Texture2D" uid="uid://iuoaof0oh7dp" path="res://temp/temp_art/evil-burger2.png" id="7_yhodo"]
 [ext_resource type="Texture2D" uid="uid://cjnwf45j1c0rv" path="res://temp/temp_art/king-fisher.png" id="10_2nsaa"]
 [ext_resource type="Texture2D" uid="uid://bbub80p362odf" path="res://systems/rhythm/art/winlose_temp.png" id="13_dsd34"]
 
 [node name="FishingMiniGame" type="CanvasLayer" unique_id=332912207]
 script = ExtResource("1_qgtvk")
 track = ExtResource("2_2nsaa")
-tick_sprite = ExtResource("2_5yaa5")
-note_marker_sprite = ExtResource("4_2nsaa")
-note_marker_articulated_sprite = ExtResource("5_qtk6o")
-tap_marker_sprite = ExtResource("5_8v4n0")
-tap_marker_articulated_sprite = ExtResource("7_yhodo")
-tick_scale = 0.05
-note_marker_scale = 0.2
-note_marker_articulated_scale = 0.2
-tap_marker_articulated_scale = 0.2
-tap_marker_scale = 0.5
+tick_marker = ExtResource("3_dsd34")
+note_marker = ExtResource("4_yhodo")
+note_articulated_marker = ExtResource("5_2nsaa")
 hit_window_radius_ms = 300.0
 perfect_window_radius_ms = 50.0
 hit_sfx = ExtResource("5_6b33u")
@@ -67,3 +58,13 @@ position = Vector2(545.00006, 290.00003)
 scale = Vector2(3.46875, 3.46875)
 texture = ExtResource("13_dsd34")
 hframes = 2
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=2019924939]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_right = 24.0
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 81

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dgt8coyxp6ff"]
+
+[ext_resource type="Texture2D" uid="uid://b3tmja6unn2ao" path="res://temp/temp_art/tmplogo.png" id="1_o2lo1"]
+
+[node name="TickMarker" type="Sprite2D" unique_id=662813902]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_o2lo1")
