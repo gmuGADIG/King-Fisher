@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://55phj5ymp8yl" path="res://world/heightmap_test/terrain/color.png" id="1_5ffiu"]
 [ext_resource type="Script" uid="uid://c12k8l1exwkfs" path="res://ui/lobby_settings/lobby_menu.gd" id="1_fh8yv"]
-[ext_resource type="Texture2D" uid="uid://cuxwmluab7al0" path="res://temp/start_test/fail_screen/MichealsMansionLoss.webp" id="3_yshnh"]
-[ext_resource type="Texture2D" uid="uid://dg3i8480lyafh" path="res://temp/start_test/world/MichealsMansionBackground.webp" id="4_6lp2s"]
-[ext_resource type="Texture2D" uid="uid://bspnx1v41cy1j" path="res://temp/start_test/title_screen/MichaelsMansionLogo.webp" id="5_g47ou"]
-[ext_resource type="Texture2D" uid="uid://cvcy23pxk2uti" path="res://temp/start_test/title_screen/mmts.webp" id="6_5ffiu"]
+[ext_resource type="Texture2D" uid="uid://1eediuddjlw5" path="res://temp/micheals_mansion/MichealsMansionLoss.webp" id="3_yshnh"]
+[ext_resource type="Texture2D" uid="uid://d0iq6ivnp0gvc" path="res://temp/micheals_mansion/MichealsMansionBackground.webp" id="4_6lp2s"]
+[ext_resource type="Texture2D" uid="uid://dhcolnyal1vst" path="res://temp/micheals_mansion/MichaelsMansionLogo.webp" id="5_g47ou"]
+[ext_resource type="Texture2D" uid="uid://w3kwucyj45eg" path="res://temp/micheals_mansion/mmts.webp" id="6_5ffiu"]
 [ext_resource type="Texture2D" uid="uid://iuoaof0oh7dp" path="res://temp/temp_art/evil-burger2.png" id="6_i0nya"]
 [ext_resource type="Texture2D" uid="uid://qcvpwjegjtab" path="res://temp/temp_art/amog.png" id="8_i0nya"]
 [ext_resource type="Texture2D" uid="uid://c1m08d1w1cq5" path="res://temp/temp_art/fish.png" id="9_1b0y7"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c0g1tho1n5fbj" path="res://temp/temp_art/exploding-head.png" id="12_sgmg3"]
 [ext_resource type="Texture2D" uid="uid://b2x302v0vyb2g" path="res://temp/temp_art/hollow-knight.png" id="13_lfejf"]
 [ext_resource type="Texture2D" uid="uid://om30c0ke7lnt" path="res://temp/temp_art/super-cookie.png" id="14_rnt8h"]
-[ext_resource type="Texture2D" uid="uid://dykg8x5bfqcwx" path="res://temp/start_test/title_screen/Quit.webp" id="15_fh8yv"]
+[ext_resource type="Texture2D" uid="uid://ctpqe6giktgw7" path="res://temp/micheals_mansion/Quit.webp" id="15_fh8yv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i0nya"]
 
