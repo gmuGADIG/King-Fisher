@@ -9,4 +9,9 @@ func effect_on_contact(body: Node3D):
 	if is_held and body.is_in_group("Player") and body != holder:
 		Debug.log("Doing something to %s!" % body.name)
 		var hitPlayer: Player = body
-		hitPlayer.livewell.removeFish()
+		var fish := hitPlayer.livewell.removeFish()
+
+		if fish != null:
+			player.livewell.addFish(fish)
+
+		print("hitPlayer.name = ", hitPlayer.name, "; player.name = ", player.name)

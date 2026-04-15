@@ -61,7 +61,7 @@ var wearing_helmet := false
 var golden_worm_active := false
 var has_ziplock_bag := false
 
-@onready var livewell : Control = $LivewellMenu
+@onready var livewell : Livewell = $LivewellMenu
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:

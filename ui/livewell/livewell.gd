@@ -1,3 +1,4 @@
+class_name Livewell
 extends Control
 
 @export var fish_info_packed : PackedScene
@@ -64,16 +65,26 @@ func addFish(new_fish : Fish, amount : int = 1) -> void:
 	
 	changeScore(new_fish.get_score())
 	updateVisuals()
+	Debug.log("added fish: ", new_fish.fish_name)
 
-func removeFish(fish : Fish = null, amount : int = 1) -> void:
-	if fish_inventory.is_empty(): return
+## Removes a fish from the livewell
+## first argument specifies the kind of fish, if null it picks a random one
+## second argument specifies the amount
+##
+## returns the fish type if successful, null otherwise
+##
+## WARN: this function can only batch remove fish of the same type
+## so if amount == 2 and fish == null, the function will fail
+## if the player has 1 fish, or two fish of different type.
+func removeFish(fish : Fish = null, amount : int = 1) -> Fish:
+	if fish_inventory.is_empty(): return null
 
 	# pick a random fish if no fish type was specified
 	if fish == null:
 		var fish_name = fish_inventory.keys().pick_random()
 		fish = fish_inventory[fish_name].fish
 
-	if not fish_inventory.has(fish.fish_name): return
+	if not fish_inventory.has(fish.fish_name): return null
 	elif fish_inventory.get(fish.fish_name).fish_count <= amount:
 		fish_inventory.get(fish.fish_name).fish_count = 0
 	else:
@@ -81,6 +92,8 @@ func removeFish(fish : Fish = null, amount : int = 1) -> void:
 
 	changeScore(-fish.get_score())
 	updateVisuals()
+	Debug.log("removed fish: ", fish.fish_name)
+	return fish
 
 func changeScore(change : int):
 	current_score += change
