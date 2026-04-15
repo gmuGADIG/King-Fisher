@@ -29,8 +29,6 @@ Multiplayer="*res://systems/multiplayer.gd"
 Debug="*res://systems/debug.tscn"
 DebugMenu="*uid://bojr30uqdlyje"
 SceneTransition="*uid://ie0c43cmrtky"
-project/assembly_name="King Fisher"
-ScreenTransition="*uid://ie0c43cmrtky"
 
 [editor_plugins]
 
