@@ -21,6 +21,7 @@ enum type{
 
 
 func use_throwable(targetPos) -> void:
+	reparent(get_tree().current_scene,true)
 	show()
 	targetPosition = targetPos
 	
