@@ -343,6 +343,7 @@ func pick_up_item(item: Item) -> void:
 	# Item origin is center/pickup area. Item hold point is offset in pos+rot.
 	item.reparent($Body, false)
 	held_item = item
+	held_item.player = self
 	held_item.is_held = true
 	held_item.position = Vector3.ZERO + Vector3(0,1,0)
 	# Hide the item. Nobody will know you have it until you use it.

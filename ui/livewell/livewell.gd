@@ -65,12 +65,20 @@ func addFish(new_fish : Fish, amount : int = 1) -> void:
 	changeScore(new_fish.get_score())
 	updateVisuals()
 
-func removeFish(fish : Fish, amount : int = 1) -> void:
-	if(!fish_inventory.has(fish.fish_name) or fish_inventory.size() == 0): return
+func removeFish(fish : Fish = null, amount : int = 1) -> void:
+	if fish_inventory.is_empty(): return
+
+	# pick a random fish if no fish type was specified
+	if fish == null:
+		var fish_name = fish_inventory.keys().pick_random()
+		fish = fish_inventory[fish_name].fish
+
+	if not fish_inventory.has(fish.fish_name): return
 	elif fish_inventory.get(fish.fish_name).fish_count <= amount:
 		fish_inventory.get(fish.fish_name).fish_count = 0
 	else:
 		fish_inventory.get(fish.fish_name).fish_count -= amount
+
 	changeScore(-fish.get_score())
 	updateVisuals()
 

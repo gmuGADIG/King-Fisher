@@ -14,7 +14,7 @@ func use():
 		position += Vector3.FORWARD
 		spin = create_tween().set_parallel()
 		spin.tween_property(
-			holder, "rotation_degrees:y", 360, 0.4
+			holder, "rotation_degrees:y", 360, 2.
 		).as_relative().set_ease(Tween.EASE_OUT)
 		# The item spins around because it's parented to the body, which spins.
 		spin.finished.connect(queue_free)

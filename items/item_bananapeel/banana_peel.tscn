@@ -2,18 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="1_cv4ru"]
 [ext_resource type="Script" uid="uid://ccp6kqlvf8mtj" path="res://items/item_bananapeel/item_banana_peel.gd" id="2_k385h"]
-[ext_resource type="Texture2D" uid="uid://iuoaof0oh7dp" path="res://temp/temp_art/evil-burger2.png" id="3_k385h"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mwydt"]
 radius = 0.9446206
 
 [node name="BananaPeel" unique_id=1566519324 instance=ExtResource("1_cv4ru")]
 script = ExtResource("2_k385h")
+ragdollTime = 1.0
 
-[node name="Sprite3D" parent="." index="0" unique_id=525106753]
-texture = ExtResource("3_k385h")
-
-[node name="Area3D" type="Area3D" parent="." index="2" unique_id=76981027]
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=76981027]
 collision_layer = 0
 collision_mask = 2
 
