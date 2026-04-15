@@ -1,5 +1,4 @@
-extends Item
-
+extends Item 
 var duration = 10
 
 ## The generic use function. You can write your own in a class that extends Item.
@@ -8,8 +7,11 @@ func use() -> void:
 	else:
 		Debug.log("Golden Worm used.")
 		visible = false
-		(get_parent() as Player).golden_worm_active = true
+
+		player.golden_worm_active = true
+		player.livewell.add_buff("Golden Worm")
 		await get_tree().create_timer(duration).timeout
-		(get_parent() as Player).golden_worm_active = false
+		player.golden_worm_active = false
+		player.livewell.remove_buff("Golden Worm")
 		Debug.log("Golden Worm deleted.")
 		queue_free()
