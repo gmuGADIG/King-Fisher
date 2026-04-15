@@ -170,7 +170,7 @@ func start_the_game():
 
 	
 func load_players():
-	SceneTransition.change_to_file("res://world/heightmap_test/heightmap_test.tscn")
+	SceneTransition.change_to_file("res://world/level-docks/level-docks.tscn")
 	
 func _handle_ready_up() -> void:
 	if get_tree().get_first_node_in_group("Lobby") == null:
