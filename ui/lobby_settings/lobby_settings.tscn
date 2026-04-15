@@ -1,0 +1,494 @@
+[gd_scene format=3 uid="uid://b58jma116gexu"]
+
+[ext_resource type="Texture2D" uid="uid://55phj5ymp8yl" path="res://world/heightmap_test/terrain/color.png" id="1_5ffiu"]
+[ext_resource type="Script" uid="uid://c12k8l1exwkfs" path="res://ui/lobby_settings/lobby_menu.gd" id="1_fh8yv"]
+[ext_resource type="Texture2D" uid="uid://cuxwmluab7al0" path="res://temp/start_test/fail_screen/MichealsMansionLoss.webp" id="3_yshnh"]
+[ext_resource type="Texture2D" uid="uid://dg3i8480lyafh" path="res://temp/start_test/world/MichealsMansionBackground.webp" id="4_6lp2s"]
+[ext_resource type="Texture2D" uid="uid://bspnx1v41cy1j" path="res://temp/start_test/title_screen/MichaelsMansionLogo.webp" id="5_g47ou"]
+[ext_resource type="Texture2D" uid="uid://cvcy23pxk2uti" path="res://temp/start_test/title_screen/mmts.webp" id="6_5ffiu"]
+[ext_resource type="Texture2D" uid="uid://iuoaof0oh7dp" path="res://temp/temp_art/evil-burger2.png" id="6_i0nya"]
+[ext_resource type="Texture2D" uid="uid://qcvpwjegjtab" path="res://temp/temp_art/amog.png" id="8_i0nya"]
+[ext_resource type="Texture2D" uid="uid://c1m08d1w1cq5" path="res://temp/temp_art/fish.png" id="9_1b0y7"]
+[ext_resource type="Texture2D" uid="uid://2dxp6q4887l5" path="res://temp/temp_art/gleep.png" id="9_fh8yv"]
+[ext_resource type="Texture2D" uid="uid://k0shq81hj765" path="res://temp/temp_art/bonk.png" id="9_m2d5r"]
+[ext_resource type="Texture2D" uid="uid://dcqgrj0rwm8k7" path="res://temp/temp_art/godot.png" id="10_1b0y7"]
+[ext_resource type="Texture2D" uid="uid://crnrtjqoxx317" path="res://temp/temp_art/deadlock.png" id="11_m2d5r"]
+[ext_resource type="Texture2D" uid="uid://c0g1tho1n5fbj" path="res://temp/temp_art/exploding-head.png" id="12_sgmg3"]
+[ext_resource type="Texture2D" uid="uid://b2x302v0vyb2g" path="res://temp/temp_art/hollow-knight.png" id="13_lfejf"]
+[ext_resource type="Texture2D" uid="uid://om30c0ke7lnt" path="res://temp/temp_art/super-cookie.png" id="14_rnt8h"]
+[ext_resource type="Texture2D" uid="uid://dykg8x5bfqcwx" path="res://temp/start_test/title_screen/Quit.webp" id="15_fh8yv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i0nya"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fh8yv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1b0y7"]
+
+[node name="LobbySettings" type="Control" unique_id=1718361729]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fh8yv")
+defaultMapSelect = 7
+defaultItemSelect = 15
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=313001227]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 69.0
+offset_top = 43.0
+offset_right = -69.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5ffiu")
+region_rect = Rect2(28.666687, 24, 144.66669, 55.333344)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="SettingsMenu" type="VBoxContainer" parent="Background" unique_id=1580852191]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 94.0
+offset_top = 22.0
+offset_right = -94.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuTitle" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=96397161]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_5ffiu")
+
+[node name="Label" type="Label" parent="Background/SettingsMenu/MenuTitle" unique_id=1617668478]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = 24.0
+offset_right = -110.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 71
+text = "Lobby Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MapSelection" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=76473059]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_5ffiu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/MapSelection" unique_id=443095070]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 13.0
+offset_right = -22.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MapLabel" type="Label" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=2139802305]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "select maps"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map1" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=1543678358]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("3_yshnh")
+texture_pressed = SubResource("PlaceholderTexture2D_i0nya")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Map2" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=332136863]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("4_6lp2s")
+texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Map3" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=1300675293]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("5_g47ou")
+texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Map4" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=578539672]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("6_5ffiu")
+texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Map5" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=1511769561]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("6_i0nya")
+texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SongTimer" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=611751636]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_5ffiu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/SongTimer" unique_id=2050405693]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 13.0
+offset_right = -22.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SongSelect" type="VBoxContainer" parent="Background/SettingsMenu/SongTimer/HBoxContainer" unique_id=1270061466]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="SongLabel" type="Label" parent="Background/SettingsMenu/SongTimer/HBoxContainer/SongSelect" unique_id=914204525]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "select song"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SongOptions" type="OptionButton" parent="Background/SettingsMenu/SongTimer/HBoxContainer/SongSelect" unique_id=83607888]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 1
+popup/item_0/text = "song 1"
+popup/item_0/id = 0
+
+[node name="TimerSetting" type="VBoxContainer" parent="Background/SettingsMenu/SongTimer/HBoxContainer" unique_id=1402476027]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="TimerLabel" type="Label" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting" unique_id=1880762437]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "round timer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerInput" type="HBoxContainer" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting" unique_id=1361305074]
+layout_mode = 2
+alignment = 1
+
+[node name="Buttons" type="Control" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=1665857123]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="MoreButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons" unique_id=730368332]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "+"
+
+[node name="LessButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons" unique_id=1461640249]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_right = 20.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "-"
+
+[node name="MinuteBox" type="LineEdit" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=768082620]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "0:00"
+alignment = 1
+max_length = 5
+emoji_menu_enabled = false
+virtual_keyboard_type = 2
+
+[node name="Label2" type="Label" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=1342507525]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "minutes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FishSpawnRate" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=648934071]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_5ffiu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/FishSpawnRate" unique_id=1863841341]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 13.0
+offset_right = -22.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FishSpawnLabel" type="Label" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer" unique_id=1523177087]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "fish spawn rate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FishRateSelect" type="ItemList" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer" unique_id=1714077782]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+allow_search = false
+auto_width = true
+auto_height = true
+item_count = 3
+max_columns = 3
+same_column_width = true
+fixed_column_width = 170
+fixed_icon_size = Vector2i(50, 50)
+item_0/text = "Low"
+item_0/icon = ExtResource("9_1b0y7")
+item_1/text = "Medium"
+item_1/icon = ExtResource("9_1b0y7")
+item_2/text = "High"
+item_2/icon = ExtResource("9_1b0y7")
+
+[node name="ItemSpawnRate" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=1792343566]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_5ffiu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/ItemSpawnRate" unique_id=238415009]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 13.0
+offset_right = -22.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemSpawnLabel" type="Label" parent="Background/SettingsMenu/ItemSpawnRate/HBoxContainer" unique_id=1098535640]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "item spawn rate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemRateSelect" type="ItemList" parent="Background/SettingsMenu/ItemSpawnRate/HBoxContainer" unique_id=1936280347]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+allow_search = false
+auto_width = true
+auto_height = true
+item_count = 3
+max_columns = 3
+same_column_width = true
+fixed_column_width = 170
+fixed_icon_size = Vector2i(50, 50)
+item_0/text = "Low"
+item_0/icon = ExtResource("9_1b0y7")
+item_1/text = "Medium"
+item_1/icon = ExtResource("9_1b0y7")
+item_2/text = "High"
+item_2/icon = ExtResource("9_1b0y7")
+
+[node name="ItemSelection" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=60528816]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_5ffiu")
+region_rect = Rect2(60.666687, 50, 319.33337, 50)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/ItemSelection" unique_id=847414200]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 13.0
+offset_right = -22.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemSelectLabel" type="Label" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=93810210]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "select items"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RubberMallet" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1899605932]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("9_m2d5r")
+texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ButterflyNet" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1241871880]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("9_fh8yv")
+texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BananaPeel" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1872799980]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("10_1b0y7")
+texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Brick" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1088161231]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("11_m2d5r")
+texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="GlueGrenade" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1945136145]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("12_sgmg3")
+texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Helmet" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=335319416]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("13_lfejf")
+texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ZiplockBag" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=775743348]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("14_rnt8h")
+texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="GoldenWorm" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1606961270]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource("8_i0nya")
+texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ExitButton" type="TextureButton" parent="Background" unique_id=1099861076]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("15_fh8yv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Save Button" type="Button" parent="Background" unique_id=627820565]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -31.0
+offset_right = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Save"
+
+[node name="Reset Button" type="Button" parent="Background" unique_id=515205326]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -31.0
+offset_right = 64.00073
+grow_horizontal = 2
+grow_vertical = 0
+text = "Reset"
+
+[connection signal="pressed" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons/MoreButton" to="." method="_on_timer_more_button_pressed"]
+[connection signal="pressed" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons/LessButton" to="." method="_on_timer_less_button_pressed"]
+[connection signal="editing_toggled" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/MinuteBox" to="." method="_on_minute_box_editing_toggled"]
+[connection signal="pressed" from="Background/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Background/Save Button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Background/Reset Button" to="." method="_on_reset_button_pressed"]
