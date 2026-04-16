@@ -78,7 +78,7 @@ func _on_peer_connected(id: int) -> void:
 	Debug.log("on peer connect")
 	if not multiplayer.is_server():
 		return
-	
+
 	Debug.log("peer ",id," connected")
 	new_player.emit(id)
 	player_list.set(id,displayName) #how the host ids others [need to figure out]
@@ -109,5 +109,12 @@ func join_server(ip : String) -> void:
 	peer.create_client(ip, PORT)
 	multiplayer.multiplayer_peer = peer
 	player_list.set(multiplayer.get_unique_id(),displayName) #how clients know about themselves [works :)]
-	
 	scan_for_servers = false
+	Debug.log("I did something")
+	update_name.rpc_id(get_multiplayer_authority(), displayName)
+
+@rpc("reliable", "any_peer", "call_local")
+func update_name(id: int, pname: String) -> void:
+	Debug.log("YES I DID")
+	player_list.set(id,pname) #how clients know about themselves [works :)]
+	Debug.log(str(get_multiplayer_authority()) + " got " + str(id))
