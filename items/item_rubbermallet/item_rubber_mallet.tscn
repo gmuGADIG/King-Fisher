@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dkj6xwkiiqllg"]
+
+[ext_resource type="Script" uid="uid://bv51xetocvtvt" path="res://items/item_rubbermallet/item_rubber_mallet.gd" id="1_oalg4"]
+[ext_resource type="PackedScene" uid="uid://bqg6ww6eapw01" path="res://items/swingable_item.tscn" id="1_sfji1"]
+[ext_resource type="Texture2D" uid="uid://cw036ankdpuo5" path="res://temp/temp_art/silk.png" id="3_tfoe6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqaq4"]
+size = Vector3(1, 1, 4.5897827)
+
+[node name="Item" unique_id=1566519324 instance=ExtResource("1_sfji1")]
+script = ExtResource("1_oalg4")
+ragdollTime = 1.0
+item_name = "Base Item"
+
+[node name="Label3D" type="Label3D" parent="." index="0" unique_id=742251804]
+billboard = 1
+render_priority = 1
+text = "MALLET"
+font_size = 150
+outline_size = 50
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwingHitbox" parent_id_path=PackedInt32Array(1812700899) index="0" unique_id=829023768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.7948914)
+shape = SubResource("BoxShape3D_gqaq4")
+
+[node name="Sprite3D" type="Sprite3D" parent="SwingHitbox" parent_id_path=PackedInt32Array(1812700899) index="1" unique_id=1944833840]
+transform = Transform3D(-4.371139e-08, 0, -1, -0.13360566, 0.99103457, 5.840089e-09, 0.99103457, 0.13360566, -4.3319496e-08, 0, 0.13604674, 2.2645445)
+texture = ExtResource("3_tfoe6")
+region_enabled = true
+region_rect = Rect2(141.5, 96.5, 310, 125)

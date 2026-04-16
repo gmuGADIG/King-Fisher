@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="6_cuuia"]
 [ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="8_2ii5k"]
 [ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_gc6gh"]
+[ext_resource type="PackedScene" uid="uid://dkj6xwkiiqllg" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="9_gc6gh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
 
@@ -75,3 +76,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.601209, 0.6604345, 5.4702
 
 [node name="Item6" parent="." index="17" unique_id=1582068991 instance=ExtResource("8_gc6gh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.153288, 0.6604345, -1.213263)
+
+[node name="mallet" parent="." index="18" unique_id=168904723 instance=ExtResource("9_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.709891, 0.75765705, 2.8777075)
+
+[node name="mallet2" parent="." index="19" unique_id=511054725 instance=ExtResource("9_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.108234, 1.3627906, 8.206232)
+
+[node name="mallet3" parent="." index="20" unique_id=384188631 instance=ExtResource("9_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.697247, 0.7835455, 2.776938)
+
+[node name="mallet4" parent="." index="21" unique_id=1683626777 instance=ExtResource("9_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8849373, 1.2047286, 6.862648)
+
+[node name="mallet5" parent="." index="22" unique_id=41775827 instance=ExtResource("9_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6249914, 0.47933054, 0)
+
+[node name="mallet6" parent="." index="23" unique_id=2064560953 instance=ExtResource("9_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.177668, 1.2619164, 0)
