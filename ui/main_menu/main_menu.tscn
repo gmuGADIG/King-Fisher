@@ -6,14 +6,26 @@
 [ext_resource type="Texture2D" uid="uid://duxid346lllhp" path="res://temp/temp_art/find_lobby.png" id="2_ctg6d"]
 [ext_resource type="PackedScene" uid="uid://dih1wbmgk3wkg" path="res://ui/lobby_browser/lobby_browser.tscn" id="2_i5wg5"]
 [ext_resource type="PackedScene" uid="uid://b8jevivyblc6q" path="res://ui/fish_dex/fishdex.tscn" id="4_4e78x"]
-[ext_resource type="Texture2D" uid="uid://mlx8ko4crkr" path="res://temp/temp_art/main_menu_divider.png" id="4_joh67"]
 [ext_resource type="PackedScene" uid="uid://cfvmitsnw0i5e" path="res://ui/item_dex/itemdex.tscn" id="5_xio0d"]
 [ext_resource type="Script" uid="uid://vb1awxq2xekc" path="res://ui/item_dex/itemdex.gd" id="6_tf5ef"]
-[ext_resource type="Texture2D" uid="uid://0hryqho1k81p" path="res://temp/temp_art/main_menu_quit.png" id="7_w2r0d"]
+[ext_resource type="Texture2D" uid="uid://cnkt4f6xunjm2" path="res://temp/temp_art/line.png" id="7_tf5ef"]
 [ext_resource type="Texture2D" uid="uid://bwph74o74qu6y" path="res://temp/temp_art/main_menu_fishdex.png" id="8_4e78x"]
-[ext_resource type="Texture2D" uid="uid://dpm27hd64xm3y" path="res://temp/temp_art/main_menu_settings.png" id="9_s4pem"]
+[ext_resource type="Texture2D" uid="uid://l2cb5j2gmo6u" path="res://temp/temp_art/main_menu_settings_transparent.png" id="8_qao3l"]
+[ext_resource type="Texture2D" uid="uid://bfmp5xp7udw18" path="res://temp/temp_art/main_menu_fishdex_transparent.png" id="9_lknku"]
+[ext_resource type="Texture2D" uid="uid://cm41g157fmffe" path="res://temp/temp_art/main_menu_quit_transparent.png" id="11_u2jyo"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6q35d"]
+
+[sub_resource type="Gradient" id="Gradient_bpbph"]
+colors = PackedColorArray(0.3957282, 0.58489776, 1, 1, 0.046000957, 0.2838379, 0.9999997, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qewnw"]
+gradient = SubResource("Gradient_bpbph")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_db6af"]
+texture = SubResource("GradientTexture2D_qewnw")
 
 [node name="MainMenu" type="Control" unique_id=470134769]
 layout_mode = 3
@@ -46,6 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Background" type="TextureRect" parent="MainMenuContainer" unique_id=277350682]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,22 +67,38 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_6q35d")
 
+[node name="Panel" type="Panel" parent="MainMenuContainer" unique_id=1832185228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_db6af")
+
 [node name="Divider2" type="TextureRect" parent="MainMenuContainer" unique_id=915958547]
-layout_mode = 0
-offset_left = 202.0
-offset_top = -28.0
-offset_right = 492.0
-offset_bottom = 703.0
-texture = ExtResource("4_joh67")
-flip_v = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.14847225
+anchor_top = 0.07146929
+anchor_right = 0.5944722
+anchor_bottom = 0.7894694
+offset_left = -185.04001
+offset_top = 202.68787
+offset_right = 1301.168
+offset_bottom = 2565.4238
+rotation = -0.715585
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("7_tf5ef")
+metadata/_edit_use_anchors_ = true
 
 [node name="LeftSide" type="VBoxContainer" parent="MainMenuContainer" unique_id=82524344]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0234375
-anchor_top = -0.040123455
-anchor_right = 0.37065974
-anchor_bottom = 0.97376543
+anchor_left = 0.043402776
+anchor_top = -0.0077160466
+anchor_right = 0.39062503
+anchor_bottom = 1.0061729
 offset_right = -3.0517578e-05
 grow_horizontal = 0
 grow_vertical = 2
@@ -79,15 +108,14 @@ metadata/_edit_use_anchors_ = true
 [node name="SettingsBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=358863002]
 custom_minimum_size = Vector2(400, 165)
 layout_mode = 2
-size_flags_horizontal = 0
-texture_normal = ExtResource("9_s4pem")
+texture_normal = ExtResource("8_qao3l")
 stretch_mode = 4
 
 [node name="FishDexBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=224562787]
 custom_minimum_size = Vector2(375, 165)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("8_4e78x")
+texture_normal = ExtResource("9_lknku")
 stretch_mode = 4
 
 [node name="ItemDexBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=2115040141]
@@ -101,7 +129,7 @@ stretch_mode = 4
 custom_minimum_size = Vector2(350, 165)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("7_w2r0d")
+texture_normal = ExtResource("11_u2jyo")
 stretch_mode = 4
 
 [node name="RightSide" type="VBoxContainer" parent="MainMenuContainer" unique_id=61706508]
