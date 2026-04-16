@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8ehhjjp1h0rb" path="res://items/item_helmet/item_helmet.gd" id="1_qcj4k"]
 [ext_resource type="Texture2D" uid="uid://pn1ciuluerri" path="res://temp/temp_art/happy-godot.png" id="2_ubknq"]
+[ext_resource type="PackedScene" uid="uid://c5ycm85kmus1n" path="res://art/3d-assets/Hardhat.fbx" id="3_ubknq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mlh0n"]
 radius = 1.6796818
@@ -18,3 +19,5 @@ texture = ExtResource("2_ubknq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=993904494]
 shape = SubResource("SphereShape3D_mlh0n")
+
+[node name="Hardhat" parent="." unique_id=182256990 instance=ExtResource("3_ubknq")]
