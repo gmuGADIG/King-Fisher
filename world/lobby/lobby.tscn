@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="6_cuuia"]
 [ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="8_2ii5k"]
 [ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_gc6gh"]
+[ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="9_gc6gh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
 
@@ -75,3 +76,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.601209, 0.6604345, 5.4702
 
 [node name="Item6" parent="." index="17" unique_id=1582068991 instance=ExtResource("8_gc6gh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.153288, 0.6604345, -1.213263)
+
+[node name="ThrowableItem" parent="." index="18" unique_id=436336226 instance=ExtResource("9_gc6gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1871434, -9.159047)

@@ -3,6 +3,7 @@ class_name ThrowableItem extends Item
 const TWEEN_TIME_MULTIPLIER : float = 0.1
 const Y_EXTRA_HEIGHT : float = 2.0
 var thrown := false;
+var time_thrown
 var targetPosition = Vector3(0,0,0)
 var targetDirection = Vector3(0,0,0)
 enum type{
@@ -27,6 +28,7 @@ func use_throwable(targetPos) -> void:
 	
 	var dist : float = global_position.distance_to(targetPosition)
 	var throw_time : float = TWEEN_TIME_MULTIPLIER * dist
+	time_thrown = throw_time
 	var midpoint : Vector3 = global_position + 0.5*(targetPosition-global_position)
 	midpoint.y += Y_EXTRA_HEIGHT
 	
