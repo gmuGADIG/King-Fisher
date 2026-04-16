@@ -11,6 +11,6 @@ func effect_on_contact(body: Node3D):
 	if is_held and body.is_in_group("Player") and body != holder:
 		Debug.log("Doing something to %s!" % body.name)
 		var hitPlayer: Player = body
-		body.ragdoll_phys.ragdoll(ragdollTime, true)
+		hitPlayer.ragdoll_phys.ragdoll(ragdollTime, true)
 		visible = false;
 		print("HAMMER hitPlayer.name = ", hitPlayer.name, "; player.name = ", player.name)
