@@ -20,9 +20,7 @@ var current_time_ms : float = 0
 var current_beat : int = 0
 var beats_per_second : float 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	play(preload("res://systems/rhythm/tracks/track_common_1.tres"))
+#@onready var tempo_audio_stream : AudioStreamPlayer = $"../TempoAudioStream"
 
 ## Starts 
 func play(track : Track) -> void:
@@ -31,9 +29,13 @@ func play(track : Track) -> void:
 	##TODO: Add manual offset based on the player's settings
 	current_time_ms = -audio_delay_ms
 	##TODO: Play backing track
+	#tempo_audio_stream.stream = track.backing_track
+	#tempo_audio_stream.play()
+	
 
 func stop() -> void:
 	current_track = null
+	#tempo_audio_stream.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -43,7 +45,7 @@ func _process(delta: float) -> void:
 ## Converts the number of beats into the song into the number of ms into the song
 func beat_to_ms(beat : float) -> float:
 	assert(current_track != null, "No track selected!")
-	return ((beat - 1.0) * SECONDS_TO_MS * BPS_TO_BPM) / current_track.bpm
+	return (((beat) * BPS_TO_BPM) / current_track.bpm) * SECONDS_TO_MS
 
 ## Converts the number of ms into the song into the number of beats into the song
 func ms_to_beat(ms : float) -> float:
