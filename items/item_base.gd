@@ -9,6 +9,9 @@ extends Area3D
 
 var is_held: bool = false
 
+## Null until is_held is not null.
+var player: Player = null
+
 # Tells the item spawner that it isn't lying around anymore.
 # The item spawner only lets there be a certain max # of items around, so it needs to know when a slot opens
 signal item_got_picked_up
