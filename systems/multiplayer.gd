@@ -21,6 +21,7 @@ var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
 var displayName: String
+
 #var HUD = LobbyHUD.new();
 
 

@@ -80,6 +80,9 @@ func removeFish(fish : Fish = null, amount : int = 1) -> Fish:
 	if fish_inventory.is_empty(): return null
 
 	# pick a random fish if no fish type was specified
+	# BUG this isn't multiplayer safe, picks a different random per client i think
+	# can be avoided by just making the calling client randomly pick a fish,
+	# then RPC calling this function with it as an argument
 	if fish == null:
 		var fish_name = fish_inventory.keys().pick_random()
 		fish = fish_inventory[fish_name].fish
