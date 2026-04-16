@@ -13,6 +13,7 @@ script = ExtResource("1_qcj4k")
 metadata/_custom_type_script = "uid://b53s0xyvnpnrm"
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1353045385]
+visible = false
 modulate = Color(0.38, 0.8036667, 1, 1)
 billboard = 1
 texture = ExtResource("2_ubknq")
@@ -21,3 +22,4 @@ texture = ExtResource("2_ubknq")
 shape = SubResource("SphereShape3D_mlh0n")
 
 [node name="Hardhat" parent="." unique_id=182256990 instance=ExtResource("3_ubknq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
