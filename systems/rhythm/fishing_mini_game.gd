@@ -33,6 +33,8 @@ const perfect_hit_accuracy : float = 1.0
 @export_category("Test")
 @export var hit_sfx : AudioStream
 @export var hit_sfx_art : AudioStream
+@onready var tempo_audio_stream: AudioStreamPlayer = $TempoAudioStream
+
 
 #var score:float = 0
 var perfect_hits:int = 0
@@ -75,6 +77,7 @@ func _ready() -> void:
 	populate_sequence(track)
 	rhythm_engine.play(track)
 	win_lose_sprite.visible = false
+	tempo_audio_stream.stream = track.backing_track
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -102,6 +105,8 @@ func _process(delta: float) -> void:
 			state = Phase.PLAYER_RESPONSE
 			player_indicator.show()
 			fish_indicator.hide()
+		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 1 and not tempo_audio_stream.playing and not Debug.disable_backing_track:
+			tempo_audio_stream.play()
 	
 	##Response
 	if state == Phase.PLAYER_RESPONSE and response_index < track.notes.size():
