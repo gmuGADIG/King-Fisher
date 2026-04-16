@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 const TRACK_LENGTH:int = 8
 
@@ -49,22 +49,24 @@ var current_note:Note
 var state : Phase = Phase.FISH_CALL
 
 
-@onready var sequence_line: Line2D = $SequenceLine
+@onready var sequence_line: Line2D = $TextureRect/VBoxContainer/Control/SequenceLine
 @onready var sequence_line_length = (sequence_line.points[1]-sequence_line.points[0]).length()
-@onready var player_line: Line2D = $PlayerLine
+@onready var player_line: Line2D = $TextureRect/VBoxContainer/Control/PlayerLine
 @onready var player_line_length : float = (player_line.points[1]-player_line.points[0]).length()
 @onready var win_lose_sprite: Sprite2D = $WinLose
 
 
 @onready var rhythm_engine: RhythmEngine = $rhythm_engine
-@onready var player_indicator: Sprite2D = $PlayerLine/PlayerIndicator
-@onready var fish_indicator: Sprite2D = $SequenceLine/FishIndicator
+@onready var player_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/PlayerLine/PlayerIndicator
+@onready var fish_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/SequenceLine/FishIndicator
+@onready var rating_label: Label = $TextureRect/VBoxContainer/ColorRect/RatingLabel
+@onready var rating_animation: AnimationPlayer = $TextureRect/VBoxContainer/ColorRect/RatingAnimation
 @onready var main_audio_stream: AudioStreamPlayer = $MainAudioStream
 
 func _ready() -> void:
 	##Uncomment this when the actual backing UI is done
-	$PlayerLine.default_color.a = 0
-	$SequenceLine.default_color.a = 0
+	$TextureRect/VBoxContainer/Control/SequenceLine.default_color.a = 0
+	$TextureRect/VBoxContainer/Control/PlayerLine.default_color.a = 0
 	place_ticks(player_line)
 	place_ticks(sequence_line)
 	player_indicator.position = Vector2(0,0)
@@ -115,7 +117,7 @@ func _process(delta: float) -> void:
 			player_indicator.hide()
 			##Percentage accuracy from 0 to 1
 			var accuracy : float = calculate_accuracy()
-			$ScoreLabel.text = str("%.2f" % (accuracy*100.0)) + "%"
+			#$TextureRect/VBoxContainer/ColorRect/ScoreLabel.text = str("%.2f" % (accuracy*100.0)) + "%"
 			print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 			state = Phase.MINIGAME_FINISH
 
@@ -146,14 +148,20 @@ func _input(event: InputEvent) -> void:
 		print(hit_quality)
 		if expected_note_type != input_type or hit_quality == HitQuality.MISS:
 			print("miss :(")
+			#rating_label.text = "Miss!"
+			show_rating("Miss!")
 			misses += 1
 		elif hit_quality == HitQuality.GOOD:
 			print("Good")
+			#rating_label.text = "Good!"
+			show_rating("Good!")
 			#score += good_hit_score
 			good_hits += 1
 			response_index += 1
 		elif hit_quality == HitQuality.PERFECT:
 			print("Perfect!")
+			#rating_label.text = "Perfect!"
+			show_rating("Perfect!")
 			#score += perfect_hit_score
 			perfect_hits += 1
 			response_index += 1
@@ -241,6 +249,11 @@ func add_tap_marker(note_type : NoteType) -> void:
 	new_note_marker.position = player_indicator.position
 	player_line.add_child(new_note_marker)
 	
+func show_rating(text:String) -> void:
+	rating_label.text = text
+	rating_animation.stop()
+	rating_animation.play("rating_pulse")
+
 func calculate_total_accuracy() -> void:
 	pass
 

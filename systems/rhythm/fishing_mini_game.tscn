@@ -12,38 +12,92 @@
 [ext_resource type="Texture2D" uid="uid://cjnwf45j1c0rv" path="res://temp/temp_art/king-fisher.png" id="10_2nsaa"]
 [ext_resource type="Texture2D" uid="uid://bbub80p362odf" path="res://systems/rhythm/art/winlose_temp.png" id="13_dsd34"]
 
-[node name="FishingMiniGame" type="CanvasLayer" unique_id=332912207]
+[sub_resource type="Gradient" id="Gradient_yhodo"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.67157376, 0.50320715, 0.35437527, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2nsaa"]
+gradient = SubResource("Gradient_yhodo")
+width = 1000
+height = 300
+
+[sub_resource type="Animation" id="Animation_2nsaa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RatingLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RatingLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_yhodo"]
+resource_name = "rating_pulse"
+length = 0.93333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RatingLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RatingLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.4, 1.4), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nsaa"]
+_data = {
+&"RESET": SubResource("Animation_2nsaa"),
+&"rating_pulse": SubResource("Animation_yhodo")
+}
+
+[node name="FishingMiniGame" type="Control" unique_id=476640078]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_qgtvk")
 track = ExtResource("2_2nsaa")
 tick_marker = ExtResource("3_dsd34")
 note_marker = ExtResource("4_yhodo")
 note_articulated_marker = ExtResource("5_2nsaa")
-hit_window_radius_ms = 300.0
+hit_window_radius_ms = 200.0
 perfect_window_radius_ms = 50.0
 hit_sfx = ExtResource("5_6b33u")
 hit_sfx_art = ExtResource("6_8v4n0")
-
-[node name="SequenceLine" type="Line2D" parent="." unique_id=567685213]
-position = Vector2(176, 344)
-points = PackedVector2Array(0, 0, 800, 0)
-default_color = Color(0.73683435, 0.8248663, 1, 1)
-
-[node name="FishIndicator" type="Sprite2D" parent="SequenceLine" unique_id=1808826955]
-z_index = 2
-position = Vector2(8, -31)
-scale = Vector2(0.11470588, 0.11470589)
-texture = ExtResource("10_2nsaa")
-
-[node name="PlayerLine" type="Line2D" parent="." unique_id=378649705]
-position = Vector2(176, 440)
-points = PackedVector2Array(0, 0, 800, 0)
-default_color = Color(1, 0.6926795, 0.64385, 1)
-
-[node name="PlayerIndicator" type="Sprite2D" parent="PlayerLine" unique_id=1567962701]
-z_index = 2
-position = Vector2(2, -30)
-scale = Vector2(0.11470588, 0.11470589)
-texture = ExtResource("5_v1gag")
 
 [node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("5_mq61g")]
 
@@ -59,12 +113,70 @@ scale = Vector2(3.46875, 3.46875)
 texture = ExtResource("13_dsd34")
 hframes = 2
 
-[node name="ScoreLabel" type="Label" parent="." unique_id=2019924939]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1285279175]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -16.0
-offset_right = 24.0
-offset_bottom = 111.0
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 81
+texture = SubResource("GradientTexture2D_2nsaa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=251617668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 95
+alignment = 1
+
+[node name="Control" type="Control" parent="TextureRect/VBoxContainer" unique_id=1119023935]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SequenceLine" type="Line2D" parent="TextureRect/VBoxContainer/Control" unique_id=567685213]
+position = Vector2(-400, -40)
+points = PackedVector2Array(0, 0, 800, 0)
+default_color = Color(0.73683435, 0.8248663, 1, 1)
+
+[node name="FishIndicator" type="Sprite2D" parent="TextureRect/VBoxContainer/Control/SequenceLine" unique_id=1808826955]
+z_index = 2
+position = Vector2(8, -31)
+scale = Vector2(0.11470588, 0.11470589)
+texture = ExtResource("10_2nsaa")
+
+[node name="PlayerLine" type="Line2D" parent="TextureRect/VBoxContainer/Control" unique_id=378649705]
+position = Vector2(-400, 40)
+points = PackedVector2Array(0, 0, 800, 0)
+default_color = Color(1, 0.6926795, 0.64385, 1)
+
+[node name="PlayerIndicator" type="Sprite2D" parent="TextureRect/VBoxContainer/Control/PlayerLine" unique_id=1567962701]
+z_index = 2
+position = Vector2(2, -30)
+scale = Vector2(0.11470588, 0.11470589)
+texture = ExtResource("5_v1gag")
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=1594080517]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.26479155, 0.6037999, 0.7611122, 0)
+
+[node name="RatingLabel" type="Label" parent="TextureRect/VBoxContainer/ColorRect" unique_id=2019924939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(50, 25)
+theme_override_font_sizes/font_size = 35
+
+[node name="RatingAnimation" type="AnimationPlayer" parent="TextureRect/VBoxContainer/ColorRect" unique_id=1750966568]
+libraries/ = SubResource("AnimationLibrary_2nsaa")
