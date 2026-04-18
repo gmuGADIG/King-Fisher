@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="2_r31bl"]
 [ext_resource type="PackedScene" uid="uid://cur3ita1x152q" path="res://ui/fish_dex/hanging_fish.tscn" id="3_23nti"]
 [ext_resource type="Texture2D" uid="uid://b7e1yq8e8neff" path="res://ui/fish_dex/stall.png" id="3_mukbb"]
-[ext_resource type="Script" uid="uid://bco87e2884pxw" path="res://ui/fish_dex/hanging_fish.gd" id="5_y04r0"]
+[ext_resource type="Script" path="res://ui/fish_dex/hanging_fish.gd" id="5_y04r0"]
+[ext_resource type="Texture2D" uid="uid://bck4unx8s3so0" path="res://ui/fish_dex/arrow.png" id="6_m7gl5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mukbb"]
 bg_color = Color(0, 0, 0, 0)
@@ -163,13 +164,13 @@ layout_mode = 1
 offset_left = 746.0
 offset_top = 157.0
 offset_right = -297.0
-offset_bottom = -292.0
+offset_bottom = -340.0
 script = ExtResource("5_y04r0")
 
 [node name="Button" type="Button" parent="Selectable_Fish_2" unique_id=752180875]
 layout_mode = 0
 offset_right = 109.0
-offset_bottom = 197.0
+offset_bottom = 151.0
 flat = true
 
 [node name="Selectable_Fish_1" parent="." unique_id=438384103 instance=ExtResource("3_23nti")]
@@ -177,15 +178,36 @@ layout_mode = 1
 offset_left = 624.0
 offset_top = 155.0
 offset_right = -418.0
-offset_bottom = -294.0
+offset_bottom = -340.0
 script = ExtResource("5_y04r0")
 
 [node name="Button" type="Button" parent="Selectable_Fish_1" unique_id=2031469355]
 layout_mode = 0
 offset_top = 2.0
 offset_right = 109.0
-offset_bottom = 199.0
+offset_bottom = 153.0
+flat = true
+
+[node name="Right_Tab" type="Button" parent="." unique_id=1054387013]
+layout_mode = 0
+offset_left = 793.0
+offset_top = 294.0
+offset_right = 897.0
+offset_bottom = 366.0
+icon = ExtResource("6_m7gl5")
+flat = true
+
+[node name="Left_Tab" type="Button" parent="." unique_id=1586314430]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 365.0
+offset_right = 850.0
+offset_bottom = 437.0
+rotation = -3.1415927
+icon = ExtResource("6_m7gl5")
 flat = true
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Right_Tab" to="." method="_on_right_tab_pressed"]
+[connection signal="pressed" from="Left_Tab" to="." method="_on_left_tab_pressed"]

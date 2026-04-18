@@ -19,10 +19,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Fish_Image" type="TextureRect" parent="." unique_id=965798515]
 layout_mode = 0
-offset_left = 99.000015
-offset_top = 191.0
-offset_right = 198.00002
-offset_bottom = 361.0
-rotation = -3.1415927
+offset_left = -28.0
+offset_top = 132.0
+offset_right = 71.0
+offset_bottom = 302.0
+rotation = -1.5707964
 texture = ExtResource("1_yqy8o")
 expand_mode = 1
