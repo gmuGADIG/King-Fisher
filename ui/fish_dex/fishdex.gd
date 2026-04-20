@@ -97,14 +97,6 @@ func _on_draw() -> void:
 	else:
 		current_fish_name.text = "No Fish Caught"
 		toggle_fishinfo_visibility(false)
-		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
-		var newFish2 : Fish = load("res://fish/sushi/sasha_splash.tres")
-		var newFish3 : Fish = load("res://fish/sushi/test_fish.tres")
-		var newFish4 : Fish = load("res://fish/sushi/yuri_fish.tres")
-		caught_fish(newFish)
-		caught_fish(newFish2)
-		caught_fish(newFish3)
-		caught_fish(newFish4)
 		$Right_Tab.hide()
 		$Left_Tab.hide()
 
