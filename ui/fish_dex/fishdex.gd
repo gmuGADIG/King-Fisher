@@ -1,4 +1,5 @@
 extends Control
+class_name fishdex
 
 signal closed
 
@@ -20,6 +21,9 @@ var first_draw : bool = true
 @onready var current_fish_description : Label = $Stall/Description_Box/Description
 @onready var current_fish_caught : Label = $Stall/Fish_Info/Caught_Box/Caught
 
+var current_tab = 0
+var current_fish_index = 0
+
 func _ready() -> void:
 	hide()
 
@@ -37,8 +41,10 @@ func load_file() -> void:
 		var json = JSON.new()
 		if json.parse(file.get_as_text()) == OK:
 			fishdex_entries = json.get_data()
-			fishdex_order.sort_custom(custom_sort_fish)
+			for fish_name in fishdex_entries:
+				fishdex_order.append(fish_name)
 		load_all_fish_resources()
+		fishdex_order.sort_custom(custom_sort_fish)
 	else:
 		save_file(true)
 
@@ -48,7 +54,6 @@ func loop_through_dir(location : String) -> void:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
-			print(file_name)
 			if file_name.ends_with(".tres"):
 				var fish_resource = load(location + "/" + file_name)
 				LIST_OF_FISH[fish_resource.fish_name] = fish_resource
@@ -84,55 +89,71 @@ func _on_back_button_pressed() -> void:
 	hide()
 
 func _on_draw() -> void:
-		if len(fishdex_order) > 0:
-			setup_current_fish()
+	current_tab = 0
+	current_fish_index = 0
+	if len(fishdex_order) > 0:
+		setup_current_fish()
+		setup_current_tab()
+	else:
+		current_fish_name.text = "No Fish Caught"
+		toggle_fishinfo_visibility(false)
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		var newFish2 : Fish = load("res://fish/sushi/sasha_splash.tres")
+		var newFish3 : Fish = load("res://fish/sushi/test_fish.tres")
+		var newFish4 : Fish = load("res://fish/sushi/yuri_fish.tres")
+		caught_fish(newFish)
+		caught_fish(newFish2)
+		caught_fish(newFish3)
+		caught_fish(newFish4)
+		$Right_Tab.hide()
+		$Left_Tab.hide()
 
-			if len(fishdex_order) > 1:
-				setup_selectable_fish(1)
-			if len(fishdex_order) > 2:
-				setup_selectable_fish(2)
-		else:
-			current_fish_name.text = "No Fish Caught"
-			toggle_fishinfo_visibility(false)
-			var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
-			var newFish2 : Fish = load("res://fish/sushi/sasha_splash.tres")
-			var newFish3 : Fish = load("res://fish/sushi/test_fish.tres")
-			var newFish4 : Fish = load("res://fish/sushi/yuri_fish.tres")
-			caught_fish(newFish)
-			caught_fish(newFish2)
-			caught_fish(newFish3)
-			caught_fish(newFish4)
+func setup_current_tab() -> void:
+	var current_index = current_tab * 2
+	if current_fish_index <= current_index:
+		current_index += 1
+	if current_index >= len(fishdex_order):
+		selectable_fish_1.hide()
+		return
 
-var current_tab = 0
+	selectable_fish_1.fish = LIST_OF_FISH.get(fishdex_order[current_index])
+	selectable_fish_1.get_node("Fish_Image").texture = selectable_fish_1.fish.sprite
+	selectable_fish_1.show()
+
+	current_index += 1
+	if current_fish_index == current_index:
+		current_index += 1
+
+	if current_index >= len(fishdex_order):
+		selectable_fish_2.hide()
+	else:
+		selectable_fish_2.fish = LIST_OF_FISH.get(fishdex_order[current_index])
+		selectable_fish_2.get_node("Fish_Image").texture = selectable_fish_2.fish.sprite
+		selectable_fish_2.show()
+
+	if (current_tab * 2 + 2) < len(fishdex_entries):
+		$Right_Tab.show()
+	else:
+		$Right_Tab.hide()
+	if current_tab > 0:
+		$Left_Tab.show()
+	else:
+		$Left_Tab.hide()
+
 # 1 for left 2 for right
-func setup_selectable_fish(target : int, change_tab_left : bool = false, change_tab_right : bool = false) -> void:
-	if target < 1 or target > 2:
-		Debug.log_err("Invalid target for selectable fish setup: " + str(target))
-
-	var selectable = selectable_fish_1 if target == 1 else selectable_fish_2
-	if change_tab_left:
+func change_tab(left : bool = false, right : bool = false) -> void:
+	if left:
 		if current_tab > 0:
 			Debug.log_err("Fishdex Attempted to change to illegal tab: " + str(current_tab - 1))
 		current_tab -= 1
-	elif change_tab_right:
-		if len(fishdex_entries) % 2 == 1:
-			if current_tab < len(fishdex_order)/2 + 1:
+	elif right:
+		if len(fishdex_entries) % 2 == 1 or len(fishdex_entries) % 2 == 0:
+			if current_tab + 1 > len(fishdex_order)/2 + 1 or current_tab + 1 > len(fishdex_order)/2:
 				Debug.log_err("Fishdex Attempted to change to illegal tab: " + str(current_tab + 1))
-		else:
-			if current_tab < len(fishdex_order)/2:
-				Debug.log_err("Fishdex Attempted to change to illegal tab: " + str(current_tab + 1))
+				return
 		current_tab += 1
-	
-	print(current_tab)
-	target = current_tab * 2 + target
+	setup_current_tab()
 
-	if target > len(fishdex_order) - 1:
-		selectable.hide()
-		return
-	print("Target: " + str(target) + " Fish: " + LIST_OF_FISH.get(fishdex_order[target]).fish_name)
-	selectable.fish = LIST_OF_FISH.get(fishdex_order[target])
-	selectable.get_node("Fish_Image").texture = selectable.fish.sprite
-	selectable.show()
 
 func setup_current_fish() -> void:
 	current_fish.fish = LIST_OF_FISH.get(fishdex_order[0])
@@ -169,12 +190,7 @@ func toggle_fishinfo_visibility(toggle : bool) -> void:
 
 
 func _on_left_tab_pressed() -> void:
-	print("--------------")
-	setup_selectable_fish(1, true)
-	setup_selectable_fish(2)
-
+	change_tab(true)
 
 func _on_right_tab_pressed() -> void:
-	print("--------------")
-	setup_selectable_fish(1, false, true)
-	setup_selectable_fish(2)
+	change_tab(false, true)

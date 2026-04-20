@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_7pln3")
-fish_name = "fish_seven"
+fish_name = "Fish Seven"
 grade = 4
 sprite = ExtResource("2_5bht5")
 description = "ljfdslkadnsflkjsdfljkdlkfjs;lfdj;lasdfj"

@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="2_r31bl"]
 [ext_resource type="PackedScene" uid="uid://cur3ita1x152q" path="res://ui/fish_dex/hanging_fish.tscn" id="3_23nti"]
 [ext_resource type="Texture2D" uid="uid://b7e1yq8e8neff" path="res://ui/fish_dex/stall.png" id="3_mukbb"]
-[ext_resource type="Script" path="res://ui/fish_dex/hanging_fish.gd" id="5_y04r0"]
+[ext_resource type="Script" uid="uid://bco87e2884pxw" path="res://ui/fish_dex/hanging_fish.gd" id="5_y04r0"]
+[ext_resource type="Script" uid="uid://c176eydus30qc" path="res://ui/fish_dex/selectable_fish_button.gd" id="6_03tvv"]
 [ext_resource type="Texture2D" uid="uid://bck4unx8s3so0" path="res://ui/fish_dex/arrow.png" id="6_m7gl5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mukbb"]
@@ -167,11 +168,13 @@ offset_right = -297.0
 offset_bottom = -340.0
 script = ExtResource("5_y04r0")
 
-[node name="Button" type="Button" parent="Selectable_Fish_2" unique_id=752180875]
+[node name="Button" type="Button" parent="Selectable_Fish_2" unique_id=752180875 node_paths=PackedStringArray("dex")]
 layout_mode = 0
 offset_right = 109.0
 offset_bottom = 151.0
 flat = true
+script = ExtResource("6_03tvv")
+dex = NodePath("../..")
 
 [node name="Selectable_Fish_1" parent="." unique_id=438384103 instance=ExtResource("3_23nti")]
 layout_mode = 1
@@ -181,12 +184,14 @@ offset_right = -418.0
 offset_bottom = -340.0
 script = ExtResource("5_y04r0")
 
-[node name="Button" type="Button" parent="Selectable_Fish_1" unique_id=2031469355]
+[node name="Button" type="Button" parent="Selectable_Fish_1" unique_id=2031469355 node_paths=PackedStringArray("dex")]
 layout_mode = 0
 offset_top = 2.0
 offset_right = 109.0
 offset_bottom = 153.0
 flat = true
+script = ExtResource("6_03tvv")
+dex = NodePath("../..")
 
 [node name="Right_Tab" type="Button" parent="." unique_id=1054387013]
 layout_mode = 0
@@ -209,5 +214,7 @@ flat = true
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Selectable_Fish_2/Button" to="Selectable_Fish_2/Button" method="_on_pressed"]
+[connection signal="pressed" from="Selectable_Fish_1/Button" to="Selectable_Fish_1/Button" method="_on_pressed"]
 [connection signal="pressed" from="Right_Tab" to="." method="_on_right_tab_pressed"]
 [connection signal="pressed" from="Left_Tab" to="." method="_on_left_tab_pressed"]
