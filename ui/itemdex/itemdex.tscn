@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://70y60pu1le3w"]
+
+[ext_resource type="Script" uid="uid://88ka2wn4si2t" path="res://ui/itemdex/itemdex.gd" id="1_43rrp"]
+[ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="2_peb0g"]
+[ext_resource type="Texture2D" uid="uid://c7fyt1h4ljmf3" path="res://ui/itemdex/box.png" id="3_dfsup"]
+[ext_resource type="Texture2D" uid="uid://bokvrnhv3w3tr" path="res://ui/itemdex/background.png" id="3_wqiek"]
+
+[node name="Itemdex" type="Control" unique_id=976872789]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_43rrp")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1440524425]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_wqiek")
+
+[node name="Item1Container" type="HBoxContainer" parent="Background" unique_id=1595440194]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 148.0
+offset_right = 558.0
+offset_bottom = 234.0
+
+[node name="Box" type="TextureRect" parent="Background/Item1Container" unique_id=753713319]
+layout_mode = 2
+texture = ExtResource("3_dfsup")
+
+[node name="Image" type="TextureRect" parent="Background/Item1Container/Box" unique_id=49021947]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 11.0
+offset_right = 75.0
+offset_bottom = 86.0
+
+[node name="Textbox" type="VBoxContainer" parent="Background/Item1Container" unique_id=872120776]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="Description" type="Label" parent="Background/Item1Container/Textbox" unique_id=840121512]
+clip_contents = true
+custom_minimum_size = Vector2(135, 50)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+clip_text = true
+
+[node name="Lore" type="Label" parent="Background/Item1Container/Textbox" unique_id=321719215]
+clip_contents = true
+custom_minimum_size = Vector2(135, 50)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+clip_text = true
+
+[node name="Back_Button" type="Button" parent="." unique_id=413754069]
+layout_mode = 0
+offset_right = 129.19705
+offset_bottom = 109.0
+icon = ExtResource("2_peb0g")
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
