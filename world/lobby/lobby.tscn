@@ -38,9 +38,6 @@ visible = false
 [node name="LobbyHud" parent="." index="6" unique_id=510906849 instance=ExtResource("6_56mmg")]
 mouse_filter = 2
 
-[node name="Walls" parent="." index="7" unique_id=972242853]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.016973, 0, -27.679245)
-
 [node name="Node3D" parent="." index="8" unique_id=245968247 instance=ExtResource("4_c06ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.921875, -1.9073486e-06, 28.866188)
 
