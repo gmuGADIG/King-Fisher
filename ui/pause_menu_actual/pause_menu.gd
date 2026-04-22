@@ -20,4 +20,4 @@ func _on_continue_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	visible = false
-	Multiplayer.disconnect_from_game()
+	##TODO: Hook up to multiplayer disconnect logic
