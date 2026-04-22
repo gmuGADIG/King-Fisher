@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://vvq21jsn0vdt"]
+
+[ext_resource type="PackedScene" uid="uid://vuh2ijjyfl3x" path="res://art/3d-assets/raw_assets/lilypad_edit.glb" id="1_4wvhs"]
+
+[node name="Node3D" type="Node3D" unique_id=1164610861]
+
+[node name="lilypad_edit" parent="." unique_id=729726614 instance=ExtResource("1_4wvhs")]
