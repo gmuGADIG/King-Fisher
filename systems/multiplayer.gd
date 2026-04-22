@@ -4,6 +4,7 @@ signal new_player(id: int)
 signal found_server(ip: String, hostname: String, playerCount: String)
 signal player_loaded(id: int)
 signal start_game
+signal server_disconnected
 
 const PORT = 25575
 const MAX_CLIENTS = 4
@@ -27,6 +28,7 @@ func _ready() -> void:
 	# listen for when clients connect -- runs on both client and server
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
+	multiplayer.server_disconnected.connect(_on_server_disconnected)
 	
 	scan_client = PacketPeerUDP.new() # listener for scan packets on LAN scanning screen
 
@@ -99,21 +101,51 @@ func _on_peer_connected(id: int) -> void:
 	server.ready = false
 	player_list.set(id,server)
 	new_player.emit(id)
-	# tell the new player about all the other players connected to the server.
-	learn_players.rpc_id(id, player_list.keys())
 
 func _on_peer_disconnected(id : int) -> void:
-	Debug.log(id, " left")
-	
+	Debug.log("Player ", id, " left")
+	if multiplayer.is_server() && id != 1:
+			delete_disconnected_player.rpc(id)
+
+func disconnect_from_game() -> void:
+	Debug.log("Disconnecting")
+	# If the host is disconnecting then let everyone else know
+	if multiplayer.is_server():
+		multiplayer.multiplayer_peer = null
+		scan_server.stop()
+		player_list.clear()
+	else:
+		_disconnect_request.rpc_id(1)
+
+@rpc("any_peer", "call_local")
+func _disconnect_request() -> void:
+	if not is_multiplayer_authority(): return
+	if player_list.size() == 1:
+		_on_peer_disconnected(1)
+	else:
+		multiplayer.multiplayer_peer.disconnect_peer(multiplayer.get_remote_sender_id())
+
+@rpc("authority", "call_local")
+func delete_disconnected_player(id) -> void:
+	#Deletes the player's body
+	player_list.get(id).player.queue_free()
+
+	#Cleanups the player's index
+	player_list.erase(id)
+
 @rpc("reliable")
-func learn_players(new_player_ids: Array[int]) -> void:
-	for player in new_player_ids:
-		if not player in player_list:
-			var server = ServerConnection.new()
-			server.playerName = "Player"
-			server.ready = false
-			player_list.set(player,server)
-			new_player.emit(player)
+func learn_player(player_id: int, player_name: String, player_path: NodePath) -> void:
+	player_list.get_or_add(player_id)
+	var server_conn = ServerConnection.new()
+	server_conn.playerName = player_name
+	server_conn.player = get_node(player_path)
+	player_list.set(player_id, server_conn)
+
+func broadcast_player_info() -> void:
+	await get_tree().process_frame
+	for player_id in player_list.keys():
+		var server_conn = player_list.get(player_id)
+		learn_player.rpc(player_id, server_conn.playerName, server_conn.player.get_path())
 
 func _countdown(duration: int) -> void:
 	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
@@ -138,7 +170,7 @@ func start_the_game():
 
 	
 func load_players():
-	ScreenTransition.change_to_file("res://world/heightmap_test/heightmap_test.tscn")
+	SceneTransition.change_to_file("res://world/level-docks/level-docks.tscn")
 	
 func _handle_ready_up() -> void:
 	if get_tree().get_first_node_in_group("Lobby") == null:
@@ -182,13 +214,18 @@ func join_server(ip : String) -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip, PORT)
 	#multiplayer.connection_failed.connect(show_disconnected_message.bind("join error"))
-	#multiplayer.server_disconnected.connect(show_disconnected_message)
 	multiplayer.multiplayer_peer = peer
 	var server = ServerConnection.new()
 	server.playerName = "Player"
 	server.ready = false
 	player_list.set(multiplayer.get_unique_id(),server)
 	scan_for_servers = false
+
+func _on_server_disconnected() -> void:
+	multiplayer.multiplayer_peer = null
+	player_list.clear()
+	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
+	server_disconnected.emit()
 
 @rpc("any_peer", "call_local")
 func report_loaded() -> void:
@@ -197,12 +234,11 @@ func report_loaded() -> void:
 
 
 # host disconnecting client
-@rpc("reliable","call_local","any_peer")
+@rpc("reliable","call_local","authority")
 func disconnect_client(msg : String) -> void:
-	Debug.log(multiplayer.get_unique_id(), " disconnected")
 	#show_disconnected_message.rpc_id(id, msg)
 	#await get_tree().create_timer(1).timeout # this timer gives the rpc time to send out
-	multiplayer.multiplayer_peer.disconnect_peer(multiplayer.get_unique_id())
+	# multiplayer.multiplayer_peer.disconnect_peer(multiplayer.get_unique_id())
 	#player_list.erase(id)
 	#if my_id == id:
 	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")

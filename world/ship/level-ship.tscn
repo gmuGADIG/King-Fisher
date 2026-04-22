@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cqardg4j2usnv"]
+
+[ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_liscy"]
+[ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_prlaw"]
+[ext_resource type="Resource" uid="uid://barqr64i821s5" path="res://world/data.hterrain" id="3_ke6vo"]
+[ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_8dgjh"]
+[ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_1uk8t"]
+[ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_ke6vo"]
+[ext_resource type="PackedScene" uid="uid://cferb67vbdbwk" path="res://world/props/Aircraft.tscn" id="7_8dgjh"]
+
+[sub_resource type="Resource" id="Resource_74kgb"]
+script = ExtResource("4_8dgjh")
+mode = 0
+textures = [[ExtResource("5_1uk8t")], [null]]
+
+[node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_liscy")]
+
+[node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.589916, 0.091186166, 23.8113)
+
+[node name="PlayerSpawnPoint2" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="1" unique_id=927445426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.672585, 0.11380124, 36.124855)
+
+[node name="PlayerSpawnPoint3" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="2" unique_id=805091295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.149466, 0.4104737, 45.27409)
+
+[node name="PlayerSpawnPoint4" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="3" unique_id=909904993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.431675, 0, 16.077618)
+
+[node name="HTerrain" type="Node3D" parent="." index="3" unique_id=1803340263]
+script = ExtResource("2_prlaw")
+_terrain_data = ExtResource("3_ke6vo")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_74kgb")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+metadata/_custom_type_script = "uid://cb6f5am52xc7"
+
+[node name="Water" parent="HTerrain" index="0" unique_id=1605700850 instance=ExtResource("6_ke6vo")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 41.369377, -2.0450118, 51.65859)
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="HTerrain" index="1" unique_id=1420177913]
+transform = Transform3D(1, 0, 0, 0, 0.013927326, 0.99990296, 0, -0.99990296, 0.013927326, 10.0678215, 0.9111545, 53.348545)
+radius = 0.9004465
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="HTerrain" index="2" unique_id=361052256]
+transform = Transform3D(1, 0, 0, 0, 0.99411696, -0.108311675, 0, 0.108311675, 0.99411696, 38.37956, 0.29256535, 13.564101)
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="HTerrain" index="3" unique_id=947025165]
+transform = Transform3D(1, 0, 0, 0, 0.99998146, -0.0060737133, 0, 0.0060737133, 0.99998146, 44.064114, 0.6371428, 28.881687)
+
+[node name="Water2" parent="HTerrain" index="4" unique_id=100645748 instance=ExtResource("6_ke6vo")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 50.53743, -1.1901283, 18.376266)
+
+[node name="Water3" parent="HTerrain" index="6" unique_id=1681667047 instance=ExtResource("6_ke6vo")]
+transform = Transform3D(2, 0, 0, 0, 1.9533446, 0.4294707, 0, -0.4294707, 1.9533446, 16.871124, 5.501138, 59.05745)
+
+[node name="Water4" parent="HTerrain" index="7" unique_id=929613434 instance=ExtResource("6_ke6vo")]
+transform = Transform3D(2.264418, 0.043942537, -0.40060076, -0.1895546, 2.1337306, -0.8374159, 0.3556416, 0.85747576, 2.1043415, 19.401049, 4.4475055, 8.463787)
+
+[node name="Aircraft" parent="." index="6" unique_id=581678662 instance=ExtResource("7_8dgjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.056341, -2.61548, 35.844402)

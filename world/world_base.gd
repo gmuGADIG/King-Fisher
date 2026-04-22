@@ -33,7 +33,8 @@ func on_player_join(id : int) -> void:
 			spawn_player.rpc_id(id, p.get_multiplayer_authority(), p.position)
 	
 	spawn_player.rpc(id,$Players.get_safe_spawn_point())
-	
+	# Sends information about new players to everyone
+	Multiplayer.broadcast_player_info()
 
 @rpc("reliable", "call_local")
 func spawn_player(id: int, pos: Vector3) -> void:
@@ -41,6 +42,12 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	var new_player: Player = player.instantiate()
 	
 	new_player.position = pos
-	new_player.name = str(id)
+	new_player.name = "player_" + str(id)
 	add_child(new_player)
 	new_player.set_authority(id) # we don't need to use RPC here since this function call is RPC'd
+	if multiplayer.is_server():
+		var server_conn: ServerConnection = Multiplayer.player_list.get(id)
+		if server_conn != null: # should only be == null if we started this level w/ F6
+			server_conn.player = new_player
+			# tell everyone about the new player and the new player the current players
+			Debug.log("Spawning Player ", id, " at ", pos)

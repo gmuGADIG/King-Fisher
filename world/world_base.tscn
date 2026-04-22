@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c60phfujl8qwv" path="res://systems/player_spawn_point.tscn" id="4_lgvll"]
 [ext_resource type="PackedScene" uid="uid://3jux6npjxhxf" path="res://systems/item_spawner.tscn" id="5_lgvll"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_lgvll"]
+size = Vector3(1, 87.79321, 64.00267)
+
 [node name="WorldBase" type="Node3D" unique_id=1821617715]
 script = ExtResource("1_p433e")
 player = ExtResource("2_bl271")
@@ -44,3 +47,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7846797, 0, 1.7462559)
 
 [node name="ItemSpawner" parent="." unique_id=1588789630 instance=ExtResource("5_lgvll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+
+[node name="Walls" type="Node3D" parent="." unique_id=972242853]
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Walls" unique_id=1903690949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.423809, 32)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D4" unique_id=1939996774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.032303, 0)
+shape = SubResource("BoxShape3D_lgvll")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Walls" unique_id=1167629276]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32, 11.423809, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D3" unique_id=1400113859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.032303, 0)
+shape = SubResource("BoxShape3D_lgvll")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Walls" unique_id=15282570]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32, 11.423809, 64)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D2" unique_id=1563730594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.032303, 0)
+shape = SubResource("BoxShape3D_lgvll")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls" unique_id=1047289581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 11.423809, 32)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" unique_id=1940341563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.032303, 0)
+shape = SubResource("BoxShape3D_lgvll")

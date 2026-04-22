@@ -28,8 +28,7 @@ buses/default_bus_layout="uid://oxs3rj7fof7d"
 Multiplayer="*res://systems/multiplayer.gd"
 Debug="*res://systems/debug.tscn"
 DebugMenu="*uid://bojr30uqdlyje"
-ScreenTransition="*uid://ie0c43cmrtky"
-project/assembly_name="King Fisher"
+SceneTransition="*uid://ie0c43cmrtky"
 
 [editor_plugins]
 

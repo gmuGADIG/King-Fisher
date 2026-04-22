@@ -7,6 +7,7 @@
 script = ExtResource("1_2lwgs")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1623555723]
+unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -35,6 +36,13 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Debug Menu"
 
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=642024621]
+layout_mode = 2
+text = "Being able to switch scenes with
+multiplayer support is WIP and will disconnect you
+for the time being"
+horizontal_alignment = 1
+
 [node name="Separator2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1476855931]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -42,15 +50,20 @@ layout_mode = 2
 [node name="HeightMap" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=312352702 instance=ExtResource("2_bvele")]
 layout_mode = 2
 
-[node name="LobbyBrowser" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2129658815 instance=ExtResource("2_bvele")]
-layout_mode = 2
-text = "Lobby Browser"
-scene_path = "lobby_browser"
-
 [node name="MainMenu" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=658329568 instance=ExtResource("2_bvele")]
 layout_mode = 2
 text = "Open Main Menu"
 scene_path = "res://ui/main_menu/main_menu.tscn"
+
+[node name="OpenKeybinds" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=274295704 instance=ExtResource("2_bvele")]
+layout_mode = 2
+text = "Open Keybinds"
+scene_path = "res://ui/keybinds/keybind_menu.tscn"
+
+[node name="OpenRhythmTest" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=40959084 instance=ExtResource("2_bvele")]
+layout_mode = 2
+text = "Open Fishing Minigame (test)"
+scene_path = "res://systems/rhythm/fishing_mini_game.tscn"
 
 [node name="Separator" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=613846581]
 layout_mode = 2
