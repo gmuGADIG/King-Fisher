@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bfbfl0n0rkaur"
-path="res://.godot/imported/Tent.glb-090cb3961bf1e7fcd7d80d895a642e78.scn"
+uid="uid://vuh2ijjyfl3x"
+path="res://.godot/imported/lilypad.glb-bfc62f37bd890f71371733ddfee5317e.scn"
 
 [deps]
 
-source_file="res://art/3d-assets/Tent.glb"
-dest_files=["res://.godot/imported/Tent.glb-090cb3961bf1e7fcd7d80d895a642e78.scn"]
+source_file="res://art/3d-assets/lilypad.glb"
+dest_files=["res://.godot/imported/lilypad.glb-bfc62f37bd890f71371733ddfee5317e.scn"]
 
 [params]
 
