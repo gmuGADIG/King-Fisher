@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://4v7stc24gl87"]
+
+[ext_resource type="PackedScene" uid="uid://u4voipj0utmq" path="res://art/3d-assets/raw_assets/trees/tree_cone.glb" id="1_v2oeq"]
+
+[node name="Node3D" type="Node3D" unique_id=510002793]
+
+[node name="tree_cone" parent="." unique_id=1031717448 instance=ExtResource("1_v2oeq")]

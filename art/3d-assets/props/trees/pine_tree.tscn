@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bcffiks2ppdfu"]
+
+[ext_resource type="PackedScene" uid="uid://c1ukh1k6ihvqn" path="res://art/3d-assets/raw_assets/trees/Trees_Triangle.glb" id="1_allsd"]
+
+[node name="Node3D" type="Node3D" unique_id=2088922159]
+
+[node name="Trees_Triangle" parent="." unique_id=1058410956 instance=ExtResource("1_allsd")]
