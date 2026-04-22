@@ -20,7 +20,7 @@
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
-properties/1/path = NodePath("Body:rotation")
+properties/1/path = NodePath("DefaultPlayer:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
@@ -103,7 +103,7 @@ script = ExtResource("2_pmesh")
 rotation_speed_curve = ExtResource("4_kb6p2")
 bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1311558475) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 286419366) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
 
@@ -184,12 +184,12 @@ shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
 [node name="Physical Bone Shoulder L" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1590057692]
-transform = Transform3D(-0.0023430062, 0.00027500448, -0.009717752, -0.00040721, -0.009990003, -0.0001845283, -0.009713112, 0.00035248147, 0.0023518624, 0.0013861575, -3.1270254e-05, 0.011039665)
+transform = Transform3D(-0.0023430062, 0.00027500448, -0.009717752, -0.00040721, -0.009990003, -0.0001845283, -0.009713112, 0.00035248147, 0.0023518624, 0.0013861572, -3.1262665e-05, 0.011039665)
 collision_layer = 0
 collision_mask = 9
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3001542e-05, -0.0004901786, 0.143953)
-body_offset = Transform3D(0.010000001, -2.5320332e-09, -5.2410996e-08, -5.1101324e-08, 3.0559022e-10, -0.009999998, 2.9394869e-09, 0.010000004, 4.3655746e-10, -5.2247196e-07, 0.0014395297, 4.9017253e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3001542e-05, -0.000489419, 0.143953)
+body_offset = Transform3D(0.010000001, -2.5320332e-09, -5.2410996e-08, -5.1101324e-08, 3.0559022e-10, -0.009999998, 2.9394869e-09, 0.010000004, 4.3655746e-10, -5.2247196e-07, 0.0014395297, 4.8941292e-06)
 bone_name = "Shoulder L"
 joint_constraints/swing_span = 19.999994
 joint_constraints/twist_span = 19.999994
