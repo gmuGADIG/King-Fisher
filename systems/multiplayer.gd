@@ -4,7 +4,6 @@ signal new_player(id: int)
 signal found_server(ip: String, hostname: String, playerCount: String)
 signal player_loaded(id: int)
 signal start_game
-signal round_begun
 
 const PORT = 25575
 const MAX_CLIENTS = 4
