@@ -47,6 +47,7 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	new_player.set_authority(id) # we don't need to use RPC here since this function call is RPC'd
 	if multiplayer.is_server():
 		var server_conn: ServerConnection = Multiplayer.player_list.get(id)
-		server_conn.player = new_player
-		# tell everyone about the new player and the new player the current players
-		Debug.log("Spawning Player ", id, " at ", pos)
+		if server_conn != null: # should only be == null if we started this level w/ F6
+			server_conn.player = new_player
+			# tell everyone about the new player and the new player the current players
+			Debug.log("Spawning Player ", id, " at ", pos)
