@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d0y666jrlx3c1"]
+
+[ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/raw_assets/docks/Docks.glb" id="1_xbg71"]
+
+[node name="Node3D" type="Node3D" unique_id=1561660859]
+
+[node name="Docks2" parent="." unique_id=1318819956 instance=ExtResource("1_xbg71")]

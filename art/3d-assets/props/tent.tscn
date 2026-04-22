@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://nypbcqewwda3"]
+
+[ext_resource type="PackedScene" uid="uid://bfbfl0n0rkaur" path="res://art/3d-assets/raw_assets/Tent.glb" id="1_2pf2w"]
+
+[node name="Node3D" type="Node3D" unique_id=2084125150]
+
+[node name="Tent" parent="." unique_id=2094142759 instance=ExtResource("1_2pf2w")]
