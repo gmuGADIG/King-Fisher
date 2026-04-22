@@ -162,7 +162,7 @@ func _countdown(duration: int) -> void:
 @rpc("call_local")
 func start_the_game():
 	await _countdown(5)
-	var levelLoad:String = allowedMaps[randi_range(0,allowedMaps.size())]
+	var levelLoad:String = allowedMaps.pick_random()
 	load_players(levelLoad)
 	Debug.log(player_list.size())
 	for i in range(player_list.size()):
