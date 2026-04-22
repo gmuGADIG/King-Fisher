@@ -167,7 +167,6 @@ func start_the_game():
 	await get_tree().process_frame
 	await _countdown(5)
 	#TODO game goes
-	
 
 	
 func load_players():
