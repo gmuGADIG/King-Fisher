@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b6jnwssa8pgx8" path="res://systems/player_spawn_manager.gd" id="3_3xj4d"]
 [ext_resource type="PackedScene" uid="uid://dcw4q486qsqsy" path="res://ui/scoreboard/scoreboard.tscn" id="3_7di53"]
 [ext_resource type="PackedScene" uid="uid://c60phfujl8qwv" path="res://systems/player_spawn_point.tscn" id="4_lgvll"]
+[ext_resource type="PackedScene" uid="uid://bgjdwnhkngufk" path="res://ui/pause_menu/pause_menu.tscn" id="4_uycxt"]
 [ext_resource type="PackedScene" uid="uid://3jux6npjxhxf" path="res://systems/item_spawner.tscn" id="5_lgvll"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lgvll"]
@@ -26,6 +27,8 @@ text = "Hello"
 
 [node name="Scoreboard" parent="CanvasLayer" unique_id=1670028390 instance=ExtResource("3_7di53")]
 visible = false
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=509264285 instance=ExtResource("4_uycxt")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1620714622]
 transform = Transform3D(1, 0, 0, 0, 0.5577596, 0.83000255, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
