@@ -22,7 +22,7 @@ var scan_client: PacketPeerUDP
 
 var displayName: String
 #var HUD = LobbyHUD.new();
-
+var game_starting : bool = false;
 
 func _ready() -> void:
 	# listen for when clients connect -- runs on both client and server
@@ -179,12 +179,14 @@ func _handle_ready_up() -> void:
 		set_ready.rpc_id(1);
 			
 	if multiplayer.is_server():
-		for player in player_list:
-				if not player_list.get(player).ready:
-					return
-		start_game.emit()
-		start_the_game.rpc()
-			
+		if not game_starting:
+			for player in player_list:
+					if not player_list.get(player).ready:
+						return
+			game_starting = true
+			start_game.emit()
+			start_the_game.rpc()
+				
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ready_up"):
