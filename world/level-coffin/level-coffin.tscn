@@ -122,6 +122,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.388, -2.3232203, 21.363647
 [node name="Column5" parent="HTerrain" index="22" unique_id=553453794 instance=ExtResource("10_16b6m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.182285, -0.6230167, 20.443604)
 
+[node name="Water3" parent="HTerrain" index="23" unique_id=1949648763 instance=ExtResource("6_5knv3")]
+transform = Transform3D(2.4923954, 0, -9.37642, 0, 0.9999997, 0, 2.1367693, 0, 10.936954, 50.699554, -0.17352629, 47.017925)
+
 [node name="ItemSpawner" parent="." index="4" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.026405, 26.152332, 32.203228)
 shape = SubResource("BoxShape3D_2ipx2")
