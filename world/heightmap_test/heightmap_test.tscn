@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_kdmys"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_e1k8i"]
-[ext_resource type="Resource" uid="uid://bq2j3836eeqkr" path="res://world/heightmap_test/terrain/data.hterrain" id="3_76bih"]
+[ext_resource type="Resource" path="res://world/heightmap_test/terrain/data.hterrain" id="3_76bih"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_v7pb5"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_v7pb5"]
 [ext_resource type="Texture2D" uid="uid://ju1r6htpq1lg" path="res://art/2d-fish/549125607-cba34d9c-72a2-4935-aae4-7168c4c57bba.png" id="6_v7pb5"]
