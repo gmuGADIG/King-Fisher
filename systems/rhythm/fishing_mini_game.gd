@@ -51,24 +51,24 @@ var current_note:Note
 var state : Phase = Phase.FISH_CALL
 
 
-@onready var sequence_line: Line2D = $TextureRect/VBoxContainer/Control/SequenceLine
+@onready var sequence_line: Line2D = $TextureRect/VBoxContainer/Control/FishBar/SequenceLine
 @onready var sequence_line_length = (sequence_line.points[1]-sequence_line.points[0]).length()
-@onready var player_line: Line2D = $TextureRect/VBoxContainer/Control/PlayerLine
+@onready var player_line: Line2D = $TextureRect/VBoxContainer/Control/PlayerBar/PlayerLine
 @onready var player_line_length : float = (player_line.points[1]-player_line.points[0]).length()
 @onready var win_lose_sprite: Sprite2D = $WinLose
 
 
 @onready var rhythm_engine: RhythmEngine = $rhythm_engine
-@onready var player_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/PlayerLine/PlayerIndicator
-@onready var fish_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/SequenceLine/FishIndicator
+@onready var player_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/PlayerBar/PlayerLine/PlayerIndicator
+@onready var fish_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/FishBar/SequenceLine/FishIndicator
 @onready var rating_label: Label = $TextureRect/VBoxContainer/ColorRect/RatingLabel
 @onready var rating_animation: AnimationPlayer = $TextureRect/VBoxContainer/ColorRect/RatingAnimation
 @onready var main_audio_stream: AudioStreamPlayer = $MainAudioStream
 
 func _ready() -> void:
 	##Uncomment this when the actual backing UI is done
-	$TextureRect/VBoxContainer/Control/SequenceLine.default_color.a = 0
-	$TextureRect/VBoxContainer/Control/PlayerLine.default_color.a = 0
+	$TextureRect/VBoxContainer/Control/FishBar/SequenceLine.default_color.a = 0
+	$TextureRect/VBoxContainer/Control/PlayerBar/PlayerLine.default_color.a = 0
 	place_ticks(player_line)
 	place_ticks(sequence_line)
 	player_indicator.position = Vector2(0,0)

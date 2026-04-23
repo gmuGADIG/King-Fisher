@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bmxsuarykfoe3" path="res://temp/temp_art/smiley.png" id="5_v1gag"]
 [ext_resource type="AudioStream" uid="uid://u26laeo3h1xe" path="res://temp/temp_sfx/test_click.wav" id="6_8v4n0"]
 [ext_resource type="Texture2D" uid="uid://cjnwf45j1c0rv" path="res://temp/temp_art/king-fisher.png" id="10_2nsaa"]
+[ext_resource type="Texture2D" uid="uid://cxevou2i4rsbo" path="res://systems/rhythm/art/tempbar.png" id="10_dsd34"]
+[ext_resource type="Texture2D" uid="uid://mxbipnxyr4xf" path="res://systems/rhythm/art/Screenshot 2026-04-22 195817.png" id="12_2nsaa"]
 [ext_resource type="Texture2D" uid="uid://bbub80p362odf" path="res://systems/rhythm/art/winlose_temp.png" id="13_dsd34"]
 
 [sub_resource type="Gradient" id="Gradient_yhodo"]
@@ -115,21 +117,24 @@ hframes = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1285279175]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+anchors_preset = -1
+anchor_left = 0.066
+anchor_right = 0.934
+anchor_bottom = 0.537
+offset_left = -0.03199768
+offset_top = 48.0
+offset_right = 0.031982422
+offset_bottom = 0.023986816
 grow_horizontal = 2
 texture = SubResource("GradientTexture2D_2nsaa")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=251617668]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 53.0
+offset_top = 113.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 95
@@ -139,23 +144,41 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="SequenceLine" type="Line2D" parent="TextureRect/VBoxContainer/Control" unique_id=567685213]
-position = Vector2(-400, -40)
-points = PackedVector2Array(0, 0, 800, 0)
+[node name="FishBar" type="TextureRect" parent="TextureRect/VBoxContainer/Control" unique_id=1738974949]
+layout_mode = 0
+offset_left = -421.0
+offset_top = -104.0
+offset_right = 423.4773
+offset_bottom = -31.0
+texture = ExtResource("10_dsd34")
+expand_mode = 2
+
+[node name="SequenceLine" type="Line2D" parent="TextureRect/VBoxContainer/Control/FishBar" unique_id=567685213]
+position = Vector2(87, 36)
+points = PackedVector2Array(0, 0, 680, 0)
 default_color = Color(0.73683435, 0.8248663, 1, 1)
 
-[node name="FishIndicator" type="Sprite2D" parent="TextureRect/VBoxContainer/Control/SequenceLine" unique_id=1808826955]
+[node name="FishIndicator" type="Sprite2D" parent="TextureRect/VBoxContainer/Control/FishBar/SequenceLine" unique_id=1808826955]
 z_index = 2
 position = Vector2(8, -31)
 scale = Vector2(0.11470588, 0.11470589)
 texture = ExtResource("10_2nsaa")
 
-[node name="PlayerLine" type="Line2D" parent="TextureRect/VBoxContainer/Control" unique_id=378649705]
-position = Vector2(-400, 40)
-points = PackedVector2Array(0, 0, 800, 0)
+[node name="PlayerBar" type="TextureRect" parent="TextureRect/VBoxContainer/Control" unique_id=1400344211]
+layout_mode = 0
+offset_left = -421.0
+offset_top = -18.0
+offset_right = 423.4773
+offset_bottom = 55.0
+texture = ExtResource("10_dsd34")
+expand_mode = 2
+
+[node name="PlayerLine" type="Line2D" parent="TextureRect/VBoxContainer/Control/PlayerBar" unique_id=378649705]
+position = Vector2(87, 36)
+points = PackedVector2Array(0, 0, 680, 0)
 default_color = Color(1, 0.6926795, 0.64385, 1)
 
-[node name="PlayerIndicator" type="Sprite2D" parent="TextureRect/VBoxContainer/Control/PlayerLine" unique_id=1567962701]
+[node name="PlayerIndicator" type="Sprite2D" parent="TextureRect/VBoxContainer/Control/PlayerBar/PlayerLine" unique_id=1567962701]
 z_index = 2
 position = Vector2(2, -30)
 scale = Vector2(0.11470588, 0.11470589)
@@ -180,3 +203,8 @@ theme_override_font_sizes/font_size = 35
 
 [node name="RatingAnimation" type="AnimationPlayer" parent="TextureRect/VBoxContainer/ColorRect" unique_id=1750966568]
 libraries/ = SubResource("AnimationLibrary_2nsaa")
+
+[node name="Screenshot20260422195817" type="Sprite2D" parent="." unique_id=601812878]
+visible = false
+position = Vector2(1728, 320)
+texture = ExtResource("12_2nsaa")
