@@ -22,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.589916, 0.091186166, 23.81
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.672585, 0.11380124, 36.124855)
 
 [node name="PlayerSpawnPoint3" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="2" unique_id=805091295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.149466, 0.4104737, 45.27409)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.358036, 0.4104737, 35.15545)
 
 [node name="PlayerSpawnPoint4" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="3" unique_id=909904993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.431675, 0, 16.077618)
@@ -50,7 +50,7 @@ metadata/_custom_type_script = "uid://cb6f5am52xc7"
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 41.369377, -2.0450118, 51.65859)
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="HTerrain" index="1" unique_id=1420177913]
-transform = Transform3D(1, 0, 0, 0, 0.013927326, 0.99990296, 0, -0.99990296, 0.013927326, 10.0678215, 0.9111545, 53.348545)
+transform = Transform3D(1, 0, 0, 0, 0.013927326, 0.99990296, 0, -0.99990296, 0.013927326, 10.0678215, 0.8569515, 5.1637917)
 radius = 0.9004465
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="HTerrain" index="2" unique_id=361052256]
@@ -60,13 +60,13 @@ transform = Transform3D(1, 0, 0, 0, 0.99411696, -0.108311675, 0, 0.108311675, 0.
 transform = Transform3D(1, 0, 0, 0, 0.99998146, -0.0060737133, 0, 0.0060737133, 0.99998146, 44.064114, 0.6371428, 28.881687)
 
 [node name="Water2" parent="HTerrain" index="4" unique_id=100645748 instance=ExtResource("6_ke6vo")]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 50.53743, -1.1901283, 18.376266)
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 54.47813, -1.9414306, 18.913313)
 
-[node name="Water3" parent="HTerrain" index="6" unique_id=1681667047 instance=ExtResource("6_ke6vo")]
-transform = Transform3D(2, 0, 0, 0, 1.9533446, 0.4294707, 0, -0.4294707, 1.9533446, 16.871124, 5.501138, 59.05745)
+[node name="Water3" parent="HTerrain" index="5" unique_id=1681667047 instance=ExtResource("6_ke6vo")]
+transform = Transform3D(2, 0, 0, 0, 1.9533446, 0.4294707, 0, -0.4294707, 1.9533446, 16.871124, 5.729216, 59.05745)
 
-[node name="Water4" parent="HTerrain" index="7" unique_id=929613434 instance=ExtResource("6_ke6vo")]
-transform = Transform3D(2.264418, 0.043942537, -0.40060076, -0.1895546, 2.1337306, -0.8374159, 0.3556416, 0.85747576, 2.1043415, 19.401049, 4.4475055, 8.463787)
+[node name="Water4" parent="HTerrain" index="6" unique_id=929613434 instance=ExtResource("6_ke6vo")]
+transform = Transform3D(2.264418, 0.043942537, -0.40060076, -0.1895546, 2.1337306, -0.8374159, 0.3556416, 0.85747576, 2.1043415, 19.401049, 4.358935, 8.463787)
 
 [node name="Aircraft" parent="." index="6" unique_id=581678662 instance=ExtResource("7_8dgjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.056341, -2.61548, 35.844402)
