@@ -98,6 +98,15 @@ func removeFish(fish : Fish = null, amount : int = 1) -> Fish:
 	Debug.log("removed fish: ", fish.fish_name)
 	return fish
 
+## These functions are RPC safe so you can add a fish over multiplayer.
+
+@rpc ("authority", "call_local", "reliable")
+func addFishByName(fish_name: String):
+	addFish(fish_inventory[fish_name].fish)
+@rpc ("authority", "call_local", "reliable")
+func removeFishByName(fish_name: String):
+	removeFish(fish_inventory[fish_name].fish)
+
 func changeScore(change : int):
 	current_score += change
 	# Failsafe to prevent negative score

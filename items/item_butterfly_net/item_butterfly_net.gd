@@ -13,20 +13,7 @@ func effect_on_contact(body: Node3D):
 	if is_held and body.is_in_group("Player") and body != holder:
 		Debug.log("Doing something to %s!" % body.name)
 		var hitPlayer: Player = body
-		
-		var fishToRemoveName = hitPlayer.livewell.fish_inventory.keys().pick_random()
-		# Current error: Invalid access to property or key '<null>' on a base object of type 'Dictionary[String, livewell_fish_info]'.
-		#var fishToRemove: Fish = hitPlayer.livewell.fish_inventory[fishToRemoveName].fish
-		
-		print(hitPlayer.livewell.fish_inventory[fishToRemoveName])
-		print(hitPlayer.livewell.fish_inventory[fishToRemoveName].fish)
-		
-		
-		#steal_fish.rpc(fishToRemove, hitPlayer)
-		
-		print("hitPlayer.name = ", hitPlayer.name, "; player.name = ", player.name)
 
-@rpc("authority", "call_local")
-func steal_fish(fish: Fish, target: Player):
-	target.livewell.removeFish(fish)
-	player.livewell.addFish(fish)
+		var fishToRemoveName = hitPlayer.livewell.fish_inventory.keys().pick_random()
+		hitPlayer.livewell.removeFishByName.rpc(fishToRemoveName)
+		holder.livewell.addFishByName.rpc(fishToRemoveName)
