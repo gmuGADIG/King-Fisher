@@ -1,4 +1,4 @@
 extends Label3D
 func _process(_delta: float) -> void:
-	text = str(get_node("/root/Multiplayer").player_list[get_multiplayer_authority()])
-	#text = str(get_node("/root/Multiplayer").player_list[multiplayer.multiplayer_peer.get_unique_id()])
+	if(get_node("/root/Multiplayer").player_list.has(get_multiplayer_authority())): #Do not try updating the dict with new players until they offically get recorded
+		text = str(get_node("/root/Multiplayer").player_list[get_multiplayer_authority()])

@@ -81,7 +81,7 @@ func _on_peer_connected(id: int) -> void:
 
 	Debug.log("peer ",id," connected")
 	new_player.emit(id)
-	player_list.set(id,displayName) #how the host ids others [need to figure out]
+	player_list.set(id,displayName) #record your displayName
 	# tell the new player about all the other players connected to the server.
 	learn_players.rpc_id(id, player_list)
 
@@ -89,15 +89,16 @@ func _on_peer_connected(id: int) -> void:
 func learn_players(new_player_list: Dictionary[int,String]) -> void:
 	for player in new_player_list:
 		if not player in player_list:
-			player_list.set(player,new_player_list[player]) #how joining clients learn about existing players [works]
+			player_list.set(player,new_player_list[player]) #teach joining clients the names of the players already present
 			new_player.emit(player)
+		update_name.rpc(player, player_list[player]) #teach players in the game the names of late joiners
 
 
 func create_server() -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT, MAX_CLIENTS)
 	multiplayer.multiplayer_peer = peer
-	player_list.set(1,displayName) #How the host ids self [works :)]
+	player_list.set(1,displayName) #Have the host learn their own name
 
 	scan_server = UDPServer.new()
 	scan_server.listen(PORT + 1)
@@ -108,13 +109,11 @@ func join_server(ip : String) -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip, PORT)
 	multiplayer.multiplayer_peer = peer
-	player_list.set(multiplayer.get_unique_id(),displayName) #how clients know about themselves [works :)]
+	player_list.set(multiplayer.get_unique_id(),displayName) #have clients learn their own name
 	scan_for_servers = false
-	Debug.log("I did something")
-	update_name.rpc_id(get_multiplayer_authority(), displayName)
 
-@rpc("reliable", "any_peer", "call_local")
+@rpc("reliable", "any_peer", "call_remote")
 func update_name(id: int, pname: String) -> void:
-	Debug.log("YES I DID")
-	player_list.set(id,pname) #how clients know about themselves [works :)]
+	player_list.set(id,pname) #set late joiners id and name and announce it (for debugging just in case)
 	Debug.log(str(get_multiplayer_authority()) + " got " + str(id))
+	Debug.log(player_list)
