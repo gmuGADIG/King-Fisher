@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ds60le2snfrnf"
-path="res://.godot/imported/KF_smooth_small-mushroom1.glb-86a54d513f3bd654925aa90d313ddff4.scn"
+uid="uid://de2nsek3o1kic"
+path="res://.godot/imported/Rock 3.glb-86d00e706a35bac481dfe6358fa0b86a.scn"
 
 [deps]
 
-source_file="res://art/3d-assets/KF_smooth_small-mushroom1.glb"
-dest_files=["res://.godot/imported/KF_smooth_small-mushroom1.glb-86a54d513f3bd654925aa90d313ddff4.scn"]
+source_file="res://art/3d-assets/raw_assets/rocks/Rock 3.glb"
+dest_files=["res://.godot/imported/Rock 3.glb-86d00e706a35bac481dfe6358fa0b86a.scn"]
 
 [params]
 
