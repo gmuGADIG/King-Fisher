@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="9_n6k5e"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="10_gu2qp"]
 [ext_resource type="PackedScene" uid="uid://chdjv4pfi24ch" path="res://world/props/waste_barrel.tscn" id="11_himr8"]
+[ext_resource type="PackedScene" uid="uid://c16dgg4echeu6" path="res://world/props/lilypad.tscn" id="12_nk5xi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ay7c0"]
 size = Vector3(17.19535, 0.001, 16.858868)
@@ -826,3 +827,9 @@ transform = Transform3D(0.4800908, 0, -0.16297808, 0, 0.5070001, 0, 0.1629781, 0
 
 [node name="Rock 54" parent="LakeRocks/Ring04" index="53" unique_id=144246168 instance=ExtResource("9_n6k5e")]
 transform = Transform3D(0.4592842, 0, -0.3552566, 0, 0.5806454, 0, 0.35525674, 0, 0.45928398, -0.33203125, 2.4016228, 36.646103)
+
+[node name="lilypad2" parent="." index="11" unique_id=801340911 instance=ExtResource("12_nk5xi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.973019, -3.2507825, 8.905607)
+
+[node name="lilypad" parent="." index="12" unique_id=1316508312 instance=ExtResource("12_nk5xi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.829699, -3.3457177, 8.81938)
