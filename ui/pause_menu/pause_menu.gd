@@ -26,3 +26,7 @@ func _on_continue_pressed() -> void:
 func _on_quit_pressed() -> void:
 	visible = false
 	##TODO: Hook up to multiplayer disconnect logic
+
+
+func _on_back_button_pressed() -> void:
+	visible = false
