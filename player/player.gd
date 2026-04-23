@@ -102,6 +102,7 @@ func _process(delta: float) -> void:
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
+
 	
 	if not is_on_floor():
 		velocity += GRAVITY * delta * Vector3.DOWN
@@ -126,14 +127,13 @@ func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
 		handle_camera_position()
-
-	Debug.log(slow_timer)
-	if(slow_timer > 0.0):
-		Debug.log("player is slow")
-		if(velocity.x > 0):
-			velocity.x -= speed_modifier
-		if(velocity.x < 0):
-			velocity.x += speed_modifier
+	
+	if slow_timer > 0:
+		Debug.log("player %s has been slowed!" % name, "; speed_mod = ", speed_modifier)
+		velocity.x *= 1. - speed_modifier
+		velocity.z *= 1. - speed_modifier
+	
+	#Debug.log("velocity ", velocity)
 
 	move_and_slide()
 	_update_footsteps(delta)
@@ -206,7 +206,7 @@ func _input(event: InputEvent) -> void:
 				assert(held_item != null, "Item is null somehow")
 				assert(held_item is ThrowableItem, "Thrown item is somehow not throable")
 				var throw_item : ThrowableItem = held_item
-				throw_item.use_throwable(%Aiming.get_aim_pos())
+				throw_item.use_throwable.rpc(%Aiming.get_aim_pos())
 				held_item = null
 				%Aiming.stop_aiming()
 			pass

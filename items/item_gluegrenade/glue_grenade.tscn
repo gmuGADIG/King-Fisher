@@ -5,6 +5,35 @@
 [ext_resource type="Texture2D" uid="uid://2dxp6q4887l5" path="res://temp/temp_art/gleep.png" id="2_xhcbl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1e24p"]
+radius = 1.0517309
+
+[sub_resource type="Curve" id="Curve_1e24p"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dxa6s"]
+curve = SubResource("Curve_1e24p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ci60"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.5
+angle_min = -19.99999
+angle_max = 20.000011
+angle_curve = SubResource("CurveTexture_dxa6s")
+linear_accel_min = -3.0000021
+linear_accel_max = 2.9999976
+scale_min = 0.5
+scale_max = 0.5
+turbulence_noise_strength = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8i4hd"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 0, 0.7882353)
+
+[sub_resource type="SphereMesh" id="SphereMesh_we5kf"]
+material = SubResource("StandardMaterial3D_8i4hd")
 
 [node name="ThrowableItem" unique_id=1566519324 instance=ExtResource("1_1ny5p")]
 collision_layer = 0
@@ -20,5 +49,13 @@ shape = SubResource("SphereShape3D_1e24p")
 
 [node name="Sprite3D" type="Sprite3D" parent="." index="2" unique_id=721164333]
 texture = ExtResource("2_xhcbl")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3" unique_id=1889681586]
+emitting = false
+amount = 50
+explosiveness = 1.0
+collision_base_size = 0.1
+process_material = SubResource("ParticleProcessMaterial_7ci60")
+draw_pass_1 = SubResource("SphereMesh_we5kf")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

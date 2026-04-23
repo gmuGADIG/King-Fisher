@@ -20,7 +20,7 @@ enum type{
 			#pass
 				
 
-
+@rpc ("call_local", "any_peer")
 func use_throwable(targetPos) -> void:
 	reparent(get_tree().current_scene,true)
 	show()
