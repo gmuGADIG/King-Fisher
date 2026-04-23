@@ -8,6 +8,7 @@ extends Area3D
 @export var item_name: String = "Base Item"
 @export var description: String = ""
 @export var lore : String = ""
+@export var sprite : Texture
 
 var is_held: bool = false
 
