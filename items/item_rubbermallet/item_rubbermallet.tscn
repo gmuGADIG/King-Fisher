@@ -1,29 +1,28 @@
 [gd_scene format=3 uid="uid://bb0kv7atap455"]
 
 [ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_yxs0q"]
-[ext_resource type="Script" uid="uid://dh2nsdnui8o1c" path="res://items/swingable.gd" id="2_0ukp2"]
+[ext_resource type="Script" path="res://items/item_rubbermallet/item_rubber_mallet.gd" id="2_yxs0q"]
 [ext_resource type="PackedScene" uid="uid://ci63k6qi746cg" path="res://art/3d-assets/Rubber Mallet.glb" id="3_r4hne"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5omlw"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ukp2"]
 size = Vector3(16.80385, 33.004704, 58.001907)
 
-[node name="Item" unique_id=1566519324 instance=ExtResource("1_yxs0q")]
-script = ExtResource("2_0ukp2")
-item_name = "Swingable Item"
+[node name="Rubber Mallet" unique_id=1566519324 instance=ExtResource("1_yxs0q")]
+script = ExtResource("2_yxs0q")
+ragdollTime = 1.0
+item_name = "Rubber Mallet"
 
 [node name="SwingHitbox" type="Area3D" parent="." index="1" unique_id=1812700899]
 transform = Transform3D(0.044697747, 0, 0, 0, 0.044697747, 0, 0, 0, 0.044697747, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="SwingHitbox" index="0" unique_id=1965451763]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 29.000954, 0)
-shape = SubResource("BoxShape3D_5omlw")
+[node name="Rubber Mallet" parent="SwingHitbox" index="0" unique_id=1649869042 instance=ExtResource("3_r4hne")]
+transform = Transform3D(1, 0, 0, 0, 0.015358277, -0.99988204, 0, 0.99988204, 0.015358277, 0, 0, 0)
 
-[node name="Rubber Mallet" parent="SwingHitbox" index="1" unique_id=1649869042 instance=ExtResource("3_r4hne")]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SwingHitbox/Rubber Mallet/Node/Cylinder001" parent_id_path=PackedInt32Array(1649869042, 1314297447) index="0" unique_id=510865660]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29.000954)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwingHitbox" index="1" unique_id=599896765]
+transform = Transform3D(1, 0, 0, 0, 0.99988204, 0.015358277, 0, -0.015358277, 0.99988204, 0, 0.44540456, 28.997534)
+shape = SubResource("BoxShape3D_0ukp2")
 
 [connection signal="body_entered" from="SwingHitbox" to="." method="_on_swing_hitbox_body_entered"]
 
