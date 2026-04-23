@@ -162,17 +162,20 @@ func _countdown(duration: int) -> void:
 @rpc("call_local")
 func start_the_game():
 	await _countdown(5)
+	if(!multiplayer.is_server()):
+		return
 	var levelLoad:String = allowedMaps.pick_random()
-	load_players(levelLoad)
+	
+	load_players.rpc(levelLoad)
 	Debug.log(player_list.size())
 	for i in range(player_list.size()):
 		await player_loaded
 	await get_tree().process_frame
-	await _countdown(5)
+	
 	#TODO game goes
 	
 
-	
+@rpc("authority","call_local","reliable")
 func load_players(level: String):
 	
 	SceneTransition.change_to_file(level)
