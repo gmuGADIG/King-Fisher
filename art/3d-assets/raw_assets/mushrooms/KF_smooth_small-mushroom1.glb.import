@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://boe835aeroy0f"
-path="res://.godot/imported/KF_tall_mushroom1.glb-3cfdf89d5271ae1963df7d97d00c431f.scn"
+uid="uid://ds60le2snfrnf"
+path="res://.godot/imported/KF_smooth_small-mushroom1.glb-5e125cc5fbe074c58af21cba5e059eb2.scn"
 
 [deps]
 
-source_file="res://art/3d-assets/KF_tall_mushroom1.glb"
-dest_files=["res://.godot/imported/KF_tall_mushroom1.glb-3cfdf89d5271ae1963df7d97d00c431f.scn"]
+source_file="res://art/3d-assets/raw_assets/mushrooms/KF_smooth_small-mushroom1.glb"
+dest_files=["res://.godot/imported/KF_smooth_small-mushroom1.glb-5e125cc5fbe074c58af21cba5e059eb2.scn"]
 
 [params]
 

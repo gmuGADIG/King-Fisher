@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bq4f0fi644sta"]
+
+[ext_resource type="PackedScene" uid="uid://qga41o832tta" path="res://art/3d-assets/raw_assets/docks/DockEnd.glb" id="1_msy08"]
+
+[node name="Node3D" type="Node3D" unique_id=188255851]
+
+[node name="DockEnd2" parent="." unique_id=272183290 instance=ExtResource("1_msy08")]

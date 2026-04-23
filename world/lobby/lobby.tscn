@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ykir648kj0n" path="res://world/props/lobby_boat.tscn" id="4_c06ik"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="5_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
+[ext_resource type="PackedScene" uid="uid://bb82y7lgvci0k" path="res://world/props/control_panel.tscn" id="6_cuuia"]
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
@@ -152,3 +153,5 @@ transform = Transform3D(16.5, 0, 0, 0, 16.5, 0, 0, 0, 16.5, -50.030945, 0, -49.6
 
 [node name="Water36" parent="." index="45" unique_id=289103808 instance=ExtResource("5_vh6de")]
 transform = Transform3D(16.5, 0, 0, 0, 16.5, 0, 0, 0, 16.5, -17.043144, 0, -49.713562)
+[node name="Control Panel" parent="." index="13" unique_id=1438383831 instance=ExtResource("6_cuuia")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 33.015, 2.7095957, 30.194815)

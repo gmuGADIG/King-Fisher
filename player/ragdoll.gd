@@ -120,7 +120,7 @@ func confirm_end_ragdoll():
 func can_ragdoll() -> bool:
 	if player.wearing_helmet:
 		Debug.log("Player has helmet, cannot ragdoll.")
-		player.wearing_helmet = false
+		player.unequip_helmet()
 		return false
 	return true
 
