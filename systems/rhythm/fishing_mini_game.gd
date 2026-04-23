@@ -69,8 +69,8 @@ func _ready() -> void:
 	##Uncomment this when the actual backing UI is done
 	$TextureRect/VBoxContainer/Control/FishBar/SequenceLine.default_color.a = 0
 	$TextureRect/VBoxContainer/Control/PlayerBar/PlayerLine.default_color.a = 0
-	place_ticks(player_line)
-	place_ticks(sequence_line)
+	#place_ticks(player_line)
+	#place_ticks(sequence_line)
 	player_indicator.position = Vector2(0,0)
 	player_indicator.hide()
 	fish_indicator.position = Vector2(0,0)
