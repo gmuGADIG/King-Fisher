@@ -8,7 +8,6 @@ extends Area3D
 @export var item_name: String = "Base Item"
 
 var is_held: bool = false
-
 ## Null until is_held is not null.
 var player: Player = null
 

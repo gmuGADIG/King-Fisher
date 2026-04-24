@@ -21,6 +21,7 @@ var can_exit_ragdoll := false
 
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
+@onready var held_item_ui: HeldItemUI = $HeldItem
 var aim_mode : AimMode = AimMode.NONE
 
 @onready var camera_mount : Node3D = $CameraMount
@@ -349,6 +350,7 @@ func pick_up_item(item: Item) -> void:
 	held_item.position = Vector3.ZERO + Vector3(0,1,0)
 	# Hide the item. Nobody will know you have it until you use it.
 	held_item.visible=false
+	held_item_ui.hold_item(held_item.item_name)
 
 @rpc("call_local")
 func use_held_item() -> void:
@@ -357,6 +359,7 @@ func use_held_item() -> void:
 	held_item.visible = true
 	held_item.use()
 	held_item=null
+	held_item_ui.clear_item()
 
 func equip_helmet(node : Node) -> void:
 	wearing_helmet = true
