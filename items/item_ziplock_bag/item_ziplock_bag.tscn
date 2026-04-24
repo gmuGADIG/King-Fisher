@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://pkvxbw6wyjxu"]
 
-[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base/item_base.tscn" id="1_w4wpe"]
+[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_w4wpe"]
 [ext_resource type="Script" uid="uid://bgxsg85kpe30" path="res://items/item_ziplock_bag/item_ziplock_bag.gd" id="2_bgvyy"]
+[ext_resource type="Texture2D" uid="uid://pn1ciuluerri" path="res://temp/temp_art/happy-godot.png" id="3_vb82l"]
 
 [node name="Item" unique_id=1566519324 instance=ExtResource("1_w4wpe")]
 script = ExtResource("2_bgvyy")
 item_name = "Ziplock Bag"
+sprite = ExtResource("3_vb82l")
