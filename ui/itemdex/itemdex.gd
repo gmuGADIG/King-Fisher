@@ -18,30 +18,30 @@ func _on_back_button_pressed() -> void:
 	hide()
 
 func setup_item(index : int) -> void:
-	var page_location = index - (page*4)
+	var page_location = index - (page*4) + 1
 	var item = ITEMS[index].instantiate()
 	get_node("Background/Item"+str(page_location)+"Container/Box/Image").texture = item.sprite
 	get_node("Background/Item"+str(page_location)+"Container/Textbox/Description").text = "Description: " + item.description
 	get_node("Background/Item"+str(page_location)+"Container/Textbox/Lore").text = "Lore: " + item.lore
-	print(item.item_name + ": " + item.description)
 
 func draw_page() -> void:
 	for i in range(4):
-		var index = page*4 + i + 1
+		var index = page*4 + i
+		var page_location = i + 1
 		if index < len(ITEMS):
 			setup_item(index)
-			print("Background/Item"+str(index)+"Container")
-			get_node("Background/Item"+str(index)+"Container").show()
+			get_node("Background/Item"+str(page_location)+"Container").show()
 		else:
-			get_node("Background/Item"+str(index)+"Container").hide()
+			get_node("Background/Item"+str(page_location)+"Container").hide()
 	if page == 0:
 		left_arrow.hide()
 	else:
 		left_arrow.show()
+
 	if (page+1)*4 <= len(ITEMS):
-		right_arrow.hide()
-	else:
 		right_arrow.show()
+	else:
+		right_arrow.hide()
 
 var BlOCKEDITEMS = [
 	"item_base.tscn",
@@ -78,9 +78,9 @@ func load_items() -> void:
 		dir.list_dir_end()
 
 func custom_sort_items(a, b):
-		var a_name = a.get("item_name")
-		var b_name = b.get("item_name")
-		return a_name < b_name
+	var a_name = a.get("item_name")
+	var b_name = b.get("item_name")
+	return a_name < b_name
 
 
 func _on_left_arrow_pressed() -> void:
@@ -93,9 +93,7 @@ func _on_right_arrow_pressed() -> void:
 
 var first_draw = true
 func _draw() -> void:
-	print("Hi")
 	if not first_draw:
 		first_draw = false
 		return
-	print("Drawing Itemdex for the first time")
 	draw_page()

@@ -89,7 +89,6 @@ func _on_back_button_pressed() -> void:
 	hide()
 
 func _on_draw() -> void:
-	print("Hi")
 	current_tab = 0
 	current_fish_index = 0
 	if len(fishdex_order) > 0:
