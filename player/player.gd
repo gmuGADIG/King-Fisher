@@ -354,6 +354,7 @@ func use_held_item() -> void:
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
 	livewell.addFish(fish)
+	%fishdex.caught_fish(fish)
 	
 func take_fish(fish : Fish) -> void:
 	Debug.log("Player lost fish!")
