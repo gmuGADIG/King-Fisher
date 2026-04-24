@@ -106,6 +106,7 @@ func setup_current_tab() -> void:
 		current_index += 1
 	if current_index >= len(fishdex_order):
 		selectable_fish_1.hide()
+		tab_visiblity()
 		return
 
 	selectable_fish_1.fish = LIST_OF_FISH.get(fishdex_order[current_index])
@@ -122,7 +123,10 @@ func setup_current_tab() -> void:
 		selectable_fish_2.fish = LIST_OF_FISH.get(fishdex_order[current_index])
 		selectable_fish_2.get_node("Fish_Image").texture = selectable_fish_2.fish.sprite
 		selectable_fish_2.show()
+	
+	tab_visiblity()
 
+func tab_visiblity() -> void:
 	if (current_tab * 2 + 2) < len(fishdex_entries):
 		$Right_Tab.show()
 	else:
