@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dcw4q486qsqsy"]
+
+[ext_resource type="Script" uid="uid://cge03ev5n16xf" path="res://ui/scoreboard/scoreboard.gd" id="1_gftpv"]
+[ext_resource type="PackedScene" uid="uid://b5dalgcckscne" path="res://ui/scoreboard/player_row.tscn" id="2_phke7"]
+
+[node name="Scoreboard" type="Control" unique_id=1670028390]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gftpv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=324786855]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.298
+anchor_top = 0.30600002
+anchor_right = 0.71400005
+anchor_bottom = 0.684
+offset_left = -0.2960205
+offset_top = -0.28800964
+offset_right = 0.47192383
+offset_bottom = -0.23199463
+
+[node name="LeaderboardLabel" type="Label" parent="VBoxContainer" unique_id=327968706]
+layout_mode = 2
+text = "Leaderboard"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=2131908892]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TopRow" type="HBoxContainer" parent="VBoxContainer" unique_id=1113933182]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="VBoxContainer/TopRow" unique_id=1209676177]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Player"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/TopRow" unique_id=172623366]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/TopRow" unique_id=208405398]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Score"
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/TopRow" unique_id=1433568281]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="FishCountLabel" type="Label" parent="VBoxContainer/TopRow" unique_id=2008070560]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Total Fish"
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/TopRow" unique_id=1292561123]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SushiCountLabel" type="Label" parent="VBoxContainer/TopRow" unique_id=1725203282]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Sushi Grade"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1059254070]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PlayerRow" parent="VBoxContainer" unique_id=2141616029 groups=["Player Rows"] instance=ExtResource("2_phke7")]
+layout_mode = 2
