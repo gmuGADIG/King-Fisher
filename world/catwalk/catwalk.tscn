@@ -35,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.402092, 2.3841858e-07, -1
 [node name="PlayerSpawnPoint4" parent="Players" index="3" unique_id=909904993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.423313, 0, -12.975407)
 
-[node name="HTerrain" type="Node3D" parent="." index="3" unique_id=2028849765]
+[node name="HTerrain2" type="Node3D" parent="." index="3" unique_id=2028849765]
 script = ExtResource("2_l3gfr")
 _terrain_data = ExtResource("3_cwonv")
 chunk_size = 32
@@ -53,33 +53,6 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="HTerrain" index="0" unique_id=1681829372]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.727943, 3.527588, 30.4207)
-size = Vector3(23.398376, 8.055176, 42.91104)
-
-[node name="Water" parent="HTerrain" index="1" unique_id=264827860 instance=ExtResource("6_5gcag")]
-transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 31.223198, -0.37459326, 32.924156)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="HTerrain" index="2" unique_id=749901430]
-transform = Transform3D(0.70752627, 0, -0.70668703, 0, 1, 0, 0.70668703, 0, 0.70752627, 7.286852, 0, 31.141745)
-use_collision = true
-size = Vector3(6.5, 0.1, 2)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="HTerrain" index="3" unique_id=1505882598]
-transform = Transform3D(-0.45992088, 0, -0.88795996, 0, 1, 0, 0.88795996, 0, -0.45992088, 52.328716, 0, 31.863626)
-use_collision = true
-size = Vector3(7.270447, 0.1, 2)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="HTerrain" index="4" unique_id=1217564738]
-transform = Transform3D(-0.57694566, 0, 0.81678265, 0, 1, 0, -0.81678265, 0, -0.57694566, 54.34885, 1.3978341, 37.96009)
-size = Vector3(2, 3, 2)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="HTerrain" index="5" unique_id=1644910983]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.510937, 0.9315624, 38.449596)
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="HTerrain" index="6" unique_id=1525601908]
-transform = Transform3D(-0.28234142, -0.959314, 0, -4.1932946e-08, 1.2341536e-08, -1, 0.959314, -0.28234142, -4.371139e-08, 56.655045, 0.47636044, 37.328796)
 
 [node name="ItemSpawner" parent="." index="4" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.041985, 14.528157, 31.527891)
@@ -165,3 +138,30 @@ transform = Transform3D(0.04263201, 0, 0.026124928, 0, 0.05, 0, -0.026124928, 0,
 
 [node name="Rock 25" parent="Rocks" index="24" unique_id=586433536 instance=ExtResource("10_xyhru")]
 transform = Transform3D(-0.04120631, 0, -0.028320313, 0, 0.05, 0, 0.028320313, 0, -0.04120631, 20.40823, 0, 4.7732625)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="0" unique_id=1681829372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.71983, 3.527584, 63.024956)
+size = Vector3(23.398376, 8.055176, 42.91104)
+
+[node name="Water" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="1" unique_id=264827860 instance=ExtResource("6_5gcag")]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 64.21508, -0.37459707, 65.52841)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="2" unique_id=749901430]
+transform = Transform3D(0.70752627, 0, -0.70668703, 0, 1, 0, 0.70668703, 0, 0.70752627, 40.27874, -3.8146973e-06, 63.746002)
+use_collision = true
+size = Vector3(6.5, 0.1, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="3" unique_id=1505882598]
+transform = Transform3D(-0.45992088, 0, -0.88795996, 0, 1, 0, 0.88795996, 0, -0.45992088, 85.3206, -3.8146973e-06, 64.46788)
+use_collision = true
+size = Vector3(7.270447, 0.1, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="4" unique_id=1217564738]
+transform = Transform3D(-0.57694566, 0, 0.81678265, 0, 1, 0, -0.81678265, 0, -0.57694566, 87.34074, 1.3978302, 70.56435)
+size = Vector3(2, 3, 2)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="5" unique_id=1644910983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.50282, 0.9315586, 71.05385)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="6" unique_id=1525601908]
+transform = Transform3D(-0.28234142, -0.959314, 0, -4.1932946e-08, 1.2341536e-08, -1, 0.959314, -0.28234142, -4.371139e-08, 89.646935, 0.47635663, 69.93305)
