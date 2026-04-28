@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="9_n6k5e"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="10_gu2qp"]
 [ext_resource type="PackedScene" uid="uid://chdjv4pfi24ch" path="res://world/props/waste_barrel.tscn" id="11_himr8"]
+[ext_resource type="PackedScene" uid="uid://c16dgg4echeu6" path="res://world/props/lilypad.tscn" id="12_nk5xi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ay7c0"]
 size = Vector3(17.19535, 0.001, 16.858868)
@@ -812,17 +813,23 @@ transform = Transform3D(0.4800908, 0, -0.16297808, 0, 0.5070001, 0, 0.1629781, 0
 [node name="Rock 54" parent="LakeRocks/Ring04" index="53" unique_id=144246168 instance=ExtResource("9_n6k5e")]
 transform = Transform3D(0.4592842, 0, -0.3552566, 0, 0.5806454, 0, 0.35525674, 0, 0.45928398, -0.33203125, 2.4016228, 36.646103)
 
+[node name="lilypad2" parent="." index="11" unique_id=801340911 instance=ExtResource("12_nk5xi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.973019, -3.2507825, 8.905607)
+
+[node name="lilypad" parent="." index="12" unique_id=1316508312 instance=ExtResource("12_nk5xi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.829699, -3.3457177, 8.81938)
+
 [node name="Water" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="0" unique_id=1605700850 instance=ExtResource("6_of031")]
-transform = Transform3D(11.138882, 0, 0, 0, 1, 0, 0, 0, 9.9169445, 32.628723, -4.777133, 30.759897)
+transform = Transform3D(11.138882, 0, 0, 0, 1, 0, 0, 0, 9.9169445, 64.623215, -4.777133, 62.78943)
 
 [node name="Water2" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="1" unique_id=429017865 instance=ExtResource("6_of031")]
-transform = Transform3D(8.75695, 0, 0, 0, 1, 0, 0, 0, 5.7919073, 26.565742, -3.3631854, 9.38976)
+transform = Transform3D(8.75695, 0, 0, 0, 1, 0, 0, 0, 5.7919073, 58.56023, -3.3631854, 41.419292)
 
 [node name="Water3" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="2" unique_id=265385136 instance=ExtResource("6_of031")]
-transform = Transform3D(7.200865, 0, 0, 0, 0.99999964, 0, 0, 0, 6.4258895, 10.164045, -2.9697218, 17.617495)
+transform = Transform3D(7.200865, 0, 0, 0, 0.99999964, 0, 0, 0, 6.4258895, 42.15853, -2.9697218, 49.647026)
 
 [node name="Water4" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="3" unique_id=146894997 instance=ExtResource("6_of031")]
-transform = Transform3D(9.580714, 0, 0, 0, 1, 0, 0, 0, 7.1253176, 35.588486, -3.2199435, 54.410217)
+transform = Transform3D(9.580714, 0, 0, 0, 1, 0, 0, 0, 7.1253176, 67.58298, -3.2199435, 86.43975)
 
 [node name="Water5" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="4" unique_id=981405356 instance=ExtResource("6_of031")]
-transform = Transform3D(7.303905, 0, 0, 0, 1, 0, 0, 0, 7.1924877, 54.173332, -3.2857285, 43.778774)
+transform = Transform3D(7.303905, 0, 0, 0, 1, 0, 0, 0, 7.1924877, 86.167816, -3.2857285, 75.808304)
