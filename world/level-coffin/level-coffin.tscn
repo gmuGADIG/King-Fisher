@@ -34,7 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0242734, 2.3841858e-07, 48.
 [node name="PlayerSpawnPoint4" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="3" unique_id=909904993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.690674, 0, 61.82902)
 
-[node name="HTerrain" type="Node3D" parent="." index="3" unique_id=2000387722]
+[node name="HTerrain2" type="Node3D" parent="." index="3" unique_id=2000387722]
 script = ExtResource("2_5xfro")
 _terrain_data = ExtResource("3_5knv3")
 chunk_size = 32
@@ -53,78 +53,6 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="HTerrain" index="0" unique_id=1405258543]
-transform = Transform3D(0.69911444, 0, 0.71500975, 0, 1, 0, -0.71500975, 0, 0.69911444, 32.12065, 2.6141098, 31.768536)
-size = Vector3(28.426582, 5.345825, 40.56302)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="HTerrain" index="1" unique_id=342748975]
-transform = Transform3D(63, 0, 0, 0, 0.484, 0, 0, 0, 63, 32.46116, -1.4999981, 32.568634)
-visible = false
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="HTerrain" index="2" unique_id=57113118]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.06845, 0.9919015, 36.852806)
-visible = false
-
-[node name="Water" parent="HTerrain" index="3" unique_id=264827860 instance=ExtResource("6_5knv3")]
-transform = Transform3D(16.738197, 0, 0, 0, 1.05, 0, 0, 0, 15.280104, 18.070415, -0.25, 47.753532)
-
-[node name="Water2" parent="HTerrain" index="4" unique_id=1605700850 instance=ExtResource("6_5knv3")]
-transform = Transform3D(8.30821, 0, 0, 0, 1.1024998, 0, 0, 0, 16.211369, 54.397167, -0.25, 17.129887)
-
-[node name="Rock 4" parent="HTerrain" index="5" unique_id=774182813 instance=ExtResource("7_gwbdu")]
-transform = Transform3D(0.159, 0, 0, 0, 0.159, 0, 0, 0, 0.159, 59.187958, -0.0015081597, 13.837823)
-
-[node name="Rock 1" parent="HTerrain" index="6" unique_id=350060475 instance=ExtResource("7_gwbdu")]
-transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 16.865244, -0.0013474226, 58.58994)
-
-[node name="Rock 2" parent="HTerrain" index="7" unique_id=1287558019 instance=ExtResource("8_f57ih")]
-transform = Transform3D(-0.76122457, -0.32973537, 0.47573972, -0.37371117, 0.67164886, 0.2335569, -0.5299784, 0, -0.84801114, 8.508066, 3.5726418, 8.932473)
-
-[node name="Rock 5" parent="HTerrain" index="8" unique_id=370791260 instance=ExtResource("9_dit1s")]
-transform = Transform3D(-0.13698319, 0.13044058, 0.01791259, -0.12933943, -0.13814938, 0.016913056, 0.024635594, 0, 0.18839608, 50.38027, -0.22677088, 15.847583)
-
-[node name="Rock 3" parent="HTerrain" index="9" unique_id=862786636 instance=ExtResource("9_dit1s")]
-transform = Transform3D(-0.1895986, 0, 0.012343875, 0, 0.19, 0, -0.012343875, 0, -0.1895986, 54.67565, 0.32201433, 16.55094)
-
-[node name="Rock 6" parent="HTerrain" index="10" unique_id=352317514 instance=ExtResource("8_f57ih")]
-transform = Transform3D(1.6999662, 0, 0, 0, 1, 0, 0, 0, 1.6520219, 42.870037, -2.1374154, 11.379464)
-
-[node name="Rock 7" parent="HTerrain" index="11" unique_id=683641773 instance=ExtResource("7_gwbdu")]
-transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 18.118153, -0.49395895, 53.505905)
-
-[node name="Rock 8" parent="HTerrain" index="12" unique_id=1329996402 instance=ExtResource("8_f57ih")]
-transform = Transform3D(0.10185154, -0.266179, 0, 0.266179, 0.10185154, 0, 0, 0, 0.285, 15.214248, -0.41867876, 50.727955)
-
-[node name="Rock 9" parent="HTerrain" index="13" unique_id=1974492659 instance=ExtResource("9_dit1s")]
-transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 8.931713, -0.0141716, 45.076317)
-
-[node name="Rock 10" parent="HTerrain" index="14" unique_id=560722932 instance=ExtResource("8_f57ih")]
-transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 4.5889897, 0.39099932, 45.14521)
-
-[node name="Rock 11" parent="HTerrain" index="15" unique_id=1986369534 instance=ExtResource("7_gwbdu")]
-transform = Transform3D(-0.6223097, 0.55090773, -0.55608565, 0, 0.7104065, 0.7037916, 0.7827711, 0.43797633, -0.44209284, 55.299145, 0.5017619, 55.892666)
-
-[node name="Node3D" parent="HTerrain" index="16" unique_id=391458853 instance=ExtResource("10_16b6m")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 11.1011505, 1.8220148, 36.867)
-
-[node name="Column" parent="HTerrain" index="18" unique_id=762450399 instance=ExtResource("10_16b6m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.101775, -2.206499, 42.800156)
-
-[node name="Column2" parent="HTerrain" index="19" unique_id=1803605689 instance=ExtResource("10_16b6m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.083275, -0.68994164, 42.748703)
-
-[node name="Column3" parent="HTerrain" index="20" unique_id=1290436707 instance=ExtResource("10_16b6m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.463734, -3.2882838, 27.385332)
-
-[node name="Column4" parent="HTerrain" index="21" unique_id=540736866 instance=ExtResource("10_16b6m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.388, -2.3232203, 21.363647)
-
-[node name="Column5" parent="HTerrain" index="22" unique_id=553453794 instance=ExtResource("10_16b6m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.182285, -0.6230167, 20.443604)
-
-[node name="Water3" parent="HTerrain" index="23" unique_id=1949648763 instance=ExtResource("6_5knv3")]
-transform = Transform3D(2.4923954, 0, -9.37642, 0, 0.9999997, 0, 2.1367693, 0, 10.936954, 50.699554, -0.17352629, 47.017925)
-
 [node name="ItemSpawner" parent="." index="4" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.026405, 26.152332, 32.203228)
 shape = SubResource("BoxShape3D_2ipx2")
@@ -135,29 +63,101 @@ max_items = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.972828, 0.5455138, 18.624437)
 visible = false
 
-[node name="Cube" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="0" unique_id=373023600]
+[node name="Cube" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="0" unique_id=1525637020]
 transform = Transform3D(1, 0, 0, 0, 0.9809755, 0.19413161, 0, -0.19413161, 0.9809755, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="1" unique_id=2015610543]
+[node name="Cylinder" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="1" unique_id=2052092477]
 transform = Transform3D(1, 0, 0, 0, 0.9809755, 0.19413161, 0, -0.19413161, 0.9809755, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_001" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="2" unique_id=837788690]
+[node name="Cylinder_001" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="2" unique_id=1663558896]
 transform = Transform3D(0.67345965, -0.12992904, 0.00089813117, 0.102858156, 0.5360148, 0.41537774, -0.079388656, -0.40772167, 0.5457938, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_002" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="3" unique_id=786188054]
+[node name="Cylinder_002" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="3" unique_id=1845621580]
 transform = Transform3D(0.59347767, 0.23118748, 0.89555085, -0.6245017, 0.88504624, 0.18537888, -0.6822438, -0.60903215, 0.60934234, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_003" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="4" unique_id=803607857]
+[node name="Cylinder_003" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="4" unique_id=1609686109]
 transform = Transform3D(0.7496025, -0.0030613854, -0.004831782, 0.0034712472, 0.8149804, 0.11130215, 0.0043647178, -0.12238506, 0.7412985, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_004" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="5" unique_id=180946891]
+[node name="Cylinder_004" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="5" unique_id=946488873]
 transform = Transform3D(0.58010066, -0.1119175, 0.0007736137, 0.088599354, 0.46170926, 0.3577956, -0.06838333, -0.35120085, 0.47013262, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_005" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="6" unique_id=635176734]
+[node name="Cylinder_005" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="6" unique_id=1747472659]
 transform = Transform3D(0.39585117, 0.1542027, 0.5973348, -0.41654435, 0.5903283, 0.12364822, -0.45505837, -0.40622604, 0.40643296, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_073" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="37" unique_id=1790979107]
+[node name="Cylinder_073" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="37" unique_id=2130467331]
 transform = Transform3D(0.29420894, 0.11460822, 0.4439578, -0.23804101, 0.4890155, 0.031508822, -0.3918802, -0.21100067, 0.31416735, 8.248783, -0.07095361, 8.597744)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="0" unique_id=1405258543]
+transform = Transform3D(0.69911444, 0, 0.71500975, 0, 1, 0, -0.71500975, 0, 0.69911444, 64.06966, 2.6141098, 63.900734)
+size = Vector3(28.426582, 5.345825, 40.56302)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="1" unique_id=342748975]
+transform = Transform3D(63, 0, 0, 0, 0.484, 0, 0, 0, 63, 64.41016, -1.4999981, 64.700836)
+visible = false
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="2" unique_id=57113118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.017452, 0.9919015, 68.985)
+visible = false
+
+[node name="Water" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="3" unique_id=264827860 instance=ExtResource("6_5knv3")]
+transform = Transform3D(16.738197, 0, 0, 0, 1.05, 0, 0, 0, 15.280104, 50.019417, -0.25, 79.88573)
+
+[node name="Water2" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="4" unique_id=1605700850 instance=ExtResource("6_5knv3")]
+transform = Transform3D(8.30821, 0, 0, 0, 1.1024998, 0, 0, 0, 16.211369, 86.34617, -0.25, 49.262085)
+
+[node name="Rock 4" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="5" unique_id=774182813 instance=ExtResource("7_gwbdu")]
+transform = Transform3D(0.159, 0, 0, 0, 0.159, 0, 0, 0, 0.159, 91.13696, -0.0015081597, 45.97002)
+
+[node name="Rock 1" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="6" unique_id=350060475 instance=ExtResource("7_gwbdu")]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 48.814247, -0.0013474226, 90.72214)
+
+[node name="Rock 2" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="7" unique_id=1287558019 instance=ExtResource("8_f57ih")]
+transform = Transform3D(-0.76122457, -0.32973537, 0.47573972, -0.37371117, 0.67164886, 0.2335569, -0.5299784, 0, -0.84801114, 40.45707, 3.5726418, 41.06467)
+
+[node name="Rock 5" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="8" unique_id=370791260 instance=ExtResource("9_dit1s")]
+transform = Transform3D(-0.13698319, 0.13044058, 0.01791259, -0.12933943, -0.13814938, 0.016913056, 0.024635594, 0, 0.18839608, 82.32927, -0.22677088, 47.979782)
+
+[node name="Rock 3" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="9" unique_id=862786636 instance=ExtResource("9_dit1s")]
+transform = Transform3D(-0.1895986, 0, 0.012343875, 0, 0.19, 0, -0.012343875, 0, -0.1895986, 86.62465, 0.32201433, 48.683136)
+
+[node name="Rock 6" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="10" unique_id=352317514 instance=ExtResource("8_f57ih")]
+transform = Transform3D(1.6999662, 0, 0, 0, 1, 0, 0, 0, 1.6520219, 74.81904, -2.1374154, 43.51166)
+
+[node name="Rock 7" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="11" unique_id=683641773 instance=ExtResource("7_gwbdu")]
+transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 50.067154, -0.49395895, 85.63811)
+
+[node name="Rock 8" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="12" unique_id=1329996402 instance=ExtResource("8_f57ih")]
+transform = Transform3D(0.10185154, -0.266179, 0, 0.266179, 0.10185154, 0, 0, 0, 0.285, 47.16325, -0.41867876, 82.86015)
+
+[node name="Rock 9" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="13" unique_id=1974492659 instance=ExtResource("9_dit1s")]
+transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 40.880714, -0.0141716, 77.20851)
+
+[node name="Rock 10" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="14" unique_id=560722932 instance=ExtResource("8_f57ih")]
+transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 36.53799, 0.39099932, 77.277405)
+
+[node name="Rock 11" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="15" unique_id=1986369534 instance=ExtResource("7_gwbdu")]
+transform = Transform3D(-0.6223097, 0.55090773, -0.55608565, 0, 0.7104065, 0.7037916, 0.7827711, 0.43797633, -0.44209284, 87.248146, 0.5017619, 88.024864)
+
+[node name="Node3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="16" unique_id=391458853 instance=ExtResource("10_16b6m")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 43.05015, 1.8220148, 68.9992)
+
+[node name="Column" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="17" unique_id=762450399 instance=ExtResource("10_16b6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.050777, -2.206499, 74.93236)
+
+[node name="Column2" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="18" unique_id=1803605689 instance=ExtResource("10_16b6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.032276, -0.68994164, 74.880905)
+
+[node name="Column3" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="19" unique_id=1290436707 instance=ExtResource("10_16b6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.412735, -3.2882838, 59.517532)
+
+[node name="Column4" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="20" unique_id=540736866 instance=ExtResource("10_16b6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.337006, -2.3232203, 53.495846)
+
+[node name="Column5" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="21" unique_id=553453794 instance=ExtResource("10_16b6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.13129, -0.6230167, 52.5758)
+
+[node name="Water3" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="22" unique_id=1949648763 instance=ExtResource("6_5knv3")]
+transform = Transform3D(2.4923954, 0, -9.37642, 0, 0.9999997, 0, 2.1367693, 0, 10.936954, 82.64856, -0.17352629, 79.15012)
 
 [editable path="Crystals"]
 [editable path="Crystals/Crystals"]
