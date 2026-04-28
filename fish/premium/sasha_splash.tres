@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://cepdk1uf531s6"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_kmn0e"]
+[ext_resource type="Texture2D" uid="uid://ck3bm1irl43x2" path="res://fish/sprites/sasha_splash.png" id="2_h2nc2"]
+
+[resource]
+script = ExtResource("1_kmn0e")
+fish_name = "Sasha Splash"
+grade = 3
+sprite = ExtResource("2_h2nc2")
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
