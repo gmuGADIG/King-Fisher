@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
-[ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="6_cuuia"]
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
@@ -37,7 +36,7 @@ visible = false
 [node name="LobbyHud" parent="." index="6" unique_id=510906849 instance=ExtResource("6_56mmg")]
 mouse_filter = 2
 
-[node name="HTerrain" parent="." index="7" unique_id=1398597706]
+[node name="IslandTerrain" parent="." index="7" unique_id=1398597706]
 visible = false
 
 [node name="Water" parent="." index="8" unique_id=1605700850]

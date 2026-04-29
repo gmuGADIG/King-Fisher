@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="11_48nxm"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="12_hpp7h"]
 [ext_resource type="PackedScene" uid="uid://d3ykir648kj0n" path="res://world/props/lobby_boat.tscn" id="13_7trks"]
+[ext_resource type="Environment" uid="uid://byjvy8xudhe0n" path="res://world/environment.tres" id="14_48nxm"]
 
 [sub_resource type="Resource" id="Resource_ack3r"]
 script = ExtResource("10_7trks")
@@ -143,3 +144,6 @@ transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/Walls/Back" unique_id=243370927]
 transform = Transform3D(1.0000054, 0, 2.2351742e-07, 0, 1, 0, -2.2351742e-07, 0, 1.0000054, 0, 0, 0)
 shape = SubResource("BoxShape3D_48nxm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=52136514]
+environment = ExtResource("14_48nxm")
