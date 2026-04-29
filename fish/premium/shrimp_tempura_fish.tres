@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://kpq76ox3leht"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_gihqb"]
+[ext_resource type="Texture2D" uid="uid://c8okmb1osxprx" path="res://fish/sprites/shrimp_tempura_fish.png" id="2_rgnlf"]
+
+[resource]
+script = ExtResource("1_gihqb")
+fish_name = "Shrimp Tempura Fish"
+grade = 3
+sprite = ExtResource("2_rgnlf")
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
