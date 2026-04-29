@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
-[ext_resource type="PackedScene" path="res://world/props/lobby_boat.tscn" id="4_c06ik"]
+[ext_resource type="PackedScene" uid="uid://d3ykir648kj0n" path="res://world/props/lobby_boat.tscn" id="4_c06ik"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="5_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
+[ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="6_cuuia"]
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
@@ -52,3 +53,6 @@ transform = Transform3D(16.5, 0, 0, 0, 16.5, 0, 0, 0, 16.5, 15.968659, 0, 16.322
 
 [node name="Water" parent="." index="12" unique_id=431887082 instance=ExtResource("5_vh6de")]
 transform = Transform3D(16.5, 0, 0, 0, 16.5, 0, 0, 0, 16.5, 48.95646, 0, 16.286436)
+
+[node name="Rubber Mallet" parent="." index="13" unique_id=1566519324 instance=ExtResource("6_cuuia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 2.223625, 23)
