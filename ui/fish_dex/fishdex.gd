@@ -30,6 +30,12 @@ func _ready() -> void:
 	load_file()
 	loaded = true
 
+	if OS.is_debug_build():
+		for fish_name in LIST_OF_FISH:
+			fishdex_entries[fish_name] = 1
+			fishdex_order.append(fish_name)
+			fishdex_order.sort_custom(custom_sort_fish)
+
 func custom_sort_fish(a, b):
 		var fish_a = LIST_OF_FISH.get(a)
 		var fish_b = LIST_OF_FISH.get(b)
@@ -54,6 +60,11 @@ func loop_through_dir(location : String) -> void:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
+			if file_name.ends_with(".remap"):
+				file_name = file_name.split(".remap")[0]
+
+			Debug.log("file_name = ", file_name)
+
 			if file_name.ends_with(".tres"):
 				var fish_resource = load(location + "/" + file_name)
 				LIST_OF_FISH[fish_resource.fish_name] = fish_resource
