@@ -4,7 +4,7 @@ extends Node
 @export_file("*.tscn") var file_scene: String
 
 func _on_packed_button_pressed() -> void:
-	ScreenTransition.change_to_packed(packed_scene)
+	SceneTransition.change_to_packed(packed_scene)
 
 func _on_file_button_pressed() -> void:
-	ScreenTransition.change_to_file(file_scene)
+	SceneTransition.change_to_file(file_scene)

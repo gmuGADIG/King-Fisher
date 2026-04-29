@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://hc22nb2o76cq"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_d6l1x"]
+[ext_resource type="Texture2D" uid="uid://cl0a24dcpl2sj" path="res://fish/sprites/emo_bass_fish.png" id="2_mafcq"]
+
+[resource]
+script = ExtResource("1_d6l1x")
+fish_name = "Emo Bass Fish"
+grade = 2
+sprite = ExtResource("2_mafcq")
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

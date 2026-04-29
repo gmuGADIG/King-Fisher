@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://suu207gbhl80"]
+
+[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_lmsc6"]
+[ext_resource type="Script" uid="uid://bi4dqo32a6nud" path="res://items/item_test_3/item_test_3.gd" id="2_3jckb"]
+[ext_resource type="Texture2D" uid="uid://b3tmja6unn2ao" path="res://temp/temp_art/tmplogo.png" id="3_qptrj"]
+
+[node name="Item" unique_id=1566519324 instance=ExtResource("1_lmsc6")]
+script = ExtResource("2_3jckb")
+item_name = "Golden Worm"
+description = "It is very gold"
+lore = "The Mighty Golden Worm!"
+sprite = ExtResource("3_qptrj")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=829023768]
+disabled = true
