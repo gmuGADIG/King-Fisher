@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sebpacttibvk" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
 [ext_resource type="PackedScene" uid="uid://cksuxnaqh3sqr" path="res://ui/lobby_browser/server_info.tscn" id="2_csvqp"]
+[ext_resource type="Texture2D" uid="uid://dfkve0oupbjtw" path="res://temp/lobby_select.png" id="3_pxnt7"]
 
 [node name="LobbyBrowser" type="Control" unique_id=245152877]
 layout_mode = 3
@@ -13,51 +14,205 @@ grow_vertical = 2
 script = ExtResource("1_k67f4")
 server_info_packed = ExtResource("2_csvqp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=44045274]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=88527520]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TEMPReferenceImage" type="TextureRect" parent="." unique_id=1898157331]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_pxnt7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1550717719]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 168.0
+offset_right = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="TextureRect" unique_id=1608866824]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057000004
+anchor_top = 0.062000003
+anchor_right = 0.15200001
+anchor_bottom = 0.136
+offset_left = 0.11999512
+offset_top = -0.1760025
+offset_right = 0.31999207
+offset_bottom = -0.12800598
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=44045274]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -177.0
-offset_right = 150.0
-offset_bottom = 177.0
+offset_left = -292.0
+offset_top = -220.0
+offset_right = 260.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 21
+
+[node name="TitleTextBox" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=1446485913]
+custom_minimum_size = Vector2(0, 64.805)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0.69965345, 0.69965345, 0.69965345, 1)
+
+[node name="LobbyBrowserLabel" type="Label" parent="TextureRect/VBoxContainer/TitleTextBox" unique_id=1423046525]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "LOBBY BROWSER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LobbyBrowser" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=949388055]
+custom_minimum_size = Vector2(0, 269.87)
+layout_mode = 2
+color = Color(0.69803923, 0.69803923, 0.69803923, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/VBoxContainer/LobbyBrowser" unique_id=1980928500]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="JoinLabel" type="Label" parent="VBoxContainer" unique_id=1423046525]
+[node name="TopbarCategories" type="HBoxContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1696651080]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-text = "Join Game"
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=319740659]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Server Name"
 horizontal_alignment = 1
 
-[node name="Panel" type="PanelContainer" parent="VBoxContainer" unique_id=1518235674]
+[node name="PlayerLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=1045212857]
 layout_mode = 2
+size_flags_horizontal = 3
+text = "Players"
+horizontal_alignment = 1
 
-[node name="ServerInfoParent" type="VBoxContainer" parent="VBoxContainer/Panel" unique_id=1149710568]
+[node name="StatusLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=2129217139]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Status"
+horizontal_alignment = 1
+
+[node name="PingLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=225361243]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ping"
+horizontal_alignment = 1
+
+[node name="ServerInfoParent" type="VBoxContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1149710568]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 216)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="Control" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1857130252]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="RefreshButton" type="Button" parent="VBoxContainer" unique_id=674890748]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer" unique_id=1467097020]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_right = 78.0
+grow_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RefreshButton" type="Button" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer" unique_id=674890748]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = " Refresh "
+
+[node name="MarginContainer2" type="MarginContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer" unique_id=1164648850]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.5
+offset_top = -40.0
+offset_right = 55.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HostButton" type="Button" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1159664938]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Refresh"
+theme_override_font_sizes/font_size = 18
+text = " Create Lobby "
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=369293543]
+[node name="JoiningGame" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=1769578127]
+custom_minimum_size = Vector2(0, 64.805)
 layout_mode = 2
-theme_override_constants/separation = 10
+size_flags_vertical = 4
+color = Color(0.69965345, 0.69965345, 0.69965345, 1)
 
-[node name="HostLabel" type="Label" parent="VBoxContainer" unique_id=878563602]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer/JoiningGame" unique_id=1127197303]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="JoiningGameLabel" type="Label" parent="TextureRect/VBoxContainer/JoiningGame/HBoxContainer" unique_id=853758261]
 layout_mode = 2
-text = "Host Game"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Joining Game..."
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HostButton" type="Button" parent="VBoxContainer" unique_id=1159664938]
+[node name="CancelJoinButton" type="Button" parent="TextureRect/VBoxContainer/JoiningGame/HBoxContainer" unique_id=1689267815]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Host"
+theme_override_font_sizes/font_size = 45
+text = "Cancel"
 
 [node name="DisplayName" type="VBoxContainer" parent="." unique_id=927114755]
 layout_mode = 1
@@ -80,5 +235,6 @@ layout_mode = 2
 placeholder_text = "Enter name..."
 alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="TextureRect/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer2/HostButton" to="." method="_on_host_button_pressed"]

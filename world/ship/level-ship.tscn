@@ -27,7 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.149466, 0.4104737, 45.2740
 [node name="PlayerSpawnPoint4" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="3" unique_id=909904993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.431675, 0, 16.077618)
 
-[node name="HTerrain" type="Node3D" parent="." index="3" unique_id=1803340263]
+[node name="HTerrain2" type="Node3D" parent="." index="3" unique_id=1803340263]
 script = ExtResource("2_prlaw")
 _terrain_data = ExtResource("3_ke6vo")
 chunk_size = 32
@@ -46,27 +46,27 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
 
-[node name="Water" parent="HTerrain" index="0" unique_id=1605700850 instance=ExtResource("6_ke6vo")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 41.369377, -2.0450118, 51.65859)
-
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="HTerrain" index="1" unique_id=1420177913]
-transform = Transform3D(1, 0, 0, 0, 0.013927326, 0.99990296, 0, -0.99990296, 0.013927326, 10.0678215, 0.9111545, 53.348545)
-radius = 0.9004465
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="HTerrain" index="2" unique_id=361052256]
-transform = Transform3D(1, 0, 0, 0, 0.99411696, -0.108311675, 0, 0.108311675, 0.99411696, 38.37956, 0.29256535, 13.564101)
-
-[node name="CSGSphere3D3" type="CSGSphere3D" parent="HTerrain" index="3" unique_id=947025165]
-transform = Transform3D(1, 0, 0, 0, 0.99998146, -0.0060737133, 0, 0.0060737133, 0.99998146, 44.064114, 0.6371428, 28.881687)
-
-[node name="Water2" parent="HTerrain" index="4" unique_id=100645748 instance=ExtResource("6_ke6vo")]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 50.53743, -1.1901283, 18.376266)
-
-[node name="Water3" parent="HTerrain" index="6" unique_id=1681667047 instance=ExtResource("6_ke6vo")]
-transform = Transform3D(2, 0, 0, 0, 1.9533446, 0.4294707, 0, -0.4294707, 1.9533446, 16.871124, 5.501138, 59.05745)
-
-[node name="Water4" parent="HTerrain" index="7" unique_id=929613434 instance=ExtResource("6_ke6vo")]
-transform = Transform3D(2.264418, 0.043942537, -0.40060076, -0.1895546, 2.1337306, -0.8374159, 0.3556416, 0.85747576, 2.1043415, 19.401049, 4.4475055, 8.463787)
-
 [node name="Aircraft" parent="." index="6" unique_id=581678662 instance=ExtResource("7_8dgjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.056341, -2.61548, 35.844402)
+
+[node name="Water" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="0" unique_id=1605700850 instance=ExtResource("6_ke6vo")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 73.75985, -2.0450118, 83.36427)
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="1" unique_id=1420177913]
+transform = Transform3D(1, 0, 0, 0, 0.013927326, 0.99990296, 0, -0.99990296, 0.013927326, 42.458286, 0.9111545, 85.05423)
+radius = 0.9004465
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="2" unique_id=361052256]
+transform = Transform3D(1, 0, 0, 0, 0.99411696, -0.108311675, 0, 0.108311675, 0.99411696, 70.77003, 0.29256535, 45.269783)
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="3" unique_id=947025165]
+transform = Transform3D(1, 0, 0, 0, 0.99998146, -0.0060737133, 0, 0.0060737133, 0.99998146, 76.45458, 0.6371428, 60.587368)
+
+[node name="Water2" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="4" unique_id=100645748 instance=ExtResource("6_ke6vo")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 84.19743, -1.1901283, 52.34515)
+
+[node name="Water3" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="5" unique_id=1681667047 instance=ExtResource("6_ke6vo")]
+transform = Transform3D(2, 0, 0, 0, 1.9361292, 0.50140214, 0, -0.50140214, 1.9361292, 49.26159, 5.69565, 90.76312)
+
+[node name="Water4" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="6" unique_id=929613434 instance=ExtResource("6_ke6vo")]
+transform = Transform3D(2.264418, 0.043942522, -0.40060076, -0.18785793, 2.1377919, -0.82737976, 0.35654077, 0.84729934, 2.1083078, 51.791515, 4.440942, 40.374054)

@@ -7,10 +7,10 @@ data = PackedVector3Array(0.578, -0.1988, 3.329, 1.0961, 2.1188, 2.8507, 2.473, 
 
 [node name="Rock 3" unique_id=370791260 instance=ExtResource("1_dg7r7")]
 
-[node name="Node" parent="." index="0" unique_id=1135902928]
+[node name="Node" parent="." index="0" unique_id=374925805]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node/GeoSphere001" parent_id_path=PackedInt32Array(1995290700) index="0" unique_id=758054210]
+[node name="StaticBody3D" type="StaticBody3D" parent="Node/GeoSphere001" parent_id_path=PackedInt32Array(1199245104) index="0" unique_id=758054210]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node/GeoSphere001/StaticBody3D" index="0" unique_id=1750835994]
 shape = SubResource("ConcavePolygonShape3D_octds")
