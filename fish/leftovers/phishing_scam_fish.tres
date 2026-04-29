@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://broe1pt218prk"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_1y1v2"]
+[ext_resource type="Texture2D" uid="uid://b1qeg6yysxa10" path="res://fish/sprites/phishing_scam_fish.png" id="2_mcp5t"]
+
+[resource]
+script = ExtResource("1_1y1v2")
+fish_name = "Phishing Scam"
+grade = 1
+sprite = ExtResource("2_mcp5t")
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
