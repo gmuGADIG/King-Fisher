@@ -6,6 +6,9 @@ extends Area3D
 ## You can also change the item_name string in the inspector, which will probably show in the HUD.
 
 @export var item_name: String = "Base Item"
+@export var description: String = ""
+@export var lore : String = ""
+@export var sprite : Texture
 
 var is_held: bool = false
 

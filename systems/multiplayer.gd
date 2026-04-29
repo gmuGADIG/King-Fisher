@@ -184,16 +184,18 @@ func _handle_ready_up() -> void:
 		return
 	
 	if not multiplayer.is_server():
-		set_ready.rpc_id(1);
+		set_ready.rpc_id(1)
 			
-	if multiplayer.is_server():
-    if game_starting: return
-		for player in player_list:
-				if not player_list.get(player).ready:
-					return
-    game_starting = true
-		start_game.emit()
-		start_the_game.rpc()
+	if not multiplayer.is_server(): return
+	if game_starting: return
+	
+	for player in player_list:
+			if not player_list.get(player).ready:
+				return
+	
+	game_starting = true
+	start_game.emit()
+	start_the_game.rpc()
 			
 func set_map(mapString:String,pool:Array):
 	#Array to be returned

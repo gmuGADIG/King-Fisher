@@ -1,6 +1,28 @@
 [gd_scene format=3 uid="uid://b8jevivyblc6q"]
 
 [ext_resource type="Script" uid="uid://b8h20ju61nnj6" path="res://ui/fish_dex/fishdex.gd" id="1_5pj4m"]
+[ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="2_r31bl"]
+[ext_resource type="PackedScene" uid="uid://cur3ita1x152q" path="res://ui/fish_dex/hanging_fish.tscn" id="3_23nti"]
+[ext_resource type="Texture2D" uid="uid://b7e1yq8e8neff" path="res://ui/fish_dex/stall.png" id="3_mukbb"]
+[ext_resource type="Script" uid="uid://bco87e2884pxw" path="res://ui/fish_dex/hanging_fish.gd" id="5_y04r0"]
+[ext_resource type="Script" uid="uid://c176eydus30qc" path="res://ui/fish_dex/selectable_fish_button.gd" id="6_03tvv"]
+[ext_resource type="Texture2D" uid="uid://bck4unx8s3so0" path="res://ui/fish_dex/arrow.png" id="6_m7gl5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mukbb"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23nti"]
+bg_color = Color(0.6, 0.6, 0.6, 0.12941177)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [node name="Fishdex" type="Control" unique_id=1890729006]
 layout_mode = 3
@@ -10,3 +32,189 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5pj4m")
+
+[node name="Back_Button" type="Button" parent="." unique_id=269871336]
+layout_mode = 0
+offset_right = 101.935295
+offset_bottom = 86.0
+icon = ExtResource("2_r31bl")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Current_Fish" parent="." unique_id=826188047 instance=ExtResource("3_23nti")]
+layout_mode = 1
+offset_left = 298.0
+offset_top = 155.0
+offset_right = -713.0
+offset_bottom = -294.0
+script = ExtResource("5_y04r0")
+
+[node name="Stall" type="TextureRect" parent="." unique_id=251214534]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 57.0
+offset_right = 1013.2145
+offset_bottom = 629.0
+texture = ExtResource("3_mukbb")
+
+[node name="Fish_Info" type="VBoxContainer" parent="Stall" unique_id=2084525879]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 337.0
+offset_right = 367.0
+offset_bottom = 526.0
+theme_override_constants/separation = 8
+
+[node name="Name_Box" type="Panel" parent="Stall/Fish_Info" unique_id=261157001]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mukbb")
+
+[node name="Fish_Name" type="Label" parent="Stall/Fish_Info/Name_Box" unique_id=918220481]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 252.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Fish Name Here"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Fish_Rarity_Worth" type="HBoxContainer" parent="Stall/Fish_Info" unique_id=17717510]
+layout_mode = 2
+
+[node name="Rarity_Box" type="Panel" parent="Stall/Fish_Info/Fish_Rarity_Worth" unique_id=1647922304]
+custom_minimum_size = Vector2(125, 45)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mukbb")
+
+[node name="Rarity" type="Label" parent="Stall/Fish_Info/Fish_Rarity_Worth/Rarity_Box" unique_id=2002162842]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 118.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Rarity"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Worth_Box" type="Panel" parent="Stall/Fish_Info/Fish_Rarity_Worth" unique_id=1028350584]
+custom_minimum_size = Vector2(125, 45)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mukbb")
+
+[node name="Worth" type="Label" parent="Stall/Fish_Info/Fish_Rarity_Worth/Worth_Box" unique_id=339960415]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 118.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Worth"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Caught_Box" type="Panel" parent="Stall/Fish_Info" unique_id=862755902]
+custom_minimum_size = Vector2(75, 45)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_mukbb")
+
+[node name="Caught" type="Label" parent="Stall/Fish_Info/Caught_Box" unique_id=802692634]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 74.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "Caught: XX"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Description_Box" type="Panel" parent="Stall" unique_id=2065515125]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 350.0
+offset_right = 723.49744
+offset_bottom = 516.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_23nti")
+
+[node name="Description" type="Label" parent="Stall/Description_Box" unique_id=1665215226]
+layout_mode = 1
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 278.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Description of the fish goes here"
+autowrap_mode = 3
+clip_text = true
+
+[node name="Selectable_Fish_2" parent="." unique_id=1633206601 instance=ExtResource("3_23nti")]
+layout_mode = 1
+offset_left = 746.0
+offset_top = 157.0
+offset_right = -297.0
+offset_bottom = -340.0
+script = ExtResource("5_y04r0")
+
+[node name="Button" type="Button" parent="Selectable_Fish_2" unique_id=752180875 node_paths=PackedStringArray("dex")]
+layout_mode = 0
+offset_right = 109.0
+offset_bottom = 151.0
+flat = true
+script = ExtResource("6_03tvv")
+dex = NodePath("../..")
+
+[node name="Selectable_Fish_1" parent="." unique_id=438384103 instance=ExtResource("3_23nti")]
+layout_mode = 1
+offset_left = 624.0
+offset_top = 155.0
+offset_right = -418.0
+offset_bottom = -340.0
+script = ExtResource("5_y04r0")
+
+[node name="Button" type="Button" parent="Selectable_Fish_1" unique_id=2031469355 node_paths=PackedStringArray("dex")]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 109.0
+offset_bottom = 153.0
+flat = true
+script = ExtResource("6_03tvv")
+dex = NodePath("../..")
+
+[node name="Right_Tab" type="Button" parent="." unique_id=1054387013]
+layout_mode = 0
+offset_left = 793.0
+offset_top = 294.0
+offset_right = 897.0
+offset_bottom = 366.0
+icon = ExtResource("6_m7gl5")
+flat = true
+
+[node name="Left_Tab" type="Button" parent="." unique_id=1586314430]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 365.0
+offset_right = 850.0
+offset_bottom = 437.0
+rotation = -3.1415927
+icon = ExtResource("6_m7gl5")
+flat = true
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Selectable_Fish_2/Button" to="Selectable_Fish_2/Button" method="_on_pressed"]
+[connection signal="pressed" from="Selectable_Fish_1/Button" to="Selectable_Fish_1/Button" method="_on_pressed"]
+[connection signal="pressed" from="Right_Tab" to="." method="_on_right_tab_pressed"]
+[connection signal="pressed" from="Left_Tab" to="." method="_on_left_tab_pressed"]

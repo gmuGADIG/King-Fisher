@@ -376,6 +376,7 @@ func unequip_helmet() -> void:
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
 	livewell.addFish(fish)
+	%fishdex.caught_fish(fish)
 	
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val
