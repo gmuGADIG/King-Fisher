@@ -11,7 +11,7 @@ data = PackedVector3Array(0, 2.8999999, -0.8107, 0.5732, 3.3999999, -0.5733, 0, 
 [node name="TreeCone" type="Node3D" unique_id=1632311398]
 
 [node name="tree_cone" parent="." unique_id=532708098 instance=ExtResource("1_lcw2w")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.15476346, 0, -0.25553036)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15476346, 0, -0.25553036)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="tree_cone/Cylinder" parent_id_path=PackedInt32Array(532708098, 183964895) index="0" unique_id=1871619584]
 

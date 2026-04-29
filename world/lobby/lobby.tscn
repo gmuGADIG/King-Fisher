@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
-[ext_resource type="PackedScene" uid="uid://d3ykir648kj0n" path="res://world/props/lobby_boat.tscn" id="4_c06ik"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
@@ -37,10 +36,11 @@ visible = false
 [node name="LobbyHud" parent="." index="6" unique_id=510906849 instance=ExtResource("6_56mmg")]
 mouse_filter = 2
 
-[node name="LobbyBoat" parent="." index="8" unique_id=245968247 instance=ExtResource("4_c06ik")]
-
-[node name="HTerrain" parent="." index="9" unique_id=1398597706]
+[node name="HTerrain" parent="." index="7" unique_id=1398597706]
 visible = false
 
-[node name="Water" parent="." index="10" unique_id=1605700850]
+[node name="Water" parent="." index="8" unique_id=1605700850]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 32, -5, 32)
+
+[node name="LobbyBoat" parent="." index="9" unique_id=245968247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 32)

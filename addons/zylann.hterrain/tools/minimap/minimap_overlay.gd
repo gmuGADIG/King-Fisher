@@ -21,4 +21,3 @@ func set_cursor_position_normalized(pos_norm: Vector2, dir: Vector2):
 	
 	_sprite.position = pos_norm * size
 	_sprite.rotation = dir.angle()
-
