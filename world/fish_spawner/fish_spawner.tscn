@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ctdj3ibc075jn"]
+
+[ext_resource type="Script" uid="uid://cqgu26n0i6xdv" path="res://world/fish_spawner/fish_spawner.gd" id="1_chu62"]
+
+[node name="fish_spawner" type="Node3D" unique_id=486071120]
+script = ExtResource("1_chu62")
+
+[node name="normal_pool" type="CSGPolygon3D" parent="." unique_id=911682390]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mode = 2
+path_node = NodePath("")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="rare_pool" type="CSGPolygon3D" parent="." unique_id=1069757845]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mode = 2
+path_node = NodePath("")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
