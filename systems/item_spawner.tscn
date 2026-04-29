@@ -1,16 +1,18 @@
 [gd_scene format=3 uid="uid://3jux6npjxhxf"]
 
-[ext_resource type="Script" path="res://systems/item_spawner.gd" id="1_ptd0p"]
-[ext_resource type="PackedScene" path="res://items/item_test_1.tscn" id="2_lcldm"]
-[ext_resource type="PackedScene" path="res://items/item_test_2.tscn" id="3_h2xnj"]
+[ext_resource type="Script" uid="uid://bvr3jlrk3064w" path="res://systems/item_spawner.gd" id="1_ptd0p"]
+[ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="3_h2xnj"]
+[ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="4_ekl74"]
+[ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="4_h2xnj"]
+[ext_resource type="PackedScene" uid="uid://dkj6xwkiiqllg" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="5_ekl74"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r7rn"]
-size = Vector3(22.279373, 0.001, 20.828817)
+size = Vector3(51.594765, 0.001, 51.320484)
 
 [node name="ItemSpawner" type="CollisionShape3D" unique_id=1588789630 node_paths=PackedStringArray("spawn_timer")]
 shape = SubResource("BoxShape3D_4r7rn")
 script = ExtResource("1_ptd0p")
-items = Array[PackedScene]([ExtResource("2_lcldm"), ExtResource("3_h2xnj")])
+items = Array[PackedScene]([ExtResource("4_h2xnj"), ExtResource("3_h2xnj"), ExtResource("4_ekl74"), ExtResource("5_ekl74")])
 spawn_rate = 0.8
 spawn_timer = NodePath("SpawnTimer")
 

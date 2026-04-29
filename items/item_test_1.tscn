@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dsnep0jd62s78"]
+[gd_scene format=3 uid="uid://cbxyw0cla70ka"]
 
-[ext_resource type="PackedScene" path="res://items/item_base.tscn" id="1_ww0im"]
-[ext_resource type="Script" uid="uid://cav0ipajdsvbf" path="res://items/item_test_1.gd" id="2_upf11"]
+[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_ww0im"]
+[ext_resource type="Script" path="res://items/item_test_1.gd" id="2_upf11"]
 
 [node name="ItemTest1" unique_id=1566519324 instance=ExtResource("1_ww0im")]
 script = ExtResource("2_upf11")
