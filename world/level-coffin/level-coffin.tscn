@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_shlee"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_5xfro"]
-[ext_resource type="Resource" uid="uid://bebeqqs18rw0c" path="res://world/level-coffin/Terrain/data.hterrain" id="3_5knv3"]
+[ext_resource type="Resource" path="res://world/level-coffin/Terrain/data.hterrain" id="3_5knv3"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_d5165"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_5xfro"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_5knv3"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_o8th1"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_l3gfr"]
-[ext_resource type="Resource" uid="uid://d2xohfjvf1inp" path="res://world/catwalk/terrain/data.hterrain" id="3_cwonv"]
+[ext_resource type="Resource" path="res://world/catwalk/terrain/data.hterrain" id="3_cwonv"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_5gcag"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_cwonv"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_5gcag"]
@@ -139,29 +139,29 @@ transform = Transform3D(0.04263201, 0, 0.026124928, 0, 0.05, 0, -0.026124928, 0,
 [node name="Rock 25" parent="Rocks" index="24" unique_id=586433536 instance=ExtResource("10_xyhru")]
 transform = Transform3D(-0.04120631, 0, -0.028320313, 0, 0.05, 0, 0.028320313, 0, -0.04120631, 20.40823, 0, 4.7732625)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="0" unique_id=1681829372]
+[node name="CSGBox3D2" type="CSGBox3D" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="0" unique_id=1681829372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.71983, 3.527584, 63.024956)
 size = Vector3(23.398376, 8.055176, 42.91104)
 
-[node name="Water" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="1" unique_id=264827860 instance=ExtResource("6_5gcag")]
+[node name="Water" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="1" unique_id=264827860 instance=ExtResource("6_5gcag")]
 transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 64.21508, -0.37459707, 65.52841)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="2" unique_id=749901430]
+[node name="CSGBox3D" type="CSGBox3D" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="2" unique_id=749901430]
 transform = Transform3D(0.70752627, 0, -0.70668703, 0, 1, 0, 0.70668703, 0, 0.70752627, 40.27874, -3.8146973e-06, 63.746002)
 use_collision = true
 size = Vector3(6.5, 0.1, 2)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="3" unique_id=1505882598]
+[node name="CSGBox3D3" type="CSGBox3D" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="3" unique_id=1505882598]
 transform = Transform3D(-0.45992088, 0, -0.88795996, 0, 1, 0, 0.88795996, 0, -0.45992088, 85.3206, -3.8146973e-06, 64.46788)
 use_collision = true
 size = Vector3(7.270447, 0.1, 2)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="4" unique_id=1217564738]
+[node name="CSGBox3D4" type="CSGBox3D" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="4" unique_id=1217564738]
 transform = Transform3D(-0.57694566, 0, 0.81678265, 0, 1, 0, -0.81678265, 0, -0.57694566, 87.34074, 1.3978302, 70.56435)
 size = Vector3(2, 3, 2)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="5" unique_id=1644910983]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="5" unique_id=1644910983]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.50282, 0.9315586, 71.05385)
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="6" unique_id=1525601908]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="6" unique_id=1525601908]
 transform = Transform3D(-0.28234142, -0.959314, 0, -4.1932946e-08, 1.2341536e-08, -1, 0.959314, -0.28234142, -4.371139e-08, 89.646935, 0.47635663, 69.93305)
