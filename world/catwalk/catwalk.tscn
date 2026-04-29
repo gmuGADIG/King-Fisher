@@ -2,13 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_o8th1"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_l3gfr"]
-[ext_resource type="Resource" uid="uid://d2xohfjvf1inp" path="res://world/catwalk/terrain/data.hterrain" id="3_cwonv"]
+[ext_resource type="Resource" path="res://world/catwalk/terrain/data.hterrain" id="3_cwonv"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_5gcag"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_cwonv"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_5gcag"]
-[ext_resource type="PackedScene" uid="uid://dsnep0jd62s78" path="res://items/item_test_1.tscn" id="7_3xaxe"]
-[ext_resource type="PackedScene" uid="uid://ck8obcgulgo8p" path="res://items/item_test_2.tscn" id="8_psob2"]
-[ext_resource type="PackedScene" uid="uid://bqg6ww6eapw01" path="res://items/swingable_item.tscn" id="9_clqaf"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="10_xyhru"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="11_7wsnx"]
 [ext_resource type="PackedScene" uid="uid://bcdu3eu5jmtu2" path="res://world/props/rock_3.tscn" id="12_yblsa"]
@@ -87,7 +84,7 @@ transform = Transform3D(-0.28234142, -0.959314, 0, -4.1932946e-08, 1.2341536e-08
 [node name="ItemSpawner" parent="." index="4" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.041985, 2.4340744, 31.527891)
 shape = SubResource("BoxShape3D_3xaxe")
-items = Array[PackedScene]([ExtResource("7_3xaxe"), ExtResource("8_psob2"), ExtResource("9_clqaf")])
+items = Array[PackedScene]([])
 spawn_rate = 0.4
 max_items = 256
 
