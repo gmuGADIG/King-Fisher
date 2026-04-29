@@ -25,7 +25,7 @@ var displayName: String
 var allowedMaps:Array = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
 
 #var HUD = LobbyHUD.new();
-
+var game_starting : bool = false
 
 func _ready() -> void:
 	# listen for when clients connect -- runs on both client and server
@@ -187,9 +187,11 @@ func _handle_ready_up() -> void:
 		set_ready.rpc_id(1);
 			
 	if multiplayer.is_server():
+    if game_starting: return
 		for player in player_list:
 				if not player_list.get(player).ready:
 					return
+    game_starting = true
 		start_game.emit()
 		start_the_game.rpc()
 			
@@ -204,7 +206,6 @@ func set_map(mapString:String,pool:Array):
 			pool.remove_at(i)
 	allowedMaps = pool
 			
-		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ready_up"):
 		_handle_ready_up()
