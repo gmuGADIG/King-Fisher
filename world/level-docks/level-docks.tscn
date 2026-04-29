@@ -18,6 +18,9 @@ textures = [[ExtResource("8_hbmjt")], [null]]
 
 [node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_sgynd")]
 
+[node name="PauseMenu" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="2" unique_id=509264285]
+script = null
+
 [node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
 transform = Transform3D(0.59285706, -0.4491682, -0.66840756, 0.805308, 0.33067176, 0.49207285, 1.2519363e-08, -0.83000255, 0.55775964, 0, 11.385282, 8.448111)
 
@@ -38,7 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.191938, 5.777874, 33.10114
 visible = false
 
 [node name="HTerrain2" type="Node3D" parent="." index="4" unique_id=1200428160]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.0690465, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 script = ExtResource("2_wox4p")
 _terrain_data = ExtResource("3_nv64i")
 chunk_size = 32

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d3kcjuqjd85l4"]
+[gd_scene format=3 uid="uid://cpxrnifhndybi"]
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_w5lkn"]
 [ext_resource type="PackedScene" uid="uid://3jux6npjxhxf" path="res://systems/item_spawner.tscn" id="2_ay7c0"]
@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom1.glb" id="8_i3fk3"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="9_n6k5e"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="10_gu2qp"]
-[ext_resource type="PackedScene" uid="uid://chdjv4pfi24ch" path="res://world/props/waste_barrel.tscn" id="11_himr8"]
-[ext_resource type="PackedScene" uid="uid://c16dgg4echeu6" path="res://world/props/lilypad.tscn" id="12_nk5xi"]
+[ext_resource type="PackedScene" path="res://world/props/waste_barrel.tscn" id="11_himr8"]
+[ext_resource type="PackedScene" path="res://world/props/lilypad.tscn" id="12_nk5xi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ay7c0"]
 size = Vector3(17.19535, 0.001, 16.858868)
@@ -64,6 +64,21 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
+
+[node name="Water" parent="HTerrain2" index="1" unique_id=1605700850 instance=ExtResource("6_of031")]
+transform = Transform3D(11.138882, 0, 0, 0, 1, 0, 0, 0, 9.9169445, 32.59139, -4.777133, 30.7607)
+
+[node name="Water2" parent="HTerrain2" index="2" unique_id=771130171 instance=ExtResource("6_of031")]
+transform = Transform3D(8.75695, 0, 0, 0, 1, 0, 0, 0, 5.7919073, 26.528404, -3.3631854, 9.390564)
+
+[node name="Water3" parent="HTerrain2" index="3" unique_id=614282266 instance=ExtResource("6_of031")]
+transform = Transform3D(7.200865, 0, 0, 0, 0.99999964, 0, 0, 0, 6.4258895, 10.126705, -2.9697218, 17.618298)
+
+[node name="Water4" parent="HTerrain2" index="4" unique_id=1445647977 instance=ExtResource("6_of031")]
+transform = Transform3D(9.580714, 0, 0, 0, 1, 0, 0, 0, 7.1253176, 35.55115, -3.2199435, 54.411022)
+
+[node name="Water5" parent="HTerrain2" index="5" unique_id=557254310 instance=ExtResource("6_of031")]
+transform = Transform3D(7.303905, 0, 0, 0, 1, 0, 0, 0, 7.1924877, 54.13599, -3.2857285, 43.779575)
 
 [node name="KF_tall_mushroom1" parent="." index="6" unique_id=1348784426 instance=ExtResource("8_i3fk3")]
 transform = Transform3D(9.88555, 0, 0, 0, 8.862167, 0, 0, 0, 11.254225, 32.96766, -10.693903, 32.098057)
@@ -818,18 +833,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.973019, -3.2507825, 8.9056
 
 [node name="lilypad" parent="." index="12" unique_id=1316508312 instance=ExtResource("12_nk5xi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.829699, -3.3457177, 8.81938)
-
-[node name="Water" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="0" unique_id=1605700850 instance=ExtResource("6_of031")]
-transform = Transform3D(11.138882, 0, 0, 0, 1, 0, 0, 0, 9.9169445, 64.623215, -4.777133, 62.78943)
-
-[node name="Water2" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="1" unique_id=429017865 instance=ExtResource("6_of031")]
-transform = Transform3D(8.75695, 0, 0, 0, 1, 0, 0, 0, 5.7919073, 58.56023, -3.3631854, 41.419292)
-
-[node name="Water3" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="2" unique_id=265385136 instance=ExtResource("6_of031")]
-transform = Transform3D(7.200865, 0, 0, 0, 0.99999964, 0, 0, 0, 6.4258895, 42.15853, -2.9697218, 49.647026)
-
-[node name="Water4" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="3" unique_id=146894997 instance=ExtResource("6_of031")]
-transform = Transform3D(9.580714, 0, 0, 0, 1, 0, 0, 0, 7.1253176, 67.58298, -3.2199435, 86.43975)
-
-[node name="Water5" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="4" unique_id=981405356 instance=ExtResource("6_of031")]
-transform = Transform3D(7.303905, 0, 0, 0, 1, 0, 0, 0, 7.1924877, 86.167816, -3.2857285, 75.808304)
