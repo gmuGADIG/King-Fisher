@@ -3,8 +3,13 @@ extends Node3D
 @onready var normal_pool : CSGPolygon3D = $normal_pool
 @onready var rare_pool : CSGPolygon3D = $rare_pool
 
+# The areas of both pools
 var normal_area : float
 var rare_area : float
+
+# The cached indices of the triangles that comprise the polygon
+var normal_tris : PackedInt32Array ## Normal pool triangle index cache
+var rare_tris : PackedInt32Array ## Rare pool triangle index cache
 
 var rng : RandomNumberGenerator
 
@@ -15,9 +20,9 @@ func _ready() -> void:
 	normal_area = get_poly_area(normal_pool)
 	rare_area = get_poly_area(rare_pool)
 	
-	rng = RandomNumberGenerator.new()
+	init_tri_cache()
 	
-	get_random_pool()
+	rng = RandomNumberGenerator.new()
 	
 	print("Normal pool polygonal area: ", normal_area)
 	print("Rare pool polygonal area: ", rare_area)
@@ -31,6 +36,7 @@ func spawn_fish() -> void:
 		return
 	
 	# Choose random point within pool
+	var point := get_random_point(pool)
 	
 	# Choose fish in loot table
 	
@@ -39,9 +45,21 @@ func spawn_fish() -> void:
 	pass
 
 func get_random_point(poly:CSGPolygon3D) -> Vector3:
-	
 	var out : Vector3
+	
+	# TODO:
+	
+	# Based off of which pool we're using, use the appropriate triangle weights 
+	# and choose a triangle.
+	
+	# Sample a random point in the triangle using 
+	
 	return out
+	
+func init_tri_cache() -> void:
+	normal_tris = Geometry2D.triangulate_polygon(normal_pool.polygon)
+	rare_tris = Geometry2D.triangulate_polygon(rare_pool.polygon)
+	pass
 	
 ## Chooses either pool, weighted based off of their areas.
 func get_random_pool() -> CSGPolygon3D:
@@ -58,8 +76,8 @@ func get_random_pool() -> CSGPolygon3D:
 
 ## An implementation of the shoelace formula to calculare the total area of a polygon.
 func get_poly_area(poly:CSGPolygon3D) -> float:
-	var points = poly.polygon
-	var num_points = points.size()
+	var points : PackedVector2Array = poly.polygon
+	var num_points : int = points.size()
 	
 	if (num_points < 3):
 		return 0.0 # must be at least a triangle
