@@ -21,8 +21,11 @@ var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
 var displayName: String
+#Allowed maps starts with a safety in case start game is loaded without going into lobby menu
+var allowedMaps:Array = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
+
 #var HUD = LobbyHUD.new();
-var game_starting : bool = false;
+var game_starting : bool = false
 
 func _ready() -> void:
 	# listen for when clients connect -- runs on both client and server
@@ -159,17 +162,22 @@ func _countdown(duration: int) -> void:
 @rpc("call_local")
 func start_the_game():
 	await _countdown(5)
-	load_players()
+	if(!multiplayer.is_server()):
+		return
+	var levelLoad:String = allowedMaps.pick_random()
+	
+	load_players.rpc(levelLoad)
 	Debug.log(player_list.size())
 	for i in range(player_list.size()):
 		await player_loaded
 	await get_tree().process_frame
-	await _countdown(5)
+	
 	#TODO game goes
 
+@rpc("authority","call_local","reliable")
+func load_players(level: String):
 	
-func load_players():
-	SceneTransition.change_to_file("res://world/level-docks/level-docks.tscn")
+	SceneTransition.change_to_file(level)
 	
 func _handle_ready_up() -> void:
 	if get_tree().get_first_node_in_group("Lobby") == null:
@@ -179,15 +187,25 @@ func _handle_ready_up() -> void:
 		set_ready.rpc_id(1);
 			
 	if multiplayer.is_server():
-		if not game_starting:
-			for player in player_list:
-					if not player_list.get(player).ready:
-						return
-			game_starting = true
-			start_game.emit()
-			start_the_game.rpc()
-				
-
+    if game_starting: return
+		for player in player_list:
+				if not player_list.get(player).ready:
+					return
+    game_starting = true
+		start_game.emit()
+		start_the_game.rpc()
+			
+func set_map(mapString:String,pool:Array):
+	#Array to be returned
+	#Normalize the binary string, has to be the same length as pool
+	for i in range(pool.size()- mapString.length()):
+		mapString = "0" + mapString
+		
+	for i in range(mapString.length()):
+		if mapString[i] == "0":
+			pool.remove_at(i)
+	allowedMaps = pool
+			
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ready_up"):
 		_handle_ready_up()
