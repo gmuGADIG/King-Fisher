@@ -12,7 +12,7 @@ enum Grade{
 @export var fish_name : String
 @export var grade : Grade
 @export var sprite : Texture
-@export var description : String
+@export_multiline var description : String
 
 func _init() -> void:
 	return

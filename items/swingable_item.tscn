@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqg6ww6eapw01"]
 
 [ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_4xhow"]
-[ext_resource type="Script" path="res://items/swingable.gd" id="2_kt7ow"]
+[ext_resource type="Script" uid="uid://dh2nsdnui8o1c" path="res://items/swingable.gd" id="2_kt7ow"]
 
 [node name="Item" unique_id=1566519324 instance=ExtResource("1_4xhow")]
 script = ExtResource("2_kt7ow")
