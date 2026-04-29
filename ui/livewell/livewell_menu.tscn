@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dyc2qekcn8phe"]
+
+[ext_resource type="Script" uid="uid://tdrxdvr5hlfn" path="res://ui/livewell/livewell.gd" id="1_7nkjd"]
+[ext_resource type="PackedScene" uid="uid://o1613vdgdphk" path="res://ui/livewell/livewell_fish.tscn" id="2_gmmwj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmmwj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kg36v"]
+
+[node name="LivewellMenu" type="Control" unique_id=1231020864]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7nkjd")
+fish_info_packed = ExtResource("2_gmmwj")
+
+[node name="Background" type="Panel" parent="." unique_id=1728696874]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ScoreUnderline" type="ColorRect" parent="Background" unique_id=2013261677]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 133.0
+offset_bottom = 74.0
+scale = Vector2(1.3200006, 1)
+size_flags_vertical = 2
+
+[node name="Score" type="Label" parent="Background" unique_id=1966849759]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 27.0
+offset_right = 186.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 32
+text = "0 pts"
+horizontal_alignment = 1
+
+[node name="TopFishPanel" type="PanelContainer" parent="Background" unique_id=1027720861]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.324
+anchor_right = 0.5
+anchor_bottom = 0.324
+offset_left = -531.0
+offset_top = -97.951996
+offset_right = 537.0
+offset_bottom = 130.048
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gmmwj")
+
+[node name="TopFishContainer" type="HBoxContainer" parent="Background/TopFishPanel" unique_id=58572591]
+layout_mode = 2
+
+[node name="BottomFishPanel" type="PanelContainer" parent="Background" unique_id=1550300391]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 369.0
+offset_right = 1113.0
+offset_bottom = 616.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kg36v")
+
+[node name="BottomFishContainer" type="HBoxContainer" parent="Background/BottomFishPanel" unique_id=736676455]
+layout_mode = 2
+
+[node name="ActiveBuffs" type="Label" parent="Background" unique_id=2115363097]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 16.0
+offset_right = 804.1389
+offset_bottom = 88.0
+scale = Vector2(1.44, 1)
+theme_override_font_sizes/font_size = 25
+text = "Nothing"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="ActiveBuffsUnderline" type="ColorRect" parent="Background" unique_id=1095170143]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 0
+offset_left = 551.0
+offset_top = 72.0
+offset_right = 612.0
+offset_bottom = 75.0
+scale = Vector2(2.6703322, 1)
+size_flags_vertical = 2

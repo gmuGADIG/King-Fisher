@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://w5yjcaf0un20"]
+
+[ext_resource type="PackedScene" uid="uid://dr86ithfvvh2v" path="res://art/3d-assets/raw_assets/CampFire.glb" id="1_woc8c"]
+
+[node name="Node3D" type="Node3D" unique_id=2103271767]
+
+[node name="CampFire2" parent="." unique_id=1405098741 instance=ExtResource("1_woc8c")]

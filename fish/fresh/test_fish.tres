@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://b24c5xc4x62cb"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_pefcu"]
+[ext_resource type="Texture2D" uid="uid://c1m08d1w1cq5" path="res://temp/temp_art/fish.png" id="2_vvph3"]
+
+[resource]
+script = ExtResource("1_pefcu")
+fish_name = "Fish Team Fish"
+grade = 2
+sprite = ExtResource("2_vvph3")
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

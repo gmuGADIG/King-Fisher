@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b3gdt0wc7vlco"]
+
+[ext_resource type="PackedScene" uid="uid://ce4bxcgtjcnn7" path="res://art/3d-assets/raw_assets/trees/tree_round.glb" id="1_hujr8"]
+
+[node name="Node3D" type="Node3D" unique_id=726365892]
+
+[node name="tree_round" parent="." unique_id=1091003784 instance=ExtResource("1_hujr8")]

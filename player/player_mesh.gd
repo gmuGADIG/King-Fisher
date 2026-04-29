@@ -1,7 +1,9 @@
+class_name PlayerMesh
 extends Node3D
 
 ##Controls the speed at which the player turns. The domain is measured in radian angle difference, and the value is measured in radians per second
 @export var rotation_speed_curve : Curve
+@export var bones : PhysicalBoneSimulator3D
 
 func turn_towards(target_direction : Vector2, delta : float) -> void:
 	var angle = angle_difference(rotation.y,-target_direction.angle())
