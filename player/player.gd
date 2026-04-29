@@ -18,6 +18,8 @@ var can_exit_ragdoll := false
 
 @export_category("Variables")
 @export var speed := 10.
+var slow_timer := 0.0
+var speed_modifier := 0.0
 
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
@@ -98,10 +100,11 @@ func _process(delta: float) -> void:
 	if not is_multiplayer_authority(): return
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))
+	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
 
+	
 	if not is_on_floor():
 		velocity += GRAVITY * delta * Vector3.DOWN
 	
@@ -125,6 +128,13 @@ func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
 		handle_camera_position()
+	
+	if slow_timer > 0:
+		Debug.log("player %s has been slowed!" % name, "; speed_mod = ", speed_modifier)
+		velocity.x *= 1. - speed_modifier
+		velocity.z *= 1. - speed_modifier
+	
+	#Debug.log("velocity ", velocity)
 
 	move_and_slide()
 	_update_footsteps(delta)
@@ -197,7 +207,7 @@ func _input(event: InputEvent) -> void:
 				assert(held_item != null, "Item is null somehow")
 				assert(held_item is ThrowableItem, "Thrown item is somehow not throable")
 				var throw_item : ThrowableItem = held_item
-				throw_item.use_throwable(%Aiming.get_aim_pos())
+				throw_item.use_throwable.rpc(%Aiming.get_aim_pos())
 				held_item = null
 				%Aiming.stop_aiming()
 			pass
@@ -221,6 +231,11 @@ func _input(event: InputEvent) -> void:
 		#item = null
 		#%Aiming.stop_aiming()
 
+@rpc("call_local")
+func slow(time : float, speed_debuf : float):
+	slow_timer = time
+	speed_modifier = speed_debuf
+	
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
 	velocity = vel
