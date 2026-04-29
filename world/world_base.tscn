@@ -8,11 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://bgjdwnhkngufk" path="res://ui/pause_menu/pause_menu.tscn" id="4_uycxt"]
 [ext_resource type="PackedScene" uid="uid://3jux6npjxhxf" path="res://systems/item_spawner.tscn" id="5_lgvll"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="8_ddkgs"]
+[ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_xvf6j"]
+[ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="9_32lhn"]
 [ext_resource type="Resource" uid="uid://lr43qgruj361" path="res://world/lobby/data.hterrain" id="9_hpp7h"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="10_7trks"]
+[ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="10_cq2ek"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="11_48nxm"]
+[ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="11_uaf31"]
+[ext_resource type="PackedScene" uid="uid://pkvxbw6wyjxu" path="res://items/item_ziplock_bag/item_ziplock_bag.tscn" id="12_belcf"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="12_hpp7h"]
 [ext_resource type="PackedScene" uid="uid://d3ykir648kj0n" path="res://world/props/lobby_boat.tscn" id="13_7trks"]
+[ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="13_k5ckw"]
+[ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="14_34arh"]
 [ext_resource type="Environment" uid="uid://byjvy8xudhe0n" path="res://world/environment.tres" id="14_48nxm"]
 
 [sub_resource type="Resource" id="Resource_ack3r"]
@@ -62,6 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7846797, 0, 1.7462559)
 
 [node name="ItemSpawner" parent="." unique_id=1588789630 instance=ExtResource("5_lgvll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+items = Array[PackedScene]([ExtResource("8_xvf6j"), ExtResource("9_32lhn"), ExtResource("10_cq2ek"), ExtResource("11_uaf31"), ExtResource("12_belcf"), ExtResource("13_k5ckw"), ExtResource("14_34arh")])
 
 [node name="IslandTerrain" type="Node3D" parent="." unique_id=1398597706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -32)
