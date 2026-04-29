@@ -173,7 +173,6 @@ func start_the_game():
 	await get_tree().process_frame
 	
 	#TODO game goes
-	
 
 @rpc("authority","call_local","reliable")
 func load_players(level: String):

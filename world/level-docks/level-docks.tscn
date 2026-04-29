@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_sgynd"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_wox4p"]
 [ext_resource type="Resource" uid="uid://db712r706tn6l" path="res://world/level-docks/terrain/data.hterrain" id="3_nv64i"]
-[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_4k232"]
-[ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/Docks.glb" id="5_nv64i"]
+[ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_4k232"]
+[ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/raw_assets/docks/Docks.glb" id="5_nv64i"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="8_hbmjt"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="9_b1un7"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="11_hbmjt"]
@@ -17,6 +17,9 @@ mode = 0
 textures = [[ExtResource("8_hbmjt")], [null]]
 
 [node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_sgynd")]
+
+[node name="PauseMenu" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="2" unique_id=509264285]
+script = null
 
 [node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
 transform = Transform3D(0.59285706, -0.4491682, -0.66840756, 0.805308, 0.33067176, 0.49207285, 1.2519363e-08, -0.83000255, 0.55775964, 0, 11.385282, 8.448111)
@@ -37,7 +40,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5899878, 5.873664, 56.14649
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.191938, 5.777874, 33.10114)
 visible = false
 
-[node name="HTerrain" type="Node3D" parent="." index="4" unique_id=1200428160]
+[node name="HTerrain2" type="Node3D" parent="." index="4" unique_id=1200428160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 script = ExtResource("2_wox4p")
 _terrain_data = ExtResource("3_nv64i")
 chunk_size = 32
@@ -56,306 +60,307 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." index="5" unique_id=2144106914]
-transform = Transform3D(0.67234147, 0, 0, 0, 2.9638367, 0, 0, 0, 0.659476, 24.358644, 5.50517, 34.50361)
+transform = Transform3D(0.67234147, 0, 0, 0, 2.9638367, 0, 0, 0, 0.659476, 24.358644, 0.4361236, 34.50361)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="." index="6" unique_id=1738900783]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 25.85193, 4.517377, 27.699068)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 25.85193, -0.55166936, 27.699068)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="." index="7" unique_id=2047958899]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 24.794806, 4.517377, 23.12037)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 24.794806, -0.55166936, 23.12037)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="." index="8" unique_id=322568501]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 20.302599, 4.517376, 25.29231)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 20.302599, -0.5516703, 25.29231)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="." index="9" unique_id=1697005125]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 15.650709, 4.517376, 17.592836)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 15.650709, -0.5516703, 17.592836)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="." index="10" unique_id=399847190]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 19.572004, 4.517375, 16.482153)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 19.572004, -0.55167127, 16.482153)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="." index="11" unique_id=1539966200]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 20.401995, 4.517375, 20.364187)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 20.401995, -0.55167127, 20.364187)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="." index="12" unique_id=1774312470]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 14.54265, 4.517375, 25.21154)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 14.54265, -0.55167127, 25.21154)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="." index="13" unique_id=107045713]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 23.099598, 4.517375, 18.012222)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 23.099598, -0.55167127, 18.012222)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="." index="14" unique_id=598620803]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 26.701565, 4.517375, 20.183025)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 26.701565, -0.55167127, 20.183025)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="." index="15" unique_id=1889100142]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 25.771875, 4.517375, 14.534529)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 25.771875, -0.55167127, 14.534529)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="." index="16" unique_id=116188403]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 21.746096, 4.517375, 29.157017)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 21.746096, -0.55167127, 29.157017)
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="." index="17" unique_id=1811974352]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 16.44634, 4.517376, 29.434616)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 16.44634, -0.5516703, 29.434616)
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="." index="18" unique_id=1049164342]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 11.54151, 4.517376, 20.858988)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 11.54151, -0.5516703, 20.858988)
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="." index="19" unique_id=1008452748]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 10.574355, 4.517375, 28.116716)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 10.574355, -0.55167127, 28.116716)
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="." index="20" unique_id=1111299434]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 12.808615, 4.517375, 35.025932)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 12.808615, -0.55167127, 35.025932)
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="." index="21" unique_id=877354542]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 22.872208, 4.517375, 50.90456)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 22.872208, -0.55167127, 50.90456)
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="." index="22" unique_id=722892286]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 13.86618, 4.517375, 44.23368)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 13.86618, -0.55167127, 44.23368)
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="." index="23" unique_id=1742540511]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 20.32201, 4.517375, 37.467365)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 20.32201, -0.55167127, 37.467365)
 
 [node name="CSGBox3D27" type="CSGBox3D" parent="." index="24" unique_id=693350365]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 15.814579, 4.517375, 39.630524)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 15.814579, -0.55167127, 39.630524)
 
 [node name="CSGBox3D28" type="CSGBox3D" parent="." index="25" unique_id=6000313]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 19.575956, 4.517375, 43.25857)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 19.575956, -0.55167127, 43.25857)
 
 [node name="CSGBox3D29" type="CSGBox3D" parent="." index="26" unique_id=851977946]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 9.556774, 4.517375, 40.932407)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 9.556774, -0.55167127, 40.932407)
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="." index="27" unique_id=1654968961]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 13.156932, 4.517375, 50.215908)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 13.156932, -0.55167127, 50.215908)
 
 [node name="CSGBox3D31" type="CSGBox3D" parent="." index="28" unique_id=509690028]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 17.574757, 4.517375, 46.856205)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 17.574757, -0.55167127, 46.856205)
 
 [node name="CSGBox3D32" type="CSGBox3D" parent="." index="29" unique_id=512408257]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 24.146887, 4.517375, 44.546)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 24.146887, -0.55167127, 44.546)
 
 [node name="CSGBox3D33" type="CSGBox3D" parent="." index="30" unique_id=1525152045]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 26.570175, 4.517375, 41.574753)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 26.570175, -0.55167127, 41.574753)
 
 [node name="CSGBox3D34" type="CSGBox3D" parent="." index="31" unique_id=1240017173]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 34.256973, 4.517375, 41.606136)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 34.256973, -0.55167127, 41.606136)
 
 [node name="CSGBox3D35" type="CSGBox3D" parent="." index="32" unique_id=742472371]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 48.841652, 4.517375, 45.094986)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 48.841652, -0.55167127, 45.094986)
 
 [node name="CSGBox3D36" type="CSGBox3D" parent="." index="33" unique_id=55053218]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 37.564243, 4.517375, 48.05725)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 37.564243, -0.55167127, 48.05725)
 
 [node name="CSGBox3D37" type="CSGBox3D" parent="." index="34" unique_id=1197942748]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 37.945286, 4.517375, 39.58651)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 37.945286, -0.55167127, 39.58651)
 
 [node name="CSGBox3D38" type="CSGBox3D" parent="." index="35" unique_id=414825888]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 41.452057, 4.517375, 43.643536)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 41.452057, -0.55167127, 43.643536)
 
 [node name="CSGBox3D39" type="CSGBox3D" parent="." index="36" unique_id=456991499]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 35.2429, 4.517375, 45.10377)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 35.2429, -0.55167127, 45.10377)
 
 [node name="CSGBox3D40" type="CSGBox3D" parent="." index="37" unique_id=1889282504]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 43.25342, 4.517375, 48.724293)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 43.25342, -0.55167127, 48.724293)
 
 [node name="CSGBox3D41" type="CSGBox3D" parent="." index="38" unique_id=1376777572]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 46.693184, 4.517375, 41.555874)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 46.693184, -0.55167127, 41.555874)
 
 [node name="CSGBox3D42" type="CSGBox3D" parent="." index="39" unique_id=1823755840]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 49.532352, 4.517375, 36.863197)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 49.532352, -0.55167127, 36.863197)
 
 [node name="CSGBox3D43" type="CSGBox3D" parent="." index="40" unique_id=1013621551]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 44.487793, 4.517375, 37.13347)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 44.487793, -0.55167127, 37.13347)
 
 [node name="CSGBox3D44" type="CSGBox3D" parent="." index="41" unique_id=1628974268]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 39.386738, 4.517375, 35.13163)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 39.386738, -0.55167127, 35.13163)
 
 [node name="CSGBox3D45" type="CSGBox3D" parent="." index="42" unique_id=2032612774]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 38.441895, 4.517375, 28.20254)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 38.441895, -0.55167127, 28.20254)
 
 [node name="CSGBox3D46" type="CSGBox3D" parent="." index="43" unique_id=427653940]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 33.81738, 4.517375, 13.764119)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 33.81738, -0.55167127, 13.764119)
 
 [node name="CSGBox3D47" type="CSGBox3D" parent="." index="44" unique_id=1936453877]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 44.242035, 4.517375, 21.018284)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 44.242035, -0.55167127, 21.018284)
 
 [node name="CSGBox3D48" type="CSGBox3D" parent="." index="45" unique_id=247843695]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 36.381264, 4.517375, 19.029947)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 36.381264, -0.55167127, 19.029947)
 
 [node name="CSGBox3D49" type="CSGBox3D" parent="." index="46" unique_id=1461565172]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 39.414627, 4.517375, 22.249462)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 39.414627, -0.55167127, 22.249462)
 
 [node name="CSGBox3D50" type="CSGBox3D" parent="." index="47" unique_id=806815712]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 50.045815, 4.517375, 25.373133)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 50.045815, -0.55167127, 25.373133)
 
 [node name="CSGBox3D51" type="CSGBox3D" parent="." index="48" unique_id=49756811]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 43.832672, 4.517375, 25.274122)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 43.832672, -0.55167127, 25.274122)
 
 [node name="CSGBox3D52" type="CSGBox3D" parent="." index="49" unique_id=618872709]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 42.870113, 4.517375, 29.949522)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 42.870113, -0.55167127, 29.949522)
 
 [node name="CSGBox3D53" type="CSGBox3D" parent="." index="50" unique_id=85808696]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 47.790302, 4.517375, 28.75581)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 47.790302, -0.55167127, 28.75581)
 
 [node name="CSGBox3D54" type="CSGBox3D" parent="." index="51" unique_id=1217995168]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 48.825294, 4.517375, 16.344475)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 48.825294, -0.55167127, 16.344475)
 
 [node name="CSGBox3D55" type="CSGBox3D" parent="." index="52" unique_id=137267629]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 48.435585, 4.517375, 21.767637)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 48.435585, -0.55167127, 21.767637)
 
 [node name="CSGBox3D56" type="CSGBox3D" parent="." index="53" unique_id=1256163045]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 41.807796, 4.517375, 16.930769)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 41.807796, -0.55167127, 16.930769)
 
 [node name="CSGBox3D57" type="CSGBox3D" parent="." index="54" unique_id=2054528213]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 38.08329, 4.517375, 13.496043)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 38.08329, -0.55167127, 13.496043)
 
 [node name="CSGBox3D58" type="CSGBox3D" parent="." index="55" unique_id=738389659]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 34.421772, 4.517375, 23.942064)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 34.421772, -0.55167127, 23.942064)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="." index="56" unique_id=732108961]
-transform = Transform3D(4.561802, 0, 0, 0, 0.6389744, 0, 0, 0, 4.4745107, 29.45464, 9.599472, 32.270493)
+transform = Transform3D(4.561802, 0, 0, 0, 0.6389744, 0, 0, 0, 4.4745107, 29.45464, 4.5304255, 32.270493)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="." index="57" unique_id=593971297]
-transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 34.62159, 4.2909403, 36.458908)
+transform = Transform3D(1.355366, 0, 0, 0, 0.6389744, 0, 0, 0, 1.3294307, 34.62159, -0.778106, 36.458908)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." index="58" unique_id=680115924]
-transform = Transform3D(0.67234147, 0, 0, 0, 5.1819015, 0, 0, 0, 0.659476, 25.317026, 5.5051703, 36.020977)
+transform = Transform3D(0.67234147, 0, 0, 0, 5.1819015, 0, 0, 0, 0.659476, 25.317026, 0.4361241, 36.020977)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." index="59" unique_id=1660217682]
-transform = Transform3D(0.67234147, 0, 0, 0, 8.119417, 0, 0, 0, 0.659476, 26.966211, 5.50517, 36.970753)
+transform = Transform3D(0.67234147, 0, 0, 0, 8.119417, 0, 0, 0, 0.659476, 26.966211, 0.4361236, 36.970753)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="." index="60" unique_id=8589396]
-transform = Transform3D(-0.67234135, 0, 0.00011503324, 0, 2.9638364, 0, -0.00011727959, 0, -0.6594759, 35.02413, 5.5051694, 30.184572)
+transform = Transform3D(-0.67234135, 0, 0.00011503324, 0, 2.9638364, 0, -0.00011727959, 0, -0.6594759, 35.02413, 0.43612313, 30.184572)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="." index="61" unique_id=1558766640]
-transform = Transform3D(-0.6723414, 0, 0.00011504069, 0, 5.1819015, 0, -0.00011727214, 0, -0.65947604, 34.066017, 5.50517, 28.667038)
+transform = Transform3D(-0.6723414, 0, 0.00011504069, 0, 5.1819015, 0, -0.00011727214, 0, -0.65947604, 34.066017, 0.4361236, 28.667038)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="." index="62" unique_id=1649543830]
-transform = Transform3D(-0.67234135, 0, 0.000115029514, 0, 8.119416, 0, -0.00011727214, 0, -0.6594759, 32.416996, 5.5051694, 27.716974)
+transform = Transform3D(-0.67234135, 0, 0.000115029514, 0, 8.119416, 0, -0.00011727214, 0, -0.6594759, 32.416996, 0.43612313, 27.716974)
 
-[node name="Water" parent="." index="63" unique_id=1605700850 instance=ExtResource("9_b1un7")]
-transform = Transform3D(27.245312, 0, 0, 0, 1, 0, 0, 0, 26.723963, 30.85643, 4.3165107, 31.936342)
+[node name="Water2" parent="." index="63" unique_id=1605700850 instance=ExtResource("9_b1un7")]
+transform = Transform3D(27.245312, 0, 0, 0, 1, 0, 0, 0, 26.723963, 30.85643, -0.7525356, 31.936342)
 
 [node name="Docks11" parent="." index="64" unique_id=2067378663 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.350761, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.350761, -0.5505297, 32.210533)
 
 [node name="Docks2" parent="." index="65" unique_id=2045940672 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.265274, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.265274, -0.5505297, 32.210533)
 
 [node name="Docks10" parent="." index="66" unique_id=233028629 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.516697, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.516697, -0.5505297, 32.210533)
 
 [node name="Docks3" parent="." index="67" unique_id=1982895608 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.431845, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.431845, -0.5505297, 32.210533)
 
 [node name="Docks8" parent="." index="68" unique_id=43447427 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.694339, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.694339, -0.5505297, 32.210533)
 
 [node name="Docks9" parent="." index="69" unique_id=955457025 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.876319, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.876319, -0.5505297, 32.210533)
 
 [node name="Docks4" parent="." index="70" unique_id=447497974 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.599445, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.599445, -0.5505297, 32.210533)
 
 [node name="Docks5" parent="." index="71" unique_id=95869364 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.785, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.785, -0.5505297, 32.210533)
 
 [node name="Docks7" parent="." index="72" unique_id=905623523 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.093805, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.093805, -0.5505297, 32.210533)
 
 [node name="Docks12" parent="." index="73" unique_id=1160646447 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3123293, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3123293, -0.5505297, 32.210533)
 
 [node name="Docks6" parent="." index="74" unique_id=160120196 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9875145, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9875145, -0.5505297, 32.210533)
 
 [node name="Docks33" parent="." index="75" unique_id=1256496276 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.204315, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.204315, -0.5505297, 32.210533)
 
 [node name="Docks34" parent="." index="76" unique_id=998546858 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.118828, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.118828, -0.5505297, 32.210533)
 
 [node name="Docks35" parent="." index="77" unique_id=1928145153 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.370255, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.370255, -0.5505297, 32.210533)
 
 [node name="Docks36" parent="." index="78" unique_id=11905247 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.2854, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.2854, -0.5505297, 32.210533)
 
 [node name="Docks37" parent="." index="79" unique_id=93255960 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.547894, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.547894, -0.5505297, 32.210533)
 
 [node name="Docks38" parent="." index="80" unique_id=558529172 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.729874, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.729874, -0.5505297, 32.210533)
 
 [node name="Docks39" parent="." index="81" unique_id=749873857 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.453003, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.453003, -0.5505297, 32.210533)
 
 [node name="Docks40" parent="." index="82" unique_id=364815851 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.638557, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.638557, -0.5505297, 32.210533)
 
 [node name="Docks41" parent="." index="83" unique_id=1399002972 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.94736, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.94736, -0.5505297, 32.210533)
 
 [node name="Docks43" parent="." index="84" unique_id=1823294553 instance=ExtResource("5_nv64i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.841072, 4.5185165, 32.210533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.841072, -0.5505297, 32.210533)
 
 [node name="Docks13" parent="." index="85" unique_id=675659557 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 26.469818)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 26.469818)
 
 [node name="Docks15" parent="." index="86" unique_id=88103135 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 22.635754)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 22.635754)
 
 [node name="Docks16" parent="." index="87" unique_id=859677501 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 24.550901)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 24.550901)
 
 [node name="Docks17" parent="." index="88" unique_id=164467483 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 18.813396)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 18.813396)
 
 [node name="Docks18" parent="." index="89" unique_id=419730382 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 14.995377)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 14.995377)
 
 [node name="Docks19" parent="." index="90" unique_id=1852586267 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 20.718502)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 20.718502)
 
 [node name="Docks20" parent="." index="91" unique_id=801303274 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 16.904057)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 16.904057)
 
 [node name="Docks21" parent="." index="92" unique_id=925548762 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 11.212862)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 11.212862)
 
 [node name="Docks22" parent="." index="93" unique_id=1884129258 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 9.431385)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 9.431385)
 
 [node name="Docks23" parent="." index="94" unique_id=829491998 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 13.106571)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 13.106571)
 
 [node name="Docks14" parent="." index="95" unique_id=817216064 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 52.025482)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 52.025482)
 
 [node name="Docks24" parent="." index="96" unique_id=833751318 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 48.191414)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 48.191414)
 
 [node name="Docks25" parent="." index="97" unique_id=1225535140 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 50.106564)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 50.106564)
 
 [node name="Docks26" parent="." index="98" unique_id=394951675 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 44.369057)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 44.369057)
 
 [node name="Docks27" parent="." index="99" unique_id=898687969 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 40.55104)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 40.55104)
 
 [node name="Docks28" parent="." index="100" unique_id=864775041 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 46.274162)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 46.274162)
 
 [node name="Docks29" parent="." index="101" unique_id=530053493 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 42.459717)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 42.459717)
 
 [node name="Docks30" parent="." index="102" unique_id=864332346 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 36.768524)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 36.768524)
 
 [node name="Docks31" parent="." index="103" unique_id=1788622589 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 34.987045)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 34.987045)
 
 [node name="Docks32" parent="." index="104" unique_id=165777091 instance=ExtResource("5_nv64i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, 4.5185156, 38.66223)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.054888, -0.5505307, 38.66223)
 
 [node name="RockForms" type="Node3D" parent="." index="106" unique_id=2064237674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.0690465, 0)
 
 [node name="RockForm1" type="Node3D" parent="RockForms" index="0" unique_id=705877859]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.050854, 5.0471773, 5.5795426)

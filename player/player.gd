@@ -58,6 +58,7 @@ var _last_played_jump_event_id: int = -1
 
 # Item Variables
 var wearing_helmet := false
+var helmet_node : Node = null
 var golden_worm_active := false
 var has_ziplock_bag := false
 
@@ -356,6 +357,21 @@ func use_held_item() -> void:
 	held_item.visible = true
 	held_item.use()
 	held_item=null
+
+func equip_helmet(node : Node) -> void:
+	wearing_helmet = true
+	helmet_node = node
+	helmet_node.get_node("CollisionShape3D").queue_free()
+	helmet_node.reparent(get_node("DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Head"))
+	helmet_node.position = Vector3(0, -0.2, 0.35) # So it fits the player's head
+	helmet_node.rotation = Vector3((-2 * 3.14) / 9, 0, 0) # -40 degrees in radians
+	print("null")
+
+func unequip_helmet() -> void:
+	if !wearing_helmet:
+		return
+	wearing_helmet = false
+	helmet_node.queue_free()
 
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")

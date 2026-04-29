@@ -2,19 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
-[ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="4_vh6de"]
-[ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="5_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
-[ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="6_cuuia"]
-[ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="8_2ii5k"]
-[ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_gc6gh"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_7tkdc"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_c06ik"]
-size = Vector3(61.3161, 0.17199707, 50.24202)
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
+
+[node name="Players" parent="." index="2" unique_id=1891362098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 24)
+
+[node name="PlayerSpawnPoint" parent="Players" index="0" unique_id=1956364351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 0, -1.5)
+
+[node name="PlayerSpawnPoint2" parent="Players" index="1" unique_id=927445426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1, 0, 1.6)
+
+[node name="PlayerSpawnPoint3" parent="Players" index="2" unique_id=805091295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, 0, -1.5)
+
+[node name="PlayerSpawnPoint4" parent="Players" index="3" unique_id=909904993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 0, 1.6)
 
 [node name="ItemSpawner" parent="." index="3" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.467327, 100, 0)
@@ -22,56 +27,20 @@ disable_spawning = true
 spawn_rate = 1.0
 
 [node name="Label3D" type="Label3D" parent="." index="4" unique_id=1976693241]
-transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 0, 3.3720021, -9.835437)
+transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 33.921875, 3.3720002, 6.105423)
 text = "#myawesomelobby"
 
-[node name="Helmet" parent="." index="5" unique_id=621433209 instance=ExtResource("5_vh6de")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.14792, 1.7071879, -5.6133504)
-collision_mask = 3
-item_name = "Helmet"
-
-[node name="LobbySettings" parent="." index="6" unique_id=1718361729 instance=ExtResource("3_vh6de")]
+[node name="LobbySettings" parent="." index="5" unique_id=1718361729 instance=ExtResource("3_vh6de")]
 visible = false
 
-[node name="LobbyHud" parent="." index="7" unique_id=510906849 instance=ExtResource("6_56mmg")]
+[node name="LobbyHud" parent="." index="6" unique_id=510906849 instance=ExtResource("6_56mmg")]
 mouse_filter = 2
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." index="8" unique_id=1793351237]
-collision_mask = 3
-freeze = true
+[node name="HTerrain" parent="." index="7" unique_id=1398597706]
+visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" index="0" unique_id=677414344]
-transform = Transform3D(27.936956, 0, 0, 0, 1, 0, 0, 0, 23.316448, 5.926991, -0.03864783, 0)
-layers = 3
-mesh = SubResource("PlaneMesh_7tkdc")
+[node name="Water" parent="." index="8" unique_id=1605700850]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 32, -5, 32)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="1" unique_id=1749416138]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.610321, -0.093811035, -0.15758514)
-shape = SubResource("BoxShape3D_c06ik")
-
-[node name="Item" parent="." index="9" unique_id=1566519324 instance=ExtResource("4_vh6de")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4872055, 1.2721875, -2.0485163)
-
-[node name="Rock 1" parent="." index="10" unique_id=774182813 instance=ExtResource("6_cuuia")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 0.069156766, 2)
-
-[node name="Walls" parent="." index="11" unique_id=972242853]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.016973, 0, -27.679245)
-
-[node name="BananaPeel" parent="." index="12" unique_id=2098705378 instance=ExtResource("8_2ii5k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.114732, 1.2796102, -5.3503637)
-
-[node name="Item2" parent="." index="13" unique_id=1634365743 instance=ExtResource("8_gc6gh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.751864, 0.62704825, -3.7903962)
-
-[node name="Item3" parent="." index="14" unique_id=1690239968 instance=ExtResource("8_gc6gh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.155457, 0.7194357, 0.6018014)
-
-[node name="Item4" parent="." index="15" unique_id=940916699 instance=ExtResource("8_gc6gh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.131427, 0.6604345, 4.9127903)
-
-[node name="Item5" parent="." index="16" unique_id=81069125 instance=ExtResource("8_gc6gh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.601209, 0.6604345, 5.470289)
-
-[node name="Item6" parent="." index="17" unique_id=1582068991 instance=ExtResource("8_gc6gh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.153288, 0.6604345, -1.213263)
+[node name="LobbyBoat" parent="." index="9" unique_id=245968247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 32)
