@@ -112,7 +112,8 @@ func disconnect_from_game() -> void:
 	# If the host is disconnecting then let everyone else know
 	if multiplayer.is_server():
 		multiplayer.multiplayer_peer = null
-		scan_server.stop()
+		if scan_server: # only not true in editor F6 afaik
+			scan_server.stop()
 		player_list.clear()
 	else:
 		_disconnect_request.rpc_id(1)
