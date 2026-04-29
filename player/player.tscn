@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bx8rb13al7o7e" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://bg5yj4acmsreh" path="res://art/3d-assets/DefaultPlayer.fbx" id="2_ebec5"]
 [ext_resource type="Script" uid="uid://b0w3b5ncyaqf2" path="res://player/player_mesh.gd" id="2_pmesh"]
-[ext_resource type="Curve" uid="uid://bica5djvhxub0" path="res://player/body_rotation_speed_curve.tres" id="4_kb6p2"]
-[ext_resource type="Script" path="res://player/player_id.gd" id="5_g6k8r"]
+[ext_resource type="Curve" path="res://player/body_rotation_speed_curve.tres" id="4_kb6p2"]
+[ext_resource type="Script" uid="uid://dm41gwejdfgy" path="res://player/player_id.gd" id="5_g6k8r"]
 [ext_resource type="Script" uid="uid://bqpwk0pccci1t" path="res://player/ragdoll.gd" id="6_boad6"]
-[ext_resource type="Script" path="res://player/aiming.gd" id="6_g6k8r"]
+[ext_resource type="Script" uid="uid://c3ahl7fgjexil" path="res://player/aiming.gd" id="6_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://gepb6fuq6ysv" path="res://sound/sfx/player/footsteps_grass.tscn" id="7_rgyib"]
 [ext_resource type="PackedScene" uid="uid://5aei5tauflq7" path="res://sound/sfx/player/footsteps_stone.tscn" id="8_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://dqg3ndn6eihef" path="res://sound/sfx/player/player_jump.tscn" id="9_hg6s5"]
@@ -103,7 +103,7 @@ script = ExtResource("2_pmesh")
 rotation_speed_curve = ExtResource("4_kb6p2")
 bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 286419366) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
 
@@ -115,8 +115,8 @@ joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2310064e-13, 0.09682645)
 body_offset = Transform3D(0.010000001, 0, 0, 0, -1.4210858e-16, -0.0100000035, 0, 0.0100000035, -1.4210858e-16, 0, 0.0009682649, -6.217249e-15)
 bone_name = "Pelvis"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -134,8 +134,8 @@ joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.728437e-13, 0.092811055)
 body_offset = Transform3D(0.010000001, 0, 0, 0, -1.4210858e-16, -0.0100000035, 0, 0.0100000035, -1.4210858e-16, 0, 0.0009281109, -8.715251e-15)
 bone_name = "MiddleSpine"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -153,8 +153,8 @@ joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.097981e-06, -1.4683947e-05, 0.09220734)
 body_offset = Transform3D(0.010000002, -5.820766e-11, -4.8430593e-11, -3.0695446e-11, 1.1641532e-10, -0.010000002, 2.910383e-11, 0.010000005, 1.1641532e-10, -5.097536e-08, 0.0009220736, 1.4682882e-07)
 bone_name = "UpperSpine"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -172,8 +172,8 @@ joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8987796e-08, -4.0203333e-05, 0.14141403)
 body_offset = Transform3D(0.009999874, 3.616513e-05, 3.5784768e-05, 3.0468073e-11, 0.0070335832, -0.007108357, -5.0876937e-05, 0.007108269, 0.0070334966, -5.0582244e-06, 0.0010055043, -0.0009943494)
 bone_name = "Head"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -184,15 +184,15 @@ shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
 [node name="Physical Bone Shoulder L" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1590057692]
-transform = Transform3D(-0.0023430062, 0.00027500448, -0.009717752, -0.00040721, -0.009990003, -0.0001845283, -0.009713112, 0.00035248147, 0.0023518624, 0.0013861572, -3.1262665e-05, 0.011039665)
+transform = Transform3D(-0.0023430062, 0.0002750045, -0.009717752, -0.00040721, -0.009990004, -0.0001845283, -0.009713112, 0.00035248147, 0.0023518624, 0.0013861575, -3.1270254e-05, 0.011039665)
 collision_layer = 0
 collision_mask = 9
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3001542e-05, -0.000489419, 0.143953)
-body_offset = Transform3D(0.010000001, -2.5320332e-09, -5.2410996e-08, -5.1101324e-08, 3.0559022e-10, -0.009999998, 2.9394869e-09, 0.010000004, 4.3655746e-10, -5.2247196e-07, 0.0014395297, 4.8941292e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.300154e-05, -0.00049017865, 0.14395301)
+body_offset = Transform3D(0.010000001, -2.590241e-09, -5.2410996e-08, -5.1101324e-08, 3.2014214e-10, -0.009999998, 2.9394869e-09, 0.010000003, 4.3655746e-10, -5.2247196e-07, 0.0014395297, 4.9017253e-06)
 bone_name = "Shoulder L"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -210,8 +210,8 @@ joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44339565e-05, 2.9389068e-06, 0.09613968)
 body_offset = Transform3D(0.0100000035, 4.656613e-10, 1.6007107e-10, 1.8044375e-09, -9.2666596e-08, -0.010000002, 2.3283064e-10, 0.010000005, -9.1968104e-08, -1.44355e-07, 0.00096139684, -2.0547304e-08)
 bone_name = "UpperArm L"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -229,8 +229,8 @@ joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0023586361, -0.0014197584, 0.050785463)
 body_offset = Transform3D(0.009999998, 1.05879735e-07, -4.575122e-08, -4.4557964e-08, 1.4901161e-08, -0.010000001, -1.0570511e-07, 0.01, 1.0244548e-08, -2.3583882e-05, 0.00050785486, 1.4197314e-05)
 bone_name = "Forearm L"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -248,8 +248,8 @@ joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0192017e-05, -1.5797312e-06, 0.14396814)
 body_offset = Transform3D(0.010000002, -5.820766e-10, -1.2278178e-09, -6.5074346e-10, 5.820766e-11, -0.010000003, 2.910383e-11, 0.010000004, 1.6007107e-10, 2.02097e-07, 0.0014396819, 1.5774276e-08)
 bone_name = "Shoulder R"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -260,15 +260,15 @@ shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
 [node name="Physical Bone UpperArm R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=486194789]
-transform = Transform3D(-0.008615248, -0.0010656009, 0.0049640727, 0.0005046803, -0.009908584, -0.0012511195, 0.005052012, -0.0008273435, 0.008590269, -0.0032623797, 0.000120492376, 0.009874841)
+transform = Transform3D(-0.008615248, -0.0010656008, 0.0049640727, 0.0005046803, -0.009908584, -0.0012511195, 0.005052012, -0.0008273435, 0.008590269, -0.0032623797, 0.000120492376, 0.009874841)
 collision_layer = 0
 collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8740595e-05, 6.264344e-06, 0.09611042)
-body_offset = Transform3D(0.01, 3.4173718e-07, 2.154411e-08, 2.1835149e-08, -1.4272518e-07, -0.010000002, -3.4202822e-07, 0.010000008, -1.4191028e-07, 1.8533319e-07, 0.0009611044, -4.901085e-08)
+body_offset = Transform3D(0.01, 3.418536e-07, 2.154411e-08, 2.1835149e-08, -1.4272518e-07, -0.010000002, -3.4202822e-07, 0.010000008, -1.4191028e-07, 1.8533319e-07, 0.0009611044, -4.901085e-08)
 bone_name = "UpperArm R"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -279,15 +279,15 @@ shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
 [node name="Physical Bone Forearm R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=2091765003]
-transform = Transform3D(-0.0081561515, 0.0027557765, 0.005087525, 0.0005903534, -0.008350646, 0.0054697567, 0.0057557537, 0.00476156, 0.006648224, -0.004009396, -4.8686994e-05, 0.008696964)
+transform = Transform3D(-0.0081561515, 0.0027557765, 0.005087525, 0.0005903534, -0.008350645, 0.0054697567, 0.0057557537, 0.0047615594, 0.006648224, -0.004009396, -4.8686994e-05, 0.008696964)
 collision_layer = 0
 collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7056553e-05, -1.6932827e-05, 0.052908055)
-body_offset = Transform3D(0.009999996, -8.731149e-10, 1.1263182e-08, 1.0884833e-08, 3.259629e-09, -0.010000002, -3.4924597e-10, 0.01, -3.259629e-09, 5.699694e-07, 0.00052908063, 1.6950071e-07)
+body_offset = Transform3D(0.009999996, -4.656613e-10, 1.1263182e-08, 1.0884833e-08, 2.7939677e-09, -0.010000002, -3.4924597e-10, 0.01, -3.259629e-09, 5.699694e-07, 0.00052908063, 1.6950071e-07)
 bone_name = "Forearm R"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -305,8 +305,8 @@ joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.507138e-06, -1.9648608e-06, 0.13153869)
 body_offset = Transform3D(0.010000007, 7.1304385e-10, -2.1187589e-08, -2.0721927e-08, -2.1911546e-08, -0.010000007, -7.2759576e-10, 0.010000013, -2.1434971e-08, 5.7858415e-08, 0.0013153879, 2.2468157e-08)
 bone_name = "Thigh L"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -324,8 +324,8 @@ joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6194613e-06, -5.4713264e-06, 0.16517149)
 body_offset = Transform3D(0.010000005, 4.656613e-10, -2.0023435e-08, -1.9557774e-08, 7.3050614e-09, -0.010000007, 1.1641532e-10, 0.010000013, 7.741619e-09, -3.288733e-08, 0.001651716, 5.3434633e-08)
 bone_name = "Shin L"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -343,8 +343,8 @@ joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.36725e-06, -6.9641537e-06, 0.13152683)
 body_offset = Transform3D(0.010000006, -6.4028427e-10, 5.820766e-10, 2.3283064e-10, -6.730261e-10, -0.0100000035, -3.6379788e-10, 0.010000013, -6.9303496e-10, -7.3749106e-08, 0.0013152687, 6.973278e-08)
 bone_name = "Thigh R"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0
@@ -355,15 +355,15 @@ shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
 [node name="Physical Bone Shin R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=2119351414]
-transform = Transform3D(0.0012309741, -0.009906467, 0.0005887508, 0.009864575, 0.0011566562, -0.0011629005, 0.0010839251, 0.0007239276, 0.00991469, -0.0015365831, -0.00015403521, 0.0020237209)
+transform = Transform3D(0.0012309741, -0.009906468, 0.00058875076, 0.009864575, 0.0011566564, -0.0011629005, 0.0010839251, 0.0007239276, 0.00991469, -0.0015365831, -0.00015403521, 0.0020237209)
 collision_layer = 0
 collision_mask = 9
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.225206e-06, -9.579791e-06, 0.16513638)
-body_offset = Transform3D(0.010000002, -2.3283064e-09, 1.9790605e-09, 2.2118911e-09, 7.858034e-10, -0.010000003, 4.656613e-10, 0.010000015, 1.3387762e-09, -4.2578904e-08, 0.0016513643, 9.557698e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2252063e-06, -9.578832e-06, 0.16513638)
+body_offset = Transform3D(0.010000002, -2.561137e-09, 1.9790605e-09, 2.2118911e-09, 7.421477e-10, -0.010000003, 4.656613e-10, 0.010000014, 1.2805685e-09, -4.2578904e-08, 0.0016513643, 9.557698e-08)
 bone_name = "Shin R"
-joint_constraints/swing_span = 19.999994
-joint_constraints/twist_span = 19.999994
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
 joint_constraints/bias = 0.3
 joint_constraints/softness = 0.8
 joint_constraints/relaxation = 1.0

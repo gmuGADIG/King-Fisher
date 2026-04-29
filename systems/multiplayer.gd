@@ -20,7 +20,7 @@ var scan_server: UDPServer
 var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
-var displayName: String
+var displayName: String = "A"
 #Allowed maps starts with a safety in case start game is loaded without going into lobby menu
 var allowedMaps:Array = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
 
@@ -100,10 +100,9 @@ func _on_peer_connected(id: int) -> void:
 	
 	Debug.log("peer ",id," connected")
 	var server = ServerConnection.new()
-	server.playerName = "Player"
 	server.ready = false
+	server.playerName = displayName
 	player_list.set(id,server)
-	player_list.set(id,displayName) #record your displayName
 	new_player.emit(id)
 
 func _on_peer_disconnected(id : int) -> void:
@@ -144,12 +143,14 @@ func learn_player(player_id: int, player_name: String, player_path: NodePath) ->
 	server_conn.playerName = player_name
 	server_conn.player = get_node(player_path)
 	player_list.set(player_id, server_conn)
+	print("LEARN")
+	
 
 func broadcast_player_info() -> void:
 	await get_tree().process_frame
 	for player_id in player_list.keys():
 		var server_conn = player_list.get(player_id)
-		learn_player.rpc(player_id, server_conn.playerName, server_conn.player.get_path())
+		learn_player.rpc(player_id, displayName, server_conn.player.get_path())
 
 func _countdown(duration: int) -> void:
 	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
@@ -220,7 +221,7 @@ func create_server() -> void:
 	peer.create_server(PORT, MAX_CLIENTS)
 	multiplayer.multiplayer_peer = peer
 	var server = ServerConnection.new()
-	server.playerName = "Player"
+	server.playerName = displayName
 	server.ready = true
 	player_list.set(1, server)
 
@@ -235,7 +236,7 @@ func join_server(ip : String) -> void:
 	#multiplayer.connection_failed.connect(show_disconnected_message.bind("join error"))
 	multiplayer.multiplayer_peer = peer
 	var server = ServerConnection.new()
-	server.playerName = "Player"
+	server.playerName = displayName
 	server.ready = false
 	player_list.set(multiplayer.get_unique_id(),server)
 	scan_for_servers = false
@@ -262,8 +263,3 @@ func disconnect_client(msg : String) -> void:
 	#if my_id == id:
 	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
 	return
-@rpc("reliable", "any_peer", "call_remote")
-func update_name(id: int, pname: String) -> void:
-	player_list.set(id,pname) #set late joiners id and name and announce it (for debugging just in case)
-	Debug.log(str(get_multiplayer_authority()) + " got " + str(id))
-	Debug.log(player_list)
