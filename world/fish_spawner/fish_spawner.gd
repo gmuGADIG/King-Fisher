@@ -11,6 +11,10 @@ var rare_area : float
 var normal_tris : PackedInt32Array ## Normal pool triangle index cache
 var rare_tris : PackedInt32Array ## Rare pool triangle index cache
 
+# The areas of each triangle in both polygons
+var normal_weights : Array[float]
+var rare_weights : Array[float]
+
 var rng : RandomNumberGenerator
 
 # [DELETEME] The responsibility of this script is to manage the fish spawning in this particular pool.
@@ -46,28 +50,76 @@ func spawn_fish() -> void:
 	
 	pass
 
+## Gets a random point on the given CSGPolygon
 func get_random_point(poly:CSGPolygon3D) -> Vector3:
-	var out : Vector3
 	var tris : PackedInt32Array
+	var weights : Array[float]
 	
 	# Based off of which pool we're using, use the appropriate triangle weights 
 	# and choose a triangle.
 	if (poly == normal_pool):
-		tris = normal_tris
+		weights = normal_weights
 	else:
-		tris = rare_tris
+		weights = rare_weights
 	
 	# Select a random teiangle using its areas as weight
+	rng.randomize()
+	var index = rng.rand_weighted(PackedFloat32Array(weights))
 	
 	# Sample a random point in the triangle using the parallelogram method
 	# INFO: https://blogs.sas.com/content/iml/2020/10/19/random-points-in-triangle.html (reference later)
+	var a = poly.polygon[tris[index * 3]]
+	var b = poly.polygon[tris[index * 3 + 1]]
+	var c = poly.polygon[tris[index * 3 + 2]]
 	
+	var result = random_point_in_triangle(a, b, c)
 	
-	return out
-	
+	return Vector3(result.x, result.y, 0)
+
+## Takes three points on a 2D plane and returns a random point using the paralellogram method.
+func random_point_in_triangle(a:Vector2, b:Vector2, c:Vector2) -> Vector2:
+	# make two vectors
+	var ab = b - a
+	var ac = c - a
+
+	var u = randf()
+	var v = randf()
+
+	# "reflect" from other side of paralellogram divider into triangle
+	if u + v > 1.0:
+		u = 1.0 - u
+		v = 1.0 - v
+
+	# calculate the resulting point
+	return a + (u * ab) + (v * ac)
+
+## Initializes the triangle cache at the beginning to avoid repeated heavy computation.
 func init_tri_cache() -> void:
 	normal_tris = Geometry2D.triangulate_polygon(normal_pool.polygon)
 	rare_tris = Geometry2D.triangulate_polygon(rare_pool.polygon)
+	
+	# in case they had stuff
+	normal_weights.clear()
+	rare_weights.clear()
+	
+	for i in range(0, normal_tris.size(), 3):
+		var a = normal_pool.polygon[normal_tris[i]]
+		var b = normal_pool.polygon[normal_tris[i + 1]]
+		var c = normal_pool.polygon[normal_tris[i + 2]]
+		
+		var area = 0.5 * abs(a.x*(b.y - c.y) + b.x*(c.y - a.y) + c.x*(a.y - b.y))
+		
+		normal_weights.append(area)
+	
+	for j in range(0, rare_tris.size(), 3):
+		var a = rare_pool.polygon[rare_tris[j]]
+		var b = rare_pool.polygon[rare_tris[j + 1]]
+		var c = rare_pool.polygon[rare_tris[j + 2]]
+		
+		var area = 0.5 * abs(a.x*(b.y - c.y) + b.x*(c.y - a.y) + c.x*(a.y - b.y))
+		
+		rare_weights.append(area)
+	
 	pass
 	
 ## Chooses either pool, weighted based off of their areas.
