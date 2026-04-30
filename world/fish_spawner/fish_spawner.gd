@@ -15,6 +15,8 @@ var rng : RandomNumberGenerator
 
 # [DELETEME] The responsibility of this script is to manage the fish spawning in this particular pool.
 # As such, timing is not within the scope of this script, but rather some other controller script.
+# Furthermore, perhaps this polygon business should be the work of a separate script, 
+# but i'm not sure where i'd begin to do something like that
 
 func _ready() -> void:
 	normal_area = get_poly_area(normal_pool)
@@ -46,13 +48,20 @@ func spawn_fish() -> void:
 
 func get_random_point(poly:CSGPolygon3D) -> Vector3:
 	var out : Vector3
-	
-	# TODO:
+	var tris : PackedInt32Array
 	
 	# Based off of which pool we're using, use the appropriate triangle weights 
 	# and choose a triangle.
+	if (poly == normal_pool):
+		tris = normal_tris
+	else:
+		tris = rare_tris
 	
-	# Sample a random point in the triangle using 
+	# Select a random teiangle using its areas as weight
+	
+	# Sample a random point in the triangle using the parallelogram method
+	# INFO: https://blogs.sas.com/content/iml/2020/10/19/random-points-in-triangle.html (reference later)
+	
 	
 	return out
 	
