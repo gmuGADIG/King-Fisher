@@ -18,6 +18,8 @@ var can_exit_ragdoll := false
 
 @export_category("Variables")
 @export var speed := 10.
+var slow_timer := 0.0
+var speed_modifier := 0.0
 
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
@@ -58,10 +60,11 @@ var _last_played_jump_event_id: int = -1
 
 # Item Variables
 var wearing_helmet := false
+var helmet_node : Node = null
 var golden_worm_active := false
 var has_ziplock_bag := false
 
-@onready var livewell : Control = $LivewellMenu
+@onready var livewell : Livewell = $LivewellMenu
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -97,10 +100,11 @@ func _process(delta: float) -> void:
 	if not is_multiplayer_authority(): return
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))
+	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
 
+	
 	if not is_on_floor():
 		velocity += GRAVITY * delta * Vector3.DOWN
 	
@@ -124,6 +128,13 @@ func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
 		handle_camera_position()
+	
+	if slow_timer > 0:
+		Debug.log("player %s has been slowed!" % name, "; speed_mod = ", speed_modifier)
+		velocity.x *= 1. - speed_modifier
+		velocity.z *= 1. - speed_modifier
+	
+	#Debug.log("velocity ", velocity)
 
 	move_and_slide()
 	_update_footsteps(delta)
@@ -163,7 +174,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
-		ragdoll_phys.ragdoll(10, true)
+		# ragdoll_phys.ragdoll(10, true)
+		for i in livewell.fish_inventory.keys():
+			Debug.log(i)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	
@@ -194,7 +207,7 @@ func _input(event: InputEvent) -> void:
 				assert(held_item != null, "Item is null somehow")
 				assert(held_item is ThrowableItem, "Thrown item is somehow not throable")
 				var throw_item : ThrowableItem = held_item
-				throw_item.use_throwable(%Aiming.get_aim_pos())
+				throw_item.use_throwable.rpc(%Aiming.get_aim_pos())
 				held_item = null
 				%Aiming.stop_aiming()
 			pass
@@ -218,6 +231,11 @@ func _input(event: InputEvent) -> void:
 		#item = null
 		#%Aiming.stop_aiming()
 
+@rpc("call_local")
+func slow(time : float, speed_debuf : float):
+	slow_timer = time
+	speed_modifier = speed_debuf
+	
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
 	velocity = vel
@@ -337,10 +355,13 @@ func pick_up_item(item: Item) -> void:
 	
 	# If you already have an item, don't pick up another one.
 	if held_item!=null: return
-	item.reparent(self, false)
+	# TODO: Parent to player hand instead, with an offset for appropriate placement.
+	# Item origin is center/pickup area. Item hold point is offset in pos+rot.
+	item.reparent($DefaultPlayer, false)
 	held_item = item
+	held_item.player = self
 	held_item.is_held = true
-	held_item.position = Vector3.ZERO
+	held_item.position = Vector3.ZERO + Vector3(0,1,0)
 	# Hide the item. Nobody will know you have it until you use it.
 	held_item.visible=false
 
@@ -348,16 +369,29 @@ func pick_up_item(item: Item) -> void:
 func use_held_item() -> void:
 	# If you don't have an item, don't try and use a nonexistent item.
 	if held_item==null:return
+	held_item.visible = true
 	held_item.use()
 	held_item=null
+
+func equip_helmet(node : Node) -> void:
+	wearing_helmet = true
+	helmet_node = node
+	helmet_node.get_node("CollisionShape3D").queue_free()
+	helmet_node.reparent(get_node("DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Head"))
+	helmet_node.position = Vector3(0, -0.2, 0.35) # So it fits the player's head
+	helmet_node.rotation = Vector3((-2 * 3.14) / 9, 0, 0) # -40 degrees in radians
+	print("null")
+
+func unequip_helmet() -> void:
+	if !wearing_helmet:
+		return
+	wearing_helmet = false
+	helmet_node.queue_free()
 
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
 	livewell.addFish(fish)
+	%fishdex.caught_fish(fish)
 	
-func take_fish(fish : Fish) -> void:
-	Debug.log("Player lost fish!")
-	livewell.removeFish(fish)
-
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val

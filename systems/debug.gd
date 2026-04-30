@@ -7,6 +7,8 @@ enum LogMode{
 }
 
 @export var log_mode : LogMode = LogMode.ALL
+@export var disable_backing_track : bool = false
+
 
 func client_id() -> String:
 	return str(multiplayer.get_unique_id()).lpad(10,"0")
