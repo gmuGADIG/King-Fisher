@@ -16,6 +16,17 @@
 [ext_resource type="PackedScene" uid="uid://b3gdt0wc7vlco" path="res://art/3d-assets/props/trees/round_tree.tscn" id="13_avryw"]
 [ext_resource type="PackedScene" uid="uid://dche7r4hjft4o" path="res://art/3d-assets/raw_assets/Coffin.tscn" id="14_koh0r"]
 [ext_resource type="Script" uid="uid://ct4ard841jdqa" path="res://world/lobby/boatRocking.gd" id="16_avryw"]
+[ext_resource type="PackedScene" uid="uid://42jf3ok2me41" path="res://world/props/wooden_crate.tscn" id="17_jepsa"]
+[ext_resource type="PackedScene" uid="uid://bxi66j138td6p" path="res://world/props/crystals/aqua/crystal_aqua01.tscn" id="18_ddkw3"]
+[ext_resource type="PackedScene" uid="uid://ceto02c21y6kh" path="res://world/props/crystals/green/crystal_green02.tscn" id="19_hydvg"]
+[ext_resource type="PackedScene" uid="uid://dodayworhum0j" path="res://world/props/crystals/magenta/crystal_magenta01.tscn" id="20_vna8e"]
+[ext_resource type="PackedScene" uid="uid://bxa1ul57axj3y" path="res://world/props/crystals/magenta/crystal_magenta03.tscn" id="21_81e78"]
+[ext_resource type="PackedScene" uid="uid://q0sfl3xq0wbw" path="res://world/props/crystals/purple/crystal_purple01.tscn" id="22_buca5"]
+[ext_resource type="PackedScene" uid="uid://c7st2mjadras" path="res://world/props/crystals/purple/crystal_purple03.tscn" id="23_a2c0j"]
+[ext_resource type="PackedScene" uid="uid://djpjj17tyi1y7" path="res://world/props/crystals/purple/crystal_purple04.tscn" id="24_4urx3"]
+[ext_resource type="PackedScene" uid="uid://bdmy6bwurdgvx" path="res://world/props/crystals/green/crystal_green01.tscn" id="25_0t8ow"]
+[ext_resource type="PackedScene" uid="uid://dx8xskacp62jy" path="res://world/props/crystals/green/crystal_green03.tscn" id="26_e2q8b"]
+[ext_resource type="PackedScene" uid="uid://65vcl3um8ss8" path="res://world/props/crystals/aqua/crystal_aqua03.tscn" id="27_ca7ok"]
 
 [sub_resource type="Resource" id="Resource_7o8e7"]
 script = ExtResource("4_d5165")
@@ -197,11 +208,56 @@ transform = Transform3D(0.015856473, 0.46812397, -0.8835205, -0.99942696, 0.0338
 visible = false
 
 [node name="Node3D2" parent="." index="12" unique_id=637064028 instance=ExtResource("11_dit1s")]
-transform = Transform3D(1.0000001, 0, 0, 0, -4.3711392e-08, -1, 0, 1.0000001, -4.371139e-08, 29.962122, 2.3187754, 27.512682)
+transform = Transform3D(-4.3711392e-08, -1.0000001, 0, 1.0000001, -4.3711392e-08, 0, 0, 0, 1, 29.962122, 2.3187754, 27.512682)
 script = ExtResource("16_avryw")
 
 [node name="Cylinder_001" parent="Node3D2/tree_cone" parent_id_path=PackedInt32Array(637064028, 1031717448) index="1" unique_id=469544597]
 visible = false
+
+[node name="Node3D3" parent="." index="13" unique_id=856514420 instance=ExtResource("17_jepsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.349808, 1.0000057, 43.64894)
+
+[node name="Node3D4" parent="." index="14" unique_id=406351815 instance=ExtResource("17_jepsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.145214, 3.0000057, 42.90333)
+
+[node name="Node3D5" parent="." index="15" unique_id=143767066 instance=ExtResource("17_jepsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.99899, 0.99792457, 41.2293)
+
+[node name="Node3D6" parent="." index="16" unique_id=378945010 instance=ExtResource("18_ddkw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.959877, 4.9718056, 36.057762)
+
+[node name="Node3D7" parent="." index="17" unique_id=477597480 instance=ExtResource("19_hydvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.01047, 5.0933785, 28.177021)
+
+[node name="Node3D8" parent="." index="18" unique_id=233047582 instance=ExtResource("20_vna8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.67805, 0.5442374, 13.218027)
+
+[node name="Node3D9" parent="." index="19" unique_id=1623532049 instance=ExtResource("21_81e78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.44002, 0.06596424, 23.187626)
+
+[node name="Node3D10" parent="." index="20" unique_id=922699807 instance=ExtResource("22_buca5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.10761, 1.2550914, 9.365497)
+
+[node name="Node3D11" parent="." index="21" unique_id=934500867 instance=ExtResource("23_a2c0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.15375, 2.0735085, 9.255755)
+
+[node name="Node3D12" parent="." index="22" unique_id=2082829010 instance=ExtResource("24_4urx3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.43372, 2.0618527, 9.482683)
+
+[node name="Node3D13" parent="." index="23" unique_id=313880103 instance=ExtResource("19_hydvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.85908, 1.4174706, 6.5289145)
+
+[node name="Node3D14" parent="." index="24" unique_id=1521923706 instance=ExtResource("25_0t8ow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.933388, 2.0566072, 12.743251)
+
+[node name="Node3D15" parent="." index="25" unique_id=593585714 instance=ExtResource("26_e2q8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.013123, 1.7089734, 8.690528)
+
+[node name="Node3D16" parent="." index="26" unique_id=739361822 instance=ExtResource("18_ddkw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.506813, 1.967886, 11.994005)
+
+[node name="Node3D17" parent="." index="27" unique_id=1306359248 instance=ExtResource("27_ca7ok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.696068, 2.1204445, 11.387406)
 
 [editable path="IslandTerrain/Node3D2"]
 [editable path="IslandTerrain/Node3D2/tree_cone"]
