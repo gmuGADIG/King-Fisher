@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dlvx57h3on4id"]
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_sgynd"]
+[ext_resource type="Script" uid="uid://gcho7uv032l6" path="res://world/world_gameplay.gd" id="2_nx4m1"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_wox4p"]
 [ext_resource type="Resource" uid="uid://db712r706tn6l" path="res://world/level-docks/terrain/data.hterrain" id="3_nv64i"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_4k232"]
-[ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/Docks.glb" id="5_nv64i"]
+[ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/raw_assets/docks/Docks.glb" id="5_nv64i"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="8_hbmjt"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="9_b1un7"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="11_hbmjt"]
@@ -16,7 +17,9 @@ script = ExtResource("4_4k232")
 mode = 0
 textures = [[ExtResource("8_hbmjt")], [null]]
 
-[node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_sgynd")]
+[node name="Docks" unique_id=1821617715 node_paths=PackedStringArray("hud") instance=ExtResource("1_sgynd")]
+script = ExtResource("2_nx4m1")
+hud = NodePath("CanvasLayer/GameHud")
 
 [node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
 transform = Transform3D(0.59285706, -0.4491682, -0.66840756, 0.805308, 0.33067176, 0.49207285, 1.2519363e-08, -0.83000255, 0.55775964, 0, 11.385282, 8.448111)
@@ -37,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5899878, 5.873664, 56.14649
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.191938, 5.777874, 33.10114)
 visible = false
 
-[node name="HTerrain" type="Node3D" parent="." index="4" unique_id=1200428160]
+[node name="HTerrain2" type="Node3D" parent="." index="4" unique_id=1200428160]
 script = ExtResource("2_wox4p")
 _terrain_data = ExtResource("3_nv64i")
 chunk_size = 32
@@ -230,7 +233,7 @@ transform = Transform3D(-0.6723414, 0, 0.00011504069, 0, 5.1819015, 0, -0.000117
 [node name="CSGBox3D6" type="CSGBox3D" parent="." index="62" unique_id=1649543830]
 transform = Transform3D(-0.67234135, 0, 0.000115029514, 0, 8.119416, 0, -0.00011727214, 0, -0.6594759, 32.416996, 5.5051694, 27.716974)
 
-[node name="Water" parent="." index="63" unique_id=1605700850 instance=ExtResource("9_b1un7")]
+[node name="Water2" parent="." index="63" unique_id=1605700850 instance=ExtResource("9_b1un7")]
 transform = Transform3D(27.245312, 0, 0, 0, 1, 0, 0, 0, 26.723963, 30.85643, 4.3165107, 31.936342)
 
 [node name="Docks11" parent="." index="64" unique_id=2067378663 instance=ExtResource("5_nv64i")]

@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://d3kcjuqjd85l4"]
+[gd_scene format=3 uid="uid://cpxrnifhndybi"]
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_w5lkn"]
 [ext_resource type="PackedScene" uid="uid://3jux6npjxhxf" path="res://systems/item_spawner.tscn" id="2_ay7c0"]
+[ext_resource type="Script" uid="uid://gcho7uv032l6" path="res://world/world_gameplay.gd" id="2_lnltq"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_uq7of"]
 [ext_resource type="Resource" uid="uid://bsvpg3fo22nud" path="res://world/level_mushroom/terrain/data.hterrain" id="3_dowhw"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_of031"]
@@ -23,7 +24,10 @@ script = ExtResource("4_of031")
 mode = 0
 textures = [[ExtResource("5_dowhw")], [null]]
 
-[node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_w5lkn")]
+[node name="Mushroom" unique_id=1821617715 node_paths=PackedStringArray("water_pools") instance=ExtResource("1_w5lkn")]
+script = ExtResource("2_lnltq")
+water_pools = []
+water_pool_weights = []
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.577248, 3.6355288, 12.281741)
@@ -45,7 +49,7 @@ shape = SubResource("BoxShape3D_ay7c0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.083595, 0, 12.705284)
 shape = SubResource("BoxShape3D_of031")
 
-[node name="HTerrain" type="Node3D" parent="." index="5" unique_id=821433675]
+[node name="HTerrain2" type="Node3D" parent="." index="5" unique_id=821433675]
 script = ExtResource("2_uq7of")
 _terrain_data = ExtResource("3_dowhw")
 chunk_size = 32
@@ -63,21 +67,6 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
-
-[node name="Water" parent="HTerrain" index="0" unique_id=1605700850 instance=ExtResource("6_of031")]
-transform = Transform3D(11.138882, 0, 0, 0, 1, 0, 0, 0, 9.9169445, 32.628723, -4.777133, 30.759897)
-
-[node name="Water2" parent="HTerrain" index="1" unique_id=429017865 instance=ExtResource("6_of031")]
-transform = Transform3D(8.75695, 0, 0, 0, 1, 0, 0, 0, 5.7919073, 26.565742, -3.3631854, 9.38976)
-
-[node name="Water3" parent="HTerrain" index="2" unique_id=265385136 instance=ExtResource("6_of031")]
-transform = Transform3D(7.200865, 0, 0, 0, 0.99999964, 0, 0, 0, 6.4258895, 10.164045, -2.9697218, 17.617495)
-
-[node name="Water4" parent="HTerrain" index="3" unique_id=146894997 instance=ExtResource("6_of031")]
-transform = Transform3D(9.580714, 0, 0, 0, 1, 0, 0, 0, 7.1253176, 35.588486, -3.2199435, 54.410217)
-
-[node name="Water5" parent="HTerrain" index="4" unique_id=981405356 instance=ExtResource("6_of031")]
-transform = Transform3D(7.303905, 0, 0, 0, 1, 0, 0, 0, 7.1924877, 54.173332, -3.2857285, 43.778774)
 
 [node name="KF_tall_mushroom1" parent="." index="6" unique_id=1348784426 instance=ExtResource("8_i3fk3")]
 transform = Transform3D(9.88555, 0, 0, 0, 8.862167, 0, 0, 0, 11.254225, 32.96766, -10.693903, 32.098057)
@@ -826,3 +815,18 @@ transform = Transform3D(0.4800908, 0, -0.16297808, 0, 0.5070001, 0, 0.1629781, 0
 
 [node name="Rock 54" parent="LakeRocks/Ring04" index="53" unique_id=144246168 instance=ExtResource("9_n6k5e")]
 transform = Transform3D(0.4592842, 0, -0.3552566, 0, 0.5806454, 0, 0.35525674, 0, 0.45928398, -0.33203125, 2.4016228, 36.646103)
+
+[node name="Water" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="0" unique_id=1605700850 instance=ExtResource("6_of031")]
+transform = Transform3D(11.138882, 0, 0, 0, 1, 0, 0, 0, 9.9169445, 32.628723, -4.777133, 30.759897)
+
+[node name="Water2" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="1" unique_id=429017865 instance=ExtResource("6_of031")]
+transform = Transform3D(8.75695, 0, 0, 0, 1, 0, 0, 0, 5.7919073, 26.565742, -3.3631854, 9.38976)
+
+[node name="Water3" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="2" unique_id=265385136 instance=ExtResource("6_of031")]
+transform = Transform3D(7.200865, 0, 0, 0, 0.99999964, 0, 0, 0, 6.4258895, 10.164045, -2.9697218, 17.617495)
+
+[node name="Water4" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="3" unique_id=146894997 instance=ExtResource("6_of031")]
+transform = Transform3D(9.580714, 0, 0, 0, 1, 0, 0, 0, 7.1253176, 35.588486, -3.2199435, 54.410217)
+
+[node name="Water5" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="4" unique_id=981405356 instance=ExtResource("6_of031")]
+transform = Transform3D(7.303905, 0, 0, 0, 1, 0, 0, 0, 7.1924877, 54.173332, -3.2857285, 43.778774)

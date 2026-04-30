@@ -158,7 +158,15 @@ func _countdown(duration: int) -> void:
 
 @rpc("call_local")
 func start_the_game():
+	##TODO: Pick Song
+	##TODO: Select map
+	
+	##TODO: More stuff added to this to set up in WorldGameplay
+	set_up_round_settings.rpc(
+		LobbySettings.roundTime
+	)
 	await _countdown(5)
+	
 	load_players()
 	Debug.log(player_list.size())
 	for i in range(player_list.size()):
@@ -167,7 +175,11 @@ func start_the_game():
 	await _countdown(5)
 	#TODO game goes
 
-	
+
+@rpc("call_local","reliable","authority")
+func set_up_round_settings(round_time : float) -> void:
+	WorldGameplay.round_time = round_time
+
 func load_players():
 	SceneTransition.change_to_file("res://world/level-docks/level-docks.tscn")
 	
