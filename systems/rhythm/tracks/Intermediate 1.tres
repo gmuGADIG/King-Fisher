@@ -89,5 +89,6 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]
 script = ExtResource("2_4ild1")
+bpm = 120.0
 notes = Array[ExtResource("1_mcca1")]([SubResource("Resource_mcca1"), SubResource("Resource_4ild1"), SubResource("Resource_sped0"), SubResource("Resource_dl5fr"), SubResource("Resource_rd6i5"), SubResource("Resource_wwugl"), SubResource("Resource_rywwr"), SubResource("Resource_pfy3e"), SubResource("Resource_wboyf"), SubResource("Resource_m8ubw"), SubResource("Resource_dvb5h"), SubResource("Resource_84xq1"), SubResource("Resource_y5qmn"), SubResource("Resource_4acqc"), SubResource("Resource_ot5am"), SubResource("Resource_wbuel")])
 metadata/_custom_type_script = "uid://duodpj15swkyd"
