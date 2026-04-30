@@ -23,6 +23,8 @@ var speed_modifier := 0.0
 
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
+var fish_inventory: Array[Fish]
+var score: int = 0
 var aim_mode : AimMode = AimMode.NONE
 
 @onready var camera_mount : Node3D = $CameraMount
@@ -175,8 +177,8 @@ func _input(event: InputEvent) -> void:
 		pass
 	if event.is_action_pressed("test1"):
 		# ragdoll_phys.ragdoll(10, true)
-		for i in livewell.fish_inventory.keys():
-			Debug.log(i)
+		for fish in fish_inventory:
+			Debug.log(fish.fish_name)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	
@@ -230,6 +232,15 @@ func _input(event: InputEvent) -> void:
 		#held_item = null
 		#item = null
 		#%Aiming.stop_aiming()
+	
+	## TODO remove these two debug actions
+	if event.is_action_pressed("add_fish"):
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		give_fish(newFish)
+	if event.is_action_pressed("remove_fish"):
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		take_fish(newFish)
+
 
 @rpc("call_local")
 func slow(time : float, speed_debuf : float):
@@ -389,9 +400,20 @@ func unequip_helmet() -> void:
 	helmet_node.queue_free()
 
 func give_fish(fish : Fish) -> void:
-	Debug.log("Player got fish!")
-	livewell.addFish(fish)
+	Debug.log("Player " + self.name + " got a " + fish.fish_name)
+	fish_inventory.append(fish)
+	score+=fish.get_score()
+	#livewell.addFish(fish)
+	#TODO update livewell ui
 	%fishdex.caught_fish(fish)
-	
+
+func take_fish(fish: Fish) -> void:
+	if fish_inventory.has(fish):
+		fish_inventory.erase(fish)
+		score-=fish.get_score()
+		#TODO update livewell ui
+		Debug.log("Player " + self.name +" lost a " + fish.fish_name)
+	else:
+		Debug.log("Player " + self.name + " doesn't have a " + fish.fish_name + " to take!")
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val

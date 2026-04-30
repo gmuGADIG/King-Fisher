@@ -22,25 +22,69 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="ScoreUnderline" type="ColorRect" parent="Background" unique_id=2013261677]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 0
-offset_left = 72.0
-offset_top = 72.0
-offset_right = 133.0
-offset_bottom = 74.0
-scale = Vector2(1.3200006, 1)
-size_flags_vertical = 2
-
-[node name="Score" type="Label" parent="Background" unique_id=1966849759]
+[node name="Score" type="RichTextLabel" parent="Background" unique_id=733993845]
 layout_mode = 0
 offset_left = 36.0
 offset_top = 27.0
 offset_right = 186.0
 offset_bottom = 72.0
-theme_override_font_sizes/font_size = 32
-text = "0 pts"
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[u]0 pts[/u]"
 horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Background" unique_id=464157247]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -218.0
+offset_right = 494.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 185
+theme_override_constants/v_separation = 216
+columns = 5
+
+[node name="LivewellFish" parent="Background/GridContainer" unique_id=516879486 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish2" parent="Background/GridContainer" unique_id=1774805144 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish3" parent="Background/GridContainer" unique_id=1895704499 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish4" parent="Background/GridContainer" unique_id=213045050 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish5" parent="Background/GridContainer" unique_id=102584016 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish6" parent="Background/GridContainer" unique_id=1921147689 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish7" parent="Background/GridContainer" unique_id=1262640203 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish8" parent="Background/GridContainer" unique_id=930543174 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish9" parent="Background/GridContainer" unique_id=912842426 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish10" parent="Background/GridContainer" unique_id=359828787 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish11" parent="Background/GridContainer" unique_id=1090087156 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
+
+[node name="LivewellFish12" parent="Background/GridContainer" unique_id=2123249867 instance=ExtResource("2_gmmwj")]
+layout_mode = 2
 
 [node name="TopFishPanel" type="PanelContainer" parent="Background" unique_id=1027720861]
 layout_mode = 1
@@ -69,25 +113,15 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_kg36v")
 [node name="BottomFishContainer" type="HBoxContainer" parent="Background/BottomFishPanel" unique_id=736676455]
 layout_mode = 2
 
-[node name="ActiveBuffs" type="Label" parent="Background" unique_id=2115363097]
+[node name="ActiveBuffs" type="RichTextLabel" parent="Background" unique_id=87351982]
 layout_mode = 0
 offset_left = 184.0
 offset_top = 16.0
 offset_right = 804.1389
 offset_bottom = 88.0
 scale = Vector2(1.44, 1)
-theme_override_font_sizes/font_size = 25
-text = "Nothing"
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[u]No Active Buffs[/u]"
 horizontal_alignment = 1
 vertical_alignment = 1
-clip_text = true
-
-[node name="ActiveBuffsUnderline" type="ColorRect" parent="Background" unique_id=1095170143]
-custom_minimum_size = Vector2(0, 3)
-layout_mode = 0
-offset_left = 551.0
-offset_top = 72.0
-offset_right = 612.0
-offset_bottom = 75.0
-scale = Vector2(2.6703322, 1)
-size_flags_vertical = 2

@@ -117,49 +117,47 @@ func changeScore(change : int):
 	score_underline.position.x = score.position.x + (score.size.x / 2) - (score_underline.size.x / 1.5)
 
 func updateVisuals() -> void:
-	for fish_name in fish_sorted_inventory:
-		var fish = fish_inventory.get(fish_name)
-		var fish_location = null
-
-		if top_fish.has(fish_name): fish_location = top_fish
-		elif bottom_fish.has(fish_name): fish_location = bottom_fish
-
-		if fish_location != top_fish and fish_location != bottom_fish:
-			var fish_info : LivewellFish = fish_info_packed.instantiate()
-			fish_info.name = fish_name
-			fish_info.set_fish(fish.fish.sprite.get_path(), fish)
-			if top_fish_container.get_child_count() < 5:
-				top_fish_container.add_child(fish_info)
-				top_fish.set(fish_name, fish_info)
-			else:
-				bottom_fish_container.add_child(fish_info)
-				bottom_fish.set(fish_name, fish_info)
-		else:
-			var fish_info : LivewellFish = fish_location.get(fish_name)
-			if fish.fish_count == 0:
-				fish_info.queue_free()
-				top_fish.erase(fish_name)
-				fish_inventory.erase(fish_name)
-				fish_sorted_inventory.erase(fish_name)
-			elif fish.fish_count > 1:
-				fish_info.count.text = str(fish.fish_count) + "x"
-				fish_info.count.visible = true
-			else:
-				fish_info.count.visible = false
-
+	#for fish_name in fish_sorted_inventory:
+		#var fish = fish_inventory.get(fish_name)
+		#var fish_location = null
+#
+		#if top_fish.has(fish_name): fish_location = top_fish
+		#elif bottom_fish.has(fish_name): fish_location = bottom_fish
+#
+		#if fish_location != top_fish and fish_location != bottom_fish:
+			#var fish_info : LivewellFish = fish_info_packed.instantiate()
+			#fish_info.name = fish_name
+			#fish_info.set_fish(fish.fish.sprite.get_path(), fish)
+			#if top_fish_container.get_child_count() < 5:
+				#top_fish_container.add_child(fish_info)
+				#top_fish.set(fish_name, fish_info)
+			#else:
+				#bottom_fish_container.add_child(fish_info)
+				#bottom_fish.set(fish_name, fish_info)
+		#else:
+			#var fish_info : LivewellFish = fish_location.get(fish_name)
+			#if fish.fish_count == 0:
+				#fish_info.queue_free()
+				#top_fish.erase(fish_name)
+				#fish_inventory.erase(fish_name)
+				#fish_sorted_inventory.erase(fish_name)
+			#elif fish.fish_count > 1:
+				#fish_info.count.text = str(fish.fish_count) + "x"
+				#fish_info.count.visible = true
+			#else:
+				#fish_info.count.visible = false
+	pass
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("livewell_menu"):
 		visible = !visible
-	if event.is_action_pressed("add_fish"):
-		var newFish : Fish = load("res://fish/fresh/test_fish.tres")
-		var newFish1 : Fish = load("res://fish/sushi/fish_seven.tres")
-		addFish(newFish)
-		addFish(newFish1)
-	if event.is_action_pressed("remove_fish"):
-		var newFish : Fish = load("res://fish/fresh/test_fish.tres")
-		var newFish1 : Fish = load("res://fish/sushi/fish_seven.tres")
-		removeFish(newFish)
-		removeFish(newFish1)
+## This code was moved to the player.
+	#if event.is_action_pressed("add_fish"):
+		#var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		#addFish(newFish)
+	#if event.is_action_pressed("remove_fish"):
+		#var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		#removeFish(newFish)
 
 func get_text_pixel_width(text: String, label_node: Label) -> float:
 	var font = label_node.get_theme_font("font")
