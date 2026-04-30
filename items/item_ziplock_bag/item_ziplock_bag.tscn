@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://pkvxbw6wyjxu"]
 
-[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base/item_base.tscn" id="1_w4wpe"]
+[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_w4wpe"]
 [ext_resource type="Script" uid="uid://bgxsg85kpe30" path="res://items/item_ziplock_bag/item_ziplock_bag.gd" id="2_bgvyy"]
+[ext_resource type="PackedScene" uid="uid://do3oi2lvqqabb" path="res://art/3d-assets/PlasticZipBag_Edit.glb" id="3_vb82l"]
 
 [node name="Item" unique_id=1566519324 instance=ExtResource("1_w4wpe")]
 script = ExtResource("2_bgvyy")
 item_name = "Ziplock Bag"
+
+[node name="PickupShape" parent="." index="0" unique_id=829023768]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="PlasticZipBag_Edit" parent="." index="1" unique_id=628559893 instance=ExtResource("3_vb82l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)

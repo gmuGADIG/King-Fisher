@@ -49,3 +49,7 @@ func _on_found_server(ip: String, hostname: String, playerCount: String) -> void
 
 func _on_refresh_button_pressed() -> void:
 	Multiplayer.scan_clock = 0
+
+
+func _on_back_button_pressed() -> void:
+	closed.emit()

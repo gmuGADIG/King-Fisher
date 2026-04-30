@@ -11,6 +11,8 @@ height = 1.6774902
 [node name="Item" unique_id=1566519324 instance=ExtResource("1_2087j")]
 script = ExtResource("2_byajs")
 item_name = "Golden Worm"
+description = "It is very gold"
+lore = "The Mighty Golden Worm!"
 
 [node name="PickupShape" parent="." index="0" unique_id=829023768]
 visible = false

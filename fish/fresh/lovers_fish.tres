@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://ihrx8bastxwk"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_36r1s"]
+[ext_resource type="Texture2D" uid="uid://boovw47fllxou" path="res://fish/sprites/lovers_fish.png" id="2_bliok"]
+
+[resource]
+script = ExtResource("1_36r1s")
+fish_name = "Lovers Fish"
+grade = 2
+sprite = ExtResource("2_bliok")
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
