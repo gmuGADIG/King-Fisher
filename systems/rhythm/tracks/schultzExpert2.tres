@@ -15,7 +15,7 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_rw1tm"]
 script = ExtResource("1_atple")
-beat_position = 2.2800000000000002
+beat_position = 2.28
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_ybulr"]
