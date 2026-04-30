@@ -20,6 +20,10 @@ func fishdex_pressed() -> void:
 	$MainMenuContainer.hide()
 	$Fishdex.show()
 
+func itemdex_pressed() -> void:
+	$MainMenuContainer.hide()
+	$Itemdex.show()
+
 func settings_pressed() -> void:
 	$MainMenuContainer.hide()
 	$OptionsMenu.show()
@@ -33,6 +37,11 @@ func _on_lobby_browser_closed() -> void:
 # When returnign to Main Menu from Fishdex
 func _on_fishdex_closed() -> void:
 	$Fishdex.hide()
+	$MainMenuContainer.show()
+	
+# When returning to Main Menu from Fishdex
+func _on_itemdex_closed() -> void:
+	$Itemdex.hide()
 	$MainMenuContainer.show()
 
 # When returning to Main Menu from Settings

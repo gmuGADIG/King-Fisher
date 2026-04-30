@@ -32,7 +32,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fh8yv")
+maximumRoundTime = null
 defaultMapSelect = 7
+defaultMusicSelect = null
+defaultRoundTime = null
+defaultItemSpawn = null
+defaultFishSpawn = null
 defaultItemSelect = 15
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=313001227]

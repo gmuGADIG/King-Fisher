@@ -2,26 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
-[ext_resource type="PackedScene" uid="uid://d3ykir648kj0n" path="res://world/props/lobby_boat.tscn" id="4_c06ik"]
-[ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="5_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
 [node name="Players" parent="." index="2" unique_id=1891362098]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.921875, -1.9073486e-06, 28.866188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 24)
 
 [node name="PlayerSpawnPoint" parent="Players" index="0" unique_id=1956364351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.768132, 2.0649426, -11.389928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 0, -1.5)
 
 [node name="PlayerSpawnPoint2" parent="Players" index="1" unique_id=927445426]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.780746, 1.9757965, -8.252335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1, 0, 1.6)
 
 [node name="PlayerSpawnPoint3" parent="Players" index="2" unique_id=805091295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3943844, 2.147912, -11.344351)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, 0, -1.5)
 
 [node name="PlayerSpawnPoint4" parent="Players" index="3" unique_id=909904993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37933, 2.1096573, -8.317996)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 0, 1.6)
 
 [node name="ItemSpawner" parent="." index="3" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.467327, 100, 0)
@@ -38,17 +36,11 @@ visible = false
 [node name="LobbyHud" parent="." index="6" unique_id=510906849 instance=ExtResource("6_56mmg")]
 mouse_filter = 2
 
-[node name="Node3D" parent="." index="8" unique_id=245968247 instance=ExtResource("4_c06ik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.921875, -1.9073486e-06, 28.866188)
+[node name="IslandTerrain" parent="." index="7" unique_id=1398597706]
+visible = false
 
-[node name="Water4" parent="." index="9" unique_id=1605700850 instance=ExtResource("5_vh6de")]
-transform = Transform3D(16.5, 0, 0, 0, 16.5, 0, 0, 0, 16.5, 15.976177, 0, 49.30626)
+[node name="Water" parent="." index="8" unique_id=1605700850]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 32, -5, 32)
 
-[node name="Water3" parent="." index="10" unique_id=855466149 instance=ExtResource("5_vh6de")]
-transform = Transform3D(16.5, 0, 0, 0, 16.5, 0, 0, 0, 16.5, 48.959564, 0, 49.274765)
-
-[node name="Water2" parent="." index="11" unique_id=386708477 instance=ExtResource("5_vh6de")]
-transform = Transform3D(16.5, 0, 0, 0, 16.5, 0, 0, 0, 16.5, 15.968659, 0, 16.322983)
-
-[node name="Water" parent="." index="12" unique_id=431887082 instance=ExtResource("5_vh6de")]
-transform = Transform3D(16.5, 0, 0, 0, 16.5, 0, 0, 0, 16.5, 48.95646, 0, 16.286436)
+[node name="LobbyBoat" parent="." index="9" unique_id=245968247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 32)

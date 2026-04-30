@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://dn6rrysco73h"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_solsc"]
+[ext_resource type="Texture2D" uid="uid://cfvrqvxkee5e8" path="res://fish/sprites/man_o_war_fish.png" id="2_324cw"]
+
+[resource]
+script = ExtResource("1_solsc")
+fish_name = "Man-o-War Fish"
+grade = 3
+sprite = ExtResource("2_324cw")
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_ljgpp"]
 [ext_resource type="PackedScene" uid="uid://d1tkdnfdxej7n" path="res://world/lobby/lobby.tscn" id="6_2x1oj"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="7_sn6vi"]
-[ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/Docks.glb" id="8_ljgpp"]
+[ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/raw_assets/docks/Docks.glb" id="8_ljgpp"]
 
 [sub_resource type="Resource" id="Resource_wjdpo"]
 script = ExtResource("4_sn6vi")
@@ -16,7 +16,7 @@ textures = [[ExtResource("5_ljgpp")], [null]]
 
 [node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_neon0")]
 
-[node name="HTerrain" type="Node3D" parent="." index="4" unique_id=1578364966]
+[node name="HTerrain2" type="Node3D" parent="." index="4" unique_id=1578364966]
 script = ExtResource("2_elsoy")
 _terrain_data = ExtResource("3_aextg")
 chunk_size = 32
@@ -39,7 +39,7 @@ metadata/_custom_type_script = "uid://cb6f5am52xc7"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.242474, 13.1149845, 18.527054)
 visible = false
 
-[node name="Water" parent="." index="7" unique_id=1605700850 instance=ExtResource("7_sn6vi")]
+[node name="Water2" parent="." index="7" unique_id=1605700850 instance=ExtResource("7_sn6vi")]
 transform = Transform3D(8.243, 0, 0, 0, 1, 0, 0, 0, 4.245, 31.358013, -1.4601479, 32.128445)
 
 [node name="Docks2" parent="." index="8" unique_id=1640372290 instance=ExtResource("8_ljgpp")]
@@ -48,10 +48,10 @@ transform = Transform3D(0.14107774, 0, -2.7656736, 0, 1, 0, 3.2312155, 0, 0.1207
 [node name="Docks3" parent="." index="9" unique_id=1026864206 instance=ExtResource("8_ljgpp")]
 transform = Transform3D(0.14107774, 0, -2.7656736, 0, 1, 0, 3.2312155, 0, 0.12075177, 31.709263, -1.4097514, 39.426414)
 
-[node name="Water2" parent="." index="10" unique_id=1163369224 instance=ExtResource("7_sn6vi")]
+[node name="Water3" parent="." index="10" unique_id=1163369224 instance=ExtResource("7_sn6vi")]
 transform = Transform3D(6.471116, 0, 0, 0, 1, 0, 0, 0, 4.945994, 31.22961, 1.2951088, 7.063241)
 
-[node name="Water3" parent="." index="11" unique_id=1531117147 instance=ExtResource("7_sn6vi")]
+[node name="Water4" parent="." index="11" unique_id=1531117147 instance=ExtResource("7_sn6vi")]
 transform = Transform3D(6.88, 0, 0, 0, 1, 0, 0, 0, 5.465, 32.590458, 4.3158493, 56.074265)
 
 [node name="Docks4" parent="." index="12" unique_id=1151312493 instance=ExtResource("8_ljgpp")]
