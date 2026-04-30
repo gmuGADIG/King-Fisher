@@ -392,6 +392,13 @@ func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
 	livewell.addFish(fish)
 	%fishdex.caught_fish(fish)
+
+func remove_random_fish() -> Fish:
+	var fishIndex := randi_range(0,livewell.fish_inventory.size())
+	var fishRemoved = livewell.fish_inventory.get(fishIndex)
+	livewell.removeFish(fishRemoved, 1)
+	Debug.log("fish removed" + fishRemoved)
+	return fishRemoved;
 	
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val
