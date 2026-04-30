@@ -6,6 +6,9 @@
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
+[node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
+light_energy = 2.5
+
 [node name="Players" parent="." index="2" unique_id=1891362098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -10, 24)
 

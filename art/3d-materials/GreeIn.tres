@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://chwdxjqpae8b0"]
+
+[resource]
+resource_name = "GreeIn"
+cull_mode = 2
+albedo_color = Color(0.7558466, 0.90641016, 0.5614414, 1)
+roughness = 0.5

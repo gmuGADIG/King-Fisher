@@ -9,7 +9,7 @@ data = PackedVector3Array(0, 1.2687, -1, -0.3827, 1.2687, -0.92389995, -0.3827, 
 
 [node name="hazardousWasteBarrel" parent="." unique_id=1075302283 instance=ExtResource("1_wvdrj")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="hazardousWasteBarrel/Cylinder" parent_id_path=PackedInt32Array(1075302283, 816824837) index="0" unique_id=1463020546]
+[node name="StaticBody3D" type="StaticBody3D" parent="hazardousWasteBarrel/Cylinder" parent_id_path=PackedInt32Array(1075302283, 1373035185) index="0" unique_id=1463020546]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hazardousWasteBarrel/Cylinder/StaticBody3D" unique_id=1667025548]
 shape = SubResource("ConcavePolygonShape3D_il71s")

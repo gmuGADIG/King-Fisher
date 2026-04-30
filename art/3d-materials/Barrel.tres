@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cm04512ln2qq3"]
+
+[resource]
+resource_name = "Barrel"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.90633965, 0.72386646, 0, 1)
+roughness = 0.0

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dofvr28ejtnel"]
+
+[resource]
+resource_name = "GreeOut"
+cull_mode = 2
+albedo_color = Color(0.07406869, 0.9064694, 0.039106026, 1)
+roughness = 0.5

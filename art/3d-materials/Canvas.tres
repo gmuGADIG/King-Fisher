@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b8jrpxjkl5jgf"]
+
+[resource]
+resource_name = "Canvas"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.9069886, 0.71970767, 0.27404156, 1)
+roughness = 0.0

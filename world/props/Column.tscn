@@ -7,10 +7,10 @@ data = PackedVector3Array(-45.4911, -45.4911, 233.6745, 29.9483, -50.671497, 233
 
 [node name="Column" type="Node3D" unique_id=391458853]
 
-[node name="Fish Column" parent="." unique_id=1799172585 instance=ExtResource("1_tcgkv")]
+[node name="Fish Column" parent="." unique_id=1792724570 instance=ExtResource("1_tcgkv")]
 transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Fish Column/Node/Box001" parent_id_path=PackedInt32Array(1799172585, 1780718290) index="0" unique_id=1336243642]
+[node name="StaticBody3D" type="StaticBody3D" parent="Fish Column/Node/Box001" parent_id_path=PackedInt32Array(1792724570, 1361718398) index="0" unique_id=1336243642]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fish Column/Node/Box001/StaticBody3D" unique_id=262064582]
 shape = SubResource("ConcavePolygonShape3D_vahpn")
