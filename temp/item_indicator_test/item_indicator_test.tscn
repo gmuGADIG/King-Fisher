@@ -53,8 +53,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Clear Item"
 
-[connection signal="pressed" from="GridContainer/BananaButton" to="HeldItem" method="hold_item" binds= ["BananaPeel"]]
-[connection signal="pressed" from="GridContainer/NetButton" to="HeldItem" method="hold_item" binds= ["ButterflyNet"]]
-[connection signal="pressed" from="GridContainer/GoldenWormButton" to="HeldItem" method="hold_item" binds= ["GoldenWorm"]]
+[connection signal="pressed" from="GridContainer/BananaButton" to="HeldItem" method="hold_item" binds= ["Banana Peel"]]
+[connection signal="pressed" from="GridContainer/NetButton" to="HeldItem" method="hold_item" binds= ["Butterfly Net"]]
+[connection signal="pressed" from="GridContainer/GoldenWormButton" to="HeldItem" method="hold_item" binds= ["Golden Worm"]]
 [connection signal="pressed" from="GridContainer/HardhatButton" to="HeldItem" method="hold_item" binds= ["Hardhat"]]
 [connection signal="pressed" from="GridContainer/ClearButton" to="HeldItem" method="clear_item"]

@@ -161,7 +161,10 @@ func set_authority(id : int):
 	set_multiplayer_authority(id)
 	update_camera()
 	if id == multiplayer.get_unique_id():
+		held_item_ui.show()
 		audio_listener.make_current()
+	else:
+		held_item_ui.hide()
 
 @rpc("reliable","authority","call_remote")
 func update_camera() -> void:
