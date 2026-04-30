@@ -3,6 +3,19 @@
 [ext_resource type="Script" uid="uid://sebpacttibvk" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
 [ext_resource type="PackedScene" uid="uid://cksuxnaqh3sqr" path="res://ui/lobby_browser/server_info.tscn" id="2_csvqp"]
 [ext_resource type="Texture2D" uid="uid://dfkve0oupbjtw" path="res://temp/lobby_select.png" id="3_pxnt7"]
+[ext_resource type="Texture2D" uid="uid://ddtl1bbfi35vb" path="res://art/UI/lobby_browser_window.png" id="4_5eayx"]
+[ext_resource type="Texture2D" uid="uid://cgb7fmm2v042n" path="res://art/UI/lobby_browser_button_small.png" id="5_uxqk6"]
+[ext_resource type="Texture2D" uid="uid://g8l2oebmqcbe" path="res://art/UI/lobby_creation_window.png" id="6_kwntm"]
+[ext_resource type="LabelSettings" uid="uid://cqgavuhu2tpo4" path="res://lobby_creation_title.tres" id="7_4j0i0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfydg"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_5iw70"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_x8owp"]
+font_size = 31
 
 [node name="LobbyBrowser" type="Control" unique_id=245152877]
 layout_mode = 3
@@ -21,8 +34,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0.03658474, 0.19881096, 1)
 
 [node name="TEMPReferenceImage" type="TextureRect" parent="." unique_id=1898157331]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,27 +50,47 @@ texture = ExtResource("3_pxnt7")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="BackgroundImage" type="TextureRect" parent="." unique_id=91559886]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -488.0
+offset_top = -436.0
+offset_right = 416.0
+offset_bottom = 436.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_5eayx")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1550717719]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 168.0
-offset_right = -144.0
+offset_left = 144.0
+offset_top = 8.0
+offset_right = -168.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BackButton" type="Button" parent="TextureRect" unique_id=1608866824]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.057000004
-anchor_top = 0.062000003
-anchor_right = 0.15200001
-anchor_bottom = 0.136
-offset_left = 0.11999512
-offset_top = -0.1760025
-offset_right = 0.31999207
-offset_bottom = -0.12800598
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = -268.0
+offset_right = -284.0
+offset_bottom = -212.0
 text = "Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=44045274]
@@ -67,7 +102,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -292.0
 offset_top = -220.0
-offset_right = 260.0
+offset_right = 300.0
 offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -77,7 +112,7 @@ theme_override_constants/separation = 21
 custom_minimum_size = Vector2(0, 64.805)
 layout_mode = 2
 size_flags_vertical = 4
-color = Color(0.69965345, 0.69965345, 0.69965345, 1)
+color = Color(0.69803923, 0, 0.69803923, 0)
 
 [node name="LobbyBrowserLabel" type="Label" parent="TextureRect/VBoxContainer/TitleTextBox" unique_id=1423046525]
 layout_mode = 1
@@ -95,13 +130,14 @@ vertical_alignment = 1
 [node name="LobbyBrowser" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=949388055]
 custom_minimum_size = Vector2(0, 269.87)
 layout_mode = 2
-color = Color(0.69803923, 0.69803923, 0.69803923, 1)
+color = Color(0.69803923, 0, 0.69803923, 0)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/VBoxContainer/LobbyBrowser" unique_id=1980928500]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 19.054993
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -111,24 +147,28 @@ layout_mode = 2
 alignment = 1
 
 [node name="NameLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=319740659]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Server Name"
 horizontal_alignment = 1
 
 [node name="PlayerLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=1045212857]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Players"
 horizontal_alignment = 1
 
 [node name="StatusLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=2129217139]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Status"
 horizontal_alignment = 1
 
 [node name="PingLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=225361243]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Ping"
@@ -157,9 +197,29 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="RefreshButton" type="Button" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer" unique_id=674890748]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = " Refresh "
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer/RefreshButton" unique_id=1156542280]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 159.0
+offset_bottom = 72.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_uxqk6")
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer/RefreshButton" unique_id=319774348]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 80.645
+offset_bottom = 34.24
+text = "Refresh"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer" unique_id=1164648850]
 layout_mode = 1
@@ -179,16 +239,36 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="HostButton" type="Button" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1159664938]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 18
 text = " Create Lobby "
 
+[node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer2/HostButton" unique_id=1749873705]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -1.0
+offset_right = 269.415
+offset_bottom = 71.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_uxqk6")
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer2/HostButton" unique_id=959249481]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 0
+offset_left = 15.5
+offset_right = 118.5
+offset_bottom = 33.24
+text = "Create Lobby"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="JoiningGame" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=1769578127]
 custom_minimum_size = Vector2(0, 64.805)
 layout_mode = 2
 size_flags_vertical = 4
-color = Color(0.69965345, 0.69965345, 0.69965345, 1)
+color = Color(0.69803923, 0, 0.69803923, 0)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer/JoiningGame" unique_id=1127197303]
 visible = false
@@ -234,6 +314,166 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 placeholder_text = "Enter name..."
 alignment = 1
+
+[node name="LobbyCreationWindow" type="TextureRect" parent="." unique_id=1549874564]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47200003
+anchor_top = 0.523
+anchor_right = 0.47200003
+anchor_bottom = 0.523
+offset_left = -274.74402
+offset_top = -274.904
+offset_right = 275.25598
+offset_bottom = 275.096
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_kwntm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackButton" type="Button" parent="LobbyCreationWindow" unique_id=1866124005]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -166.0
+offset_right = -194.49199
+offset_bottom = -156.76422
+scale = Vector2(5.0540633, 4.439263)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LobbyCreationWindow" unique_id=201208762]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.51100004
+anchor_right = 0.5
+anchor_bottom = 0.51100004
+offset_left = -169.0
+offset_top = -139.05002
+offset_right = 204.0
+offset_bottom = 138.94998
+
+[node name="Title" type="Label" parent="LobbyCreationWindow/VBoxContainer" unique_id=11373254]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+text = "Create Lobby"
+label_settings = ExtResource("7_4j0i0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=1591610615]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="LobbyName" type="HBoxContainer" parent="LobbyCreationWindow/VBoxContainer" unique_id=900111282]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/LobbyName" unique_id=2124631587]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+text = "Lobby Name:"
+label_settings = SubResource("LabelSettings_bfydg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="LobbyCreationWindow/VBoxContainer/LobbyName" unique_id=873317293]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=2118327788]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="PlayerCount" type="HBoxContainer" parent="LobbyCreationWindow/VBoxContainer" unique_id=2049202957]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1543761932]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+text = "Max Players"
+label_settings = SubResource("LabelSettings_bfydg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1235247534]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button" unique_id=1416024420]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.541
+anchor_right = 0.541
+offset_left = -40.034
+offset_right = 39.966
+offset_bottom = 34.0
+text = "2"
+label_settings = SubResource("LabelSettings_5iw70")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1134808308]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button2" unique_id=1174190182]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 0
+offset_left = 4.0
+offset_right = 84.0
+offset_bottom = 35.0
+text = "3"
+label_settings = SubResource("LabelSettings_5iw70")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=211331016]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button3" unique_id=703835826]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_right = 82.0
+offset_bottom = 35.0
+text = "4"
+label_settings = SubResource("LabelSettings_5iw70")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=951405120]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Button" type="Button" parent="LobbyCreationWindow/VBoxContainer" unique_id=953535078]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/Button" unique_id=257631793]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -1.4690001
+anchor_right = 0.5
+anchor_bottom = -1.4690001
+offset_left = -43.5
+offset_top = 89.73301
+offset_right = 55.5
+offset_bottom = 133.733
+text = "Create"
+label_settings = SubResource("LabelSettings_x8owp")
 
 [connection signal="pressed" from="TextureRect/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
