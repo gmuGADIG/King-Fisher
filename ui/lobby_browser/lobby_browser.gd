@@ -7,6 +7,7 @@ signal closed
 
 @onready var name_text := $DisplayName/NameInput
 var seen_ips: Dictionary[String, bool]
+var infos: Dictionary[String, ServerInfo]
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -22,11 +23,14 @@ func _on_host_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://world/lobby/lobby.tscn")
 
 
-func _on_found_server(ip: String, hostname: String, playerCount: String) -> void:
-	if ip in seen_ips: return
+func _on_found_server(ip: String, hostname: String, playerCount: String, status: String) -> void:
+	if ip in seen_ips: 
+		infos[ip].status = status
+		return
 	seen_ips[ip] = true
 
 	var server_info: ServerInfo = server_info_packed.instantiate()
+
 
 	# hacky way to create an alternating bg color effect for the list
 	# there's probably an intended way of doing this, but ¯\_(ツ)_/¯
@@ -34,6 +38,7 @@ func _on_found_server(ip: String, hostname: String, playerCount: String) -> void
 		server_info.self_modulate.a = 1.5 # yes this works, it makes it darker
 	
 	server_info.hostname = hostname
+	server_info.status = status
 	server_info.playerCount = playerCount
 	server_info.ip = ip
 	
@@ -43,7 +48,7 @@ func _on_found_server(ip: String, hostname: String, playerCount: String) -> void
 		Debug.log("Lobby Joined")
 		get_tree().change_scene_to_file("res://world/lobby/lobby.tscn")
 	)
-
+	infos[ip] = server_info
 	%ServerInfoParent.add_child(server_info)
 
 
