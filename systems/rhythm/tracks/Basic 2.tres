@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Track" format=3 uid="uid://d4hpih7vdxn0i"]
 
+[ext_resource type="AudioStream" uid="uid://dsp11a3xb87n2" path="res://systems/rhythm/tracks/backingTrack80.mp3" id="1_gt206"]
 [ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_ny7yb"]
 [ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_gt206"]
 
@@ -59,5 +60,7 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]
 script = ExtResource("2_gt206")
+bpm = 80.0
+backing_track = ExtResource("1_gt206")
 notes = Array[ExtResource("1_ny7yb")]([SubResource("Resource_fngg6"), SubResource("Resource_nwv00"), SubResource("Resource_0nqhx"), SubResource("Resource_kpquo"), SubResource("Resource_vj8pa"), SubResource("Resource_dikqk"), SubResource("Resource_b7est"), SubResource("Resource_b7iuy"), SubResource("Resource_ny7yb"), SubResource("Resource_gt206")])
 metadata/_custom_type_script = "uid://duodpj15swkyd"

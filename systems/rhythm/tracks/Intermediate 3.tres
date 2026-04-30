@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Track" format=3 uid="uid://cg6f8urttp1t7"]
 
+[ext_resource type="AudioStream" uid="uid://60p04fm40fn2" path="res://systems/rhythm/tracks/backingTrack100.mp3" id="1_5hgjc"]
 [ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_ohypb"]
 [ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_5hgjc"]
 
@@ -29,16 +30,6 @@ beat_position = 3.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_ubp3g"]
-script = ExtResource("1_ohypb")
-beat_position = 4.0
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_mmcj2"]
-script = ExtResource("1_ohypb")
-beat_position = 3.666
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_73bav"]
 script = ExtResource("1_ohypb")
 beat_position = 4.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
@@ -100,6 +91,6 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]
 script = ExtResource("2_5hgjc")
-bpm = 120.0
-notes = Array[ExtResource("1_ohypb")]([SubResource("Resource_e22ep"), SubResource("Resource_bp8oa"), SubResource("Resource_mjog5"), SubResource("Resource_ls8ii"), SubResource("Resource_addb4"), SubResource("Resource_ubp3g"), SubResource("Resource_mmcj2"), SubResource("Resource_73bav"), SubResource("Resource_6kr1m"), SubResource("Resource_77heu"), SubResource("Resource_b5ogt"), SubResource("Resource_3vlie"), SubResource("Resource_yq46i"), SubResource("Resource_w0nsb"), SubResource("Resource_xox2q"), SubResource("Resource_2swcp"), SubResource("Resource_7hryc"), SubResource("Resource_30ut7"), SubResource("Resource_2k5a8")])
+backing_track = ExtResource("1_5hgjc")
+notes = Array[ExtResource("1_ohypb")]([SubResource("Resource_e22ep"), SubResource("Resource_bp8oa"), SubResource("Resource_mjog5"), SubResource("Resource_ls8ii"), SubResource("Resource_addb4"), SubResource("Resource_ubp3g"), SubResource("Resource_6kr1m"), SubResource("Resource_77heu"), SubResource("Resource_b5ogt"), SubResource("Resource_3vlie"), SubResource("Resource_yq46i"), SubResource("Resource_w0nsb"), SubResource("Resource_xox2q"), SubResource("Resource_2swcp"), SubResource("Resource_7hryc"), SubResource("Resource_30ut7"), SubResource("Resource_2k5a8")])
 metadata/_custom_type_script = "uid://duodpj15swkyd"
