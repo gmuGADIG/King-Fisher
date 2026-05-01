@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="16_6ic86"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="17_prfaa"]
 [ext_resource type="PackedScene" uid="uid://bcdu3eu5jmtu2" path="res://world/props/rock_3.tscn" id="18_aqn0h"]
+[ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="20_lktd8"]
+[ext_resource type="Resource" uid="uid://bguwhw4xujfv8" path="res://world/fish_spawner/normal_rates.tres" id="21_3ki53"]
 
 [sub_resource type="Resource" id="Resource_kv1g5"]
 script = ExtResource("4_v7pb5")
@@ -79,8 +81,10 @@ size = Vector3(5.2598877, 0.9067383, 1.7392578)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yiiti"]
 points = PackedVector3Array(-30.507132, 45.23537, 2.9917831, -41.646812, 1.8220215, -70.06177, -41.646812, 45.227047, 2.9917831, -41.646812, -39.744656, 3.539322, -11.537083, -39.744656, 3.539322, 41.645905, 43.588337, 2.0624008, -11.537083, 1.8220215, -70.06177, -41.646812, 0.8321419, -69.471, -41.646812, -39.744656, -0.0052871704, 41.645905, -39.744656, 2.3721924, 43.718407, -21.868572, -31.769894, 41.645905, 0.8321419, -69.471, -41.646812, -1.2058487, -68.23903, 42.473236, -21.843616, -31.820324, 40.39238, -39.7197, -0.05571747, 41.645905, -39.744656, -0.0052871704, 40.39238, -1.2391243, -68.1958, 41.645905, -1.2058487, -68.23903)
 
-[node name="HeightmapTest" unique_id=1821617715 instance=ExtResource("1_kdmys")]
+[node name="HeightmapTest" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_kdmys")]
 script = ExtResource("2_0hvgr")
+fish_spawners = [NodePath("FishSpawners/WaterPool")]
+fish_spawner_weights = Array[int]([1])
 
 [node name="Players" parent="." index="2" unique_id=1891362098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.800728, 14.189088, 0.37104893)
@@ -223,6 +227,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 9, -7)
 
 [node name="Walls" parent="." index="17" unique_id=972242853]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -32)
+
+[node name="FishSpawners" type="Node3D" parent="." index="20" unique_id=67392887]
+
+[node name="WaterPool" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("20_lktd8")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 9.167405, 4.418209, 25.793669)
+fish_spawnrate = ExtResource("21_3ki53")
 
 [editable path="KF_smooth_small-mushroom1"]
 [editable path="KF_tall_mushroom1"]

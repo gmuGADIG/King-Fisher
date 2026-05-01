@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="8_f57ih"]
 [ext_resource type="PackedScene" uid="uid://bcdu3eu5jmtu2" path="res://world/props/rock_3.tscn" id="9_dit1s"]
 [ext_resource type="PackedScene" uid="uid://dvhv6mtwaavpf" path="res://world/props/Crystals.tscn" id="10_agwqa"]
+[ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="12_f57ih"]
+[ext_resource type="Resource" uid="uid://bguwhw4xujfv8" path="res://world/fish_spawner/normal_rates.tres" id="13_dit1s"]
 
 [sub_resource type="Resource" id="Resource_7o8e7"]
 script = ExtResource("4_d5165")
@@ -20,9 +22,10 @@ textures = [[ExtResource("5_5xfro")], [null]]
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ipx2"]
 size = Vector3(64.08448, 0.001, 64.084114)
 
-[node name="Coffin" unique_id=1821617715 node_paths=PackedStringArray("hud") instance=ExtResource("1_shlee")]
+[node name="Coffin" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_shlee")]
 script = ExtResource("2_16b6m")
-hud = NodePath("CanvasLayer/GameHud")
+fish_spawners = [NodePath("FishSpawners/WaterPool")]
+fish_spawner_weights = Array[int]([1])
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.37509, 2.3841858e-07, 2.6770382)
@@ -137,6 +140,12 @@ transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 4.5889897, 0.3909
 
 [node name="Rock 11" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="15" unique_id=1986369534 instance=ExtResource("7_gwbdu")]
 transform = Transform3D(-0.6223097, 0.55090773, -0.55608565, 0, 0.7104065, 0.7037916, 0.7827711, 0.43797633, -0.44209284, 55.299145, 0.5017619, 55.892666)
+
+[node name="FishSpawners" type="Node3D" parent="." index="9" unique_id=1020186255]
+
+[node name="WaterPool" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("12_f57ih")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 9.167405, 4.418209, 25.793669)
+fish_spawnrate = ExtResource("13_dit1s")
 
 [editable path="Crystals"]
 [editable path="Crystals/Crystals"]

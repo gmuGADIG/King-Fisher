@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="9_n6k5e"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="10_gu2qp"]
 [ext_resource type="PackedScene" uid="uid://chdjv4pfi24ch" path="res://world/props/waste_barrel.tscn" id="11_himr8"]
+[ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="13_fnp4k"]
+[ext_resource type="Resource" uid="uid://bguwhw4xujfv8" path="res://world/fish_spawner/normal_rates.tres" id="14_qsdgx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ay7c0"]
 size = Vector3(17.19535, 0.001, 16.858868)
@@ -24,10 +26,10 @@ script = ExtResource("4_of031")
 mode = 0
 textures = [[ExtResource("5_dowhw")], [null]]
 
-[node name="Mushroom" unique_id=1821617715 node_paths=PackedStringArray("water_pools") instance=ExtResource("1_w5lkn")]
+[node name="Mushroom" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_w5lkn")]
 script = ExtResource("2_lnltq")
-water_pools = []
-water_pool_weights = []
+fish_spawners = [NodePath("FishSpawners/WaterPool")]
+fish_spawner_weights = Array[int]([1])
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.577248, 3.6355288, 12.281741)
@@ -830,3 +832,9 @@ transform = Transform3D(9.580714, 0, 0, 0, 1, 0, 0, 0, 7.1253176, 35.588486, -3.
 
 [node name="Water5" parent="HTerrain" parent_id_path=PackedInt32Array(1398597706) index="4" unique_id=981405356 instance=ExtResource("6_of031")]
 transform = Transform3D(7.303905, 0, 0, 0, 1, 0, 0, 0, 7.1924877, 54.173332, -3.2857285, 43.778774)
+
+[node name="FishSpawners" type="Node3D" parent="." index="13" unique_id=1748616702]
+
+[node name="WaterPool" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("13_fnp4k")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 9.167405, 4.418209, 25.793669)
+fish_spawnrate = ExtResource("14_qsdgx")
