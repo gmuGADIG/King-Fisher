@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpo4nvgeh8dat"]
 
 [ext_resource type="Script" uid="uid://p0f46s1vcsvg" path="res://systems/rhythm/fishing_mini_game.gd" id="1_qgtvk"]
-[ext_resource type="Resource" uid="uid://rtkv1hu5g0ji" path="res://systems/rhythm/tracks/schultzExpert5.tres" id="2_dsd34"]
+[ext_resource type="Resource" uid="uid://c7bsaghyeoy0p" path="res://systems/rhythm/tracks/hard5.tres" id="2_dsd34"]
 [ext_resource type="PackedScene" uid="uid://dgt8coyxp6ff" path="res://systems/rhythm/markers/tick_marker.tscn" id="3_dsd34"]
 [ext_resource type="PackedScene" uid="uid://dyucerm5153qy" path="res://systems/rhythm/markers/note_marker.tscn" id="4_yhodo"]
 [ext_resource type="PackedScene" uid="uid://lfclmap4n8vd" path="res://systems/rhythm/markers/note_articulated_marker.tscn" id="5_2nsaa"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bmxsuarykfoe3" path="res://temp/temp_art/smiley.png" id="5_v1gag"]
 [ext_resource type="AudioStream" uid="uid://u26laeo3h1xe" path="res://temp/temp_sfx/test_click.wav" id="6_8v4n0"]
 [ext_resource type="Texture2D" uid="uid://cjnwf45j1c0rv" path="res://temp/temp_art/king-fisher.png" id="10_2nsaa"]
-[ext_resource type="Texture2D" uid="uid://cxevou2i4rsbo" path="res://systems/rhythm/art/tempbar.png" id="10_dsd34"]
+[ext_resource type="Texture2D" uid="uid://0q6vu72wg5pn" path="res://systems/rhythm/art/rhythm_bar_edit.png" id="10_dsd34"]
 [ext_resource type="Texture2D" uid="uid://mxbipnxyr4xf" path="res://systems/rhythm/art/Screenshot 2026-04-22 195817.png" id="12_2nsaa"]
 [ext_resource type="Texture2D" uid="uid://bbub80p362odf" path="res://systems/rhythm/art/winlose_temp.png" id="13_dsd34"]
 
@@ -96,8 +96,8 @@ track = ExtResource("2_dsd34")
 tick_marker = ExtResource("3_dsd34")
 note_marker = ExtResource("4_yhodo")
 note_articulated_marker = ExtResource("5_2nsaa")
-hit_window_radius_ms = 200.0
-perfect_window_radius_ms = 50.0
+hit_window_radius_ms = 60.0
+perfect_window_radius_ms = 16.66
 hit_sfx = ExtResource("5_6b33u")
 hit_sfx_art = ExtResource("6_8v4n0")
 
@@ -148,7 +148,7 @@ size_flags_horizontal = 4
 layout_mode = 0
 offset_left = -421.0
 offset_top = -104.0
-offset_right = 423.4773
+offset_right = 473.0
 offset_bottom = -31.0
 texture = ExtResource("10_dsd34")
 expand_mode = 2
@@ -168,7 +168,7 @@ texture = ExtResource("10_2nsaa")
 layout_mode = 0
 offset_left = -421.0
 offset_top = -18.0
-offset_right = 423.4773
+offset_right = 472.0
 offset_bottom = 55.0
 texture = ExtResource("10_dsd34")
 expand_mode = 2
