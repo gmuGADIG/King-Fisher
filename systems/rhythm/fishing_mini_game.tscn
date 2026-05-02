@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpo4nvgeh8dat"]
 
 [ext_resource type="Script" uid="uid://p0f46s1vcsvg" path="res://systems/rhythm/fishing_mini_game.gd" id="1_qgtvk"]
-[ext_resource type="Resource" uid="uid://dmasj4c66jd57" path="res://systems/rhythm/tracks/medium3.tres" id="2_dsd34"]
+[ext_resource type="Resource" uid="uid://rtkv1hu5g0ji" path="res://systems/rhythm/tracks/schultzExpert5.tres" id="2_dsd34"]
 [ext_resource type="PackedScene" uid="uid://dgt8coyxp6ff" path="res://systems/rhythm/markers/tick_marker.tscn" id="3_dsd34"]
 [ext_resource type="PackedScene" uid="uid://dyucerm5153qy" path="res://systems/rhythm/markers/note_marker.tscn" id="4_yhodo"]
 [ext_resource type="PackedScene" uid="uid://lfclmap4n8vd" path="res://systems/rhythm/markers/note_articulated_marker.tscn" id="5_2nsaa"]

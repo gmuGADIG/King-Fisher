@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Track" format=3 uid="uid://d0pnm5pihqttr"]
 
+[ext_resource type="AudioStream" uid="uid://qbh8vij5unwm" path="res://systems/rhythm/tracks/backingTrack100.ogg" id="1_a8grv"]
 [ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_atple"]
 [ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_a8grv"]
 
@@ -110,5 +111,6 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]
 script = ExtResource("2_a8grv")
+backing_track = ExtResource("1_a8grv")
 notes = Array[ExtResource("1_atple")]([SubResource("Resource_atple"), SubResource("Resource_a8grv"), SubResource("Resource_rw1tm"), SubResource("Resource_ybulr"), SubResource("Resource_gksk4"), SubResource("Resource_juhn0"), SubResource("Resource_1uw81"), SubResource("Resource_tib3g"), SubResource("Resource_1ah6d"), SubResource("Resource_6v257"), SubResource("Resource_5f4rk"), SubResource("Resource_ldycf"), SubResource("Resource_3260m"), SubResource("Resource_5ydbv"), SubResource("Resource_wubc4"), SubResource("Resource_d1wcl"), SubResource("Resource_xi0ny"), SubResource("Resource_0jnj7"), SubResource("Resource_7qcyg"), SubResource("Resource_yl3yi"), SubResource("Resource_8kieu")])
 metadata/_custom_type_script = "uid://duodpj15swkyd"
