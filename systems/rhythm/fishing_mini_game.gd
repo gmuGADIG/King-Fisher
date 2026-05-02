@@ -118,7 +118,7 @@ func _process(delta: float) -> void:
 			misses+=1
 	
 	if state == Phase.PLAYER_RESPONSE:
-		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 2*TRACK_LENGTH:
+		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= (2*TRACK_LENGTH + 1):
 			player_indicator.hide()
 			##Percentage accuracy from 0 to 1
 			var accuracy : float = calculate_accuracy()
