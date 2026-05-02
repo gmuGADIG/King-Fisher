@@ -364,6 +364,9 @@ func pick_up_item(item: Item) -> void:
 	held_item.position = Vector3.ZERO + Vector3(0,1,0)
 	# Hide the item. Nobody will know you have it until you use it.
 	held_item.visible=false
+	# Don't play the sound unless we're the owning client
+	if is_multiplayer_authority():
+		$Sounds/PlayerPickupItem.play()
 
 @rpc("call_local")
 func use_held_item() -> void:

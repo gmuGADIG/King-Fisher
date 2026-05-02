@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://lma8sgp2bvs1"]
+
+[ext_resource type="AudioStream" uid="uid://xof1x7pn1ga" path="res://sound/sfx/items/ItemPickupSFX.mp3" id="1_gqvn7"]
+
+[node name="PlayerPickupItem" type="AudioStreamPlayer" unique_id=1700319569]
+stream = ExtResource("1_gqvn7")
