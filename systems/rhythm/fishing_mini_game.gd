@@ -27,8 +27,8 @@ enum HitQuality{
 
 @export_range(0.0,1.0,0.01) var good_hit_accuracy:float = 0.7
 const perfect_hit_accuracy : float = 1.0
-@export var hit_window_radius_ms:float = 500.0
-@export var perfect_window_radius_ms:float = 100.0
+@export var hit_window_radius_ms:float
+@export var perfect_window_radius_ms:float
 
 @export_category("Test")
 @export var hit_sfx : AudioStream
