@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Song" format=3]
+
+[ext_resource type="Script" path="res://sound/music/song_resource/song.gd" id="1_31bcw"]
+[ext_resource type="Script" path="res://sound/music/song_resource/section.gd" id="2_vt67w"]
+[ext_resource type="AudioStream" path="res://sound/music/song_files/kingfisher_lobby_adrian.mp3" id="3_k1fin"]
+
+[sub_resource type="Curve" id="Curve_o7as3"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_uyrag"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_00yya"]
+script = ExtResource("2_vt67w")
+section_name = "main loop"
+section_end = 71.157555
+loop = true
+fade_period = 0.05
+fade_in_curve = SubResource("Curve_o7as3")
+fade_out_curve = SubResource("Curve_uyrag")
+
+[resource]
+script = ExtResource("1_31bcw")
+song_file = ExtResource("3_k1fin")
+sections = Array[ExtResource("2_vt67w")]([SubResource("Resource_00yya")])
