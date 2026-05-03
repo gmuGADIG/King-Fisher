@@ -10,16 +10,16 @@ var fishdex_entries : Dictionary = {}
 var fishdex_order : Array = []
 @onready var LIST_OF_FISH : Dictionary = {}
 var first_draw : bool = true
-@onready var current_fish : Control = $Current_Fish
-@onready var selectable_fish_1 : Control = $Selectable_Fish_1
-@onready var selectable_fish_2 : Control = $Selectable_Fish_2
+@onready var current_fish : Control = %Current_Fish
+@onready var selectable_fish_1 : Control = %Selectable_Fish_1
+@onready var selectable_fish_2 : Control = %Selectable_Fish_2
 
 # Fish Descriptions
-@onready var current_fish_name : Label = $Stall/Fish_Info/Name_Box/Fish_Name
-@onready var current_fish_rarity : Label = $Stall/Fish_Info/Fish_Rarity_Worth/Rarity_Box/Rarity
-@onready var current_fish_worth : Label = $Stall/Fish_Info/Fish_Rarity_Worth/Worth_Box/Worth
-@onready var current_fish_description : Label = $Stall/Description_Box/Description
-@onready var current_fish_caught : Label = $Stall/Fish_Info/Caught_Box/Caught
+@onready var current_fish_name : Label = %Fish_Name
+@onready var current_fish_rarity : Label = %Rarity
+@onready var current_fish_worth : Label = %Worth
+@onready var current_fish_description : Label = %Description
+@onready var current_fish_caught : Label = %Caught
 
 var current_tab = 0
 var current_fish_index = 0
@@ -35,6 +35,8 @@ func _ready() -> void:
 			fishdex_entries[fish_name] = 1
 			fishdex_order.append(fish_name)
 			fishdex_order.sort_custom(custom_sort_fish)
+
+	_on_draw()
 
 func custom_sort_fish(a, b):
 		var fish_a = LIST_OF_FISH.get(a)
