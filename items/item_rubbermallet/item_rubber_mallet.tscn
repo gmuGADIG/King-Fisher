@@ -13,6 +13,13 @@ ragdollTime = 1.0
 item_name = "Rubber Mallet"
 description = "When used, the player swings the mallet, playing an animation. If the mallet connects with another player it will cause them to ragdoll. It can only affect 1 player in the hitbox and gets discarded after use. 
 "
+lore = "These rubber mallets originate from a planet tainted by war and bloodshed.
+
+The inhabitants of said planet are something of a ‘glass cannon’ of intelligence. Their anatomy provides no protection for their brains. Instead, their brains are kept in liquid-filled sacs, allowing them to grow without restriction. The consequence of this is that the right impact can bring a member of this species to a swift end—and so when war ensued, they invented the most efficient (and cheap!) weapon for warfare: a rubber mallet.
+
+Of course, most fisherfolk with unprotected vital organs do not live long enough to make it to the Intergalactic Fishbowl. So if you, the competitor, are reading this, do not fret!
+
+If, against our expectations, you indeed have an unprotected brain, the best we can do is tell you to stand proud. You are strong to have made it this far. And, if necessary, we have funds to make a statue of you."
 
 [node name="SwingHitbox" type="Area3D" parent="." index="1" unique_id=1812700899]
 transform = Transform3D(0.044697747, 0, 0, 0, 0.044697747, 0, 0, 0, 0.044697747, 0, 0, 0)
