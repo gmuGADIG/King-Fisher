@@ -8,6 +8,8 @@ var hitPlayers: Array[Player] = []
 func use():
 	if !is_held: Debug.log_err("Something is wrong")
 	else:
+		if get_node_or_null("SwingSound"):
+			$SwingSound.play()
 		swing_active = true
 		holder = get_parent_node_3d()
 		Debug.log("Swing swing swing")
@@ -26,8 +28,8 @@ func effect_on_contact(body: Node3D):
 	if is_held and body.is_in_group("Player") and body != holder:
 		Debug.log("Doing something to %s!" % body.name)
 
-
 func _on_swing_hitbox_body_entered(body):
+	
 	if swing_active && !hitPlayers.has(body): 
 		hitPlayers.append(body)
 		effect_on_contact(body)
