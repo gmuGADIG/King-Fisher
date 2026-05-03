@@ -50,6 +50,8 @@ var aim_mode : AimMode = AimMode.NONE
 enum FootstepState {GRASS, STONE, SNOW}
 var footstep_state : FootstepState = FootstepState.GRASS
 
+var current_fishing_shadow : FishShadow = null
+
 # footstep timing.
 var _footstep_accum_distance := 0.0
 var _footstep_time_since_last := 0.0
@@ -205,6 +207,14 @@ func _input(event: InputEvent) -> void:
 		AimMode.FISHING_ROD:
 			if event.is_action_released("cast_rod"):
 				%Aiming.stop_aiming()
+				var body : Node = $Aiming/AimRayCast.get_collider()
+				if body is FishShadow:
+					if body.currently_fishing:
+						return
+					FishShadow.current_fishing_state.rpc(body.id,true)
+					current_fishing_shadow = body
+					##TODO: Play Fishing Minigame
+					
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
 			if event.is_action_released("use_item"):

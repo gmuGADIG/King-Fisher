@@ -1,7 +1,14 @@
 extends CSGPolygon3D
 class_name FishSpawner
 
-@export var fish_spawnrate : FishSpawnRate
+enum Rates{
+	NORMAL,
+	HIGH
+}
+
+@export var fish_spawnrate : Rates
+
+var rates : Array[float] = []
 
 # The areas of both pools
 var area : float
@@ -20,7 +27,15 @@ var rng : RandomNumberGenerator
 # but i'm not sure where i'd begin to do something like that
 
 func _ready() -> void:
-	assert(fish_spawnrate != null, "Missing fish spawn rate")
+	hide()
+	#assert(fish_spawnrate != null, "Missing fish spawn rate")
+	
+	match fish_spawnrate:
+		Rates.NORMAL:
+			rates = [1,1,1,1]
+		Rates.HIGH:
+			rates = [1,1,1,1]
+	
 	area = get_poly_area()
 	
 	init_tri_cache()
@@ -100,3 +115,10 @@ func get_poly_area() -> float:
 		area += (u.x * v.y) - (v.x * u.y)
 	
 	return abs(area) / 2
+
+func pick_rarity() -> Fish.Grade:
+	print("weights: ",rates)
+	var type : int = rng.rand_weighted(rates)
+	var grade : Fish.Grade = type+1
+	
+	return grade

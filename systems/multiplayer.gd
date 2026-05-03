@@ -172,8 +172,8 @@ func start_the_game():
 	await _countdown(5)
 	if(!multiplayer.is_server()):
 		return
-	var levelLoad:String = allowedMaps.pick_random()
-	
+	#var levelLoad:String = allowedMaps.pick_random()
+	var levelLoad : String = "res://world/level-docks/level-docks.tscn"
 	load_players.rpc(levelLoad)
 	Debug.log(player_list.size())
 	for i in range(player_list.size()):

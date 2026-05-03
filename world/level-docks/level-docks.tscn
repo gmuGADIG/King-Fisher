@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://7pg60uc0tj5" path="res://world/props/mushroom_small.tscn" id="20_b51yu"]
 [ext_resource type="PackedScene" uid="uid://gpcvf0ox46m1" path="res://world/props/cattail.tscn" id="21_s3jgv"]
 [ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="23_loicf"]
-[ext_resource type="Resource" uid="uid://bguwhw4xujfv8" path="res://world/fish_spawner/normal_rates.tres" id="24_vs71a"]
 
 [sub_resource type="Resource" id="Resource_qen0n"]
 script = ExtResource("4_4k232")
@@ -954,4 +953,3 @@ transform = Transform3D(-0.24999754, 0, -0.0011082633, 0, 0.25, 0, 0.0011082633,
 [node name="FishSpawner" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("23_loicf")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.07, 0)
 polygon = PackedVector2Array(8.711293, 14.201077, 14.099179, 49.946228, 50.326435, 49.183876, 50.969425, 14.791773)
-fish_spawnrate = ExtResource("24_vs71a")
