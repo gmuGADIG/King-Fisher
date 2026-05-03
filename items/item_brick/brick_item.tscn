@@ -9,6 +9,7 @@ radius = 0.80999196
 
 [node name="Brick" unique_id=1566519324 instance=ExtResource("1_ofeen")]
 script = ExtResource("2_v1bhe")
+item_name = "Brick"
 description = "When used, the player throws the brick. When it hits the player it causes one fish in their inventory to leave and return to the nearest body of water, able to be caught again. It can only affect one player in the hitbox."
 lore = "\"For nearly 12 parsecs I've tracked him down, the smug son of a gun on the run with Tnatalian Warlord Imtanitus’s heart.
 

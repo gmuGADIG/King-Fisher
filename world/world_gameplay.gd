@@ -1,7 +1,11 @@
 class_name WorldGameplay
 extends WorldBase
 
-const FISH_SPAWN_RATE : float = 5.0
+static var fish_shadows : Dictionary[int,FishShadow]
+static var next_fish_shadow_id : int = 0
+
+static var fish_shadow : PackedScene = load("res://world/fish_spawner/fish_shadow.tscn")
+const FISH_SPAWN_RATE : float = 5
 
 static var round_time : float
 #static var item_pool :
@@ -16,16 +20,27 @@ static var round_time : float
 
 var hud : GameHud
 ## Amount of time before the game ends
-var remaining_time : float = LobbySettings.roundTime
+@onready var remaining_time : float = LobbySettings.roundTime
 var fish_rng : RandomNumberGenerator
 
 
 func _ready() -> void:
+	var music := [
+		load("res://sound/music/song_files/main_level_ben.tres"),
+		load("res://sound/music/song_files/main_level_matthew_c.tres"),
+		load("res://sound/music/song_files/main_level_matthew_p.tres"),
+		load("res://sound/music/song_files/main_level_nathan.tres")
+	]
+	MainMusicPlayer.play_song(music.pick_random())
+
 	assert(fish_spawner_weights.size() == fish_spawners.size(), "water pool count and weight counts are not equal")
 	hud = %GameHud
 	super._ready()
 	hud.show()
-	remaining_time = round_time
+	if (round_time != 0.):
+		remaining_time = round_time
+	else:
+		Debug.log_err("round_time == 0.")
 	
 	#for weight in water_pool_weights:
 		#water_pool_weight_total += weight
@@ -41,11 +56,29 @@ func _ready() -> void:
 		fish_timer.start()
 	
 
+var almost_over_not_triggered := true
+var round_going = true
 func _process(delta: float) -> void:
 	##Unused for now
 	#super._process(delta)
 	remaining_time -= delta
 	hud.update_time(remaining_time)
+
+	if remaining_time < 60. and almost_over_not_triggered:
+		almost_over_not_triggered = false
+		MainMusicPlayer.play_song(load("res://sound/music/song_files/mainleveldnb_jan.tres"))
+		%AlarmSound.play()
+	
+	if Input.is_action_just_pressed("timer_to_one_min") and OS.has_feature("editor"):
+		remaining_time = 61.
+
+	if Input.is_action_just_pressed("timer_to_done") and OS.has_feature("editor"):
+		remaining_time = 2.
+	
+	if remaining_time < 0. and round_going and multiplayer.is_server():
+		for player: Player in get_tree().get_nodes_in_group("Player"):
+			var id := player.get_multiplayer_authority()
+			Multiplayer.results_screen.rpc_id(id, 2)
 
 func _spawn_fish() -> void:
 	if not multiplayer.is_server():
@@ -80,8 +113,14 @@ func _spawn_fish() -> void:
 	#print(target_spawner.get_random_point())
 	
 	##Pick Specific fish
-	var grade : Fish.Grade = target_spawner.fish_spawnrate.pick_rarity()
+	var grade : Fish.Grade = target_spawner.pick_rarity()
 	##TODO: Spawn fish on all clients
+	var spawn_loc : Vector3 = target_spawner.get_random_point()
+	
+	var id : int = next_fish_shadow_id
+	next_fish_shadow_id += 1
+	create_fish.rpc(id,spawn_loc,grade,Fish.pick(grade))
+	
 	
 	##NOTE: To make sure fish are synced across clients (specifically when someone fishes one up)
 	##The server might want to be the one managing when fish are fished up?
@@ -91,5 +130,13 @@ func _spawn_fish() -> void:
 
 ##Create the fish on all clients
 @rpc("authority","reliable","call_local")
-func create_fish(pos : Vector3, fish : Fish) -> void:
-	pass
+func create_fish(id : int, pos : Vector3, grade : Fish.Grade, grade_index : int) -> void:
+	var fish : Fish = Fish.create(grade,grade_index)
+	Debug.log("Spawning Fish");
+	var new_fish_shadow : FishShadow = fish_shadow.instantiate()
+	new_fish_shadow.name = "FishShadow"+str(id)
+	new_fish_shadow.fish = fish
+	new_fish_shadow.id = id
+	add_child(new_fish_shadow)
+	new_fish_shadow.global_position = pos
+	fish_shadows.set(id,new_fish_shadow)

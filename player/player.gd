@@ -50,6 +50,8 @@ var aim_mode : AimMode = AimMode.NONE
 enum FootstepState {GRASS, STONE, SNOW}
 var footstep_state : FootstepState = FootstepState.GRASS
 
+var current_fishing_shadow : FishShadow = null
+
 # footstep timing.
 var _footstep_accum_distance := 0.0
 var _footstep_time_since_last := 0.0
@@ -66,6 +68,9 @@ var golden_worm_active := false
 var has_ziplock_bag := false
 
 @onready var livewell : Livewell = $LivewellMenu
+
+var fishing_minigame : FishingMinigame
+
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -86,6 +91,8 @@ func _ready() -> void:
 	_landing_time_since_last = min_landing_period
 	_jump_event_id = 0
 	_last_played_jump_event_id = -1
+	fishing_minigame = %FishingMiniGame
+	fishing_minigame.fishing_finished.connect(on_fishing_finished)
 
 func _process(delta: float) -> void:
 	# Prevents errors when disconnection happens
@@ -101,6 +108,8 @@ func _process(delta: float) -> void:
 	if not is_multiplayer_authority(): return
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if current_fishing_shadow != null:
+		input = Vector2.ZERO
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
@@ -193,9 +202,9 @@ func _input(event: InputEvent) -> void:
 			if event.is_action_pressed("use_item"):
 				if held_item == null:
 					return
-				print("item aim")
+				# print("item aim")
 				if held_item is ThrowableItem:
-					print("item aim")
+					# print("item aim")
 					%Aiming.start_aiming(AimMode.ITEM)
 				else:
 					use_held_item.rpc()
@@ -205,6 +214,15 @@ func _input(event: InputEvent) -> void:
 		AimMode.FISHING_ROD:
 			if event.is_action_released("cast_rod"):
 				%Aiming.stop_aiming()
+				var body : Node = $Aiming/AimRayCast.get_collider()
+				if body is FishShadow:
+					if body.currently_fishing:
+						return
+					body.current_fishing_state.rpc(true)
+					current_fishing_shadow = body
+					##TODO: Play Fishing Minigame
+					fishing_minigame.start(body.fish)
+					
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
 			if event.is_action_released("use_item"):
@@ -411,3 +429,12 @@ func remove_random_fish() -> Fish:
 	
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val
+
+func on_fishing_finished(succeeded:bool) -> void:
+	if succeeded:
+		var fish : Fish = current_fishing_shadow.fish
+		current_fishing_shadow.kill_fish_shadow.rpc()
+		give_fish(fish)
+	else:
+		current_fishing_shadow.current_fishing_state.rpc(false)
+	current_fishing_shadow = null

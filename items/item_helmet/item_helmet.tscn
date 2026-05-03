@@ -9,6 +9,7 @@ radius = 1.6796818
 
 [node name="Item" type="Area3D" unique_id=621433209]
 collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_qcj4k")
 item_name = "Helmet"
 description = "When used, the player puts the helmet on, playing an animation. When the helmet is on it protects the player from the next attempt to ragdoll or fling them. The helmet gets discarded upon use."

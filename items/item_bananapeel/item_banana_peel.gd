@@ -26,4 +26,13 @@ func _on_land() -> void:
 func on_player_collide(body: Node3D) -> void:
 	if(hit_ground && body is Player):
 		body.ragdoll_phys.ragdoll(ragdollTime, true)
+		## TODO: DELETE THIS HORRIBLE REPARENTING
+		var node = $BananaSlipSound
+		var parent = node.get_parent()
+		var grandparent = parent.get_parent()
+
+		var global_transform = node.global_transform
+		node.reparent(grandparent)
+		node.global_transform = global_transform
+		node.play()
 		queue_free()

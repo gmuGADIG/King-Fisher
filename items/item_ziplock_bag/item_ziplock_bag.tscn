@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_w4wpe"]
 [ext_resource type="Script" uid="uid://bgxsg85kpe30" path="res://items/item_ziplock_bag/item_ziplock_bag.gd" id="2_bgvyy"]
 [ext_resource type="PackedScene" uid="uid://do3oi2lvqqabb" path="res://art/3d-assets/PlasticZipBag_Edit.glb" id="3_vb82l"]
+[ext_resource type="PackedScene" uid="uid://60065kuney3p" path="res://items/item_ziplock_bag/ziploc_use.tscn" id="4_v6unp"]
 
-[node name="Item" unique_id=1566519324 instance=ExtResource("1_w4wpe")]
+[node name="ZiplockBag" unique_id=1566519324 instance=ExtResource("1_w4wpe")]
 script = ExtResource("2_bgvyy")
 item_name = "Ziplock Bag"
 description = "When used, the player plays an animation. It protects their sushi grade fish from being affected by stealing or discard effects from other players for 10 seconds. After that time the bag gets discarded."
@@ -16,3 +17,5 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="PlasticZipBag_Edit" parent="." index="1" unique_id=628559893 instance=ExtResource("3_vb82l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)
+
+[node name="ZiplocUse" parent="." index="2" unique_id=118816862 instance=ExtResource("4_v6unp")]

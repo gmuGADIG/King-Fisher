@@ -35,12 +35,13 @@ albedo_color = Color(1, 1, 0, 0.7882353)
 [sub_resource type="SphereMesh" id="SphereMesh_we5kf"]
 material = SubResource("StandardMaterial3D_8i4hd")
 
-[node name="ThrowableItem" unique_id=1566519324 instance=ExtResource("1_1ny5p")]
+[node name="GlueGrenade" unique_id=1566519324 instance=ExtResource("1_1ny5p")]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("2_1e24p")
 slow_time = 0.0
 slow_amount = 0.0
+item_name = "Glue Grenade"
 description = "When used, the player throws the grenade. When thrown if it hits a player it will explode covering them in glue and giving them a debuff to their speed. Any other players within the explosion radius will also be given a debuff. "
 lore = "This sticky contraption was originally designed for arts and crafts projects. After coming under fire for their \"totally not shady\" practices and \"perfectly legit\" business tactics, F.I.S.H.E. began to invest in creative endeavors to win over their \"completely baseless\" critics. Unfortunately, the device worked better than expected and consumers complained that it was a \"safety hazard\".
 As they always do, F.I.S.H.E. turned this sticky situation into an opportunity. Now the Glue Grenade can be found in the Intergalactic Fishbowl.
