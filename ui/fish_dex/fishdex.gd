@@ -18,7 +18,7 @@ var first_draw : bool = true
 @onready var current_fish_name : Label = %Fish_Name
 @onready var current_fish_rarity : Label = %Rarity
 @onready var current_fish_worth : Label = %Worth
-@onready var current_fish_description : Label = %Description
+@onready var current_fish_description : RichTextLabel = %Description
 @onready var current_fish_caught : Label = %Caught
 
 var current_tab = 0
