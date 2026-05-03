@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://5aei5tauflq7" path="res://sound/sfx/player/footsteps_stone.tscn" id="8_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://lma8sgp2bvs1" path="res://sound/sfx/player/player_pickup_item.tscn" id="9_e7oew"]
 [ext_resource type="PackedScene" uid="uid://dqg3ndn6eihef" path="res://sound/sfx/player/player_jump.tscn" id="9_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://ddyo36leg583m" path="res://ui/HUD/held_item.tscn" id="9_kb6p2"]
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_grass.tscn" id="11_2ieo8"]
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_stone.tscn" id="11_land_stone"]
 [ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="12_ebec5"]
@@ -107,6 +108,7 @@ target_position = Vector3(0, -10, 0)
 
 [node name="PlayerLandGrass" parent="Sounds" unique_id=301000001 instance=ExtResource("11_2ieo8")]
 
+[node name="HeldItem" parent="." unique_id=1114095646 instance=ExtResource("9_kb6p2")]
 [node name="PlayerPickupItem" parent="Sounds" unique_id=1633662803 instance=ExtResource("9_e7oew")]
 
 [node name="LivewellMenu" parent="." unique_id=1231020864 instance=ExtResource("12_ebec5")]

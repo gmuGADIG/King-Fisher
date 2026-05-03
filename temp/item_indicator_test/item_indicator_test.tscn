@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://v68mqdlh13dr"]
+
+[ext_resource type="PackedScene" uid="uid://ddyo36leg583m" path="res://ui/HUD/held_item.tscn" id="1_g6htd"]
+
+[node name="ItemIndicatorTest" type="Control" unique_id=583645453]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeldItem" parent="." unique_id=1114095646 instance=ExtResource("1_g6htd")]
+layout_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=17868899]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -263.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BananaButton" type="Button" parent="GridContainer" unique_id=751743970]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hold a Banana Peel"
+
+[node name="NetButton" type="Button" parent="GridContainer" unique_id=383784995]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hold a Butterfly Net"
+
+[node name="GoldenWormButton" type="Button" parent="GridContainer" unique_id=1619580267]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hold a Golden Worm"
+
+[node name="HardhatButton" type="Button" parent="GridContainer" unique_id=1385620324]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hold a Hardhat"
+
+[node name="ClearButton" type="Button" parent="GridContainer" unique_id=1800165681]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Clear Item"
+
+[connection signal="pressed" from="GridContainer/BananaButton" to="HeldItem" method="hold_item" binds= ["Banana Peel"]]
+[connection signal="pressed" from="GridContainer/NetButton" to="HeldItem" method="hold_item" binds= ["Butterfly Net"]]
+[connection signal="pressed" from="GridContainer/GoldenWormButton" to="HeldItem" method="hold_item" binds= ["Golden Worm"]]
+[connection signal="pressed" from="GridContainer/HardhatButton" to="HeldItem" method="hold_item" binds= ["Hardhat"]]
+[connection signal="pressed" from="GridContainer/ClearButton" to="HeldItem" method="clear_item"]

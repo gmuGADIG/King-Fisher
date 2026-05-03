@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://ddyo36leg583m"]
+
+[ext_resource type="Texture2D" uid="uid://bssaflca1lsgi" path="res://temp/temp_art/smiley_white.png" id="1_m2mvq"]
+[ext_resource type="Script" uid="uid://dxtdp88sp85d6" path="res://ui/HUD/held_item.gd" id="1_r4vgt"]
+[ext_resource type="PackedScene" uid="uid://bvdat3iyqqhl4" path="res://art/3d-assets/BANANNA2.glb" id="3_0gq26"]
+[ext_resource type="PackedScene" uid="uid://ckvxigvoeramv" path="res://art/3d-assets/bug_net.glb" id="4_hg5wk"]
+[ext_resource type="PackedScene" uid="uid://tfsb8cebqr51" path="res://items/item_goldenworm/item_golden_worm.glb" id="5_rcaxk"]
+[ext_resource type="PackedScene" uid="uid://c5ycm85kmus1n" path="res://art/3d-assets/Hardhat.fbx" id="6_ofcw7"]
+[ext_resource type="Texture2D" uid="uid://byryan5kq80g" path="res://temp/temp_art/hook.png" id="7_eaj86"]
+
+[sub_resource type="World3D" id="World3D_r4vgt"]
+
+[node name="HeldItem" type="Control" unique_id=1114095646]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 200.0
+script = ExtResource("1_r4vgt")
+
+[node name="ItemBG" type="TextureRect" parent="." unique_id=1029385876]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -60.0
+offset_right = 55.000015
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_m2mvq")
+expand_mode = 1
+
+[node name="ItemPlaceholder" type="SubViewportContainer" parent="ItemBG" unique_id=1303865695]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+pivot_offset_ratio = Vector2(0.5, 0.5)
+stretch = true
+
+[node name="ItemViewport" type="SubViewport" parent="ItemBG/ItemPlaceholder" unique_id=823294935]
+own_world_3d = true
+world_3d = SubResource("World3D_r4vgt")
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(60, 60)
+render_target_update_mode = 4
+
+[node name="ItemCam" type="Camera3D" parent="ItemBG/ItemPlaceholder/ItemViewport" unique_id=1781534415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.5)
+keep_aspect = 0
+fov = 50.0
+size = 2.0
+far = 5.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ItemBG/ItemPlaceholder/ItemViewport/ItemCam" unique_id=1753399209]
+light_energy = 0.7
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 30.0
+
+[node name="ItemRoot" type="Node3D" parent="ItemBG/ItemPlaceholder/ItemViewport" unique_id=1626753867]
+unique_name_in_owner = true
+
+[node name="Banana Peel" parent="ItemBG/ItemPlaceholder/ItemViewport/ItemRoot" unique_id=18215172 instance=ExtResource("3_0gq26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4636166, 0.057698607, 0.23433483)
+
+[node name="Butterfly Net" parent="ItemBG/ItemPlaceholder/ItemViewport/ItemRoot" unique_id=590452190 instance=ExtResource("4_hg5wk")]
+transform = Transform3D(0.3623724, -0.786566, 0.49999997, 0.35355338, 0.6123724, 0.70710677, -0.8623724, -0.07945928, 0.49999997, 0.427, 0.126, 0.04)
+
+[node name="Golden Worm" parent="ItemBG/ItemPlaceholder/ItemViewport/ItemRoot" unique_id=66219520 instance=ExtResource("5_rcaxk")]
+transform = Transform3D(-0.3051785, 0.85577667, 0.41774678, 0.4115456, -0.27707502, 0.8682511, 0.85877687, 0.43689293, -0.26763368, -0.39087054, 0.7221911, -0.1358943)
+
+[node name="Hardhat" parent="ItemBG/ItemPlaceholder/ItemViewport/ItemRoot" unique_id=1026274127 instance=ExtResource("6_ofcw7")]
+transform = Transform3D(0.87296516, -0.17852667, -0.4539383, -0.06895119, 0.8761079, -0.47715878, 0.4828845, 0.44784257, 0.75250214, 0.274, -0.848, -0.325)
+
+[node name="ItemHook" type="TextureRect" parent="." unique_id=223968066]
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 150.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("7_eaj86")
+expand_mode = 1
