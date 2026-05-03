@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_w5lkn"]
 [ext_resource type="PackedScene" uid="uid://3jux6npjxhxf" path="res://systems/item_spawner.tscn" id="2_ay7c0"]
+[ext_resource type="Script" uid="uid://gcho7uv032l6" path="res://world/world_gameplay.gd" id="2_lnltq"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_uq7of"]
 [ext_resource type="Resource" uid="uid://bsvpg3fo22nud" path="res://world/level_mushroom/terrain/data.hterrain" id="3_dowhw"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_of031"]
@@ -36,7 +37,10 @@ script = ExtResource("4_of031")
 mode = 0
 textures = [[ExtResource("5_dowhw")], [null]]
 
-[node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_w5lkn")]
+[node name="Mushroom" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_w5lkn")]
+script = ExtResource("2_lnltq")
+fish_spawners = [NodePath("FishSpawners/WaterPool")]
+fish_spawner_weights = Array[int]([1])
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.577248, 3.6355288, 12.281741)

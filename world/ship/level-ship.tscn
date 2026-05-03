@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cqardg4j2usnv"]
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_liscy"]
+[ext_resource type="Script" uid="uid://gcho7uv032l6" path="res://world/world_gameplay.gd" id="2_a8xj4"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_prlaw"]
-[ext_resource type="Resource" uid="uid://barqr64i821s5" path="res://world/data.hterrain" id="3_ke6vo"]
+[ext_resource type="Resource" path="res://world/data.hterrain" id="3_ke6vo"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_8dgjh"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_1uk8t"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_ke6vo"]
@@ -27,7 +28,10 @@ script = ExtResource("4_8dgjh")
 mode = 0
 textures = [[ExtResource("5_1uk8t")], [null]]
 
-[node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_liscy")]
+[node name="LevelShip" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_liscy")]
+script = ExtResource("2_a8xj4")
+fish_spawners = [NodePath("FishSpawners/WaterPool")]
+fish_spawner_weights = Array[int]([1])
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.589916, 0.091186166, 23.8113)

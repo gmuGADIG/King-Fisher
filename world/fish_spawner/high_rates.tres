@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishSpawnRate" format=3 uid="uid://caxfoaff330jp"]
+
+[ext_resource type="Script" uid="uid://b4fjceo7eqvur" path="res://world/fish_spawner/fish_spawn_rate.gd" id="1_mf4iu"]
+
+[resource]
+script = ExtResource("1_mf4iu")
+leftovers_rate = 35
+fresh_rate = 15
+premium_rate = 30
+sushi_rate = 20
+metadata/_custom_type_script = "uid://b4fjceo7eqvur"

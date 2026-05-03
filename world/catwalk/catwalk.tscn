@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_o8th1"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_l3gfr"]
+[ext_resource type="Script" uid="uid://gcho7uv032l6" path="res://world/world_gameplay.gd" id="2_psob2"]
 [ext_resource type="Resource" uid="uid://d2xohfjvf1inp" path="res://world/catwalk/terrain/data.hterrain" id="3_cwonv"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_5gcag"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_cwonv"]
@@ -40,7 +41,8 @@ textures = [[ExtResource("5_cwonv")], [null]]
 [sub_resource type="BoxShape3D" id="BoxShape3D_lkfwd"]
 size = Vector3(51.594765, 0.001, 51.320484)
 
-[node name="WorldBase" unique_id=1821617715 instance=ExtResource("1_o8th1")]
+[node name="Catwalk" unique_id=1821617715 instance=ExtResource("1_o8th1")]
+script = ExtResource("2_psob2")
 
 [node name="Players" parent="." index="2" unique_id=1891362098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.346844, 0.010801315, 30.659712)

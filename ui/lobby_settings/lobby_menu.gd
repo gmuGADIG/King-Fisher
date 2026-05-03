@@ -127,7 +127,8 @@ func set_buttons_from_bitmask(buttons: Array[Node], bitmask: int) -> void:
 			bitmask >>= 1
 
 func _input(event: InputEvent) -> void:
-	if(event.is_action_pressed("Menu") && multiplayer.is_server()):
+	if(event.is_action_pressed("lobby_settings") && multiplayer.is_server()):
+		print("huh?")
 		print("Menu pressed")
 		print("Authority checked")
 		visible = not visible
