@@ -117,7 +117,6 @@ func get_poly_area() -> float:
 	return abs(area) / 2
 
 func pick_rarity() -> Fish.Grade:
-	print("weights: ",rates)
 	var type : int = rng.rand_weighted(rates)
 	var grade : Fish.Grade = type+1
 	

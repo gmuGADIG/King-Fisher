@@ -8,9 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://cii25od3gem26" path="res://systems/rhythm/rhythm_engine.tscn" id="5_mq61g"]
 [ext_resource type="Texture2D" uid="uid://bmxsuarykfoe3" path="res://temp/temp_art/smiley.png" id="5_v1gag"]
 [ext_resource type="AudioStream" uid="uid://dm4ild1p4n4u1" path="res://sound/sfx/minigame/SplashAMixed.mp3" id="6_dsd34"]
+[ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="6_i2p1o"]
+[ext_resource type="Resource" uid="uid://d4aqqetqlhkyx" path="res://systems/rhythm/tracks/Basic 1.tres" id="7_5nrls"]
 [ext_resource type="AudioStream" uid="uid://b5vx8oie757ey" path="res://sound/sfx/minigame/SplashBMixed.mp3" id="7_b0lau"]
+[ext_resource type="Resource" uid="uid://ooout07a57uh" path="res://systems/rhythm/tracks/hard1.tres" id="8_h6iob"]
+[ext_resource type="Resource" uid="uid://c3sr20w6hlwhc" path="res://systems/rhythm/tracks/Intermediate 1.tres" id="9_jwn05"]
 [ext_resource type="Texture2D" uid="uid://cjnwf45j1c0rv" path="res://temp/temp_art/king-fisher.png" id="10_2nsaa"]
 [ext_resource type="Texture2D" uid="uid://0q6vu72wg5pn" path="res://systems/rhythm/art/rhythm_bar_edit.png" id="10_dsd34"]
+[ext_resource type="Resource" uid="uid://dhjqsnmmu745p" path="res://systems/rhythm/tracks/medium1.tres" id="10_ncpsf"]
 [ext_resource type="Texture2D" uid="uid://mxbipnxyr4xf" path="res://systems/rhythm/art/Screenshot 2026-04-22 195817.png" id="12_2nsaa"]
 [ext_resource type="Texture2D" uid="uid://bbub80p362odf" path="res://systems/rhythm/art/winlose_temp.png" id="13_dsd34"]
 
@@ -92,10 +97,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qgtvk")
+fresh_accuracy_requirement = 70.0
+premium_accuracy_requirement = 70.0
+sushi_accuracy_requirement = 70.0
 track = ExtResource("2_dsd34")
 tick_marker = ExtResource("3_dsd34")
 note_marker = ExtResource("4_yhodo")
 note_articulated_marker = ExtResource("5_2nsaa")
+leftovers_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("7_5nrls")])
+fresh_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("8_h6iob")])
+premium_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("9_jwn05")])
+sushi_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("10_ncpsf")])
 hit_window_radius_ms = 100.0
 perfect_window_radius_ms = 25.0
 
@@ -209,7 +221,9 @@ texture = ExtResource("12_2nsaa")
 [node name="Articulated" type="AudioStreamPlayer" parent="." unique_id=459856869]
 stream = ExtResource("7_b0lau")
 volume_db = 7.69
+pitch_scale = 2.0
 
 [node name="NonArticulated" type="AudioStreamPlayer" parent="." unique_id=1265424431]
 stream = ExtResource("6_dsd34")
 volume_db = 5.859
+pitch_scale = 2.0

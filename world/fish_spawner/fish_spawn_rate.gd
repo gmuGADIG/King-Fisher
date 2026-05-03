@@ -24,7 +24,6 @@ func _init() -> void:
 	rates.append(sushi_rate)
 	
 func pick_rarity() -> Fish.Grade:
-	print("weights: ",rates)
 	var type : int = rng.rand_weighted(rates)
 	var grade : Fish.Grade = type+1
 	

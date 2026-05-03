@@ -1,5 +1,7 @@
 class_name FishingMinigame extends Control
 
+
+
 const TRACK_LENGTH:int = 8
 
 enum NoteType{
@@ -19,13 +21,11 @@ enum HitQuality{
 	PERFECT
 }
 
-enum Grade{
-	UNSET,
-	LEFTOVERS,
-	FRESH,
-	PREMIUM,
-	SUSHI,
-}
+
+@export var leftovers_accuracy_requirement : float = 70
+@export var fresh_accuracy_requirement : float = 75
+@export var premium_accuracy_requirement : float = 80
+@export var sushi_accuracy_requirement : float = 90
 
 @export var track:Track
 @export var tick_marker : PackedScene
@@ -37,8 +37,8 @@ enum Grade{
 @export var sushi_tracks : Array[Track]
 var markers : Array[Sprite2D]
 
-@export_range(0.0,1.0,0.01) var good_hit_accuracy:float = 0.7
-const perfect_hit_accuracy : float = 1.0
+@export_range(0.0,100.0,1.0) var good_hit_accuracy:float = 70.0
+const perfect_hit_accuracy : float = 100.0
 @export var hit_window_radius_ms:float
 @export var perfect_window_radius_ms:float
 
@@ -50,6 +50,7 @@ var perfect_hits:int = 0
 var good_hits:int = 0
 var misses:int = 0
 
+var target_accuracy : float
 
 # Called when the node enters the scene tree for the first time.
 
@@ -74,7 +75,6 @@ signal fishing_finished(success:bool)
 @onready var fish_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/FishBar/SequenceLine/FishIndicator
 @onready var rating_label: Label = $TextureRect/VBoxContainer/ColorRect/RatingLabel
 @onready var rating_animation: AnimationPlayer = $TextureRect/VBoxContainer/ColorRect/RatingAnimation
-@onready var main_audio_stream: AudioStreamPlayer = $MainAudioStream
 
 func start(fish : Fish) -> void:
 	misses = 0
@@ -89,14 +89,18 @@ func start(fish : Fish) -> void:
 	fish_indicator.position = Vector2(0,0)
 	print(fish.grade)
 	match fish.grade:
-		Grade.LEFTOVERS:
+		Fish.Grade.LEFTOVERS:
 			track = leftovers_tracks.pick_random()
-		Grade.FRESH:
+			target_accuracy = leftovers_accuracy_requirement
+		Fish.Grade.FRESH:
 			track = fresh_tracks.pick_random()
-		Grade.PREMIUM:
+			target_accuracy = fresh_accuracy_requirement
+		Fish.Grade.PREMIUM:
 			track = premium_tracks.pick_random()
-		Grade.SUSHI:
+			target_accuracy = premium_accuracy_requirement
+		Fish.Grade.SUSHI:
 			track = sushi_tracks.pick_random()
+			target_accuracy = sushi_accuracy_requirement
 	populate_sequence(track)
 	rhythm_engine.play(track)
 	win_lose_sprite.visible = false
@@ -170,14 +174,12 @@ func _process(delta: float) -> void:
 			print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 			state = Phase.MINIGAME_INACTIVE
 			print(accuracy)
-			if accuracy > track.target_accuracy/100:
-				fishing_finished.emit(true)
-			else:
-				fishing_finished.emit(false)
+			fishing_finished.emit(accuracy >= target_accuracy)
 			finish()
 
 func finish() -> void:
 	rhythm_engine.stop()
+	tempo_audio_stream.stop()
 	hide()
 	while not markers.is_empty():
 		var m = markers.pop_back()
@@ -293,7 +295,6 @@ func populate_sequence(input_track:Track):
 	print("input track:",input_track.notes.size())
 	var spacing = sequence_line_length/(TRACK_LENGTH-1)
 	for note in input_track.notes:
-		print("i'm a note")
 		var new_note_marker : Sprite2D
 		if note.is_articulated:
 			new_note_marker = note_articulated_marker.instantiate()

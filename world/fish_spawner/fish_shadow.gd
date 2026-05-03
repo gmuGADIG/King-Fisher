@@ -12,14 +12,11 @@ func _ready() -> void:
 	$AnimationPlayer.play("fish_spin")
 
 @rpc("any_peer","reliable","call_local")
-static func current_fishing_state(id : int, state : bool) -> void:
-	var shadow : FishShadow = WorldGameplay.fish_shadows[id]
-	assert(shadow != null,"phantom fish")
-	shadow.currently_fishing = state
+func current_fishing_state(state : bool) -> void:
+	Debug.log("I am having my fish state changed")
+	currently_fishing = state
 
 @rpc("any_peer","reliable","call_local")
-static func kill_fish_shadow(id : int) -> void:
-	var shadow : FishShadow = WorldGameplay.fish_shadows[id]
-	assert(shadow != null,"not real fish")
+func kill_fish_shadow() -> void:
 	WorldGameplay.fish_shadows.erase(id)
-	shadow.queue_free()
+	queue_free()

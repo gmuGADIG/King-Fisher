@@ -108,6 +108,8 @@ func _process(delta: float) -> void:
 	if not is_multiplayer_authority(): return
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if current_fishing_shadow != null:
+		input = Vector2.ZERO
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
@@ -216,7 +218,7 @@ func _input(event: InputEvent) -> void:
 				if body is FishShadow:
 					if body.currently_fishing:
 						return
-					FishShadow.current_fishing_state.rpc(body.id,true)
+					body.current_fishing_state.rpc(true)
 					current_fishing_shadow = body
 					##TODO: Play Fishing Minigame
 					fishing_minigame.start(body.fish)
@@ -430,6 +432,9 @@ func set_name_visible(val : bool) -> void:
 
 func on_fishing_finished(succeeded:bool) -> void:
 	if succeeded:
-		print("fish given")
+		var fish : Fish = current_fishing_shadow.fish
+		current_fishing_shadow.kill_fish_shadow.rpc()
+		give_fish(fish)
 	else:
-		print("fish not given")
+		current_fishing_shadow.current_fishing_state.rpc(false)
+	current_fishing_shadow = null

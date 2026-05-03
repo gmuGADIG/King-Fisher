@@ -5,7 +5,7 @@ static var fish_shadows : Dictionary[int,FishShadow]
 static var next_fish_shadow_id : int = 0
 
 static var fish_shadow : PackedScene = load("res://world/fish_spawner/fish_shadow.tscn")
-const FISH_SPAWN_RATE : float = 0.5
+const FISH_SPAWN_RATE : float = 5
 
 static var round_time : float
 #static var item_pool :
@@ -90,7 +90,7 @@ func _spawn_fish() -> void:
 	
 	var id : int = next_fish_shadow_id
 	next_fish_shadow_id += 1
-	create_fish.rpc(id,spawn_loc,Fish.create(grade))
+	create_fish.rpc(id,spawn_loc,grade,Fish.pick(grade))
 	
 	
 	##NOTE: To make sure fish are synced across clients (specifically when someone fishes one up)
@@ -101,8 +101,11 @@ func _spawn_fish() -> void:
 
 ##Create the fish on all clients
 @rpc("authority","reliable","call_local")
-func create_fish(id : int, pos : Vector3, fish : Fish) -> void:
+func create_fish(id : int, pos : Vector3, grade : Fish.Grade, grade_index : int) -> void:
+	var fish : Fish = Fish.create(grade,grade_index)
+	Debug.log("Spawning Fish");
 	var new_fish_shadow : FishShadow = fish_shadow.instantiate()
+	new_fish_shadow.name = "FishShadow"+str(id)
 	new_fish_shadow.fish = fish
 	new_fish_shadow.id = id
 	add_child(new_fish_shadow)
