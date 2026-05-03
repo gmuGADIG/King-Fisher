@@ -21,6 +21,14 @@ var fish_rng : RandomNumberGenerator
 
 
 func _ready() -> void:
+	var music := [
+		load("res://sound/music/song_files/main_level_ben.tres"),
+		load("res://sound/music/song_files/main_level_matthew_c.tres"),
+		load("res://sound/music/song_files/main_level_matthew_p.tres"),
+		load("res://sound/music/song_files/main_level_nathan.tres")
+	]
+	MainMusicPlayer.play_song(music.pick_random())
+
 	assert(fish_spawner_weights.size() == fish_spawners.size(), "water pool count and weight counts are not equal")
 	hud = %GameHud
 	super._ready()
@@ -54,6 +62,7 @@ func _process(delta: float) -> void:
 
 	if remaining_time < 60. and almost_over_not_triggered:
 		almost_over_not_triggered = false
+		MainMusicPlayer.play_song(load("res://sound/music/song_files/mainleveldnb_jan.tres"))
 		%AlarmSound.play()
 	
 	if Input.is_action_just_pressed("timer_to_one_min") and OS.has_feature("editor"):
