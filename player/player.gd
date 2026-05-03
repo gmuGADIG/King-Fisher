@@ -219,6 +219,7 @@ func _input(event: InputEvent) -> void:
 					FishShadow.current_fishing_state.rpc(body.id,true)
 					current_fishing_shadow = body
 					##TODO: Play Fishing Minigame
+					fishing_minigame.start(body.fish)
 					
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable

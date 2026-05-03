@@ -44,10 +44,14 @@ func _process(delta: float) -> void:
 
 ## Converts the number of beats into the song into the number of ms into the song
 func beat_to_ms(beat : float) -> float:
-	assert(current_track != null, "No track selected!")
+	if current_track == null:
+		return 0
+	#assert(current_track != null, "No track selected!")
 	return (((beat) * BPS_TO_BPM) / current_track.bpm) * SECONDS_TO_MS
 
 ## Converts the number of ms into the song into the number of beats into the song
 func ms_to_beat(ms : float) -> float:
-	assert(current_track != null, "No track selected!")
+	if current_track == null:
+		return 0
+	#assert(current_track != null, "No track selected!")
 	return ms * MS_TO_SECONDS * current_track.bpm * BPM_TO_BPS

@@ -1,8 +1,8 @@
 class_name WorldGameplay
 extends WorldBase
 
-
-
+static var fish_shadows : Dictionary[int,FishShadow]
+static var next_fish_shadow_id : int = 0
 
 static var fish_shadow : PackedScene = load("res://world/fish_spawner/fish_shadow.tscn")
 const FISH_SPAWN_RATE : float = 0.5
@@ -88,8 +88,8 @@ func _spawn_fish() -> void:
 	##TODO: Spawn fish on all clients
 	var spawn_loc : Vector3 = target_spawner.get_random_point()
 	
-	var id : int = FishShadow.next_id
-	FishShadow.next_id += 1
+	var id : int = next_fish_shadow_id
+	next_fish_shadow_id += 1
 	create_fish.rpc(id,spawn_loc,Fish.create(grade))
 	
 	
@@ -107,4 +107,4 @@ func create_fish(id : int, pos : Vector3, fish : Fish) -> void:
 	new_fish_shadow.id = id
 	add_child(new_fish_shadow)
 	new_fish_shadow.global_position = pos
-	FishShadow.fish_shadows.set(id,new_fish_shadow)
+	fish_shadows.set(id,new_fish_shadow)
