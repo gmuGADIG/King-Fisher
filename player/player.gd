@@ -69,6 +69,9 @@ var has_ziplock_bag := false
 
 @onready var livewell : Livewell = $LivewellMenu
 
+var fishing_minigame : FishingMinigame
+
+
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
 	set(new_val):
@@ -88,6 +91,8 @@ func _ready() -> void:
 	_landing_time_since_last = min_landing_period
 	_jump_event_id = 0
 	_last_played_jump_event_id = -1
+	fishing_minigame = %FishingMiniGame
+	fishing_minigame.fishing_finished.connect(on_fishing_finished)
 
 func _process(delta: float) -> void:
 	# Prevents errors when disconnection happens
@@ -421,3 +426,9 @@ func remove_random_fish() -> Fish:
 	
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val
+
+func on_fishing_finished(succeeded:bool) -> void:
+	if succeeded:
+		print("fish given")
+	else:
+		print("fish not given")

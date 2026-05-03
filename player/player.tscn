@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_grass.tscn" id="11_2ieo8"]
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_stone.tscn" id="11_land_stone"]
 [ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="12_ebec5"]
+[ext_resource type="PackedScene" uid="uid://bpo4nvgeh8dat" path="res://systems/rhythm/fishing_mini_game.tscn" id="14_32hag"]
 [ext_resource type="Script" uid="uid://b8h20ju61nnj6" path="res://ui/fish_dex/fishdex.gd" id="14_kb6p2"]
 [ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/ourple.png" id="16_e7oew"]
 [ext_resource type="Script" path="res://player/player_texture_manager.gd" id="16_tqiix"]
@@ -406,5 +407,11 @@ metadata/_custom_type_script = "uid://b8h20ju61nnj6"
 script = ExtResource("16_tqiix")
 player_textures = Array[Texture2D]([ExtResource("16_e7oew"), ExtResource("17_c35mf")])
 target_mesh = NodePath("../DefaultPlayer/PlayerSkeleton/Skeleton3D/DefaultPlayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1868212809]
+
+[node name="FishingMiniGame" parent="CanvasLayer" unique_id=476640078 instance=ExtResource("14_32hag")]
+unique_name_in_owner = true
+visible = false
 
 [editable path="DefaultPlayer"]
