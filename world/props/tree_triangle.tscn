@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhgnooactcump"]
 
 [ext_resource type="PackedScene" uid="uid://c1ukh1k6ihvqn" path="res://art/3d-assets/raw_assets/trees/Trees_Triangle.glb" id="1_yd73d"]
+[ext_resource type="Material" uid="uid://cjo8goo43hf8" path="res://art/3d-materials/brown_bark.tres" id="2_3ncde"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3ncde"]
 data = PackedVector3Array(0, -1, -1, 0.58779997, 7.2560997, -0.80899996, 0, 7.2560997, -1, 0, -1, -1, 0.58779997, -1, -0.80899996, 0.58779997, 7.2560997, -0.80899996, 0.58779997, -1, -0.80899996, 0.9511, 7.2560997, -0.309, 0.58779997, 7.2560997, -0.80899996, 0.58779997, -1, -0.80899996, 0.9511, -1, -0.309, 0.9511, 7.2560997, -0.309, 0.9511, -1, -0.309, 0.9511, 7.2560997, 0.309, 0.9511, 7.2560997, -0.309, 0.9511, -1, -0.309, 0.9511, -1, 0.309, 0.9511, 7.2560997, 0.309, 0.9511, -1, 0.309, 0.58779997, 7.2560997, 0.80899996, 0.9511, 7.2560997, 0.309, 0.9511, -1, 0.309, 0.58779997, -1, 0.80899996, 0.58779997, 7.2560997, 0.80899996, 0.58779997, -1, 0.80899996, 0, 7.2560997, 1, 0.58779997, 7.2560997, 0.80899996, 0.58779997, -1, 0.80899996, 0, -1, 1, 0, 7.2560997, 1, 0, -1, 1, -0.58779997, 7.2560997, 0.80899996, 0, 7.2560997, 1, 0, -1, 1, -0.58779997, -1, 0.80899996, -0.58779997, 7.2560997, 0.80899996, -0.58779997, -1, 0.80899996, -0.9511, 7.2560997, 0.309, -0.58779997, 7.2560997, 0.80899996, -0.58779997, -1, 0.80899996, -0.9511, -1, 0.309, -0.9511, 7.2560997, 0.309, -0.9511, -1, 0.309, -0.9511, 7.2560997, -0.309, -0.9511, 7.2560997, 0.309, -0.9511, -1, 0.309, -0.9511, -1, -0.309, -0.9511, 7.2560997, -0.309, -0.9511, -1, -0.309, -0.58779997, 7.2560997, -0.80899996, -0.9511, 7.2560997, -0.309, -0.9511, -1, -0.309, -0.58779997, -1, -0.80899996, -0.58779997, 7.2560997, -0.80899996, -0.58779997, -1, -0.80899996, 0, 7.2560997, -1, -0.58779997, 7.2560997, -0.80899996, -0.58779997, -1, -0.80899996, 0, -1, -1, 0, 7.2560997, -1, 0.9511, 7.2560997, -0.309, 0, 7.2560997, -1, 0.58779997, 7.2560997, -0.80899996, 0.9511, 7.2560997, -0.309, -0.9511, 7.2560997, -0.309, 0, 7.2560997, -1, 0, 7.2560997, -1, -0.9511, 7.2560997, -0.309, -0.58779997, 7.2560997, -0.80899996, -0.9511, 7.2560997, -0.309, 0.9511, 7.2560997, -0.309, 0.58779997, 7.2560997, 0.80899996, 0.58779997, 7.2560997, 0.80899996, 0.9511, 7.2560997, -0.309, 0.9511, 7.2560997, 0.309, -0.9511, 7.2560997, -0.309, 0.58779997, 7.2560997, 0.80899996, -0.58779997, 7.2560997, 0.80899996, -0.58779997, 7.2560997, 0.80899996, 0.58779997, 7.2560997, 0.80899996, 0, 7.2560997, 1, -0.9511, 7.2560997, -0.309, -0.58779997, 7.2560997, 0.80899996, -0.9511, 7.2560997, 0.309, -0.58779997, -1, -0.80899996, 0.58779997, -1, -0.80899996, 0, -1, -1, -0.58779997, -1, -0.80899996, 0.9511, -1, 0.309, 0.58779997, -1, -0.80899996, 0.58779997, -1, -0.80899996, 0.9511, -1, 0.309, 0.9511, -1, -0.309, 0.9511, -1, 0.309, -0.58779997, -1, -0.80899996, -0.9511, -1, 0.309, -0.9511, -1, 0.309, -0.58779997, -1, -0.80899996, -0.9511, -1, -0.309, 0.9511, -1, 0.309, -0.9511, -1, 0.309, 0, -1, 1, 0, -1, 1, -0.9511, -1, 0.309, -0.58779997, -1, 0.80899996, 0.9511, -1, 0.309, 0, -1, 1, 0.58779997, -1, 0.80899996)
@@ -13,14 +14,21 @@ data = PackedVector3Array(0.7071, -1, -0.7071, 0.7881, 9.6025, 0, 0.5573, 9.6025
 [node name="Trees_Triangle" parent="." unique_id=211640041 instance=ExtResource("1_yd73d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05159092, -1.1920929e-07, -0.24529219)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees_Triangle/Cylinder_003" parent_id_path=PackedInt32Array(211640041, 417816313) index="0" unique_id=899061945]
+[node name="Cylinder" parent="Trees_Triangle" index="0" unique_id=1184382235]
+surface_material_override/0 = ExtResource("2_3ncde")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees_Triangle/Cylinder_003/StaticBody3D" unique_id=1267101772]
+[node name="Trees_Triangle_Cylinder_003#StaticBody3D" type="StaticBody3D" parent="Trees_Triangle/Cylinder" index="0" unique_id=899061945]
+transform = Transform3D(0.99612, 0, 0, 0, 1, 0, 0, 0, 1, 0.05159092, 1.1920929e-07, 0.24529219)
+
+[node name="Trees_Triangle_Cylinder_003_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="Trees_Triangle/Cylinder/Trees_Triangle_Cylinder_003#StaticBody3D" unique_id=1267101772]
+transform = Transform3D(0.43791452, 0, 0, 0, 0.8041034, 0, 0, 0, 0.56111795, 0, 0.7382097, -0.29849756)
 shape = SubResource("ConcavePolygonShape3D_3ncde")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees_Triangle/Cylinder_004" parent_id_path=PackedInt32Array(211640041, 1339815025) index="0" unique_id=1753433957]
+[node name="Trees_Triangle_Cylinder_004#StaticBody3D" type="StaticBody3D" parent="Trees_Triangle/Cylinder_001" parent_id_path=PackedInt32Array(211640041, 2130276242) index="0" unique_id=1753433957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05159092, 1.1920929e-07, 0.24529219)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees_Triangle/Cylinder_004/StaticBody3D" unique_id=841960384]
+[node name="Trees_Triangle_Cylinder_004_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="Trees_Triangle/Cylinder_001/Trees_Triangle_Cylinder_004#StaticBody3D" unique_id=841960384]
+transform = Transform3D(2.8050334, 0, 0, 0, 0.08660241, 0, 0, 0, 2.9811516, -0.04154873, 3.1358142, -0.386312)
 shape = SubResource("ConcavePolygonShape3D_slj0i")
 
 [editable path="Trees_Triangle"]

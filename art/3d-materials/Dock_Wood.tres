@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d1mq3pjs0kelk"]
+
+[resource]
+resource_name = "Dock_Wood"
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.5027207, 0.3794735, 0.22788304, 1)
+roughness = 0.0

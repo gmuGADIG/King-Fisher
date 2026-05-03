@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bdivdoc7tnurw"]
+
+[resource]
+resource_name = "pasted__StemColor1.001"
+cull_mode = 2
+albedo_color = Color(0.89818054, 0.9063318, 0.79154766, 1)
+roughness = 0.7083333

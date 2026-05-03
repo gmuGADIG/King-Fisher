@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://gpcvf0ox46m1"]
 
 [ext_resource type="PackedScene" uid="uid://do6mdjolyq0k2" path="res://art/3d-assets/raw_assets/cattail_edit.glb" id="1_0q21u"]
+[ext_resource type="Material" uid="uid://bqcovvjh8efhh" path="res://art/3d-materials/Material.010.tres" id="2_g7f7p"]
+[ext_resource type="Material" uid="uid://cjo8goo43hf8" path="res://art/3d-materials/brown_bark.tres" id="3_co4n7"]
+[ext_resource type="Material" uid="uid://bhswnlh6gx86j" path="res://art/3d-materials/Material.009.tres" id="4_ngl5k"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jb63q"]
 data = PackedVector3Array(-0.0064999997, 2.1467, 0.030199999, 0.0893, 3.5582, -0.23539999, 0.0374, 3.5582, -0.2654, -0.0064999997, 2.1467, 0.030199999, 0.0455, 2.1467, 0.0602, 0.0893, 3.5582, -0.23539999, 0.0455, 2.1467, 0.0602, 0.0893, 3.5582, -0.17549999, 0.0893, 3.5582, -0.23539999, 0.0455, 2.1467, 0.0602, 0.0455, 2.1467, 0.12, 0.0893, 3.5582, -0.17549999, 0.0455, 2.1467, 0.12, 0.0374, 3.5582, -0.1454, 0.0893, 3.5582, -0.17549999, 0.0455, 2.1467, 0.12, -0.0064999997, 2.1467, 0.1502, 0.0374, 3.5582, -0.1454, -0.0064999997, 2.1467, 0.1502, -0.014599999, 3.5582, -0.17539999, 0.0374, 3.5582, -0.1454, -0.0064999997, 2.1467, 0.1502, -0.058399998, 2.1467, 0.12019999, -0.014599999, 3.5582, -0.17539999, 0.0893, 3.5582, -0.17549999, 0.0464, 4.4927, -0.4908, 0.0893, 3.5582, -0.23539999, -0.058399998, 2.1467, 0.12019999, -0.014599999, 3.5582, -0.23539999, -0.014599999, 3.5582, -0.17539999, -0.058399998, 2.1467, 0.12019999, -0.058399998, 2.1467, 0.0602, -0.014599999, 3.5582, -0.23539999, -0.058399998, 2.1467, 0.0602, 0.0374, 3.5582, -0.2654, -0.014599999, 3.5582, -0.23539999, -0.058399998, 2.1467, 0.0602, -0.0064999997, 2.1467, 0.030199999, 0.0374, 3.5582, -0.2654, -0.014599999, -3.8758998, -0.4121, 0.0893, -3.8758998, -0.4121, 0.0374, -3.8758998, -0.4421, 0.0893, -3.8758998, -0.4121, -0.014599999, -3.8758998, -0.4121, 0.0374, -3.8758998, -0.32209998, 0.0374, -3.8758998, -0.32209998, -0.014599999, -3.8758998, -0.4121, -0.014599999, -3.8758998, -0.35209998, 0.0893, -3.8758998, -0.4121, 0.0374, -3.8758998, -0.32209998, 0.0893, -3.8758998, -0.3522, 0.0455, -1.8533, 0.0628, -0.0262, 0.1568, 0.259, 0.025799999, 0.1568, 0.2288, 0.0455, -1.8533, 0.0628, -0.0064999997, -1.8533, 0.092999995, -0.0262, 0.1568, 0.259, -0.014599999, 3.5582, -0.23539999, 0.0464, 4.4927, -0.4908, -0.014599999, 3.5582, -0.17539999, 0.0893, 3.5582, -0.23539999, 0.0464, 4.4927, -0.4908, 0.0374, 3.5582, -0.2654, 0.0374, 3.5582, -0.1454, 0.0464, 4.4927, -0.4908, 0.0893, 3.5582, -0.17549999, 0.0374, 3.5582, -0.2654, 0.0464, 4.4927, -0.4908, -0.014599999, 3.5582, -0.23539999, -0.014599999, 3.5582, -0.17539999, 0.0464, 4.4927, -0.4908, 0.0374, 3.5582, -0.1454, -0.0064999997, -1.8533, 0.092999995, -0.078099996, 0.1568, 0.22899999, -0.0262, 0.1568, 0.259, -0.0064999997, -1.8533, 0.092999995, -0.058399998, -1.8533, 0.063, -0.078099996, 0.1568, 0.22899999, -0.058399998, -1.8533, 0.063, -0.078099996, 0.1568, 0.169, -0.078099996, 0.1568, 0.22899999, -0.058399998, -1.8533, 0.063, -0.058399998, -1.8533, 0.003, -0.078099996, 0.1568, 0.169, -0.058399998, -1.8533, 0.003, -0.0262, 0.1568, 0.139, -0.078099996, 0.1568, 0.169, -0.058399998, -1.8533, 0.003, -0.0064999997, -1.8533, -0.026999999, -0.0262, 0.1568, 0.139, 0.0455, -1.8533, 0.003, 0.025799999, 0.1568, 0.2288, 0.025799999, 0.1568, 0.169, 0.0455, -1.8533, 0.003, 0.0455, -1.8533, 0.0628, 0.025799999, 0.1568, 0.2288, -0.0064999997, -1.8533, -0.026999999, 0.025799999, 0.1568, 0.169, -0.0262, 0.1568, 0.139, -0.0064999997, -1.8533, -0.026999999, 0.0455, -1.8533, 0.003, 0.025799999, 0.1568, 0.169, -0.078099996, 0.1568, 0.169, -0.0064999997, 2.1467, 0.030199999, -0.058399998, 2.1467, 0.0602, -0.078099996, 0.1568, 0.169, -0.0262, 0.1568, 0.139, -0.0064999997, 2.1467, 0.030199999, -0.078099996, 0.1568, 0.22899999, -0.058399998, 2.1467, 0.0602, -0.058399998, 2.1467, 0.12019999, -0.078099996, 0.1568, 0.22899999, -0.078099996, 0.1568, 0.169, -0.058399998, 2.1467, 0.0602, -0.0262, 0.1568, 0.259, -0.058399998, 2.1467, 0.12019999, -0.0064999997, 2.1467, 0.1502, -0.0262, 0.1568, 0.259, -0.078099996, 0.1568, 0.22899999, -0.058399998, 2.1467, 0.12019999, 0.025799999, 0.1568, 0.2288, -0.0064999997, 2.1467, 0.1502, 0.0455, 2.1467, 0.12, 0.025799999, 0.1568, 0.2288, -0.0262, 0.1568, 0.259, -0.0064999997, 2.1467, 0.1502, 0.025799999, 0.1568, 0.169, 0.0455, 2.1467, 0.12, 0.0455, 2.1467, 0.0602, 0.025799999, 0.1568, 0.169, 0.025799999, 0.1568, 0.2288, 0.0455, 2.1467, 0.12, -0.0262, 0.1568, 0.139, 0.0455, 2.1467, 0.0602, -0.0064999997, 2.1467, 0.030199999, -0.0262, 0.1568, 0.139, 0.025799999, 0.1568, 0.169, 0.0455, 2.1467, 0.0602, 0.0374, -3.8758998, -0.4421, 0.0455, -1.8533, 0.003, -0.0064999997, -1.8533, -0.026999999, 0.0374, -3.8758998, -0.4421, 0.0893, -3.8758998, -0.4121, 0.0455, -1.8533, 0.003, 0.0893, -3.8758998, -0.4121, 0.0455, -1.8533, 0.0628, 0.0455, -1.8533, 0.003, 0.0893, -3.8758998, -0.4121, 0.0893, -3.8758998, -0.3522, 0.0455, -1.8533, 0.0628, -0.014599999, -3.8758998, -0.4121, -0.0064999997, -1.8533, -0.026999999, -0.058399998, -1.8533, 0.003, -0.014599999, -3.8758998, -0.4121, 0.0374, -3.8758998, -0.4421, -0.0064999997, -1.8533, -0.026999999, -0.014599999, -3.8758998, -0.35209998, -0.058399998, -1.8533, 0.003, -0.058399998, -1.8533, 0.063, -0.014599999, -3.8758998, -0.35209998, -0.014599999, -3.8758998, -0.4121, -0.058399998, -1.8533, 0.003, 0.0374, -3.8758998, -0.32209998, -0.058399998, -1.8533, 0.063, -0.0064999997, -1.8533, 0.092999995, 0.0374, -3.8758998, -0.32209998, -0.014599999, -3.8758998, -0.35209998, -0.058399998, -1.8533, 0.063, 0.0893, -3.8758998, -0.3522, -0.0064999997, -1.8533, 0.092999995, 0.0455, -1.8533, 0.0628, 0.0893, -3.8758998, -0.3522, 0.0374, -3.8758998, -0.32209998, -0.0064999997, -1.8533, 0.092999995)
@@ -44,70 +47,91 @@ data = PackedVector3Array(0.0676, 0.8128, -0.7639, 0.5766, 0.8128, -0.4667, 0.17
 [node name="Cattail" type="Node3D" unique_id=860308089]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
-[node name="cattail_edit" parent="." unique_id=1162155861 instance=ExtResource("1_0q21u")]
+[node name="cattail_edit" parent="." unique_id=923720596 instance=ExtResource("1_0q21u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07713592, -1.1920929e-07, -0.11217666)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_004" parent_id_path=PackedInt32Array(1162155861, 1616747990) index="0" unique_id=884827428]
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_004" parent_id_path=PackedInt32Array(923720596, 1595836035) index="0" unique_id=884827428]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Cylinder_004/StaticBody3D" unique_id=882113992]
 shape = SubResource("ConcavePolygonShape3D_jb63q")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_005" parent_id_path=PackedInt32Array(1162155861, 850211728) index="0" unique_id=1789159977]
+[node name="Cylinder_005" parent="cattail_edit" index="1" unique_id=1551572116]
+material_override = ExtResource("2_g7f7p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_005" index="0" unique_id=1789159977]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Cylinder_005/StaticBody3D" unique_id=1392765368]
 shape = SubResource("ConcavePolygonShape3D_a5emc")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_006" parent_id_path=PackedInt32Array(1162155861, 947157135) index="0" unique_id=911722556]
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_006" parent_id_path=PackedInt32Array(923720596, 124044675) index="0" unique_id=911722556]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Cylinder_006/StaticBody3D" unique_id=1842559770]
 shape = SubResource("ConcavePolygonShape3D_g7f7p")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_007" parent_id_path=PackedInt32Array(1162155861, 557704679) index="0" unique_id=1102147765]
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_007" parent_id_path=PackedInt32Array(923720596, 1136999831) index="0" unique_id=1102147765]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Cylinder_007/StaticBody3D" unique_id=1894775293]
 shape = SubResource("ConcavePolygonShape3D_co4n7")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_008" parent_id_path=PackedInt32Array(1162155861, 928980819) index="0" unique_id=1547045144]
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_008" parent_id_path=PackedInt32Array(923720596, 1721141467) index="0" unique_id=1547045144]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Cylinder_008/StaticBody3D" unique_id=1620939794]
 shape = SubResource("ConcavePolygonShape3D_ngl5k")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_009" parent_id_path=PackedInt32Array(1162155861, 1480418201) index="0" unique_id=1076541938]
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_009" parent_id_path=PackedInt32Array(923720596, 1694007898) index="0" unique_id=1076541938]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Cylinder_009/StaticBody3D" unique_id=1425018696]
 shape = SubResource("ConcavePolygonShape3D_khpbn")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_010" parent_id_path=PackedInt32Array(1162155861, 1787387234) index="0" unique_id=504329778]
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_010" parent_id_path=PackedInt32Array(923720596, 1109054044) index="0" unique_id=504329778]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Cylinder_010/StaticBody3D" unique_id=1025249029]
 shape = SubResource("ConcavePolygonShape3D_c30tq")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder" parent_id_path=PackedInt32Array(1162155861, 1558559783) index="0" unique_id=1663775585]
+[node name="Cylinder" parent="cattail_edit" index="7" unique_id=611253946]
+material_override = ExtResource("2_g7f7p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder" index="0" unique_id=1663775585]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Cylinder/StaticBody3D" unique_id=4164817]
 shape = SubResource("ConcavePolygonShape3D_rw4iw")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Sphere" parent_id_path=PackedInt32Array(1162155861, 485391696) index="0" unique_id=1739387323]
+[node name="Sphere" parent="cattail_edit" index="8" unique_id=1107924173]
+material_override = ExtResource("3_co4n7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Sphere" index="0" unique_id=1739387323]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Sphere/StaticBody3D" unique_id=217360330]
 shape = SubResource("ConcavePolygonShape3D_7ltnl")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_001" parent_id_path=PackedInt32Array(1162155861, 1014053951) index="0" unique_id=1659130618]
+[node name="Cylinder_001" parent="cattail_edit" index="9" unique_id=1172033875]
+material_override = ExtResource("4_ngl5k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_001" index="0" unique_id=1659130618]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Cylinder_001/StaticBody3D" unique_id=631156622]
 shape = SubResource("ConcavePolygonShape3D_g0ohv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Sphere_002" parent_id_path=PackedInt32Array(1162155861, 140372210) index="0" unique_id=902692915]
+[node name="Sphere_002" parent="cattail_edit" index="10" unique_id=722687675]
+material_override = ExtResource("3_co4n7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Sphere_002" index="0" unique_id=902692915]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Sphere_002/StaticBody3D" unique_id=236048296]
 shape = SubResource("ConcavePolygonShape3D_o4m8k")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_002" parent_id_path=PackedInt32Array(1162155861, 1365931687) index="0" unique_id=1576753865]
+[node name="Cylinder_002" parent="cattail_edit" index="11" unique_id=1387608399]
+material_override = ExtResource("2_g7f7p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Cylinder_002" index="0" unique_id=1576753865]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Cylinder_002/StaticBody3D" unique_id=700291054]
 shape = SubResource("ConcavePolygonShape3D_ckqbx")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Sphere_004" parent_id_path=PackedInt32Array(1162155861, 1424552536) index="0" unique_id=331342162]
+[node name="Sphere_004" parent="cattail_edit" index="12" unique_id=941509532]
+material_override = ExtResource("3_co4n7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cattail_edit/Sphere_004" index="0" unique_id=331342162]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cattail_edit/Sphere_004/StaticBody3D" unique_id=984268711]
 shape = SubResource("ConcavePolygonShape3D_nvlg1")

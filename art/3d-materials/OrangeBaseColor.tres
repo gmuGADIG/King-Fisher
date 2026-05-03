@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bqqrdxrjyhuk8"]
+
+[resource]
+resource_name = "OrangeBaseColor"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.9063318, 0.53329223, 0, 1)
+roughness = 0.2
+emission = Color(0.5370987, 0.5370987, 0.5370987, 1)

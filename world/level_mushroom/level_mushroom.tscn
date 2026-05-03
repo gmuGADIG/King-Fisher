@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_dowhw"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_of031"]
 [ext_resource type="PackedScene" uid="uid://40pt1n3rbofp" path="res://world/props/crystals/aqua/crystal_aqua04.tscn" id="8_2qfol"]
-[ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom1.glb" id="8_i3fk3"]
+[ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom.glb" id="8_i3fk3"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="9_n6k5e"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="10_gu2qp"]
 [ext_resource type="PackedScene" uid="uid://bdmy6bwurdgvx" path="res://world/props/crystals/green/crystal_green01.tscn" id="11_fnp4k"]
