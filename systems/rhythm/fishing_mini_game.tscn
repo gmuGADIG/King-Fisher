@@ -150,7 +150,6 @@ perfect_window_radius_ms = 25.0
 [node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("5_mq61g")]
 
 [node name="TempoAudioStream" type="AudioStreamPlayer" parent="." unique_id=440330173]
-volume_db = -6.958
 
 [node name="WinLose" type="Sprite2D" parent="." unique_id=1017937469]
 visible = false
@@ -256,10 +255,10 @@ texture = ExtResource("12_2nsaa")
 
 [node name="Articulated" type="AudioStreamPlayer" parent="." unique_id=459856869]
 stream = ExtResource("17_i2p1o")
-volume_db = 16.535
+volume_db = 20.0
 pitch_scale = 2.0
 
 [node name="NonArticulated" type="AudioStreamPlayer" parent="." unique_id=1265424431]
 stream = ExtResource("18_i2p1o")
-volume_db = 13.364
+volume_db = 20.0
 pitch_scale = 2.0
