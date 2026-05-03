@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ctdj3ibc075jn"]
+
+[ext_resource type="Script" uid="uid://cqgu26n0i6xdv" path="res://world/fish_spawner/fish_spawner.gd" id="1_chu62"]
+
+[node name="FishSpawner" type="CSGPolygon3D" unique_id=545651138]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+polygon = PackedVector2Array(-0.67927295, 1.3110988, -0.34060383, -2.2977667, 1.813952, -1.272569, 1.244728, 1.3313339)
+depth = 0.01
+script = ExtResource("1_chu62")

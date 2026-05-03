@@ -27,12 +27,9 @@ enum HitQuality{
 
 @export_range(0.0,1.0,0.01) var good_hit_accuracy:float = 0.7
 const perfect_hit_accuracy : float = 1.0
-@export var hit_window_radius_ms:float = 500.0
-@export var perfect_window_radius_ms:float = 100.0
+@export var hit_window_radius_ms:float
+@export var perfect_window_radius_ms:float
 
-@export_category("Test")
-@export var hit_sfx : AudioStream
-@export var hit_sfx_art : AudioStream
 @onready var tempo_audio_stream: AudioStreamPlayer = $TempoAudioStream
 
 
@@ -96,8 +93,12 @@ func _process(delta: float) -> void:
 	if (call_index < track.notes.size()):
 		var current_note_sfx = track.notes[call_index]
 		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note_sfx.beat_position):
-			main_audio_stream.stream = hit_sfx_art if current_note_sfx.is_articulated else hit_sfx
-			main_audio_stream.play()
+			if current_note_sfx.is_articulated:
+				$NonArticulated.stop()
+				$Articulated.play()
+			else:
+				$Articulated.stop()
+				$NonArticulated.play()
 			call_index +=1
 	
 	if state == Phase.FISH_CALL:
@@ -118,7 +119,7 @@ func _process(delta: float) -> void:
 			misses+=1
 	
 	if state == Phase.PLAYER_RESPONSE:
-		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 2*TRACK_LENGTH:
+		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= (2*TRACK_LENGTH + 1):
 			player_indicator.hide()
 			##Percentage accuracy from 0 to 1
 			var accuracy : float = calculate_accuracy()
@@ -144,8 +145,12 @@ func _input(event: InputEvent) -> void:
 		else: ##Not a note in the thing
 			return
 		
-		main_audio_stream.stream = hit_sfx_art if input_type == NoteType.ARTICULATED else hit_sfx
-		main_audio_stream.play()
+		if input_type==NoteType.ARTICULATED:
+			$NonArticulated.stop()
+			$Articulated.play()
+		else:
+			$Articulated.stop()
+			$NonArticulated.play()
 		
 		var hit_quality : HitQuality = determine_accuracy()
 		

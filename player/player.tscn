@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://c3ahl7fgjexil" path="res://player/aiming.gd" id="6_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://gepb6fuq6ysv" path="res://sound/sfx/player/footsteps_grass.tscn" id="7_rgyib"]
 [ext_resource type="PackedScene" uid="uid://5aei5tauflq7" path="res://sound/sfx/player/footsteps_stone.tscn" id="8_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://lma8sgp2bvs1" path="res://sound/sfx/player/player_pickup_item.tscn" id="9_e7oew"]
 [ext_resource type="PackedScene" uid="uid://dqg3ndn6eihef" path="res://sound/sfx/player/player_jump.tscn" id="9_hg6s5"]
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_grass.tscn" id="11_2ieo8"]
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_stone.tscn" id="11_land_stone"]
@@ -30,7 +31,7 @@ properties/1/replication_mode = 1
 
 [sub_resource type="SphereMesh" id="SphereMesh_boad6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wodsf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7oew"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 1
@@ -106,6 +107,8 @@ target_position = Vector3(0, -10, 0)
 
 [node name="PlayerLandGrass" parent="Sounds" unique_id=301000001 instance=ExtResource("11_2ieo8")]
 
+[node name="PlayerPickupItem" parent="Sounds" unique_id=1633662803 instance=ExtResource("9_e7oew")]
+
 [node name="LivewellMenu" parent="." unique_id=1231020864 instance=ExtResource("12_ebec5")]
 
 [node name="DefaultPlayer" parent="." unique_id=268378426 node_paths=PackedStringArray("bones") instance=ExtResource("2_ebec5")]
@@ -113,10 +116,10 @@ script = ExtResource("2_pmesh")
 rotation_speed_curve = ExtResource("4_kb6p2")
 bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
-[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="0" unique_id=1732977114]
-material_override = SubResource("StandardMaterial3D_wodsf")
+[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 525463987) index="0" unique_id=2118034459]
+material_override = SubResource("StandardMaterial3D_e7oew")
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 525463987) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
 
