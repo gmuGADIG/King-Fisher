@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://djrnymrhggvmt"]
+
+[resource]
+resource_name = "CyanOut"
+cull_mode = 2
+albedo_color = Color(0, 0.8291148, 0.6303349, 1)
+roughness = 0.5

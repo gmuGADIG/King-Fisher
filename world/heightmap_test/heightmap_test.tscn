@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ds60le2snfrnf" path="res://art/3d-assets/raw_assets/mushrooms/KF_smooth_small-mushroom1.glb" id="7_yiiti"]
 [ext_resource type="Texture2D" uid="uid://ck3bm1irl43x2" path="res://fish/sprites/sasha_splash.png" id="8_prfaa"]
 [ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/raw_assets/docks/Docks.glb" id="8_rtmia"]
-[ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom1.glb" id="8_xedpn"]
+[ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom.glb" id="8_xedpn"]
 [ext_resource type="PackedScene" uid="uid://qga41o832tta" path="res://art/3d-assets/raw_assets/docks/DockEnd.glb" id="9_2t4rl"]
 [ext_resource type="PackedScene" uid="uid://bfbfl0n0rkaur" path="res://art/3d-assets/raw_assets/Tent.glb" id="10_rtmia"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="13_xedpn"]

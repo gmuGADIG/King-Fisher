@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://hooqjrh422dx"]
+
+[resource]
+resource_name = "Trim.001"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.13749343, 0.06702391, 0, 1)
+roughness = 0.0

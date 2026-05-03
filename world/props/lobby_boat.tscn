@@ -10,10 +10,10 @@ data = PackedVector3Array(-0.98029995, 0.089499995, 1.76, -0.9684, 0.13329999, -
 [node name="LobbyBoat" type="Node3D" unique_id=245968247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 32)
 
-[node name="LobbyBoat" parent="." unique_id=2058498420 instance=ExtResource("1_b7hpl")]
+[node name="LobbyBoat" parent="." unique_id=164808968 instance=ExtResource("1_b7hpl")]
 script = ExtResource("1_hl5v7")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(2058498420, 867892572) index="0" unique_id=1295848402]
+[node name="StaticBody3D" type="StaticBody3D" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(164808968, 1739842105) index="0" unique_id=1295848402]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/LobbyBoat/StaticBody3D" unique_id=1671402786]
 shape = SubResource("ConcavePolygonShape3D_hl5v7")
