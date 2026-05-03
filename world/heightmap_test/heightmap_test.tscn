@@ -225,9 +225,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 9, 21)
 [node name="Rock 3" parent="." index="16" unique_id=370791260 instance=ExtResource("18_aqn0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 9, -7)
 
-[node name="Brick" parent="." index="17" unique_id=1566519324 instance=ExtResource("19_0hvgr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.441347, 12.672461, 0.34362984)
-
 [node name="FishSpawners" type="Node3D" parent="." index="20" unique_id=67392887]
 
 [node name="WaterPool" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("20_lktd8")]
