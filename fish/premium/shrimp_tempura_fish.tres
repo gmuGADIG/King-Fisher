@@ -8,4 +8,5 @@ script = ExtResource("1_gihqb")
 fish_name = "Shrimp Tempura Fish"
 grade = 3
 sprite = ExtResource("2_rgnlf")
+description = "Despite its succulent appearance, no, this thing is not edible--not right out of the water at least. These fish originate from several of the hot spring waters found around this planet. As it ages within the steaming hot environment, its skin crusts over and eventually breaks off into even pieces, with these broken off pieces eventually birthing another Shrimp Tempura to swim the waters and begin the cycle again. If you manage to catch one of these out of water, stay cautious! These babies can host an impressive internal temperature upwards of 350° Fahrenheit. Furthermore, even out of the water, they don't ever seem to cool down to a safe temperature for consumption or even physical touch at times. Seems like we'll never be able to find out if it's as tasty as it seems...unfortunately that hasn't stopped some of us."
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
