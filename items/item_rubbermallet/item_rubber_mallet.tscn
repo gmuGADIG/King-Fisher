@@ -11,6 +11,8 @@ size = Vector3(16.80385, 33.004704, 58.001907)
 script = ExtResource("2_yxs0q")
 ragdollTime = 1.0
 item_name = "Rubber Mallet"
+description = "When used, the player swings the mallet, playing an animation. If the mallet connects with another player it will cause them to ragdoll. It can only affect 1 player in the hitbox and gets discarded after use. 
+"
 
 [node name="SwingHitbox" type="Area3D" parent="." index="1" unique_id=1812700899]
 transform = Transform3D(0.044697747, 0, 0, 0, 0.044697747, 0, 0, 0, 0.044697747, 0, 0, 0)

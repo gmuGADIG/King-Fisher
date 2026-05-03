@@ -12,6 +12,7 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_qcj4k")
 item_name = "Helmet"
+description = "When used, the player puts the helmet on, playing an animation. When the helmet is on it protects the player from the next attempt to ragdoll or fling them. The helmet gets discarded upon use."
 lore = "This protective head covering is traditional on Earth. It’s used by menial laborers in dangerous jobs, such as “construction work,” where employees tirelessly dig, demolish, and build infrastructure and housing to support Earth’s huge population. They use these helmets to guard their fragile skulls, which, as in many of our cases, contain all of their brain material.F.I.S.H.E. has adapted these creative pieces of equipment to serve our purposes in the Intergalactic Fishbowl. They will now protect contestants from a variety of different harms! Earth scientists developed the basic form, which protected humans from falling debris, and F.I.S.H.E. innovators have perfected it.
 Contact one of the tournament organizers for help if the helmet shape is incompatible with your head structure."
 sprite = ExtResource("2_ubknq")

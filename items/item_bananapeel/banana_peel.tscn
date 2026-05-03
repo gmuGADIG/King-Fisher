@@ -10,6 +10,10 @@ radius = 0.9446206
 [node name="BananaPeel" unique_id=1566519324 instance=ExtResource("1_cv4ru")]
 script = ExtResource("2_k385h")
 ragdollTime = 1.0
+description = "When used, the player throws the peel, playing an animation. When the peel lands on the ground it becomes a hazard that will cause the next player to walk on top of it to ragdoll."
+lore = "A banana peel found in King Fisher's trash can. It has small traces of King Fisher’s saliva. He (presumably) ate said banana while (presumably) holding said banana peel. The price for items interacted with by King Fisher have been skyrocketing recently, thus, it was sold for an unspeakable amount of money and donated to the tournament.
+
+To each their own I guess."
 
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=76981027]
 collision_layer = 0

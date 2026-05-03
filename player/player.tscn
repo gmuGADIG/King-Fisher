@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://5aei5tauflq7" path="res://sound/sfx/player/footsteps_stone.tscn" id="8_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://lma8sgp2bvs1" path="res://sound/sfx/player/player_pickup_item.tscn" id="9_e7oew"]
 [ext_resource type="PackedScene" uid="uid://dqg3ndn6eihef" path="res://sound/sfx/player/player_jump.tscn" id="9_hg6s5"]
-[ext_resource type="PackedScene" uid="uid://ddyo36leg583m" path="res://ui/HUD/held_item.tscn" id="9_kb6p2"]
+[ext_resource type="PackedScene" path="res://ui/HUD/held_item.tscn" id="9_kb6p2"]
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_grass.tscn" id="11_2ieo8"]
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_stone.tscn" id="11_land_stone"]
 [ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="12_ebec5"]

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://bqu88uxbyg1y4"]
+
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://sound/music/song_resource/song.gd" id="1_c70p3"]
+[ext_resource type="Script" uid="uid://b7okmeqcdjwec" path="res://sound/music/song_resource/section.gd" id="2_vcw7f"]
+[ext_resource type="AudioStream" uid="uid://cgr8rt0141onr" path="res://sound/music/song_files/settings_erina.mp3" id="3_umix6"]
+
+[sub_resource type="Curve" id="Curve_sl1ni"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_at7lt"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_t8bcu"]
+script = ExtResource("2_vcw7f")
+section_name = "main loop"
+section_start = 9.616667052374948
+section_end = 38.4
+loop = true
+fade_in_curve = SubResource("Curve_sl1ni")
+fade_out_curve = SubResource("Curve_at7lt")
+
+[resource]
+script = ExtResource("1_c70p3")
+song_file = ExtResource("3_umix6")
+sections = Array[ExtResource("2_vcw7f")]([SubResource("Resource_t8bcu")])
