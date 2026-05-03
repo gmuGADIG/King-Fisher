@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jkjmeo42kibj"
-path="res://.godot/imported/sardines.png-4fe5f608a90e20a688e3b41e9716c40d.ctex"
+uid="uid://cr2p50dgdofth"
+path="res://.godot/imported/thrasher_shark.png-3eb7f73c99583a1ecb052226637b173f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fish/sprites/sardines.png"
-dest_files=["res://.godot/imported/sardines.png-4fe5f608a90e20a688e3b41e9716c40d.ctex"]
+source_file="res://fish/sprites/thrasher_shark.png"
+dest_files=["res://.godot/imported/thrasher_shark.png-3eb7f73c99583a1ecb052226637b173f.ctex"]
 
 [params]
 

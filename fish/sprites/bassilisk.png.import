@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jkjmeo42kibj"
-path="res://.godot/imported/sardines.png-4fe5f608a90e20a688e3b41e9716c40d.ctex"
+uid="uid://d3liw2xyaylh0"
+path="res://.godot/imported/bassilisk.png-cfd44a139d4c93f5cc820cd2e57b5671.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fish/sprites/sardines.png"
-dest_files=["res://.godot/imported/sardines.png-4fe5f608a90e20a688e3b41e9716c40d.ctex"]
+source_file="res://fish/sprites/bassilisk.png"
+dest_files=["res://.godot/imported/bassilisk.png-cfd44a139d4c93f5cc820cd2e57b5671.ctex"]
 
 [params]
 
