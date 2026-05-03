@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ds60le2snfrnf" path="res://art/3d-assets/raw_assets/mushrooms/KF_smooth_small-mushroom1.glb" id="7_yiiti"]
 [ext_resource type="Texture2D" uid="uid://ck3bm1irl43x2" path="res://fish/sprites/sasha_splash.png" id="8_prfaa"]
 [ext_resource type="PackedScene" uid="uid://dxbppt806m5ea" path="res://art/3d-assets/raw_assets/docks/Docks.glb" id="8_rtmia"]
-[ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom1.glb" id="8_xedpn"]
+[ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom.glb" id="8_xedpn"]
 [ext_resource type="PackedScene" uid="uid://qga41o832tta" path="res://art/3d-assets/raw_assets/docks/DockEnd.glb" id="9_2t4rl"]
 [ext_resource type="PackedScene" uid="uid://bfbfl0n0rkaur" path="res://art/3d-assets/raw_assets/Tent.glb" id="10_rtmia"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="13_xedpn"]
@@ -127,7 +127,7 @@ texture = ExtResource("8_prfaa")
 [node name="KF_smooth_small-mushroom1" parent="." index="7" unique_id=2050632169 instance=ExtResource("7_yiiti")]
 transform = Transform3D(0.99999946, 0, 0, 0, 1, 0, 0, 0, 0.99999946, 19.254784, 10.29523, 7.2669277)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001" parent_id_path=PackedInt32Array(2050632169, 1980860110) index="0" unique_id=1568313466]
+[node name="StaticBody3D" type="StaticBody3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001" parent_id_path=PackedInt32Array(2050632169, 81282861) index="0" unique_id=1568313466]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001/StaticBody3D" index="0" unique_id=1103290081]
 shape = SubResource("ConvexPolygonShape3D_3ke4q")
@@ -168,7 +168,7 @@ shape = SubResource("ConvexPolygonShape3D_1e8c5")
 [node name="KF_tall_mushroom1" parent="." index="8" unique_id=527376360 instance=ExtResource("8_xedpn")]
 transform = Transform3D(-1.0062615, 0, -1.1372514, 0, 1.518521, 0, 1.1372514, 0, -1.0062615, 24.312057, 8.415833, -3.8102906)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="KF_tall_mushroom1/tall_mushroom" parent_id_path=PackedInt32Array(527376360, 889395067) index="0" unique_id=895767342]
+[node name="StaticBody3D" type="StaticBody3D" parent="KF_tall_mushroom1/tall_mushroom" parent_id_path=PackedInt32Array(527376360, 1014353086) index="0" unique_id=895767342]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KF_tall_mushroom1/tall_mushroom/StaticBody3D" index="0" unique_id=959880080]
 shape = SubResource("ConvexPolygonShape3D_3ntwh")
@@ -182,7 +182,7 @@ shape = SubResource("ConvexPolygonShape3D_j5ttv")
 [node name="CampFire2" parent="." index="9" unique_id=647019613 instance=ExtResource("7_4yewi")]
 transform = Transform3D(13.450294, 0, 0, 0, 13.450294, 0, 0, 0, 13.450294, 6.981497, 12.203914, -2.9359941)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CampFire2/Node/CampFire" parent_id_path=PackedInt32Array(647019613, 1854494419) index="0" unique_id=786697091]
+[node name="StaticBody3D" type="StaticBody3D" parent="CampFire2/Node/CampFire" parent_id_path=PackedInt32Array(647019613, 1733846737) index="0" unique_id=786697091]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CampFire2/Node/CampFire/StaticBody3D" index="0" unique_id=1433640708]
 shape = SubResource("ConvexPolygonShape3D_2t4rl")
@@ -205,7 +205,7 @@ shape = SubResource("BoxShape3D_yiiti")
 [node name="Tent" parent="." index="11" unique_id=416493273 instance=ExtResource("10_rtmia")]
 transform = Transform3D(-2.4748346e-09, 0, 0.056617618, 0, 0.056617618, 0, -0.056617618, 0, -2.4748346e-09, 6.3443394, 12.331709, -10.152442)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Tent/Node/Box003" parent_id_path=PackedInt32Array(416493273, 1330272269) index="0" unique_id=1047692201]
+[node name="StaticBody3D" type="StaticBody3D" parent="Tent/Node/Box003" parent_id_path=PackedInt32Array(416493273, 941041479) index="0" unique_id=1047692201]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tent/Node/Box003/StaticBody3D" index="0" unique_id=951231013]
 shape = SubResource("ConvexPolygonShape3D_yiiti")
@@ -224,9 +224,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 9, 21)
 
 [node name="Rock 3" parent="." index="16" unique_id=370791260 instance=ExtResource("18_aqn0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 9, -7)
-
-[node name="Brick" parent="." index="17" unique_id=1566519324 instance=ExtResource("19_0hvgr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.441347, 12.672461, 0.34362984)
 
 [node name="FishSpawners" type="Node3D" parent="." index="20" unique_id=67392887]
 

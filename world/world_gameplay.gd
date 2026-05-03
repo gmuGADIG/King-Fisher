@@ -20,16 +20,27 @@ static var round_time : float
 
 var hud : GameHud
 ## Amount of time before the game ends
-var remaining_time : float = LobbySettings.roundTime
+@onready var remaining_time : float = LobbySettings.roundTime
 var fish_rng : RandomNumberGenerator
 
 
 func _ready() -> void:
+	var music := [
+		load("res://sound/music/song_files/main_level_ben.tres"),
+		load("res://sound/music/song_files/main_level_matthew_c.tres"),
+		load("res://sound/music/song_files/main_level_matthew_p.tres"),
+		load("res://sound/music/song_files/main_level_nathan.tres")
+	]
+	MainMusicPlayer.play_song(music.pick_random())
+
 	assert(fish_spawner_weights.size() == fish_spawners.size(), "water pool count and weight counts are not equal")
 	hud = %GameHud
 	super._ready()
 	hud.show()
-	remaining_time = round_time
+	if (round_time != 0.):
+		remaining_time = round_time
+	else:
+		Debug.log_err("round_time == 0.")
 	
 	#for weight in water_pool_weights:
 		#water_pool_weight_total += weight
@@ -45,11 +56,29 @@ func _ready() -> void:
 		fish_timer.start()
 	
 
+var almost_over_not_triggered := true
+var round_going = true
 func _process(delta: float) -> void:
 	##Unused for now
 	#super._process(delta)
 	remaining_time -= delta
 	hud.update_time(remaining_time)
+
+	if remaining_time < 60. and almost_over_not_triggered:
+		almost_over_not_triggered = false
+		MainMusicPlayer.play_song(load("res://sound/music/song_files/mainleveldnb_jan.tres"))
+		%AlarmSound.play()
+	
+	if Input.is_action_just_pressed("timer_to_one_min") and OS.has_feature("editor"):
+		remaining_time = 61.
+
+	if Input.is_action_just_pressed("timer_to_done") and OS.has_feature("editor"):
+		remaining_time = 2.
+	
+	if remaining_time < 0. and round_going and multiplayer.is_server():
+		for player: Player in get_tree().get_nodes_in_group("Player"):
+			var id := player.get_multiplayer_authority()
+			Multiplayer.results_screen.rpc_id(id, 2)
 
 func _spawn_fish() -> void:
 	if not multiplayer.is_server():

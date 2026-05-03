@@ -5,11 +5,13 @@
 [ext_resource type="Script" uid="uid://gcho7uv032l6" path="res://world/world_gameplay.gd" id="2_lnltq"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_uq7of"]
 [ext_resource type="Resource" uid="uid://bsvpg3fo22nud" path="res://world/level_mushroom/terrain/data.hterrain" id="3_dowhw"]
+[ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="3_q8niw"]
+[ext_resource type="Resource" uid="uid://bguwhw4xujfv8" path="res://world/fish_spawner/normal_rates.tres" id="4_ldwln"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_of031"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_dowhw"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_of031"]
 [ext_resource type="PackedScene" uid="uid://40pt1n3rbofp" path="res://world/props/crystals/aqua/crystal_aqua04.tscn" id="8_2qfol"]
-[ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom1.glb" id="8_i3fk3"]
+[ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom.glb" id="8_i3fk3"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="9_n6k5e"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="10_gu2qp"]
 [ext_resource type="PackedScene" uid="uid://bdmy6bwurdgvx" path="res://world/props/crystals/green/crystal_green01.tscn" id="11_fnp4k"]
@@ -39,8 +41,38 @@ textures = [[ExtResource("5_dowhw")], [null]]
 
 [node name="Mushroom" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_w5lkn")]
 script = ExtResource("2_lnltq")
-fish_spawners = [NodePath("FishSpawners/WaterPool")]
-fish_spawner_weights = Array[int]([1])
+fish_spawners = [NodePath("FishSpawners/FishSpawner2"), NodePath("FishSpawners/FishSpawner"), NodePath("FishSpawners/FishSpawner3"), NodePath("FishSpawners/FishSpawner4"), NodePath("FishSpawners/FishSpawner5")]
+fish_spawner_weights = Array[int]([1, 1, 1, 1, 1])
+
+[node name="FishSpawners" type="Node3D" parent="." index="0" unique_id=533345196]
+
+[node name="FishSpawner" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("3_q8niw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.9041348, -3.2628295, 19.579819)
+polygon = PackedVector2Array(3.5498943, 2.5765743, 0.7856469, 2.851038, -0.3318143, 2.223692, -0.86113834, 1.027811, -0.4494424, -0.1484642, -0.52786016, -1.4031582, -0.11616421, -2.6578522, 0.86406565, -3.677291, 1.6678543, -4.6967306, 4.3492174, -5.891944, 6.388095, -6.0487814, 7.4075327, -5.578271, 9.05432, -4.8529005, 9.152343, -3.2257195, 9.407203, -1.4220963, 8.603415, -0.10858917, 7.701603, 0.8324318, 6.270467, 1.4597778, 4.5452633, 1.949892)
+fish_spawnrate = ExtResource("4_ldwln")
+
+[node name="FishSpawner2" parent="FishSpawners" index="1" unique_id=928294635 instance=ExtResource("3_q8niw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.9041348, -3.3932598, 19.579819)
+polygon = PackedVector2Array(15.053904, -13.737136, 16.88051, -13.835871, 19.546368, -13.3915615, 22.212227, -13.3915615, 24.038832, -13.440928, 25.273026, -12.404207, 25.816069, -11.268748, 25.717335, -9.738349, 25.026186, -8.454787, 23.051476, -7.7142715, 20.484354, -7.418065, 18.855219, -7.3193293, 16.337465, -7.96111, 15.350109, -9.392775, 15.004536, -10.429498, 14.905798, -11.416852)
+fish_spawnrate = ExtResource("4_ldwln")
+
+[node name="FishSpawner3" parent="FishSpawners" index="2" unique_id=1734535392 instance=ExtResource("3_q8niw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.9041348, -3.4405458, 19.579819)
+polygon = PackedVector2Array(26.080362, 29.967575, 28.49938, 30.263783, 30.227251, 31.251137, 32.794373, 32.534695, 34.81845, 33.472683, 35.460228, 35.29929, 34.86782, 36.681587, 33.238686, 37.570206, 30.07915, 37.323364, 26.376566, 36.533485, 24.500593, 35.447395, 24.006914, 33.52205, 25.093006, 31.399239)
+fish_spawnrate = ExtResource("4_ldwln")
+
+[node name="FishSpawner4" parent="FishSpawners" index="3" unique_id=56659014 instance=ExtResource("3_q8niw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.9041348, -3.6278474, 19.579819)
+polygon = PackedVector2Array(51.298492, 18.146091, 52.532684, 18.39293, 52.779526, 19.133446, 52.976997, 20.417007, 52.878265, 21.947407, 52.582054, 23.033497, 52.18711, 24.712002, 51.792175, 26.242397, 51.347862, 27.279121, 50.409874, 28.118374, 48.97821, 28.61205, 47.990852, 29.056358, 46.954132, 29.3032, 45.57184, 29.3032, 44.68322, 29.451302, 43.794594, 29.401936, 42.955345, 28.85889, 42.807243, 27.920902, 43.152817, 26.884178, 43.54776, 26.143665, 44.288277, 25.304413, 45.028793, 24.168953, 45.6212, 23.181599, 46.361717, 21.996773, 47.102234, 20.713211, 47.64528, 20.219536, 48.92884, 19.67649, 49.81746, 19.084076)
+fish_spawnrate = ExtResource("4_ldwln")
+
+[node name="FishSpawner5" parent="FishSpawners" index="4" unique_id=448894828 instance=ExtResource("3_q8niw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.9041348, -4.9754333, 19.579819)
+polygon = PackedVector2Array(22.19016, 8.026497, 23.302153, 6.0825825, 25.37908, 5.5098934, 28.521112, 5.263508, 30.655546, 5.6381416, 32.53576, 7.7658157, 33.343163, 10.33564, 33.365356, 13.389648, 32.161125, 16.126667, 29.60539, 18.178444, 26.047956, 18.827423, 23.593157, 17.359524, 22.710688, 15.345917)
+fish_spawnrate = ExtResource("4_ldwln")
+
+[node name="DirectionalLight3D" parent="." index="2" unique_id=1620714622]
+light_energy = 2.5
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.577248, 3.6355288, 12.281741)
@@ -54,15 +86,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.634068, 3.6318715, 15.2177
 [node name="PlayerSpawnPoint4" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="3" unique_id=909904993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.612846, 3.6318712, 15.341298)
 
-[node name="ItemSpawner2" parent="." index="3" unique_id=1841174324 instance=ExtResource("2_ay7c0")]
+[node name="ItemSpawner2" parent="." index="4" unique_id=1841174324 instance=ExtResource("2_ay7c0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.163055, 0, 50.63687)
 shape = SubResource("BoxShape3D_ay7c0")
 
-[node name="ItemSpawner" parent="." index="4" unique_id=1588789630]
+[node name="ItemSpawner" parent="." index="5" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.083595, 0, 12.705284)
 shape = SubResource("BoxShape3D_of031")
 
-[node name="HTerrain2" type="Node3D" parent="." index="5" unique_id=821433675]
+[node name="HTerrain2" type="Node3D" parent="." index="6" unique_id=821433675]
 script = ExtResource("2_uq7of")
 _terrain_data = ExtResource("3_dowhw")
 chunk_size = 32
@@ -99,7 +131,7 @@ transform = Transform3D(7.303905, 0, 0, 0, 1, 0, 0, 0, 7.1924877, 54.13599, -3.2
 [node name="Node3D" parent="HTerrain2" index="5" unique_id=539036100 instance=ExtResource("8_2qfol")]
 transform = Transform3D(1.1299907, -1.3101696, -1.4617805, 1.7151878, 1.4793094, 5.1116572e-08, 0.9547133, -1.106944, 1.7301512, 32.0703, 7.00487, 31.168434)
 
-[node name="BigMush" parent="." index="6" unique_id=1348784426 instance=ExtResource("8_i3fk3")]
+[node name="BigMush" parent="." index="7" unique_id=1348784426 instance=ExtResource("8_i3fk3")]
 transform = Transform3D(9.88555, 0, 0, 0, 8.862167, 0, 0, 0, 11.254225, 32.96766, -10.693903, 32.098057)
 
 [node name="RingSubmerged" type="Node3D" parent="BigMush" index="1" unique_id=688058622]
@@ -227,9 +259,9 @@ transform = Transform3D(0.040715795, 0.058454905, 0.35320023, -0.30539674, 0.299
 [node name="Node3D6" parent="BigMush/Crystals" index="5" unique_id=1660588492 instance=ExtResource("12_qoa46")]
 transform = Transform3D(0.05122982, 0.08389132, -0.1376161, -0.14933303, 0.11470879, 5.499841e-09, 0.08852203, 0.1449591, 0.079641744, 0.0923736, 2.3206453, 0.07062036)
 
-[node name="CrystalPlaceholders" type="Node3D" parent="." index="7" unique_id=1371862036]
+[node name="CrystalPlaceholders" type="Node3D" parent="." index="8" unique_id=1371862036]
 
-[node name="Crystals" type="Node3D" parent="." index="8" unique_id=1432321874]
+[node name="Crystals" type="Node3D" parent="." index="9" unique_id=1432321874]
 transform = Transform3D(0.98960865, 0.14363605, 0.006593387, -0.14315498, 0.97992456, 0.13876098, 0.013470059, -0.13826294, 0.990304, 18.108833, -1.3067459, 46.08946)
 
 [node name="Cluster01" type="Node3D" parent="Crystals" index="0" unique_id=1584139107]
@@ -274,15 +306,15 @@ transform = Transform3D(10.074501, -1.9787766, 5.0573616, 2.430058, 11.174216, -
 [node name="BigCrystal02" parent="Crystals" index="5" unique_id=1773473366 instance=ExtResource("13_qsdgx")]
 transform = Transform3D(10.808025, -0.6122164, 5.69075, 0.8402434, 12.197807, -0.28356254, -5.661574, 0.6415671, 10.821639, -11.533567, -2.979456, 12.415871)
 
-[node name="Barrels" type="Node3D" parent="." index="9" unique_id=961670422]
+[node name="Barrels" type="Node3D" parent="." index="10" unique_id=961670422]
 
 [node name="WasteBarrel" parent="Barrels" index="0" unique_id=1083081718 instance=ExtResource("11_himr8")]
 transform = Transform3D(0.36200702, -0.87938386, 0.30924937, 0.92471236, 0.38066697, 0, -0.117721006, 0.28596666, 0.9509809, 18.723223, -3.0612078, 27.960085)
 
-[node name="WasteBarrel2" parent="Barrels" index="1" unique_id=1023856878 instance=ExtResource("11_himr8")]
+[node name="WasteBarrel2" parent="Barrels" index="1" unique_id=1480733371 instance=ExtResource("11_himr8")]
 transform = Transform3D(-0.71853316, -0.5646605, 0.40604067, 0.6867598, -0.66826975, 0.28596672, 0.10987064, 0.48432887, 0.86795956, 47.88629, -2.7724476, 34.033627)
 
-[node name="LakeRocks" type="Node3D" parent="." index="10" unique_id=1906729324]
+[node name="LakeRocks" type="Node3D" parent="." index="11" unique_id=1906729324]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.565742, -3.3631854, 9.38976)
 
 [node name="Ring01" type="Node3D" parent="LakeRocks" index="0" unique_id=1560520620]
@@ -1029,7 +1061,7 @@ transform = Transform3D(0.4800908, 0, -0.16297808, 0, 0.507, 0, 0.16297808, 0, 0
 [node name="Rock 54" parent="LakeRocks/Ring05" index="53" unique_id=1648989707 instance=ExtResource("9_n6k5e")]
 transform = Transform3D(0.4592842, 0, -0.35525656, 0, 0.58064526, 0, 0.3552567, 0, 0.45928395, 1.3760071, 2.4016228, 32.09674)
 
-[node name="lilypads" type="Node3D" parent="." index="12" unique_id=1871156192]
+[node name="lilypads" type="Node3D" parent="." index="13" unique_id=1871156192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -32)
 
 [node name="Set1" type="Node3D" parent="lilypads" index="0" unique_id=1907498907]
@@ -1055,33 +1087,33 @@ transform = Transform3D(0.8311883, 0, 0.555991, 0, 1, 0, -0.555991, 0, 0.8311883
 [node name="lilypad3" parent="lilypads/Set2" index="2" unique_id=641605047 instance=ExtResource("12_nk5xi")]
 transform = Transform3D(-0.35880783, 0, -0.9334115, 0, 1, 0, 0.9334115, 0, -0.35880783, 3.0133333, -3.1721869, 3.583456)
 
-[node name="SmallMushrooms" type="Node3D" parent="." index="16" unique_id=738957624]
+[node name="SmallMushrooms" type="Node3D" parent="." index="17" unique_id=738957624]
 
 [node name="MushroomSmall" parent="SmallMushrooms" index="0" unique_id=1295118722 instance=ExtResource("23_24r8q")]
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 36.514904, -1.0408032, 4.8009505)
 
-[node name="MushroomSmall2" parent="SmallMushrooms" index="1" unique_id=867542727 instance=ExtResource("23_24r8q")]
+[node name="MushroomSmall2" parent="SmallMushrooms" index="1" unique_id=432701298 instance=ExtResource("23_24r8q")]
 transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 37.085266, -1.3256212, 6.6356535)
 
-[node name="MushroomSmall3" parent="SmallMushrooms" index="2" unique_id=7492803 instance=ExtResource("23_24r8q")]
+[node name="MushroomSmall3" parent="SmallMushrooms" index="2" unique_id=236364311 instance=ExtResource("23_24r8q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.05289, -0.32342327, 29.847652)
 
-[node name="MushroomSmall4" parent="SmallMushrooms" index="3" unique_id=1347040600 instance=ExtResource("23_24r8q")]
+[node name="MushroomSmall4" parent="SmallMushrooms" index="3" unique_id=404892551 instance=ExtResource("23_24r8q")]
 transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 51.902985, -0.69795203, 57.023315)
 
-[node name="MushroomSmall5" parent="SmallMushrooms" index="4" unique_id=903405851 instance=ExtResource("23_24r8q")]
+[node name="MushroomSmall5" parent="SmallMushrooms" index="4" unique_id=1504781718 instance=ExtResource("23_24r8q")]
 transform = Transform3D(1.735, 0, 0, 0, 1.735, 0, 0, 0, 1.735, 19.597265, -1.5780934, 58.923447)
 
-[node name="MushroomSmall6" parent="SmallMushrooms" index="5" unique_id=510905883 instance=ExtResource("23_24r8q")]
+[node name="MushroomSmall6" parent="SmallMushrooms" index="5" unique_id=1290083521 instance=ExtResource("23_24r8q")]
 transform = Transform3D(1.43, 0, 0, 0, 1.43, 0, 0, 0, 1.43, 5.3524356, -1.2202663, 34.227055)
 
-[node name="MushroomSmall7" parent="SmallMushrooms" index="6" unique_id=674157509 instance=ExtResource("23_24r8q")]
+[node name="MushroomSmall7" parent="SmallMushrooms" index="6" unique_id=445803774 instance=ExtResource("23_24r8q")]
 transform = Transform3D(0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 8.42763, -1.6775622, 36.96823)
 
-[node name="MushroomSmall8" parent="SmallMushrooms" index="7" unique_id=1653277204 instance=ExtResource("23_24r8q")]
+[node name="MushroomSmall8" parent="SmallMushrooms" index="7" unique_id=475732913 instance=ExtResource("23_24r8q")]
 transform = Transform3D(0.225, 0, 0, 0, 0.225, 0, 0, 0, 0.225, 8.401025, -1.6121682, 34.279167)
 
-[node name="Cattails" type="Node3D" parent="." index="17" unique_id=1908001609]
+[node name="Cattails" type="Node3D" parent="." index="18" unique_id=1908001609]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.883297, -4.534482, 32.24966)
 
 [node name="Group01" type="Node3D" parent="Cattails" index="0" unique_id=592348177]

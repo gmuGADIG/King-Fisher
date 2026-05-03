@@ -9,6 +9,17 @@ radius = 0.80999196
 
 [node name="Brick" unique_id=1566519324 instance=ExtResource("1_ofeen")]
 script = ExtResource("2_v1bhe")
+item_name = "Brick"
+description = "When used, the player throws the brick. When it hits the player it causes one fish in their inventory to leave and return to the nearest body of water, able to be caught again. It can only affect one player in the hitbox."
+lore = "\"For nearly 12 parsecs I've tracked him down, the smug son of a gun on the run with Tnatalian Warlord Imtanitus’s heart.
+
+He was a bloodthirsty, cruel tyrant who had the eastern side of Tnatalon under his grisly thumb. He cannot be allowed to be saved. I’ve tracked down the carrier to a port somewhere in (PLANET NAME). I’m sitting far away from the carrier’s ship.
+
+ I’m stalking him in the marketplace by the pond. I don’t see any…wait, I think he saw me…
+
+HE’S BOLTING. I have no choice, I have to chase after him! We ran out onto the pier. I find a brick lying by the pier bridge. I throw it at him and he drops it into the dark blue lake. He dives after it, only to later resurface empty handed. The dark lords’ heart, forever sinking to the bottom of the lagoon. Mission success.\"
+
+This legendary tale has cemented \"brick-throwing\" as \"incredibly hype.\" F.I.S.H.E. found such notions perfectly suitable for its 10-step plan to improve the Intergalactic Fishbowl."
 
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=423811974]
 

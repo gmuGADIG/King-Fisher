@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="1_cv4ru"]
 [ext_resource type="Script" uid="uid://ccp6kqlvf8mtj" path="res://items/item_bananapeel/item_banana_peel.gd" id="2_k385h"]
 [ext_resource type="PackedScene" uid="uid://bvdat3iyqqhl4" path="res://art/3d-assets/BANANNA2.glb" id="3_k385h"]
+[ext_resource type="PackedScene" uid="uid://cdhxlejoa2q26" path="res://items/item_bananapeel/bana_slip_sound.tscn" id="4_mwydt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mwydt"]
 radius = 0.9446206
@@ -10,6 +11,10 @@ radius = 0.9446206
 [node name="BananaPeel" unique_id=1566519324 instance=ExtResource("1_cv4ru")]
 script = ExtResource("2_k385h")
 ragdollTime = 1.0
+description = "When used, the player throws the peel, playing an animation. When the peel lands on the ground it becomes a hazard that will cause the next player to walk on top of it to ragdoll."
+lore = "A banana peel found in King Fisher's trash can. It has small traces of King Fisher’s saliva. He (presumably) ate said banana while (presumably) holding said banana peel. The price for items interacted with by King Fisher have been skyrocketing recently, thus, it was sold for an unspeakable amount of money and donated to the tournament.
+
+To each their own I guess."
 
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=76981027]
 collision_layer = 0
@@ -20,5 +25,7 @@ shape = SubResource("SphereShape3D_mwydt")
 
 [node name="BANANNA2" parent="." index="2" unique_id=1955039305 instance=ExtResource("3_k385h")]
 transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, -0.42570877, 0, 0.4032093)
+
+[node name="BananaSlipSound" parent="." index="3" unique_id=760347686 instance=ExtResource("4_mwydt")]
 
 [connection signal="body_entered" from="Area3D" to="." method="on_player_collide"]

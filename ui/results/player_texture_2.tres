@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://jmw2852n4w4b"]
+
+[ext_resource type="Texture2D" uid="uid://ctqyjapriy26t" path="res://player/textures/prange.png" id="1_onq6l"]
+
+[resource]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_onq6l")
+roughness = 0.0

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://boe835aeroy0f"
-path="res://.godot/imported/KF_tall_mushroom1.glb-059d853997fb2a0442c95b2588a5cb4f.scn"
+path="res://.godot/imported/KF_tall_mushroom.glb-29bb50517c187dbd21c383a38afd82cd.scn"
 
 [deps]
 
-source_file="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom1.glb"
-dest_files=["res://.godot/imported/KF_tall_mushroom1.glb-059d853997fb2a0442c95b2588a5cb4f.scn"]
+source_file="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom.glb"
+dest_files=["res://.godot/imported/KF_tall_mushroom.glb-29bb50517c187dbd21c383a38afd82cd.scn"]
 
 [params]
 
@@ -34,9 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-materials/extract=0
+materials/extract=1
 materials/extract_format=0
-materials/extract_path=""
+materials/extract_path="res://art/3d-materials"
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

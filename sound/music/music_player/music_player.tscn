@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://3lris5j0nmj4"]
+
+[ext_resource type="Script" uid="uid://cip37re40hvab" path="res://audio/music/music_player/music_player.gd" id="1_loqq1"]
+
+[sub_resource type="Curve" id="Curve_14d2t"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="MusicPlayer" type="Node"]
+process_mode = 3
+script = ExtResource("1_loqq1")
+song_transition_curve = SubResource("Curve_14d2t")
+
+[node name="AudioStreamPlayerA" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayerB" type="AudioStreamPlayer" parent="."]

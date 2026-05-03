@@ -3,20 +3,27 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0qmi"]
 resource_name = "Rock"
 cull_mode = 2
-albedo_color = Color(0.36075187, 0.36075187, 0.36075187, 1)
-roughness = 0.5
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.22911248, 0.22911206, 0.22911218, 1)
+roughness = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1l08s"]
 resource_name = "GreeOut"
 cull_mode = 2
-albedo_color = Color(0.07406869, 0.9064694, 0.039106026, 1)
-roughness = 0.5
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.30752102, 0.88956976, 0.19400519, 1)
+roughness = 0.15
+subsurf_scatter_strength = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dw4kj"]
 resource_name = "GreeIn"
 cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
 albedo_color = Color(0.7558466, 0.90641016, 0.5614414, 1)
-roughness = 0.5
+roughness = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lifcn"]
 _surfaces = [{

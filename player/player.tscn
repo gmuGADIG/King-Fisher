@@ -394,15 +394,6 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0
 shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
-[node name="fishdex" type="Control" parent="." unique_id=568557775]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("14_kb6p2")
-metadata/_custom_type_script = "uid://b8h20ju61nnj6"
-
 [node name="PlayerTextureManager" type="Node" parent="." unique_id=1291294705 node_paths=PackedStringArray("target_mesh")]
 script = ExtResource("16_tqiix")
 player_textures = Array[Texture2D]([ExtResource("16_e7oew"), ExtResource("17_c35mf")])
