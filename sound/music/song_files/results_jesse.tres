@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Song" format=3]
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://bjgcxflmgpwll"]
 
-[ext_resource type="Script" path="res://sound/music/song_resource/song.gd" id="1_aurj3"]
-[ext_resource type="Script" path="res://sound/music/song_resource/section.gd" id="2_tn78m"]
-[ext_resource type="AudioStream" path="res://sound/music/song_files/results_jesse.mp3" id="3_d144n"]
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://sound/music/song_resource/song.gd" id="1_aurj3"]
+[ext_resource type="Script" uid="uid://b7okmeqcdjwec" path="res://sound/music/song_resource/section.gd" id="2_tn78m"]
+[ext_resource type="AudioStream" uid="uid://d3g64ql5f1drl" path="res://sound/music/song_files/results_jesse.mp3" id="3_d144n"]
 
 [sub_resource type="Curve" id="Curve_q2ko8"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
