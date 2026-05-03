@@ -50,6 +50,8 @@ func _process(delta: float) -> void:
 func _spawn_fish() -> void:
 	if not multiplayer.is_server():
 		return
+	if fish_spawners.is_empty():
+		return
 	
 	##Choose pool
 	var index : int = fish_rng.rand_weighted(fish_spawner_weights)
@@ -65,6 +67,8 @@ func _spawn_fish() -> void:
 		#rand -= curr_weight
 	assert(index != -1, "weights empty")
 	var target_spawner = fish_spawners[index]
+	
+	
 	assert(target_spawner != null, "No pool selected?")
 	
 	##Pick random point in pool

@@ -182,6 +182,9 @@ func start_the_game():
 	
 	#TODO game goes
 
+func set_up_round_settings(round_time : float) -> void:
+	WorldGameplay.round_time = round_time
+	
 @rpc("authority","call_local","reliable")
 func load_players(level: String):
 	

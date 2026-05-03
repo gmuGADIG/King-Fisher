@@ -39,7 +39,7 @@ size = Vector3(64.08448, 0.001, 64.084114)
 
 [node name="Coffin" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_shlee")]
 script = ExtResource("2_16b6m")
-fish_spawners = [NodePath("FishSpawners/WaterPool")]
+fish_spawners = [null]
 fish_spawner_weights = Array[int]([1])
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
@@ -155,10 +155,10 @@ transform = Transform3D(2.4923954, 0, -9.37642, 0, 0.9999997, 0, 2.1367693, 0, 1
 [node name="Node3D2" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="23" unique_id=510002793 instance=ExtResource("11_dit1s")]
 transform = Transform3D(0.0759881, -0.99710876, 0, 0.99710876, 0.0759881, 0, 0, 0, 1, 60.39267, -0.05641122, 92.75215)
 
-[node name="Cylinder" parent="IslandTerrain/Node3D2/tree_cone" parent_id_path=PackedInt32Array(510002793, 1031717448) index="0" unique_id=1731015727]
+[node name="Cylinder" parent="IslandTerrain/Node3D2/tree_cone" parent_id_path=PackedInt32Array(510002793, 1031717448) index="0" unique_id=1048654036]
 transform = Transform3D(0.8114731, 0, 0, 7.450581e-09, 1.111388, 0, 0, 0, 0.8114728, -1.655792, 19.098848, -4.7454796)
 
-[node name="Cylinder_001" parent="IslandTerrain/Node3D2/tree_cone" parent_id_path=PackedInt32Array(510002793, 1031717448) index="1" unique_id=469544597]
+[node name="Cylinder_001" parent="IslandTerrain/Node3D2/tree_cone" parent_id_path=PackedInt32Array(510002793, 1031717448) index="1" unique_id=523446966]
 visible = false
 
 [node name="Node3D3" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="24" unique_id=2088922159 instance=ExtResource("12_koh0r")]
@@ -208,14 +208,14 @@ visible = false
 [node name="Node3D" parent="." index="11" unique_id=456646 instance=ExtResource("11_dit1s")]
 transform = Transform3D(0.015856473, 0.46812397, -0.8835205, -0.99942696, 0.033852965, 0, 0.02990979, 0.8830142, 0.4683925, 52.286312, -0.372195, 7.3843703)
 
-[node name="Cylinder_001" parent="Node3D/tree_cone" parent_id_path=PackedInt32Array(456646, 1031717448) index="1" unique_id=469544597]
+[node name="Cylinder_001" parent="Node3D/tree_cone" parent_id_path=PackedInt32Array(456646, 1031717448) index="1" unique_id=523446966]
 visible = false
 
 [node name="Node3D2" parent="." index="12" unique_id=637064028 instance=ExtResource("11_dit1s")]
 transform = Transform3D(-4.3711392e-08, -1.0000001, 0, 1.0000001, -4.3711392e-08, 0, 0, 0, 1, 29.962122, 2.3187754, 27.512682)
 script = ExtResource("16_avryw")
 
-[node name="Cylinder_001" parent="Node3D2/tree_cone" parent_id_path=PackedInt32Array(637064028, 1031717448) index="1" unique_id=469544597]
+[node name="Cylinder_001" parent="Node3D2/tree_cone" parent_id_path=PackedInt32Array(637064028, 1031717448) index="1" unique_id=523446966]
 visible = false
 
 [node name="Node3D3" parent="." index="13" unique_id=856514420 instance=ExtResource("17_jepsa")]

@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://bfl87ea0ws3h7" path="res://world/props/mushroom_tall.tscn" id="19_8ivr8"]
 [ext_resource type="PackedScene" uid="uid://7pg60uc0tj5" path="res://world/props/mushroom_small.tscn" id="20_b51yu"]
 [ext_resource type="PackedScene" uid="uid://gpcvf0ox46m1" path="res://world/props/cattail.tscn" id="21_s3jgv"]
+[ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="23_loicf"]
+[ext_resource type="Resource" uid="uid://bguwhw4xujfv8" path="res://world/fish_spawner/normal_rates.tres" id="24_vs71a"]
 
 [sub_resource type="Resource" id="Resource_qen0n"]
 script = ExtResource("4_4k232")
@@ -30,8 +32,8 @@ textures = [[ExtResource("8_hbmjt")], [null]]
 
 [node name="Docks" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_sgynd")]
 script = ExtResource("2_nx4m1")
-fish_spawners = [NodePath("FishSpawners/WaterPool"), NodePath("FishSpawners/WaterPool2")]
-fish_spawner_weights = Array[int]([1, 5])
+fish_spawners = [NodePath("FishSpawners/FishSpawner")]
+fish_spawner_weights = Array[int]([1])
 
 [node name="PauseMenu" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="2" unique_id=509264285]
 script = null
@@ -946,3 +948,10 @@ transform = Transform3D(-0.24999754, 0, -0.0011082633, 0, 0.25, 0, 0.0011082633,
 
 [node name="Cattail142" parent="." index="268" unique_id=685084787 instance=ExtResource("21_s3jgv")]
 transform = Transform3D(-0.24999754, 0, -0.0011082633, 0, 0.25, 0, 0.0011082633, 0, -0.24999754, 27.740276, -1.1526653, 26.675444)
+
+[node name="FishSpawners" type="Node3D" parent="." index="269" unique_id=874643269]
+
+[node name="FishSpawner" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("23_loicf")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.07, 0)
+polygon = PackedVector2Array(8.711293, 14.201077, 14.099179, 49.946228, 50.326435, 49.183876, 50.969425, 14.791773)
+fish_spawnrate = ExtResource("24_vs71a")
