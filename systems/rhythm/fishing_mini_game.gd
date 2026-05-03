@@ -340,5 +340,5 @@ func ms_to_position(ms:float) -> float:
 	return position
 
 
-func _on_button_test_cast(fish: Fish) -> void:
-	start(fish)
+#func _on_button_test_cast(fish: Fish) -> void:
+	#start(fish)

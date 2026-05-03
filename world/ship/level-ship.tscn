@@ -3,10 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_liscy"]
 [ext_resource type="Script" uid="uid://gcho7uv032l6" path="res://world/world_gameplay.gd" id="2_a8xj4"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_prlaw"]
-[ext_resource type="Resource" uid="uid://barqr64i821s5" path="res://world/data.hterrain" id="3_ke6vo"]
+[ext_resource type="Resource" path="res://world/data.hterrain" id="3_ke6vo"]
 [ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="3_osct5"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_8dgjh"]
-[ext_resource type="Resource" uid="uid://bguwhw4xujfv8" path="res://world/fish_spawner/normal_rates.tres" id="4_poe62"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_1uk8t"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_ke6vo"]
 [ext_resource type="PackedScene" uid="uid://cferb67vbdbwk" path="res://world/props/Aircraft.tscn" id="7_8dgjh"]
@@ -32,7 +31,7 @@ textures = [[ExtResource("5_1uk8t")], [null]]
 
 [node name="LevelShip" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_liscy")]
 script = ExtResource("2_a8xj4")
-fish_spawners = [NodePath("FishSpawners/FishSpawner"), NodePath("FishSpawners/FishSpawner2")]
+fish_spawners = []
 fish_spawner_weights = Array[int]([1, 1])
 
 [node name="FishSpawners" type="Node3D" parent="." index="0" unique_id=306249710]
@@ -40,12 +39,10 @@ fish_spawner_weights = Array[int]([1, 1])
 [node name="FishSpawner" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("3_osct5")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.954236, 0)
 polygon = PackedVector2Array(48.93573, 23.555271, 51.033417, 24.5399, 52.80289, 24.88238, 54.8435, 24.44001, 56.170605, 23.441113, 56.912643, 21.543205, 57.255123, 19.616758, 56.327576, 17.519073, 53.633305, 16.258663, 51.235947, 16.158773, 49.85176, 16.743841)
-fish_spawnrate = ExtResource("4_poe62")
 
 [node name="FishSpawner2" parent="FishSpawners" index="1" unique_id=2009422474 instance=ExtResource("3_osct5")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.954236, 0)
 polygon = PackedVector2Array(34.831814, 47.755005, 37.79536, 45.69501, 41.730953, 44.830254, 44.790916, 45.939384, 46.81322, 48.587006, 46.97483, 51.740177, 46.220146, 55.501553, 44.66627, 57.3173, 42.229393, 58.478905, 37.933037, 58.397427, 35.19408, 55.812256)
-fish_spawnrate = ExtResource("4_poe62")
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.589916, 0.091186166, 23.8113)

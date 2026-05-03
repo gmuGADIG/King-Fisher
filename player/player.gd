@@ -222,6 +222,7 @@ func _input(event: InputEvent) -> void:
 					body.current_fishing_state.rpc(true)
 					current_fishing_shadow = body
 					##TODO: Play Fishing Minigame
+					Debug.log("fish: ",body.fish)
 					fishing_minigame.start(body.fish)
 					
 		AimMode.ITEM:

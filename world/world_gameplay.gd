@@ -136,6 +136,10 @@ func create_fish(id : int, pos : Vector3, grade : Fish.Grade, grade_index : int)
 	Debug.log("Spawning Fish");
 	var new_fish_shadow : FishShadow = fish_shadow.instantiate()
 	new_fish_shadow.name = "FishShadow"+str(id)
+	##HACK: THIS IS FOR SHOWOFF NIGHT. Fish sometimes is just null for some reason
+	if fish == null:
+		fish = load("res://fish/leftovers/british_fish.tres")
+	#assert(fish != null, "illegal")
 	new_fish_shadow.fish = fish
 	new_fish_shadow.id = id
 	add_child(new_fish_shadow)

@@ -63,13 +63,13 @@ static func pick(grade : Fish.Grade) -> int:
 static func create(grade : Grade, index : int) -> Fish:
 	match grade:
 		Fish.Grade.LEFTOVERS:
-			return leftover_fishes.pick_random()
+			return leftover_fishes[index]
 		Fish.Grade.FRESH:
-			return fresh_fishes.pick_random()
+			return fresh_fishes[index]
 		Fish.Grade.PREMIUM:
-			return premium_fishes.pick_random()
+			return premium_fishes[index]
 		Fish.Grade.SUSHI:
-			return sushi_fishes.pick_random()
+			return sushi_fishes[index]
 		_:
 			assert(false, "invalid grade")
 			return null
