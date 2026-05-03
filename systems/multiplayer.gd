@@ -132,7 +132,8 @@ func _disconnect_request() -> void:
 @rpc("authority", "call_local")
 func delete_disconnected_player(id) -> void:
 	#Deletes the player's body
-	player_list.get(id).player.queue_free()
+	if player_list.get(id).player:
+		player_list.get(id).player.queue_free()
 
 	#Cleanups the player's index
 	player_list.erase(id)
@@ -264,6 +265,11 @@ func report_loaded() -> void:
 	loaded_players.push_back(multiplayer.get_remote_sender_id())
 	player_loaded.emit(multiplayer.get_remote_sender_id())
 
+@rpc("call_local")
+func results_screen(place: int) -> void:
+	Debug.log("results_screen(place = %d)" % place)
+	ResultsScreen.place = place
+	SceneTransition.change_to_file("res://ui/results/results_screen.tscn")
 
 # host disconnecting client
 @rpc("reliable","call_local","authority")

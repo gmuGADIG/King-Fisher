@@ -42,7 +42,7 @@ func getItemSpawnLocation() -> void:
 		
 		var rayCastOrigin = Vector3(self.position.x + rayOffsetX, self.position.y, self.position.z + rayOffsetZ)
 		var rayCastDestination: Vector3 = rayCastOrigin - Vector3(0,200,0)
-		print("firing raycast from " + str(rayCastOrigin))
+		# print("firing raycast from " + str(rayCastOrigin))
 		
 		# Fire raycast
 		

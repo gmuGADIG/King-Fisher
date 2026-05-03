@@ -2,7 +2,5 @@
 
 [resource]
 resource_name = "Dock_Accent"
-diffuse_mode = 3
-specular_mode = 1
 albedo_color = Color(0.5257979, 0.49051973, 0.43076837, 1)
 roughness = 0.0

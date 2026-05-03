@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_grass.tscn" id="11_2ieo8"]
 [ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_stone.tscn" id="11_land_stone"]
 [ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="12_ebec5"]
-[ext_resource type="Script" uid="uid://b8h20ju61nnj6" path="res://ui/fish_dex/fishdex.gd" id="14_kb6p2"]
 [ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/ourple.png" id="16_e7oew"]
 [ext_resource type="Script" uid="uid://bj78kkjkjar1n" path="res://player/player_texture_manager.gd" id="16_tqiix"]
 [ext_resource type="Texture2D" uid="uid://ctqyjapriy26t" path="res://player/textures/prange.png" id="17_c35mf"]
@@ -108,8 +107,9 @@ target_position = Vector3(0, -10, 0)
 
 [node name="PlayerLandGrass" parent="Sounds" unique_id=301000001 instance=ExtResource("11_2ieo8")]
 
-[node name="HeldItem" parent="." unique_id=1114095646 instance=ExtResource("9_kb6p2")]
 [node name="PlayerPickupItem" parent="Sounds" unique_id=1633662803 instance=ExtResource("9_e7oew")]
+
+[node name="HeldItem" parent="." unique_id=1114095646 instance=ExtResource("9_kb6p2")]
 
 [node name="LivewellMenu" parent="." unique_id=1231020864 instance=ExtResource("12_ebec5")]
 
@@ -118,10 +118,10 @@ script = ExtResource("2_pmesh")
 rotation_speed_curve = ExtResource("4_kb6p2")
 bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
-[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 525463987) index="0" unique_id=2118034459]
+[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="0" unique_id=1732977114]
 material_override = SubResource("StandardMaterial3D_e7oew")
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 525463987) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
 
@@ -390,15 +390,6 @@ joint_constraints/relaxation = 1.0
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
-
-[node name="fishdex" type="Control" parent="." unique_id=568557775]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("14_kb6p2")
-metadata/_custom_type_script = "uid://b8h20ju61nnj6"
 
 [node name="PlayerTextureManager" type="Node" parent="." unique_id=1291294705 node_paths=PackedStringArray("target_mesh")]
 script = ExtResource("16_tqiix")

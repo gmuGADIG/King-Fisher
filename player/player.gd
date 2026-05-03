@@ -193,9 +193,9 @@ func _input(event: InputEvent) -> void:
 			if event.is_action_pressed("use_item"):
 				if held_item == null:
 					return
-				print("item aim")
+				# print("item aim")
 				if held_item is ThrowableItem:
-					print("item aim")
+					# print("item aim")
 					%Aiming.start_aiming(AimMode.ITEM)
 				else:
 					use_held_item.rpc()

@@ -1,0 +1,1581 @@
+[gd_scene format=3 uid="uid://dvspyvlmhlccv"]
+
+[ext_resource type="Script" uid="uid://dbweiq6h5aqma" path="res://ui/results/results_screen.gd" id="1_xn2kt"]
+[ext_resource type="Script" uid="uid://cq3dtvdfswpjy" path="res://ui/results/fishbox.gd" id="2_g8hds"]
+[ext_resource type="PackedScene" uid="uid://b6bw62c5b8s23" path="res://art/3d-assets/temp-dead-fish.glb" id="3_gr0du"]
+[ext_resource type="Environment" uid="uid://byjvy8xudhe0n" path="res://world/environment.tres" id="4_gr0du"]
+[ext_resource type="PackedScene" uid="uid://bg5yj4acmsreh" path="res://art/3d-assets/DefaultPlayer.fbx" id="5_50pv5"]
+[ext_resource type="Material" uid="uid://jmw2852n4w4b" path="res://ui/results/player_texture_2.tres" id="8_ih241"]
+[ext_resource type="Texture2D" uid="uid://skc0ljw45opd" path="res://ui/main_menu/wooden_itemdex_blank.png" id="8_stkol"]
+[ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="9_cvp0m"]
+[ext_resource type="Material" uid="uid://8tghhbtw5eg0" path="res://ui/results/player_texture_1.tres" id="10_w547k"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xec4l"]
+radius = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6x5xg"]
+radius = 0.05
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8yknv"]
+radius = 0.05
+
+[node name="ResultsScreen" type="Node3D" unique_id=1172247869]
+script = ExtResource("1_xn2kt")
+
+[node name="3DContainer" type="Node3D" parent="." unique_id=1653501743]
+
+[node name="fishbox" type="Node3D" parent="3DContainer" unique_id=1849008473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.90576017, 5.516526)
+script = ExtResource("2_g8hds")
+
+[node name="temp-dead-fish" parent="3DContainer/fishbox" unique_id=1050645255 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish2" parent="3DContainer/fishbox" unique_id=1625005958 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish4" parent="3DContainer/fishbox" unique_id=30070111 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish5" parent="3DContainer/fishbox" unique_id=1706221893 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish3" parent="3DContainer/fishbox" unique_id=1627343703 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish6" parent="3DContainer/fishbox" unique_id=1665992354 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish7" parent="3DContainer/fishbox" unique_id=424432455 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish8" parent="3DContainer/fishbox" unique_id=1698298862 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish9" parent="3DContainer/fishbox" unique_id=1294465662 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish10" parent="3DContainer/fishbox" unique_id=1484569023 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish11" parent="3DContainer/fishbox" unique_id=2023497255 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish12" parent="3DContainer/fishbox" unique_id=1495701104 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish13" parent="3DContainer/fishbox" unique_id=1045581158 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish14" parent="3DContainer/fishbox" unique_id=939385667 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish15" parent="3DContainer/fishbox" unique_id=78998590 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.9826967, -1.8610919)
+
+[node name="temp-dead-fish16" parent="3DContainer/fishbox" unique_id=1419326516 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish17" parent="3DContainer/fishbox" unique_id=52977639 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish18" parent="3DContainer/fishbox" unique_id=1228455046 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish19" parent="3DContainer/fishbox" unique_id=741005738 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish20" parent="3DContainer/fishbox" unique_id=1095346956 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish21" parent="3DContainer/fishbox" unique_id=983095581 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish22" parent="3DContainer/fishbox" unique_id=1678331643 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish23" parent="3DContainer/fishbox" unique_id=1349622725 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish24" parent="3DContainer/fishbox" unique_id=405619395 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish25" parent="3DContainer/fishbox" unique_id=1337448934 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish26" parent="3DContainer/fishbox" unique_id=269754585 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish27" parent="3DContainer/fishbox" unique_id=13412657 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish28" parent="3DContainer/fishbox" unique_id=1610386230 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish29" parent="3DContainer/fishbox" unique_id=1266890412 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish30" parent="3DContainer/fishbox" unique_id=424105831 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.9826967, -1.8610919)
+
+[node name="temp-dead-fish31" parent="3DContainer/fishbox" unique_id=1568507615 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish32" parent="3DContainer/fishbox" unique_id=1495387642 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish33" parent="3DContainer/fishbox" unique_id=450719149 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish34" parent="3DContainer/fishbox" unique_id=1225170949 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish35" parent="3DContainer/fishbox" unique_id=869583288 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish36" parent="3DContainer/fishbox" unique_id=940303941 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish37" parent="3DContainer/fishbox" unique_id=442736074 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish38" parent="3DContainer/fishbox" unique_id=30645748 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish39" parent="3DContainer/fishbox" unique_id=873010383 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish40" parent="3DContainer/fishbox" unique_id=775730209 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish41" parent="3DContainer/fishbox" unique_id=631549975 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish42" parent="3DContainer/fishbox" unique_id=1773513077 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish43" parent="3DContainer/fishbox" unique_id=134112031 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish44" parent="3DContainer/fishbox" unique_id=1194041918 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish45" parent="3DContainer/fishbox" unique_id=779017839 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.9826967, -1.8610919)
+
+[node name="fishbox4" type="Node3D" parent="3DContainer" unique_id=459513506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3940072, -0.32247353)
+
+[node name="temp-dead-fish" parent="3DContainer/fishbox4" unique_id=631468704 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish2" parent="3DContainer/fishbox4" unique_id=1639809993 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish4" parent="3DContainer/fishbox4" unique_id=1371870064 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish5" parent="3DContainer/fishbox4" unique_id=11949159 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish3" parent="3DContainer/fishbox4" unique_id=1902485175 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish6" parent="3DContainer/fishbox4" unique_id=910065446 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish7" parent="3DContainer/fishbox4" unique_id=1353802082 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish8" parent="3DContainer/fishbox4" unique_id=636430911 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish9" parent="3DContainer/fishbox4" unique_id=869367389 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish10" parent="3DContainer/fishbox4" unique_id=1494750331 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish11" parent="3DContainer/fishbox4" unique_id=470107498 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish12" parent="3DContainer/fishbox4" unique_id=538280007 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish13" parent="3DContainer/fishbox4" unique_id=1359052118 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish14" parent="3DContainer/fishbox4" unique_id=980790105 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish15" parent="3DContainer/fishbox4" unique_id=985503962 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.9826967, -1.8610919)
+
+[node name="temp-dead-fish16" parent="3DContainer/fishbox4" unique_id=1586983281 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish17" parent="3DContainer/fishbox4" unique_id=1922408768 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish18" parent="3DContainer/fishbox4" unique_id=1017698070 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish19" parent="3DContainer/fishbox4" unique_id=857308310 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish20" parent="3DContainer/fishbox4" unique_id=1341610800 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish21" parent="3DContainer/fishbox4" unique_id=290996385 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish22" parent="3DContainer/fishbox4" unique_id=559799444 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish23" parent="3DContainer/fishbox4" unique_id=1123053628 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish24" parent="3DContainer/fishbox4" unique_id=1095450623 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish25" parent="3DContainer/fishbox4" unique_id=1406271244 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish26" parent="3DContainer/fishbox4" unique_id=384061674 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish27" parent="3DContainer/fishbox4" unique_id=1223632160 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish28" parent="3DContainer/fishbox4" unique_id=1442005378 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish29" parent="3DContainer/fishbox4" unique_id=944697274 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish30" parent="3DContainer/fishbox4" unique_id=1755359752 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.9826967, -1.8610919)
+
+[node name="temp-dead-fish31" parent="3DContainer/fishbox4" unique_id=1491129033 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish32" parent="3DContainer/fishbox4" unique_id=851694519 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish33" parent="3DContainer/fishbox4" unique_id=1789856732 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish34" parent="3DContainer/fishbox4" unique_id=1288579779 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish35" parent="3DContainer/fishbox4" unique_id=1636992050 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish36" parent="3DContainer/fishbox4" unique_id=206721354 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish37" parent="3DContainer/fishbox4" unique_id=399122260 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish38" parent="3DContainer/fishbox4" unique_id=1261225963 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish39" parent="3DContainer/fishbox4" unique_id=2063859820 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish40" parent="3DContainer/fishbox4" unique_id=1866504742 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish41" parent="3DContainer/fishbox4" unique_id=1942958489 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish42" parent="3DContainer/fishbox4" unique_id=1095249386 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish43" parent="3DContainer/fishbox4" unique_id=108065719 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish44" parent="3DContainer/fishbox4" unique_id=241209567 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish45" parent="3DContainer/fishbox4" unique_id=1434630222 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.9826967, -1.8610919)
+
+[node name="fishbox5" type="Node3D" parent="3DContainer" unique_id=855251734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3940072, 5.772055)
+
+[node name="temp-dead-fish" parent="3DContainer/fishbox5" unique_id=1703131515 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish2" parent="3DContainer/fishbox5" unique_id=1111901186 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish4" parent="3DContainer/fishbox5" unique_id=1734674455 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish5" parent="3DContainer/fishbox5" unique_id=122001374 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish3" parent="3DContainer/fishbox5" unique_id=367974736 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish6" parent="3DContainer/fishbox5" unique_id=396037175 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish7" parent="3DContainer/fishbox5" unique_id=1997813966 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish8" parent="3DContainer/fishbox5" unique_id=1740583000 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish9" parent="3DContainer/fishbox5" unique_id=1709691413 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish10" parent="3DContainer/fishbox5" unique_id=702932190 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish11" parent="3DContainer/fishbox5" unique_id=422440707 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish12" parent="3DContainer/fishbox5" unique_id=2089318052 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish13" parent="3DContainer/fishbox5" unique_id=579620909 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish14" parent="3DContainer/fishbox5" unique_id=188685821 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish15" parent="3DContainer/fishbox5" unique_id=927297480 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.9826967, -1.8610919)
+
+[node name="temp-dead-fish16" parent="3DContainer/fishbox5" unique_id=1536598319 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish17" parent="3DContainer/fishbox5" unique_id=1191195591 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish18" parent="3DContainer/fishbox5" unique_id=556224262 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish19" parent="3DContainer/fishbox5" unique_id=71765964 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish20" parent="3DContainer/fishbox5" unique_id=1702514547 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish21" parent="3DContainer/fishbox5" unique_id=1666748913 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish22" parent="3DContainer/fishbox5" unique_id=554524069 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish23" parent="3DContainer/fishbox5" unique_id=1987637622 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish24" parent="3DContainer/fishbox5" unique_id=554884795 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish25" parent="3DContainer/fishbox5" unique_id=448516926 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish26" parent="3DContainer/fishbox5" unique_id=1782588073 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish27" parent="3DContainer/fishbox5" unique_id=695390802 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish28" parent="3DContainer/fishbox5" unique_id=814851905 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish29" parent="3DContainer/fishbox5" unique_id=1701646404 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish30" parent="3DContainer/fishbox5" unique_id=1058241557 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.9826967, -1.8610919)
+
+[node name="temp-dead-fish31" parent="3DContainer/fishbox5" unique_id=2121455264 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish32" parent="3DContainer/fishbox5" unique_id=584316338 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish33" parent="3DContainer/fishbox5" unique_id=282397497 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish34" parent="3DContainer/fishbox5" unique_id=1891286663 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish35" parent="3DContainer/fishbox5" unique_id=985166911 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish36" parent="3DContainer/fishbox5" unique_id=1774448384 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish37" parent="3DContainer/fishbox5" unique_id=901486515 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish38" parent="3DContainer/fishbox5" unique_id=248895256 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish39" parent="3DContainer/fishbox5" unique_id=279394265 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish40" parent="3DContainer/fishbox5" unique_id=1439768179 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish41" parent="3DContainer/fishbox5" unique_id=1105461367 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish42" parent="3DContainer/fishbox5" unique_id=2003279156 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish43" parent="3DContainer/fishbox5" unique_id=360352893 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish44" parent="3DContainer/fishbox5" unique_id=56935137 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish45" parent="3DContainer/fishbox5" unique_id=586747440 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.9826967, -1.8610919)
+
+[node name="fishbox3" type="Node3D" parent="3DContainer" unique_id=1448595715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9347538, -6.2070894)
+
+[node name="temp-dead-fish" parent="3DContainer/fishbox3" unique_id=1438106818 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish2" parent="3DContainer/fishbox3" unique_id=486118393 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish4" parent="3DContainer/fishbox3" unique_id=652599946 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish5" parent="3DContainer/fishbox3" unique_id=1239142834 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish3" parent="3DContainer/fishbox3" unique_id=800011319 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish6" parent="3DContainer/fishbox3" unique_id=1336029280 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish7" parent="3DContainer/fishbox3" unique_id=849915312 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish8" parent="3DContainer/fishbox3" unique_id=1491302770 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish9" parent="3DContainer/fishbox3" unique_id=1786977586 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish10" parent="3DContainer/fishbox3" unique_id=1494464742 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish11" parent="3DContainer/fishbox3" unique_id=1212038431 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish12" parent="3DContainer/fishbox3" unique_id=778219936 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish13" parent="3DContainer/fishbox3" unique_id=1033009008 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish14" parent="3DContainer/fishbox3" unique_id=1700079665 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish15" parent="3DContainer/fishbox3" unique_id=1425302825 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.9826967, -1.8610919)
+
+[node name="temp-dead-fish16" parent="3DContainer/fishbox3" unique_id=1861789536 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish17" parent="3DContainer/fishbox3" unique_id=1483750797 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish18" parent="3DContainer/fishbox3" unique_id=374157731 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish19" parent="3DContainer/fishbox3" unique_id=1620359516 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish20" parent="3DContainer/fishbox3" unique_id=1673079141 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish21" parent="3DContainer/fishbox3" unique_id=2118341101 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish22" parent="3DContainer/fishbox3" unique_id=1907639929 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish23" parent="3DContainer/fishbox3" unique_id=1674599965 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish24" parent="3DContainer/fishbox3" unique_id=1939408631 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish25" parent="3DContainer/fishbox3" unique_id=353429023 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish26" parent="3DContainer/fishbox3" unique_id=335650575 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish27" parent="3DContainer/fishbox3" unique_id=1549413188 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish28" parent="3DContainer/fishbox3" unique_id=560567739 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish29" parent="3DContainer/fishbox3" unique_id=949355640 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish30" parent="3DContainer/fishbox3" unique_id=1081235416 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.9826967, -1.8610919)
+
+[node name="temp-dead-fish31" parent="3DContainer/fishbox3" unique_id=1034808436 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish32" parent="3DContainer/fishbox3" unique_id=356403406 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish33" parent="3DContainer/fishbox3" unique_id=344820214 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish34" parent="3DContainer/fishbox3" unique_id=677280867 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish35" parent="3DContainer/fishbox3" unique_id=523226977 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish36" parent="3DContainer/fishbox3" unique_id=302279804 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish37" parent="3DContainer/fishbox3" unique_id=475972810 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish38" parent="3DContainer/fishbox3" unique_id=1695779639 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish39" parent="3DContainer/fishbox3" unique_id=1611114477 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish40" parent="3DContainer/fishbox3" unique_id=338985185 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish41" parent="3DContainer/fishbox3" unique_id=88053462 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish42" parent="3DContainer/fishbox3" unique_id=1573537766 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish43" parent="3DContainer/fishbox3" unique_id=1724173612 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish44" parent="3DContainer/fishbox3" unique_id=516066014 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish45" parent="3DContainer/fishbox3" unique_id=1003326494 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.9826967, -1.8610919)
+
+[node name="fishbox2" type="Node3D" parent="3DContainer" unique_id=1559790360]
+
+[node name="temp-dead-fish" parent="3DContainer/fishbox2" unique_id=791401154 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish2" parent="3DContainer/fishbox2" unique_id=221430196 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish4" parent="3DContainer/fishbox2" unique_id=1740482434 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish5" parent="3DContainer/fishbox2" unique_id=577665495 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish3" parent="3DContainer/fishbox2" unique_id=82833988 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish6" parent="3DContainer/fishbox2" unique_id=1922827421 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish7" parent="3DContainer/fishbox2" unique_id=2010763527 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish8" parent="3DContainer/fishbox2" unique_id=842905945 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish9" parent="3DContainer/fishbox2" unique_id=83200665 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish10" parent="3DContainer/fishbox2" unique_id=1973885520 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish11" parent="3DContainer/fishbox2" unique_id=904336633 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish12" parent="3DContainer/fishbox2" unique_id=897314669 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish13" parent="3DContainer/fishbox2" unique_id=371438834 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish14" parent="3DContainer/fishbox2" unique_id=1094630187 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish15" parent="3DContainer/fishbox2" unique_id=786689864 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12299621, 1.9826967, -1.8610919)
+
+[node name="temp-dead-fish16" parent="3DContainer/fishbox2" unique_id=1308953427 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish17" parent="3DContainer/fishbox2" unique_id=381768502 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish18" parent="3DContainer/fishbox2" unique_id=531930991 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish19" parent="3DContainer/fishbox2" unique_id=1538121724 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish20" parent="3DContainer/fishbox2" unique_id=1199491054 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish21" parent="3DContainer/fishbox2" unique_id=2076975820 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish22" parent="3DContainer/fishbox2" unique_id=1888791414 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish23" parent="3DContainer/fishbox2" unique_id=191190818 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish24" parent="3DContainer/fishbox2" unique_id=1917742301 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish25" parent="3DContainer/fishbox2" unique_id=1333779203 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish26" parent="3DContainer/fishbox2" unique_id=1409544714 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish27" parent="3DContainer/fishbox2" unique_id=1117142631 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish28" parent="3DContainer/fishbox2" unique_id=1129519337 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish29" parent="3DContainer/fishbox2" unique_id=1095007652 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish30" parent="3DContainer/fishbox2" unique_id=163988234 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74549615, 1.9826967, -1.8610919)
+
+[node name="temp-dead-fish31" parent="3DContainer/fishbox2" unique_id=2142887590 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1920929e-07, -0.14626741)
+
+[node name="temp-dead-fish32" parent="3DContainer/fishbox2" unique_id=91381725 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1920929e-07, 2.407941)
+
+[node name="temp-dead-fish33" parent="3DContainer/fishbox2" unique_id=489519097 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.4261843, 0.68985987)
+
+[node name="temp-dead-fish34" parent="3DContainer/fishbox2" unique_id=629853749 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.4261843, 2.6089766)
+
+[node name="temp-dead-fish35" parent="3DContainer/fishbox2" unique_id=983979991 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.29470265, -1.8610919)
+
+[node name="temp-dead-fish36" parent="3DContainer/fishbox2" unique_id=2027695526 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.6879941, -0.14626741)
+
+[node name="temp-dead-fish37" parent="3DContainer/fishbox2" unique_id=67911066 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.6879941, 2.407941)
+
+[node name="temp-dead-fish38" parent="3DContainer/fishbox2" unique_id=1041846248 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1141783, 0.68985987)
+
+[node name="temp-dead-fish39" parent="3DContainer/fishbox2" unique_id=313747630 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.1141783, 2.6089766)
+
+[node name="temp-dead-fish40" parent="3DContainer/fishbox2" unique_id=165466547 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 0.98269665, -1.8610919)
+
+[node name="temp-dead-fish41" parent="3DContainer/fishbox2" unique_id=2100111476 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.6879941, -0.14626741)
+
+[node name="temp-dead-fish42" parent="3DContainer/fishbox2" unique_id=537511127 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.6879941, 2.407941)
+
+[node name="temp-dead-fish43" parent="3DContainer/fishbox2" unique_id=442507210 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 2.1141782, 0.68985987)
+
+[node name="temp-dead-fish44" parent="3DContainer/fishbox2" unique_id=1233068924 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 2.1141782, 2.6089766)
+
+[node name="temp-dead-fish45" parent="3DContainer/fishbox2" unique_id=874767409 instance=ExtResource("3_gr0du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6316782, 1.9826967, -1.8610919)
+
+[node name="Camera3D" type="Camera3D" parent="3DContainer" unique_id=280394094]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.47969, 3.2276747, -3.0420723)
+fov = 29.3
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DContainer" unique_id=829485319]
+transform = Transform3D(0.299768, -0.7045475, 0.64323556, 0.29760978, 0.70965683, 0.63860446, -0.90640366, 1.3506467e-08, 0.42241266, 0, 0, 0)
+light_energy = 0.445
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="3DContainer" unique_id=2053117740]
+environment = ExtResource("4_gr0du")
+
+[node name="DefaultPlayer" parent="3DContainer" unique_id=789512731 instance=ExtResource("5_50pv5")]
+transform = Transform3D(-1.1097204e-07, 0, 2.5387442, 0, 2.5387442, 0, -2.5387442, 0, -1.1097204e-07, 0.3560276, 2.3452787, 0)
+
+[node name="DefaultPlayer" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(789512731, 1835178431) index="0" unique_id=1732977114]
+material_override = ExtResource("8_ih241")
+
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(789512731, 1835178431) index="1" unique_id=849146328]
+
+[node name="Physical Bone Pelvis" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=283347594]
+transform = Transform3D(0.0039389553, -1.379691e-09, -8.240499e-17, -1.379691e-09, -0.0039389553, 4.6955734e-10, -2.4687604e-16, -4.6955734e-10, -0.0039389553, 5.354814e-13, 4.656613e-10, 0.0067133224)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3588636e-10, 1.4777419e-07, 0.24583389)
+body_offset = Transform3D(0.0039389553, -1.3796911e-09, -8.240499e-17, -8.240403e-17, 2.7708085e-15, -0.0039389553, 1.3796914e-09, 0.0039389553, 2.7708085e-15, 5.3547444e-13, 0.0009683287, -5.820766e-10)
+bone_name = "Pelvis"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Pelvis" unique_id=1765761084]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone MiddleSpine" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1726750054]
+transform = Transform3D(0.0039389553, -1.379691e-09, -8.240499e-17, -1.379691e-09, -0.0039389553, 4.6955734e-10, -2.4687604e-16, -4.6955734e-10, -0.0039389553, 5.35863e-13, 2.3283064e-10, 0.008609301)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3598346e-10, 1.4777419e-07, 0.23564644)
+body_offset = Transform3D(0.0039389553, -1.3796911e-09, -8.240499e-17, -8.240403e-17, 2.7708085e-15, -0.0039389553, 1.3796914e-09, 0.0039389553, 2.7708085e-15, 5.358561e-13, 0.0009282008, -5.820766e-10)
+bone_name = "MiddleSpine"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone MiddleSpine" unique_id=1720761562]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone UpperSpine" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=981203905]
+transform = Transform3D(0.003938753, 2.861978e-05, 2.7807911e-05, 2.780896e-05, -0.003937228, 0.00011327576, 2.8618759e-05, -0.00011307362, -0.003937228, -6.5421573e-06, -2.6673079e-05, 0.010458666)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.161651e-06, -3.793855e-05, 0.23414552)
+body_offset = Transform3D(0.003938955, -1.1277734e-10, -2.0008883e-10, -1.8553692e-10, -2.6526124e-09, -0.0039389553, 1.05501385e-10, 0.0039389567, -2.6523992e-09, -3.2101525e-08, 0.00092228875, 1.5005935e-07)
+bone_name = "UpperSpine"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone UpperSpine" unique_id=337225224]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_6x5xg")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Head" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=322255073]
+transform = Transform3D(0.0039389064, 1.3982734e-05, 1.384408e-05, 1.9640325e-05, -0.0026252859, -0.0029364703, -1.1970736e-06, 0.002936503, -0.0026253227, -5.0567155e-06, 0.0010533398, 0.013804394)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2835564e-05, 0.00046627223, 0.35829312)
+body_offset = Transform3D(0.0039389078, 1.3982097e-05, 1.3843438e-05, 6.280809e-09, 0.0027704535, -0.0027999922, -1.9675845e-05, 0.0027999585, 0.0027704202, -5.056475e-06, 0.0010019261, -0.0009939275)
+bone_name = "Head"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Head" unique_id=494397017]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shoulder L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1819524903]
+transform = Transform3D(-0.0009229012, 0.00010832554, -0.0038277784, -0.00016039237, -0.003935017, -7.268878e-05, -0.0038259504, 0.00013883424, 0.0009263895, 0.0013861394, -3.1258794e-05, 0.011039563)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00010891878, -0.0012408616, 0.36546144)
+body_offset = Transform3D(0.003938955, 4.8603397e-09, -2.2060703e-08, -2.165325e-08, 4.110916e-09, -0.0039389543, -4.6893547e-09, 0.0039389557, 4.147296e-09, -4.209578e-07, 0.001439536, 4.886184e-06)
+bone_name = "Shoulder L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shoulder L" unique_id=1115649527]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone UpperArm L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1410997659]
+transform = Transform3D(-0.0033935253, 0.00041962657, -0.001955318, -0.00019865482, -0.0039029506, -0.00049283117, -0.0019899476, -0.00032597515, 0.0033836693, 0.0033724965, 0.00012050918, 0.009874248)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02405677, -0.0029717388, 0.2580069)
+body_offset = Transform3D(0.0039389553, 4.10364e-09, -1.5133992e-08, -1.5133992e-08, -3.4764525e-08, -0.003938955, -3.8999133e-09, 0.003938956, -3.464811e-08, -9.475462e-05, 0.0010162778, 1.1714583e-05)
+bone_name = "UpperArm L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone UpperArm L" unique_id=982623190]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Forearm L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=2126659875]
+transform = Transform3D(-0.0032127001, -0.001085511, -0.0020038944, -0.00023246357, -0.0032892923, 0.0021545037, -0.0022671323, 0.0018755245, 0.002618757, 0.0040133977, -4.7680223e-05, 0.0087309955)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0059647467, -0.003664516, 0.12895203)
+body_offset = Transform3D(0.0039389543, 3.830064e-08, -8.137431e-08, -8.137431e-08, 1.6239937e-08, -0.0039389553, -3.7893187e-08, 0.0039389553, 1.4610123e-08, -2.348423e-05, 0.0005079368, 1.4432706e-05)
+bone_name = "Forearm L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Forearm L" unique_id=990416202]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_8yknv")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shoulder R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=349704684]
+transform = Transform3D(-0.0009228875, -0.00010832284, 0.0038277816, 0.0001603994, -0.0039350167, -7.268481e-05, 0.0038259532, 0.00013884238, 0.00092637585, -0.0013861734, -2.640509e-05, 0.011039228)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6835524e-05, -6.6960242e-06, 0.3655127)
+body_offset = Transform3D(0.0039389553, 2.3810571e-09, 7.566996e-09, 7.741619e-09, -4.7293724e-10, -0.0039389553, -2.6047928e-09, 0.0039389567, -4.5838533e-10, 2.9988587e-07, 0.0014397381, 2.6542693e-08)
+bone_name = "Shoulder R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shoulder R" unique_id=1771941760]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone UpperArm R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=351942383]
+transform = Transform3D(-0.0033935038, -0.00041973186, 0.0019553332, 0.00019878769, -0.0039029466, -0.0004928083, 0.0019899714, -0.000325886, 0.003383664, -0.0032621757, 0.00012043351, 0.009874948)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5626909e-05, 9.040525e-06, 0.24394879)
+body_offset = Transform3D(0.0039389543, 1.3198587e-07, 3.4924597e-10, 5.820766e-10, -5.865877e-08, -0.003938955, -1.3210229e-07, 0.003938957, -5.8294972e-08, 6.146729e-08, 0.00096090324, -2.1391315e-08)
+bone_name = "UpperArm R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone UpperArm R" unique_id=193250003]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Forearm R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=174230331]
+transform = Transform3D(-0.0032126834, 0.0010855328, 0.0020039098, 0.00023244912, -0.0032892954, 0.0021545005, 0.0022671577, 0.0018755059, 0.0026187487, -0.004009516, -4.861178e-05, 0.008696952)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00017124173, -1.7846693e-05, 0.13432713)
+body_offset = Transform3D(0.0039389534, -6.676419e-08, 6.414484e-08, 6.391201e-08, 1.9790605e-08, -0.0039389553, 6.676419e-08, 0.003938955, 1.7287675e-08, 6.6589564e-07, 0.00052910857, 6.798655e-08)
+bone_name = "Forearm R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Forearm R" unique_id=659002851]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_8yknv")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Thigh L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1995457411]
+transform = Transform3D(2.6172404e-06, 0.0039242622, -0.00033989735, -0.0038515057, 7.377345e-05, 0.00082208944, 0.0008253889, 0.000331805, 0.0038371875, 0.0013618094, -0.00035660272, 0.004990385)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0086774e-05, -6.3430616e-06, 0.33397675)
+body_offset = Transform3D(0.003938958, -1.7926595e-08, -9.310753e-09, -9.2466905e-09, -8.236384e-09, -0.0039389576, 1.7915681e-08, 0.00393896, -8.1490725e-09, 4.284084e-08, 0.0013155201, 2.7706847e-08)
+bone_name = "Thigh L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Thigh L" unique_id=1371166413]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shin L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1176304586]
+transform = Transform3D(0.0005176887, 0.0038967342, -0.00025065726, -0.003802181, 0.00044546238, -0.0009275515, -0.000889262, 0.0003638597, 0.0038199725, 0.0015808765, -0.00024217763, 0.0021071117)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.745345e-06, -0.00012133754, 0.41928297)
+body_offset = Transform3D(0.0039389567, -4.7148205e-09, -1.1677912e-08, -1.15833245e-08, 1.8568244e-08, -0.003938957, 5.122274e-09, 0.0039389594, 1.8742867e-08, -1.9790605e-09, 0.0016515376, 4.7008507e-07)
+bone_name = "Shin L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shin L" unique_id=2066069712]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Thigh R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=211420903]
+transform = Transform3D(4.3324795e-05, -0.003928325, 0.00028592165, 0.0039184107, 7.198555e-05, 0.00039527728, -0.00039943584, 0.00028008266, 0.003908628, -0.0013437504, -0.00021401409, 0.004967395)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.143324e-05, -1.4045895e-05, 0.33375484)
+body_offset = Transform3D(0.0039389567, 2.4920155e-09, 5.8594196e-09, 5.781885e-09, -2.910383e-10, -0.003938956, -2.903107e-09, 0.0039389594, -2.6193447e-10, -8.638017e-08, 0.0013146456, 5.5413693e-08)
+bone_name = "Thigh R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Thigh R" unique_id=1006323794]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shin R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1971651000]
+transform = Transform3D(0.00048487418, -0.0039021128, 0.00023190632, 0.0038856124, 0.00045560102, -0.00045805634, 0.00042694845, 0.00028515115, 0.003905352, -0.0015366563, -0.0001540241, 0.0020236466)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1798439e-05, -4.178694e-05, 0.4192595)
+body_offset = Transform3D(0.0039389557, -1.7753337e-09, 5.635229e-09, 5.693437e-09, 9.0221874e-10, -0.0039389557, 8.731149e-10, 0.0039389604, 1.0768417e-09, -4.8836228e-08, 0.0016514445, 1.641456e-07)
+bone_name = "Shin R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shin R" unique_id=435905413]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="DefaultPlayer2" parent="3DContainer" unique_id=2053545878 instance=ExtResource("5_50pv5")]
+transform = Transform3D(-1.1097204e-07, 0, 2.5387442, 0, 2.5387442, 0, -2.5387442, 0, -1.1097204e-07, 0.35602808, 1.3443635, 5.8883495)
+
+[node name="DefaultPlayer" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(2053545878, 1835178431) index="0" unique_id=1732977114]
+material_override = ExtResource("10_w547k")
+
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(2053545878, 1835178431) index="1" unique_id=181791404]
+
+[node name="Physical Bone Pelvis" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=890120543]
+transform = Transform3D(0.0039389553, -1.3796508e-09, -8.240297e-17, -1.3796508e-09, -0.0039389553, 4.6955734e-10, -2.468692e-16, -4.6955734e-10, -0.0039389553, 0, 4.4237822e-09, 0.006713245)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.088639e-13, 1.1526398e-06, 0.24581379)
+body_offset = Transform3D(0.0039389553, -1.379651e-09, -8.2403e-17, -8.240202e-17, 2.7708085e-15, -0.0039389553, 1.3796512e-09, 0.0039389553, 2.7708085e-15, 0, 0.0009682495, -4.5401976e-09)
+bone_name = "Pelvis"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Pelvis" unique_id=1765905562]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone MiddleSpine" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=545756086]
+transform = Transform3D(0.0039389553, -1.3796508e-09, -8.240297e-17, -1.3796508e-09, -0.0039389553, 4.6955734e-10, -2.468692e-16, -4.6955734e-10, -0.0039389553, 0, 3.3760443e-09, 0.008609199)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3618778e-13, 9.4575574e-07, 0.23562019)
+body_offset = Transform3D(0.0039389553, -1.379651e-09, -8.2403e-17, -8.240202e-17, 2.7708085e-15, -0.0039389553, 1.3796512e-09, 0.0039389553, 2.7708085e-15, 0, 0.0009280974, -3.7252903e-09)
+bone_name = "MiddleSpine"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone MiddleSpine" unique_id=2081941249]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone UpperSpine" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=1915090080]
+transform = Transform3D(0.003938753, 2.861978e-05, 2.7807911e-05, 2.780896e-05, -0.003937228, 0.00011327576, 2.8618759e-05, -0.00011307362, -0.003937228, -6.392598e-06, -2.667436e-05, 0.010458232)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8833672e-05, -4.1721647e-05, 0.23403534)
+body_offset = Transform3D(0.003938955, -1.1277734e-10, -2.0008883e-10, -1.8553692e-10, -2.6526124e-09, -0.0039389553, 1.05501385e-10, 0.0039389567, -2.6523992e-09, 1.13621354e-07, 0.00092185475, 1.6496051e-07)
+bone_name = "UpperSpine"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone UpperSpine" unique_id=858532429]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_6x5xg")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Head" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=258577994]
+transform = Transform3D(0.0039389064, 1.398211e-05, 1.3843511e-05, 1.9639485e-05, -0.0026252859, -0.0029364703, -1.196988e-06, 0.002936503, -0.0026253227, -5.0794333e-06, 0.0010534506, 0.013805452)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8657843e-05, 0.00028431416, 0.35849363)
+body_offset = Transform3D(0.0039389078, 1.3981473e-05, 1.3842866e-05, 6.3149153e-09, 0.0027704535, -0.0027999922, -1.9675e-05, 0.0027999585, 0.0027704202, -5.0794333e-06, 0.0010029916, -0.0009939733)
+bone_name = "Head"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Head" unique_id=1624630217]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shoulder L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=1439951575]
+transform = Transform3D(-0.0009229012, 0.00010832554, -0.0038277784, -0.00016039237, -0.003935017, -7.268879e-05, -0.0038259504, 0.00013883424, 0.0009263895, 0.0013861489, -3.1286036e-05, 0.011039254)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.325842e-05, -0.0012450874, 0.36548227)
+body_offset = Transform3D(0.003938955, 4.8603397e-09, -2.2060703e-08, -2.165325e-08, 4.110916e-09, -0.0039389543, -4.6893547e-09, 0.0039389557, 4.14002e-09, -1.2293458e-07, 0.001439618, 4.9028313e-06)
+bone_name = "Shoulder L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shoulder L" unique_id=317866903]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone UpperArm L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=689217087]
+transform = Transform3D(-0.0033935253, 0.00041962657, -0.001955318, -0.00019865482, -0.0039029506, -0.00049283117, -0.0019899476, -0.00032597515, 0.0033836693, 0.0032619257, 0.00012018031, 0.009873973)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00016646078, -6.973024e-05, 0.24412139)
+body_offset = Transform3D(0.0039389553, 4.10364e-09, -1.5133992e-08, -1.5133992e-08, -3.4764525e-08, -0.003938955, -3.8999133e-09, 0.003938956, -3.464811e-08, 6.593764e-07, 0.0009615831, 2.8312206e-07)
+bone_name = "UpperArm L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone UpperArm L" unique_id=288623435]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Forearm L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=1149267590]
+transform = Transform3D(-0.0032127001, -0.001085511, -0.0020038944, -0.00023246357, -0.0032892923, 0.0021545037, -0.0022671323, 0.0018755245, 0.002618757, 0.0040134024, -4.7785463e-05, 0.008730798)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0059349556, -0.0036623883, 0.12900098)
+body_offset = Transform3D(0.0039389543, 3.830064e-08, -8.137431e-08, -8.137431e-08, 1.6239937e-08, -0.0039389553, -3.7893187e-08, 0.0039389553, 1.4610123e-08, -2.3366883e-05, 0.0005081296, 1.4424324e-05)
+bone_name = "Forearm L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Forearm L" unique_id=1122007251]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_8yknv")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shoulder R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=2006366411]
+transform = Transform3D(-0.0009228875, -0.00010832284, 0.0038277816, 0.0001603994, -0.0039350167, -7.268481e-05, 0.0038259532, 0.00013884238, 0.00092637585, -0.0013862569, -2.6416848e-05, 0.011039064)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1842613e-05, -8.764838e-06, 0.3655432)
+body_offset = Transform3D(0.0039389553, 2.3810571e-09, 7.566996e-09, 7.741619e-09, -4.7293724e-10, -0.0039389553, -2.6047928e-09, 0.0039389567, -4.5838533e-10, 1.6205013e-07, 0.0014398582, 3.4691766e-08)
+bone_name = "Shoulder R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shoulder R" unique_id=347812684]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone UpperArm R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=858730464]
+transform = Transform3D(-0.0033935036, -0.00041973183, 0.001955333, 0.00019878767, -0.0039029466, -0.0004928083, 0.0019899711, -0.00032588604, 0.0033836642, -0.00326211, 0.00012036599, 0.009874626)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0667946e-05, -1.2938128e-05, 0.2440086)
+body_offset = Transform3D(0.003938955, 1.3204408e-07, 0, 5.820766e-10, -5.8673322e-08, -0.003938955, -1.3210229e-07, 0.003938957, -5.8294972e-08, -1.6018748e-07, 0.00096113887, 6.519258e-08)
+bone_name = "UpperArm R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone UpperArm R" unique_id=813272846]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Forearm R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=354812529]
+transform = Transform3D(-0.0032126834, 0.0010855328, 0.0020039096, 0.00023244912, -0.0032892956, 0.0021545002, 0.0022671577, 0.0018755059, 0.0026187487, -0.004009314, -4.861143e-05, 0.008696696)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2034636e-05, -9.427216e-07, 0.13434416)
+body_offset = Transform3D(0.0039389534, -6.664777e-08, 6.414484e-08, 6.391201e-08, 1.9732397e-08, -0.0039389553, 6.676419e-08, 0.0039389543, 1.7287675e-08, 3.5390258e-07, 0.0005291756, 1.3969839e-09)
+bone_name = "Forearm R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Forearm R" unique_id=1541577478]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_8yknv")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Thigh L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=325671495]
+transform = Transform3D(2.6172395e-06, 0.0039242622, -0.0003398974, -0.0038515057, 7.3773466e-05, 0.0008220895, 0.00082538894, 0.00033180503, 0.0038371875, 0.0013618544, -0.0003566743, 0.004990263)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1322512e-05, -1.4443432e-05, 0.33401197)
+body_offset = Transform3D(0.0039389576, -1.7912043e-08, -9.252531e-09, -9.188383e-09, -8.236384e-09, -0.0039389576, 1.7909542e-08, 0.00393896, -8.119969e-09, 8.707866e-08, 0.0013156589, 5.9604645e-08)
+bone_name = "Thigh L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Thigh L" unique_id=102883440]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shin L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=260464473]
+transform = Transform3D(0.0005176887, 0.0038967342, -0.00025065726, -0.003802181, 0.00044546238, -0.0009275515, -0.000889262, 0.0003638597, 0.0038199725, 0.0015810486, -0.00024222222, 0.0021071)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5485182e-05, -0.00016277342, 0.41928557)
+body_offset = Transform3D(0.0039389567, -4.7148205e-09, -1.1677912e-08, -1.15833245e-08, 1.8568244e-08, -0.003938957, 5.122274e-09, 0.0039389594, 1.8742867e-08, 6.589107e-08, 0.0016515478, 6.3329935e-07)
+bone_name = "Shin L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shin L" unique_id=212479156]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Thigh R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=123704530]
+transform = Transform3D(4.3324795e-05, -0.003928325, 0.00028592165, 0.0039184107, 7.198555e-05, 0.00039527728, -0.00039943584, 0.00028008266, 0.003908628, -0.0013436098, -0.00021401385, 0.0049671466)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4517284e-05, 2.603047e-05, 0.33381537)
+body_offset = Transform3D(0.0039389567, 2.4920155e-09, 5.8594196e-09, 5.781885e-09, -2.910383e-10, -0.003938956, -2.903107e-09, 0.0039389594, -2.6193447e-10, -5.9138983e-08, 0.001314884, -1.0244548e-07)
+bone_name = "Thigh R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Thigh R" unique_id=1918835738]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shin R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones" unique_id=117468220]
+transform = Transform3D(0.00048487418, -0.0039021128, 0.00023190632, 0.0038856124, 0.00045560102, -0.00045805634, 0.00042694845, 0.00028515115, 0.003905352, -0.0015367158, -0.00015406392, 0.0020236024)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4817338e-05, -5.49684e-05, 0.4192699)
+body_offset = Transform3D(0.0039389557, -1.7753337e-09, 5.635229e-09, 5.693437e-09, 9.0221874e-10, -0.0039389557, 8.731149e-10, 0.0039389604, 1.0768417e-09, -1.0011718e-07, 0.0016514855, 2.1606684e-07)
+bone_name = "Shin R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer2/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shin R" unique_id=979740350]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="DefaultPlayer3" parent="3DContainer" unique_id=2130194043 instance=ExtResource("5_50pv5")]
+transform = Transform3D(-1.1097204e-07, 0, 2.5387442, 0, 2.5387442, 0, -2.5387442, 0, -1.1097204e-07, 0.35602808, 0.3115952, -6.6278057)
+
+[node name="DefaultPlayer" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(2130194043, 1835178431) index="0" unique_id=1732977114]
+material_override = ExtResource("10_w547k")
+
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(2130194043, 1835178431) index="1" unique_id=813258060]
+
+[node name="Physical Bone Pelvis" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=601623834]
+transform = Transform3D(0.0039389553, -1.3796219e-09, -8.240183e-17, -1.379622e-09, -0.0039389553, 4.6955734e-10, -2.468646e-16, -4.6955734e-10, -0.0039389553, 0, 4.4237822e-09, 0.006713125)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0885473e-13, 1.1526398e-06, 0.24578352)
+body_offset = Transform3D(0.0039389553, -1.3796221e-09, -8.240183e-17, -8.240087e-17, 2.7708085e-15, -0.0039389553, 1.3796222e-09, 0.0039389553, 2.7708085e-15, 0, 0.0009681303, -4.5401976e-09)
+bone_name = "Pelvis"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Pelvis" unique_id=2006149962]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone MiddleSpine" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=204984909]
+transform = Transform3D(0.0039389553, -1.3796219e-09, -8.240183e-17, -1.379622e-09, -0.0039389553, 4.6955734e-10, -2.468646e-16, -4.6955734e-10, -0.0039389553, 0, 3.3760443e-09, 0.008609166)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.361806e-13, 9.4575574e-07, 0.23561192)
+body_offset = Transform3D(0.0039389553, -1.3796221e-09, -8.240183e-17, -8.240087e-17, 2.7708085e-15, -0.0039389553, 1.3796222e-09, 0.0039389553, 2.7708085e-15, 0, 0.0009280648, -3.7252903e-09)
+bone_name = "MiddleSpine"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone MiddleSpine" unique_id=93824172]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone UpperSpine" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=382312337]
+transform = Transform3D(0.003938753, 2.861978e-05, 2.7807911e-05, 2.780896e-05, -0.003937228, 0.00011327576, 2.8618759e-05, -0.00011307362, -0.003937228, -6.4112246e-06, -2.6693684e-05, 0.010457925)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3632017e-05, -4.881486e-05, 0.23395732)
+body_offset = Transform3D(0.003938955, -1.1277734e-10, -2.0008883e-10, -1.8553692e-10, -2.6526124e-09, -0.0039389553, 1.05501385e-10, 0.0039389567, -2.6523992e-09, 9.313226e-08, 0.0009215474, 1.9290019e-07)
+bone_name = "UpperSpine"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone UpperSpine" unique_id=1942329086]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_6x5xg")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Head" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=1539855272]
+transform = Transform3D(0.0039389064, 1.3981683e-05, 1.3843126e-05, 1.9638912e-05, -0.0026252859, -0.0029364703, -1.1969262e-06, 0.002936503, -0.0026253227, -5.0514936e-06, 0.0010534885, 0.01380551)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.155581e-05, 0.00028017163, 0.35851014)
+body_offset = Transform3D(0.0039389078, 1.3981046e-05, 1.3842483e-05, 6.3416317e-09, 0.0027704535, -0.0027999922, -1.9674426e-05, 0.0027999585, 0.0027704202, -5.0514936e-06, 0.0010030493, -0.0009940077)
+bone_name = "Head"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Head" unique_id=187718629]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shoulder L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=1224185308]
+transform = Transform3D(-0.0009229012, 0.00010832554, -0.0038277784, -0.00016039237, -0.003935017, -7.268879e-05, -0.0038259504, 0.00013883424, 0.0009263895, 0.0013860315, -3.1277305e-05, 0.01103909)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.450237e-05, -0.0012405656, 0.36546287)
+body_offset = Transform3D(0.003938955, 4.8603397e-09, -2.2060703e-08, -2.165325e-08, 4.110916e-09, -0.0039389543, -4.6893547e-09, 0.0039389557, 4.14002e-09, 6.519258e-08, 0.0014395416, 4.8850197e-06)
+bone_name = "Shoulder L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shoulder L" unique_id=113605579]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone UpperArm L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=439343519]
+transform = Transform3D(-0.0033935253, 0.00041962657, -0.001955318, -0.00019865482, -0.0039029506, -0.00049283117, -0.0019899476, -0.00032597515, 0.0033836693, 0.003261907, 0.00012037065, 0.009872856)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00031163337, -4.484301e-05, 0.2443687)
+body_offset = Transform3D(0.0039389553, 4.10364e-09, -1.5133992e-08, -1.5133992e-08, -3.4764525e-08, -0.003938955, -3.8999133e-09, 0.003938956, -3.464811e-08, 1.2312084e-06, 0.0009625573, 1.8510036e-07)
+bone_name = "UpperArm L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone UpperArm L" unique_id=1594242896]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Forearm L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=2010521110]
+transform = Transform3D(-0.0032127001, -0.001085511, -0.0020038944, -0.00023246357, -0.0032892923, 0.0021545037, -0.0022671323, 0.0018755245, 0.002618757, 0.0040133987, -4.770991e-05, 0.008730567)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005901382, -0.0036187659, 0.12902887)
+body_offset = Transform3D(0.0039389543, 3.830064e-08, -8.137431e-08, -8.137431e-08, 1.6239937e-08, -0.0039389553, -3.7893187e-08, 0.0039389553, 1.4610123e-08, -2.3234636e-05, 0.0005082395, 1.4252495e-05)
+bone_name = "Forearm L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Forearm L" unique_id=1932061579]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_8yknv")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shoulder R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=51268575]
+transform = Transform3D(-0.0009228875, -0.00010832284, 0.0038277816, 0.0001603994, -0.0039350167, -7.268481e-05, 0.0038259532, 0.00013884238, 0.00092637585, -0.0013862681, -2.6416266e-05, 0.011038915)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.54925e-06, -7.405289e-06, 0.36555502)
+body_offset = Transform3D(0.0039389553, 2.3810571e-09, 7.566996e-09, 7.741619e-09, -4.7293724e-10, -0.0039389553, -2.6047928e-09, 0.0039389567, -4.5838533e-10, 1.9092113e-08, 0.0014399048, 2.9336661e-08)
+bone_name = "Shoulder R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shoulder R" unique_id=1831284054]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone UpperArm R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=2133139749]
+transform = Transform3D(-0.0033935036, -0.00041973183, 0.001955333, 0.00019878767, -0.0039029466, -0.0004928083, 0.0019899711, -0.00032588604, 0.0033836642, -0.0032621268, 0.00012035936, 0.00987452)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.083497e-05, -1.7311531e-05, 0.2440339)
+body_offset = Transform3D(0.003938955, 1.3204408e-07, 0, 5.820766e-10, -5.8673322e-08, -0.003938955, -1.3210229e-07, 0.003938957, -5.8294972e-08, -2.0023435e-07, 0.0009612385, 8.242205e-08)
+bone_name = "UpperArm R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone UpperArm R" unique_id=1735112485]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Forearm R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=1885391710]
+transform = Transform3D(-0.0032126834, 0.001085533, 0.0020039098, 0.00023244912, -0.0032892956, 0.0021545005, 0.0022671577, 0.0018755059, 0.0026187487, -0.004009409, -4.862703e-05, 0.008696527)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.707766e-05, 2.2813168e-05, 0.13438718)
+body_offset = Transform3D(0.0039389534, -6.664777e-08, 6.437767e-08, 6.391201e-08, 1.9848812e-08, -0.0039389553, 6.676419e-08, 0.003938955, 1.7462298e-08, 3.343448e-07, 0.0005293451, -9.2200935e-08)
+bone_name = "Forearm R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Forearm R" unique_id=659266075]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_8yknv")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Thigh L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=633675866]
+transform = Transform3D(2.61724e-06, 0.0039242622, -0.00033989735, -0.0038515057, 7.377345e-05, 0.00082208944, 0.0008253889, 0.000331805, 0.0038371875, 0.001361819, -0.00035667187, 0.004990214)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8184684e-05, -4.510529e-06, 0.3340231)
+body_offset = Transform3D(0.003938958, -1.791932e-08, -9.310753e-09, -9.246733e-09, -8.236384e-09, -0.0039389576, 1.7915227e-08, 0.00393896, -8.1490725e-09, 7.473864e-08, 0.0013157027, 2.0489097e-08)
+bone_name = "Thigh L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Thigh L" unique_id=1304560227]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shin L" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=738778979]
+transform = Transform3D(0.0005176887, 0.0038967342, -0.00025065726, -0.003802181, 0.00044546238, -0.0009275515, -0.000889262, 0.0003638597, 0.0038199725, 0.0015809797, -0.0002422661, 0.0021069776)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1030937e-05, -0.00014102116, 0.4193122)
+body_offset = Transform3D(0.0039389567, -4.7148205e-09, -1.1677912e-08, -1.15833245e-08, 1.8568244e-08, -0.003938957, 5.122274e-09, 0.0039389594, 1.8742867e-08, 1.2712553e-07, 0.0016516527, 5.476177e-07)
+bone_name = "Shin L"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shin L" unique_id=838230721]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Thigh R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=456213022]
+transform = Transform3D(4.3324795e-05, -0.003928325, 0.00028592165, 0.0039184107, 7.198555e-05, 0.00039527728, -0.00039943584, 0.00028008266, 0.003908628, -0.0013436321, -0.00021399709, 0.0049670236)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2467446e-06, 2.2720325e-05, 0.3338461)
+body_offset = Transform3D(0.0039389567, 2.4920155e-09, 5.8594196e-09, 5.781885e-09, -2.910383e-10, -0.003938956, -2.903107e-09, 0.0039389594, -2.6193447e-10, -3.0500814e-08, 0.0013150051, -8.940697e-08)
+bone_name = "Thigh R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Thigh R" unique_id=376797996]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="Physical Bone Shin R" type="PhysicalBone3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones" unique_id=622281186]
+transform = Transform3D(0.00048487418, -0.0039021128, 0.00023190632, 0.0038856124, 0.00045560102, -0.00045805634, 0.00042694845, 0.00028515115, 0.003905352, -0.0015367027, -0.00015407684, 0.002023606)
+collision_layer = 0
+collision_mask = 9
+joint_type = 2
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7565946e-05, -5.1185383e-05, 0.41926846)
+body_offset = Transform3D(0.0039389557, -1.7753337e-09, 5.635229e-09, 5.693437e-09, 9.0221874e-10, -0.0039389557, 8.731149e-10, 0.0039389604, 1.0768417e-09, -1.109438e-07, 0.0016514799, 2.0116568e-07)
+bone_name = "Shin R"
+joint_constraints/swing_span = 19.999992
+joint_constraints/twist_span = 19.999992
+joint_constraints/bias = 0.3
+joint_constraints/softness = 0.8
+joint_constraints/relaxation = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DContainer/DefaultPlayer3/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Shin R" unique_id=1495752798]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_xec4l")
+debug_color = Color(1, 0, 0.7833333, 1)
+
+[node name="UI" type="Control" parent="." unique_id=626632469]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WoodenItemdexBlank" type="Sprite2D" parent="." unique_id=786732374]
+position = Vector2(964, 104.99999)
+scale = Vector2(0.68217057, 0.68217057)
+texture = ExtResource("8_stkol")
+
+[node name="PlacementLabel" type="Label" parent="WoodenItemdexBlank" unique_id=1013092833]
+unique_name_in_owner = true
+offset_left = -190.94888
+offset_top = -61.568184
+offset_right = 176.05112
+offset_bottom = 56.431816
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 86
+text = "1st place"
+
+[node name="ContinueButton" type="TextureButton" parent="." unique_id=1714687926]
+offset_right = 70.0
+offset_bottom = 62.0
+scale = Vector2(2.240924, 1.81142)
+texture_normal = ExtResource("9_cvp0m")
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+
+[editable path="3DContainer/DefaultPlayer"]
+[editable path="3DContainer/DefaultPlayer2"]
+[editable path="3DContainer/DefaultPlayer3"]
