@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_guyid")
+fish_name = "Moai Fish"
 grade = 4
 sprite = ExtResource("2_ufy4t")
 description = "Moai Fish are typically found near volcanoes. They have almost human faces with stoic, unchanging expressions. Because they're filter feeders and their stony skin are a deterrent to most predators, Moai Fish are rather peaceful creatures.
