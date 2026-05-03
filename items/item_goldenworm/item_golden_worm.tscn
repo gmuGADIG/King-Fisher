@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_2087j"]
 [ext_resource type="Script" uid="uid://yj6uyant2k5" path="res://items/item_goldenworm/item_golden_worm.gd" id="2_byajs"]
 [ext_resource type="PackedScene" uid="uid://tfsb8cebqr51" path="res://items/item_goldenworm/item_golden_worm.glb" id="2_kahv6"]
-[ext_resource type="AudioStream" uid="uid://bjelkor0pmbt6" path="res://sound/sfx/goldenworm.mp3" id="4_ctgyv"]
+[ext_resource type="AudioStream" uid="uid://bjelkor0pmbt6" path="res://sound/sfx/items/goldenworm.mp3" id="4_ctgyv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7pkk"]
 height = 1.6774902
@@ -11,8 +11,10 @@ height = 1.6774902
 [node name="Item" unique_id=1566519324 instance=ExtResource("1_2087j")]
 script = ExtResource("2_byajs")
 item_name = "Golden Worm"
-description = "It is very gold"
-lore = "The Mighty Golden Worm!"
+description = "When used, the player plays an animation. The worm upgrades the net fish the player attempts to catch in the next 10 seconds into the next highest rarities point value. It does not give any sushi grade fish a buff, only the point value."
+lore = "This shining, gold-colored worm is not only valuable for its beauty, but for its power to increase the quality of fish that consume it. Thus, it has become popular and highly marketed for bait, particularly in the Intergalactic Fishbowl.
+There’s a few leading theories about its unique golden exterior. The first is that it might be an alien, a migrant to [planet] from its remarkable golden, crown-shaped moon. The moon has yet to be explored, as the [native race] have been resistant to it, ostensibly for religious reasons. However, this theory is the most popular because it makes both the Golden Worm and the moon seem even more magical.
+The other competing theory is that the worm acquired its glow from hazardous waste dumped in [planet]’s waters as a result of F.I.S.H.E. The nuclear radiation has mutated several other species’ appearances and abilities, so it’s definitely a possibility, although no one knows how exactly it could’ve happened—and at no detriment to the worm itself; the Golden Worm species is plentiful and thriving."
 
 [node name="PickupShape" parent="." index="0" unique_id=829023768]
 visible = false
