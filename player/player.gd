@@ -214,6 +214,7 @@ func _input(event: InputEvent) -> void:
 		AimMode.FISHING_ROD:
 			if event.is_action_released("cast_rod"):
 				%Aiming.stop_aiming()
+				$Sounds/CastRod.play()
 				var body : Node = $Aiming/AimRayCast.get_collider()
 				if body is FishShadow:
 					if body.currently_fishing:
