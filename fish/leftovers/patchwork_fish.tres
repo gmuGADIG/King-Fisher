@@ -8,4 +8,10 @@ script = ExtResource("1_2na8t")
 fish_name = "Patchwork Fish"
 grade = 1
 sprite = ExtResource("2_nhe5o")
+description = "This “fish” is a grotesque amalgamation of parts from many different aquatic creatures—it’s impossible to tell if they were even all true fish. Many of these creatures dwell in the waters of [planet], but some may even have been imported from other places. This fish is simply uninterpretable.
+
+Each Patchwork Fish has a unique combination of features. No two specimens are exactly the same, though you may find similarities—a set of fins on one that look like they may belong with a head on another, until gradually, you might be able to piece together the original fish that came together to create the Patchwork. However, some of them contain anomalies that will probably never be understood: features that could only have occurred in the crowded, radiation-intoxicated environment of Pollywood.
+
+No one knows exactly how the Patchwork Fish was created, or how they reproduce. The leading theory is that they piece themselves together by hand. Once a piece of a previously-whole fish is separated from its larger part, by means of attack or accident, it draws together other lost fragments and creates itself a new body, with the help of other Patchwork Fish. However, it’s also possible that they reproduce traditionally. These fish are still largely a mystery to the planet and the galaxy.
+"
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

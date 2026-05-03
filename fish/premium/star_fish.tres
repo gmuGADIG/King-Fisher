@@ -8,4 +8,7 @@ script = ExtResource("1_d3g34")
 fish_name = "Starfish"
 grade = 3
 sprite = ExtResource("2_qalun")
+description = "The origin of the Star-fish is a complete mystery. It may well have fallen from the very heavens above—at least, that’s what its appearance suggests. Mysteriously, it’s able to swim at lightning speeds that outpace any other fish on [planet]. When it was first discovered, observers originally thought it had some alien powers of teleportation. It was only after taking recordings and playing them in 10,000x slow motion that scientists realized it was swimming at the same speed as spaceships in hypertravel.
+
+It’s also arguably the most beautiful fish species in the galaxy. At one time, the leading theory was that it acquired its bioluminescent glow through radiation poisoning, but it seems these fish are ancient and have lived in the waters of Pollywood since long before F.I.S.H.E.’s takeover. If anything, as the waters become more polluted in Pollywood’s corporatist downfall, Star-fish are growing dimmer and dimmer. They might be a visible metaphysical representation of the state of the world—a literal gift (or warning) from the heavens."
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
