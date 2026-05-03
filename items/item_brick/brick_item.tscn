@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://oeceqna2vrke"]
+
+[ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="1_ofeen"]
+[ext_resource type="Script" uid="uid://bedwb08bwgse8" path="res://items/item_brick/brick.gd" id="2_v1bhe"]
+[ext_resource type="PackedScene" uid="uid://bpniafppuqsch" path="res://art/3d-assets/Brick.glb" id="3_ry2hy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ofeen"]
+radius = 0.80999196
+
+[node name="Brick" unique_id=1566519324 instance=ExtResource("1_ofeen")]
+script = ExtResource("2_v1bhe")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=423811974]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=970838849]
+shape = SubResource("SphereShape3D_ofeen")
+
+[node name="Brick" parent="." index="2" unique_id=1628203237 instance=ExtResource("3_ry2hy")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.65271723)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

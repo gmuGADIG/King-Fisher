@@ -162,6 +162,13 @@ func _countdown(duration: int) -> void:
 
 @rpc("call_local")
 func start_the_game():
+	##TODO: Pick Song
+	##TODO: Select map
+	
+	##TODO: More stuff added to this to set up in WorldGameplay
+	set_up_round_settings.rpc(
+		LobbySettings.roundTime
+	)
 	await _countdown(5)
 	if(!multiplayer.is_server()):
 		return
@@ -175,6 +182,9 @@ func start_the_game():
 	
 	#TODO game goes
 
+func set_up_round_settings(round_time : float) -> void:
+	WorldGameplay.round_time = round_time
+	
 @rpc("authority","call_local","reliable")
 func load_players(level: String):
 	

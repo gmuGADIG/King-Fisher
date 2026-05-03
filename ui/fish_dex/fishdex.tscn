@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://b8h20ju61nnj6" path="res://ui/fish_dex/fishdex.gd" id="1_5pj4m"]
 [ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="2_r31bl"]
 [ext_resource type="PackedScene" uid="uid://cur3ita1x152q" path="res://ui/fish_dex/hanging_fish.tscn" id="3_23nti"]
-[ext_resource type="Texture2D" uid="uid://b7e1yq8e8neff" path="res://ui/fish_dex/stall.png" id="3_mukbb"]
+[ext_resource type="Texture2D" uid="uid://b7vpppabqkdok" path="res://ui/fish_dex/fishdex-stall.png" id="3_lk8gg"]
+[ext_resource type="Texture2D" uid="uid://b811kd3qst5nb" path="res://ui/fish_dex/fishdex-hologram.png" id="4_18pqh"]
 [ext_resource type="Script" uid="uid://bco87e2884pxw" path="res://ui/fish_dex/hanging_fish.gd" id="5_y04r0"]
 [ext_resource type="Script" uid="uid://c176eydus30qc" path="res://ui/fish_dex/selectable_fish_button.gd" id="6_03tvv"]
 [ext_resource type="Texture2D" uid="uid://bck4unx8s3so0" path="res://ui/fish_dex/arrow.png" id="6_m7gl5"]
@@ -42,28 +43,61 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Current_Fish" parent="." unique_id=826188047 instance=ExtResource("3_23nti")]
+[node name="Stall" type="TextureRect" parent="." unique_id=251214534]
 layout_mode = 1
-offset_left = 298.0
-offset_top = 155.0
-offset_right = -713.0
-offset_bottom = -294.0
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lk8gg")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="Stall" unique_id=1115010983]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.99997
+offset_top = -149.0
+offset_right = -15.9999695
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_18pqh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Current_Fish" parent="Stall/TextureRect" unique_id=826188047 instance=ExtResource("3_23nti")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -125.0
+offset_right = -45.0
+offset_bottom = -125.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 script = ExtResource("5_y04r0")
 
-[node name="Stall" type="TextureRect" parent="." unique_id=251214534]
-layout_mode = 0
-offset_left = 197.0
-offset_top = 57.0
-offset_right = 1013.2145
-offset_bottom = 629.0
-texture = ExtResource("3_mukbb")
-
 [node name="Fish_Info" type="VBoxContainer" parent="Stall" unique_id=2084525879]
-layout_mode = 0
-offset_left = 113.0
-offset_top = 337.0
-offset_right = 367.0
-offset_bottom = 526.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.99997
+offset_top = 123.0
+offset_right = -47.99997
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 8
 
 [node name="Name_Box" type="Panel" parent="Stall/Fish_Info" unique_id=261157001]
@@ -142,11 +176,18 @@ vertical_alignment = 1
 clip_text = true
 
 [node name="Description_Box" type="Panel" parent="Stall" unique_id=2065515125]
-layout_mode = 0
-offset_left = 437.0
-offset_top = 350.0
-offset_right = 723.49744
-offset_bottom = 516.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 29.0
+offset_top = 125.0
+offset_right = 315.49744
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_23nti")
 
 [node name="Description" type="Label" parent="Stall/Description_Box" unique_id=1665215226]

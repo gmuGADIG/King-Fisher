@@ -369,6 +369,9 @@ func pick_up_item(item: Item) -> void:
 	# Hide the item. Nobody will know you have it until you use it.
 	held_item.visible=false
 	held_item_ui.hold_item(held_item.item_name)
+	# Don't play the sound unless we're the owning client
+	if is_multiplayer_authority():
+		$Sounds/PlayerPickupItem.play()
 
 @rpc("call_local")
 func use_held_item() -> void:
@@ -398,6 +401,13 @@ func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
 	livewell.addFish(fish)
 	%fishdex.caught_fish(fish)
+
+func remove_random_fish() -> Fish:
+	var fishIndex := randi_range(0,livewell.fish_inventory.size())
+	var fishRemoved = livewell.fish_inventory.get(fishIndex)
+	livewell.removeFish(fishRemoved, 1)
+	Debug.log("fish removed" + fishRemoved)
+	return fishRemoved;
 	
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val
