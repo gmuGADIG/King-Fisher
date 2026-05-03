@@ -418,7 +418,7 @@ func unequip_helmet() -> void:
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player got fish!")
 	livewell.addFish(fish)
-	%fishdex.caught_fish(fish)
+	#%fishdex.caught_fish(fish)
 
 func remove_random_fish() -> Fish:
 	var fishIndex := randi_range(0,livewell.fish_inventory.size())
