@@ -435,8 +435,23 @@ func set_name_visible(val : bool) -> void:
 func on_fishing_finished(succeeded:bool) -> void:
 	if succeeded:
 		var fish : Fish = current_fishing_shadow.fish
+		if is_multiplayer_authority():
+			match fish.grade:
+				Fish.Grade.LEFTOVERS:
+					$Sounds/LeftoverCatch.play()
+				Fish.Grade.FRESH:
+					$Sounds/FreshCatch.play()
+				Fish.Grade.PREMIUM:
+					$Sounds/PremiumCatch.play()
+				Fish.Grade.SUSHI:
+					$Sounds/SushiCatch.play()
+				_:
+					$Sounds/LeftoverCatch.play()
+				
 		current_fishing_shadow.kill_fish_shadow.rpc()
 		give_fish(fish)
 	else:
+		if is_multiplayer_authority():
+			$Sounds/FishCatchFail.play()
 		current_fishing_shadow.current_fishing_state.rpc(false)
 	current_fishing_shadow = null
