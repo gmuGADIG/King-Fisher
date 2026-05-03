@@ -76,9 +76,10 @@ func _process(delta: float) -> void:
 		remaining_time = 2.
 	
 	if remaining_time < 0. and round_going and multiplayer.is_server():
+		round_going = false
 		for player: Player in get_tree().get_nodes_in_group("Player"):
 			var id := player.get_multiplayer_authority()
-			Multiplayer.results_screen.rpc_id(id, 2)
+			Multiplayer.results_screen.rpc_id(id, randi_range(1,4))
 
 func _spawn_fish() -> void:
 	if not multiplayer.is_server():

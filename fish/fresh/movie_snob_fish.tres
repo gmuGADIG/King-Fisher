@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://d0507p0aux1ig"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_vr88a"]
+
+[resource]
+script = ExtResource("1_vr88a")
+fish_name = "Movie Snob Fish"
+grade = 2
+description = "★☆☆☆☆
+“It’s just a kids movie, don’t criticize it!”
+That’s exactly why it should be criticized. These kids are the future generation and movies are pieces of art. We should be careful with what we consume, especially what we show little kids.
+On the surface, \"The King Fisher\" is fun. The songs are catchy, the animation is colorful, and the characters are all bubbly. But it doesn’t go deeper than that, and that’s the problem.
+The King Fisher is the single most influential person in the galaxy. The children should see this movie and want to become him! They shouldn't want to be “happy” or have “friends”. They should want to fish! ALSO, this movie is CLEARLY pushing the friendslop agenda. The kids need to yearn for the fishing pole!!! Not want to have fun!
+This movie is a disgrace to King Fisher and should NOT be shown to your kids!!!"
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
