@@ -7,8 +7,9 @@ func use() -> void:
 	else:
 		Debug.log("Ziplock bag used.")
 		visible = false
-		(get_parent() as Player).has_ziplock_bag = true
+		player.has_ziplock_bag = true
+		$ZiplocUse.play()
 		await get_tree().create_timer(duration).timeout
-		(get_parent() as Player).has_ziplock_bag = false
-		Debug.log("Ziplock bag deleted.")
+		player.has_ziplock_bag = false
+		
 		queue_free()
