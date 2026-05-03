@@ -41,6 +41,9 @@ func _ready() -> void:
 func custom_sort_fish(a, b):
 		var fish_a = LIST_OF_FISH.get(a)
 		var fish_b = LIST_OF_FISH.get(b)
+		##HACK: I have no clue what this function is supposed to do, so this is a weird hack
+		if fish_a == null or fish_b == null:
+			return false
 		return fish_a.grade > fish_b.grade
 
 func load_file() -> void:
