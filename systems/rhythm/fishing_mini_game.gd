@@ -21,23 +21,28 @@ enum HitQuality{
 	PERFECT
 }
 
+@export var track:Track
 
+@export_category("Accuracy Requirements")
 @export var leftovers_accuracy_requirement : float = 70
 @export var fresh_accuracy_requirement : float = 75
 @export var premium_accuracy_requirement : float = 80
 @export var sushi_accuracy_requirement : float = 90
+@export_range(0.0,100.0,1.0) var good_hit_accuracy:float = 70.0
 
-@export var track:Track
+
+@export_category("Note Markers")
 @export var tick_marker : PackedScene
 @export var note_marker : PackedScene
 @export var note_articulated_marker : PackedScene
+@export_category("Tracks")
 @export var leftovers_tracks : Array[Track]
 @export var fresh_tracks : Array[Track]
 @export var premium_tracks : Array[Track]
 @export var sushi_tracks : Array[Track]
 var markers : Array[Sprite2D]
+@export_category("Hit Window")
 
-@export_range(0.0,100.0,1.0) var good_hit_accuracy:float = 70.0
 const perfect_hit_accuracy : float = 100.0
 @export var hit_window_radius_ms:float
 @export var perfect_window_radius_ms:float
