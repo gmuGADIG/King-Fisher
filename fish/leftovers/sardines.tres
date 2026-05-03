@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="Fish" format=3 uid="uid://bhadmc6ynhmfj"]
 
 [ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_kjh8h"]
-[ext_resource type="Texture2D" uid="uid://jkjmeo42kibj" path="res://fish/sprites/Sardines.png" id="2_bnhs5"]
+[ext_resource type="Texture2D" uid="uid://jkjmeo42kibj" path="res://fish/sprites/sardines.png" id="2_bnhs5"]
 
 [resource]
 script = ExtResource("1_kjh8h")
 fish_name = "Sardines"
 grade = 1
 sprite = ExtResource("2_bnhs5")
+description = "This fish was probably dropped into tournament waters by mistake, having been intended to be someone’s lunch. It’s certainly easy to eat, with all the goodies inside already exposed, and no large skeletons to worry about getting around. Its natural metallic shine and bright red packaging easily catch the eye of predators—or, in this case, you!
+
+Some species would consider this catch a delicacy, while others might scoff at it as “cheap” or “gross.” However, in this tournament, everything counts. And you definitely shouldn’t judge others’ preferences. This is an intergalactic event about bringing people beings together, after all! Species from all over everywhere! It’s about unity and shared humanity experience! Definitely not selling fish-related products! Like sardines!"
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
