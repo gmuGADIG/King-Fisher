@@ -8,4 +8,5 @@ script = ExtResource("1_em47p")
 fish_name = "Trash Fish"
 grade = 1
 sprite = ExtResource("2_a8auk")
+description = "Ooh, stinky..."
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

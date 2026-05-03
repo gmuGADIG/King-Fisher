@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://20ss704o7267"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_ijjly"]
+[ext_resource type="Texture2D" uid="uid://d3liw2xyaylh0" path="res://fish/sprites/bassilisk.png" id="2_ijjly"]
+
+[resource]
+script = ExtResource("1_ijjly")
+fish_name = "Bassilisk"
+grade = 2
+sprite = ExtResource("2_ijjly")
+description = "While the name of the species and its appearance is quite daunting, this particular fish is quite peaceful when left alone. The specimens are quite long, with some reports of reaching up to 9 to 10 meters in length. From our own research, we believe that this specimen, in a controlled environment, could continue to grow even longer. The reason for this size we’ve gathered is for defence purposes. It is able to whip its tail and spit out an acidic substance and its size plays a role in its capabilities to do so. It is the only known fish that can lay eggs. Eggs are deceptively small and are kept under the mother’s belly. Pregnant females are highly territorial and will attack anything that comes near besides its mate.
+
+To avoid any unnecessary damages, contestants should only be permitted to fish for males. Make sure that all fishing regions are away from any known Bassilisk breeding grounds. Males have been the least volatile of the two and only attack when they feel threatened."
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
