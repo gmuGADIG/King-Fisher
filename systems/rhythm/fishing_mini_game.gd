@@ -77,6 +77,7 @@ signal fishing_finished(success:bool)
 @onready var rating_animation: AnimationPlayer = $TextureRect/VBoxContainer/ColorRect/RatingAnimation
 
 func start(fish : Fish) -> void:
+	MainMusicPlayer.set_loudness(0.25,0.0)
 	misses = 0
 	good_hits = 0
 	perfect_hits = 0
@@ -178,6 +179,7 @@ func _process(delta: float) -> void:
 			finish()
 
 func finish() -> void:
+	MainMusicPlayer.set_loudness(1.0,0.0)
 	rhythm_engine.stop()
 	tempo_audio_stream.stop()
 	hide()
