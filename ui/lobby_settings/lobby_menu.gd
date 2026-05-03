@@ -6,7 +6,7 @@ enum SpawnRate {
 	MEDIUM,
 	HIGH
 }
-
+var mapPool = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
 ## The maximum time allowed for a round, in seconds.
 @export var maximumRoundTime: int = 300
 
@@ -93,8 +93,10 @@ func _on_save_button_pressed() -> void:
 	print(itemSpawn)
 	print(fishSpawn)
 	print(itemSelect)
-	print(mapSelect)
+	
+	print("Maps" +str(String.num_int64(mapSelect,2)))
 	print(musicSelect)
+	Multiplayer.set_map(String.num_int64(mapSelect,2),mapPool)
 
 ## Reset settings to default.
 func _on_reset_button_pressed() -> void:

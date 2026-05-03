@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://cwcawbxtekovw"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_d3g34"]
+[ext_resource type="Texture2D" uid="uid://buwht7m5hgjwk" path="res://fish/sprites/star_fish.png" id="2_qalun"]
+
+[resource]
+script = ExtResource("1_d3g34")
+fish_name = "Starfish"
+grade = 3
+sprite = ExtResource("2_qalun")
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

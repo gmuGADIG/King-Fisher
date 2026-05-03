@@ -30,6 +30,10 @@ Debug="*res://systems/debug.tscn"
 DebugMenu="*uid://bojr30uqdlyje"
 SceneTransition="*uid://ie0c43cmrtky"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")

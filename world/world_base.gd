@@ -42,7 +42,7 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	var new_player: Player = player.instantiate()
 	
 	new_player.position = pos
-	new_player.name = "player_" + str(id)
+	new_player.name = "Player_" + str(id)
 	add_child(new_player)
 	new_player.set_authority(id) # we don't need to use RPC here since this function call is RPC'd
 	if multiplayer.is_server():

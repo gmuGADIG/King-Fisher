@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 const TRACK_LENGTH:int = 8
 
@@ -27,12 +27,11 @@ enum HitQuality{
 
 @export_range(0.0,1.0,0.01) var good_hit_accuracy:float = 0.7
 const perfect_hit_accuracy : float = 1.0
-@export var hit_window_radius_ms:float = 500.0
-@export var perfect_window_radius_ms:float = 100.0
+@export var hit_window_radius_ms:float
+@export var perfect_window_radius_ms:float
 
-@export_category("Test")
-@export var hit_sfx : AudioStream
-@export var hit_sfx_art : AudioStream
+@onready var tempo_audio_stream: AudioStreamPlayer = $TempoAudioStream
+
 
 #var score:float = 0
 var perfect_hits:int = 0
@@ -49,30 +48,33 @@ var current_note:Note
 var state : Phase = Phase.FISH_CALL
 
 
-@onready var sequence_line: Line2D = $SequenceLine
+@onready var sequence_line: Line2D = $TextureRect/VBoxContainer/Control/FishBar/SequenceLine
 @onready var sequence_line_length = (sequence_line.points[1]-sequence_line.points[0]).length()
-@onready var player_line: Line2D = $PlayerLine
+@onready var player_line: Line2D = $TextureRect/VBoxContainer/Control/PlayerBar/PlayerLine
 @onready var player_line_length : float = (player_line.points[1]-player_line.points[0]).length()
 @onready var win_lose_sprite: Sprite2D = $WinLose
 
 
 @onready var rhythm_engine: RhythmEngine = $rhythm_engine
-@onready var player_indicator: Sprite2D = $PlayerLine/PlayerIndicator
-@onready var fish_indicator: Sprite2D = $SequenceLine/FishIndicator
+@onready var player_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/PlayerBar/PlayerLine/PlayerIndicator
+@onready var fish_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/FishBar/SequenceLine/FishIndicator
+@onready var rating_label: Label = $TextureRect/VBoxContainer/ColorRect/RatingLabel
+@onready var rating_animation: AnimationPlayer = $TextureRect/VBoxContainer/ColorRect/RatingAnimation
 @onready var main_audio_stream: AudioStreamPlayer = $MainAudioStream
 
 func _ready() -> void:
 	##Uncomment this when the actual backing UI is done
-	$PlayerLine.default_color.a = 0
-	$SequenceLine.default_color.a = 0
-	place_ticks(player_line)
-	place_ticks(sequence_line)
+	$TextureRect/VBoxContainer/Control/FishBar/SequenceLine.default_color.a = 0
+	$TextureRect/VBoxContainer/Control/PlayerBar/PlayerLine.default_color.a = 0
+	#place_ticks(player_line)
+	#place_ticks(sequence_line)
 	player_indicator.position = Vector2(0,0)
 	player_indicator.hide()
 	fish_indicator.position = Vector2(0,0)
 	populate_sequence(track)
 	rhythm_engine.play(track)
 	win_lose_sprite.visible = false
+	tempo_audio_stream.stream = track.backing_track
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -91,8 +93,12 @@ func _process(delta: float) -> void:
 	if (call_index < track.notes.size()):
 		var current_note_sfx = track.notes[call_index]
 		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note_sfx.beat_position):
-			main_audio_stream.stream = hit_sfx_art if current_note_sfx.is_articulated else hit_sfx
-			main_audio_stream.play()
+			if current_note_sfx.is_articulated:
+				$NonArticulated.stop()
+				$Articulated.play()
+			else:
+				$Articulated.stop()
+				$NonArticulated.play()
 			call_index +=1
 	
 	if state == Phase.FISH_CALL:
@@ -100,6 +106,8 @@ func _process(delta: float) -> void:
 			state = Phase.PLAYER_RESPONSE
 			player_indicator.show()
 			fish_indicator.hide()
+		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 1 and not tempo_audio_stream.playing and not Debug.disable_backing_track:
+			tempo_audio_stream.play()
 	
 	##Response
 	if state == Phase.PLAYER_RESPONSE and response_index < track.notes.size():
@@ -111,11 +119,11 @@ func _process(delta: float) -> void:
 			misses+=1
 	
 	if state == Phase.PLAYER_RESPONSE:
-		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 2*TRACK_LENGTH:
+		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= (2*TRACK_LENGTH + 1):
 			player_indicator.hide()
 			##Percentage accuracy from 0 to 1
 			var accuracy : float = calculate_accuracy()
-			$ScoreLabel.text = str("%.2f" % (accuracy*100.0)) + "%"
+			#$TextureRect/VBoxContainer/ColorRect/ScoreLabel.text = str("%.2f" % (accuracy*100.0)) + "%"
 			print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 			state = Phase.MINIGAME_FINISH
 
@@ -137,8 +145,12 @@ func _input(event: InputEvent) -> void:
 		else: ##Not a note in the thing
 			return
 		
-		main_audio_stream.stream = hit_sfx_art if input_type == NoteType.ARTICULATED else hit_sfx
-		main_audio_stream.play()
+		if input_type==NoteType.ARTICULATED:
+			$NonArticulated.stop()
+			$Articulated.play()
+		else:
+			$Articulated.stop()
+			$NonArticulated.play()
 		
 		var hit_quality : HitQuality = determine_accuracy()
 		
@@ -146,14 +158,20 @@ func _input(event: InputEvent) -> void:
 		print(hit_quality)
 		if expected_note_type != input_type or hit_quality == HitQuality.MISS:
 			print("miss :(")
+			#rating_label.text = "Miss!"
+			show_rating("Miss!")
 			misses += 1
 		elif hit_quality == HitQuality.GOOD:
 			print("Good")
+			#rating_label.text = "Good!"
+			show_rating("Good!")
 			#score += good_hit_score
 			good_hits += 1
 			response_index += 1
 		elif hit_quality == HitQuality.PERFECT:
 			print("Perfect!")
+			#rating_label.text = "Perfect!"
+			show_rating("Perfect!")
 			#score += perfect_hit_score
 			perfect_hits += 1
 			response_index += 1
@@ -241,6 +259,11 @@ func add_tap_marker(note_type : NoteType) -> void:
 	new_note_marker.position = player_indicator.position
 	player_line.add_child(new_note_marker)
 	
+func show_rating(text:String) -> void:
+	rating_label.text = text
+	rating_animation.stop()
+	rating_animation.play("rating_pulse")
+
 func calculate_total_accuracy() -> void:
 	pass
 

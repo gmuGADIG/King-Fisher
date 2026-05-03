@@ -2,13 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
-[ext_resource type="PackedScene" uid="uid://d3ykir648kj0n" path="res://world/props/lobby_boat.tscn" id="4_c06ik"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
 [node name="Players" parent="." index="2" unique_id=1891362098]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -10, 24)
 
 [node name="PlayerSpawnPoint" parent="Players" index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 0, -1.5)
@@ -28,7 +27,7 @@ disable_spawning = true
 spawn_rate = 1.0
 
 [node name="Label3D" type="Label3D" parent="." index="4" unique_id=1976693241]
-transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 33.921875, 3.3720002, 6.105423)
+transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 32, -8.628, 6.105)
 text = "#myawesomelobby"
 
 [node name="LobbySettings" parent="." index="5" unique_id=1718361729 instance=ExtResource("3_vh6de")]
@@ -37,10 +36,8 @@ visible = false
 [node name="LobbyHud" parent="." index="6" unique_id=510906849 instance=ExtResource("6_56mmg")]
 mouse_filter = 2
 
-[node name="LobbyBoat" parent="." index="8" unique_id=245968247 instance=ExtResource("4_c06ik")]
-
-[node name="HTerrain" parent="." index="9" unique_id=1398597706]
+[node name="IslandTerrain" parent="." index="7" unique_id=1398597706]
 visible = false
 
-[node name="Water" parent="." index="10" unique_id=1605700850]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 32, -5, 32)
+[node name="LobbyBoat" parent="." index="10" unique_id=245968247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
