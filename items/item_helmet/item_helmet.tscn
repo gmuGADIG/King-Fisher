@@ -9,6 +9,7 @@ radius = 1.6796818
 
 [node name="Item" type="Area3D" unique_id=621433209]
 collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_qcj4k")
 item_name = "Helmet"
 lore = "This protective head covering is traditional on Earth. It’s used by menial laborers in dangerous jobs, such as “construction work,” where employees tirelessly dig, demolish, and build infrastructure and housing to support Earth’s huge population. They use these helmets to guard their fragile skulls, which, as in many of our cases, contain all of their brain material.F.I.S.H.E. has adapted these creative pieces of equipment to serve our purposes in the Intergalactic Fishbowl. They will now protect contestants from a variety of different harms! Earth scientists developed the basic form, which protected humans from falling debris, and F.I.S.H.E. innovators have perfected it.

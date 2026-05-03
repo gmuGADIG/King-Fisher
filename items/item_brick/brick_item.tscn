@@ -9,6 +9,7 @@ radius = 0.80999196
 
 [node name="Brick" unique_id=1566519324 instance=ExtResource("1_ofeen")]
 script = ExtResource("2_v1bhe")
+item_name = "Brick"
 
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=423811974]
 
