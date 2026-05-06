@@ -14,16 +14,16 @@ light_indirect_energy = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -10, 24)
 
 [node name="PlayerSpawnPoint" parent="Players" index="0" unique_id=1956364351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1000004, 1.3800888, -1.5)
 
 [node name="PlayerSpawnPoint2" parent="Players" index="1" unique_id=927445426]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1, 0, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1000004, 1.3800888, 1.6000004)
 
 [node name="PlayerSpawnPoint3" parent="Players" index="2" unique_id=805091295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0999985, 1.3800888, -1.5)
 
 [node name="PlayerSpawnPoint4" parent="Players" index="3" unique_id=909904993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 0, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0999985, 1.3800888, 1.6000004)
 
 [node name="ItemSpawner" parent="." index="3" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.467327, 100, 0)

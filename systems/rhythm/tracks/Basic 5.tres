@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Track" format=3 uid="uid://bgqp0vtrrvwbr"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://dm8cvifqb3r3h"]
 
 [ext_resource type="AudioStream" uid="uid://dv8tsjlaockcf" path="res://systems/rhythm/tracks/backingTrack80.ogg" id="1_c4kui"]
-[ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_q87su"]
+[ext_resource type="Script" path="res://systems/rhythm/note.gd" id="1_q87su"]
 [ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_c4kui"]
 
 [sub_resource type="Resource" id="Resource_fngg6"]
