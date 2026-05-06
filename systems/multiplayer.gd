@@ -165,7 +165,7 @@ func start_the_game():
 	await _countdown(5)
 	if(!multiplayer.is_server()):
 		return
-	var levelLoad:String = "res://world/level-docks/level-docks.tscn"
+	var levelLoad:String = "res://world/level-coffin/level-coffin.tscn"
 	
 	load_players.rpc(levelLoad)
 	Debug.log(player_list.size())
