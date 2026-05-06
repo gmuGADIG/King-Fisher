@@ -42,3 +42,26 @@ func get_score() -> int:
 			return 500
 		_: # This is also known as Unset Grade
 			return 0
+
+static func custom_sort_fish(a : Fish, b : Fish) -> bool:
+	##Grade
+	if a.grade > b.grade:
+		return true
+	elif b.grade > a.grade:
+		return false
+	
+	##Name
+	return a.fish_name < b.fish_name
+
+func grade_color() -> Color:
+	match grade:
+		Fish.Grade.LEFTOVERS:
+			return Color.WHITE # Gray
+		Fish.Grade.FRESH:
+			return Color.GREEN # Green
+		Fish.Grade.PREMIUM:
+			return Color.PURPLE # Purple
+		Fish.Grade.SUSHI:
+			return Color.GOLD # Gold
+		_:
+			return Color.DIM_GRAY # Gray for Unset or unknown grades

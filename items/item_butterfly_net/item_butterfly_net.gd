@@ -13,7 +13,9 @@ func effect_on_contact(body: Node3D):
 	if is_held and body.is_in_group("Player") and body != holder:
 		Debug.log("Doing something to %s!" % body.name)
 		var hitPlayer: Player = body
-
-		var fishToRemoveName = hitPlayer.livewell.fish_inventory.keys().pick_random()
-		hitPlayer.livewell.removeFishByName.rpc(fishToRemoveName)
-		holder.livewell.addFishByName.rpc(fishToRemoveName)
+		
+		##FIXME: There's a chance this runs numPlayers times, which is unintended
+		##Also FIXME: Resources are not serializable
+		var fish_to_remove = hitPlayer.fish_inventory.pick_random()
+		hitPlayer.take_fish.rpc(fish_to_remove)
+		holder.give_fish.rpc(fish_to_remove)

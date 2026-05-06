@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://dyc2qekcn8phe"]
 
 [ext_resource type="Script" uid="uid://tdrxdvr5hlfn" path="res://ui/livewell/livewell.gd" id="1_7nkjd"]
-[ext_resource type="PackedScene" uid="uid://o1613vdgdphk" path="res://ui/livewell/livewell_fish.tscn" id="2_gmmwj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmmwj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kg36v"]
+[ext_resource type="PackedScene" uid="uid://o1613vdgdphk" path="res://ui/livewell/livewell_entry.tscn" id="2_gmmwj"]
 
 [node name="LivewellMenu" type="Control" unique_id=1231020864]
 layout_mode = 3
@@ -15,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7nkjd")
-fish_info_packed = ExtResource("2_gmmwj")
+livewell_entry_packed = ExtResource("2_gmmwj")
 
 [node name="Background" type="Panel" parent="." unique_id=1728696874]
 layout_mode = 0
@@ -40,78 +36,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -494.0
-offset_top = -218.0
-offset_right = 494.0
-offset_bottom = 270.0
+offset_left = -458.0
+offset_top = -227.0
+offset_right = 458.0
+offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 185
-theme_override_constants/v_separation = 216
 columns = 5
-
-[node name="LivewellFish" parent="Background/GridContainer" unique_id=516879486 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish2" parent="Background/GridContainer" unique_id=1774805144 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish3" parent="Background/GridContainer" unique_id=1895704499 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish4" parent="Background/GridContainer" unique_id=213045050 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish5" parent="Background/GridContainer" unique_id=102584016 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish6" parent="Background/GridContainer" unique_id=1921147689 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish7" parent="Background/GridContainer" unique_id=1262640203 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish8" parent="Background/GridContainer" unique_id=930543174 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish9" parent="Background/GridContainer" unique_id=912842426 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish10" parent="Background/GridContainer" unique_id=359828787 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish11" parent="Background/GridContainer" unique_id=1090087156 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="LivewellFish12" parent="Background/GridContainer" unique_id=2123249867 instance=ExtResource("2_gmmwj")]
-layout_mode = 2
-
-[node name="TopFishPanel" type="PanelContainer" parent="Background" unique_id=1027720861]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.324
-anchor_right = 0.5
-anchor_bottom = 0.324
-offset_left = -531.0
-offset_top = -97.951996
-offset_right = 537.0
-offset_bottom = 130.048
-theme_override_styles/panel = SubResource("StyleBoxEmpty_gmmwj")
-
-[node name="TopFishContainer" type="HBoxContainer" parent="Background/TopFishPanel" unique_id=58572591]
-layout_mode = 2
-
-[node name="BottomFishPanel" type="PanelContainer" parent="Background" unique_id=1550300391]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 369.0
-offset_right = 1113.0
-offset_bottom = 616.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_kg36v")
-
-[node name="BottomFishContainer" type="HBoxContainer" parent="Background/BottomFishPanel" unique_id=736676455]
-layout_mode = 2
 
 [node name="ActiveBuffs" type="RichTextLabel" parent="Background" unique_id=87351982]
 layout_mode = 0

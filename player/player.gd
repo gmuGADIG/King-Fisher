@@ -399,14 +399,20 @@ func unequip_helmet() -> void:
 	wearing_helmet = false
 	helmet_node.queue_free()
 
+
+##NOTICE: This is abusable as it is any_peer
+@rpc("any_peer","reliable","call_local")
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player " + self.name + " got a " + fish.fish_name)
 	fish_inventory.append(fish)
 	score+=fish.get_score()
 	#livewell.addFish(fish)
 	#TODO update livewell ui
+	livewell.update_inventory_visuals(fish_inventory,score)
 	%fishdex.caught_fish(fish)
 
+##NOTICE: This is abusable as it is any_peer
+@rpc("any_peer","reliable","call_local")
 func take_fish(fish: Fish) -> void:
 	if fish_inventory.has(fish):
 		fish_inventory.erase(fish)
