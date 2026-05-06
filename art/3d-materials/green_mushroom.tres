@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cw1po1h60ic32"]
+
+[resource]
+resource_name = "pasted__GreenBaseColor.001"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0, 0.9063318, 0.19235764, 1)
+roughness = 0.0
+emission = Color(0.44796705, 0.5370987, 0.40018785, 1)

@@ -9,11 +9,19 @@
 [ext_resource type="Script" uid="uid://c3ahl7fgjexil" path="res://player/aiming.gd" id="6_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://gepb6fuq6ysv" path="res://sound/sfx/player/footsteps_grass.tscn" id="7_rgyib"]
 [ext_resource type="PackedScene" uid="uid://5aei5tauflq7" path="res://sound/sfx/player/footsteps_stone.tscn" id="8_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://lma8sgp2bvs1" path="res://sound/sfx/player/player_pickup_item.tscn" id="9_e7oew"]
 [ext_resource type="PackedScene" uid="uid://dqg3ndn6eihef" path="res://sound/sfx/player/player_jump.tscn" id="9_hg6s5"]
-[ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_grass.tscn" id="11_2ieo8"]
-[ext_resource type="PackedScene" path="res://sound/sfx/player/player_land_stone.tscn" id="11_land_stone"]
+[ext_resource type="PackedScene" path="res://ui/HUD/held_item.tscn" id="9_kb6p2"]
+[ext_resource type="AudioStream" uid="uid://iennuv5a5p7t" path="res://sound/sfx/items/sfx_fishignRodThrowsfx.wav" id="10_65viv"]
+[ext_resource type="PackedScene" uid="uid://bodlvi5m57jef" path="res://sound/sfx/player/player_land_grass.tscn" id="11_2ieo8"]
+[ext_resource type="AudioStream" uid="uid://dq308ws67l5jd" path="res://sound/sfx/player/fishing/FishcatchLevel1_ver2.mp3" id="11_g4c7l"]
+[ext_resource type="PackedScene" uid="uid://birfkjdv1u61w" path="res://sound/sfx/player/player_land_stone.tscn" id="11_land_stone"]
 [ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="12_ebec5"]
-[ext_resource type="Script" uid="uid://b8h20ju61nnj6" path="res://ui/fish_dex/fishdex.gd" id="14_kb6p2"]
+[ext_resource type="AudioStream" uid="uid://dgb2p8lkr8b1k" path="res://sound/sfx/player/fishing/FishCatchLevel2.mp3" id="12_knn7v"]
+[ext_resource type="AudioStream" uid="uid://bebqhq1joresp" path="res://sound/sfx/player/fishing/fitchcatch3.mp3" id="13_7pqkx"]
+[ext_resource type="PackedScene" uid="uid://bpo4nvgeh8dat" path="res://systems/rhythm/fishing_mini_game.tscn" id="14_32hag"]
+[ext_resource type="AudioStream" uid="uid://b5qsduosl8iom" path="res://sound/sfx/player/fishing/fishcatch4.mp3" id="14_uw77l"]
+[ext_resource type="AudioStream" uid="uid://cs0oknyeydg6n" path="res://sound/sfx/player/fishing/FishCatchFail.mp3" id="15_knn7v"]
 [ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/ourple.png" id="16_e7oew"]
 [ext_resource type="Script" uid="uid://bj78kkjkjar1n" path="res://player/player_texture_manager.gd" id="16_tqiix"]
 [ext_resource type="Texture2D" uid="uid://ctqyjapriy26t" path="res://player/textures/prange.png" id="17_c35mf"]
@@ -30,7 +38,7 @@ properties/1/replication_mode = 1
 
 [sub_resource type="SphereMesh" id="SphereMesh_boad6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wodsf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knn7v"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 1
@@ -93,6 +101,7 @@ mesh = SubResource("SphereMesh_boad6")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 target_position = Vector3(0, -10, 0)
+collide_with_areas = true
 
 [node name="Sounds" type="Node3D" parent="." unique_id=1366050825]
 
@@ -106,6 +115,33 @@ target_position = Vector3(0, -10, 0)
 
 [node name="PlayerLandGrass" parent="Sounds" unique_id=301000001 instance=ExtResource("11_2ieo8")]
 
+[node name="PlayerPickupItem" parent="Sounds" unique_id=1633662803 instance=ExtResource("9_e7oew")]
+
+[node name="CastRod" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1264743241]
+stream = ExtResource("10_65viv")
+
+[node name="LeftoverCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=1803346818]
+stream = ExtResource("11_g4c7l")
+volume_db = 6.0
+
+[node name="FreshCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=2037820873]
+stream = ExtResource("12_knn7v")
+volume_db = 6.0
+
+[node name="PremiumCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=1615553549]
+stream = ExtResource("13_7pqkx")
+volume_db = 6.0
+
+[node name="SushiCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=1648040884]
+stream = ExtResource("14_uw77l")
+volume_db = 6.0
+
+[node name="FishCatchFail" type="AudioStreamPlayer" parent="Sounds" unique_id=372674188]
+stream = ExtResource("15_knn7v")
+volume_db = 6.0
+
+[node name="HeldItem" parent="." unique_id=1114095646 instance=ExtResource("9_kb6p2")]
+
 [node name="LivewellMenu" parent="." unique_id=1231020864 instance=ExtResource("12_ebec5")]
 
 [node name="DefaultPlayer" parent="." unique_id=268378426 node_paths=PackedStringArray("bones") instance=ExtResource("2_ebec5")]
@@ -113,10 +149,10 @@ script = ExtResource("2_pmesh")
 rotation_speed_curve = ExtResource("4_kb6p2")
 bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
-[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="0" unique_id=1732977114]
-material_override = SubResource("StandardMaterial3D_wodsf")
+[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 525463987) index="0" unique_id=2118034459]
+material_override = SubResource("StandardMaterial3D_knn7v")
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 525463987) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
 
@@ -386,18 +422,15 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0
 shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
-[node name="fishdex" type="Control" parent="." unique_id=568557775]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("14_kb6p2")
-metadata/_custom_type_script = "uid://b8h20ju61nnj6"
-
 [node name="PlayerTextureManager" type="Node" parent="." unique_id=1291294705 node_paths=PackedStringArray("target_mesh")]
 script = ExtResource("16_tqiix")
 player_textures = Array[Texture2D]([ExtResource("16_e7oew"), ExtResource("17_c35mf")])
 target_mesh = NodePath("../DefaultPlayer/PlayerSkeleton/Skeleton3D/DefaultPlayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1868212809]
+
+[node name="FishingMiniGame" parent="CanvasLayer" unique_id=476640078 instance=ExtResource("14_32hag")]
+unique_name_in_owner = true
+visible = false
 
 [editable path="DefaultPlayer"]

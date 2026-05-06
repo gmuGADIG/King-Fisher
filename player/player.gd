@@ -25,6 +25,7 @@ var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
 var fish_inventory: Array[Fish]
 var score: int = 0
+@onready var held_item_ui: HeldItemUI = $HeldItem
 var aim_mode : AimMode = AimMode.NONE
 
 @onready var camera_mount : Node3D = $CameraMount
@@ -51,6 +52,8 @@ var aim_mode : AimMode = AimMode.NONE
 enum FootstepState {GRASS, STONE, SNOW}
 var footstep_state : FootstepState = FootstepState.GRASS
 
+var current_fishing_shadow : FishShadow = null
+
 # footstep timing.
 var _footstep_accum_distance := 0.0
 var _footstep_time_since_last := 0.0
@@ -67,6 +70,9 @@ var golden_worm_active := false
 var has_ziplock_bag := false
 
 @onready var livewell : Livewell = $LivewellMenu
+
+var fishing_minigame : FishingMinigame
+
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -87,6 +93,8 @@ func _ready() -> void:
 	_landing_time_since_last = min_landing_period
 	_jump_event_id = 0
 	_last_played_jump_event_id = -1
+	fishing_minigame = %FishingMiniGame
+	fishing_minigame.fishing_finished.connect(on_fishing_finished)
 
 func _process(delta: float) -> void:
 	# Prevents errors when disconnection happens
@@ -102,6 +110,8 @@ func _process(delta: float) -> void:
 	if not is_multiplayer_authority(): return
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if current_fishing_shadow != null:
+		input = Vector2.ZERO
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
@@ -162,7 +172,10 @@ func set_authority(id : int):
 	set_multiplayer_authority(id)
 	update_camera()
 	if id == multiplayer.get_unique_id():
+		held_item_ui.show()
 		audio_listener.make_current()
+	else:
+		held_item_ui.hide()
 
 @rpc("reliable","authority","call_remote")
 func update_camera() -> void:
@@ -191,9 +204,9 @@ func _input(event: InputEvent) -> void:
 			if event.is_action_pressed("use_item"):
 				if held_item == null:
 					return
-				print("item aim")
+				# print("item aim")
 				if held_item is ThrowableItem:
-					print("item aim")
+					# print("item aim")
 					%Aiming.start_aiming(AimMode.ITEM)
 				else:
 					use_held_item.rpc()
@@ -203,6 +216,17 @@ func _input(event: InputEvent) -> void:
 		AimMode.FISHING_ROD:
 			if event.is_action_released("cast_rod"):
 				%Aiming.stop_aiming()
+				$Sounds/CastRod.play()
+				var body : Node = $Aiming/AimRayCast.get_collider()
+				if body is FishShadow:
+					if body.currently_fishing:
+						return
+					body.current_fishing_state.rpc(true)
+					current_fishing_shadow = body
+					##TODO: Play Fishing Minigame
+					Debug.log("fish: ",body.fish)
+					fishing_minigame.start(body.fish)
+					
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
 			if event.is_action_released("use_item"):
@@ -375,6 +399,10 @@ func pick_up_item(item: Item) -> void:
 	held_item.position = Vector3.ZERO + Vector3(0,1,0)
 	# Hide the item. Nobody will know you have it until you use it.
 	held_item.visible=false
+	held_item_ui.hold_item(held_item.item_name)
+	# Don't play the sound unless we're the owning client
+	if is_multiplayer_authority():
+		$Sounds/PlayerPickupItem.play()
 
 @rpc("call_local")
 func use_held_item() -> void:
@@ -383,6 +411,7 @@ func use_held_item() -> void:
 	held_item.visible = true
 	held_item.use()
 	held_item=null
+	held_item_ui.clear_item()
 
 func equip_helmet(node : Node) -> void:
 	wearing_helmet = true
@@ -421,5 +450,30 @@ func take_fish(fish: Fish) -> void:
 		Debug.log("Player " + self.name +" lost a " + fish.fish_name)
 	else:
 		Debug.log("Player " + self.name + " doesn't have a " + fish.fish_name + " to take!")
+	
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val
+
+func on_fishing_finished(succeeded:bool) -> void:
+	if succeeded:
+		var fish : Fish = current_fishing_shadow.fish
+		if is_multiplayer_authority():
+			match fish.grade:
+				Fish.Grade.LEFTOVERS:
+					$Sounds/LeftoverCatch.play()
+				Fish.Grade.FRESH:
+					$Sounds/FreshCatch.play()
+				Fish.Grade.PREMIUM:
+					$Sounds/PremiumCatch.play()
+				Fish.Grade.SUSHI:
+					$Sounds/SushiCatch.play()
+				_:
+					$Sounds/LeftoverCatch.play()
+				
+		current_fishing_shadow.kill_fish_shadow.rpc()
+		give_fish(fish)
+	else:
+		if is_multiplayer_authority():
+			$Sounds/FishCatchFail.play()
+		current_fishing_shadow.current_fishing_state.rpc(false)
+	current_fishing_shadow = null

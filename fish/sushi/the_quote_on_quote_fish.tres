@@ -5,6 +5,8 @@
 
 [resource]
 script = ExtResource("1_d4ets")
+fish_name = "The \"Fish\""
 grade = 4
 sprite = ExtResource("2_8xyq2")
+description = "Quite a mysterious catch, and an even more mysterious creature in the lab. While this simple looking fish exhibits all of the external traits of a common fish, our research has offered much more conflicting information. No matter how many tests are conducted, there is not a single other common fish that shares its biological makeup. In fact, our research is citing that this particular kind of fish is of a completely unique breed, with not a single hint of traceable evolution before its discovery. Due to this, the species is incredibly difficult to identify in the wild, and requires an incredibly high-expense scientific analysis in order to classify properly. Although, we recommend against consuming our expenses any further, as we've already burnt through most of our budget trying to even give this species a name for the Fishdex. While it's not an incredibly rare find in the water, it holds infamy as nature's grandest mystery."
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

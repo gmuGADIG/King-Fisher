@@ -11,7 +11,6 @@ extends Area3D
 @export var sprite : Texture
 
 var is_held: bool = false
-
 ## Null until is_held is not null.
 var player: Player = null
 

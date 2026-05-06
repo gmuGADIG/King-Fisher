@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ddqwy4waqsnqu"]
+
+[ext_resource type="AudioStream" uid="uid://iennuv5a5p7t" path="res://sound/sfx/items/sfx_fishignRodThrowsfx.wav" id="1_4jlde"]
+
+[node name="CastRod" type="AudioStreamPlayer3D" unique_id=1110289813]
+stream = ExtResource("1_4jlde")

@@ -1,6 +1,8 @@
 class_name LobbySettings
 extends Control
 
+const MIN_TIME = 180 # rounds last 3-5 minutes
+
 enum SpawnRate {
 	LOW,
 	MEDIUM,
@@ -20,7 +22,7 @@ var defaultMapSelect: int
 ## The default song selection for the round.
 @export var defaultMusicSelect: int
 ## The amount of time for each round by default, in seconds.
-@export var defaultRoundTime: int = 60
+@export var defaultRoundTime: int = 180
 ## The default spawn rate for items.
 @export var defaultItemSpawn: SpawnRate = SpawnRate.MEDIUM
 ## The default spawn rate for fish.
@@ -32,7 +34,7 @@ var defaultMapSelect: int
 var defaultItemSelect: int
 
 ## The current length of each round, in seconds.
-static var roundTime: int
+static var roundTime: int = 180
 ## The current spawn rate of items (Low, Medium, or High).
 static var itemSpawn: SpawnRate
 ## The current spawn rate of fish (Low, Medium, or High).
@@ -127,7 +129,8 @@ func set_buttons_from_bitmask(buttons: Array[Node], bitmask: int) -> void:
 			bitmask >>= 1
 
 func _input(event: InputEvent) -> void:
-	if(event.is_action_pressed("Menu") && multiplayer.is_server()):
+	if(event.is_action_pressed("lobby_settings") && multiplayer.is_server()):
+		print("huh?")
 		print("Menu pressed")
 		print("Authority checked")
 		visible = not visible
@@ -148,7 +151,7 @@ func _on_timer_more_button_pressed() -> void:
 
 func _on_timer_less_button_pressed() -> void:
 	if (roundTime > 0):
-		roundTime = clampi(roundTime - 30, 0, maximumRoundTime)
+		roundTime = clampi(roundTime - 30, MIN_TIME, maximumRoundTime)
 		%MoreButton.disabled = false
 	if (roundTime == 0): %LessButton.disabled = true
 	update_timer()

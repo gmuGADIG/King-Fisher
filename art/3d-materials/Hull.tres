@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://rey8gd7oswxw"]
+
+[resource]
+resource_name = "Hull"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.3944347, 0.052084863, 0.064589374, 1)
+metallic = 0.16012084
+roughness = 0.0

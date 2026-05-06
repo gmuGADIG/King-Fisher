@@ -132,7 +132,8 @@ func _disconnect_request() -> void:
 @rpc("authority", "call_local")
 func delete_disconnected_player(id) -> void:
 	#Deletes the player's body
-	player_list.get(id).player.queue_free()
+	if player_list.get(id).player:
+		player_list.get(id).player.queue_free()
 
 	#Cleanups the player's index
 	player_list.erase(id)
@@ -162,10 +163,19 @@ func _countdown(duration: int) -> void:
 
 @rpc("call_local")
 func start_the_game():
+	##TODO: Pick Song
+	##TODO: Select map
+	
+	##TODO: More stuff added to this to set up in WorldGameplay
+	set_up_round_settings.rpc(
+		LobbySettings.roundTime
+	)
 	await _countdown(5)
 	if(!multiplayer.is_server()):
 		return
-	var levelLoad:String = "res://world/level-coffin/level-coffin.tscn"
+
+	#var levelLoad:String = allowedMaps.pick_random()
+	var levelLoad : String = "res://world/level-coffin/level-coffin.tscn"
 	
 	load_players.rpc(levelLoad)
 	Debug.log(player_list.size())
@@ -175,6 +185,9 @@ func start_the_game():
 	
 	#TODO game goes
 
+func set_up_round_settings(round_time : float) -> void:
+	WorldGameplay.round_time = round_time
+	
 @rpc("authority","call_local","reliable")
 func load_players(level: String):
 	
@@ -254,6 +267,11 @@ func report_loaded() -> void:
 	loaded_players.push_back(multiplayer.get_remote_sender_id())
 	player_loaded.emit(multiplayer.get_remote_sender_id())
 
+@rpc("call_local")
+func results_screen(place: int) -> void:
+	Debug.log("results_screen(place = %d)" % place)
+	ResultsScreen.place = place
+	SceneTransition.change_to_file("res://ui/results/results_screen.tscn")
 
 # host disconnecting client
 @rpc("reliable","call_local","authority")

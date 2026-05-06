@@ -11,9 +11,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	visible = Input.is_action_pressed("scoreboard")
-	if (visible):
-		_updateScoreboardRowCount()
+	pass
+	#visible = Input.is_action_pressed("scoreboard")
+	#if (visible):
+		#_updateScoreboardRowCount()
 
 # Call after all players load into a round.
 func _updateScoreboardRowCount() -> void:

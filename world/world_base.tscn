@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dbpteyodpmjq3" path="res://world/world_base.gd" id="1_p433e"]
 [ext_resource type="PackedScene" uid="uid://bffxe171rcnea" path="res://player/player.tscn" id="2_bl271"]
-[ext_resource type="Script" uid="uid://b6jnwssa8pgx8" path="res://systems/player_spawn_manager.gd" id="3_3xj4d"]
+[ext_resource type="Script" path="res://systems/player_spawn_manager.gd" id="3_3xj4d"]
 [ext_resource type="PackedScene" uid="uid://dcw4q486qsqsy" path="res://ui/scoreboard/scoreboard.tscn" id="3_7di53"]
 [ext_resource type="PackedScene" uid="uid://c60phfujl8qwv" path="res://systems/player_spawn_point.tscn" id="4_lgvll"]
 [ext_resource type="PackedScene" uid="uid://bgjdwnhkngufk" path="res://ui/pause_menu/pause_menu.tscn" id="4_uycxt"]
+[ext_resource type="PackedScene" uid="uid://belf74xnjd8p8" path="res://ui/HUD/game_hud.tscn" id="5_7trks"]
 [ext_resource type="PackedScene" uid="uid://3jux6npjxhxf" path="res://systems/item_spawner.tscn" id="5_lgvll"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="8_ddkgs"]
 [ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_xvf6j"]
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="9_32lhn"]
-[ext_resource type="Resource" uid="uid://lr43qgruj361" path="res://world/lobby/data.hterrain" id="9_hpp7h"]
+[ext_resource type="Resource" path="res://world/lobby/data.hterrain" id="9_hpp7h"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="10_7trks"]
 [ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="10_cq2ek"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="11_48nxm"]
@@ -21,14 +22,12 @@
 [ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="13_k5ckw"]
 [ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="14_34arh"]
 [ext_resource type="Environment" uid="uid://byjvy8xudhe0n" path="res://world/environment.tres" id="14_48nxm"]
+[ext_resource type="AudioStream" uid="uid://chsdonglah64k" path="res://sound/sfx/one.minute.remaining.final.wav" id="23_cq2ek"]
 
 [sub_resource type="Resource" id="Resource_ack3r"]
 script = ExtResource("10_7trks")
 mode = 0
 textures = [[ExtResource("11_48nxm")], [null]]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_48nxm"]
-size = Vector3(0.25, 12.5, 18)
 
 [node name="WorldBase" type="Node3D" unique_id=1821617715]
 script = ExtResource("1_p433e")
@@ -48,6 +47,10 @@ text = "Hello"
 visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=509264285 instance=ExtResource("4_uycxt")]
+visible = false
+
+[node name="GameHud" parent="CanvasLayer" unique_id=207102908 instance=ExtResource("5_7trks")]
+unique_name_in_owner = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1620714622]
 transform = Transform3D(1, 0, 0, 0, 0.5577596, 0.83000255, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
@@ -91,67 +94,64 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
 
-[node name="Water" parent="." unique_id=1605700850 instance=ExtResource("12_hpp7h")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 32, -12, 32)
+[node name="Water" type="Node3D" parent="." unique_id=1426951503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
 
-[node name="LobbyBoat" parent="." unique_id=245968247 instance=ExtResource("13_7trks")]
-transform = Transform3D(0.9420048, 0, 0.33559954, 0, 1, 0, -0.33559954, 0, 0.9420048, 107.76347, -10, 95.81768)
+[node name="Water" parent="Water" unique_id=1605700850 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 57, 0, 57)
 
-[node name="Walls" type="Node3D" parent="LobbyBoat" unique_id=954001128]
+[node name="Water2" parent="Water" unique_id=594373096 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 7, 0, 57)
 
-[node name="Side1" type="StaticBody3D" parent="LobbyBoat/Walls" unique_id=1644056166]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5649986, 6.802576, 5.116001)
+[node name="Water3" parent="Water" unique_id=1778158506 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 7, 0, 7)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/Walls/Side1" unique_id=1743878827]
-shape = SubResource("BoxShape3D_48nxm")
+[node name="Water4" parent="Water" unique_id=215397249 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -43, 0, 7)
 
-[node name="Side2" type="StaticBody3D" parent="LobbyBoat/Walls" unique_id=1806812742]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5650005, 6.802576, 5.116001)
+[node name="Water5" parent="Water" unique_id=1291267741 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -43, 0, 57)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/Walls/Side2" unique_id=301441549]
-shape = SubResource("BoxShape3D_48nxm")
+[node name="Water6" parent="Water" unique_id=135238307 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -43, 0, 107)
 
-[node name="FrontSide1" type="StaticBody3D" parent="LobbyBoat/Walls" unique_id=933513322]
-transform = Transform3D(0.96870023, 0, 0.24823344, 0, 1, 0, -0.24823344, 0, 0.96870023, 5.8150253, 6.802576, -11.085756)
+[node name="Water7" parent="Water" unique_id=1677151089 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 7, 0, 107)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/Walls/FrontSide1" unique_id=673684499]
-transform = Transform3D(1.0000054, 0, 2.2351742e-07, 0, 1, 0, -2.2351742e-07, 0, 1.0000054, 0, 0, 0)
-shape = SubResource("BoxShape3D_48nxm")
+[node name="Water8" parent="Water" unique_id=384846253 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 57, 0, 107)
 
-[node name="FrontSide2" type="StaticBody3D" parent="LobbyBoat/Walls" unique_id=83328954]
-transform = Transform3D(0.9685831, 0, -0.24868989, 0, 1, 0, 0.24868989, 0, 0.9685831, -5.8150005, 6.802576, -11.086)
+[node name="Water9" parent="Water" unique_id=1879488275 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 107, 0, 107)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/Walls/FrontSide2" unique_id=1807422766]
-transform = Transform3D(1.0000054, 0, 2.2351742e-07, 0, 1, 0, -2.2351742e-07, 0, 1.0000054, 0, 0, 0)
-shape = SubResource("BoxShape3D_48nxm")
+[node name="Water10" parent="Water" unique_id=1346603072 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 107, 0, 57)
 
-[node name="FrontInner1" type="StaticBody3D" parent="LobbyBoat/Walls" unique_id=1861441751]
-transform = Transform3D(0.9652312, 0, -0.26139748, 0, 1, 0, 0.26139748, 0, 0.9652312, 2.3600006, 6.802576, -11.952999)
+[node name="Water11" parent="Water" unique_id=1558519595 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 107, 0, 7)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/Walls/FrontInner1" unique_id=822138002]
-transform = Transform3D(1.0000054, 0, 2.2351742e-07, 0, 1, 0, -2.2351742e-07, 0, 1.0000054, 0, 0, 0)
-shape = SubResource("BoxShape3D_48nxm")
+[node name="Water12" parent="Water" unique_id=1463322286 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -43, 0, -43)
 
-[node name="FrontInner2" type="StaticBody3D" parent="LobbyBoat/Walls" unique_id=429373042]
-transform = Transform3D(0.96501637, 0, 0.26218915, 0, 1, 0, -0.26218915, 0, 0.96501637, -2.3600006, 6.802576, -11.952999)
+[node name="Water13" parent="Water" unique_id=1025065902 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 7, 0, -43)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/Walls/FrontInner2" unique_id=1769805846]
-transform = Transform3D(1.0000054, 0, 2.2351742e-07, 0, 1, 0, -2.2351742e-07, 0, 1.0000054, 0, 0, 0)
-shape = SubResource("BoxShape3D_48nxm")
+[node name="Water14" parent="Water" unique_id=1614952450 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 57, 0, -43)
 
-[node name="Front" type="StaticBody3D" parent="LobbyBoat/Walls" unique_id=561678730]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0, 6.802576, -15.549999)
+[node name="Water15" parent="Water" unique_id=1276802681 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 57, 0, 7)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/Walls/Front" unique_id=651738723]
-transform = Transform3D(1.0000054, 0, 2.2351742e-07, 0, 1, 0, -2.2351742e-07, 0, 1.0000054, 0, 0, 0)
-shape = SubResource("BoxShape3D_48nxm")
-
-[node name="Back" type="StaticBody3D" parent="LobbyBoat/Walls" unique_id=1489001439]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0, 6.802576, 14.299999)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/Walls/Back" unique_id=243370927]
-transform = Transform3D(1.0000054, 0, 2.2351742e-07, 0, 1, 0, -2.2351742e-07, 0, 1.0000054, 0, 0, 0)
-shape = SubResource("BoxShape3D_48nxm")
+[node name="Water16" parent="Water" unique_id=424914100 instance=ExtResource("12_hpp7h")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 107, 0, -43)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=52136514]
 environment = ExtResource("14_48nxm")
+
+[node name="LobbyBoat" parent="." unique_id=245968247 instance=ExtResource("13_7trks")]
+transform = Transform3D(0.9062784, 0, -0.42268154, 0, 1, 0, 0.42268154, 0, 0.9062784, 101.46, -11, 94.392)
+
+[node name="AlarmSound" type="AudioStreamPlayer" parent="." unique_id=591697548]
+unique_name_in_owner = true
+stream = ExtResource("23_cq2ek")
+bus = &"SFX"

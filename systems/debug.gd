@@ -8,7 +8,10 @@ enum LogMode{
 
 @export var log_mode : LogMode = LogMode.ALL
 @export var disable_backing_track : bool = false
+@export var mute_songs : bool = false
 
+func _ready() -> void:
+	Options.music_volume = 0.0
 
 func client_id() -> String:
 	return str(multiplayer.get_unique_id()).lpad(10,"0")

@@ -3,9 +3,18 @@ class_name Options
 
 static var mouse_sensitivity : float = 1
 static var aim_sesntivity : float = 1
-static var master_volume : float = 1
-static var sfx_volume : float = 1
-static var music_volume : float = 1
+static var master_volume : float = 1:
+	set(val):
+		master_volume = val
+		AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), val)
+static var sfx_volume : float = 1:
+	set(val):
+		sfx_volume = val
+		AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("SFX"), val)
+static var music_volume : float = 1:
+	set(val):
+		music_volume = val
+		AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Music"), val)
 
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 
@@ -22,22 +31,13 @@ func _process(_delta: float) -> void:
 		visible = not visible
 
 func _on_master_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), value / 30)
-	audio_player.bus = "Master"
-	audio_player.play()
 	master_volume = value
 
 func _on_sfx_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("SFX"), value / 30)
-	audio_player.bus = "SFX"
-	audio_player.play()
 	sfx_volume = value
 	
 	
 func _on_music_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Music"), value / 30)
-	audio_player.bus = "Music"
-	audio_player.play()
 	music_volume = value
 
 func _on_mouse_sensitivty_slider_value_changed(value: float) -> void:

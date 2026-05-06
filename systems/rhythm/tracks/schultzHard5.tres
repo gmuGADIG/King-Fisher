@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://bpgeargv3cvp2"]
+
+[ext_resource type="AudioStream" uid="uid://qbh8vij5unwm" path="res://systems/rhythm/tracks/backingTrack100.ogg" id="1_ba0p6"]
+[ext_resource type="Script" path="res://systems/rhythm/note.gd" id="1_vbsgx"]
+[ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_ba0p6"]
+
+[sub_resource type="Resource" id="Resource_vbsgx"]
+script = ExtResource("1_vbsgx")
+beat_position = 1.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_ba0p6"]
+script = ExtResource("1_vbsgx")
+beat_position = 4.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_h76xp"]
+script = ExtResource("1_vbsgx")
+beat_position = 4.75
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_f8js0"]
+script = ExtResource("1_vbsgx")
+beat_position = 5.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_i2mf4"]
+script = ExtResource("1_vbsgx")
+beat_position = 5.25
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_m38vc"]
+script = ExtResource("1_vbsgx")
+beat_position = 5.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_h4drh"]
+script = ExtResource("1_vbsgx")
+beat_position = 6.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_bei6c"]
+script = ExtResource("1_vbsgx")
+beat_position = 6.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_1qdpu"]
+script = ExtResource("1_vbsgx")
+beat_position = 7.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_2yel4"]
+script = ExtResource("1_vbsgx")
+beat_position = 7.25
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_j0xes"]
+script = ExtResource("1_vbsgx")
+beat_position = 7.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_rftrb"]
+script = ExtResource("1_vbsgx")
+beat_position = 8.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_w60b5"]
+script = ExtResource("1_vbsgx")
+beat_position = 8.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[resource]
+script = ExtResource("2_ba0p6")
+backing_track = ExtResource("1_ba0p6")
+notes = Array[ExtResource("1_vbsgx")]([SubResource("Resource_vbsgx"), SubResource("Resource_ba0p6"), SubResource("Resource_h76xp"), SubResource("Resource_f8js0"), SubResource("Resource_i2mf4"), SubResource("Resource_m38vc"), SubResource("Resource_h4drh"), SubResource("Resource_bei6c"), SubResource("Resource_1qdpu"), SubResource("Resource_2yel4"), SubResource("Resource_j0xes"), SubResource("Resource_rftrb"), SubResource("Resource_w60b5")])
+metadata/_custom_type_script = "uid://duodpj15swkyd"

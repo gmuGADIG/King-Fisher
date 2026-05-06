@@ -6,20 +6,24 @@
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
+[node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
+light_energy = 2.0
+light_indirect_energy = 2.0
+
 [node name="Players" parent="." index="2" unique_id=1891362098]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -10, 24)
 
 [node name="PlayerSpawnPoint" parent="Players" index="0" unique_id=1956364351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1000004, 1.3800888, -1.5)
 
 [node name="PlayerSpawnPoint2" parent="Players" index="1" unique_id=927445426]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1, 0, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1000004, 1.3800888, 1.6000004)
 
 [node name="PlayerSpawnPoint3" parent="Players" index="2" unique_id=805091295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0999985, 1.3800888, -1.5)
 
 [node name="PlayerSpawnPoint4" parent="Players" index="3" unique_id=909904993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 0, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0999985, 1.3800888, 1.6000004)
 
 [node name="ItemSpawner" parent="." index="3" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.467327, 100, 0)
@@ -27,7 +31,7 @@ disable_spawning = true
 spawn_rate = 1.0
 
 [node name="Label3D" type="Label3D" parent="." index="4" unique_id=1976693241]
-transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 33.921875, 3.3720002, 6.105423)
+transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 32, -8.628, 6.105)
 text = "#myawesomelobby"
 
 [node name="LobbySettings" parent="." index="5" unique_id=1718361729 instance=ExtResource("3_vh6de")]
@@ -39,8 +43,5 @@ mouse_filter = 2
 [node name="IslandTerrain" parent="." index="7" unique_id=1398597706]
 visible = false
 
-[node name="Water" parent="." index="8" unique_id=1605700850]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 32, -5, 32)
-
-[node name="LobbyBoat" parent="." index="9" unique_id=245968247]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 32)
+[node name="LobbyBoat" parent="." index="10" unique_id=245968247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)

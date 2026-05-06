@@ -1,18 +1,23 @@
 [gd_scene format=3 uid="uid://buov3yp7bnbcr"]
 
 [ext_resource type="Script" uid="uid://m8ni6fp80eqq" path="res://ui/main_menu/main_menu.gd" id="1_ctg6d"]
-[ext_resource type="Texture2D" uid="uid://dag2vvg6chu2c" path="res://temp/temp_art/main_menu.png" id="1_p6djx"]
 [ext_resource type="PackedScene" uid="uid://n6fltg0vkvl" path="res://ui/options/options_menu.tscn" id="2_3c04x"]
 [ext_resource type="Texture2D" uid="uid://duxid346lllhp" path="res://temp/temp_art/find_lobby.png" id="2_ctg6d"]
 [ext_resource type="PackedScene" uid="uid://dih1wbmgk3wkg" path="res://ui/lobby_browser/lobby_browser.tscn" id="2_i5wg5"]
+[ext_resource type="Resource" uid="uid://bqu88uxbyg1y4" path="res://sound/music/song_files/settings_erina.tres" id="2_u2jyo"]
+[ext_resource type="Resource" uid="uid://dnluskmpdy74o" path="res://sound/music/song_files/fish_dex_jake.tres" id="3_qewnw"]
 [ext_resource type="PackedScene" uid="uid://b8jevivyblc6q" path="res://ui/fish_dex/fishdex.tscn" id="4_4e78x"]
+[ext_resource type="Resource" uid="uid://c310ofyvh4gov" path="res://sound/music/song_files/kingfisher_lobby_adrian.tres" id="4_db6af"]
 [ext_resource type="PackedScene" uid="uid://70y60pu1le3w" path="res://ui/itemdex/itemdex.tscn" id="5_s4pem"]
 [ext_resource type="Texture2D" uid="uid://jv8hlpswheoc" path="res://ui/main_menu/Divider.png" id="6_xio0d"]
-[ext_resource type="Texture2D" uid="uid://cw85so5ibam34" path="res://ui/main_menu/settings.png" id="7_xio0d"]
-[ext_resource type="Texture2D" uid="uid://cnhmip7e8k4dm" path="res://ui/main_menu/fishdex.png" id="8_tf5ef"]
-[ext_resource type="Texture2D" uid="uid://qtgr5fdiujav" path="res://ui/main_menu/itemdex.png" id="9_xio0d"]
-[ext_resource type="Texture2D" uid="uid://dagfoso6rolxe" path="res://ui/main_menu/quit.png" id="10_tf5ef"]
+[ext_resource type="Texture2D" uid="uid://clp1pdg3wu6d5" path="res://ui/main_menu/wooden_settings.png" id="7_tf5ef"]
+[ext_resource type="Texture2D" uid="uid://b663bd8d5md4j" path="res://ui/main_menu/wooden_fishdex.png" id="8_qao3l"]
+[ext_resource type="Texture2D" uid="uid://bosotbexs01is" path="res://ui/main_menu/wooden_itemdex.png" id="9_lknku"]
+[ext_resource type="Texture2D" uid="uid://cmgyrf6v7gxqj" path="res://ui/main_menu/wooden_exit.png" id="10_u2jyo"]
+[ext_resource type="Texture2D" uid="uid://d0pow0waoindo" path="res://ui/main_menu/wooden_mainmenu.png" id="11_bpbph"]
 [ext_resource type="Texture2D" uid="uid://buqxeh5eucf61" path="res://ui/main_menu/createdbygadig.png" id="13_tf5ef"]
+[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://sound/music/music_player/play_song_for_scene.tscn" id="14_qao3l"]
+[ext_resource type="Resource" uid="uid://wk1h1od0qpiu" path="res://sound/music/song_files/main_menu_matthew_p.tres" id="15_lknku"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6q35d"]
 
@@ -24,6 +29,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ctg6d")
+options_song = ExtResource("2_u2jyo")
+fishdex_song = ExtResource("3_qewnw")
+lobby_browse_song = ExtResource("4_db6af")
 
 [node name="OptionsMenu" parent="." unique_id=1087068024 instance=ExtResource("2_3c04x")]
 layout_mode = 1
@@ -68,7 +76,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.34722224
 anchor_bottom = 0.9444444
-offset_right = -3.0517578e-05
+offset_left = 20.0
+offset_right = 19.99997
 grow_vertical = 2
 theme_override_constants/separation = 4
 alignment = 2
@@ -78,28 +87,32 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(350, 150)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("7_xio0d")
-stretch_mode = 6
+texture_normal = ExtResource("7_tf5ef")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="FishDexBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=224562787]
 custom_minimum_size = Vector2(375, 140)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("8_tf5ef")
-stretch_mode = 0
+texture_normal = ExtResource("8_qao3l")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="ItemDexBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=2071337295]
 custom_minimum_size = Vector2(375, 145)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("9_xio0d")
-stretch_mode = 0
+texture_normal = ExtResource("9_lknku")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="QuitBtn" type="TextureButton" parent="MainMenuContainer/LeftSide" unique_id=717160080]
 custom_minimum_size = Vector2(350, 145)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("10_tf5ef")
+texture_normal = ExtResource("10_u2jyo")
+ignore_texture_size = true
 stretch_mode = 4
 
 [node name="RightSide" type="VBoxContainer" parent="MainMenuContainer" unique_id=61706508]
@@ -118,8 +131,9 @@ metadata/_edit_use_anchors_ = true
 [node name="TitleImage" type="TextureRect" parent="MainMenuContainer/RightSide" unique_id=287736822]
 layout_mode = 2
 size_flags_vertical = 2
-texture = ExtResource("1_p6djx")
+texture = ExtResource("11_bpbph")
 expand_mode = 5
+stretch_mode = 4
 
 [node name="FindLobbyBtn" type="TextureButton" parent="MainMenuContainer/RightSide" unique_id=1689423804]
 custom_minimum_size = Vector2(500, 300)
@@ -134,6 +148,9 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("13_tf5ef")
 stretch_mode = 5
+
+[node name="PlaySongForScene" parent="." unique_id=1137292663 instance=ExtResource("14_qao3l")]
+song = ExtResource("15_lknku")
 
 [connection signal="closed" from="OptionsMenu" to="." method="_on_options_closed"]
 [connection signal="closed" from="LobbyBrowser" to="." method="_on_lobby_browser_closed"]

@@ -3,14 +3,18 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7n7j7"]
 resource_name = "BlueInner"
 cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
 albedo_color = Color(0.44746786, 0.3392174, 1, 1)
-roughness = 0.5
+roughness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0qmi"]
 resource_name = "Rock"
 cull_mode = 2
-albedo_color = Color(0.36075187, 0.36075187, 0.36075187, 1)
-roughness = 0.5
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.29954728, 0.2995475, 0.29954743, 1)
+roughness = 0.15
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1xfa"]
 resource_name = "BlueOuter"
