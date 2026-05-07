@@ -489,3 +489,10 @@ func on_fishing_finished(succeeded:bool) -> void:
 			$Sounds/FishCatchFail.play()
 		current_fishing_shadow.current_fishing_state.rpc(false)
 	current_fishing_shadow = null
+
+@rpc("any_peer","call_local","reliable")
+func apply_bone_force(vec : Vector3) -> void:
+	for node : Node in ragdoll_phys.get_children():
+		if node is PhysicalBone3D:
+			print("Bone found")
+			node.apply_central_impulse(vec)

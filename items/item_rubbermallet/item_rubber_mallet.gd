@@ -13,5 +13,10 @@ func effect_on_contact(body: Node3D):
 
 		var hitPlayer: Player = body
 		hitPlayer.ragdoll_phys.ragdoll(ragdollTime, true)
-
+		var direction : Vector3 = player.global_position.direction_to(hitPlayer.global_position)
+		##Push Bones
+		hitPlayer.apply_bone_force.rpc(direction*7)
+		
+		
+		
 		visible = false
