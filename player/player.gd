@@ -23,6 +23,8 @@ var speed_modifier := 0.0
 
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
+var fish_inventory: Array[Fish]
+var score: int = 0
 @onready var held_item_ui: HeldItemUI = $HeldItem
 var aim_mode : AimMode = AimMode.NONE
 
@@ -67,7 +69,7 @@ var helmet_node : Node = null
 var golden_worm_active := false
 var has_ziplock_bag := false
 
-@onready var livewell : Livewell = $LivewellMenu
+#@onready var livewell : Livewell = $LivewellMenu
 
 var fishing_minigame : FishingMinigame
 
@@ -188,8 +190,8 @@ func _input(event: InputEvent) -> void:
 		pass
 	if event.is_action_pressed("test1"):
 		# ragdoll_phys.ragdoll(10, true)
-		for i in livewell.fish_inventory.keys():
-			Debug.log(i)
+		for fish in fish_inventory:
+			Debug.log(fish.fish_name)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	
@@ -254,6 +256,16 @@ func _input(event: InputEvent) -> void:
 		#held_item = null
 		#item = null
 		#%Aiming.stop_aiming()
+	
+	## TODO remove these two debug actions
+	if event.is_action_pressed("add_fish"):
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		give_fish_serialized.rpc(newFish.serialize())
+	if event.is_action_pressed("remove_fish"):
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		take_fish_serialized.rpc(newFish.serialize())
+		#take_fish(nes
+
 
 @rpc("call_local")
 func slow(time : float, speed_debuf : float):
@@ -417,18 +429,40 @@ func unequip_helmet() -> void:
 	wearing_helmet = false
 	helmet_node.queue_free()
 
-func give_fish(fish : Fish) -> void:
-	Debug.log("Player got fish!")
-	livewell.addFish(fish)
-	#%fishdex.caught_fish(fish)
 
-func remove_random_fish() -> Fish:
-	var fishIndex := randi_range(0,livewell.fish_inventory.size())
-	var fishRemoved = livewell.fish_inventory.get(fishIndex)
-	livewell.removeFish(fishRemoved, 1)
-	Debug.log("fish removed" + fishRemoved)
-	return fishRemoved;
+##NOTICE: This is abusable as it is any_peer
+
+func give_fish(fish : Fish) -> void:
+	Debug.log("Player " + self.name + " got a " + fish.fish_name)
+	fish_inventory.append(fish)
+	score+=fish.get_score()
+	#livewell.addFish(fish)
+	#TODO update livewell ui
+	if is_multiplayer_authority():
+		Livewell.update_inventory_visuals(fish_inventory,score)
+	##%fishdex.caught_fish(fish)
+
+func take_fish(fish: Fish) -> void:
+	if fish_inventory.has(fish):
+		fish_inventory.erase(fish)
+		score-=fish.get_score()
+		#TODO update livewell ui
+		if is_multiplayer_authority():
+			Livewell.update_inventory_visuals(fish_inventory,score)
+		Debug.log("Player " + self.name +" lost a " + fish.fish_name)
+	else:
+		Debug.log("Player " + self.name + " doesn't have a " + fish.fish_name + " to take!")
 	
+##NOTICE: This is abusable as it is any_peer
+@rpc("any_peer","reliable","call_local")
+func give_fish_serialized(data : Array) -> void:
+	give_fish(Fish.create(data[0],data[1]))
+
+##NOTICE: This is abusable as it is any_peer
+@rpc("any_peer","reliable","call_local")
+func take_fish_serialized(data : Array) -> void:
+	take_fish(Fish.create(data[0],data[1]))
+
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val
 
@@ -449,7 +483,7 @@ func on_fishing_finished(succeeded:bool) -> void:
 					$Sounds/LeftoverCatch.play()
 				
 		current_fishing_shadow.kill_fish_shadow.rpc()
-		give_fish(fish)
+		give_fish_serialized(fish.serialize())
 	else:
 		if is_multiplayer_authority():
 			$Sounds/FishCatchFail.play()

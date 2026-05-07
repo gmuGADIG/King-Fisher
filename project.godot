@@ -30,6 +30,7 @@ Debug="*res://systems/debug.tscn"
 DebugMenu="*uid://bojr30uqdlyje"
 SceneTransition="*uid://ie0c43cmrtky"
 MainMusicPlayer="*uid://3lris5j0nmj4"
+Livewell="*uid://dyc2qekcn8phe"
 
 [display]
 

@@ -34,7 +34,7 @@ func _ready() -> void:
 
 func getItemSpawnLocation() -> void:
 	var locationFound: bool = false
-	while(!locationFound):
+	for i in 100:
 		
 		# Get random point in area
 		var rayOffsetX: float = randf_range(-shape.size.x/2, shape.size.x/2)
@@ -64,7 +64,12 @@ func getItemSpawnLocation() -> void:
 				locationFound=true
 				# Increments to make sure no more than max_items lie around at once.
 				spawned_items+=1
-
+		
+		if locationFound:
+			break
+	if not locationFound:
+		Debug.log("Item Spawn location not found? rare occurance or bug?")
+	
 # RPC is set to authority since the host can be the one to handle this stuff.
 @rpc("authority", "call_local")
 func spawnItem(itemIndex: int, spawnPosition: Vector3) -> void:

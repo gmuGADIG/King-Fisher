@@ -7,14 +7,18 @@ extends SwingableItem
 ## If the item is held, and the body entered is not the holder,
 ## do something to them. (Override this in a child class.)
 func effect_on_contact(body: Node3D):
+	# The server is responsible for this function where RNG is handled.
+	# The function will make an RPC call afterwards to synchronise the result.
+	if !multiplayer.is_server(): return
+	
 	if is_held and body.is_in_group("Player") and body != holder:
 		if get_node_or_null("HitSound"):
 			$HitSound.play()
 		Debug.log("Doing something to %s!" % body.name)
 		var hitPlayer: Player = body
-		var fish := hitPlayer.livewell.removeFish()
-
-		if fish != null:
-			player.livewell.addFish(fish)
-
-		print("hitPlayer.name = ", hitPlayer.name, "; player.name = ", player.name)
+		
+		##FIXME: There's a chance this runs numPlayers times, which is unintended
+		##Also FIXME: Resources are not serializable
+		var fish_to_remove : Array = hitPlayer.fish_inventory.pick_random().serialize()
+		hitPlayer.take_fish_serialized.rpc(fish_to_remove)
+		player.give_fish_serialized.rpc(fish_to_remove)
