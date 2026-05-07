@@ -175,7 +175,7 @@ func start_the_game():
 		return
 
 	#var levelLoad:String = allowedMaps.pick_random()
-	var levelLoad : String = "res://world/level-coffin/level-coffin.tscn"
+	var levelLoad : String = "res://world/level-docks/level-docks.tscn"
 	
 	load_players.rpc(levelLoad)
 	Debug.log(player_list.size())

@@ -19,6 +19,10 @@ func effect_on_contact(body: Node3D):
 		
 		##FIXME: There's a chance this runs numPlayers times, which is unintended
 		##Also FIXME: Resources are not serializable
-		var fish_to_remove : Array = hitPlayer.fish_inventory.pick_random().serialize()
+		Debug.log("I hit a guy, they have ",hitPlayer.fish_inventory)
+		var target_fish : Fish = hitPlayer.fish_inventory.pick_random()
+		if target_fish == null:
+			return
+		var fish_to_remove : Array = target_fish.serialize()
 		hitPlayer.take_fish_serialized.rpc(fish_to_remove)
 		player.give_fish_serialized.rpc(fish_to_remove)

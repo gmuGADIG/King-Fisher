@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlvx57h3on4id"]
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_sgynd"]
-[ext_resource type="Script" uid="uid://gcho7uv032l6" path="res://world/world_gameplay.gd" id="2_nx4m1"]
+[ext_resource type="Script" path="res://world/world_gameplay.gd" id="2_nx4m1"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_wox4p"]
 [ext_resource type="Resource" uid="uid://db712r706tn6l" path="res://world/level-docks/terrain/data.hterrain" id="3_nv64i"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_4k232"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://7pg60uc0tj5" path="res://world/props/mushroom_small.tscn" id="20_b51yu"]
 [ext_resource type="PackedScene" uid="uid://gpcvf0ox46m1" path="res://world/props/cattail.tscn" id="21_s3jgv"]
 [ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="23_loicf"]
+[ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="24_loicf"]
 
 [sub_resource type="Resource" id="Resource_qen0n"]
 script = ExtResource("4_4k232")
@@ -953,3 +954,6 @@ transform = Transform3D(-0.24999754, 0, -0.0011082633, 0, 0.25, 0, 0.0011082633,
 [node name="FishSpawner" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("23_loicf")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.07, 0)
 polygon = PackedVector2Array(8.711293, 14.201077, 14.099179, 49.946228, 50.326435, 49.183876, 50.969425, 14.791773)
+
+[node name="Item" parent="." index="271" unique_id=1566519324 instance=ExtResource("24_loicf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.357807, 1.1075009, 32.82943)

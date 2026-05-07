@@ -483,7 +483,7 @@ func on_fishing_finished(succeeded:bool) -> void:
 					$Sounds/LeftoverCatch.play()
 				
 		current_fishing_shadow.kill_fish_shadow.rpc()
-		give_fish_serialized(fish.serialize())
+		give_fish_serialized.rpc(fish.serialize())
 	else:
 		if is_multiplayer_authority():
 			$Sounds/FishCatchFail.play()
