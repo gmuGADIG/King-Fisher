@@ -118,6 +118,7 @@ func disconnect_from_game() -> void:
 		if scan_server: # only not true in editor F6 afaik
 			scan_server.stop()
 		player_list.clear()
+		_on_server_disconnected()
 	else:
 		_disconnect_request.rpc_id(1)
 
