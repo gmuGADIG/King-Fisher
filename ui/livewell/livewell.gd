@@ -1,4 +1,3 @@
-class_name Livewell
 extends Control
 
 @export var livewell_entry_packed : PackedScene

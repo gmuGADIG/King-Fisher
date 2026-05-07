@@ -69,7 +69,7 @@ var helmet_node : Node = null
 var golden_worm_active := false
 var has_ziplock_bag := false
 
-@onready var livewell : Livewell = $LivewellMenu
+#@onready var livewell : Livewell = $LivewellMenu
 
 var fishing_minigame : FishingMinigame
 
@@ -260,10 +260,11 @@ func _input(event: InputEvent) -> void:
 	## TODO remove these two debug actions
 	if event.is_action_pressed("add_fish"):
 		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
-		give_fish(newFish)
+		give_fish_serialized.rpc(newFish.serialize())
 	if event.is_action_pressed("remove_fish"):
 		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
-		take_fish(newFish)
+		take_fish_serialized.rpc(newFish.serialize())
+		#take_fish(nes
 
 
 @rpc("call_local")
@@ -430,27 +431,38 @@ func unequip_helmet() -> void:
 
 
 ##NOTICE: This is abusable as it is any_peer
-@rpc("any_peer","reliable","call_local")
+
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player " + self.name + " got a " + fish.fish_name)
 	fish_inventory.append(fish)
 	score+=fish.get_score()
 	#livewell.addFish(fish)
 	#TODO update livewell ui
-	livewell.update_inventory_visuals(fish_inventory,score)
-	%fishdex.caught_fish(fish)
+	if is_multiplayer_authority():
+		Livewell.update_inventory_visuals(fish_inventory,score)
+	##%fishdex.caught_fish(fish)
 
-##NOTICE: This is abusable as it is any_peer
-@rpc("any_peer","reliable","call_local")
 func take_fish(fish: Fish) -> void:
 	if fish_inventory.has(fish):
 		fish_inventory.erase(fish)
 		score-=fish.get_score()
 		#TODO update livewell ui
+		if is_multiplayer_authority():
+			Livewell.update_inventory_visuals(fish_inventory,score)
 		Debug.log("Player " + self.name +" lost a " + fish.fish_name)
 	else:
 		Debug.log("Player " + self.name + " doesn't have a " + fish.fish_name + " to take!")
 	
+##NOTICE: This is abusable as it is any_peer
+@rpc("any_peer","reliable","call_local")
+func give_fish_serialized(data : Array) -> void:
+	give_fish(Fish.create(data[0],data[1]))
+
+##NOTICE: This is abusable as it is any_peer
+@rpc("any_peer","reliable","call_local")
+func take_fish_serialized(data : Array) -> void:
+	take_fish(Fish.create(data[0],data[1]))
+
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val
 
@@ -471,7 +483,7 @@ func on_fishing_finished(succeeded:bool) -> void:
 					$Sounds/LeftoverCatch.play()
 				
 		current_fishing_shadow.kill_fish_shadow.rpc()
-		give_fish(fish)
+		give_fish_serialized(fish.serialize())
 	else:
 		if is_multiplayer_authority():
 			$Sounds/FishCatchFail.play()

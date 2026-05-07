@@ -21,7 +21,8 @@ static var premium_fishes : Array[Fish] = [
 	load("res://fish/premium/gold_fish.tres")
 ]
 static var sushi_fishes : Array[Fish] = [
-	load("res://fish/sushi/yuri_fish.tres")
+	load("res://fish/sushi/fish_with_legs.tres"),
+	load("res://fish/sushi/fish_seven.tres")
 ]
 
 @export var fish_name : String
@@ -96,6 +97,24 @@ static func custom_sort_fish(a : Fish, b : Fish) -> bool:
 	
 	##Name
 	return a.fish_name < b.fish_name
+
+func serialize() -> Array:
+	var array : Array[Fish]
+	match grade:
+		Fish.Grade.LEFTOVERS:
+			array = leftover_fishes
+		Fish.Grade.FRESH:
+			array = fresh_fishes
+		Fish.Grade.PREMIUM:
+			array = premium_fishes
+		Fish.Grade.SUSHI:
+			array = sushi_fishes
+		_:
+			assert(false, "invalid grade")
+			array = []
+	
+	assert(array.has(self), "Illegal fish")
+	return [grade,array.find(self)]
 
 func grade_color() -> Color:
 	match grade:
