@@ -77,9 +77,19 @@ func _process(delta: float) -> void:
 	
 	if remaining_time < 0. and round_going and multiplayer.is_server():
 		round_going = false
-		for player: Player in get_tree().get_nodes_in_group("Player"):
-			var id := player.get_multiplayer_authority()
-			Multiplayer.results_screen.rpc_id(id, randi_range(1,4))
+		
+		Multiplayer.results_screen.rpc()
+		var players : Array[Player]
+		for p in get_tree().get_nodes_in_group("Player"):
+			players.append(p)
+		players.sort_custom(sort_by_score)
+		
+		for i in players.size():
+			var id := players[i].get_multiplayer_authority()
+			Multiplayer.results_screen.rpc_id(id, i+1)
+
+func sort_by_score(a : Player, b : Player) -> bool:
+	return a.score > b.score
 
 func _spawn_fish() -> void:
 	if not multiplayer.is_server():
