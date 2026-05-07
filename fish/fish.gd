@@ -11,18 +11,41 @@ enum Grade{
 
 static var leftover_fishes : Array[Fish] = [
 	load("res://fish/leftovers/british_fish.tres"),
-	load("res://fish/leftovers/patchwork_fish.tres")
+	load("res://fish/leftovers/patchwork_fish.tres"),
+	load("res://fish/leftovers/performative_fish.tres"),
+	load("res://fish/leftovers/phishing_scam_fish.tres"),
+	load("res://fish/leftovers/sardines.tres"),
+	load("res://fish/leftovers/steven.tres"),
+	load("res://fish/leftovers/taiyaki_fish.tres"),
+	load("res://fish/leftovers/trash_fish.tres")
 ]
 static var fresh_fishes : Array[Fish] = [
 	load("res://fish/fresh/angle_r_fish.tres"),
-	load("res://fish/fresh/emo_bass_fish.tres")
+	load("res://fish/fresh/bassilisk.tres"),
+	load("res://fish/fresh/emo_bass_fish.tres"),
+	load("res://fish/fresh/lovers_fish.tres"),
+	load("res://fish/fresh/movie_snob_fish.tres"),
+	load("res://fish/fresh/please_I_need_fish.tres"),
+	load("res://fish/fresh/your_name_fish.tres"),
+	load("res://fish/fresh/yuri_fish.tres")
 ]
 static var premium_fishes : Array[Fish] = [
-	load("res://fish/premium/gold_fish.tres")
+	load("res://fish/premium/ceo_fish.tres"),
+	load("res://fish/premium/gold_fish.tres"),
+	load("res://fish/premium/man_o_war_fish.tres"),
+	load("res://fish/premium/sasha_splash.tres"),
+	load("res://fish/premium/shrimp_tempura_fish.tres"),
+	load("res://fish/premium/star_fish.tres"),
+	load("res://fish/premium/thrasher_shark.tres")
 ]
 static var sushi_fishes : Array[Fish] = [
+	load("res://fish/sushi/angel_devil_fish.tres"),
+	load("res://fish/sushi/fish_seven.tres"),
 	load("res://fish/sushi/fish_with_legs.tres"),
-	load("res://fish/sushi/fish_seven.tres")
+	load("res://fish/sushi/moai_fish.tres"),
+	load("res://fish/sushi/oh_my_cod.tres"),
+	load("res://fish/sushi/sword_fish.tres"),
+	load("res://fish/sushi/the_quote_on_quote_fish.tres")
 ]
 
 @export var fish_name : String
