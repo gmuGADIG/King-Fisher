@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dwbcnp6vyllkx"]
+
+[ext_resource type="Texture2D" uid="uid://dnee27oabcvy2" path="res://addons/zylann.hterrain/tools/icons/white.png" id="1_0ayg7"]
+[ext_resource type="Script" uid="uid://bvxp5xbfacia2" path="res://ui/character_select/character_select_button.gd" id="2_wehrg"]
+
+[node name="CharacterSelectButton" type="TextureButton" unique_id=411800352]
+z_index = 1
+custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
+texture_normal = ExtResource("1_0ayg7")
+stretch_mode = 5
+script = ExtResource("2_wehrg")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

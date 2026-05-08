@@ -16,6 +16,7 @@ const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 var is_ragdolled := false
 var can_exit_ragdoll := false
 
+
 @export_category("Variables")
 @export var speed := 10.
 var slow_timer := 0.0
@@ -53,6 +54,7 @@ enum FootstepState {GRASS, STONE, SNOW}
 var footstep_state : FootstepState = FootstepState.GRASS
 
 var current_fishing_shadow : FishShadow = null
+var block_player_inputs : bool = false
 
 # footstep timing.
 var _footstep_accum_distance := 0.0
@@ -110,7 +112,7 @@ func _process(delta: float) -> void:
 	if not is_multiplayer_authority(): return
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	if current_fishing_shadow != null:
+	if block_player_inputs:
 		input = Vector2.ZERO
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
 	velocity.x = movement_dir.x * speed
@@ -120,7 +122,7 @@ func _process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += GRAVITY * delta * Vector3.DOWN
 	
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if is_on_floor() and Input.is_action_just_pressed("jump") and not block_player_inputs:
 		velocity.y = 15.
 		_jump_event_id += 1
 		_on_jump_event(_jump_event_id)
@@ -185,7 +187,9 @@ func _input(event: InputEvent) -> void:
 	# Prevents errors when disconnection happens
 	if not multiplayer.has_multiplayer_peer(): return
 	if not is_multiplayer_authority(): return
-
+	if block_player_inputs:
+		return
+	
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
@@ -223,6 +227,7 @@ func _input(event: InputEvent) -> void:
 						return
 					body.current_fishing_state.rpc(true)
 					current_fishing_shadow = body
+					block_player_inputs = true
 					##TODO: Play Fishing Minigame
 					Debug.log("fish: ",body.fish)
 					fishing_minigame.start(body.fish)
@@ -489,6 +494,7 @@ func on_fishing_finished(succeeded:bool) -> void:
 			$Sounds/FishCatchFail.play()
 		current_fishing_shadow.current_fishing_state.rpc(false)
 	current_fishing_shadow = null
+	block_player_inputs = false
 
 @rpc("any_peer","call_local","reliable")
 func apply_bone_force(vec : Vector3) -> void:
