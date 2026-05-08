@@ -18,13 +18,13 @@ script = ExtResource("1_hl5v7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LobbyBoat/LobbyBoat/StaticBody3D" unique_id=1671402786]
 shape = SubResource("ConcavePolygonShape3D_hl5v7")
 
+[node name="StorageSeat" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(2058498420, 2078558853) index="1" unique_id=832425459 instance=ExtResource("4_cq325")]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0.8045662, 0.23207861, -0.3375)
+
+[node name="StorageSeat2" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(2058498420, 2078558853) index="2" unique_id=616113151 instance=ExtResource("4_cq325")]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, -0.48220533, 0.23207861, -0.3375)
+
 [node name="Control Panel" parent="LobbyBoat" unique_id=1438383831 instance=ExtResource("3_1aoby")]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 2.646, 3.25)
-
-[node name="StorageSeat" parent="." unique_id=832425459 instance=ExtResource("4_cq325")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4365296, 1.8566289, -2.7)
-
-[node name="StorageSeat2" parent="." unique_id=616113151 instance=ExtResource("4_cq325")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8576427, 1.8566289, -2.7)
 
 [editable path="LobbyBoat"]

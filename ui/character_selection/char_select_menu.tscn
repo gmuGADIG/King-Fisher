@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://d3oqmeqhl4x2x"]
 
+[ext_resource type="Script" uid="uid://dq6v5nouo3ubt" path="res://ui/character_selection/char_select_menu.gd" id="1_3gtyi"]
 [ext_resource type="Texture2D" uid="uid://d07oieahgfhyd" path="res://temp/temp_art/deadshot.png" id="1_g32n7"]
+[ext_resource type="Texture2D" uid="uid://cx134acwce8mr" path="res://ui/character_selection/outline.png" id="2_184wy"]
 [ext_resource type="Texture2D" uid="uid://t3e8twg80q3y" path="res://temp/temp_art/jonathan.png" id="2_ta0yi"]
 [ext_resource type="Texture2D" uid="uid://pn1ciuluerri" path="res://temp/temp_art/happy-godot.png" id="3_x1vu4"]
 [ext_resource type="Texture2D" uid="uid://dmu8fcsfr37py" path="res://temp/temp_art/catboy.png" id="4_goqel"]
@@ -197,6 +199,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3gtyi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1025057898]
 layout_mode = 1
@@ -213,34 +216,42 @@ size_flags_vertical = 4
 columns = 2
 
 [node name="TextureButton" type="TextureButton" parent="HBoxContainer/GridContainer" unique_id=1269873160]
+visible = false
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 texture_normal = ExtResource("1_g32n7")
 texture_pressed = SubResource("PlaceholderTexture2D_goqel")
+texture_focused = ExtResource("2_184wy")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton2" type="TextureButton" parent="HBoxContainer/GridContainer" unique_id=935631543]
+visible = false
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 texture_normal = ExtResource("2_ta0yi")
 texture_pressed = SubResource("PlaceholderTexture2D_goqel")
+texture_focused = ExtResource("2_184wy")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton3" type="TextureButton" parent="HBoxContainer/GridContainer" unique_id=96942335]
+visible = false
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 texture_normal = ExtResource("3_x1vu4")
 texture_pressed = SubResource("PlaceholderTexture2D_goqel")
+texture_focused = ExtResource("2_184wy")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton4" type="TextureButton" parent="HBoxContainer/GridContainer" unique_id=913173733]
+visible = false
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 texture_normal = ExtResource("4_goqel")
 texture_pressed = SubResource("PlaceholderTexture2D_goqel")
+texture_focused = ExtResource("2_184wy")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -265,9 +276,9 @@ size = Vector2i(512, 648)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="HBoxContainer/Control/SubViewportContainer/SubViewport" unique_id=709142152]
-transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 0.8, 1)
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 0, 1.1, 2.5)
 environment = SubResource("Environment_7iw8y")
-projection = 1
+fov = 60.0
 size = 2.0
 
 [node name="DefaultPlayer" type="Node3D" parent="HBoxContainer/Control/SubViewportContainer/SubViewport" unique_id=63275202]
@@ -723,7 +734,8 @@ material_override = SubResource("StandardMaterial3D_goqel")
 mesh = SubResource("ArrayMesh_onlq5")
 skin = SubResource("Skin_16hu1")
 
-[node name="PlayerTextureManager" type="Node" parent="HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer" unique_id=1802888450 node_paths=PackedStringArray("target_mesh")]
+[node name="DemoCharacterTexture" type="Node" parent="HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer" unique_id=1802888450 node_paths=PackedStringArray("target_mesh")]
+unique_name_in_owner = true
 script = ExtResource("6_184wy")
 player_textures = Array[Texture2D]([ExtResource("7_3gtyi"), ExtResource("5_goqel")])
 target_mesh = NodePath("../PlayerSkeleton/Skeleton3D/DefaultPlayer")
@@ -733,22 +745,22 @@ metadata/_custom_type_script = "uid://bj78kkjkjar1n"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 mesh = SubResource("CylinderMesh_bqd26")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="HBoxContainer/Control/SubViewportContainer/SubViewport" unique_id=203778746]
+
 [node name="ConfirmButton" type="Button" parent="HBoxContainer/Control" unique_id=237053120]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -35.5
+offset_left = -70.0
 offset_top = -141.0
-offset_right = 35.5
+offset_right = 1.0
 offset_bottom = -110.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Confirm"
 
-[connection signal="pressed" from="HBoxContainer/GridContainer/TextureButton" to="HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer/PlayerTextureManager" method="_ready"]
-[connection signal="pressed" from="HBoxContainer/GridContainer/TextureButton2" to="HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer/PlayerTextureManager" method="_ready"]
-[connection signal="pressed" from="HBoxContainer/GridContainer/TextureButton3" to="HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer/PlayerTextureManager" method="_ready"]
-[connection signal="pressed" from="HBoxContainer/GridContainer/TextureButton4" to="HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer/PlayerTextureManager" method="_ready"]
+[connection signal="pressed" from="HBoxContainer/Control/ConfirmButton" to="." method="_on_confirm_button_pressed"]

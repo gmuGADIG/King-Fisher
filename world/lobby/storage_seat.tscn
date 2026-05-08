@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cheipcjl1aiat" path="res://world/lobby/storage_seat.gd" id="1_7ql6i"]
 [ext_resource type="PackedScene" uid="uid://dq1f0wcn1rqfy" path="res://world/lobby/storage_seat.glb" id="1_qvb5y"]
 [ext_resource type="PackedScene" uid="uid://d3oqmeqhl4x2x" path="res://ui/character_selection/char_select_menu.tscn" id="3_7aj0f"]
+[ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="4_3q2cv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ql6i"]
 size = Vector3(5.455017, 1.7211914, 3.545103)
@@ -14,12 +15,14 @@ size = Vector3(4.5948486, 1, 1.3352051)
 script = ExtResource("1_7ql6i")
 
 [node name="InteractableArea" type="Area3D" parent="." unique_id=1433362844]
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea" unique_id=1897383296]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6542664, 0.3605957, -0.13581371)
 shape = SubResource("BoxShape3D_7ql6i")
 
 [node name="CollisionArea" type="StaticBody3D" parent="." unique_id=2055442106]
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea" unique_id=2082090318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2963257, 0, 0.111450195)
@@ -28,9 +31,17 @@ shape = SubResource("BoxShape3D_7aj0f")
 [node name="storage_seat" parent="." unique_id=1625474631 instance=ExtResource("1_qvb5y")]
 
 [node name="CharSelectUI" type="CanvasLayer" parent="." unique_id=1605227839]
-
-[node name="CharSelectMenu" parent="CharSelectUI" unique_id=1869035766 instance=ExtResource("3_7aj0f")]
 visible = false
+
+[node name="CharSelectMenu" parent="CharSelectUI" unique_id=1869035766 node_paths=PackedStringArray("storage_seat_parent") instance=ExtResource("3_7aj0f")]
+storage_seat_parent = NodePath("../..")
+
+[node name="ExitButton" type="TextureButton" parent="CharSelectUI" unique_id=410843985]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("4_3q2cv")
 
 [connection signal="body_entered" from="InteractableArea" to="." method="_on_interactable_area_body_entered"]
 [connection signal="body_exited" from="InteractableArea" to="." method="_on_interactable_area_body_exited"]
+[connection signal="visibility_changed" from="CharSelectUI" to="CharSelectUI/CharSelectMenu" method="_become_visible" flags=18]
+[connection signal="pressed" from="CharSelectUI/ExitButton" to="." method="_on_exit_button_pressed"]
