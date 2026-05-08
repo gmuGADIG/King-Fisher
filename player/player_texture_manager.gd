@@ -1,6 +1,6 @@
-extends Node
+class_name PlayerTextureManager extends Node
 
-var texture_id := 1:
+var texture_id: int:
 	set(v):
 		texture_id = clampi(v, 0, player_textures.size() - 1)
 		_update_player_texture()
@@ -20,4 +20,3 @@ func _ready() -> void:
 	texture_id = randi_range(0, player_textures.size() - 1)
 
 	_update_player_texture()
-

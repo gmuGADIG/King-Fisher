@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c30bi8ddcow53"]
 
+[ext_resource type="Script" uid="uid://cheipcjl1aiat" path="res://world/lobby/storage_seat.gd" id="1_7ql6i"]
 [ext_resource type="PackedScene" uid="uid://dq1f0wcn1rqfy" path="res://world/lobby/storage_seat.glb" id="1_qvb5y"]
+[ext_resource type="PackedScene" uid="uid://d3oqmeqhl4x2x" path="res://ui/character_selection/char_select_menu.tscn" id="3_7aj0f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ql6i"]
 size = Vector3(5.455017, 1.7211914, 3.545103)
@@ -9,6 +11,7 @@ size = Vector3(5.455017, 1.7211914, 3.545103)
 size = Vector3(4.5948486, 1, 1.3352051)
 
 [node name="StorageSeat" type="Node3D" unique_id=832425459]
+script = ExtResource("1_7ql6i")
 
 [node name="InteractableArea" type="Area3D" parent="." unique_id=1433362844]
 
@@ -23,3 +26,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2963257, 0, 0.111450195)
 shape = SubResource("BoxShape3D_7aj0f")
 
 [node name="storage_seat" parent="." unique_id=1625474631 instance=ExtResource("1_qvb5y")]
+
+[node name="CharSelectUI" type="CanvasLayer" parent="." unique_id=1605227839]
+
+[node name="CharSelectMenu" parent="CharSelectUI" unique_id=1869035766 instance=ExtResource("3_7aj0f")]
+visible = false
+
+[connection signal="body_entered" from="InteractableArea" to="." method="_on_interactable_area_body_entered"]
+[connection signal="body_exited" from="InteractableArea" to="." method="_on_interactable_area_body_exited"]
