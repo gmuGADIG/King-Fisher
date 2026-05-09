@@ -15,7 +15,9 @@ func _ready() -> void:
 func open() -> void:
 	show()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
+	var current_tex_id : int = Multiplayer.player_list[get_multiplayer_authority()].character_texture_id
+	mat.albedo_texture = character_textures[current_tex_id]
+	
 func close() -> void:
 	hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
