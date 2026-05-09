@@ -34,7 +34,7 @@ properties/1/replication_mode = 1
 
 [sub_resource type="SphereMesh" id="SphereMesh_boad6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4c7l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7c3f"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 1
@@ -145,7 +145,7 @@ rotation_speed_curve = ExtResource("4_kb6p2")
 bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
 [node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="0" unique_id=3456117]
-material_override = SubResource("StandardMaterial3D_g4c7l")
+material_override = SubResource("StandardMaterial3D_x7c3f")
 
 [node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")

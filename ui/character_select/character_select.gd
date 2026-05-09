@@ -35,6 +35,10 @@ func _on_confirm_button_pressed() -> void:
 	Multiplayer.player_list[multiplayer.get_unique_id()].player.block_player_inputs = false
 	close()
 
+func pick_random_texture_index() -> int:
+	return randi_range(0,character_textures.size()-1)
+
+
 @rpc("reliable","any_peer","call_local")
 func assign_skin(player_id : int, skin_index : int) -> void:
 	Multiplayer.player_list[player_id].character_texture_id = skin_index

@@ -102,6 +102,7 @@ func _on_peer_connected(id: int) -> void:
 	var server = ServerConnection.new()
 	server.playerName = "Player"
 	server.ready = false
+	server.character_texture_id = CharacterSelect.pick_random_texture_index()
 	player_list.set(id,server)
 	new_player.emit(id)
 
@@ -140,18 +141,20 @@ func delete_disconnected_player(id) -> void:
 	player_list.erase(id)
 
 @rpc("reliable")
-func learn_player(player_id: int, player_name: String, player_path: NodePath) -> void:
+func learn_player(player_id: int, player_name: String, player_path: NodePath, tex_id : int) -> void:
 	player_list.get_or_add(player_id)
 	var server_conn = ServerConnection.new()
 	server_conn.playerName = player_name
 	server_conn.player = get_node(player_path)
+	server_conn.character_texture_id  = tex_id
 	player_list.set(player_id, server_conn)
+	CharacterSelect.assign_skin(player_id,tex_id)
 
 func broadcast_player_info() -> void:
 	await get_tree().process_frame
 	for player_id in player_list.keys():
-		var server_conn = player_list.get(player_id)
-		learn_player.rpc(player_id, server_conn.playerName, server_conn.player.get_path())
+		var server_conn : ServerConnection = player_list.get(player_id)
+		learn_player.rpc(player_id, server_conn.playerName, server_conn.player.get_path(), server_conn.character_texture_id)
 
 func _countdown(duration: int) -> void:
 	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
@@ -239,8 +242,9 @@ func create_server() -> void:
 	var server = ServerConnection.new()
 	server.playerName = "Player"
 	server.ready = true
+	server.character_texture_id = CharacterSelect.pick_random_texture_index()
 	player_list.set(1, server)
-
+	
 	scan_server = UDPServer.new()
 	scan_server.listen(PORT + 1)
 
