@@ -82,6 +82,7 @@ signal fishing_finished(success:bool)
 @onready var rating_animation: AnimationPlayer = $TextureRect/VBoxContainer/ColorRect/RatingAnimation
 
 func start(fish : Fish) -> void:
+	UIState.ui_state = UIState.State.FISHING_MINIGAME
 	MainMusicPlayer.set_loudness(0.25,0.0)
 	misses = 0
 	good_hits = 0
@@ -191,6 +192,7 @@ func finish() -> void:
 	while not markers.is_empty():
 		var m = markers.pop_back()
 		m.queue_free()
+	UIState.ui_state = UIState.State.NONE
 
 func calculate_accuracy() -> float:
 	var presses : int = misses+good_hits+perfect_hits

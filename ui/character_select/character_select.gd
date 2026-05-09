@@ -14,13 +14,13 @@ func _ready() -> void:
 
 func open() -> void:
 	show()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	UIState.ui_state = UIState.State.CHARACTER_SELECT
 	var current_tex_id : int = Multiplayer.player_list[get_multiplayer_authority()].character_texture_id
 	mat.albedo_texture = character_textures[current_tex_id]
 	
 func close() -> void:
 	hide()
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	UIState.ui_state = UIState.State.NONE
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -34,7 +34,6 @@ func _on_character_selected(skin_index: int) -> void:
 
 func _on_confirm_button_pressed() -> void:
 	assign_skin.rpc(multiplayer.get_unique_id(),selected_skin)
-	Multiplayer.player_list[multiplayer.get_unique_id()].player.block_player_inputs = false
 	close()
 
 func pick_random_texture_index() -> int:
