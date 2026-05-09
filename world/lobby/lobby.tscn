@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
+[ext_resource type="PackedScene" uid="uid://duc73d8nv7dpk" path="res://world/lobby/character_select_box/character_select_box.tscn" id="4_c06ik"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
@@ -45,3 +46,9 @@ visible = false
 
 [node name="LobbyBoat" parent="." index="10" unique_id=245968247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
+
+[node name="SkinSelect" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="2" unique_id=1442961429 instance=ExtResource("4_c06ik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6512337, 3.227828, 12.059437)
+
+[editable path="LobbyBoat"]
+[editable path="LobbyBoat/LobbyBoat"]

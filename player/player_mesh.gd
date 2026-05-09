@@ -2,6 +2,7 @@ class_name PlayerMesh
 extends Node3D
 
 ##Controls the speed at which the player turns. The domain is measured in radian angle difference, and the value is measured in radians per second
+@export var mesh : MeshInstance3D
 @export var rotation_speed_curve : Curve
 @export var bones : PhysicalBoneSimulator3D
 

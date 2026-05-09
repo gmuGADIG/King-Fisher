@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://duc73d8nv7dpk"]
+
+[ext_resource type="Script" uid="uid://ckbdmuhyt363t" path="res://world/lobby/character_select_box/character_select_box.gd" id="1_irxuj"]
+[ext_resource type="PackedScene" uid="uid://cawq42t3k5jhj" path="res://art/3d-assets/storage_seat.glb" id="1_wcon1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wcon1"]
+size = Vector3(6.7841797, 2.4501953, 4.15625)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_irxuj"]
+size = Vector3(4.7001953, 1.0356445, 2.0026855)
+
+[node name="CharacterSelectBox" type="Area3D" unique_id=1442961429]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_irxuj")
+
+[node name="StorageSeatMesh" parent="." unique_id=69758400 instance=ExtResource("1_wcon1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.279945, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1946366439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72509766, 0)
+shape = SubResource("BoxShape3D_wcon1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=465953280]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1560979313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.017822266, -0.14562988)
+shape = SubResource("BoxShape3D_irxuj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
