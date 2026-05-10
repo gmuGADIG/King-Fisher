@@ -50,6 +50,7 @@ const perfect_hit_accuracy : float = 100.0
 @onready var tempo_audio_stream: AudioStreamPlayer = $TempoAudioStream
 @export_category("DEBUG")
 @export var force_track_play_on_load : bool
+@export var forced_track : Track
 
 
 #var score:float = 0
@@ -110,6 +111,10 @@ func start(fish : Fish) -> void:
 		Fish.Grade.SUSHI:
 			track = sushi_tracks.pick_random()
 			target_accuracy = sushi_accuracy_requirement
+	
+	if force_track_play_on_load:
+		track = forced_track
+	
 	Debug.log("Starting Track: "+track.resource_path)
 	populate_sequence(track)
 	rhythm_engine.play(track)
@@ -136,7 +141,10 @@ func _ready() -> void:
 	#rhythm_engine.play(track)
 	win_lose_sprite.visible = false
 	#tempo_audio_stream.stream = track.backing_track
-
+	if force_track_play_on_load:
+		##The fish doesn't matter since its track is overwritten
+		start(Fish.fresh_fishes.pick_random())
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if track == null:
@@ -186,6 +194,10 @@ func _process(delta: float) -> void:
 			print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 			state = Phase.MINIGAME_INACTIVE
 			print(accuracy)
+			if accuracy >= target_accuracy:
+				print("PASS")
+			else:
+				print("FAIL")
 			fishing_finished.emit(accuracy >= target_accuracy)
 			finish()
 

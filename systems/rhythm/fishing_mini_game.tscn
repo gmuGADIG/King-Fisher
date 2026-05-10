@@ -145,6 +145,8 @@ premium_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("30_jhtuo"), ExtReso
 sushi_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("37_7mxrj"), ExtResource("38_fil0w"), ExtResource("39_ue35c"), ExtResource("40_nr8cj"), ExtResource("41_l3olo"), ExtResource("42_br0d6"), ExtResource("43_5xodx"), ExtResource("44_baimx"), ExtResource("45_52knr"), ExtResource("46_vi1yk")])
 hit_window_radius_ms = 100.0
 perfect_window_radius_ms = 25.0
+force_track_play_on_load = true
+forced_track = ExtResource("38_fil0w")
 
 [node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("5_mq61g")]
 
