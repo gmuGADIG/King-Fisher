@@ -50,6 +50,7 @@ const perfect_hit_accuracy : float = 100.0
 @onready var tempo_audio_stream: AudioStreamPlayer = $TempoAudioStream
 
 
+
 #var score:float = 0
 var perfect_hits:int = 0
 var good_hits:int = 0
@@ -82,6 +83,7 @@ signal fishing_finished(success:bool)
 @onready var rating_animation: AnimationPlayer = $TextureRect/VBoxContainer/ColorRect/RatingAnimation
 
 func start(fish : Fish) -> void:
+	UIState.ui_state = UIState.State.FISHING_MINIGAME
 	MainMusicPlayer.set_loudness(0.25,0.0)
 	misses = 0
 	good_hits = 0
@@ -107,6 +109,7 @@ func start(fish : Fish) -> void:
 		Fish.Grade.SUSHI:
 			track = sushi_tracks.pick_random()
 			target_accuracy = sushi_accuracy_requirement
+	Debug.log("Starting Track: "+track.resource_path)
 	populate_sequence(track)
 	rhythm_engine.play(track)
 	win_lose_sprite.visible = false
@@ -168,7 +171,7 @@ func _process(delta: float) -> void:
 		##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
 		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position+TRACK_LENGTH) + hit_window_radius_ms:
 			response_index+=1
-			print("Miss!")
+			#print("Miss!")
 			misses+=1
 	
 	if state == Phase.PLAYER_RESPONSE:
@@ -191,6 +194,7 @@ func finish() -> void:
 	while not markers.is_empty():
 		var m = markers.pop_back()
 		m.queue_free()
+	UIState.ui_state = UIState.State.NONE
 
 func calculate_accuracy() -> float:
 	var presses : int = misses+good_hits+perfect_hits
@@ -222,19 +226,19 @@ func _input(event: InputEvent) -> void:
 		var expected_note_type : NoteType = NoteType.ARTICULATED if track.notes[response_index].is_articulated else NoteType.NON_ARTICULATED
 		print(hit_quality)
 		if expected_note_type != input_type or hit_quality == HitQuality.MISS:
-			print("miss :(")
+			#print("miss :(")
 			#rating_label.text = "Miss!"
 			show_rating("Miss!")
 			misses += 1
 		elif hit_quality == HitQuality.GOOD:
-			print("Good")
+			#print("Good")
 			#rating_label.text = "Good!"
 			show_rating("Good!")
 			#score += good_hit_score
 			good_hits += 1
 			response_index += 1
 		elif hit_quality == HitQuality.PERFECT:
-			print("Perfect!")
+			#print("Perfect!")
 			#rating_label.text = "Perfect!"
 			show_rating("Perfect!")
 			#score += perfect_hit_score
@@ -261,15 +265,15 @@ func _input(event: InputEvent) -> void:
 
 
 func determine_accuracy() -> HitQuality:
-	print(response_index)
+	#print(response_index)
 	##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
 	current_note = track.notes[response_index]
-	print("input: ",rhythm_engine.beat_to_ms(current_note.beat_position))
+	##print("input: ",rhythm_engine.beat_to_ms(current_note.beat_position))
 	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position+TRACK_LENGTH)
 	var current_time : float = rhythm_engine.current_time_ms
 	
 	var difference : float = note_position_ms - current_time
-	print("diff: ",difference)
+	##print("diff: ",difference)
 	if (difference > hit_window_radius_ms):
 		return HitQuality.MISS
 	elif (difference < -hit_window_radius_ms):

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dyc2qekcn8phe"]
 
 [ext_resource type="Script" uid="uid://tdrxdvr5hlfn" path="res://ui/livewell/livewell.gd" id="1_7nkjd"]
-[ext_resource type="PackedScene" path="res://ui/livewell/livewell_entry.tscn" id="2_gmmwj"]
+[ext_resource type="PackedScene" uid="uid://o1613vdgdphk" path="res://ui/livewell/livewell_entry.tscn" id="2_gmmwj"]
 
 [node name="LivewellMenu" type="Control" unique_id=1231020864]
 layout_mode = 3

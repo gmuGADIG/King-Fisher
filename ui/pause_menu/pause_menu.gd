@@ -7,19 +7,23 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("pause"):
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		if UIState.more_ui_blocked and UIState.ui_state != UIState.State.PAUSE:
+			return
+			
 		if not visible:
 			pause()
 		else:
-			_on_continue_pressed()
+			unpause()
 
 func pause() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	UIState.ui_state = UIState.State.PAUSE
 	visible = true
 
-func _on_continue_pressed() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func unpause() -> void:
+	UIState.ui_state = UIState.State.NONE
 	visible = false
 
 
