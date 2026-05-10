@@ -48,7 +48,8 @@ const perfect_hit_accuracy : float = 100.0
 @export var perfect_window_radius_ms:float
 
 @onready var tempo_audio_stream: AudioStreamPlayer = $TempoAudioStream
-
+@export_category("DEBUG")
+@export var force_track_play_on_load : bool
 
 
 #var score:float = 0
@@ -115,6 +116,10 @@ func start(fish : Fish) -> void:
 	win_lose_sprite.visible = false
 	tempo_audio_stream.stream = track.backing_track
 	state = Phase.FISH_CALL
+	
+	##DEBUG
+	$DebugTrackPath.text = "Current Track (DEBUG): "+track.resource_path
+	Debug.log("Track: ",track.resource_path)
 	show()
 	
 
@@ -134,10 +139,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#print(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms))
-	#print(ms_to_position())
-	#print(int(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms)))
-	#print("target ms: ",rhythm_engine.beat_to_ms(track.notes[current_note_index].beat_position), ", current ms: ",rhythm_engine.current_time_ms)
+	if track == null:
+		return
 	## Update Indicator
 	if !state == Phase.MINIGAME_INACTIVE:
 		fish_indicator.position.x = ms_to_position(rhythm_engine.current_time_ms)
@@ -224,7 +227,7 @@ func _input(event: InputEvent) -> void:
 		var hit_quality : HitQuality = determine_accuracy()
 		
 		var expected_note_type : NoteType = NoteType.ARTICULATED if track.notes[response_index].is_articulated else NoteType.NON_ARTICULATED
-		print(hit_quality)
+		#print(hit_quality)
 		if expected_note_type != input_type or hit_quality == HitQuality.MISS:
 			#print("miss :(")
 			#rating_label.text = "Miss!"
@@ -268,12 +271,12 @@ func determine_accuracy() -> HitQuality:
 	#print(response_index)
 	##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
 	current_note = track.notes[response_index]
-	##print("input: ",rhythm_engine.beat_to_ms(current_note.beat_position))
+	#print("input: ",rhythm_engine.beat_to_ms(current_note.beat_position))
 	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position+TRACK_LENGTH)
 	var current_time : float = rhythm_engine.current_time_ms
 	
 	var difference : float = note_position_ms - current_time
-	##print("diff: ",difference)
+	#print("diff: ",difference)
 	if (difference > hit_window_radius_ms):
 		return HitQuality.MISS
 	elif (difference < -hit_window_radius_ms):
@@ -303,7 +306,7 @@ func place_ticks(line : Line2D) -> void:
 		line.add_child(new_tick)
 
 func populate_sequence(input_track:Track):
-	print("input track:",input_track.notes.size())
+	#print("input track:",input_track.notes.size())
 	var spacing = sequence_line_length/(TRACK_LENGTH-1)
 	for note in input_track.notes:
 		var new_note_marker : Sprite2D

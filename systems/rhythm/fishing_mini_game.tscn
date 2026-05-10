@@ -1,59 +1,59 @@
 [gd_scene format=3 uid="uid://bpo4nvgeh8dat"]
 
 [ext_resource type="Script" uid="uid://p0f46s1vcsvg" path="res://systems/rhythm/fishing_mini_game.gd" id="1_qgtvk"]
-[ext_resource type="Resource" uid="uid://b51lubf8xrvmx" path="res://systems/rhythm/tracks/hard7.tres" id="2_dsd34"]
 [ext_resource type="PackedScene" uid="uid://dgt8coyxp6ff" path="res://systems/rhythm/markers/tick_marker.tscn" id="3_dsd34"]
 [ext_resource type="PackedScene" uid="uid://dyucerm5153qy" path="res://systems/rhythm/markers/note_marker.tscn" id="4_yhodo"]
 [ext_resource type="PackedScene" uid="uid://lfclmap4n8vd" path="res://systems/rhythm/markers/note_articulated_marker.tscn" id="5_2nsaa"]
 [ext_resource type="PackedScene" uid="uid://cii25od3gem26" path="res://systems/rhythm/rhythm_engine.tscn" id="5_mq61g"]
 [ext_resource type="Texture2D" uid="uid://bmxsuarykfoe3" path="res://temp/temp_art/smiley.png" id="5_v1gag"]
 [ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="6_i2p1o"]
-[ext_resource type="Resource" uid="uid://d4aqqetqlhkyx" path="res://systems/rhythm/tracks/leftovers/Basic 1.tres" id="7_5nrls"]
-[ext_resource type="Resource" uid="uid://ooout07a57uh" path="res://systems/rhythm/tracks/hard1.tres" id="8_h6iob"]
-[ext_resource type="Resource" uid="uid://b6o4p71sp2kvo" path="res://systems/rhythm/tracks/leftovers/Basic 2.tres" id="8_rapii"]
-[ext_resource type="Resource" uid="uid://co6ldhecxam5g" path="res://systems/rhythm/tracks/leftovers/Basic 3.tres" id="9_4o164"]
-[ext_resource type="Resource" uid="uid://c3sr20w6hlwhc" path="res://systems/rhythm/tracks/fresh/Intermediate 1.tres" id="9_jwn05"]
-[ext_resource type="Resource" uid="uid://d2f4wbkoyhyuj" path="res://systems/rhythm/tracks/leftovers/Basic 4.tres" id="10_0c5i1"]
+[ext_resource type="Resource" uid="uid://ceqvthpil3vg4" path="res://systems/rhythm/tracks/leftovers/leftovers_01.tres" id="6_rapii"]
+[ext_resource type="Resource" uid="uid://hoqwqyla4oem" path="res://systems/rhythm/tracks/leftovers/leftovers_02.tres" id="7_4o164"]
+[ext_resource type="Resource" uid="uid://bue3pkfodvvfa" path="res://systems/rhythm/tracks/leftovers/leftovers_03.tres" id="8_0c5i1"]
+[ext_resource type="Resource" uid="uid://ccq6brkrlijv8" path="res://systems/rhythm/tracks/leftovers/leftovers_04.tres" id="9_nkmp6"]
 [ext_resource type="Texture2D" uid="uid://cjnwf45j1c0rv" path="res://temp/temp_art/king-fisher.png" id="10_2nsaa"]
 [ext_resource type="Texture2D" uid="uid://0q6vu72wg5pn" path="res://systems/rhythm/art/rhythm_bar_edit.png" id="10_dsd34"]
-[ext_resource type="Resource" uid="uid://dhjqsnmmu745p" path="res://systems/rhythm/tracks/fresh/medium1.tres" id="10_ncpsf"]
-[ext_resource type="Resource" uid="uid://dm8cvifqb3r3h" path="res://systems/rhythm/tracks/leftovers/Basic 5.tres" id="11_nkmp6"]
+[ext_resource type="Resource" uid="uid://brj5yd01xjoyj" path="res://systems/rhythm/tracks/leftovers/leftovers_05.tres" id="10_xttff"]
+[ext_resource type="Resource" uid="uid://ckbds2olv2beh" path="res://systems/rhythm/tracks/leftovers/leftovers_06.tres" id="11_mhqun"]
 [ext_resource type="Texture2D" uid="uid://mxbipnxyr4xf" path="res://systems/rhythm/art/Screenshot 2026-04-22 195817.png" id="12_2nsaa"]
-[ext_resource type="Resource" uid="uid://bkc4v6hf6iveh" path="res://systems/rhythm/tracks/leftovers/Basic 6.tres" id="12_xttff"]
+[ext_resource type="Resource" uid="uid://1g8a5xiii6ng" path="res://systems/rhythm/tracks/leftovers/leftovers_07.tres" id="12_ibwex"]
+[ext_resource type="Resource" uid="uid://hh85kc73ikia" path="res://systems/rhythm/tracks/leftovers/leftovers_08.tres" id="13_c7077"]
 [ext_resource type="Texture2D" uid="uid://bbub80p362odf" path="res://systems/rhythm/art/winlose_temp.png" id="13_dsd34"]
-[ext_resource type="Resource" uid="uid://bqhh61mkmmktg" path="res://systems/rhythm/tracks/leftovers/easy1.tres" id="13_mhqun"]
-[ext_resource type="Resource" uid="uid://c5j3cv7ik7kao" path="res://systems/rhythm/tracks/leftovers/schultzEasy1.tres" id="14_ibwex"]
-[ext_resource type="Resource" uid="uid://druwmv4cjipoa" path="res://systems/rhythm/tracks/leftovers/schultzEasy2.tres" id="15_c7077"]
-[ext_resource type="Resource" uid="uid://1nby50vlgdu" path="res://systems/rhythm/tracks/leftovers/schultzEasy3.tres" id="16_nqy2w"]
-[ext_resource type="Resource" uid="uid://kqg16kst6xgv" path="res://systems/rhythm/tracks/leftovers/schultzEasy4.tres" id="17_a1rcf"]
+[ext_resource type="Resource" uid="uid://d0yttr0mkhf2w" path="res://systems/rhythm/tracks/leftovers/leftovers_09.tres" id="14_nqy2w"]
+[ext_resource type="Resource" uid="uid://dgwrcgi15q1e7" path="res://systems/rhythm/tracks/leftovers/leftovers_10.tres" id="15_a1rcf"]
+[ext_resource type="Resource" uid="uid://52d7m77cjptn" path="res://systems/rhythm/tracks/leftovers/leftovers_11.tres" id="16_pokbo"]
 [ext_resource type="AudioStream" uid="uid://qkqpujpa3s74" path="res://sound/sfx/minigame/trimmedSplashBMixed.mp3" id="17_i2p1o"]
+[ext_resource type="Resource" uid="uid://3ggcj87usdh4" path="res://systems/rhythm/tracks/leftovers/leftovers_12.tres" id="17_toebe"]
 [ext_resource type="AudioStream" uid="uid://bl6uiexm2csb8" path="res://sound/sfx/minigame/trimmedSplashAMixed.mp3" id="18_i2p1o"]
-[ext_resource type="Resource" uid="uid://dns4pke2g4f2y" path="res://systems/rhythm/tracks/leftovers/SchultzEasy5.tres" id="18_pokbo"]
-[ext_resource type="Resource" uid="uid://cp0ijplwrj72p" path="res://systems/rhythm/tracks/fresh/medium2.tres" id="20_toebe"]
-[ext_resource type="Resource" uid="uid://bviwr0cs67qvj" path="res://systems/rhythm/tracks/fresh/medium3.tres" id="21_kd65b"]
-[ext_resource type="Resource" uid="uid://x12gbup3tkpp" path="res://systems/rhythm/tracks/fresh/Intermediate 2.tres" id="23_30svy"]
-[ext_resource type="Resource" uid="uid://c5trva4qlyjex" path="res://systems/rhythm/tracks/fresh/Intermediate 3.tres" id="24_06xsy"]
-[ext_resource type="Resource" uid="uid://b1onc3net64iy" path="res://systems/rhythm/tracks/fresh/Intermediate 4.tres" id="25_stq7s"]
-[ext_resource type="Resource" uid="uid://q2msa5lksxsb" path="res://systems/rhythm/tracks/schultzMedium1.tres" id="26_e7yif"]
-[ext_resource type="Resource" uid="uid://2id3y2a7xc47" path="res://systems/rhythm/tracks/schultzMedium2.tres" id="27_jyd7v"]
-[ext_resource type="Resource" uid="uid://b5xueo0p2vnto" path="res://systems/rhythm/tracks/schultzMedium3.tres" id="28_guv6c"]
-[ext_resource type="Resource" uid="uid://dlywc77q8nsh6" path="res://systems/rhythm/tracks/schultzMedium4.tres" id="29_wii8l"]
-[ext_resource type="Resource" uid="uid://0y5u8wlblxe7" path="res://systems/rhythm/tracks/schultzMedium5.tres" id="30_77jbl"]
-[ext_resource type="Resource" uid="uid://d01k6doebbggb" path="res://systems/rhythm/tracks/schultzHard2.tres" id="31_dw4kb"]
-[ext_resource type="Resource" uid="uid://wie5awpuqh3a" path="res://systems/rhythm/tracks/schultzHard3.tres" id="32_7d76k"]
-[ext_resource type="Resource" uid="uid://bpgeargv3cvp2" path="res://systems/rhythm/tracks/schultzHard5.tres" id="33_sadrr"]
-[ext_resource type="Resource" uid="uid://dk4461qx76gq7" path="res://systems/rhythm/tracks/hard2.tres" id="35_jhtuo"]
-[ext_resource type="Resource" uid="uid://epnxq30eiwis" path="res://systems/rhythm/tracks/hard3.tres" id="36_kquy5"]
-[ext_resource type="Resource" uid="uid://k5h75645mt43" path="res://systems/rhythm/tracks/hard4.tres" id="37_e7dis"]
-[ext_resource type="Resource" uid="uid://cx65pjlppqkwb" path="res://systems/rhythm/tracks/schultzHard4.tres" id="38_kmnom"]
-[ext_resource type="Resource" uid="uid://cmui6ctqajdqg" path="res://systems/rhythm/tracks/schultzExpert1.tres" id="39_kg553"]
-[ext_resource type="Resource" uid="uid://c6gj03ydn1lau" path="res://systems/rhythm/tracks/schultzExpert2.tres" id="40_awrt7"]
-[ext_resource type="Resource" uid="uid://kh46ts10k1df" path="res://systems/rhythm/tracks/schultzExpert3.tres" id="41_qqkm0"]
-[ext_resource type="Resource" uid="uid://cjlnh1eikwpp1" path="res://systems/rhythm/tracks/schultzExpert4.tres" id="42_7mxrj"]
-[ext_resource type="Resource" uid="uid://rtkv1hu5g0ji" path="res://systems/rhythm/tracks/schultzExpert5.tres" id="43_fil0w"]
-[ext_resource type="Resource" uid="uid://bsg71w4a5f06d" path="res://systems/rhythm/tracks/schultzExpert6.tres" id="44_ue35c"]
-[ext_resource type="Resource" uid="uid://r18x4g86ie3b" path="res://systems/rhythm/tracks/hard5.tres" id="45_nr8cj"]
-[ext_resource type="Resource" uid="uid://bkhtovvpl24dd" path="res://systems/rhythm/tracks/hard6.tres" id="46_l3olo"]
+[ext_resource type="Resource" uid="uid://bl5o0pttyykrj" path="res://systems/rhythm/tracks/fresh/fresh_01.tres" id="18_kd65b"]
+[ext_resource type="Resource" uid="uid://cvaiaa707xfor" path="res://systems/rhythm/tracks/fresh/fresh_02.tres" id="19_30svy"]
+[ext_resource type="Resource" uid="uid://cpoohu5fcwh8e" path="res://systems/rhythm/tracks/fresh/fresh_03.tres" id="20_06xsy"]
+[ext_resource type="Resource" uid="uid://b8aw7xup7umyq" path="res://systems/rhythm/tracks/fresh/fresh_04.tres" id="21_stq7s"]
+[ext_resource type="Resource" uid="uid://bahm3hsvcfjq8" path="res://systems/rhythm/tracks/fresh/fresh_05.tres" id="22_e7yif"]
+[ext_resource type="Resource" uid="uid://dkoys6wim2re8" path="res://systems/rhythm/tracks/fresh/fresh_06.tres" id="23_jyd7v"]
+[ext_resource type="Resource" uid="uid://bwr4341hpg0jv" path="res://systems/rhythm/tracks/fresh/fresh_07.tres" id="24_guv6c"]
+[ext_resource type="Resource" uid="uid://bfls3v5j0uf72" path="res://systems/rhythm/tracks/fresh/fresh_08.tres" id="25_wii8l"]
+[ext_resource type="Resource" uid="uid://im4q7drr07jf" path="res://systems/rhythm/tracks/fresh/fresh_09.tres" id="26_77jbl"]
+[ext_resource type="Resource" uid="uid://by3v2g3b7kwof" path="res://systems/rhythm/tracks/fresh/fresh_10.tres" id="27_dw4kb"]
+[ext_resource type="Resource" uid="uid://bc7fg02xtufsg" path="res://systems/rhythm/tracks/fresh/fresh_11.tres" id="28_7d76k"]
+[ext_resource type="Resource" uid="uid://cx5wvnn38snlb" path="res://systems/rhythm/tracks/fresh/fresh_12.tres" id="29_sadrr"]
+[ext_resource type="Resource" uid="uid://baqv1x470oluw" path="res://systems/rhythm/tracks/premium/premium_01.tres" id="30_jhtuo"]
+[ext_resource type="Resource" uid="uid://cvsjh2rbu87ur" path="res://systems/rhythm/tracks/premium/premium_02.tres" id="31_kquy5"]
+[ext_resource type="Resource" uid="uid://bn32od6jm3ris" path="res://systems/rhythm/tracks/premium/premium_03.tres" id="32_e7dis"]
+[ext_resource type="Resource" uid="uid://dh7fd45632rkl" path="res://systems/rhythm/tracks/premium/premium_04.tres" id="33_kmnom"]
+[ext_resource type="Resource" uid="uid://dmcpm21qnftte" path="res://systems/rhythm/tracks/premium/premium_05.tres" id="34_kg553"]
+[ext_resource type="Resource" uid="uid://y2fr3bkqmjly" path="res://systems/rhythm/tracks/premium/premium_06.tres" id="35_awrt7"]
+[ext_resource type="Resource" uid="uid://cnxwsdivh4byl" path="res://systems/rhythm/tracks/premium/premium_07.tres" id="36_qqkm0"]
+[ext_resource type="Resource" uid="uid://cllk6vk3o06b1" path="res://systems/rhythm/tracks/sushi/sushi_01.tres" id="37_7mxrj"]
+[ext_resource type="Resource" uid="uid://e1gk2056fjns" path="res://systems/rhythm/tracks/sushi/sushi_02.tres" id="38_fil0w"]
+[ext_resource type="Resource" uid="uid://dx2og0dy8448q" path="res://systems/rhythm/tracks/sushi/sushi_03.tres" id="39_ue35c"]
+[ext_resource type="Resource" uid="uid://bsk8k41qf4jij" path="res://systems/rhythm/tracks/sushi/sushi_04.tres" id="40_nr8cj"]
+[ext_resource type="Resource" uid="uid://dpspiou3scvki" path="res://systems/rhythm/tracks/sushi/sushi_05.tres" id="41_l3olo"]
+[ext_resource type="Resource" uid="uid://0j20uvbfem67" path="res://systems/rhythm/tracks/sushi/sushi_06.tres" id="42_br0d6"]
+[ext_resource type="Resource" uid="uid://ckfc8ojmm16c4" path="res://systems/rhythm/tracks/sushi/sushi_07.tres" id="43_5xodx"]
+[ext_resource type="Resource" uid="uid://vgr2hs10t5gq" path="res://systems/rhythm/tracks/sushi/sushi_08.tres" id="44_baimx"]
+[ext_resource type="Resource" uid="uid://blydr4p536sg3" path="res://systems/rhythm/tracks/sushi/sushi_09.tres" id="45_52knr"]
+[ext_resource type="Resource" uid="uid://dcq6q2xeyr8ot" path="res://systems/rhythm/tracks/sushi/sushi_10.tres" id="46_vi1yk"]
 
 [sub_resource type="Gradient" id="Gradient_yhodo"]
 offsets = PackedFloat32Array(1)
@@ -133,17 +133,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qgtvk")
-track = ExtResource("2_dsd34")
 fresh_accuracy_requirement = 70.0
 premium_accuracy_requirement = 70.0
 sushi_accuracy_requirement = 70.0
 tick_marker = ExtResource("3_dsd34")
 note_marker = ExtResource("4_yhodo")
 note_articulated_marker = ExtResource("5_2nsaa")
-leftovers_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("7_5nrls"), ExtResource("8_rapii"), ExtResource("9_4o164"), ExtResource("10_0c5i1"), ExtResource("11_nkmp6"), ExtResource("12_xttff"), ExtResource("13_mhqun"), ExtResource("14_ibwex"), ExtResource("15_c7077"), ExtResource("16_nqy2w"), ExtResource("17_a1rcf"), ExtResource("18_pokbo")])
-fresh_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("10_ncpsf"), ExtResource("20_toebe"), ExtResource("21_kd65b"), ExtResource("9_jwn05"), ExtResource("23_30svy"), ExtResource("24_06xsy"), ExtResource("25_stq7s"), ExtResource("26_e7yif"), ExtResource("27_jyd7v"), ExtResource("28_guv6c"), ExtResource("29_wii8l"), ExtResource("30_77jbl")])
-premium_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("31_dw4kb"), ExtResource("32_7d76k"), ExtResource("33_sadrr"), ExtResource("8_h6iob"), ExtResource("35_jhtuo"), ExtResource("36_kquy5"), ExtResource("37_e7dis")])
-sushi_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("38_kmnom"), ExtResource("39_kg553"), ExtResource("40_awrt7"), ExtResource("41_qqkm0"), ExtResource("42_7mxrj"), ExtResource("43_fil0w"), ExtResource("44_ue35c"), ExtResource("45_nr8cj"), ExtResource("46_l3olo"), ExtResource("2_dsd34")])
+leftovers_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("6_rapii"), ExtResource("7_4o164"), ExtResource("8_0c5i1"), ExtResource("9_nkmp6"), ExtResource("10_xttff"), ExtResource("11_mhqun"), ExtResource("12_ibwex"), ExtResource("13_c7077"), ExtResource("14_nqy2w"), ExtResource("15_a1rcf"), ExtResource("16_pokbo"), ExtResource("17_toebe")])
+fresh_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("18_kd65b"), ExtResource("19_30svy"), ExtResource("20_06xsy"), ExtResource("21_stq7s"), ExtResource("22_e7yif"), ExtResource("23_jyd7v"), ExtResource("24_guv6c"), ExtResource("25_wii8l"), ExtResource("26_77jbl"), ExtResource("27_dw4kb"), ExtResource("28_7d76k"), ExtResource("29_sadrr")])
+premium_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("30_jhtuo"), ExtResource("31_kquy5"), ExtResource("32_e7dis"), ExtResource("33_kmnom"), ExtResource("34_kg553"), ExtResource("35_awrt7"), ExtResource("36_qqkm0")])
+sushi_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("37_7mxrj"), ExtResource("38_fil0w"), ExtResource("39_ue35c"), ExtResource("40_nr8cj"), ExtResource("41_l3olo"), ExtResource("42_br0d6"), ExtResource("43_5xodx"), ExtResource("44_baimx"), ExtResource("45_52knr"), ExtResource("46_vi1yk")])
 hit_window_radius_ms = 100.0
 perfect_window_radius_ms = 25.0
 
@@ -262,3 +261,12 @@ pitch_scale = 2.0
 stream = ExtResource("18_i2p1o")
 volume_db = 20.0
 pitch_scale = 2.0
+
+[node name="DebugTrackPath" type="Label" parent="." unique_id=192003425]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 232.0
+offset_right = 470.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 20
+text = "Current Track (DEBUG): "
