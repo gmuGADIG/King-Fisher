@@ -12,12 +12,16 @@ var selected_skin : int
 func _ready() -> void:
 	hide()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause") and UIState.ui_state == UIState.State.CHARACTER_SELECT:
+		close()
+
 func open() -> void:
 	show()
 	UIState.ui_state = UIState.State.CHARACTER_SELECT
 	var current_tex_id : int = Multiplayer.player_list[get_multiplayer_authority()].character_texture_id
 	mat.albedo_texture = character_textures[current_tex_id]
-	
+
 func close() -> void:
 	hide()
 	UIState.ui_state = UIState.State.NONE

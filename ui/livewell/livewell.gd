@@ -42,8 +42,12 @@ func update_inventory_visuals(fish_inventory : Array[Fish], new_score : int) -> 
 	
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("livewell_menu"):
-		visible = !visible
+	if event.is_action_pressed("livewell_menu") and not UIState.more_ui_blocked:
+		UIState.ui_state = UIState.State.LIVEWELL
+		show()
+	elif event.is_action_released("livewell_menu") and UIState.ui_state == UIState.State.LIVEWELL:
+		UIState.ui_state = UIState.State.NONE
+		hide()
 
 
 ##Holdover functions that are kept for now before the way items interact with buffs is changed
