@@ -28,7 +28,7 @@ var ui_state : State:
 				player_mouse_input_blocked = false
 				player_click_input_blocked = false
 				more_ui_blocked = true
-			State.PAUSE, State.FISHING_MINIGAME:
+			State.PAUSE, State.CHARACTER_SELECT:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				player_keyboard_input_blocked = true
 				player_mouse_input_blocked = true
@@ -40,12 +40,12 @@ var ui_state : State:
 				player_mouse_input_blocked = true
 				player_click_input_blocked = true
 				more_ui_blocked = true
-			State.CHARACTER_SELECT:
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-				player_keyboard_input_blocked = false
-				player_mouse_input_blocked = true
-				player_click_input_blocked = true
-				more_ui_blocked = true
+			#State.CHARACTER_SELECT:
+				#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				#player_keyboard_input_blocked = false
+				#player_mouse_input_blocked = true
+				#player_click_input_blocked = true
+				#more_ui_blocked = true
 
 var player_keyboard_input_blocked : bool
 var player_mouse_input_blocked : bool

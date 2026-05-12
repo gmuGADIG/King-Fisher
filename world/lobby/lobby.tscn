@@ -48,7 +48,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
 
 [node name="SkinSelect" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="2" unique_id=1442961429 instance=ExtResource("4_c06ik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6512337, 3.227828, 12.059437)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01594925, 3.227828, 12.059437)
 
 [editable path="LobbyBoat"]
 [editable path="LobbyBoat/LobbyBoat"]

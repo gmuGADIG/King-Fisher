@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bnvsrdbroer4b"]
+
+[resource]
+blend_mode = 4
+shading_mode = 0
