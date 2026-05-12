@@ -5,7 +5,7 @@ static var fish_shadows : Dictionary[int,FishShadow]
 static var next_fish_shadow_id : int = 0
 
 static var fish_shadow : PackedScene = load("res://world/fish_spawner/fish_shadow.tscn")
-const FISH_SPAWN_RATE : float = 5
+const FISH_SPAWN_RATE : float = 0.2
 
 static var round_time : float
 #static var item_pool :
@@ -143,13 +143,15 @@ func _spawn_fish() -> void:
 @rpc("authority","reliable","call_local")
 func create_fish(id : int, pos : Vector3, grade : Fish.Grade, grade_index : int) -> void:
 	var fish : Fish = Fish.create(grade,grade_index)
+	assert(fish != null, "illegal")
 	Debug.log("Spawning Fish");
 	var new_fish_shadow : FishShadow = fish_shadow.instantiate()
 	new_fish_shadow.name = "FishShadow"+str(id)
 	##HACK: THIS IS FOR SHOWOFF NIGHT. Fish sometimes is just null for some reason
-	if fish == null:
-		fish = load("res://fish/leftovers/british_fish.tres")
-	#assert(fish != null, "illegal")
+	#if fish == null:
+		#fish = load("res://fish/leftovers/british_fish.tres")
+	assert(fish != null, "illegal")
+	
 	new_fish_shadow.fish = fish
 	new_fish_shadow.id = id
 	add_child(new_fish_shadow)
