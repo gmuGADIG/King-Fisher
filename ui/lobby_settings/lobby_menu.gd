@@ -1,7 +1,6 @@
 class_name LobbySettings
 extends Control
 
-const MIN_TIME = 180 # rounds last 3-5 minutes
 
 enum SpawnRate {
 	LOW,
@@ -11,6 +10,7 @@ enum SpawnRate {
 var mapPool = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
 ## The maximum time allowed for a round, in seconds.
 @export var maximumRoundTime: int = 300
+@export var minimumRoundTime: int = 180
 
 @export_group("Default Settings")
 
@@ -54,10 +54,13 @@ static var musicSelect: int
 @onready var mapSelectList := %MapSelection.find_children("*", "TextureButton")
 @onready var musicButton: OptionButton = %SongOptions
 
+@onready var more_time_button : Button = %MoreButton
+@onready var less_time_button : Button = %LessButton
+
 func _ready() -> void:
 	_on_reset_button_pressed()
 	panel.hide()
-	panel.draw.connect(update_menu);
+	panel.draw.connect(update_menu)
 
 ## Refreshes the menu with the current settings.
 ## This is called automatically when the panel becomes visible.
@@ -130,7 +133,6 @@ func set_buttons_from_bitmask(buttons: Array[Node], bitmask: int) -> void:
 
 func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("lobby_settings") && multiplayer.is_server()):
-		print("huh?")
 		print("Menu pressed")
 		print("Authority checked")
 		visible = not visible
@@ -138,22 +140,22 @@ func _input(event: InputEvent) -> void:
 		# panel.visible = !panel.visible
 
 		if visible:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			UIState.ui_state = UIState.State.LOBBY_SETTINGS
 		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			UIState.ui_state = UIState.State.NONE
 
 func _on_timer_more_button_pressed() -> void:
 	if (roundTime < maximumRoundTime):
-		roundTime = clampi(roundTime + 30, 0, maximumRoundTime)
-		%LessButton.disabled = false
-	if (roundTime == maximumRoundTime): %MoreButton.disabled = true
+		roundTime = clampi(roundTime + 30, minimumRoundTime, maximumRoundTime)
+		less_time_button.disabled = false
+	if (roundTime >= maximumRoundTime): more_time_button.disabled = true
 	update_timer()
 
 func _on_timer_less_button_pressed() -> void:
-	if (roundTime > 0):
-		roundTime = clampi(roundTime - 30, MIN_TIME, maximumRoundTime)
-		%MoreButton.disabled = false
-	if (roundTime == 0): %LessButton.disabled = true
+	if (roundTime > minimumRoundTime):
+		roundTime = clampi(roundTime - 30, minimumRoundTime, maximumRoundTime)
+		more_time_button.disabled = false
+	if (roundTime <= minimumRoundTime): less_time_button.disabled = true
 	update_timer()
 
 func _on_minute_box_editing_toggled(toggled_on: bool) -> void:
@@ -163,12 +165,15 @@ func _on_minute_box_editing_toggled(toggled_on: bool) -> void:
 		roundTime = int(timerText[0]) * 60 + int(timerText[1])
 	else:
 		roundTime = int(timerInput.text)
-	roundTime = clampi(roundTime, 0, maximumRoundTime)
+	roundTime = clampi(roundTime, minimumRoundTime, maximumRoundTime)
 	update_timer()
 
 func update_timer() -> void:
 	@warning_ignore("integer_division")
 	timerInput.text = "%d:%02d" % [roundTime / 60, roundTime % 60]
+	
+	less_time_button.disabled = roundTime <= minimumRoundTime
+	more_time_button.disabled = roundTime >= maximumRoundTime
 
 func _on_exit_button_pressed() -> void:
 	panel.visible = false
