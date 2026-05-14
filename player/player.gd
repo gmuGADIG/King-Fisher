@@ -29,8 +29,14 @@ var score: int = 0
 @onready var held_item_ui: HeldItemUI = $HeldItem
 var aim_mode : AimMode = AimMode.NONE
 
+##The speed the camera dolly zooms when an object is between the camera and player
+@export var camera_zoom_speed : float = 0.3
 @onready var camera_mount : Node3D = $CameraMount
-@onready var camera : Camera3D = camera_mount.get_node("Camera3D")
+@onready var camera : Camera3D = $CameraMount/Camera3D
+@onready var camera_raycast : RayCast3D = $CameraMount/CameraRaycast
+@onready var max_camera_pos : Vector3 = camera.position
+@onready var camera_ray_dir : Vector3 = camera_raycast.target_position.normalized()
+
 @onready var audio_listener : AudioListener3D = $AudioListener3D
 
 #Jump sound
@@ -140,7 +146,7 @@ func _physics_process(delta: float) -> void:
 	var pre_velocity_y := velocity.y
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
-		handle_camera_position()
+		handle_camera_position(delta)
 	
 	if slow_timer > 0:
 		Debug.log("player %s has been slowed!" % name, "; speed_mod = ", speed_modifier)
@@ -153,20 +159,29 @@ func _physics_process(delta: float) -> void:
 	_update_footsteps(delta)
 	_update_landing_sfx(delta, was_on_floor, pre_velocity_y)
 
-var old_cam_pos = Vector3.ZERO
-func handle_camera_position() -> void:
-	if is_ragdolled:
-		if old_cam_pos == Vector3.ZERO:
-			old_cam_pos = camera.position
+#var old_cam_pos = Vector3.ZERO
 
-		var target_pos = ragdoll_phys.get_node("Physical Bone Pelvis").global_position
-		camera_mount.global_position = target_pos
-		camera.position = old_cam_pos
+func handle_camera_position(delta : float) -> void:
+	var camera_target_position : Vector3
+	
+	if camera_raycast.is_colliding():
+		var dist : float = camera_raycast.global_position.distance_to(camera_raycast.get_collision_point())
+		camera_target_position = camera_raycast.position + camera_ray_dir * (dist-1.0)
 	else:
-		if old_cam_pos != Vector3.ZERO:
-			camera.position = old_cam_pos
-			old_cam_pos = Vector3.ZERO
-		camera_mount.position = Vector3.ZERO
+		camera_target_position = max_camera_pos
+	#
+	camera.position = camera.position.move_toward(camera_target_position,camera_zoom_speed)
+		
+	if is_ragdolled:
+		var target_pos = ragdoll_phys.get_node("Physical Bone Pelvis").global_position
+		camera_mount.global_position = camera_mount.global_position.move_toward(target_pos,camera_zoom_speed)
+		#camera.position = old_cam_pos
+	else:
+		##Called after the player ragdolls to fix the camera
+		if camera_mount.position != Vector3.ZERO:
+			camera_mount.position = Vector3.ZERO
+		#
+		
 
 @rpc("reliable","authority","call_local")
 func set_authority(id : int):
@@ -197,9 +212,9 @@ func _keyboard_input(event : InputEvent) -> void:
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
-		# ragdoll_phys.ragdoll(10, true)
-		for fish in fish_inventory:
-			Debug.log(fish.fish_name)
+		ragdoll_phys.ragdoll(1, true)
+		#for fish in fish_inventory:
+			#Debug.log(fish.fish_name)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	pass
