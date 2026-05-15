@@ -7,6 +7,7 @@ static var next_fish_shadow_id : int = 0
 static var fish_shadow : PackedScene = load("res://world/fish_spawner/fish_shadow.tscn")
 const FISH_SPAWN_RATE : float = 0.2
 
+static var song : Song
 static var round_time : float
 #static var item_pool :
 #static var item_spawnrate : float
@@ -25,14 +26,7 @@ var fish_rng : RandomNumberGenerator
 
 
 func _ready() -> void:
-	var music := [
-		load("res://sound/music/song_files/main_level_ben.tres"),
-		load("res://sound/music/song_files/main_level_matthew_c.tres"),
-		load("res://sound/music/song_files/main_level_matthew_p.tres"),
-		load("res://sound/music/song_files/main_level_nathan.tres")
-	]
-	MainMusicPlayer.play_song(music.pick_random())
-
+	MainMusicPlayer.play_song(song)
 	assert(fish_spawner_weights.size() == fish_spawners.size(), "water pool count and weight counts are not equal")
 	hud = %GameHud
 	super._ready()

@@ -194,8 +194,9 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
 item_count = 1
-popup/item_0/text = "song 1"
+popup/item_0/text = "Random"
 popup/item_0/id = 0
 
 [node name="TimerSetting" type="VBoxContainer" parent="Background/SettingsMenu/SongTimer/HBoxContainer" unique_id=1402476027]

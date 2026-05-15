@@ -7,7 +7,24 @@ enum SpawnRate {
 	MEDIUM,
 	HIGH
 }
-var mapPool = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
+
+const RANDOM_SONG : int = 0
+#var igabla : int = 0
+static var song_pool : Dictionary[String,Song] = {
+	"Ben Song" : load("res://sound/music/song_files/main_level_ben.tres"),
+	"Matthew C Song" : load("res://sound/music/song_files/main_level_matthew_c.tres"),
+	"Matthew P Song" : load("res://sound/music/song_files/main_level_matthew_p.tres"),
+	"Nathan Song" : load("res://sound/music/song_files/main_level_nathan.tres")
+}
+
+static var mapPool = [
+	"res://world/catwalk/catwalk.tscn",
+	"res://world/heightmap_test/heightmap_test.tscn",
+	"res://world/level-coffin/level-coffin.tscn",
+	"res://world/level-docks/level-docks.tscn",
+	"res://world/catwalk/catwalk.tscn"
+]
+
 ## The maximum time allowed for a round, in seconds.
 @export var maximumRoundTime: int = 300
 @export var minimumRoundTime: int = 180
@@ -20,7 +37,7 @@ var mapPool = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/he
 var defaultMapSelect: int
 
 ## The default song selection for the round.
-@export var defaultMusicSelect: int
+@export var defaultSongSelect: int = RANDOM_SONG
 ## The amount of time for each round by default, in seconds.
 @export var defaultRoundTime: int = 180
 ## The default spawn rate for items.
@@ -44,7 +61,7 @@ static var itemSelect: int
 ## The currently selected maps to use in this game.
 static var mapSelect: int
 ## The ID of the currently selected song.
-static var musicSelect: int
+static var songSelect: int
 
 @onready var panel: Control = $Background
 @onready var timerInput: LineEdit = %MinuteBox
@@ -52,12 +69,16 @@ static var musicSelect: int
 @onready var fishRateSelection: ItemList = %FishRateSelect
 @onready var itemSelectList := %ItemSelection.find_children("*", "TextureButton")
 @onready var mapSelectList := %MapSelection.find_children("*", "TextureButton")
-@onready var musicButton: OptionButton = %SongOptions
+@onready var song_options: OptionButton = %SongOptions
 
 @onready var more_time_button : Button = %MoreButton
 @onready var less_time_button : Button = %LessButton
 
 func _ready() -> void:
+	for entry : String in song_pool.keys():
+		song_options.add_item(entry)
+	
+	#assert(song_options.item_count == music_pool.size() + 1, "Number of songs do not match options")
 	_on_reset_button_pressed()
 	panel.hide()
 	panel.draw.connect(update_menu)
@@ -70,7 +91,7 @@ func update_menu() -> void:
 	fishRateSelection.select(fishSpawn)
 	set_buttons_from_bitmask(itemSelectList, itemSelect)
 	set_buttons_from_bitmask(mapSelectList, mapSelect)
-	musicButton.select(musicButton.get_item_index(musicSelect))
+	song_options.select(song_options.get_item_index(songSelect))
 
 ## Save current lobby settings to memory.
 func _on_save_button_pressed() -> void:
@@ -93,14 +114,14 @@ func _on_save_button_pressed() -> void:
 	# Selections
 	itemSelect = get_bitmask_from_buttons(itemSelectList)
 	mapSelect = get_bitmask_from_buttons(mapSelectList)
-	musicSelect = musicButton.get_item_id(musicButton.get_selected())
+	songSelect = song_options.get_selected_id()
 	print(roundTime)
 	print(itemSpawn)
 	print(fishSpawn)
 	print(itemSelect)
 	
 	print("Maps" +str(String.num_int64(mapSelect,2)))
-	print(musicSelect)
+	print(songSelect)
 	Multiplayer.set_map(String.num_int64(mapSelect,2),mapPool)
 
 ## Reset settings to default.
@@ -110,7 +131,8 @@ func _on_reset_button_pressed() -> void:
 	fishSpawn = defaultFishSpawn
 	itemSelect = defaultItemSelect
 	mapSelect = defaultMapSelect
-	musicSelect = defaultMusicSelect
+	songSelect = defaultSongSelect
+	
 	update_menu()
 
 ## Stores the set of selected buttons as a bitmask.
@@ -177,3 +199,11 @@ func update_timer() -> void:
 
 func _on_exit_button_pressed() -> void:
 	panel.visible = false
+
+static func get_song_selection() -> String:
+	var song_index : int
+	if songSelect == RANDOM_SONG:
+		song_index = randi_range(0,LobbySettings.song_pool.size())
+	else:
+		song_index = songSelect-1
+	return song_pool.keys().get(song_index)
