@@ -56,6 +56,11 @@ script = ExtResource("1_onrkg")
 player_mesh = NodePath("DefaultPlayer")
 footstep_distance = 3.5
 min_footstep_period = 0.2
+accuracy_threshold_decrease = 5.0
+ragdoll_time_increase = 5.0
+ragdoll_time_decrease = 5.0
+movement_speed_increase = 5.0
+jump_height_increase = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1812883740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

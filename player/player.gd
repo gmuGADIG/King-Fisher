@@ -544,6 +544,7 @@ func buff_player(fish: Fish):
 			# 6 or 7% increase to all stats
 			speed *= 1.06 if randf() < 0.5 else 1.07
 			jump_height *= 1.06 if randf() < 0.5 else 1.07
+			print("%s speed: %f jump: %f Fish seven!" % [name, speed, jump_height])
 			# TODO: what other stats are buffed?
 		"Oh My Cod":
 			# Decrease to the accuracy threshold in the fishing minigame
@@ -551,25 +552,39 @@ func buff_player(fish: Fish):
 			fishing_minigame.fresh_accuracy_requirement -= accuracy_threshold_decrease
 			fishing_minigame.premium_accuracy_requirement -= accuracy_threshold_decrease
 			fishing_minigame.sushi_accuracy_requirement -= accuracy_threshold_decrease
+			print(
+				"%s leftover: %f fresh: %f premium: %f sushi: %f Oh my cod!" % [
+					name,
+					fishing_minigame.leftovers_accuracy_requirement,
+					fishing_minigame.fresh_accuracy_requirement,
+					fishing_minigame.premium_accuracy_requirement,
+					fishing_minigame.sushi_accuracy_requirement
+				]
+			)
 		"Sword Fish":
 			# Increase ragdoll time for enemies you hit
 			swordfish_active = true
+			print("%s Swordfish Active" % name)
 		"Angel & Devil":
 			# 50% chance to buff Jump or Movement
 			if randf() < 0.5:
 				speed += movement_speed_increase
 			else:
 				jump_height += jump_height_increase
+			print("%s Angel (speed): %f devil (jump): %f" % [name, speed, jump_height])
 		"Fish With Legs":
 			# Buff to Movement speed
 			speed += movement_speed_increase
+			print("%s has legs! Speed: %f" % [name, speed])
 		'The "Fish"':
 			# Increased Jump Height
 			jump_height += jump_height_increase
+			print("%s can now jump to %f! Is this really a fish..." % [name, jump_height])
 		"Moai Fish":
 			# Decreased ragdoll time for yourself
 			moai_fish_active = true
 			# The decrease is applied in ragdoll.start_ragdoll()
+			print("%s Moai Active" % name)
 		_:
 			print("No buff exists for %s!" % fish.fish_name)
 
