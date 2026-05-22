@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dih1wbmgk3wkg"]
 
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="1_5eayx"]
 [ext_resource type="Script" uid="uid://sebpacttibvk" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
 [ext_resource type="PackedScene" uid="uid://cksuxnaqh3sqr" path="res://ui/lobby_browser/server_info.tscn" id="2_csvqp"]
 [ext_resource type="Texture2D" uid="uid://dfkve0oupbjtw" path="res://temp/lobby_select.png" id="3_pxnt7"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5eayx")
 script = ExtResource("1_k67f4")
 server_info_packed = ExtResource("2_csvqp")
 
