@@ -14,6 +14,8 @@ func _ready() -> void:
 	Options.music_volume = 0.0
 
 func client_id() -> String:
+	if multiplayer.multiplayer_peer == null:
+		return str(1).lpad(10,"0")
 	return str(multiplayer.get_unique_id()).lpad(10,"0")
 
 func create_debug_string(args: Array) -> String:
@@ -35,7 +37,9 @@ func create_debug_string(args: Array) -> String:
 	return output
 
 func log_mode_enabled() -> bool:
-	var uid : int = multiplayer.get_unique_id()
+	var uid : int = 1
+	if multiplayer.multiplayer_peer != null:
+		uid = multiplayer.get_unique_id()
 	if log_mode == LogMode.SERVER && uid != 1:
 		return false
 	if log_mode == LogMode.CLIENT && uid == 1:
