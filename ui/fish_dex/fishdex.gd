@@ -53,7 +53,10 @@ func load_file() -> void:
 		if json.parse(file.get_as_text()) == OK:
 			fishdex_entries = json.get_data()
 			for fish_name in fishdex_entries:
-				fishdex_order.append(fish_name)
+				if !LIST_OF_FISH.has(fish_name):
+					fishdex_entries.erase(fish_name)
+				else:
+					fishdex_order.append(fish_name)
 		load_all_fish_resources()
 		fishdex_order.sort_custom(custom_sort_fish)
 	else:
