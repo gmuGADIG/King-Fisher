@@ -207,7 +207,6 @@ func set_up_round_settings(song_name : String, round_time : float, fish_spawn : 
 	
 @rpc("authority","call_local","reliable")
 func load_players(level: String):
-	
 	SceneTransition.change_to_file(level)
 	
 func _handle_ready_up() -> void:

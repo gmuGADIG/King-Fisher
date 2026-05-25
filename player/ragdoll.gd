@@ -97,10 +97,10 @@ func end_ragdoll_request():
 func confirm_end_ragdoll():
 	# If ragdoll is on the floor(Or close Enough) it will spawn the player at the ragdolls position.
 	# If ragdoll isn't on valid ground(Clipped through map)
-	if is_valid_ground():
+	if is_valid_ground() and !player.force_respawn:
 		player.global_position = self.get_node("Physical Bone Pelvis").global_position + Vector3(0, 1.5, 0)
-	elif not is_valid_ground()[0]:
-		var player_spawnpoints = get_tree().root.get_node("World/Players")
+	elif not is_valid_ground()[0] or player.force_respawn:
+		var player_spawnpoints = get_tree().current_scene.get_node("Players")
 		if player_spawnpoints:
 			player.global_position = player_spawnpoints.get_safe_spawn_point()
 		else:
@@ -115,6 +115,7 @@ func confirm_end_ragdoll():
 	#Reset values
 	stopped_moving = false
 	player.can_exit_ragdoll = false 
+	player.force_respawn = false
 	check_movement_toggle = true
 
 func can_ragdoll() -> bool:

@@ -15,7 +15,7 @@ const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 @onready var ragdoll_phys : PhysicalBoneSimulator3D = player_mesh.bones
 var is_ragdolled := false
 var can_exit_ragdoll := false
-
+var force_respawn := false
 
 @export_category("Variables")
 @export var speed := 10.
@@ -197,9 +197,9 @@ func _keyboard_input(event : InputEvent) -> void:
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
-		# ragdoll_phys.ragdoll(10, true)
-		for fish in fish_inventory:
-			Debug.log(fish.fish_name)
+		ragdoll_phys.ragdoll(1)
+		# force_respawn = true
+		pass
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	pass
