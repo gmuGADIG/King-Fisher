@@ -36,8 +36,12 @@ func _ready() -> void:
 			fishdex_order.append(fish_name)
 			fishdex_order.sort_custom(custom_sort_fish)
 
+	# Hides Current/Selected Fishs hook
+	$Stall/TextureRect/Current_Fish/Hook.hide()
+
 	_on_draw()
 
+# Sorts fish base on its grade.
 func custom_sort_fish(a, b):
 		var fish_a = LIST_OF_FISH.get(a)
 		var fish_b = LIST_OF_FISH.get(b)
@@ -163,7 +167,7 @@ func change_tab(left : bool = false, right : bool = false) -> void:
 		current_tab -= 1
 	elif right:
 		if len(fishdex_entries) % 2 == 1 or len(fishdex_entries) % 2 == 0:
-			if current_tab + 1 > len(fishdex_order)/2 + 1 or current_tab + 1 > len(fishdex_order)/2:
+			if current_tab + 1 > round(len(fishdex_order)/2.0) + 1 or current_tab + 1 > round(len(fishdex_order)/2.0):
 				Debug.log_err("Fishdex Attempted to change to illegal tab: " + str(current_tab + 1))
 				return
 		current_tab += 1
