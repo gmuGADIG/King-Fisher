@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_piiep")
+fish_name = "Angel & Devil"
 grade = 4
 sprite = ExtResource("2_7g5ue")
 description = "Two fish appear! One on each of your shoulders. To your left is a fish with a devilish grin, and to your right a fish smiles at you, beaming with holy light. They’re your shoulder Devil and Angel– Fish? They compete with each other in guiding you to either sin and temptation or virtue and righteousness! Honestly it’s a bit exhausting to have the two prattling away, telling you to do this or that… Take care to take both of their ideas into great consideration for they both want to steer you in the “right” direction…"

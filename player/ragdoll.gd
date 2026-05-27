@@ -72,6 +72,10 @@ func start_ragdoll(duration: float, prevent_move_check: bool):
 	if prevent_move_check:
 		check_movement_toggle = false
 
+	if player.moai_fish_active:
+		duration -= player.ragdoll_time_decrease
+	print("%s is ragdolled for %f!" % [player.name, duration])
+
 	player.is_ragdolled = true
 	physical_bones_start_simulation()
 

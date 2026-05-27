@@ -66,6 +66,11 @@ script = ExtResource("1_onrkg")
 player_mesh = NodePath("DefaultPlayer")
 footstep_distance = 3.5
 min_footstep_period = 0.2
+accuracy_threshold_decrease = 5.0
+ragdoll_time_increase = 5.0
+ragdoll_time_decrease = 5.0
+movement_speed_increase = 5.0
+jump_height_increase = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1812883740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -157,7 +162,7 @@ bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 [node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="0" unique_id=3456117]
 material_override = SubResource("StandardMaterial3D_bjvpn")
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 468903528) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
 
