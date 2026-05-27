@@ -167,8 +167,6 @@ func _countdown(duration: int) -> void:
 
 @rpc("call_local")
 func start_the_game():
-	
-	
 	if multiplayer.is_server():
 		##Pick Song
 		var song_name : String = LobbySettings.get_song_selection()
@@ -185,6 +183,7 @@ func start_the_game():
 		
 		
 	await _countdown(5)
+	game_starting = false;
 	if(not multiplayer.is_server()):
 		return
 
@@ -197,7 +196,6 @@ func start_the_game():
 		await player_loaded
 	await get_tree().process_frame
 	
-	#TODO game goes
 
 func set_up_round_settings(song_name : String, round_time : float, fish_spawn : LobbySettings.SpawnRate, item_spawn : LobbySettings.SpawnRate) -> void:
 	WorldGameplay.song = LobbySettings.song_pool[song_name]
