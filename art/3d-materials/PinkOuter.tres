@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://by3oixqkklcxg"]
+
+[resource]
+resource_name = "PinkOuter"
+cull_mode = 2
+albedo_color = Color(1, 0.5069743, 0.8510979, 1)
+roughness = 0.5

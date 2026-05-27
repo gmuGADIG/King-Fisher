@@ -5,6 +5,7 @@ extends CanvasLayer
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var loading_screen : ColorRect = $ColorRect
+var currently_loading_scene : String
 
 var m_path : String
 
@@ -21,18 +22,25 @@ func change_to_packed(path: String):
 
 	# load scene during animation
 	ResourceLoader.load_threaded_request(path)
-	var progress : Array = []
-	var loadStatus := ResourceLoader.load_threaded_get_status(path, progress)
-	while loadStatus != ResourceLoader.THREAD_LOAD_LOADED:
-		loadStatus = ResourceLoader.load_threaded_get_status(path, progress)
-	get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(path))
+	currently_loading_scene = path
 
+func _process(delta: float) -> void:
+	if currently_loading_scene == "":
+		return
+	
+	## Check Progress
+	var progress : Array = []
+	var loadStatus := ResourceLoader.load_threaded_get_status(currently_loading_scene, progress)
+	if loadStatus == ResourceLoader.THREAD_LOAD_LOADED:
+		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(currently_loading_scene))
+		currently_loading_scene = ""
+	
 	# wait for animation to end
 	if anim.is_playing():
 		await anim.animation_finished
 
 	## Fade into scene
-	tween = get_tree().create_tween()
+	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(loading_screen,"modulate:a",0.0,fade_time)
 

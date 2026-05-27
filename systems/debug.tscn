@@ -4,3 +4,4 @@
 
 [node name="Debug" type="Node" unique_id=585069978]
 script = ExtResource("1_rkv63")
+mute_songs = true

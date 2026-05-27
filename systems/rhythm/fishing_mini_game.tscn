@@ -1,18 +1,59 @@
 [gd_scene format=3 uid="uid://bpo4nvgeh8dat"]
 
 [ext_resource type="Script" uid="uid://p0f46s1vcsvg" path="res://systems/rhythm/fishing_mini_game.gd" id="1_qgtvk"]
-[ext_resource type="Resource" uid="uid://y4inlgyvwye" path="res://temp/rhythm_test/track1_test.tres" id="2_2nsaa"]
 [ext_resource type="PackedScene" uid="uid://dgt8coyxp6ff" path="res://systems/rhythm/markers/tick_marker.tscn" id="3_dsd34"]
 [ext_resource type="PackedScene" uid="uid://dyucerm5153qy" path="res://systems/rhythm/markers/note_marker.tscn" id="4_yhodo"]
 [ext_resource type="PackedScene" uid="uid://lfclmap4n8vd" path="res://systems/rhythm/markers/note_articulated_marker.tscn" id="5_2nsaa"]
-[ext_resource type="AudioStream" uid="uid://cn1uje7bnu2bc" path="res://temp/temp_sfx/test_explode_small.wav" id="5_6b33u"]
 [ext_resource type="PackedScene" uid="uid://cii25od3gem26" path="res://systems/rhythm/rhythm_engine.tscn" id="5_mq61g"]
 [ext_resource type="Texture2D" uid="uid://bmxsuarykfoe3" path="res://temp/temp_art/smiley.png" id="5_v1gag"]
-[ext_resource type="AudioStream" uid="uid://u26laeo3h1xe" path="res://temp/temp_sfx/test_click.wav" id="6_8v4n0"]
+[ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="6_i2p1o"]
+[ext_resource type="Resource" uid="uid://ceqvthpil3vg4" path="res://systems/rhythm/tracks/leftovers/leftovers_01.tres" id="6_rapii"]
+[ext_resource type="Resource" uid="uid://hoqwqyla4oem" path="res://systems/rhythm/tracks/leftovers/leftovers_02.tres" id="7_4o164"]
+[ext_resource type="Resource" uid="uid://bue3pkfodvvfa" path="res://systems/rhythm/tracks/leftovers/leftovers_03.tres" id="8_0c5i1"]
+[ext_resource type="Resource" uid="uid://ccq6brkrlijv8" path="res://systems/rhythm/tracks/leftovers/leftovers_04.tres" id="9_nkmp6"]
 [ext_resource type="Texture2D" uid="uid://cjnwf45j1c0rv" path="res://temp/temp_art/king-fisher.png" id="10_2nsaa"]
-[ext_resource type="Texture2D" uid="uid://cxevou2i4rsbo" path="res://systems/rhythm/art/tempbar.png" id="10_dsd34"]
+[ext_resource type="Texture2D" uid="uid://0q6vu72wg5pn" path="res://systems/rhythm/art/rhythm_bar_edit.png" id="10_dsd34"]
+[ext_resource type="Resource" uid="uid://brj5yd01xjoyj" path="res://systems/rhythm/tracks/leftovers/leftovers_05.tres" id="10_xttff"]
+[ext_resource type="Resource" uid="uid://ckbds2olv2beh" path="res://systems/rhythm/tracks/leftovers/leftovers_06.tres" id="11_mhqun"]
 [ext_resource type="Texture2D" uid="uid://mxbipnxyr4xf" path="res://systems/rhythm/art/Screenshot 2026-04-22 195817.png" id="12_2nsaa"]
+[ext_resource type="Resource" uid="uid://1g8a5xiii6ng" path="res://systems/rhythm/tracks/leftovers/leftovers_07.tres" id="12_ibwex"]
+[ext_resource type="Resource" uid="uid://hh85kc73ikia" path="res://systems/rhythm/tracks/leftovers/leftovers_08.tres" id="13_c7077"]
 [ext_resource type="Texture2D" uid="uid://bbub80p362odf" path="res://systems/rhythm/art/winlose_temp.png" id="13_dsd34"]
+[ext_resource type="Resource" uid="uid://d0yttr0mkhf2w" path="res://systems/rhythm/tracks/leftovers/leftovers_09.tres" id="14_nqy2w"]
+[ext_resource type="Resource" uid="uid://dgwrcgi15q1e7" path="res://systems/rhythm/tracks/leftovers/leftovers_10.tres" id="15_a1rcf"]
+[ext_resource type="Resource" uid="uid://52d7m77cjptn" path="res://systems/rhythm/tracks/leftovers/leftovers_11.tres" id="16_pokbo"]
+[ext_resource type="AudioStream" uid="uid://qkqpujpa3s74" path="res://sound/sfx/minigame/trimmedSplashBMixed.mp3" id="17_i2p1o"]
+[ext_resource type="Resource" uid="uid://3ggcj87usdh4" path="res://systems/rhythm/tracks/leftovers/leftovers_12.tres" id="17_toebe"]
+[ext_resource type="AudioStream" uid="uid://bl6uiexm2csb8" path="res://sound/sfx/minigame/trimmedSplashAMixed.mp3" id="18_i2p1o"]
+[ext_resource type="Resource" uid="uid://bl5o0pttyykrj" path="res://systems/rhythm/tracks/fresh/fresh_01.tres" id="18_kd65b"]
+[ext_resource type="Resource" uid="uid://cvaiaa707xfor" path="res://systems/rhythm/tracks/fresh/fresh_02.tres" id="19_30svy"]
+[ext_resource type="Resource" uid="uid://cpoohu5fcwh8e" path="res://systems/rhythm/tracks/fresh/fresh_03.tres" id="20_06xsy"]
+[ext_resource type="Resource" uid="uid://b8aw7xup7umyq" path="res://systems/rhythm/tracks/fresh/fresh_04.tres" id="21_stq7s"]
+[ext_resource type="Resource" uid="uid://bahm3hsvcfjq8" path="res://systems/rhythm/tracks/fresh/fresh_05.tres" id="22_e7yif"]
+[ext_resource type="Resource" uid="uid://dkoys6wim2re8" path="res://systems/rhythm/tracks/fresh/fresh_06.tres" id="23_jyd7v"]
+[ext_resource type="Resource" uid="uid://bwr4341hpg0jv" path="res://systems/rhythm/tracks/fresh/fresh_07.tres" id="24_guv6c"]
+[ext_resource type="Resource" uid="uid://bfls3v5j0uf72" path="res://systems/rhythm/tracks/fresh/fresh_08.tres" id="25_wii8l"]
+[ext_resource type="Resource" uid="uid://im4q7drr07jf" path="res://systems/rhythm/tracks/fresh/fresh_09.tres" id="26_77jbl"]
+[ext_resource type="Resource" uid="uid://by3v2g3b7kwof" path="res://systems/rhythm/tracks/fresh/fresh_10.tres" id="27_dw4kb"]
+[ext_resource type="Resource" uid="uid://bc7fg02xtufsg" path="res://systems/rhythm/tracks/fresh/fresh_11.tres" id="28_7d76k"]
+[ext_resource type="Resource" uid="uid://cx5wvnn38snlb" path="res://systems/rhythm/tracks/fresh/fresh_12.tres" id="29_sadrr"]
+[ext_resource type="Resource" uid="uid://baqv1x470oluw" path="res://systems/rhythm/tracks/premium/premium_01.tres" id="30_jhtuo"]
+[ext_resource type="Resource" uid="uid://cvsjh2rbu87ur" path="res://systems/rhythm/tracks/premium/premium_02.tres" id="31_kquy5"]
+[ext_resource type="Resource" uid="uid://bn32od6jm3ris" path="res://systems/rhythm/tracks/premium/premium_03.tres" id="32_e7dis"]
+[ext_resource type="Resource" uid="uid://dh7fd45632rkl" path="res://systems/rhythm/tracks/premium/premium_04.tres" id="33_kmnom"]
+[ext_resource type="Resource" uid="uid://dmcpm21qnftte" path="res://systems/rhythm/tracks/premium/premium_05.tres" id="34_kg553"]
+[ext_resource type="Resource" uid="uid://y2fr3bkqmjly" path="res://systems/rhythm/tracks/premium/premium_06.tres" id="35_awrt7"]
+[ext_resource type="Resource" uid="uid://cnxwsdivh4byl" path="res://systems/rhythm/tracks/premium/premium_07.tres" id="36_qqkm0"]
+[ext_resource type="Resource" uid="uid://cllk6vk3o06b1" path="res://systems/rhythm/tracks/sushi/sushi_01.tres" id="37_7mxrj"]
+[ext_resource type="Resource" uid="uid://e1gk2056fjns" path="res://systems/rhythm/tracks/sushi/sushi_02.tres" id="38_fil0w"]
+[ext_resource type="Resource" uid="uid://dx2og0dy8448q" path="res://systems/rhythm/tracks/sushi/sushi_03.tres" id="39_ue35c"]
+[ext_resource type="Resource" uid="uid://bsk8k41qf4jij" path="res://systems/rhythm/tracks/sushi/sushi_04.tres" id="40_nr8cj"]
+[ext_resource type="Resource" uid="uid://dpspiou3scvki" path="res://systems/rhythm/tracks/sushi/sushi_05.tres" id="41_l3olo"]
+[ext_resource type="Resource" uid="uid://0j20uvbfem67" path="res://systems/rhythm/tracks/sushi/sushi_06.tres" id="42_br0d6"]
+[ext_resource type="Resource" uid="uid://ckfc8ojmm16c4" path="res://systems/rhythm/tracks/sushi/sushi_07.tres" id="43_5xodx"]
+[ext_resource type="Resource" uid="uid://vgr2hs10t5gq" path="res://systems/rhythm/tracks/sushi/sushi_08.tres" id="44_baimx"]
+[ext_resource type="Resource" uid="uid://blydr4p536sg3" path="res://systems/rhythm/tracks/sushi/sushi_09.tres" id="45_52knr"]
+[ext_resource type="Resource" uid="uid://dcq6q2xeyr8ot" path="res://systems/rhythm/tracks/sushi/sushi_10.tres" id="46_vi1yk"]
 
 [sub_resource type="Gradient" id="Gradient_yhodo"]
 offsets = PackedFloat32Array(1)
@@ -92,18 +133,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qgtvk")
-track = ExtResource("2_2nsaa")
+fresh_accuracy_requirement = 70.0
+premium_accuracy_requirement = 70.0
+sushi_accuracy_requirement = 70.0
 tick_marker = ExtResource("3_dsd34")
 note_marker = ExtResource("4_yhodo")
 note_articulated_marker = ExtResource("5_2nsaa")
-hit_window_radius_ms = 200.0
-perfect_window_radius_ms = 50.0
-hit_sfx = ExtResource("5_6b33u")
-hit_sfx_art = ExtResource("6_8v4n0")
+leftovers_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("6_rapii"), ExtResource("7_4o164"), ExtResource("8_0c5i1"), ExtResource("9_nkmp6"), ExtResource("10_xttff"), ExtResource("11_mhqun"), ExtResource("12_ibwex"), ExtResource("13_c7077"), ExtResource("14_nqy2w"), ExtResource("15_a1rcf"), ExtResource("16_pokbo"), ExtResource("17_toebe")])
+fresh_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("18_kd65b"), ExtResource("19_30svy"), ExtResource("20_06xsy"), ExtResource("21_stq7s"), ExtResource("22_e7yif"), ExtResource("23_jyd7v"), ExtResource("24_guv6c"), ExtResource("25_wii8l"), ExtResource("26_77jbl"), ExtResource("27_dw4kb"), ExtResource("28_7d76k"), ExtResource("29_sadrr")])
+premium_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("30_jhtuo"), ExtResource("31_kquy5"), ExtResource("32_e7dis"), ExtResource("33_kmnom"), ExtResource("34_kg553"), ExtResource("35_awrt7"), ExtResource("36_qqkm0")])
+sushi_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("37_7mxrj"), ExtResource("38_fil0w"), ExtResource("39_ue35c"), ExtResource("40_nr8cj"), ExtResource("41_l3olo"), ExtResource("42_br0d6"), ExtResource("43_5xodx"), ExtResource("44_baimx"), ExtResource("45_52knr"), ExtResource("46_vi1yk")])
+hit_window_radius_ms = 100.0
+perfect_window_radius_ms = 25.0
+forced_track = ExtResource("38_fil0w")
 
 [node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("5_mq61g")]
-
-[node name="MainAudioStream" type="AudioStreamPlayer" parent="." unique_id=1138960120]
 
 [node name="TempoAudioStream" type="AudioStreamPlayer" parent="." unique_id=440330173]
 
@@ -148,7 +192,7 @@ size_flags_horizontal = 4
 layout_mode = 0
 offset_left = -421.0
 offset_top = -104.0
-offset_right = 423.4773
+offset_right = 473.0
 offset_bottom = -31.0
 texture = ExtResource("10_dsd34")
 expand_mode = 2
@@ -168,7 +212,7 @@ texture = ExtResource("10_2nsaa")
 layout_mode = 0
 offset_left = -421.0
 offset_top = -18.0
-offset_right = 423.4773
+offset_right = 472.0
 offset_bottom = 55.0
 texture = ExtResource("10_dsd34")
 expand_mode = 2
@@ -208,3 +252,22 @@ libraries/ = SubResource("AnimationLibrary_2nsaa")
 visible = false
 position = Vector2(1728, 320)
 texture = ExtResource("12_2nsaa")
+
+[node name="Articulated" type="AudioStreamPlayer" parent="." unique_id=459856869]
+stream = ExtResource("17_i2p1o")
+volume_db = 20.0
+pitch_scale = 2.0
+
+[node name="NonArticulated" type="AudioStreamPlayer" parent="." unique_id=1265424431]
+stream = ExtResource("18_i2p1o")
+volume_db = 20.0
+pitch_scale = 2.0
+
+[node name="DebugTrackPath" type="Label" parent="." unique_id=192003425]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 232.0
+offset_right = 470.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 20
+text = "Current Track (DEBUG): "

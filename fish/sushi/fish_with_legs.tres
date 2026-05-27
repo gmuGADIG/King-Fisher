@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://cx0nkmuun8r1k"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_8k50v"]
+[ext_resource type="Texture2D" uid="uid://c4qlso8ydaqiw" path="res://fish/sprites/fish_with_legs.png" id="2_138un"]
+
+[resource]
+script = ExtResource("1_8k50v")
+fish_name = "Fish With Legs"
+grade = 4
+sprite = ExtResource("2_138un")
+description = "Doesn't it just look so...wrong? Well, I'm sure you wouldn't be surprised to hear that this freak was the result of a radiation spill that affected several ponds throughout the planet. While it is unsure why exactly this incident caused such an odd mutation, there are plenty of popular theories that have tried to explain its existence. One popular theory is that the radiation exposure had reverted the fish's genetic code to attribute itself to an entirely different species, however, the radiation spill was so catastrophically large that we couldn't even begin to comprehend how it affected these fish on a scientific level. So, through the lovely sense of sight, we can observe: these fish have legs. They can walk as any other bipedal animal could, but it seems to be more of a disadvantage for this species considering they still are unable to breathe out of water. In fact, it's more common to see them dead out of water on account of them accidentally running too far out of water and perishing before returning back into their habitat. Due to this, finding one still alive in the water is quite the rarity, and catching one fresh out of the pond gives you something to brag about. Just, uh, be careful around the legs, they pack quite a kick."
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

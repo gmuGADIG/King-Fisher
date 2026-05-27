@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://60065kuney3p"]
+
+[ext_resource type="AudioStream" uid="uid://dhl71hdmqx16f" path="res://sound/sfx/items/ziploc.mp3" id="1_o6jcg"]
+
+[node name="ZiplocUse" type="AudioStreamPlayer3D" unique_id=118816862]
+stream = ExtResource("1_o6jcg")

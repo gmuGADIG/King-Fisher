@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dnpgwxlyjcipd"]
+
+[resource]
+resource_name = "Purpinner"
+cull_mode = 2
+albedo_color = Color(0.60852784, 0.33259535, 0.90635914, 1)
+roughness = 0.5

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cje50ah1v286"]
+
+[resource]
+resource_name = "Rock"
+cull_mode = 2
+albedo_color = Color(0.36075187, 0.36075187, 0.36075187, 1)
+roughness = 0.5

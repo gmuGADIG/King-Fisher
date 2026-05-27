@@ -16,13 +16,18 @@ const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 var is_ragdolled := false
 var can_exit_ragdoll := false
 
+
 @export_category("Variables")
 @export var speed := 10.
 var slow_timer := 0.0
 var speed_modifier := 0.0
+var jump_height := 15.
 
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
+var fish_inventory: Array[Fish]
+var score: int = 0
+@onready var held_item_ui: HeldItemUI = $HeldItem
 var aim_mode : AimMode = AimMode.NONE
 
 @onready var camera_mount : Node3D = $CameraMount
@@ -49,6 +54,8 @@ var aim_mode : AimMode = AimMode.NONE
 enum FootstepState {GRASS, STONE, SNOW}
 var footstep_state : FootstepState = FootstepState.GRASS
 
+var current_fishing_shadow : FishShadow = null
+
 # footstep timing.
 var _footstep_accum_distance := 0.0
 var _footstep_time_since_last := 0.0
@@ -64,7 +71,29 @@ var helmet_node : Node = null
 var golden_worm_active := false
 var has_ziplock_bag := false
 
-@onready var livewell : Livewell = $LivewellMenu
+@export_category("Sushi Grade Buffs")
+## Catching "Oh My Cod" decreases the accuracy thresholds for all
+## fish in the fishing minigame by this amount.
+@export var accuracy_threshold_decrease: float
+## Catching "Swordfish" increases the ragdoll time inflicted on
+## opponents with the Rubber Mallet item by this amount.
+@export var ragdoll_time_increase: float
+var swordfish_active: bool = false
+## Catching "Moai Fish" decreases the ragdoll time inflicted on
+## the player by this amount.
+@export var ragdoll_time_decrease: float
+var moai_fish_active: bool = false
+## Catching "Fish with Legs" or "Angel & Devil" 50% chance
+## buffs the player's movement speed by this amount.
+@export var movement_speed_increase: float
+## Catching "The 'Fish'" or "Angel & Devil" 50% chance
+## increases the player's jump height by this amount.
+@export var jump_height_increase: float
+
+#@onready var livewell : Livewell = $LivewellMenu
+
+var fishing_minigame : FishingMinigame
+
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -85,6 +114,8 @@ func _ready() -> void:
 	_landing_time_since_last = min_landing_period
 	_jump_event_id = 0
 	_last_played_jump_event_id = -1
+	fishing_minigame = %FishingMiniGame
+	fishing_minigame.fishing_finished.connect(on_fishing_finished)
 
 func _process(delta: float) -> void:
 	# Prevents errors when disconnection happens
@@ -100,6 +131,8 @@ func _process(delta: float) -> void:
 	if not is_multiplayer_authority(): return
 	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if UIState.player_keyboard_input_blocked:
+		input = Vector2.ZERO
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
@@ -108,8 +141,8 @@ func _process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += GRAVITY * delta * Vector3.DOWN
 	
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
-		velocity.y = 15.
+	if is_on_floor() and Input.is_action_just_pressed("jump") and not UIState.player_keyboard_input_blocked:
+		velocity.y = jump_height
 		_jump_event_id += 1
 		_on_jump_event(_jump_event_id)
 		sync_jump_event.rpc(_jump_event_id)
@@ -160,7 +193,10 @@ func set_authority(id : int):
 	set_multiplayer_authority(id)
 	update_camera()
 	if id == multiplayer.get_unique_id():
+		held_item_ui.show()
 		audio_listener.make_current()
+	else:
+		held_item_ui.hide()
 
 @rpc("reliable","authority","call_remote")
 func update_camera() -> void:
@@ -170,18 +206,28 @@ func _input(event: InputEvent) -> void:
 	# Prevents errors when disconnection happens
 	if not multiplayer.has_multiplayer_peer(): return
 	if not is_multiplayer_authority(): return
-
+	
+	_keyboard_input(event)
+	_mouse_input(event)
+		
+func _keyboard_input(event : InputEvent) -> void:
+	if UIState.player_keyboard_input_blocked:
+		return
+	
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
 		# ragdoll_phys.ragdoll(10, true)
-		for i in livewell.fish_inventory.keys():
-			Debug.log(i)
+		for fish in fish_inventory:
+			Debug.log(fish.fish_name)
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
+	pass
+
+func _mouse_input(event : InputEvent) -> void:
+	if UIState.player_click_input_blocked:
+		return
 	
-	
-	##
 	match aim_mode:
 		AimMode.NONE:
 			if event.is_action_pressed("cast_rod"):
@@ -189,9 +235,9 @@ func _input(event: InputEvent) -> void:
 			if event.is_action_pressed("use_item"):
 				if held_item == null:
 					return
-				print("item aim")
+				# print("item aim")
 				if held_item is ThrowableItem:
-					print("item aim")
+					# print("item aim")
 					%Aiming.start_aiming(AimMode.ITEM)
 				else:
 					use_held_item.rpc()
@@ -201,6 +247,18 @@ func _input(event: InputEvent) -> void:
 		AimMode.FISHING_ROD:
 			if event.is_action_released("cast_rod"):
 				%Aiming.stop_aiming()
+				$Sounds/CastRod.play()
+				var body : Node = $Aiming/AimRayCast.get_collider()
+				if body is FishShadow:
+					if body.currently_fishing:
+						return
+					body.current_fishing_state.rpc(true)
+					current_fishing_shadow = body
+					
+					##TODO: Play Fishing Minigame
+					Debug.log("fish: ",body.fish)
+					fishing_minigame.start(body.fish)
+					
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
 			if event.is_action_released("use_item"):
@@ -213,6 +271,9 @@ func _input(event: InputEvent) -> void:
 			pass
 		_:
 			assert(false,"Invalid Aim Mode")
+			
+
+	
 		
 		
 		###AAAAAAAAAAa
@@ -230,6 +291,16 @@ func _input(event: InputEvent) -> void:
 		#held_item = null
 		#item = null
 		#%Aiming.stop_aiming()
+	
+	## TODO remove these two debug actions
+	if event.is_action_pressed("add_fish"):
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		give_fish_serialized.rpc(newFish.serialize())
+	if event.is_action_pressed("remove_fish"):
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		take_fish_serialized.rpc(newFish.serialize())
+		#take_fish(nes
+
 
 @rpc("call_local")
 func slow(time : float, speed_debuf : float):
@@ -364,6 +435,12 @@ func pick_up_item(item: Item) -> void:
 	held_item.position = Vector3.ZERO + Vector3(0,1,0)
 	# Hide the item. Nobody will know you have it until you use it.
 	held_item.visible=false
+	held_item_ui.hold_item(held_item.item_name)
+	# Don't play the sound unless we're the owning client
+	if is_multiplayer_authority():
+		$Sounds/PlayerPickupItem.play()
+	if swordfish_active and held_item is RubberMallet:
+		swordfish(held_item)
 
 @rpc("call_local")
 func use_held_item() -> void:
@@ -372,6 +449,7 @@ func use_held_item() -> void:
 	held_item.visible = true
 	held_item.use()
 	held_item=null
+	held_item_ui.clear_item()
 
 func equip_helmet(node : Node) -> void:
 	wearing_helmet = true
@@ -388,10 +466,129 @@ func unequip_helmet() -> void:
 	wearing_helmet = false
 	helmet_node.queue_free()
 
+
+##NOTICE: This is abusable as it is any_peer
+
 func give_fish(fish : Fish) -> void:
-	Debug.log("Player got fish!")
-	livewell.addFish(fish)
-	%fishdex.caught_fish(fish)
+	Debug.log("Player " + self.name + " got a " + fish.fish_name)
+	fish_inventory.append(fish)
+	score+=fish.get_score()
+	if fish.grade == Fish.Grade.SUSHI:
+		buff_player(fish)
+	#livewell.addFish(fish)
+	#TODO update livewell ui
+	if is_multiplayer_authority():
+		Livewell.update_inventory_visuals(fish_inventory,score)
+	##%fishdex.caught_fish(fish)
+
+func take_fish(fish: Fish) -> void:
+	if fish_inventory.has(fish):
+		fish_inventory.erase(fish)
+		score-=fish.get_score()
+		#TODO update livewell ui
+		if is_multiplayer_authority():
+			Livewell.update_inventory_visuals(fish_inventory,score)
+		Debug.log("Player " + self.name +" lost a " + fish.fish_name)
+	else:
+		Debug.log("Player " + self.name + " doesn't have a " + fish.fish_name + " to take!")
 	
+##NOTICE: This is abusable as it is any_peer
+@rpc("any_peer","reliable","call_local")
+func give_fish_serialized(data : Array) -> void:
+	give_fish(Fish.create(data[0],data[1]))
+
+##NOTICE: This is abusable as it is any_peer
+@rpc("any_peer","reliable","call_local")
+func take_fish_serialized(data : Array) -> void:
+	take_fish(Fish.create(data[0],data[1]))
+
 func set_name_visible(val : bool) -> void:
 	$PlayerId.visible = val
+
+func on_fishing_finished(succeeded:bool) -> void:
+	if succeeded:
+		var fish : Fish = current_fishing_shadow.fish
+		if is_multiplayer_authority():
+			match fish.grade:
+				Fish.Grade.LEFTOVERS:
+					$Sounds/LeftoverCatch.play()
+				Fish.Grade.FRESH:
+					$Sounds/FreshCatch.play()
+				Fish.Grade.PREMIUM:
+					$Sounds/PremiumCatch.play()
+				Fish.Grade.SUSHI:
+					$Sounds/SushiCatch.play()
+				_:
+					$Sounds/LeftoverCatch.play()
+				
+		current_fishing_shadow.kill_fish_shadow.rpc()
+		give_fish_serialized.rpc(fish.serialize())
+	else:
+		if is_multiplayer_authority():
+			$Sounds/FishCatchFail.play()
+		current_fishing_shadow.current_fishing_state.rpc(false)
+	current_fishing_shadow = null
+
+@rpc("any_peer","call_local","reliable")
+func apply_bone_force(vec : Vector3) -> void:
+	for node : Node in ragdoll_phys.get_children():
+		if node is PhysicalBone3D:
+			print("Bone found")
+			node.apply_central_impulse(vec)
+
+## The player is granted specific buffs after catching sushi grade fish.
+func buff_player(fish: Fish):
+	# TODO: Are these buffs stackable?
+	match fish.fish_name:
+		"Fish Seven":
+			# 6 or 7% increase to all stats
+			speed *= 1.06 if randf() < 0.5 else 1.07
+			jump_height *= 1.06 if randf() < 0.5 else 1.07
+			print("%s speed: %f jump: %f Fish seven!" % [name, speed, jump_height])
+			# TODO: what other stats are buffed?
+		"Oh My Cod":
+			# Decrease to the accuracy threshold in the fishing minigame
+			fishing_minigame.leftovers_accuracy_requirement -= accuracy_threshold_decrease
+			fishing_minigame.fresh_accuracy_requirement -= accuracy_threshold_decrease
+			fishing_minigame.premium_accuracy_requirement -= accuracy_threshold_decrease
+			fishing_minigame.sushi_accuracy_requirement -= accuracy_threshold_decrease
+			print(
+				"%s leftover: %f fresh: %f premium: %f sushi: %f Oh my cod!" % [
+					name,
+					fishing_minigame.leftovers_accuracy_requirement,
+					fishing_minigame.fresh_accuracy_requirement,
+					fishing_minigame.premium_accuracy_requirement,
+					fishing_minigame.sushi_accuracy_requirement
+				]
+			)
+		"Sword Fish":
+			# Increase ragdoll time for enemies you hit
+			swordfish_active = true
+			print("%s Swordfish Active" % name)
+		"Angel & Devil":
+			# 50% chance to buff Jump or Movement
+			if randf() < 0.5:
+				speed += movement_speed_increase
+			else:
+				jump_height += jump_height_increase
+			print("%s Angel (speed): %f devil (jump): %f" % [name, speed, jump_height])
+		"Fish With Legs":
+			# Buff to Movement speed
+			speed += movement_speed_increase
+			print("%s has legs! Speed: %f" % [name, speed])
+		'The "Fish"':
+			# Increased Jump Height
+			jump_height += jump_height_increase
+			print("%s can now jump to %f! Is this really a fish..." % [name, jump_height])
+		"Moai Fish":
+			# Decreased ragdoll time for yourself
+			moai_fish_active = true
+			# The decrease is applied in ragdoll.start_ragdoll()
+			print("%s Moai Active" % name)
+		_:
+			print("No buff exists for %s!" % fish.fish_name)
+
+## The Swordfish increases ragdoll time for enemies the player hits.
+## This will run whenever a rubber mallet is picked up to increase the default time.
+func swordfish(mallet: RubberMallet):
+	mallet.ragdollTime += ragdoll_time_increase

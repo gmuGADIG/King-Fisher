@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://byscee7etq2s5"]
+
+[resource]
+resource_name = "PinkInner"
+cull_mode = 2
+albedo_color = Color(1, 0.22269799, 0.9958798, 1)
+roughness = 0.5

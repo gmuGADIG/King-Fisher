@@ -32,3 +32,4 @@ stream_12/stream = ExtResource("5_vll1n")
 
 [node name="FootstepsGrass" type="AudioStreamPlayer3D" unique_id=1032111526]
 stream = SubResource("AudioStreamRandomizer_33vym")
+volume_db = -6.021

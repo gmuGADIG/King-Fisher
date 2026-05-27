@@ -5,3 +5,4 @@ class_name ServerConnection
 var playerName : String 
 var ready : bool
 var player : Player
+var character_texture_id : int

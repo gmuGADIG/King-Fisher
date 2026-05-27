@@ -1,4 +1,6 @@
-extends Control
+class_name FishingMinigame extends Control
+
+
 
 const TRACK_LENGTH:int = 8
 
@@ -10,7 +12,7 @@ enum NoteType{
 enum Phase{
 	FISH_CALL,
 	PLAYER_RESPONSE,
-	MINIGAME_FINISH
+	MINIGAME_INACTIVE
 }
 
 enum HitQuality{
@@ -20,20 +22,35 @@ enum HitQuality{
 }
 
 @export var track:Track
+
+@export_category("Accuracy Requirements")
+@export var leftovers_accuracy_requirement : float = 70
+@export var fresh_accuracy_requirement : float = 75
+@export var premium_accuracy_requirement : float = 80
+@export var sushi_accuracy_requirement : float = 90
+@export_range(0.0,100.0,1.0) var good_hit_accuracy:float = 70.0
+
+
+@export_category("Note Markers")
 @export var tick_marker : PackedScene
 @export var note_marker : PackedScene
 @export var note_articulated_marker : PackedScene
+@export_category("Tracks")
+@export var leftovers_tracks : Array[Track]
+@export var fresh_tracks : Array[Track]
+@export var premium_tracks : Array[Track]
+@export var sushi_tracks : Array[Track]
+var markers : Array[Sprite2D]
+@export_category("Hit Window")
 
+const perfect_hit_accuracy : float = 100.0
+@export var hit_window_radius_ms:float
+@export var perfect_window_radius_ms:float
 
-@export_range(0.0,1.0,0.01) var good_hit_accuracy:float = 0.7
-const perfect_hit_accuracy : float = 1.0
-@export var hit_window_radius_ms:float = 500.0
-@export var perfect_window_radius_ms:float = 100.0
-
-@export_category("Test")
-@export var hit_sfx : AudioStream
-@export var hit_sfx_art : AudioStream
 @onready var tempo_audio_stream: AudioStreamPlayer = $TempoAudioStream
+@export_category("DEBUG")
+@export var force_track_play_on_load : bool
+@export var forced_track : Track
 
 
 #var score:float = 0
@@ -41,6 +58,7 @@ var perfect_hits:int = 0
 var good_hits:int = 0
 var misses:int = 0
 
+var target_accuracy : float
 
 # Called when the node enters the scene tree for the first time.
 
@@ -48,7 +66,9 @@ var call_index:int = 0
 var response_index : int = 0 
 var current_note:Note
 
-var state : Phase = Phase.FISH_CALL
+var state : Phase = Phase.MINIGAME_INACTIVE
+
+signal fishing_finished(success:bool)
 
 
 @onready var sequence_line: Line2D = $TextureRect/VBoxContainer/Control/FishBar/SequenceLine
@@ -63,7 +83,50 @@ var state : Phase = Phase.FISH_CALL
 @onready var fish_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/FishBar/SequenceLine/FishIndicator
 @onready var rating_label: Label = $TextureRect/VBoxContainer/ColorRect/RatingLabel
 @onready var rating_animation: AnimationPlayer = $TextureRect/VBoxContainer/ColorRect/RatingAnimation
-@onready var main_audio_stream: AudioStreamPlayer = $MainAudioStream
+
+func start(fish : Fish) -> void:
+	UIState.ui_state = UIState.State.FISHING_MINIGAME
+	MainMusicPlayer.set_loudness(0.25,0.0)
+	misses = 0
+	good_hits = 0
+	perfect_hits = 0
+	call_index = 0
+	response_index = 0
+	current_note = null
+	player_indicator.position = Vector2(0,0)
+	player_indicator.hide()
+	fish_indicator.show()
+	fish_indicator.position = Vector2(0,0)
+	print(fish.grade)
+	match fish.grade:
+		Fish.Grade.LEFTOVERS:
+			track = leftovers_tracks.pick_random()
+			target_accuracy = leftovers_accuracy_requirement
+		Fish.Grade.FRESH:
+			track = fresh_tracks.pick_random()
+			target_accuracy = fresh_accuracy_requirement
+		Fish.Grade.PREMIUM:
+			track = premium_tracks.pick_random()
+			target_accuracy = premium_accuracy_requirement
+		Fish.Grade.SUSHI:
+			track = sushi_tracks.pick_random()
+			target_accuracy = sushi_accuracy_requirement
+	
+	if force_track_play_on_load:
+		track = forced_track
+	
+	Debug.log("Starting Track: "+track.resource_path)
+	populate_sequence(track)
+	rhythm_engine.play(track)
+	win_lose_sprite.visible = false
+	tempo_audio_stream.stream = track.backing_track
+	state = Phase.FISH_CALL
+	
+	##DEBUG
+	$DebugTrackPath.text = "Current Track (DEBUG): "+track.resource_path
+	Debug.log("Track: ",track.resource_path)
+	show()
+	
 
 func _ready() -> void:
 	##Uncomment this when the actual backing UI is done
@@ -74,21 +137,22 @@ func _ready() -> void:
 	player_indicator.position = Vector2(0,0)
 	player_indicator.hide()
 	fish_indicator.position = Vector2(0,0)
-	populate_sequence(track)
-	rhythm_engine.play(track)
+	#populate_sequence(track)
+	#rhythm_engine.play(track)
 	win_lose_sprite.visible = false
-	tempo_audio_stream.stream = track.backing_track
-
+	#tempo_audio_stream.stream = track.backing_track
+	if force_track_play_on_load:
+		##The fish doesn't matter since its track is overwritten
+		start(Fish.fresh_fishes.pick_random())
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#print(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms))
-	#print(ms_to_position())
-	#print(int(rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms)))
-	#print("target ms: ",rhythm_engine.beat_to_ms(track.notes[current_note_index].beat_position), ", current ms: ",rhythm_engine.current_time_ms)
+	if track == null:
+		return
 	## Update Indicator
-	
-	fish_indicator.position.x = ms_to_position(rhythm_engine.current_time_ms)
-	player_indicator.position.x = ms_to_position(rhythm_engine.current_time_ms-rhythm_engine.beat_to_ms(8))
+	if !state == Phase.MINIGAME_INACTIVE:
+		fish_indicator.position.x = ms_to_position(rhythm_engine.current_time_ms)
+		player_indicator.position.x = ms_to_position(rhythm_engine.current_time_ms-rhythm_engine.beat_to_ms(8))
 
 	
 	
@@ -96,8 +160,12 @@ func _process(delta: float) -> void:
 	if (call_index < track.notes.size()):
 		var current_note_sfx = track.notes[call_index]
 		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note_sfx.beat_position):
-			main_audio_stream.stream = hit_sfx_art if current_note_sfx.is_articulated else hit_sfx
-			main_audio_stream.play()
+			if current_note_sfx.is_articulated:
+				$NonArticulated.stop()
+				$Articulated.play()
+			else:
+				$Articulated.stop()
+				$NonArticulated.play()
 			call_index +=1
 	
 	if state == Phase.FISH_CALL:
@@ -114,17 +182,34 @@ func _process(delta: float) -> void:
 		##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
 		if rhythm_engine.current_time_ms >= rhythm_engine.beat_to_ms(current_note.beat_position+TRACK_LENGTH) + hit_window_radius_ms:
 			response_index+=1
-			print("Miss!")
+			#print("Miss!")
 			misses+=1
 	
 	if state == Phase.PLAYER_RESPONSE:
-		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 2*TRACK_LENGTH:
+		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= (2*TRACK_LENGTH + 1):
 			player_indicator.hide()
 			##Percentage accuracy from 0 to 1
 			var accuracy : float = calculate_accuracy()
 			#$TextureRect/VBoxContainer/ColorRect/ScoreLabel.text = str("%.2f" % (accuracy*100.0)) + "%"
 			print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
-			state = Phase.MINIGAME_FINISH
+			state = Phase.MINIGAME_INACTIVE
+			print(accuracy)
+			if accuracy >= target_accuracy:
+				print("PASS")
+			else:
+				print("FAIL")
+			fishing_finished.emit(accuracy >= target_accuracy)
+			finish()
+
+func finish() -> void:
+	MainMusicPlayer.set_loudness(1.0,0.0)
+	rhythm_engine.stop()
+	tempo_audio_stream.stop()
+	hide()
+	while not markers.is_empty():
+		var m = markers.pop_back()
+		m.queue_free()
+	UIState.ui_state = UIState.State.NONE
 
 func calculate_accuracy() -> float:
 	var presses : int = misses+good_hits+perfect_hits
@@ -144,27 +229,31 @@ func _input(event: InputEvent) -> void:
 		else: ##Not a note in the thing
 			return
 		
-		main_audio_stream.stream = hit_sfx_art if input_type == NoteType.ARTICULATED else hit_sfx
-		main_audio_stream.play()
+		if input_type==NoteType.ARTICULATED:
+			$NonArticulated.stop()
+			$Articulated.play()
+		else:
+			$Articulated.stop()
+			$NonArticulated.play()
 		
 		var hit_quality : HitQuality = determine_accuracy()
 		
 		var expected_note_type : NoteType = NoteType.ARTICULATED if track.notes[response_index].is_articulated else NoteType.NON_ARTICULATED
-		print(hit_quality)
+		#print(hit_quality)
 		if expected_note_type != input_type or hit_quality == HitQuality.MISS:
-			print("miss :(")
+			#print("miss :(")
 			#rating_label.text = "Miss!"
 			show_rating("Miss!")
 			misses += 1
 		elif hit_quality == HitQuality.GOOD:
-			print("Good")
+			#print("Good")
 			#rating_label.text = "Good!"
 			show_rating("Good!")
 			#score += good_hit_score
 			good_hits += 1
 			response_index += 1
 		elif hit_quality == HitQuality.PERFECT:
-			print("Perfect!")
+			#print("Perfect!")
 			#rating_label.text = "Perfect!"
 			show_rating("Perfect!")
 			#score += perfect_hit_score
@@ -191,15 +280,15 @@ func _input(event: InputEvent) -> void:
 
 
 func determine_accuracy() -> HitQuality:
-	print(response_index)
+	#print(response_index)
 	##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
 	current_note = track.notes[response_index]
-	print("input: ",rhythm_engine.beat_to_ms(current_note.beat_position))
+	#print("input: ",rhythm_engine.beat_to_ms(current_note.beat_position))
 	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position+TRACK_LENGTH)
 	var current_time : float = rhythm_engine.current_time_ms
 	
 	var difference : float = note_position_ms - current_time
-	print("diff: ",difference)
+	#print("diff: ",difference)
 	if (difference > hit_window_radius_ms):
 		return HitQuality.MISS
 	elif (difference < -hit_window_radius_ms):
@@ -229,10 +318,9 @@ func place_ticks(line : Line2D) -> void:
 		line.add_child(new_tick)
 
 func populate_sequence(input_track:Track):
-	print("input track:",input_track.notes.size())
+	#print("input track:",input_track.notes.size())
 	var spacing = sequence_line_length/(TRACK_LENGTH-1)
 	for note in input_track.notes:
-		print("i'm a note")
 		var new_note_marker : Sprite2D
 		if note.is_articulated:
 			new_note_marker = note_articulated_marker.instantiate()
@@ -241,6 +329,7 @@ func populate_sequence(input_track:Track):
 		
 		new_note_marker.position.y = sequence_line.points[0].y
 		new_note_marker.position.x = sequence_line.points[0].x + spacing * (note.beat_position - 1)
+		markers.append(new_note_marker)
 		sequence_line.add_child(new_note_marker)
 		
 func add_tap_marker(note_type : NoteType) -> void:
@@ -252,6 +341,7 @@ func add_tap_marker(note_type : NoteType) -> void:
 	else:
 		new_note_marker = note_marker.instantiate()
 	new_note_marker.position = player_indicator.position
+	markers.append(new_note_marker)
 	player_line.add_child(new_note_marker)
 	
 func show_rating(text:String) -> void:
@@ -267,3 +357,7 @@ func ms_to_position(ms:float) -> float:
 	var spacing : float = player_line_length/(TRACK_LENGTH-1)
 	var position : float = (rhythm_engine.ms_to_beat(ms)-1) * spacing
 	return position
+
+
+#func _on_button_test_cast(fish: Fish) -> void:
+	#start(fish)

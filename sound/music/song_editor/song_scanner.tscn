@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c4qae2ry8qdl4"]
+
+[ext_resource type="Script" uid="uid://t2fcs8ysba5g" path="res://sound/music/song_editor/song_scanner.gd" id="1_x3c30"]
+
+[node name="SongScanner" type="Node" unique_id=1058864779]
+script = ExtResource("1_x3c30")

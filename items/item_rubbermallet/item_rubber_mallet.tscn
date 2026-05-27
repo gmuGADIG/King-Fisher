@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_yxs0q"]
 [ext_resource type="Script" uid="uid://bv51xetocvtvt" path="res://items/item_rubbermallet/item_rubber_mallet.gd" id="2_yxs0q"]
 [ext_resource type="PackedScene" uid="uid://ci63k6qi746cg" path="res://art/3d-assets/Rubber Mallet.glb" id="3_r4hne"]
+[ext_resource type="AudioStream" uid="uid://b3l0s613yd6ae" path="res://sound/sfx/items/Hit.mp3" id="4_tfoe6"]
+[ext_resource type="AudioStream" uid="uid://sy17fgknvt2n" path="res://sound/sfx/items/SwingHammer.mp3" id="5_kvrfg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ukp2"]
 size = Vector3(16.80385, 33.004704, 58.001907)
@@ -11,6 +13,15 @@ size = Vector3(16.80385, 33.004704, 58.001907)
 script = ExtResource("2_yxs0q")
 ragdollTime = 1.0
 item_name = "Rubber Mallet"
+description = "When used, the player swings the mallet, playing an animation. If the mallet connects with another player it will cause them to ragdoll. It can only affect 1 player in the hitbox and gets discarded after use. 
+"
+lore = "These rubber mallets originate from a planet tainted by war and bloodshed.
+
+The inhabitants of said planet are something of a ‘glass cannon’ of intelligence. Their anatomy provides no protection for their brains. Instead, their brains are kept in liquid-filled sacs, allowing them to grow without restriction. The consequence of this is that the right impact can bring a member of this species to a swift end—and so when war ensued, they invented the most efficient (and cheap!) weapon for warfare: a rubber mallet.
+
+Of course, most fisherfolk with unprotected vital organs do not live long enough to make it to the Intergalactic Fishbowl. So if you, the competitor, are reading this, do not fret!
+
+If, against our expectations, you indeed have an unprotected brain, the best we can do is tell you to stand proud. You are strong to have made it this far. And, if necessary, we have funds to make a statue of you."
 
 [node name="SwingHitbox" type="Area3D" parent="." index="1" unique_id=1812700899]
 transform = Transform3D(0.044697747, 0, 0, 0, 0.044697747, 0, 0, 0, 0.044697747, 0, 0, 0)
@@ -23,6 +34,12 @@ transform = Transform3D(-4.3711385e-08, 0.015358277, -0.99988204, -1, -6.713316e
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwingHitbox" index="1" unique_id=599896765]
 transform = Transform3D(1, 0, 0, 0, 0.99988204, 0.015358277, 0, -0.015358277, 0.99988204, 0, 0.44540456, 28.997534)
 shape = SubResource("BoxShape3D_0ukp2")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="." index="2" unique_id=346856034]
+stream = ExtResource("4_tfoe6")
+
+[node name="SwingSound" type="AudioStreamPlayer3D" parent="." index="3" unique_id=21777151]
+stream = ExtResource("5_kvrfg")
 
 [connection signal="body_entered" from="SwingHitbox" to="." method="_on_swing_hitbox_body_entered"]
 

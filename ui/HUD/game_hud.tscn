@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://belf74xnjd8p8"]
+
+[ext_resource type="Script" uid="uid://dcf8prpy057vk" path="res://ui/HUD/game_hud.gd" id="1_1c5in"]
+[ext_resource type="Texture2D" uid="uid://cidywq0cy3pl6" path="res://temp/item.png" id="1_aipem"]
+
+[node name="GameHud" type="Control" unique_id=207102908 node_paths=PackedStringArray("time_remaining_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1c5in")
+time_remaining_label = NodePath("MarginContainer/TimeRemaining")
+
+[node name="ButtomPrompts" type="MarginContainer" parent="." unique_id=1558955761]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -78.0
+offset_right = 120.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtomPrompts" unique_id=1603928251]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtomPrompts/HBoxContainer" unique_id=782331868]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ButtomPrompts/HBoxContainer/VBoxContainer" unique_id=795119505]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="ButtomPrompts/HBoxContainer/VBoxContainer/ColorRect" unique_id=646587804]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TAB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ButtomPrompts/HBoxContainer/VBoxContainer" unique_id=1813317575]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Scoreboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ButtomPrompts/HBoxContainer" unique_id=931628419]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ButtomPrompts/HBoxContainer/VBoxContainer2" unique_id=77782950]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="ButtomPrompts/HBoxContainer/VBoxContainer2/ColorRect" unique_id=1943067118]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SHIFT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ButtomPrompts/HBoxContainer/VBoxContainer2" unique_id=1244768666]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Livewell"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemSlot" type="TextureRect" parent="." unique_id=71901602]
+visible = false
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_aipem")
+
+[node name="Item" type="TextureRect" parent="ItemSlot" unique_id=1866171949]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = -138.0
+offset_right = -4.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="." unique_id=2139926350]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Pts: XXXXX"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2010545455]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.5
+offset_right = 80.5
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 10
+
+[node name="TimeRemaining" type="Label" parent="MarginContainer" unique_id=1691315711]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Time Remaining:
+15:00"
+horizontal_alignment = 1

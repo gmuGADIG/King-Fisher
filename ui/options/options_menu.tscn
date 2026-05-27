@@ -74,7 +74,9 @@ text = "Master"
 [node name="MasterSlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=1419737254]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-value = 100.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="OptionsPanel/VBoxContainer" unique_id=1665212673]
 layout_mode = 2
@@ -86,7 +88,9 @@ text = "SFX"
 [node name="SFXSlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=19544409]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-value = 100.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="OptionsPanel/VBoxContainer" unique_id=1327836431]
 layout_mode = 2
@@ -98,7 +102,9 @@ text = "Music"
 [node name="MusicSlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=1407488349]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-value = 100.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="Button" type="Button" parent="." unique_id=21460394]
 layout_mode = 1
