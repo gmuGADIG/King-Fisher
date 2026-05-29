@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://b1741laxunjs1"]
+
+[ext_resource type="FontFile" uid="uid://b3ih3a07ewa28" path="res://art/font/akaPosse.ttf" id="1_kogyl"]
+
+[resource]
+default_font = ExtResource("1_kogyl")
+default_font_size = 24

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://boqgcf4ho7sly"]
+
+[ext_resource type="FontFile" uid="uid://dy8nlwxjcysst" path="res://art/font/CreatoDisplay-Medium.otf" id="1_5xj5m"]
+
+[resource]
+default_font = ExtResource("1_5xj5m")
+default_font_size = 18
