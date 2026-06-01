@@ -202,6 +202,7 @@ func start_the_game():
 	await get_tree().process_frame
 	
 
+@rpc("authority","call_local","reliable")
 func set_up_round_settings(song_name : String, round_time : float, fish_spawn : LobbySettings.SpawnRate, item_spawn : LobbySettings.SpawnRate) -> void:
 	WorldGameplay.song = LobbySettings.song_pool[song_name]
 	WorldGameplay.round_time = round_time
