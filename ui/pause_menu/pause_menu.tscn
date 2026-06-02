@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://bgjdwnhkngufk"]
 
 [ext_resource type="Script" uid="uid://birm4eaulje21" path="res://ui/pause_menu/pause_menu.gd" id="1_5jicy"]
-[ext_resource type="Theme" uid="uid://b1741laxunjs1" path="res://art/ui assets/UI_key_text.tres" id="1_c3jo5"]
 [ext_resource type="Texture2D" uid="uid://d37a15wobl1uc" path="res://art/ui assets/PauseMenuBackground.png" id="2_jbgdu"]
-[ext_resource type="FontFile" uid="uid://b3ih3a07ewa28" path="res://art/font/akaPosse.ttf" id="3_c3jo5"]
 [ext_resource type="Theme" uid="uid://dq5h7a0rh3vaw" path="res://ui/king_fisher_theme.tres" id="4_uraes"]
 
 [node name="PauseMenu" type="Control" unique_id=509264285]
@@ -13,15 +11,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_c3jo5")
+theme = ExtResource("4_uraes")
 script = ExtResource("1_5jicy")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1379031614]
 layout_mode = 0
-offset_left = 270.0
-offset_top = -1.0
-offset_right = 899.0
-offset_bottom = 628.0
+offset_left = 273.0
+offset_top = -2.0
+offset_right = 902.0
+offset_bottom = 627.0
 texture = ExtResource("2_jbgdu")
 expand_mode = 1
 
@@ -40,23 +38,30 @@ grow_horizontal = 2
 theme = ExtResource("4_uraes")
 theme_override_colors/font_outline_color = Color(0, 0.15686275, 0.36078432, 1)
 theme_override_constants/outline_size = 3
-theme_override_fonts/normal_font = ExtResource("3_c3jo5")
 theme_override_font_sizes/normal_font_size = 32
 text = "Pause Menu"
 horizontal_alignment = 1
 
 [node name="Continue" type="Button" parent="TextureRect" unique_id=1591642714]
 layout_mode = 0
-offset_left = 238.0
-offset_top = 252.0
-offset_right = 388.0
-offset_bottom = 327.0
+offset_left = 242.0
+offset_top = 246.0
+offset_right = 383.0
+offset_bottom = 303.0
 text = "Keep Fishin'!"
 
-[node name="Quit" type="Button" parent="TextureRect" unique_id=1629105635]
+[node name="Settings" type="Button" parent="TextureRect" unique_id=2018240968]
 layout_mode = 0
-offset_left = 255.0
-offset_top = 340.0
-offset_right = 367.0
-offset_bottom = 408.0
+offset_left = 242.0
+offset_top = 313.0
+offset_right = 383.0
+offset_bottom = 370.0
+text = "Settings"
+
+[node name="Quit" type="Button" parent="TextureRect" unique_id=831377726]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 381.0
+offset_right = 353.0
+offset_bottom = 438.0
 text = "Quit"
