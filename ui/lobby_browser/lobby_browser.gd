@@ -5,12 +5,15 @@ signal closed
 
 @export var server_info_packed : PackedScene
 
+@onready var lobby_creation_window : TextureRect = $LobbyCreationWindow
 @onready var name_text := $DisplayName/NameInput
 var seen_ips: Dictionary[String, bool]
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Multiplayer.found_server.connect(_on_found_server)
+	lobby_creation_window.hide()
+
 
 
 func _on_host_button_pressed() -> void:
