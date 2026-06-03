@@ -1,4 +1,7 @@
 extends Label3D
 
 func _process(_delta: float) -> void:
-	text = str(get_multiplayer_authority())
+	if Multiplayer.player_list.has(get_multiplayer_authority()):
+		text = Multiplayer.player_list[get_multiplayer_authority()].playerName
+	else:
+		text = "Player "+str(get_multiplayer_authority())
