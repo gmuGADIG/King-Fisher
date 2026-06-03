@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vpljqilqhkbb"]
 
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_rftmu"]
 [ext_resource type="Script" uid="uid://87m7v2osfe3g" path="res://ui/keybinds/keybind.gd" id="1_s866l"]
-[ext_resource type="Texture2D" uid="uid://cjmtcqvu0p8dy" path="res://ui/keybinds/keybind-menu.png" id="2_s866l"]
 
 [node name="KeybindMenu" type="Control" unique_id=1087068024 node_paths=PackedStringArray("binding_prototype")]
 layout_mode = 3
@@ -10,63 +10,67 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_rftmu")
 script = ExtResource("1_s866l")
 binding_prototype = NodePath("KeybindPanel/ScrollContainer/VBoxContainer/HBoxContainer")
 
-[node name="KeybindPanel" type="TextureRect" parent="." unique_id=1126044121]
+[node name="KeybindPanel" type="Panel" parent="." unique_id=370781902]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.33333334
-anchor_right = 0.6666667
+anchor_left = 0.33
+anchor_top = 0.166
+anchor_right = 0.66
 anchor_bottom = 0.8888889
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_s866l")
-expand_mode = 1
 
 [node name="ResetButton" type="Button" parent="KeybindPanel" unique_id=1489181848]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.109000005
-anchor_bottom = 0.109000005
-offset_left = 84.0
-offset_top = 56.215996
-offset_right = 304.0
-offset_bottom = 87.215996
-text = "Reset Bindings to Default"
+anchor_left = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reset All Keybinds"
+flat = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="KeybindPanel" unique_id=640497245]
-layout_mode = 0
-offset_left = 61.0
-offset_top = 159.0
-offset_right = 318.0
-offset_bottom = 520.0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="KeybindPanel/ScrollContainer" unique_id=243079951]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="KeybindPanel/ScrollContainer/VBoxContainer" unique_id=1438515188]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="KeybindPanel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1161519030]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Control whatefver it is"
+text = "Control"
 
 [node name="Button" type="Button" parent="KeybindPanel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1555108729]
 layout_mode = 2
-text = "Key that it is"
+theme_type_variation = &"FishButton"
+text = "Key"
 
 [node name="ConfirmButton" type="Button" parent="KeybindPanel" unique_id=2114235294]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 142.0
-offset_top = -48.0
-offset_right = 246.0
-offset_bottom = -17.0
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.1
+grow_horizontal = 2
+grow_vertical = 2
 text = "Confirm
 "
+flat = true
 
 [connection signal="pressed" from="KeybindPanel/ResetButton" to="." method="_on_reset_button_pressed"]

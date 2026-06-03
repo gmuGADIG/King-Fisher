@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b58jma116gexu"]
 
-[ext_resource type="Texture2D" uid="uid://55phj5ymp8yl" path="res://world/heightmap_test/terrain/color.png" id="1_5ffiu"]
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_1b0y7"]
 [ext_resource type="Script" uid="uid://c12k8l1exwkfs" path="res://ui/lobby_settings/lobby_menu.gd" id="1_fh8yv"]
 [ext_resource type="Texture2D" uid="uid://1eediuddjlw5" path="res://temp/micheals_mansion/MichealsMansionLoss.webp" id="3_yshnh"]
 [ext_resource type="Texture2D" uid="uid://d0iq6ivnp0gvc" path="res://temp/micheals_mansion/MichealsMansionBackground.webp" id="4_6lp2s"]
@@ -31,11 +31,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1b0y7")
 script = ExtResource("1_fh8yv")
 defaultMapSelect = 7
 defaultItemSelect = 15
 
-[node name="Background" type="NinePatchRect" parent="." unique_id=313001227]
+[node name="Background" type="Panel" parent="." unique_id=1426977561]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -47,10 +48,6 @@ offset_right = -69.0
 offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_5ffiu")
-region_rect = Rect2(28.666687, 24, 144.66669, 55.333344)
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
 
 [node name="SettingsMenu" type="VBoxContainer" parent="Background" unique_id=1580852191]
 layout_mode = 1
@@ -64,24 +61,9 @@ offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuTitle" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=96397161]
+[node name="Label" type="Label" parent="Background/SettingsMenu" unique_id=1617668478]
 layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("1_5ffiu")
-
-[node name="Label" type="Label" parent="Background/SettingsMenu/MenuTitle" unique_id=1617668478]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 110.0
-offset_top = 24.0
-offset_right = -110.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 71
+theme_type_variation = &"HeaderMedium"
 text = "Lobby Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -90,7 +72,6 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_5ffiu")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/MapSelection" unique_id=443095070]
 layout_mode = 1
@@ -106,9 +87,9 @@ grow_vertical = 2
 
 [node name="MapLabel" type="Label" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=2139802305]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
-text = "select maps"
+theme_type_variation = &"GraphFrameTitleLabel"
+text = "Select
+Maps"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -124,6 +105,7 @@ stretch_mode = 0
 [node name="Map2" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=332136863]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("4_6lp2s")
 texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
@@ -133,6 +115,7 @@ stretch_mode = 0
 [node name="Map3" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=1300675293]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("5_g47ou")
 texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
@@ -142,6 +125,7 @@ stretch_mode = 0
 [node name="Map4" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=578539672]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("6_5ffiu")
 texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
@@ -151,6 +135,7 @@ stretch_mode = 0
 [node name="Map5" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=1511769561]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("6_i0nya")
 texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
@@ -160,19 +145,12 @@ stretch_mode = 0
 [node name="SongTimer" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=611751636]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_5ffiu")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/SongTimer" unique_id=2050405693]
-custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 22.0
-offset_top = 13.0
-offset_right = -22.0
-offset_bottom = -13.0
-grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
@@ -184,8 +162,7 @@ size_flags_vertical = 4
 
 [node name="SongLabel" type="Label" parent="Background/SettingsMenu/SongTimer/HBoxContainer/SongSelect" unique_id=914204525]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_type_variation = &"GraphFrameTitleLabel"
 text = "select song"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -193,7 +170,7 @@ vertical_alignment = 1
 [node name="SongOptions" type="OptionButton" parent="Background/SettingsMenu/SongTimer/HBoxContainer/SongSelect" unique_id=83607888]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 0
 alignment = 1
 item_count = 1
 popup/item_0/text = "Random"
@@ -207,8 +184,7 @@ size_flags_vertical = 4
 
 [node name="TimerLabel" type="Label" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting" unique_id=1880762437]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_type_variation = &"GraphFrameTitleLabel"
 text = "round timer"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -218,28 +194,28 @@ layout_mode = 2
 alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=328802681]
-custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
 [node name="MoreButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons" unique_id=730368332]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"FishButton"
 theme_override_font_sizes/font_size = 8
 text = "+"
 
 [node name="LessButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons" unique_id=1461640249]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"FishButton"
 theme_override_font_sizes/font_size = 8
 text = "-"
+flat = true
 
 [node name="MinuteBox" type="LineEdit" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=768082620]
 unique_name_in_owner = true
@@ -252,8 +228,7 @@ virtual_keyboard_type = 2
 
 [node name="Label2" type="Label" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=1342507525]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_type_variation = &"GraphFrameTitleLabel"
 text = "minutes"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -261,7 +236,6 @@ vertical_alignment = 1
 [node name="FishSpawnRate" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=648934071]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_5ffiu")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/FishSpawnRate" unique_id=1863841341]
 layout_mode = 1
@@ -277,8 +251,7 @@ grow_vertical = 2
 
 [node name="FishSpawnLabel" type="Label" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer" unique_id=1523177087]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_type_variation = &"GraphFrameTitleLabel"
 text = "fish spawn rate"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -305,7 +278,6 @@ item_2/icon = ExtResource("9_1b0y7")
 [node name="ItemSpawnRate" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=1792343566]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_5ffiu")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/ItemSpawnRate" unique_id=238415009]
 layout_mode = 1
@@ -321,8 +293,7 @@ grow_vertical = 2
 
 [node name="ItemSpawnLabel" type="Label" parent="Background/SettingsMenu/ItemSpawnRate/HBoxContainer" unique_id=1098535640]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_type_variation = &"GraphFrameTitleLabel"
 text = "item spawn rate"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -350,7 +321,6 @@ item_2/icon = ExtResource("9_1b0y7")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_5ffiu")
 region_rect = Rect2(60.666687, 50, 319.33337, 50)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/ItemSelection" unique_id=847414200]
@@ -367,8 +337,7 @@ grow_vertical = 2
 
 [node name="ItemSelectLabel" type="Label" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=93810210]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_type_variation = &"GraphFrameTitleLabel"
 text = "select items"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -376,6 +345,7 @@ vertical_alignment = 1
 [node name="RubberMallet" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1899605932]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("9_m2d5r")
 texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
@@ -385,6 +355,7 @@ stretch_mode = 5
 [node name="ButterflyNet" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1241871880]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("9_fh8yv")
 texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
@@ -394,6 +365,7 @@ stretch_mode = 5
 [node name="BananaPeel" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1872799980]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("10_1b0y7")
 texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
@@ -403,6 +375,7 @@ stretch_mode = 5
 [node name="Brick" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1088161231]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("11_m2d5r")
 texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
@@ -412,6 +385,7 @@ stretch_mode = 5
 [node name="GlueGrenade" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1945136145]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("12_sgmg3")
 texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
@@ -421,6 +395,7 @@ stretch_mode = 5
 [node name="Helmet" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=335319416]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("13_lfejf")
 texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
@@ -430,6 +405,7 @@ stretch_mode = 5
 [node name="ZiplockBag" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=775743348]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("14_rnt8h")
 texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
@@ -439,6 +415,7 @@ stretch_mode = 5
 [node name="GoldenWorm" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1606961270]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("8_i0nya")
 texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
@@ -465,7 +442,9 @@ offset_top = -31.0
 offset_right = 7.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_type_variation = &"FlatButton"
 text = "Save"
+flat = true
 
 [node name="Reset Button" type="Button" parent="Background" unique_id=515205326]
 layout_mode = 1
@@ -479,7 +458,9 @@ offset_top = -31.0
 offset_right = 64.00073
 grow_horizontal = 2
 grow_vertical = 0
+theme_type_variation = &"FlatButton"
 text = "Reset"
+flat = true
 
 [connection signal="pressed" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons/MoreButton" to="." method="_on_timer_more_button_pressed"]
 [connection signal="pressed" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons/LessButton" to="." method="_on_timer_less_button_pressed"]
