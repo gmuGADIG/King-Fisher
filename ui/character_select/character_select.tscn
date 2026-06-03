@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="1_jsep5"]
 [ext_resource type="PackedScene" uid="uid://bg5yj4acmsreh" path="res://art/3d-assets/DefaultPlayer.fbx" id="1_o7qwi"]
 [ext_resource type="Script" uid="uid://disc3yxeaq8l5" path="res://ui/character_select/character_select.gd" id="1_xrmg0"]
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="1_yov7p"]
 [ext_resource type="PackedScene" uid="uid://dwbcnp6vyllkx" path="res://ui/character_select/character_select_button.tscn" id="2_xrmg0"]
 [ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/ourple.png" id="3_x8414"]
 [ext_resource type="Texture2D" uid="uid://ctqyjapriy26t" path="res://player/textures/prange.png" id="4_qc8oi"]
@@ -14,7 +15,7 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3bhl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40405"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 1
@@ -32,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_yov7p")
 script = ExtResource("1_xrmg0")
 character_textures = Array[Texture]([ExtResource("3_x8414"), ExtResource("4_qc8oi"), ExtResource("1_jsep5"), ExtResource("5_x3bhl")])
 player_mesh = NodePath("Panel/HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer/PlayerSkeleton/Skeleton3D/DefaultPlayer")
@@ -125,8 +127,8 @@ render_target_update_mode = 4
 
 [node name="DefaultPlayer" parent="Panel/HBoxContainer/Control/SubViewportContainer/SubViewport" unique_id=75581515 instance=ExtResource("1_o7qwi")]
 
-[node name="DefaultPlayer" parent="Panel/HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(75581515, 1645880762) index="0" unique_id=3456117]
-material_override = SubResource("StandardMaterial3D_x3bhl")
+[node name="DefaultPlayer" parent="Panel/HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(75581515, 468903528) index="0" unique_id=2096271970]
+material_override = SubResource("StandardMaterial3D_40405")
 
 [node name="Camera3D" type="Camera3D" parent="Panel/HBoxContainer/Control/SubViewportContainer/SubViewport" unique_id=369202457]
 transform = Transform3D(1, 0, 0, 0, 0.97333926, 0.22937025, 0, -0.22937025, 0.97333926, 0, 1.1183407, 1.4241077)

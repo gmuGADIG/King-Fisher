@@ -21,6 +21,7 @@ var force_respawn := false
 @export var speed := 10.
 var slow_timer := 0.0
 var speed_modifier := 0.0
+var jump_height := 15.
 
 var last_pos : Vector3 = Vector3.ZERO
 var held_item: Item
@@ -69,6 +70,25 @@ var wearing_helmet := false
 var helmet_node : Node = null
 var golden_worm_active := false
 var has_ziplock_bag := false
+
+@export_category("Sushi Grade Buffs")
+## Catching "Oh My Cod" decreases the accuracy thresholds for all
+## fish in the fishing minigame by this amount.
+@export var accuracy_threshold_decrease: float
+## Catching "Swordfish" increases the ragdoll time inflicted on
+## opponents with the Rubber Mallet item by this amount.
+@export var ragdoll_time_increase: float
+var swordfish_active: bool = false
+## Catching "Moai Fish" decreases the ragdoll time inflicted on
+## the player by this amount.
+@export var ragdoll_time_decrease: float
+var moai_fish_active: bool = false
+## Catching "Fish with Legs" or "Angel & Devil" 50% chance
+## buffs the player's movement speed by this amount.
+@export var movement_speed_increase: float
+## Catching "The 'Fish'" or "Angel & Devil" 50% chance
+## increases the player's jump height by this amount.
+@export var jump_height_increase: float
 
 #@onready var livewell : Livewell = $LivewellMenu
 
@@ -122,7 +142,7 @@ func _process(delta: float) -> void:
 		velocity += GRAVITY * delta * Vector3.DOWN
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump") and not UIState.player_keyboard_input_blocked:
-		velocity.y = 15.
+		velocity.y = jump_height
 		_jump_event_id += 1
 		_on_jump_event(_jump_event_id)
 		sync_jump_event.rpc(_jump_event_id)
@@ -419,6 +439,8 @@ func pick_up_item(item: Item) -> void:
 	# Don't play the sound unless we're the owning client
 	if is_multiplayer_authority():
 		$Sounds/PlayerPickupItem.play()
+	if swordfish_active and held_item is RubberMallet:
+		swordfish(held_item)
 
 @rpc("call_local")
 func use_held_item() -> void:
@@ -451,6 +473,8 @@ func give_fish(fish : Fish) -> void:
 	Debug.log("Player " + self.name + " got a " + fish.fish_name)
 	fish_inventory.append(fish)
 	score+=fish.get_score()
+	if fish.grade == Fish.Grade.SUSHI:
+		buff_player(fish)
 	#livewell.addFish(fish)
 	#TODO update livewell ui
 	if is_multiplayer_authority():
@@ -511,3 +535,60 @@ func apply_bone_force(vec : Vector3) -> void:
 		if node is PhysicalBone3D:
 			print("Bone found")
 			node.apply_central_impulse(vec)
+
+## The player is granted specific buffs after catching sushi grade fish.
+func buff_player(fish: Fish):
+	# TODO: Are these buffs stackable?
+	match fish.fish_name:
+		"Fish Seven":
+			# 6 or 7% increase to all stats
+			speed *= 1.06 if randf() < 0.5 else 1.07
+			jump_height *= 1.06 if randf() < 0.5 else 1.07
+			print("%s speed: %f jump: %f Fish seven!" % [name, speed, jump_height])
+			# TODO: what other stats are buffed?
+		"Oh My Cod":
+			# Decrease to the accuracy threshold in the fishing minigame
+			fishing_minigame.leftovers_accuracy_requirement -= accuracy_threshold_decrease
+			fishing_minigame.fresh_accuracy_requirement -= accuracy_threshold_decrease
+			fishing_minigame.premium_accuracy_requirement -= accuracy_threshold_decrease
+			fishing_minigame.sushi_accuracy_requirement -= accuracy_threshold_decrease
+			print(
+				"%s leftover: %f fresh: %f premium: %f sushi: %f Oh my cod!" % [
+					name,
+					fishing_minigame.leftovers_accuracy_requirement,
+					fishing_minigame.fresh_accuracy_requirement,
+					fishing_minigame.premium_accuracy_requirement,
+					fishing_minigame.sushi_accuracy_requirement
+				]
+			)
+		"Sword Fish":
+			# Increase ragdoll time for enemies you hit
+			swordfish_active = true
+			print("%s Swordfish Active" % name)
+		"Angel & Devil":
+			# 50% chance to buff Jump or Movement
+			if randf() < 0.5:
+				speed += movement_speed_increase
+			else:
+				jump_height += jump_height_increase
+			print("%s Angel (speed): %f devil (jump): %f" % [name, speed, jump_height])
+		"Fish With Legs":
+			# Buff to Movement speed
+			speed += movement_speed_increase
+			print("%s has legs! Speed: %f" % [name, speed])
+		'The "Fish"':
+			# Increased Jump Height
+			jump_height += jump_height_increase
+			print("%s can now jump to %f! Is this really a fish..." % [name, jump_height])
+		"Moai Fish":
+			# Decreased ragdoll time for yourself
+			moai_fish_active = true
+			# The decrease is applied in ragdoll.start_ragdoll()
+			print("%s Moai Active" % name)
+		_:
+			print("No buff exists for %s!" % fish.fish_name)
+
+## The Swordfish increases ragdoll time for enemies the player hits.
+## This will run whenever a rubber mallet is picked up to increase the default time.
+func swordfish(mallet: RubberMallet):
+	mallet.ragdollTime += ragdoll_time_increase

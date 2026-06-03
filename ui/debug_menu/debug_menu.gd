@@ -26,3 +26,11 @@ func _process(_delta: float) -> void:
 
 func _on_close_button_pressed() -> void:
 	close_debug_menu()
+
+func _on_sushi_spawner_button_pressed(index: int) -> void:
+	for player: Player in get_tree().get_nodes_in_group("Player"):
+		if player.is_multiplayer_authority():
+			var new_fish = Fish.create(Fish.Grade.SUSHI, index)
+			player.give_fish(new_fish)
+			print("Gave a %s to Player %d!" % [new_fish.fish_name, player.get_multiplayer_authority()])
+			break
