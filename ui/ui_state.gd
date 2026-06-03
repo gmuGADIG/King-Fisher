@@ -14,7 +14,7 @@ enum State{
 var ui_state : State:
 	set(val):
 		if ui_state == State.LIVEWELL:
-			Livewell.hide()
+			Livewell.instance.hide()
 		
 		ui_state = val
 		match val:
