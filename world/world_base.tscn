@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbpteyodpmjq3" path="res://world/world_base.gd" id="1_p433e"]
 [ext_resource type="PackedScene" uid="uid://bffxe171rcnea" path="res://player/player.tscn" id="2_bl271"]
-[ext_resource type="Script" path="res://systems/player_spawn_manager.gd" id="3_3xj4d"]
+[ext_resource type="Script" uid="uid://b6jnwssa8pgx8" path="res://systems/player_spawn_manager.gd" id="3_3xj4d"]
 [ext_resource type="PackedScene" uid="uid://dcw4q486qsqsy" path="res://ui/scoreboard/scoreboard.tscn" id="3_7di53"]
 [ext_resource type="PackedScene" uid="uid://c60phfujl8qwv" path="res://systems/player_spawn_point.tscn" id="4_lgvll"]
 [ext_resource type="PackedScene" uid="uid://bgjdwnhkngufk" path="res://ui/pause_menu/pause_menu.tscn" id="4_uycxt"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="8_ddkgs"]
 [ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_xvf6j"]
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="9_32lhn"]
-[ext_resource type="Resource" path="res://world/lobby/data.hterrain" id="9_hpp7h"]
+[ext_resource type="Resource" uid="uid://lr43qgruj361" path="res://world/lobby/data.hterrain" id="9_hpp7h"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="10_7trks"]
 [ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="10_cq2ek"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="11_48nxm"]

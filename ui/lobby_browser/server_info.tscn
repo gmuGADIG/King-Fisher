@@ -32,6 +32,10 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0/0"
 
+[node name="StatusLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1492029016]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="IPLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=165369734]
 unique_name_in_owner = true
 visible = false

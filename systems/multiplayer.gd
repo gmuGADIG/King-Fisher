@@ -23,6 +23,7 @@ var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
 var displayName: String
+var status: String
 #Allowed maps starts with a safety in case start game is loaded without going into lobby menu
 var allowedMaps:Array = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
 
@@ -48,7 +49,7 @@ func _process_scan_server() -> void:
 			Debug.log("sending something to the client.")
 			# TODO: send meaningful data, like our username or something
 			var playersOnlineString: String = str(int(multiplayer.get_peers().size())+1) + "/" + str(MAX_CLIENTS)
-			peer.put_var([displayName, playersOnlineString])
+			peer.put_var([displayName, playersOnlineString, status])
 			
 # measure the time since we shouted into the void
 var scan_clock := 0.
@@ -77,10 +78,12 @@ func _process_scan_for_servers(delta: float) -> void:
 		var server_ip = scan_client.get_packet_ip()
 		var foundHostName: String = s[0]
 		var playersOnlineString: String = s[1]
+		var statusString: String = s[2]
 		Debug.log("scan_client recieved something from %s!" % server_ip)
 
-		
-		found_server.emit(server_ip, foundHostName, playersOnlineString)
+		if(statusString == ""):
+			statusString = "Ready to start"
+		found_server.emit(server_ip, foundHostName, playersOnlineString, statusString)
 
 func _process(delta: float) -> void:
 	if scan_server: _process_scan_server()
@@ -174,8 +177,9 @@ func _countdown(duration: int) -> void:
 
 @rpc("call_local")
 func start_the_game():
-	
-	
+
+	status = "Starting"
+
 	if multiplayer.is_server():
 		##Pick Song
 		var song_name : String = LobbySettings.get_song_selection()
@@ -190,8 +194,8 @@ func start_the_game():
 		)
 		##TODO: Set up item pool
 		
-		
 	await _countdown(5)
+	game_starting = false;
 	if(not multiplayer.is_server()):
 		return
 
@@ -204,7 +208,6 @@ func start_the_game():
 		await player_loaded
 	await get_tree().process_frame
 	
-	#TODO game goes
 
 func set_up_round_settings(song_name : String, round_time : float, fish_spawn : LobbySettings.SpawnRate, item_spawn : LobbySettings.SpawnRate) -> void:
 	WorldGameplay.song = LobbySettings.song_pool[song_name]
@@ -214,7 +217,6 @@ func set_up_round_settings(song_name : String, round_time : float, fish_spawn : 
 	
 @rpc("authority","call_local","reliable")
 func load_players(level: String):
-	
 	SceneTransition.change_to_file(level)
 	
 func _handle_ready_up() -> void:
@@ -234,6 +236,7 @@ func _handle_ready_up() -> void:
 	game_starting = true
 	start_game.emit()
 	start_the_game.rpc()
+	status = "In Game"
 			
 func set_map(mapString:String,pool:Array):
 	#Array to be returned
