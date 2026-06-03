@@ -203,7 +203,7 @@ func _on_exit_button_pressed() -> void:
 static func get_song_selection() -> String:
 	var song_index : int
 	if songSelect == RANDOM_SONG:
-		song_index = randi_range(0,LobbySettings.song_pool.size())
+		song_index = randi_range(0,LobbySettings.song_pool.size() - 1)
 	else:
 		song_index = songSelect-1
 	return song_pool.keys().get(song_index)
