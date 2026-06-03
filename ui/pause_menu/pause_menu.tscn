@@ -55,5 +55,5 @@ offset_bottom = 17.982
 grow_horizontal = 2
 text = "Pause Menu"
 
-[connection signal="pressed" from="Panel/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Panel/Continue" to="." method="unpause"]
 [connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]

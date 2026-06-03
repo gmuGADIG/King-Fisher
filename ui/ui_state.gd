@@ -2,6 +2,7 @@ extends Node
 
 enum State{
 	NONE,
+	MAIN_MENU,
 	PAUSE,
 	LIVEWELL,
 	SCOREBOARD,
