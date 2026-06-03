@@ -2,8 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bgbsvtifnsja3" path="res://ui/debug_menu/debug_menu.gd" id="1_2lwgs"]
 [ext_resource type="PackedScene" uid="uid://cuxqh6ibre0ni" path="res://ui/debug_menu/debug_scene_button.tscn" id="2_bvele"]
+[ext_resource type="Texture2D" uid="uid://tm0h3rinwtna" path="res://fish/sprites/fish_seven.png" id="3_6bvlt"]
+[ext_resource type="Texture2D" uid="uid://cnvc1vghj8m3c" path="res://fish/sprites/oh_my_cod.png" id="4_norta"]
+[ext_resource type="Texture2D" uid="uid://b2x302v0vyb2g" path="res://temp/temp_art/hollow-knight.png" id="5_iqtl5"]
+[ext_resource type="Texture2D" uid="uid://oteep0k5625r" path="res://fish/sprites/angel_devil_fish.png" id="6_cyfjx"]
+[ext_resource type="Texture2D" uid="uid://byhye7monr5cd" path="res://fish/sprites/moai_fish.png" id="7_rpr11"]
+[ext_resource type="Texture2D" uid="uid://dpnd3e2f3wg30" path="res://fish/sprites/the_quote_on_quote_fish.png" id="8_xuwh8"]
 
 [node name="DebugMenu" type="CanvasLayer" unique_id=1060676430]
+layer = 5
 script = ExtResource("1_2lwgs")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1623555723]
@@ -13,10 +20,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = -172.0
-offset_right = 211.0
-offset_bottom = 172.0
+offset_left = -266.0
+offset_top = -219.5
+offset_right = 266.0
+offset_bottom = 248.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -65,6 +72,61 @@ layout_mode = 2
 text = "Open Fishing Minigame (test)"
 scene_path = "res://systems/rhythm/fishing_mini_game.tscn"
 
+[node name="Separator3" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1848434056]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpawnLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=878795616]
+layout_mode = 2
+text = "Obtain Sushi Fish (for testing buffs)"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="SushiSpawners" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1824832003]
+layout_mode = 2
+
+[node name="FishSeven" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners" unique_id=572715356]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fish7"
+icon = ExtResource("3_6bvlt")
+expand_icon = true
+
+[node name="OhMyCod" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners" unique_id=385209858]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cod"
+icon = ExtResource("4_norta")
+expand_icon = true
+
+[node name="SwordFish" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners" unique_id=298206860]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sword"
+icon = ExtResource("5_iqtl5")
+expand_icon = true
+
+[node name="AngelDevil" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners" unique_id=983910604]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AD"
+icon = ExtResource("6_cyfjx")
+expand_icon = true
+
+[node name="Moai" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners" unique_id=1905884091]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Moai"
+icon = ExtResource("7_rpr11")
+expand_icon = true
+
+[node name="_Fish_" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners" unique_id=419794888]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "\"Fish\""
+icon = ExtResource("8_xuwh8")
+expand_icon = true
+
 [node name="Separator" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=613846581]
 layout_mode = 2
 size_flags_vertical = 3
@@ -75,4 +137,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Close"
 
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners/FishSeven" to="." method="_on_sushi_spawner_button_pressed" binds= [1]]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners/OhMyCod" to="." method="_on_sushi_spawner_button_pressed" binds= [4]]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners/SwordFish" to="." method="_on_sushi_spawner_button_pressed" binds= [5]]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners/AngelDevil" to="." method="_on_sushi_spawner_button_pressed" binds= [0]]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners/Moai" to="." method="_on_sushi_spawner_button_pressed" binds= [3]]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/SushiSpawners/_Fish_" to="." method="_on_sushi_spawner_button_pressed" binds= [6]]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

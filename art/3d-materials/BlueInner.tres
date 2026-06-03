@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b74yr04a7fjpe"]
+
+[resource]
+resource_name = "BlueInner"
+cull_mode = 2
+albedo_color = Color(0.44746786, 0.3392174, 1, 1)
+roughness = 0.5

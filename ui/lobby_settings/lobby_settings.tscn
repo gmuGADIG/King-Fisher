@@ -32,12 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fh8yv")
-maximumRoundTime = null
 defaultMapSelect = 7
-defaultMusicSelect = null
-defaultRoundTime = null
-defaultItemSpawn = null
-defaultFishSpawn = null
 defaultItemSelect = 15
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=313001227]
@@ -199,8 +194,9 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
 item_count = 1
-popup/item_0/text = "song 1"
+popup/item_0/text = "Random"
 popup/item_0/id = 0
 
 [node name="TimerSetting" type="VBoxContainer" parent="Background/SettingsMenu/SongTimer/HBoxContainer" unique_id=1402476027]
@@ -221,16 +217,16 @@ vertical_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Buttons" type="Control" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=1665857123]
+[node name="Buttons" type="VBoxContainer" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=328802681]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
 
 [node name="MoreButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons" unique_id=730368332]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 20)
-layout_mode = 1
-offset_right = 20.0
-offset_bottom = 20.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 8
@@ -239,13 +235,7 @@ text = "+"
 [node name="LessButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons" unique_id=1461640249]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 20)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -20.0
-offset_right = 20.0
-grow_vertical = 0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 8

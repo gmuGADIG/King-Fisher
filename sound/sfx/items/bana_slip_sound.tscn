@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cdhxlejoa2q26"]
+
+[ext_resource type="AudioStream" uid="uid://5sysyaprnbmc" path="res://sound/sfx/items/sfx_bananaSlip.mp3" id="1_fx7gq"]
+
+[node name="BanaSlipSound" type="AudioStreamPlayer3D" unique_id=760347686]
+stream = ExtResource("1_fx7gq")

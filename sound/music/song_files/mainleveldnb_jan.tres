@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Song" format=3]
+
+[ext_resource type="Script" path="res://sound/music/song_resource/song.gd" id="1_1b7ci"]
+[ext_resource type="Script" path="res://sound/music/song_resource/section.gd" id="2_skfak"]
+[ext_resource type="AudioStream" path="res://sound/music/song_files/mainleveldnb_jan.mp3" id="3_e1tb0"]
+
+[sub_resource type="Curve" id="Curve_r8261"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_3s3ng"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_l3tum"]
+script = ExtResource("2_skfak")
+section_name = "main loop"
+section_end = 60.982765
+loop = true
+fade_in_curve = SubResource("Curve_r8261")
+fade_out_curve = SubResource("Curve_3s3ng")
+
+[resource]
+script = ExtResource("1_1b7ci")
+song_file = ExtResource("3_e1tb0")
+sections = Array[ExtResource("2_skfak")]([SubResource("Resource_l3tum")])

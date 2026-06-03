@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://52d7m77cjptn"]
+
+[ext_resource type="Script" path="res://systems/rhythm/note.gd" id="1_h4hv3"]
+[ext_resource type="AudioStream" uid="uid://qbh8vij5unwm" path="res://systems/rhythm/tracks/backingTrack100.ogg" id="1_jehai"]
+[ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_jehai"]
+
+[sub_resource type="Resource" id="Resource_h4hv3"]
+script = ExtResource("1_h4hv3")
+beat_position = 1.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_jehai"]
+script = ExtResource("1_h4hv3")
+beat_position = 2.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_jpuxh"]
+script = ExtResource("1_h4hv3")
+beat_position = 3.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_yp4pi"]
+script = ExtResource("1_h4hv3")
+beat_position = 4.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_fg112"]
+script = ExtResource("1_h4hv3")
+beat_position = 5.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_3hnpi"]
+script = ExtResource("1_h4hv3")
+beat_position = 6.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_irkbq"]
+script = ExtResource("1_h4hv3")
+beat_position = 7.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_ik6fs"]
+script = ExtResource("1_h4hv3")
+beat_position = 8.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[resource]
+script = ExtResource("2_jehai")
+backing_track = ExtResource("1_jehai")
+notes = Array[ExtResource("1_h4hv3")]([SubResource("Resource_h4hv3"), SubResource("Resource_jehai"), SubResource("Resource_jpuxh"), SubResource("Resource_yp4pi"), SubResource("Resource_fg112"), SubResource("Resource_3hnpi"), SubResource("Resource_irkbq"), SubResource("Resource_ik6fs")])
+metadata/_custom_type_script = "uid://duodpj15swkyd"

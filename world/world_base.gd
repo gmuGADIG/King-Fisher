@@ -35,6 +35,7 @@ func on_player_join(id : int) -> void:
 	spawn_player.rpc(id,$Players.get_safe_spawn_point())
 	# Sends information about new players to everyone
 	Multiplayer.broadcast_player_info()
+	
 
 @rpc("reliable", "call_local")
 func spawn_player(id: int, pos: Vector3) -> void:
@@ -49,5 +50,6 @@ func spawn_player(id: int, pos: Vector3) -> void:
 		var server_conn: ServerConnection = Multiplayer.player_list.get(id)
 		if server_conn != null: # should only be == null if we started this level w/ F6
 			server_conn.player = new_player
+			CharacterSelect.assign_skin(id,server_conn.character_texture_id)
 			# tell everyone about the new player and the new player the current players
 			Debug.log("Spawning Player ", id, " at ", pos)

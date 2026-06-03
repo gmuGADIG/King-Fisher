@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://88ka2wn4si2t" path="res://ui/itemdex/itemdex.gd" id="1_43rrp"]
 [ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="2_peb0g"]
+[ext_resource type="Texture2D" uid="uid://bw6cuoglpu530" path="res://ui/itemdex/itemdex-background.png" id="2_tq711"]
 [ext_resource type="Texture2D" uid="uid://c7fyt1h4ljmf3" path="res://ui/itemdex/box.png" id="3_dfsup"]
-[ext_resource type="Texture2D" uid="uid://bokvrnhv3w3tr" path="res://ui/itemdex/background.png" id="3_wqiek"]
 [ext_resource type="Texture2D" uid="uid://bsphqh5kvj7g0" path="res://ui/itemdex/arrow.png" id="4_tq711"]
 
 [node name="Itemdex" type="Control" unique_id=976872789]
@@ -19,14 +19,23 @@ script = ExtResource("1_43rrp")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("3_wqiek")
+texture = ExtResource("2_tq711")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Item1Container" type="HBoxContainer" parent="Background" unique_id=1595440194]
-layout_mode = 0
-offset_left = 349.0
-offset_top = 148.0
-offset_right = 558.0
-offset_bottom = 234.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -264.0
+offset_right = -38.0
+offset_bottom = -168.99998
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Box" type="TextureRect" parent="Background/Item1Container" unique_id=753713319]
 layout_mode = 2
@@ -65,11 +74,18 @@ autowrap_mode = 3
 clip_text = true
 
 [node name="Item2Container" type="HBoxContainer" parent="Background" unique_id=747432574]
-layout_mode = 0
-offset_left = 346.0
-offset_top = 252.0
-offset_right = 564.0
-offset_bottom = 347.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -144.0
+offset_right = -38.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Textbox" type="VBoxContainer" parent="Background/Item2Container" unique_id=50791158]
 layout_mode = 2
@@ -108,11 +124,18 @@ offset_bottom = 86.0
 expand_mode = 1
 
 [node name="Item3Container" type="HBoxContainer" parent="Background" unique_id=969074321]
-layout_mode = 0
-offset_left = 617.0
-offset_top = 142.0
-offset_right = 835.0
-offset_bottom = 237.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -264.0
+offset_right = 242.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Textbox" type="VBoxContainer" parent="Background/Item3Container" unique_id=572954756]
 layout_mode = 2
@@ -151,11 +174,18 @@ offset_bottom = 86.0
 expand_mode = 1
 
 [node name="Item4Container" type="HBoxContainer" parent="Background" unique_id=953457426]
-layout_mode = 0
-offset_left = 609.0
-offset_top = 255.0
-offset_right = 827.0
-offset_bottom = 350.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -144.0
+offset_right = 242.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Box" type="TextureRect" parent="Background/Item4Container" unique_id=1450567841]
 layout_mode = 2
@@ -194,21 +224,36 @@ autowrap_mode = 3
 clip_text = true
 
 [node name="RightArrow" type="Button" parent="Background" unique_id=523777718]
-layout_mode = 0
-offset_left = 803.0
-offset_top = 344.0
-offset_right = 853.0
-offset_bottom = 393.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 199.0
+offset_top = -49.0
+offset_right = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 icon = ExtResource("4_tq711")
 flat = true
 
 [node name="LeftArrow" type="Button" parent="Background" unique_id=1388117822]
-layout_mode = 0
-offset_left = 365.0
-offset_top = 380.0
-offset_right = 415.0
-offset_bottom = 429.0
-rotation = -3.1415927
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -59.0
+offset_right = -220.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+pivot_offset_ratio = Vector2(0.5, 0.5)
 icon = ExtResource("4_tq711")
 flat = true
 

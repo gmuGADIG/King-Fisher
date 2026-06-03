@@ -19,7 +19,9 @@ func _on_back_button_pressed() -> void:
 
 func setup_item(index : int) -> void:
 	var page_location = index - (page*4) + 1
+	print(ITEMS[index])
 	var item = ITEMS[index].instantiate()
+	print(item)
 	get_node("Background/Item"+str(page_location)+"Container/Box/Image").texture = item.sprite
 	get_node("Background/Item"+str(page_location)+"Container/Textbox/Description").text = "Description: " + item.description
 	get_node("Background/Item"+str(page_location)+"Container/Textbox/Lore").text = "Lore: " + item.lore

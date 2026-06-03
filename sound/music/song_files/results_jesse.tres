@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://bjgcxflmgpwll"]
+
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://sound/music/song_resource/song.gd" id="1_aurj3"]
+[ext_resource type="Script" uid="uid://b7okmeqcdjwec" path="res://sound/music/song_resource/section.gd" id="2_tn78m"]
+[ext_resource type="AudioStream" uid="uid://d3g64ql5f1drl" path="res://sound/music/song_files/results_jesse.mp3" id="3_d144n"]
+
+[sub_resource type="Curve" id="Curve_q2ko8"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ka4w2"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_xuxrt"]
+script = ExtResource("2_tn78m")
+section_name = "main loop"
+section_start = 1.5036371654934353
+section_end = 49.457019653320415
+loop = true
+fade_in_curve = SubResource("Curve_q2ko8")
+fade_out_curve = SubResource("Curve_ka4w2")
+
+[resource]
+script = ExtResource("1_aurj3")
+song_file = ExtResource("3_d144n")
+sections = Array[ExtResource("2_tn78m")]([SubResource("Resource_xuxrt")])
+amplify_db = -20.0

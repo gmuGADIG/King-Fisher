@@ -8,4 +8,9 @@ script = ExtResource("1_aqhxa")
 fish_name = "CEO Fish"
 grade = 3
 sprite = ExtResource("2_7hjkq")
+description = "Fish have a stench to them, everyone knows that. The C.E.O Fish only knows the stench of victory.
+When he first arrived at the company, nobody looked up to him, but always down on him. Nobody expected anything from him.
+When he returned to the office shortly after a couple years, everyone had no choice but to submit to his rigorous tactics of business planning. He was almost unrecognizable to the shrimp he was before.
+But then he met someone. She made him experience a whole new world that nobody could show him before, one consisting of various fanfictions.
+Now he controls the biggest corporation in the pond. Reeking of the stench of victory."
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

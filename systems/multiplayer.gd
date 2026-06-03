@@ -21,6 +21,7 @@ var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
 var displayName: String
+var status: String
 #Allowed maps starts with a safety in case start game is loaded without going into lobby menu
 var allowedMaps:Array = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
 
@@ -46,7 +47,7 @@ func _process_scan_server() -> void:
 			Debug.log("sending something to the client.")
 			# TODO: send meaningful data, like our username or something
 			var playersOnlineString: String = str(int(multiplayer.get_peers().size())+1) + "/" + str(MAX_CLIENTS)
-			peer.put_var([displayName, playersOnlineString])
+			peer.put_var([displayName, playersOnlineString, status])
 			
 # measure the time since we shouted into the void
 var scan_clock := 0.
@@ -75,10 +76,12 @@ func _process_scan_for_servers(delta: float) -> void:
 		var server_ip = scan_client.get_packet_ip()
 		var foundHostName: String = s[0]
 		var playersOnlineString: String = s[1]
+		var statusString: String = s[2]
 		Debug.log("scan_client recieved something from %s!" % server_ip)
 
-		
-		found_server.emit(server_ip, foundHostName, playersOnlineString)
+		if(statusString == ""):
+			statusString = "Ready to start"
+		found_server.emit(server_ip, foundHostName, playersOnlineString, statusString)
 
 func _process(delta: float) -> void:
 	if scan_server: _process_scan_server()
@@ -102,6 +105,7 @@ func _on_peer_connected(id: int) -> void:
 	var server = ServerConnection.new()
 	server.playerName = "Player"
 	server.ready = false
+	server.character_texture_id = CharacterSelect.pick_random_texture_index()
 	player_list.set(id,server)
 	new_player.emit(id)
 
@@ -118,6 +122,7 @@ func disconnect_from_game() -> void:
 		if scan_server: # only not true in editor F6 afaik
 			scan_server.stop()
 		player_list.clear()
+		_on_server_disconnected()
 	else:
 		_disconnect_request.rpc_id(1)
 
@@ -132,24 +137,27 @@ func _disconnect_request() -> void:
 @rpc("authority", "call_local")
 func delete_disconnected_player(id) -> void:
 	#Deletes the player's body
-	player_list.get(id).player.queue_free()
+	if player_list.get(id).player:
+		player_list.get(id).player.queue_free()
 
 	#Cleanups the player's index
 	player_list.erase(id)
 
 @rpc("reliable")
-func learn_player(player_id: int, player_name: String, player_path: NodePath) -> void:
+func learn_player(player_id: int, player_name: String, player_path: NodePath, tex_id : int) -> void:
 	player_list.get_or_add(player_id)
 	var server_conn = ServerConnection.new()
 	server_conn.playerName = player_name
 	server_conn.player = get_node(player_path)
+	server_conn.character_texture_id  = tex_id
 	player_list.set(player_id, server_conn)
+	CharacterSelect.assign_skin(player_id,tex_id)
 
 func broadcast_player_info() -> void:
 	await get_tree().process_frame
 	for player_id in player_list.keys():
-		var server_conn = player_list.get(player_id)
-		learn_player.rpc(player_id, server_conn.playerName, server_conn.player.get_path())
+		var server_conn : ServerConnection = player_list.get(player_id)
+		learn_player.rpc(player_id, server_conn.playerName, server_conn.player.get_path(), server_conn.character_texture_id)
 
 func _countdown(duration: int) -> void:
 	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
@@ -162,10 +170,30 @@ func _countdown(duration: int) -> void:
 
 @rpc("call_local")
 func start_the_game():
+
+	status = "Starting"
+
+	if multiplayer.is_server():
+		##Pick Song
+		var song_name : String = LobbySettings.get_song_selection()
+		Debug.log("Song Selected: ",song_name)
+		#var song_index : int = randi_range(0,song_pool)
+		##TODO: More stuff added to this to set up in WorldGameplay
+		set_up_round_settings.rpc(
+			song_name,
+			LobbySettings.roundTime,
+			LobbySettings.fishSpawn,
+			LobbySettings.itemSpawn
+		)
+		##TODO: Set up item pool
+		
 	await _countdown(5)
-	if(!multiplayer.is_server()):
+	game_starting = false;
+	if(not multiplayer.is_server()):
 		return
-	var levelLoad:String = allowedMaps.pick_random()
+
+	#var levelLoad:String = allowedMaps.pick_random()
+	var levelLoad : String = "res://world/level-docks/level-docks.tscn"
 	
 	load_players.rpc(levelLoad)
 	Debug.log(player_list.size())
@@ -173,8 +201,13 @@ func start_the_game():
 		await player_loaded
 	await get_tree().process_frame
 	
-	#TODO game goes
 
+func set_up_round_settings(song_name : String, round_time : float, fish_spawn : LobbySettings.SpawnRate, item_spawn : LobbySettings.SpawnRate) -> void:
+	WorldGameplay.song = LobbySettings.song_pool[song_name]
+	WorldGameplay.round_time = round_time
+	##TODO: Modify Fish Spawn Rate
+	##TODO: Modify Item Spawn Rate
+	
 @rpc("authority","call_local","reliable")
 func load_players(level: String):
 	
@@ -197,6 +230,7 @@ func _handle_ready_up() -> void:
 	game_starting = true
 	start_game.emit()
 	start_the_game.rpc()
+	status = "In Game"
 			
 func set_map(mapString:String,pool:Array):
 	#Array to be returned
@@ -225,8 +259,9 @@ func create_server() -> void:
 	var server = ServerConnection.new()
 	server.playerName = "Player"
 	server.ready = true
+	server.character_texture_id = CharacterSelect.pick_random_texture_index()
 	player_list.set(1, server)
-
+	
 	scan_server = UDPServer.new()
 	scan_server.listen(PORT + 1)
 
@@ -254,6 +289,11 @@ func report_loaded() -> void:
 	loaded_players.push_back(multiplayer.get_remote_sender_id())
 	player_loaded.emit(multiplayer.get_remote_sender_id())
 
+@rpc("call_local")
+func results_screen(place: int) -> void:
+	Debug.log("results_screen(place = %d)" % place)
+	ResultsScreen.place = place
+	SceneTransition.change_to_file("res://ui/results/results_screen.tscn")
 
 # host disconnecting client
 @rpc("reliable","call_local","authority")

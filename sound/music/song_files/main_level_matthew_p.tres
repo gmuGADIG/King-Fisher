@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Song" format=3]
+
+[ext_resource type="Script" path="res://sound/music/song_resource/song.gd" id="1_wx2tq"]
+[ext_resource type="Script" path="res://sound/music/song_resource/section.gd" id="2_myn7g"]
+[ext_resource type="AudioStream" path="res://sound/music/song_files/main_level_matthew_p.mp3" id="3_0ix4x"]
+
+[sub_resource type="Curve" id="Curve_wx2tq"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_myn7g"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_0ix4x"]
+script = ExtResource("2_myn7g")
+section_name = "main loop"
+section_end = 104.615395
+loop = true
+fade_in_curve = SubResource("Curve_wx2tq")
+fade_out_curve = SubResource("Curve_myn7g")
+
+[sub_resource type="Curve" id="Curve_2to48"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_003fh"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_p484k"]
+script = ExtResource("2_myn7g")
+section_name = "new section"
+section_start = 103.16240300072565
+section_end = 104.615395
+fade_in_curve = SubResource("Curve_2to48")
+fade_out_curve = SubResource("Curve_003fh")
+
+[resource]
+script = ExtResource("1_wx2tq")
+song_file = ExtResource("3_0ix4x")
+sections = Array[ExtResource("2_myn7g")]([SubResource("Resource_0ix4x"), SubResource("Resource_p484k")])

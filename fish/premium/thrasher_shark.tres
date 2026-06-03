@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://dy0py41yqcpjc"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_4w8xq"]
+[ext_resource type="Texture2D" uid="uid://cr2p50dgdofth" path="res://fish/sprites/thrasher_shark.png" id="2_4w8xq"]
+
+[resource]
+script = ExtResource("1_4w8xq")
+fish_name = "Thrasher Shark"
+grade = 3
+sprite = ExtResource("2_4w8xq")
+description = "The Thrasher Shark is the scourge of the seas, the fish of fear, the monster from every young minnow’s nightmares. When you hear that deadly bassline coming, swim away as fast as you can, because if it catches you, it’ll mosh you into oblivion.
+
+Its large, muscular body lends it to lightning-fast movement—it can catch unsuspecting fish in the blink of an eye. The only warning is the sound of its terrifying music, like the rattle of a rattlesnake as it poises to attack. Its long, bladelike tail could slice any fish to ribbons, but it’ll always give mosh competitors a fair chance first, once it captures them and carries them away. Unfortunately, most fish lose, and many once-glorious species have been made extinct from its predation.
+
+It’s theorized that Thrasher Sharks got their love for heavy music from tunes it heard coming from the tournament celebrations on land, but the sounds were intensified by the roars of the ocean, leading to its signature thrash metal."
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

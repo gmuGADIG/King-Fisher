@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Song" format=3]
+
+[ext_resource type="Script" path="res://sound/music/song_resource/song.gd" id="1_od63k"]
+[ext_resource type="Script" path="res://sound/music/song_resource/section.gd" id="2_tgfau"]
+[ext_resource type="AudioStream" path="res://sound/music/song_files/lobby_search_erina.mp3" id="3_if7mg"]
+
+[sub_resource type="Curve" id="Curve_el22v"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_8obck"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_leltc"]
+script = ExtResource("2_tgfau")
+section_name = "main loop"
+section_start = 10.117777827227567
+section_end = 85.89474
+loop = true
+fade_period = 0.5
+fade_in_curve = SubResource("Curve_el22v")
+fade_out_curve = SubResource("Curve_8obck")
+
+[resource]
+script = ExtResource("1_od63k")
+song_file = ExtResource("3_if7mg")
+sections = Array[ExtResource("2_tgfau")]([SubResource("Resource_leltc")])
