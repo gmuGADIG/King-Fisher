@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://pqpwm6albbas"]
 
 [ext_resource type="Shader" uid="uid://bdinw1hgi5x7s" path="res://world/water/water.tres" id="1_nl8eq"]
-[ext_resource type="PackedScene" uid="uid://drb1uf1i8esqm" path="res://world/killbox/killbox.tscn" id="2_s33lq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s33lq"]
 render_priority = 0
@@ -27,6 +26,3 @@ mesh = SubResource("PlaneMesh_delex")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1660059637]
 shape = SubResource("BoxShape3D_nl8eq")
-
-[node name="Killbox" parent="." unique_id=407025254 instance=ExtResource("2_s33lq")]
-transform = Transform3D(2.3750334, 0, 0, 0, 0.09906029, 0, 0, 0, 2.3750334, 0, 0, 0)

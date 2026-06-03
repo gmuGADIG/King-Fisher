@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbpteyodpmjq3" path="res://world/world_base.gd" id="1_p433e"]
 [ext_resource type="PackedScene" uid="uid://bffxe171rcnea" path="res://player/player.tscn" id="2_bl271"]
-[ext_resource type="Script" uid="uid://b6jnwssa8pgx8" path="res://systems/player_spawn_manager.gd" id="3_3xj4d"]
+[ext_resource type="Script" path="res://systems/player_spawn_manager.gd" id="3_3xj4d"]
 [ext_resource type="PackedScene" uid="uid://dcw4q486qsqsy" path="res://ui/scoreboard/scoreboard.tscn" id="3_7di53"]
 [ext_resource type="PackedScene" uid="uid://c60phfujl8qwv" path="res://systems/player_spawn_point.tscn" id="4_lgvll"]
 [ext_resource type="PackedScene" uid="uid://bgjdwnhkngufk" path="res://ui/pause_menu/pause_menu.tscn" id="4_uycxt"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="8_ddkgs"]
 [ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_xvf6j"]
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="9_32lhn"]
-[ext_resource type="Resource" uid="uid://lr43qgruj361" path="res://world/lobby/data.hterrain" id="9_hpp7h"]
+[ext_resource type="Resource" path="res://world/lobby/data.hterrain" id="9_hpp7h"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="10_7trks"]
 [ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="10_cq2ek"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="11_48nxm"]
@@ -22,12 +22,16 @@
 [ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="13_k5ckw"]
 [ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="14_34arh"]
 [ext_resource type="Environment" uid="uid://byjvy8xudhe0n" path="res://world/environment.tres" id="14_48nxm"]
+[ext_resource type="PackedScene" uid="uid://drb1uf1i8esqm" path="res://world/killbox/killbox.tscn" id="21_uaf31"]
 [ext_resource type="AudioStream" uid="uid://chsdonglah64k" path="res://sound/sfx/one.minute.remaining.final.wav" id="23_cq2ek"]
 
 [sub_resource type="Resource" id="Resource_ack3r"]
 script = ExtResource("10_7trks")
 mode = 0
 textures = [[ExtResource("11_48nxm")], [null]]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uaf31"]
+size = Vector3(49.54712, 11.2751465, 57.408203)
 
 [node name="WorldBase" type="Node3D" unique_id=1821617715]
 script = ExtResource("1_p433e")
@@ -145,6 +149,12 @@ transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 57, 0, 7)
 [node name="Water16" parent="Water" unique_id=424914100 instance=ExtResource("12_hpp7h")]
 transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 107, 0, -43)
 
+[node name="Killbox" parent="Water" unique_id=407025254 instance=ExtResource("21_uaf31")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 31.1862, -28.779278, 31.593868)
+
+[node name="CollisionBox" parent="Water/Killbox" index="0" unique_id=2090026275]
+shape = SubResource("BoxShape3D_uaf31")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=52136514]
 environment = ExtResource("14_48nxm")
 
@@ -155,3 +165,5 @@ transform = Transform3D(0.9062784, 0, -0.42268154, 0, 1, 0, 0.42268154, 0, 0.906
 unique_name_in_owner = true
 stream = ExtResource("23_cq2ek")
 bus = &"SFX"
+
+[editable path="Water/Killbox"]
