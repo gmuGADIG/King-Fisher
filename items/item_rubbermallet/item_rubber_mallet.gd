@@ -1,4 +1,4 @@
-extends SwingableItem
+class_name RubberMallet extends SwingableItem
 
 @export var ragdollTime : float = 1.0
 
