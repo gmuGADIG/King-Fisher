@@ -1,14 +1,13 @@
 class_name Killbox
-extends Node3D
+extends Area3D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
-	self.get_node("DevTexture").visible = false
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Player"):
+	if body is Player:
 		if body.force_respawn: return
 		if !body.force_respawn:
 			body.force_respawn = true

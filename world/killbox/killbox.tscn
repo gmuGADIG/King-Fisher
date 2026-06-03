@@ -2,23 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c40gvyl4b4rup" path="res://world/killbox/killbox.gd" id="1_cxdqb"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2mut4"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_cxdqb"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxdqb"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.2901961)
-
 [node name="Killbox" type="Area3D" unique_id=407025254]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 collision_mask = 10
 script = ExtResource("1_cxdqb")
 
 [node name="CollisionBox" type="CollisionShape3D" parent="." unique_id=2090026275]
-shape = SubResource("BoxShape3D_2mut4")
-
-[node name="DevTexture" type="MeshInstance3D" parent="." unique_id=1774105559]
-layers = 4
-mesh = SubResource("BoxMesh_cxdqb")
-surface_material_override/0 = SubResource("StandardMaterial3D_cxdqb")
+debug_color = Color(0.9997781, 0.012028669, 7.70092e-07, 1)
