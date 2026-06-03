@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://dih1wbmgk3wkg"]
 
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="1_5eayx"]
 [ext_resource type="Script" uid="uid://sebpacttibvk" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
 [ext_resource type="PackedScene" uid="uid://cksuxnaqh3sqr" path="res://ui/lobby_browser/server_info.tscn" id="2_csvqp"]
 [ext_resource type="Texture2D" uid="uid://dfkve0oupbjtw" path="res://temp/lobby_select.png" id="3_pxnt7"]
 [ext_resource type="Texture2D" uid="uid://ddtl1bbfi35vb" path="res://art/UI/lobby_browser_window.png" id="4_5eayx"]
-[ext_resource type="Texture2D" uid="uid://cgb7fmm2v042n" path="res://art/UI/lobby_browser_button_small.png" id="5_uxqk6"]
-[ext_resource type="Texture2D" uid="uid://g8l2oebmqcbe" path="res://art/UI/lobby_creation_window.png" id="6_kwntm"]
 [ext_resource type="LabelSettings" uid="uid://cqgavuhu2tpo4" path="res://lobby_creation_title.tres" id="7_4j0i0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bfydg"]
@@ -13,6 +12,7 @@ font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_5iw70"]
 font_size = 25
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_x8owp"]
 font_size = 31
@@ -24,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5eayx")
 script = ExtResource("1_k67f4")
 server_info_packed = ExtResource("2_csvqp")
 
@@ -179,90 +180,51 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="Control" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1857130252]
+[node name="Buttons" type="Control" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1857130252]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer" unique_id=1467097020]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -41.0
-offset_right = 78.0
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons" unique_id=1467097020]
+layout_mode = 0
+offset_right = 106.0
+offset_bottom = 50.0
 grow_vertical = 0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="RefreshButton" type="Button" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer" unique_id=674890748]
-self_modulate = Color(1, 1, 1, 0)
+[node name="RefreshButton" type="Button" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons/MarginContainer" unique_id=674890748]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
-text = " Refresh "
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer/RefreshButton" unique_id=1156542280]
-layout_mode = 0
-offset_left = 3.0
-offset_right = 159.0
-offset_bottom = 72.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_uxqk6")
-
-[node name="Label" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer/RefreshButton" unique_id=319774348]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-layout_mode = 0
-offset_left = 3.0
-offset_top = 1.0
-offset_right = 80.645
-offset_bottom = 34.24
 text = "Refresh"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer" unique_id=1164648850]
+[node name="MarginContainer2" type="MarginContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons" unique_id=1164648850]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -55.5
-offset_top = -40.0
-offset_right = 55.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = -25.0
+offset_right = 77.5
+offset_bottom = 25.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HostButton" type="Button" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1159664938]
-self_modulate = Color(1, 1, 1, 0)
+[node name="HostButton" type="Button" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons/MarginContainer2" unique_id=1691354350]
+custom_minimum_size = Vector2(200, 35.165)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 18
-text = " Create Lobby "
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer2/HostButton" unique_id=1749873705]
-layout_mode = 0
-offset_left = -0.5
-offset_top = -1.0
-offset_right = 269.415
-offset_bottom = 71.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_uxqk6")
-
-[node name="Label" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer2/HostButton" unique_id=959249481]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-layout_mode = 0
-offset_left = 15.5
-offset_right = 118.5
-offset_bottom = 33.24
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Create Lobby"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="JoiningGame" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=1769578127]
 custom_minimum_size = Vector2(0, 64.805)
@@ -328,7 +290,7 @@ offset_right = 275.25598
 offset_bottom = 275.096
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_kwntm")
+texture = ExtResource("4_5eayx")
 expand_mode = 1
 stretch_mode = 5
 
@@ -403,51 +365,51 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1235247534]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button" unique_id=1416024420]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.541
-anchor_right = 0.541
-offset_left = -40.034
-offset_right = 39.966
-offset_bottom = 34.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "2"
 label_settings = SubResource("LabelSettings_5iw70")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button2" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1134808308]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button2" unique_id=1174190182]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-layout_mode = 0
-offset_left = 4.0
-offset_right = 84.0
-offset_bottom = 35.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "3"
 label_settings = SubResource("LabelSettings_5iw70")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button3" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=211331016]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label3" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button3" unique_id=703835826]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-layout_mode = 0
-offset_left = 2.0
-offset_right = 82.0
-offset_bottom = 35.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "4"
 label_settings = SubResource("LabelSettings_5iw70")
 horizontal_alignment = 1
@@ -458,25 +420,22 @@ layout_mode = 2
 theme_override_constants/separation = 25
 
 [node name="Button" type="Button" parent="LobbyCreationWindow/VBoxContainer" unique_id=953535078]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/Button" unique_id=257631793]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = -1.4690001
-anchor_right = 0.5
-anchor_bottom = -1.4690001
-offset_left = -43.5
-offset_top = 89.73301
-offset_right = 55.5
-offset_bottom = 133.733
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Create"
 label_settings = SubResource("LabelSettings_x8owp")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="TextureRect/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/HBoxContainer/MarginContainer2/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons/MarginContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons/MarginContainer2/HostButton" to="." method="_on_host_button_pressed"]
