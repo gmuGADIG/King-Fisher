@@ -30,3 +30,6 @@ func unpause() -> void:
 func _on_quit_pressed() -> void:
 	Multiplayer.disconnect_from_game()
 	visible = false
+
+func _on_continue_pressed() -> void:
+	unpause()
