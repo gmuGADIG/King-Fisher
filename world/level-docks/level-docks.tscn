@@ -40,9 +40,6 @@ script = ExtResource("2_nx4m1")
 fish_spawners = [NodePath("FishSpawners/FishSpawner")]
 fish_spawner_weights = Array[int]([1])
 
-[node name="PauseMenu" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="2" unique_id=509264285]
-script = null
-
 [node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
 transform = Transform3D(0.59285706, -0.4491682, -0.66840756, 0.805308, 0.33067176, 0.49207285, 1.2519363e-08, -0.83000255, 0.55775964, 0, 11.385282, 8.448111)
 
