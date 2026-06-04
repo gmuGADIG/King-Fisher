@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bp1ga0y2284ok" path="res://ui/options/options_menu.gd" id="2_gacm8"]
 [ext_resource type="AudioStream" uid="uid://crho3l0hcp0cc" path="res://temp/temp_sfx/test_unlock.wav" id="3_8hrnt"]
 [ext_resource type="Texture2D" uid="uid://de43xmmbif0ps" path="res://art/ui assets/wooden_button1.png" id="3_a4bum"]
-[ext_resource type="Texture2D" uid="uid://dg8eepua0mmw2" path="res://art/ui assets/Fish_Button.png" id="5_xewkt"]
+[ext_resource type="Texture2D" uid="uid://dhwvb7muj0i0r" path="res://art/ui assets/fish_button_x.png" id="5_xewkt"]
 
 [node name="OptionsMenu" type="Control" unique_id=1087068024]
 layout_mode = 3
