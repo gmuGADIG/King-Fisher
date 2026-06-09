@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlvx57h3on4id"]
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_sgynd"]
-[ext_resource type="Script" path="res://world/world_gameplay.gd" id="2_nx4m1"]
+[ext_resource type="Script" uid="uid://gcho7uv032l6" path="res://world/world_gameplay.gd" id="2_nx4m1"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_wox4p"]
 [ext_resource type="Resource" uid="uid://db712r706tn6l" path="res://world/level-docks/terrain/data.hterrain" id="3_nv64i"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_4k232"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="11_hbmjt"]
 [ext_resource type="PackedScene" uid="uid://c16dgg4echeu6" path="res://world/props/lilypad.tscn" id="12_1v4by"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="12_b1un7"]
+[ext_resource type="PackedScene" uid="uid://drb1uf1i8esqm" path="res://world/killbox/killbox.tscn" id="12_qkpls"]
 [ext_resource type="PackedScene" uid="uid://bcdu3eu5jmtu2" path="res://world/props/rock_3.tscn" id="13_1v4by"]
 [ext_resource type="PackedScene" uid="uid://c7qtypw0fweqf" path="res://world/props/dock_end.tscn" id="13_hbmjt"]
 [ext_resource type="PackedScene" uid="uid://dot3qmugnfdcx" path="res://world/props/dock.tscn" id="13_vt4r5"]
@@ -31,13 +32,13 @@ script = ExtResource("4_4k232")
 mode = 0
 textures = [[ExtResource("8_hbmjt")], [null]]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fdhgo"]
+size = Vector3(9.422852, 0.74194336, 9.098633)
+
 [node name="Docks" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_sgynd")]
 script = ExtResource("2_nx4m1")
 fish_spawners = [NodePath("FishSpawners/FishSpawner")]
 fish_spawner_weights = Array[int]([1])
-
-[node name="PauseMenu" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="2" unique_id=509264285]
-script = null
 
 [node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
 transform = Transform3D(0.59285706, -0.4491682, -0.66840756, 0.805308, 0.33067176, 0.49207285, 1.2519363e-08, -0.83000255, 0.55775964, 0, 11.385282, 8.448111)
@@ -196,6 +197,13 @@ transform = Transform3D(-0.0390019, 0, -0.051998574, 0, 0.065, 0, 0.051998574, 0
 
 [node name="Rock 6" parent="RockForms/RockForm4" index="5" unique_id=1256144574 instance=ExtResource("13_1v4by")]
 transform = Transform3D(-0.012000586, 0, -0.015999561, 0, 0.02, 0, 0.015999561, 0, -0.012000586, 15.269602, -0.027582645, 1.8032265)
+
+[node name="Killbox2" parent="Water" parent_id_path=PackedInt32Array(1426951503) index="17" unique_id=407025254 instance=ExtResource("12_qkpls")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 29.70063, 8.225689, 33.20318)
+
+[node name="CollisionBox" parent="Water/Killbox2" index="0" unique_id=2090026275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.057617188, 0)
+shape = SubResource("BoxShape3D_fdhgo")
 
 [node name="lilypad" parent="." index="18" unique_id=801340911 instance=ExtResource("12_1v4by")]
 transform = Transform3D(-3.6221273, 0, -1.6971136, 0, 4, 0, 1.6971136, 0, -3.6221273, 22.825996, -0.7057127, 51.00137)
@@ -961,3 +969,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.357807, 1.1075009, 32.8294
 
 [node name="Rubber Mallet" parent="." index="272" unique_id=1678140614 instance=ExtResource("25_vs71a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.422941, 0.26853234, 25.195616)
+
+[editable path="Water/Killbox"]
+[editable path="Water/Killbox2"]

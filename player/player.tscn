@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://b5qsduosl8iom" path="res://sound/sfx/player/fishing/fishcatch4.mp3" id="14_uw77l"]
 [ext_resource type="AudioStream" uid="uid://cs0oknyeydg6n" path="res://sound/sfx/player/fishing/FishCatchFail.mp3" id="15_knn7v"]
 [ext_resource type="Shader" uid="uid://dmiygqboqr8gs" path="res://player/player.gdshader" id="20_bjvpn"]
+[ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="23_s7qer"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -41,7 +42,7 @@ shader = ExtResource("20_bjvpn")
 shader_parameter/albedo = Color(0, 1, 1, 1)
 shader_parameter/frensel_power = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjvpn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4c7l"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_s7qer")
 diffuse_mode = 3
@@ -63,7 +64,6 @@ radius = 0.05
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_onrkg")
-player_mesh = NodePath("DefaultPlayer")
 footstep_distance = 3.5
 min_footstep_period = 0.2
 accuracy_threshold_decrease = 5.0
@@ -71,6 +71,7 @@ ragdoll_time_increase = 5.0
 ragdoll_time_decrease = 5.0
 movement_speed_increase = 5.0
 jump_height_increase = 5.0
+player_mesh = NodePath("DefaultPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1812883740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -153,23 +154,27 @@ volume_db = 6.0
 
 [node name="HeldItem" parent="." unique_id=1114095646 instance=ExtResource("9_kb6p2")]
 
+[node name="Livewell" parent="." unique_id=1231020864 instance=ExtResource("23_s7qer")]
+unique_name_in_owner = true
+visible = false
+
 [node name="DefaultPlayer" parent="." unique_id=268378426 node_paths=PackedStringArray("mesh", "bones") instance=ExtResource("2_ebec5")]
 script = ExtResource("2_pmesh")
 mesh = NodePath("PlayerSkeleton/Skeleton3D/DefaultPlayer")
 rotation_speed_curve = ExtResource("4_kb6p2")
 bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
-[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="0" unique_id=3456117]
-material_override = SubResource("StandardMaterial3D_bjvpn")
+[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="0" unique_id=1732977114]
+layers = 8
+material_override = SubResource("StandardMaterial3D_g4c7l")
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 468903528) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
 
 [node name="Physical Bone Pelvis" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1864368423]
 transform = Transform3D(0.010000001, 0, 0, 0, -0.010000002, 1.1920933e-09, 0, -1.1920933e-09, -0.010000002, 0, -1.1542001e-10, 0.0067132604)
-collision_layer = 0
-collision_mask = 9
+collision_layer = 8
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2310064e-13, 0.09682645)
 body_offset = Transform3D(0.010000001, 0, 0, 0, -1.4210858e-16, -0.0100000035, 0, 0.0100000035, -1.4210858e-16, 0, 0.0009682649, -6.217249e-15)
@@ -188,7 +193,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone MiddleSpine" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=615114995]
 transform = Transform3D(0.010000001, 0, 0, 0, -0.010000002, 1.1920933e-09, 0, -1.1920933e-09, -0.010000002, 0, -3.4143266e-10, 0.008609213)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.728437e-13, 0.092811055)
 body_offset = Transform3D(0.010000001, 0, 0, 0, -1.4210858e-16, -0.0100000035, 0, 0.0100000035, -1.4210858e-16, 0, 0.0009281109, -8.715251e-15)
@@ -207,7 +211,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone UpperSpine" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=642119006]
 transform = Transform3D(0.009999488, 7.2658484e-05, 7.059768e-05, 7.060007e-05, -0.009995617, 0.0002875714, 7.265617e-05, -0.0002870582, -0.009995617, -6.5595354e-06, -2.6663784e-05, 0.010458452)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.097981e-06, -1.4683947e-05, 0.09220734)
 body_offset = Transform3D(0.010000002, -5.820766e-11, -4.8430593e-11, -3.0695446e-11, 1.1641532e-10, -0.010000002, 2.910383e-11, 0.010000005, 1.1641532e-10, -5.097536e-08, 0.0009220736, 1.4682882e-07)
@@ -226,7 +229,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone Head" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=791467805]
 transform = Transform3D(0.009999871, 3.616676e-05, 3.5786416e-05, 5.0784063e-05, -0.006664812, -0.0074550477, -3.1115192e-06, 0.007455133, -0.0066649094, -5.0584654e-06, 0.0010539797, 0.01380794)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8987796e-08, -4.0203333e-05, 0.14141403)
 body_offset = Transform3D(0.009999874, 3.616513e-05, 3.5784768e-05, 3.0468073e-11, 0.0070335832, -0.007108357, -5.0876937e-05, 0.007108269, 0.0070334966, -5.0582244e-06, 0.0010055043, -0.0009943494)
@@ -245,7 +247,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone Shoulder L" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1590057692]
 transform = Transform3D(-0.0023430062, 0.0002750045, -0.009717752, -0.00040721, -0.009990004, -0.0001845283, -0.009713112, 0.00035248147, 0.0023518624, 0.0013861575, -3.1270254e-05, 0.011039665)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.300154e-05, -0.00049017865, 0.14395301)
 body_offset = Transform3D(0.010000001, -2.590241e-09, -5.2410996e-08, -5.1101324e-08, 3.2014214e-10, -0.009999998, 2.9394869e-09, 0.010000003, 4.3655746e-10, -5.2247196e-07, 0.0014395297, 4.9017253e-06)
@@ -264,7 +265,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone UpperArm L" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=150983613]
 transform = Transform3D(-0.008615273, 0.0010653313, -0.0049640876, -0.0005043388, -0.009908595, -0.0012511703, -0.005052004, -0.000827559, 0.008590253, 0.0032624938, 0.00012049855, 0.009874565)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44339565e-05, 2.9389068e-06, 0.09613968)
 body_offset = Transform3D(0.0100000035, 4.656613e-10, 1.6007107e-10, 1.8044375e-09, -9.2666596e-08, -0.010000002, 2.3283064e-10, 0.010000005, -9.1968104e-08, -1.44355e-07, 0.00096139684, -2.0547304e-08)
@@ -283,7 +283,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone Forearm L" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1948421120]
 transform = Transform3D(-0.008156139, -0.0027558554, -0.0050875004, -0.0005902464, -0.008350659, 0.005469748, -0.005755781, 0.00476149, 0.00664825, 0.0040135025, -4.743275e-05, 0.008730998)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0023586361, -0.0014197584, 0.050785463)
 body_offset = Transform3D(0.009999998, 1.05879735e-07, -4.575122e-08, -4.4557964e-08, 1.4901161e-08, -0.010000001, -1.0570511e-07, 0.01, 1.0244548e-08, -2.3583882e-05, 0.00050785486, 1.4197314e-05)
@@ -302,7 +301,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone Shoulder R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1499277872]
 transform = Transform3D(-0.0023429561, -0.0002750037, 0.009717765, 0.00040720613, -0.009990003, -0.0001845303, 0.009713124, 0.00035247864, 0.0023518123, -0.0013860957, -2.6399419e-05, 0.011039145)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0192017e-05, -1.5797312e-06, 0.14396814)
 body_offset = Transform3D(0.010000002, -5.820766e-10, -1.2278178e-09, -6.5074346e-10, 5.820766e-11, -0.010000003, 2.910383e-11, 0.010000004, 1.6007107e-10, 2.02097e-07, 0.0014396819, 1.5774276e-08)
@@ -321,7 +319,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone UpperArm R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=486194789]
 transform = Transform3D(-0.008615248, -0.0010656008, 0.0049640727, 0.0005046803, -0.009908584, -0.0012511195, 0.005052012, -0.0008273435, 0.008590269, -0.0032623797, 0.000120492376, 0.009874841)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8740595e-05, 6.264344e-06, 0.09611042)
 body_offset = Transform3D(0.01, 3.418536e-07, 2.154411e-08, 2.1835149e-08, -1.4272518e-07, -0.010000002, -3.4202822e-07, 0.010000008, -1.4191028e-07, 1.8533319e-07, 0.0009611044, -4.901085e-08)
@@ -340,7 +337,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone Forearm R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=2091765003]
 transform = Transform3D(-0.0081561515, 0.0027557765, 0.005087525, 0.0005903534, -0.008350645, 0.0054697567, 0.0057557537, 0.0047615594, 0.006648224, -0.004009396, -4.8686994e-05, 0.008696964)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7056553e-05, -1.6932827e-05, 0.052908055)
 body_offset = Transform3D(0.009999996, -4.656613e-10, 1.1263182e-08, 1.0884833e-08, 2.7939677e-09, -0.010000002, -3.4924597e-10, 0.01, -3.259629e-09, 5.699694e-07, 0.00052908063, 1.6950071e-07)
@@ -359,7 +355,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone Thigh L" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=666174863]
 transform = Transform3D(6.5987037e-06, 0.009962699, -0.0008629135, -0.009777991, 0.000187247, 0.0020870727, 0.002095445, 0.0008423788, 0.00974164, 0.0013617929, -0.0003565898, 0.0049905176)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.507138e-06, -1.9648608e-06, 0.13153869)
 body_offset = Transform3D(0.010000007, 7.1304385e-10, -2.1187589e-08, -2.0721927e-08, -2.1911546e-08, -0.010000007, -7.2759576e-10, 0.010000013, -2.1434971e-08, 5.7858415e-08, 0.0013153879, 2.2468157e-08)
@@ -378,7 +373,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone Shin L" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1628500427]
 transform = Transform3D(0.0013142673, 0.009892812, -0.0006363931, -0.0096527655, 0.0011308937, -0.0023548303, -0.0022576198, 0.0009237829, 0.009697929, 0.0015804718, -0.00024215262, 0.0021069068)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6194613e-06, -5.4713264e-06, 0.16517149)
 body_offset = Transform3D(0.010000005, 4.656613e-10, -2.0023435e-08, -1.9557774e-08, 7.3050614e-09, -0.010000007, 1.1641532e-10, 0.010000013, 7.741619e-09, -3.288733e-08, 0.001651716, 5.3434633e-08)
@@ -397,7 +391,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone Thigh R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1732877882]
 transform = Transform3D(0.000109984656, -0.009973015, 0.0007258818, 0.009947846, 0.00018274598, 0.0010034937, -0.0010140508, 0.0007110591, 0.00992301, -0.0013438099, -0.00021406378, 0.0049667777)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.36725e-06, -6.9641537e-06, 0.13152683)
 body_offset = Transform3D(0.010000006, -6.4028427e-10, 5.820766e-10, 2.3283064e-10, -6.730261e-10, -0.0100000035, -3.6379788e-10, 0.010000013, -6.9303496e-10, -7.3749106e-08, 0.0013152687, 6.973278e-08)
@@ -416,7 +409,6 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="Physical Bone Shin R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=2119351414]
 transform = Transform3D(0.0012309741, -0.009906468, 0.00058875076, 0.009864575, 0.0011566564, -0.0011629005, 0.0010839251, 0.0007239276, 0.00991469, -0.0015365831, -0.00015403521, 0.0020237209)
 collision_layer = 0
-collision_mask = 9
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2252063e-06, -9.578832e-06, 0.16513638)
 body_offset = Transform3D(0.010000002, -2.561137e-09, 1.9790605e-09, 2.2118911e-09, 7.421477e-10, -0.010000003, 4.656613e-10, 0.010000014, 1.2805685e-09, -4.2578904e-08, 0.0016513643, 9.557698e-08)

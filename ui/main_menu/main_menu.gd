@@ -6,6 +6,7 @@ extends Control
 
 # Hide Everything that isn't the Main Menu
 func _ready() -> void:
+	#UIState.ui_state = UIState.State.MAIN_MENU
 	Keybinds.load_keybinds()
 	$LobbyBrowser.hide()
 	$Fishdex.hide()

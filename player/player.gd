@@ -15,7 +15,7 @@ const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 @onready var ragdoll_phys : PhysicalBoneSimulator3D = player_mesh.bones
 var is_ragdolled := false
 var can_exit_ragdoll := false
-
+var force_respawn := false
 
 @export_category("Variables")
 @export var speed := 10.
@@ -90,8 +90,6 @@ var moai_fish_active: bool = false
 ## increases the player's jump height by this amount.
 @export var jump_height_increase: float
 
-#@onready var livewell : Livewell = $LivewellMenu
-
 var fishing_minigame : FishingMinigame
 
 
@@ -104,6 +102,10 @@ var fishing_minigame : FishingMinigame
 			camera_yaw = new_val + 360.0
 		else:
 			camera_yaw = new_val
+
+
+@onready var livewell : Livewell = %Livewell
+
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -217,9 +219,9 @@ func _keyboard_input(event : InputEvent) -> void:
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("test1"):
-		# ragdoll_phys.ragdoll(10, true)
-		for fish in fish_inventory:
-			Debug.log(fish.fish_name)
+		ragdoll_phys.ragdoll(1)
+		# force_respawn = true
+		pass
 	if event.is_action_pressed("print_players"):
 		Debug.print_players()
 	pass
@@ -478,7 +480,7 @@ func give_fish(fish : Fish) -> void:
 	#livewell.addFish(fish)
 	#TODO update livewell ui
 	if is_multiplayer_authority():
-		Livewell.update_inventory_visuals(fish_inventory,score)
+		livewell.update_inventory_visuals(fish_inventory,score)
 	##%fishdex.caught_fish(fish)
 
 func take_fish(fish: Fish) -> void:
@@ -487,7 +489,7 @@ func take_fish(fish: Fish) -> void:
 		score-=fish.get_score()
 		#TODO update livewell ui
 		if is_multiplayer_authority():
-			Livewell.update_inventory_visuals(fish_inventory,score)
+			livewell.update_inventory_visuals(fish_inventory,score)
 		Debug.log("Player " + self.name +" lost a " + fish.fish_name)
 	else:
 		Debug.log("Player " + self.name + " doesn't have a " + fish.fish_name + " to take!")

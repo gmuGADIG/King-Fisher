@@ -4,6 +4,7 @@ extends Node3D
 @export var player : PackedScene
 
 func _ready() -> void:
+	UIState.ui_state = UIState.State.NONE
 	# TODO: do this without looking at the name
 	if name != "Lobby":
 		Multiplayer.report_loaded.rpc()

@@ -5,6 +5,7 @@ signal closed
 
 @export var server_info_packed : PackedScene
 
+@onready var lobby_creation_window : TextureRect = $LobbyCreationWindow
 @onready var name_text := $DisplayName/NameInput
 var seen_ips: Dictionary[String, bool]
 var infos: Dictionary[String, ServerInfo]
@@ -12,16 +13,20 @@ var infos: Dictionary[String, ServerInfo]
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Multiplayer.found_server.connect(_on_found_server)
+	lobby_creation_window.hide()
+
 
 
 func _on_host_button_pressed() -> void:
 	#if name_text.text.length() == 0:
 		#name_text.text = "Player"+str(randi_range(1,999))
-	Multiplayer.create_server()
 	Multiplayer.displayName = %NameInput.text
+	Multiplayer.create_server()
+	
 	Debug.log("Host Created")
+	#Multiplayer.announce_name.rpc_id(1,%NameInput.text)
 	get_tree().change_scene_to_file("res://world/lobby/lobby.tscn")
-
+	
 
 func _on_found_server(ip: String, hostname: String, playerCount: String, status: String) -> void:
 	if ip in seen_ips: 

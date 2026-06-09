@@ -2,6 +2,7 @@ extends Node
 
 enum State{
 	NONE,
+	MAIN_MENU,
 	PAUSE,
 	LIVEWELL,
 	SCOREBOARD,
@@ -13,7 +14,7 @@ enum State{
 var ui_state : State:
 	set(val):
 		if ui_state == State.LIVEWELL:
-			Livewell.hide()
+			Livewell.instance.hide()
 		
 		ui_state = val
 		match val:
