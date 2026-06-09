@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dohal7iocsei8" path="res://art/ui assets/options_UI_art.png" id="2_8hrnt"]
 [ext_resource type="Script" uid="uid://bp1ga0y2284ok" path="res://ui/options/options_menu.gd" id="2_gacm8"]
 [ext_resource type="AudioStream" uid="uid://crho3l0hcp0cc" path="res://temp/temp_sfx/test_unlock.wav" id="3_8hrnt"]
-[ext_resource type="Texture2D" uid="uid://dhwvb7muj0i0r" path="res://art/ui assets/fish_button_x.png" id="5_xewkt"]
 
 [node name="OptionsMenu" type="Control" unique_id=1087068024]
 layout_mode = 3
@@ -128,7 +127,7 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="SettingsBtn" type="Button" parent="OptionsPanel/VBoxContainer" unique_id=2140402261]
+[node name="KeybindsButton" type="Button" parent="OptionsPanel/VBoxContainer" unique_id=2140402261]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -139,18 +138,17 @@ text = "Keybinds"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1061228079]
 stream = ExtResource("3_8hrnt")
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=834648597]
+[node name="ExitButton" type="Button" parent="." unique_id=1043185628]
 layout_mode = 0
-offset_left = 734.0
+offset_left = 728.0
 offset_top = 132.0
 offset_right = 830.0
 offset_bottom = 228.0
-texture_normal = ExtResource("5_xewkt")
-ignore_texture_size = true
-stretch_mode = 0
+theme_type_variation = &"FishButton"
 
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MouseSensitivtySlider" to="." method="_on_mouse_sensitivty_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/AimingSensitivitySlider" to="." method="_on_aim_sensitivty_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

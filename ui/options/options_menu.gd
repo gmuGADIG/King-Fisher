@@ -46,7 +46,7 @@ func _on_mouse_sensitivty_slider_value_changed(value: float) -> void:
 func _on_aim_sensitivty_slider_value_changed(value: float) -> void:
 	aim_sesntivity = value
 
-func _on_button_pressed() -> void:
+func _on_exit_button_pressed() -> void:
 	closed.emit()
 	print("Options Menu!")
 	hide()

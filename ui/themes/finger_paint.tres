@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://skc0ljw45opd" path="res://ui/main_menu/wooden_itemdex_blank.png" id="3_1mp6f"]
 [ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="3_hdvj4"]
 [ext_resource type="Texture2D" uid="uid://bstcs4jr30rm4" path="res://ui/main_menu/wooden_mainmenu_blank.png" id="3_l6pnj"]
+[ext_resource type="Texture2D" uid="uid://dhwvb7muj0i0r" path="res://art/ui assets/fish_button_x.png" id="3_vmgqp"]
 [ext_resource type="Texture2D" uid="uid://cchlpvc8u1e56" path="res://temp/temp_art/fish_tiny.png" id="4_5u2bq"]
 [ext_resource type="Texture2D" uid="uid://ggup6auyukpv" path="res://ui/main_menu/wooden_exit_blank.png" id="4_hdvj4"]
 [ext_resource type="StyleBox" uid="uid://ck6ntmss3fxrr" path="res://ui/themes/wooden_stylebox_large.tres" id="5_1mp6f"]
@@ -39,8 +40,16 @@ content_margin_top = 20.0
 content_margin_bottom = 20.0
 texture = ExtResource("2_l6pnj")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vmgqp"]
+texture = ExtResource("3_vmgqp")
+modulate_color = Color(0.74558026, 0.7455802, 0.7455802, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_137r2"]
+texture = ExtResource("3_vmgqp")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q7tkq"]
-texture = ExtResource("3_hdvj4")
+texture = ExtResource("3_vmgqp")
+modulate_color = Color(0.5729883, 0.5729883, 0.5729883, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_1mp6f"]
 color = Color(0.34509805, 0.19215687, 0.06666667, 1)
@@ -258,7 +267,10 @@ ColorPickerButton/styles/pressed = null
 ColorPresetButton/styles/preset_fg = null
 ColorPresetButton/styles/preset_focus = null
 FishButton/base_type = &"Button"
-FishButton/styles/normal = SubResource("StyleBoxTexture_q7tkq")
+FishButton/styles/focus = SubResource("StyleBoxTexture_vmgqp")
+FishButton/styles/hover = SubResource("StyleBoxTexture_vmgqp")
+FishButton/styles/normal = SubResource("StyleBoxTexture_137r2")
+FishButton/styles/pressed = SubResource("StyleBoxTexture_q7tkq")
 FlatButton/font_sizes/font_size = 16
 FlatButton/styles/disabled = null
 FlatButton/styles/hover = null
