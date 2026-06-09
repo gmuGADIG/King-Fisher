@@ -144,7 +144,7 @@ offset_left = 728.0
 offset_top = 132.0
 offset_right = 830.0
 offset_bottom = 228.0
-theme_type_variation = &"FishButton"
+theme_type_variation = &"FishXButton"
 
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MouseSensitivtySlider" to="." method="_on_mouse_sensitivty_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/AimingSensitivitySlider" to="." method="_on_aim_sensitivty_slider_value_changed"]

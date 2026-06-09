@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://skc0ljw45opd" path="res://ui/main_menu/wooden_itemdex_blank.png" id="3_1mp6f"]
 [ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="3_hdvj4"]
 [ext_resource type="Texture2D" uid="uid://bstcs4jr30rm4" path="res://ui/main_menu/wooden_mainmenu_blank.png" id="3_l6pnj"]
-[ext_resource type="Texture2D" uid="uid://dhwvb7muj0i0r" path="res://art/ui assets/fish_button_x.png" id="3_vmgqp"]
+[ext_resource type="Texture2D" uid="uid://dg8eepua0mmw2" path="res://art/ui assets/Fish_Button.png" id="3_vmgqp"]
 [ext_resource type="Texture2D" uid="uid://cchlpvc8u1e56" path="res://temp/temp_art/fish_tiny.png" id="4_5u2bq"]
+[ext_resource type="Texture2D" uid="uid://dhwvb7muj0i0r" path="res://art/ui assets/fish_button_x.png" id="4_137r2"]
 [ext_resource type="Texture2D" uid="uid://ggup6auyukpv" path="res://ui/main_menu/wooden_exit_blank.png" id="4_hdvj4"]
 [ext_resource type="StyleBox" uid="uid://ck6ntmss3fxrr" path="res://ui/themes/wooden_stylebox_large.tres" id="5_1mp6f"]
 [ext_resource type="Texture2D" uid="uid://3jhdnmftrr2e" path="res://temp/temp_art/tick.png" id="5_ho655"]
@@ -50,6 +51,17 @@ texture = ExtResource("3_vmgqp")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q7tkq"]
 texture = ExtResource("3_vmgqp")
 modulate_color = Color(0.5729883, 0.5729883, 0.5729883, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w10rl"]
+texture = ExtResource("4_137r2")
+modulate_color = Color(0.74509805, 0.74509805, 0.74509805, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ey8qd"]
+texture = ExtResource("4_137r2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t0b6o"]
+texture = ExtResource("4_137r2")
+modulate_color = Color(0.57254905, 0.57254905, 0.57254905, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_1mp6f"]
 color = Color(0.34509805, 0.19215687, 0.06666667, 1)
@@ -267,10 +279,22 @@ ColorPickerButton/styles/pressed = null
 ColorPresetButton/styles/preset_fg = null
 ColorPresetButton/styles/preset_focus = null
 FishButton/base_type = &"Button"
+FishButton/colors/font_color = Color(0.09803922, 0.22745098, 0.39607844, 1)
+FishButton/colors/font_focus_color = Color(0.09803922, 0.22745098, 0.39607844, 1)
+FishButton/colors/font_hover_color = Color(0.09803922, 0.22745098, 0.39607844, 1)
+FishButton/colors/font_outline_color = Color(0.09803922, 0.22745098, 0.39607844, 1)
+FishButton/colors/font_pressed_color = Color(0.02141744, 0.081033565, 0.16278273, 1)
 FishButton/styles/focus = SubResource("StyleBoxTexture_vmgqp")
 FishButton/styles/hover = SubResource("StyleBoxTexture_vmgqp")
 FishButton/styles/normal = SubResource("StyleBoxTexture_137r2")
 FishButton/styles/pressed = SubResource("StyleBoxTexture_q7tkq")
+FishXButton/base_type = &"Button"
+FishXButton/colors/font_color = Color(0.09803922, 0.22745098, 0.39607844, 1)
+FishXButton/colors/font_outline_color = Color(0.09803922, 0.22745098, 0.39607844, 1)
+FishXButton/styles/focus = SubResource("StyleBoxTexture_w10rl")
+FishXButton/styles/hover = SubResource("StyleBoxTexture_w10rl")
+FishXButton/styles/normal = SubResource("StyleBoxTexture_ey8qd")
+FishXButton/styles/pressed = SubResource("StyleBoxTexture_t0b6o")
 FlatButton/font_sizes/font_size = 16
 FlatButton/styles/disabled = null
 FlatButton/styles/hover = null
