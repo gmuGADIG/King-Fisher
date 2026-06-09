@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://n6fltg0vkvl"]
 
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_a4bum"]
 [ext_resource type="Texture2D" uid="uid://dohal7iocsei8" path="res://art/ui assets/options_UI_art.png" id="2_8hrnt"]
 [ext_resource type="Script" uid="uid://bp1ga0y2284ok" path="res://ui/options/options_menu.gd" id="2_gacm8"]
 [ext_resource type="AudioStream" uid="uid://crho3l0hcp0cc" path="res://temp/temp_sfx/test_unlock.wav" id="3_8hrnt"]
-[ext_resource type="Texture2D" uid="uid://de43xmmbif0ps" path="res://art/ui assets/wooden_button1.png" id="3_a4bum"]
 [ext_resource type="Texture2D" uid="uid://dhwvb7muj0i0r" path="res://art/ui assets/fish_button_x.png" id="5_xewkt"]
 
 [node name="OptionsMenu" type="Control" unique_id=1087068024]
@@ -16,7 +16,7 @@ grow_vertical = 2
 theme = ExtResource("1_a4bum")
 script = ExtResource("2_gacm8")
 
-[node name="OptionsPanel" type="Panel" parent="." unique_id=1105867151]
+[node name="OptionsPanel" type="NinePatchRect" parent="." unique_id=810038643]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.24739583
@@ -40,31 +40,24 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -246.0
-offset_top = -112.5
+offset_top = -159.5
 offset_right = 220.0
-offset_bottom = 203.5
+offset_bottom = 280.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = -4
 
-[node name="Hook" type="TextureRect" parent="OptionsPanel/VBoxContainer" unique_id=310929416]
-custom_minimum_size = Vector2(0, 150)
+[node name="Label" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=1246625283]
 layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_xewkt")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="OptionsTitle" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=1485511261]
-layout_mode = 2
-theme_type_variation = &"HeaderMedium"
-text = "Options"
+theme_override_colors/font_color = Color(0.27951375, 0.17142016, 0.024948912, 1)
+theme_override_font_sizes/font_size = 33
+text = "Settings"
 horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
 
 [node name="MouseSensitivityLabel" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=1884671566]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.24144319, 0.13249117, 0.024500538, 1)
+theme_override_font_sizes/font_size = 18
 text = "Mouse Sensitivity"
 
 [node name="MouseSensitivtySlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=962304467]
@@ -74,13 +67,11 @@ min_value = 0.1
 max_value = 2.0
 step = 0.1
 value = 1.0
-tick_count = 2
-ticks_on_borders = true
-ticks_position = 3
 
 [node name="AimingSensitivityLabel" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=2123600006]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.24313726, 0.13333334, 0.023529412, 1)
+theme_override_font_sizes/font_size = 18
 text = "Aim Sensitivity"
 
 [node name="AimingSensitivitySlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=1375016959]
@@ -90,34 +81,28 @@ min_value = 0.1
 max_value = 2.0
 step = 0.1
 value = 1.0
-tick_count = 2
-ticks_on_borders = true
-ticks_position = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="OptionsPanel/VBoxContainer" unique_id=1665212673]
-layout_mode = 2
 
 [node name="MasterVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=1155885265]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.24313726, 0.13333334, 0.023529412, 1)
+theme_override_font_sizes/font_size = 18
 text = "Master"
 
 [node name="MasterSlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=1419737254]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
 value = 1.0
-tick_count = 2
-ticks_on_borders = true
-ticks_position = 3
 
-[node name="MarginContainer2" type="MarginContainer" parent="OptionsPanel/VBoxContainer" unique_id=1327836431]
+[node name="MarginContainer" type="MarginContainer" parent="OptionsPanel/VBoxContainer" unique_id=1665212673]
 layout_mode = 2
 
 [node name="SFXVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=682179707]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.24313726, 0.13333334, 0.023529412, 1)
+theme_override_font_sizes/font_size = 18
 text = "SFX"
 
 [node name="SFXSlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=19544409]
@@ -126,13 +111,14 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
-tick_count = 2
-ticks_on_borders = true
-ticks_position = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="OptionsPanel/VBoxContainer" unique_id=1327836431]
+layout_mode = 2
 
 [node name="MusicVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer" unique_id=231721356]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.24313726, 0.13333334, 0.023529412, 1)
+theme_override_font_sizes/font_size = 18
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="OptionsPanel/VBoxContainer" unique_id=1407488349]
@@ -141,43 +127,13 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
-tick_count = 2
-ticks_on_borders = true
-ticks_position = 3
 
-[node name="Label" type="Label" parent="OptionsPanel" unique_id=1246625283]
-layout_mode = 0
-offset_left = 94.0
-offset_top = 156.0
-offset_right = 534.0
-offset_bottom = 208.0
-theme_override_colors/font_color = Color(0.27951375, 0.17142016, 0.024948912, 1)
-theme_override_font_sizes/font_size = 33
-text = "Settings"
-horizontal_alignment = 1
-
-[node name="KeybindsBtn" type="TextureButton" parent="OptionsPanel" unique_id=1823144286]
-layout_mode = 0
-offset_left = 213.0
-offset_top = 467.0
-offset_right = 403.0
-offset_bottom = 657.0
-texture_normal = ExtResource("3_a4bum")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="KeybindsLabel" type="Label" parent="OptionsPanel/KeybindsBtn" unique_id=1879399121]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.0530001
-anchor_top = -2.8690002
-anchor_right = -1.0530001
-anchor_bottom = -2.8690002
-offset_left = 253.07002
-offset_top = 605.11005
-offset_right = 324.07
-offset_bottom = 628.11005
-theme_override_colors/font_color = Color(0.24144319, 0.13249117, 0.024500538, 1)
+[node name="SettingsBtn" type="Button" parent="OptionsPanel/VBoxContainer" unique_id=2140402261]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"ItemDexButton"
+theme_override_font_sizes/font_size = 31
 text = "Keybinds"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1061228079]
@@ -193,38 +149,8 @@ texture_normal = ExtResource("5_xewkt")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Button" type="Button" parent="TextureButton" unique_id=21460394]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.43229166
-anchor_top = 0.25848767
-anchor_right = 0.9879028
-anchor_bottom = 0.4830648
-offset_left = -15.5
-offset_top = 9.1851845
-offset_right = -11.838665
-offset_bottom = 12.625778
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="TextureButton/Button" unique_id=1166047107]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -15.0
-offset_top = -8.0
-offset_right = 14.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Back"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MouseSensitivtySlider" to="." method="_on_mouse_sensitivty_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/AimingSensitivitySlider" to="." method="_on_aim_sensitivty_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="pressed" from="TextureButton/Button" to="." method="_on_button_pressed"]
