@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bgjdwnhkngufk"]
 
 [ext_resource type="Script" uid="uid://birm4eaulje21" path="res://ui/pause_menu/pause_menu.gd" id="1_5jicy"]
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_b4b0p"]
 [ext_resource type="Texture2D" uid="uid://d37a15wobl1uc" path="res://art/ui assets/PauseMenuBackground.png" id="2_jbgdu"]
-[ext_resource type="Theme" uid="uid://dq5h7a0rh3vaw" path="res://ui/king_fisher_theme.tres" id="4_uraes"]
+[ext_resource type="Theme" uid="uid://dq5h7a0rh3vaw" path="res://ui/themes/king_fisher_theme.tres" id="4_uraes"]
 
 [node name="PauseMenu" type="Control" unique_id=509264285]
 layout_mode = 3
@@ -11,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_uraes")
+theme = ExtResource("1_b4b0p")
 script = ExtResource("1_5jicy")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1379031614]
@@ -42,26 +43,36 @@ theme_override_font_sizes/normal_font_size = 32
 text = "Pause Menu"
 horizontal_alignment = 1
 
-[node name="Continue" type="Button" parent="TextureRect" unique_id=1591642714]
-layout_mode = 0
-offset_left = 242.0
-offset_top = 246.0
-offset_right = 383.0
-offset_bottom = 303.0
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=1672195546]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = 234.0
+offset_right = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Button" parent="TextureRect/VBoxContainer" unique_id=1591642714]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
 text = "Keep Fishin'!"
 
-[node name="Settings" type="Button" parent="TextureRect" unique_id=2018240968]
-layout_mode = 0
-offset_left = 242.0
-offset_top = 313.0
-offset_right = 383.0
-offset_bottom = 370.0
+[node name="Settings" type="Button" parent="TextureRect/VBoxContainer" unique_id=2018240968]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
 text = "Settings"
 
-[node name="Quit" type="Button" parent="TextureRect" unique_id=831377726]
-layout_mode = 0
-offset_left = 270.0
-offset_top = 381.0
-offset_right = 353.0
-offset_bottom = 438.0
+[node name="Quit" type="Button" parent="TextureRect/VBoxContainer" unique_id=831377726]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
 text = "Quit"
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

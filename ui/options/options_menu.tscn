@@ -141,9 +141,9 @@ stream = ExtResource("3_8hrnt")
 [node name="ExitButton" type="Button" parent="." unique_id=1043185628]
 layout_mode = 0
 offset_left = 728.0
-offset_top = 132.0
+offset_top = 144.0
 offset_right = 830.0
-offset_bottom = 228.0
+offset_bottom = 212.0
 theme_type_variation = &"FishXButton"
 
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MouseSensitivtySlider" to="." method="_on_mouse_sensitivty_slider_value_changed"]
