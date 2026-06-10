@@ -75,3 +75,10 @@ func _on_reset_button_pressed() -> void:
 	InputMap.load_from_project_settings()
 	reflow_ui()
 	save_keybinds()
+	
+func _on_confirm_button_pressed() -> void:
+	var options_menu_scene = preload("res://ui/options/options_menu.tscn")
+	var options_menu = options_menu_scene.instantiate()
+	add_sibling(options_menu)
+	options_menu.show()
+	queue_free()

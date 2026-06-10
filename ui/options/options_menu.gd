@@ -23,6 +23,11 @@ signal closed
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()
+	$OptionsPanel/VBoxContainer/MouseSensitivtySlider.value = mouse_sensitivity
+	$OptionsPanel/VBoxContainer/AimingSensitivitySlider.value = aim_sesntivity
+	$OptionsPanel/VBoxContainer/MasterSlider.value = master_volume
+	$OptionsPanel/VBoxContainer/SFXSlider.value = sfx_volume
+	$OptionsPanel/VBoxContainer/MusicSlider.value = music_volume
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -45,6 +50,12 @@ func _on_mouse_sensitivty_slider_value_changed(value: float) -> void:
 
 func _on_aim_sensitivty_slider_value_changed(value: float) -> void:
 	aim_sesntivity = value
+
+func _on_keybinds_button_pressed() -> void:
+	var keybinds_menu_scene = preload("res://ui/keybinds/keybind_menu.tscn")
+	var keybinds_menu = keybinds_menu_scene.instantiate()
+	add_sibling(keybinds_menu)
+	queue_free()
 
 func _on_exit_button_pressed() -> void:
 	closed.emit()

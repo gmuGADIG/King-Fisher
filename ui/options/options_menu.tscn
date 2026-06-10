@@ -151,4 +151,5 @@ theme_type_variation = &"FishXButton"
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="OptionsPanel/VBoxContainer/KeybindsButton" to="." method="_on_keybinds_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
