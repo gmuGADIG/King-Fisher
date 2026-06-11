@@ -69,3 +69,6 @@ func _on_back_button_pressed() -> void:
 
 func _on_player_count_button_pressed(count: int):
 	Multiplayer.size_limit = count
+
+func _on_ip_extra_text_submitted(new_text: String) -> void:
+	Multiplayer.extra_ip_scan = new_text

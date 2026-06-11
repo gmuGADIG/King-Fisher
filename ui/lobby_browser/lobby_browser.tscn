@@ -247,6 +247,18 @@ size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Create Lobby"
 
+[node name="IPExtra" type="LineEdit" parent="BackgroundImage/VBoxContainer/Buttons" unique_id=791245381]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 1.94
+anchor_right = 0.48000002
+anchor_bottom = 2.66
+offset_left = 0.19999981
+placeholder_text = "Debug: Scan Extra IP"
+alignment = 1
+
 [node name="DisplayName" type="VBoxContainer" parent="." unique_id=927114755]
 layout_mode = 1
 anchors_preset = 2
@@ -437,6 +449,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="BackgroundImage/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="BackgroundImage/VBoxContainer/Buttons/MarginContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
 [connection signal="pressed" from="BackgroundImage/VBoxContainer/Buttons/MarginContainer2/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="text_changed" from="BackgroundImage/VBoxContainer/Buttons/IPExtra" to="." method="_on_ip_extra_text_submitted"]
 [connection signal="pressed" from="LobbyCreationWindow/BackButton" to="." method="_on_create_back_button_pressed"]
 [connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button" to="." method="_on_player_count_button_pressed" binds= [2]]
 [connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button2" to="." method="_on_player_count_button_pressed" binds= [3]]
