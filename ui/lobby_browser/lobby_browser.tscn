@@ -267,7 +267,6 @@ placeholder_text = "Enter name..."
 alignment = 1
 
 [node name="LobbyCreationWindow" type="TextureRect" parent="." unique_id=1549874564]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.47200003
@@ -335,7 +334,8 @@ label_settings = SubResource("LabelSettings_bfydg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="LobbyCreationWindow/VBoxContainer/LobbyName" unique_id=873317293]
+[node name="LobbyNameInput" type="TextEdit" parent="LobbyCreationWindow/VBoxContainer/LobbyName" unique_id=873317293]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -409,11 +409,11 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Button" type="Button" parent="LobbyCreationWindow/VBoxContainer" unique_id=953535078]
+[node name="CreateLobbyButton" type="Button" parent="LobbyCreationWindow/VBoxContainer" unique_id=953535078]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/Button" unique_id=257631793]
+[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/CreateLobbyButton" unique_id=257631793]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -429,3 +429,8 @@ vertical_alignment = 1
 [connection signal="pressed" from="BackgroundImage/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="BackgroundImage/VBoxContainer/Buttons/MarginContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
 [connection signal="pressed" from="BackgroundImage/VBoxContainer/Buttons/MarginContainer2/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="LobbyCreationWindow/BackButton" to="." method="_on_create_back_button_pressed"]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button" to="." method="_on_player_count_button_pressed" binds= [2]]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button2" to="." method="_on_player_count_button_pressed" binds= [3]]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button3" to="." method="_on_player_count_button_pressed" binds= [4]]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/CreateLobbyButton" to="." method="_on_create_lobby_button_pressed"]
