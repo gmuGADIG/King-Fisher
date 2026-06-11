@@ -11,6 +11,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_bfydg"]
 font_size = 24
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_kwntm"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_5iw70"]
 font_size = 25
 font_color = Color(0, 0, 0, 1)
@@ -357,6 +359,8 @@ vertical_alignment = 1
 [node name="Button" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1235247534]
 layout_mode = 2
 size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kwntm")
 
 [node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button" unique_id=1416024420]
 layout_mode = 1
@@ -374,6 +378,8 @@ vertical_alignment = 1
 [node name="Button2" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1134808308]
 layout_mode = 2
 size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kwntm")
 
 [node name="Label2" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button2" unique_id=1174190182]
 layout_mode = 1
@@ -391,6 +397,8 @@ vertical_alignment = 1
 [node name="Button3" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=211331016]
 layout_mode = 2
 size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kwntm")
 
 [node name="Label3" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button3" unique_id=703835826]
 layout_mode = 1
