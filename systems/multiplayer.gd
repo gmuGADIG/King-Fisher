@@ -236,14 +236,14 @@ func _handle_ready_up() -> void:
 	if game_starting: return
 	
 	for player in player_list:
-			if not player_list.get(player).ready:
-				return
+		if not player_list.get(player).ready:
+			return
 	
 	game_starting = true
 	start_game.emit()
 	start_the_game.rpc()
 	status = "In Game"
-			
+
 func set_map(mapString:String,pool:Array):
 	#Array to be returned
 	#Normalize the binary string, has to be the same length as pool
@@ -263,7 +263,11 @@ func _input(event: InputEvent) -> void:
 func set_ready():
 	var sender = multiplayer.get_remote_sender_id();
 	player_list[sender].ready = !player_list[sender].ready;
-	
+	if player_list[sender].ready:
+		LobbyHUD.instance.add_player_ready(sender, player_list[sender].playerName)
+	else:
+		LobbyHUD.instance.remove_player_ready(sender)
+
 func create_server() -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT, MAX_CLIENTS)
