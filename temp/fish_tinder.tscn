@@ -1,68 +1,10 @@
 [gd_scene format=3 uid="uid://sa8cd5ey3scy"]
 
 [ext_resource type="Script" uid="uid://cxemd865tqywc" path="res://temp/fish_tinder.gd" id="1_7o2m4"]
-[ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_vknvt"]
-[ext_resource type="Resource" uid="uid://bl5o0pttyykrj" path="res://systems/rhythm/tracks/fresh/fresh_01.tres" id="3_eyp5h"]
-[ext_resource type="Resource" uid="uid://cvaiaa707xfor" path="res://systems/rhythm/tracks/fresh/fresh_02.tres" id="4_qdw4s"]
-[ext_resource type="Resource" uid="uid://cpoohu5fcwh8e" path="res://systems/rhythm/tracks/fresh/fresh_03.tres" id="5_a55as"]
-[ext_resource type="Resource" uid="uid://b8aw7xup7umyq" path="res://systems/rhythm/tracks/fresh/fresh_04.tres" id="6_n4743"]
-[ext_resource type="Resource" uid="uid://bahm3hsvcfjq8" path="res://systems/rhythm/tracks/fresh/fresh_05.tres" id="7_w6rfi"]
-[ext_resource type="Resource" uid="uid://dkoys6wim2re8" path="res://systems/rhythm/tracks/fresh/fresh_06.tres" id="8_f83ho"]
-[ext_resource type="Resource" uid="uid://bwr4341hpg0jv" path="res://systems/rhythm/tracks/fresh/fresh_07.tres" id="9_5y17u"]
-[ext_resource type="Resource" uid="uid://bfls3v5j0uf72" path="res://systems/rhythm/tracks/fresh/fresh_08.tres" id="10_s48wm"]
-[ext_resource type="Resource" uid="uid://im4q7drr07jf" path="res://systems/rhythm/tracks/fresh/fresh_09.tres" id="11_07gnk"]
-[ext_resource type="Resource" uid="uid://by3v2g3b7kwof" path="res://systems/rhythm/tracks/fresh/fresh_10.tres" id="12_6pl35"]
-[ext_resource type="Resource" uid="uid://bc7fg02xtufsg" path="res://systems/rhythm/tracks/fresh/fresh_11.tres" id="13_wga2c"]
-[ext_resource type="Resource" uid="uid://cx5wvnn38snlb" path="res://systems/rhythm/tracks/fresh/fresh_12.tres" id="14_osocg"]
-[ext_resource type="Resource" uid="uid://ceqvthpil3vg4" path="res://systems/rhythm/tracks/leftovers/leftovers_01.tres" id="15_mwht6"]
-[ext_resource type="Resource" uid="uid://hoqwqyla4oem" path="res://systems/rhythm/tracks/leftovers/leftovers_02.tres" id="16_on7hj"]
-[ext_resource type="Resource" uid="uid://bue3pkfodvvfa" path="res://systems/rhythm/tracks/leftovers/leftovers_03.tres" id="17_jiven"]
-[ext_resource type="Resource" uid="uid://ccq6brkrlijv8" path="res://systems/rhythm/tracks/leftovers/leftovers_04.tres" id="18_r6btc"]
-[ext_resource type="Resource" uid="uid://brj5yd01xjoyj" path="res://systems/rhythm/tracks/leftovers/leftovers_05.tres" id="19_8v5xu"]
-[ext_resource type="Resource" uid="uid://ckbds2olv2beh" path="res://systems/rhythm/tracks/leftovers/leftovers_06.tres" id="20_cf4tc"]
-[ext_resource type="Resource" uid="uid://1g8a5xiii6ng" path="res://systems/rhythm/tracks/leftovers/leftovers_07.tres" id="21_jleoe"]
-[ext_resource type="Resource" uid="uid://hh85kc73ikia" path="res://systems/rhythm/tracks/leftovers/leftovers_08.tres" id="22_niipn"]
-[ext_resource type="Resource" uid="uid://d0yttr0mkhf2w" path="res://systems/rhythm/tracks/leftovers/leftovers_09.tres" id="23_eadsa"]
-[ext_resource type="Resource" uid="uid://dgwrcgi15q1e7" path="res://systems/rhythm/tracks/leftovers/leftovers_10.tres" id="24_wlc06"]
-[ext_resource type="Resource" uid="uid://52d7m77cjptn" path="res://systems/rhythm/tracks/leftovers/leftovers_11.tres" id="25_qswlp"]
-[ext_resource type="Resource" uid="uid://3ggcj87usdh4" path="res://systems/rhythm/tracks/leftovers/leftovers_12.tres" id="26_6yryd"]
-[ext_resource type="Resource" uid="uid://ds1lhpurqpk1n" path="res://systems/rhythm/tracks/premium/hard1.tres" id="27_4vx6c"]
-[ext_resource type="Resource" uid="uid://d63aa8ovpaok" path="res://systems/rhythm/tracks/premium/hard2.tres" id="28_bibix"]
-[ext_resource type="Resource" uid="uid://c5bs3sq24hev3" path="res://systems/rhythm/tracks/premium/hard3.tres" id="29_1ql4p"]
-[ext_resource type="Resource" uid="uid://dv3j8mp1lp52f" path="res://systems/rhythm/tracks/premium/hard4.tres" id="30_3s8om"]
-[ext_resource type="Resource" uid="uid://baqv1x470oluw" path="res://systems/rhythm/tracks/premium/premium_01.tres" id="31_g5ncm"]
-[ext_resource type="Resource" uid="uid://cvsjh2rbu87ur" path="res://systems/rhythm/tracks/premium/premium_02.tres" id="32_pywuk"]
-[ext_resource type="Resource" uid="uid://bn32od6jm3ris" path="res://systems/rhythm/tracks/premium/premium_03.tres" id="33_kdygq"]
-[ext_resource type="Resource" uid="uid://dh7fd45632rkl" path="res://systems/rhythm/tracks/premium/premium_04.tres" id="34_b5mol"]
-[ext_resource type="Resource" uid="uid://dmcpm21qnftte" path="res://systems/rhythm/tracks/premium/premium_05.tres" id="35_1yvy0"]
-[ext_resource type="Resource" uid="uid://y2fr3bkqmjly" path="res://systems/rhythm/tracks/premium/premium_06.tres" id="36_3uq4b"]
-[ext_resource type="Resource" uid="uid://cnxwsdivh4byl" path="res://systems/rhythm/tracks/premium/premium_07.tres" id="37_jm12p"]
-[ext_resource type="Resource" uid="uid://bsvhmqkfih8uv" path="res://systems/rhythm/tracks/premium/schultzHard2.tres" id="38_xnvkc"]
-[ext_resource type="Resource" uid="uid://bo5w27ms6ampe" path="res://systems/rhythm/tracks/premium/schultzHard3.tres" id="39_xgwus"]
-[ext_resource type="Resource" uid="uid://niyml7ya82kg" path="res://systems/rhythm/tracks/premium/schultzHard5.tres" id="40_24dd4"]
-[ext_resource type="Resource" uid="uid://bagr86c2ui03d" path="res://systems/rhythm/tracks/sushi/hard5.tres" id="41_5gj4g"]
-[ext_resource type="Resource" uid="uid://mmdb2c5c31um" path="res://systems/rhythm/tracks/sushi/hard6.tres" id="42_s1vfy"]
-[ext_resource type="Resource" uid="uid://bctvkncyqnfqt" path="res://systems/rhythm/tracks/sushi/hard7.tres" id="43_74vnj"]
-[ext_resource type="Resource" uid="uid://dp14dxlww3umw" path="res://systems/rhythm/tracks/sushi/schultzExpert1.tres" id="44_x56ee"]
-[ext_resource type="Resource" uid="uid://cjnjx4nc54dgx" path="res://systems/rhythm/tracks/sushi/schultzExpert2.tres" id="45_614ld"]
-[ext_resource type="Resource" uid="uid://t4m2u8uiuykq" path="res://systems/rhythm/tracks/sushi/schultzExpert3.tres" id="46_bkt54"]
-[ext_resource type="Resource" uid="uid://da5camwdn4o2p" path="res://systems/rhythm/tracks/sushi/schultzExpert4.tres" id="47_xunly"]
-[ext_resource type="Resource" uid="uid://gx6v31f20cyh" path="res://systems/rhythm/tracks/sushi/schultzExpert5.tres" id="48_v8v44"]
-[ext_resource type="Resource" uid="uid://dkuwprcr7oxxj" path="res://systems/rhythm/tracks/sushi/schultzExpert6.tres" id="49_x36vy"]
-[ext_resource type="Resource" uid="uid://c6krihkgb7iaf" path="res://systems/rhythm/tracks/sushi/schultzHard4.tres" id="50_kfodt"]
-[ext_resource type="Resource" uid="uid://cllk6vk3o06b1" path="res://systems/rhythm/tracks/sushi/sushi_01.tres" id="51_s7i1y"]
-[ext_resource type="Resource" uid="uid://e1gk2056fjns" path="res://systems/rhythm/tracks/sushi/sushi_02.tres" id="52_mqr4w"]
-[ext_resource type="Resource" uid="uid://dx2og0dy8448q" path="res://systems/rhythm/tracks/sushi/sushi_03.tres" id="53_s5xix"]
-[ext_resource type="Resource" uid="uid://bsk8k41qf4jij" path="res://systems/rhythm/tracks/sushi/sushi_04.tres" id="54_4dq70"]
-[ext_resource type="Resource" uid="uid://dpspiou3scvki" path="res://systems/rhythm/tracks/sushi/sushi_05.tres" id="55_afk20"]
-[ext_resource type="Resource" uid="uid://0j20uvbfem67" path="res://systems/rhythm/tracks/sushi/sushi_06.tres" id="56_yfi8k"]
-[ext_resource type="Resource" uid="uid://ckfc8ojmm16c4" path="res://systems/rhythm/tracks/sushi/sushi_07.tres" id="57_o0w2o"]
-[ext_resource type="Resource" uid="uid://vgr2hs10t5gq" path="res://systems/rhythm/tracks/sushi/sushi_08.tres" id="58_0ti10"]
-[ext_resource type="Resource" uid="uid://blydr4p536sg3" path="res://systems/rhythm/tracks/sushi/sushi_09.tres" id="59_jiqws"]
-[ext_resource type="Resource" uid="uid://dcq6q2xeyr8ot" path="res://systems/rhythm/tracks/sushi/sushi_10.tres" id="60_u1srq"]
 [ext_resource type="PackedScene" uid="uid://bpo4nvgeh8dat" path="res://systems/rhythm/fishing_mini_game.tscn" id="61_vknvt"]
 
-[node name="FishTinder" type="Control" unique_id=1363946866]
+[node name="InfiniteSushiBelt" type="Control" unique_id=1363946866]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,65 +12,77 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7o2m4")
-all_tracks = Array[ExtResource("2_vknvt")]([ExtResource("3_eyp5h"), ExtResource("4_qdw4s"), ExtResource("5_a55as"), ExtResource("6_n4743"), ExtResource("7_w6rfi"), ExtResource("8_f83ho"), ExtResource("9_5y17u"), ExtResource("10_s48wm"), ExtResource("11_07gnk"), ExtResource("12_6pl35"), ExtResource("13_wga2c"), ExtResource("14_osocg"), ExtResource("15_mwht6"), ExtResource("16_on7hj"), ExtResource("17_jiven"), ExtResource("18_r6btc"), ExtResource("19_8v5xu"), ExtResource("20_cf4tc"), ExtResource("21_jleoe"), ExtResource("22_niipn"), ExtResource("23_eadsa"), ExtResource("24_wlc06"), ExtResource("25_qswlp"), ExtResource("26_6yryd"), ExtResource("27_4vx6c"), ExtResource("28_bibix"), ExtResource("29_1ql4p"), ExtResource("30_3s8om"), ExtResource("31_g5ncm"), ExtResource("32_pywuk"), ExtResource("33_kdygq"), ExtResource("34_b5mol"), ExtResource("35_1yvy0"), ExtResource("36_3uq4b"), ExtResource("37_jm12p"), ExtResource("38_xnvkc"), ExtResource("39_xgwus"), ExtResource("40_24dd4"), ExtResource("41_5gj4g"), ExtResource("42_s1vfy"), ExtResource("43_74vnj"), ExtResource("44_x56ee"), ExtResource("45_614ld"), ExtResource("46_bkt54"), ExtResource("47_xunly"), ExtResource("48_v8v44"), ExtResource("49_x36vy"), ExtResource("50_kfodt"), ExtResource("51_s7i1y"), ExtResource("52_mqr4w"), ExtResource("53_s5xix"), ExtResource("54_4dq70"), ExtResource("55_afk20"), ExtResource("56_yfi8k"), ExtResource("57_o0w2o"), ExtResource("58_0ti10"), ExtResource("59_jiqws"), ExtResource("60_u1srq")])
 
 [node name="FishingMiniGame" parent="." unique_id=476640078 instance=ExtResource("61_vknvt")]
-visible = false
+process_mode = 1
 layout_mode = 1
 force_track_play_on_load = false
 
-[node name="Choice" type="Control" parent="." unique_id=1128700596]
+[node name="VBoxContainer" type="VBoxContainer" parent="FishingMiniGame" unique_id=179539033]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -223.0
+offset_top = -126.0
+offset_right = 223.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+theme_override_constants/separation = 34
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Choice" unique_id=1084740614]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 81
+[node name="HBoxContainer" type="HBoxContainer" parent="FishingMiniGame/VBoxContainer" unique_id=435443246]
+process_mode = 3
+layout_mode = 2
+theme_override_constants/separation = 43
 alignment = 1
 
-[node name="Label" type="Label" parent="Choice/VBoxContainer" unique_id=1916565225]
+[node name="Previous" type="Button" parent="FishingMiniGame/VBoxContainer/HBoxContainer" unique_id=1331226382]
+process_mode = 3
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 46
-text = "Which was harder?"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 38
+text = "Previous"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Choice/VBoxContainer" unique_id=1290361093]
+[node name="Skip" type="Button" parent="FishingMiniGame/VBoxContainer/HBoxContainer" unique_id=2110891276]
+process_mode = 3
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 102
+theme_override_font_sizes/font_size = 38
+text = "Skip"
 
-[node name="First" type="Button" parent="Choice/VBoxContainer/HBoxContainer" unique_id=466261806]
+[node name="HBoxContainer2" type="HBoxContainer" parent="FishingMiniGame/VBoxContainer" unique_id=1298932623]
+process_mode = 3
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 41
-text = "The 1st One!"
+theme_override_constants/separation = 43
 
-[node name="Second" type="Button" parent="Choice/VBoxContainer/HBoxContainer" unique_id=337785081]
+[node name="Mode" type="Button" parent="FishingMiniGame/VBoxContainer/HBoxContainer2" unique_id=384791357]
+process_mode = 3
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 41
-text = "The 2nd One!"
+theme_override_font_sizes/font_size = 38
+toggle_mode = true
+button_pressed = true
+text = "Mode: Random"
 
-[node name="HSeparator" type="HSeparator" parent="Choice/VBoxContainer" unique_id=1486791769]
+[node name="Pause" type="Button" parent="FishingMiniGame/VBoxContainer/HBoxContainer2" unique_id=172718841]
+process_mode = 3
 layout_mode = 2
+theme_override_font_sizes/font_size = 38
+toggle_mode = true
+text = "Pause"
 
-[node name="SaveAndQuit" type="Button" parent="Choice/VBoxContainer" unique_id=782837159]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 41
-text = "Save Results & Quit"
+[node name="Accuracy" type="Label" parent="FishingMiniGame" unique_id=900387532]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Last Accuracy:"
 
 [node name="Start" type="Control" parent="." unique_id=1912379320]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -148,17 +102,25 @@ alignment = 1
 [node name="Label" type="Label" parent="Start/VBoxContainer" unique_id=482337260]
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
-text = "Fish Tinder"
+text = "The Infinite Sushi Belt
+(Fish Tinder)"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="Start/VBoxContainer" unique_id=1522937708]
+[node name="LineEdit" type="LineEdit" parent="Start/VBoxContainer" unique_id=88457187]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/minimum_character_width = 22
+placeholder_text = "Track Name - e.g. \"fresh_01\" (Optional)"
+
+[node name="Start" type="Button" parent="Start/VBoxContainer" unique_id=1522937708]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 41
 text = "Play"
 
 [connection signal="fishing_finished" from="FishingMiniGame" to="." method="_on_fishing_mini_game_fishing_finished"]
-[connection signal="pressed" from="Choice/VBoxContainer/HBoxContainer/First" to="." method="_on_first_pressed"]
-[connection signal="pressed" from="Choice/VBoxContainer/HBoxContainer/Second" to="." method="_on_second_pressed"]
-[connection signal="pressed" from="Choice/VBoxContainer/SaveAndQuit" to="." method="_on_save_and_quit_pressed"]
-[connection signal="pressed" from="Start/VBoxContainer/Button" to="." method="pick_new_track"]
+[connection signal="pressed" from="FishingMiniGame/VBoxContainer/HBoxContainer/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="FishingMiniGame/VBoxContainer/HBoxContainer/Skip" to="." method="_on_skip_pressed"]
+[connection signal="toggled" from="FishingMiniGame/VBoxContainer/HBoxContainer2/Mode" to="." method="_on_mode_toggled"]
+[connection signal="toggled" from="FishingMiniGame/VBoxContainer/HBoxContainer2/Pause" to="." method="_on_pause_toggled"]
+[connection signal="pressed" from="Start/VBoxContainer/Start" to="." method="_on_start_pressed"]

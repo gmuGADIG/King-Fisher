@@ -209,7 +209,8 @@ func finish() -> void:
 	while not markers.is_empty():
 		var m = markers.pop_back()
 		m.queue_free()
-	UIState.ui_state = UIState.State.NONE
+	if not force_track_play_on_load:
+		UIState.ui_state = UIState.State.NONE
 
 func calculate_accuracy() -> float:
 	var presses : int = misses+good_hits+perfect_hits
