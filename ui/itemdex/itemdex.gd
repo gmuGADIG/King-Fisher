@@ -19,9 +19,7 @@ func _on_back_button_pressed() -> void:
 
 func setup_item(index : int) -> void:
 	var page_location = index - (page*4) + 1
-	print(ITEMS[index])
 	var item = ITEMS[index].instantiate()
-	print(item)
 	get_node("Background/Item"+str(page_location)+"Container/Box/Image").texture = item.sprite
 	get_node("Background/Item"+str(page_location)+"Container/Textbox/Description").text = "Description: " + item.description
 	get_node("Background/Item"+str(page_location)+"Container/Textbox/Lore").text = "Lore: " + item.lore
@@ -40,7 +38,7 @@ func draw_page() -> void:
 	else:
 		left_arrow.show()
 
-	if (page+1)*4 <= len(ITEMS):
+	if (page+1)*4 < len(ITEMS):
 		right_arrow.show()
 	else:
 		right_arrow.hide()
@@ -57,7 +55,7 @@ func loop_through_dir(location : String) -> void:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
-			if file_name.ends_with(".tscn") and file_name not in BlOCKEDITEMS:
+			if file_name.ends_with(".tscn") and file_name.begins_with("item_") and file_name not in BlOCKEDITEMS:
 				var item_resource = load(location + "/" + file_name)
 				ITEMS.append(item_resource)
 			file_name = dir.get_next()

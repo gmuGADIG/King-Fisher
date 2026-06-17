@@ -91,9 +91,9 @@ func init_tri_cache() -> void:
 		var b = polygon[tris[i + 1]]
 		var c = polygon[tris[i + 2]]
 		
-		var area = 0.5 * abs(a.x*(b.y - c.y) + b.x*(c.y - a.y) + c.x*(a.y - b.y))
+		var local_area = 0.5 * abs(a.x*(b.y - c.y) + b.x*(c.y - a.y) + c.x*(a.y - b.y))
 		
-		triangle_weights.append(area)
+		triangle_weights.append(local_area)
 	
 	pass
 
@@ -106,15 +106,15 @@ func get_poly_area() -> float:
 	if (num_points < 3):
 		return 0.0 # must be at least a triangle
 	
-	var area = 0.0
+	var local_area = 0.0
 	
 	# Shoelace formula implementation
 	for i in range(num_points):
 		var u = points[i]
 		var v = points[(i + 1) % num_points]
-		area += (u.x * v.y) - (v.x * u.y)
+		local_area += (u.x * v.y) - (v.x * u.y)
 	
-	return abs(area) / 2
+	return abs(local_area) / 2
 
 func pick_rarity() -> Fish.Grade:
 	var type : int = rng.rand_weighted(rates)

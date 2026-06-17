@@ -150,7 +150,7 @@ func _ready() -> void:
 		start(Fish.fresh_fishes.pick_random())
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if track == null:
 		return
 	## Update Indicator
@@ -202,8 +202,8 @@ func _process(delta: float) -> void:
 				print("PASS")
 			else:
 				print("FAIL")
-			fishing_finished.emit(accuracy >= target_accuracy)
 			finish()
+			fishing_finished.emit(accuracy >= target_accuracy)
 
 func finish() -> void:
 	MainMusicPlayer.set_loudness(_loudness_before_minigame,0.0)
@@ -213,7 +213,8 @@ func finish() -> void:
 	while not markers.is_empty():
 		var m = markers.pop_back()
 		m.queue_free()
-	UIState.ui_state = UIState.State.NONE
+	if not force_track_play_on_load:
+		UIState.ui_state = UIState.State.NONE
 
 func calculate_accuracy() -> float:
 	var presses : int = misses+good_hits+perfect_hits
@@ -359,8 +360,8 @@ func calculate_total_accuracy() -> void:
 func ms_to_position(ms:float) -> float:
 	
 	var spacing : float = player_line_length/(TRACK_LENGTH-1)
-	var position : float = (rhythm_engine.ms_to_beat(ms)-1) * spacing
-	return position
+	var _position : float = (rhythm_engine.ms_to_beat(ms)-1) * spacing
+	return _position
 
 
 #func _on_button_test_cast(fish: Fish) -> void:

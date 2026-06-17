@@ -3,6 +3,8 @@ extends Node
 signal new_player(id: int)
 signal found_server(ip: String, hostname: String, playerCount: String)
 signal player_loaded(id: int)
+signal client_name_recieved(name : String)
+
 signal start_game
 signal server_disconnected
 
@@ -17,6 +19,7 @@ var loaded_players: Array[int]
 
 var scan_server: UDPServer
 
+var extra_ip_scan : String
 var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
@@ -67,6 +70,10 @@ func _process_scan_for_servers(delta: float) -> void:
 		# also shout at ourselves in case there's multiple instances of the game running
 		scan_client.set_dest_address("127.0.0.1", PORT + 1)
 		scan_client.put_var(SCAN_MSG)
+		
+		if extra_ip_scan != "":
+			scan_client.set_dest_address(extra_ip_scan, PORT + 1)
+			scan_client.put_var(SCAN_MSG)
 
 		Debug.log("scan_client broadcasting...")
 	
@@ -101,9 +108,14 @@ func _on_peer_connected(id: int) -> void:
 		player_list.erase(id)
 		return
 	
+	request_name.rpc_id(id)
+	var name : String = await client_name_recieved
+	
+	##Request name from new client
+	
 	Debug.log("peer ",id," connected")
 	var server = ServerConnection.new()
-	server.playerName = "Player"
+	server.playerName = filter_name(name)
 	server.ready = false
 	server.character_texture_id = CharacterSelect.pick_random_texture_index()
 	player_list.set(id,server)
@@ -211,7 +223,6 @@ func set_up_round_settings(song_name : String, round_time : float, fish_spawn : 
 	
 @rpc("authority","call_local","reliable")
 func load_players(level: String):
-	
 	SceneTransition.change_to_file(level)
 	
 func _handle_ready_up() -> void:
@@ -258,7 +269,7 @@ func create_server() -> void:
 	peer.create_server(PORT, MAX_CLIENTS)
 	multiplayer.multiplayer_peer = peer
 	var server = ServerConnection.new()
-	server.playerName = "Player"
+	server.playerName = filter_name(displayName)
 	server.ready = true
 	server.character_texture_id = CharacterSelect.pick_random_texture_index()
 	player_list.set(1, server)
@@ -273,10 +284,10 @@ func join_server(ip : String) -> void:
 	peer.create_client(ip, PORT)
 	#multiplayer.connection_failed.connect(show_disconnected_message.bind("join error"))
 	multiplayer.multiplayer_peer = peer
-	var server = ServerConnection.new()
-	server.playerName = "Player"
-	server.ready = false
-	player_list.set(multiplayer.get_unique_id(),server)
+	#var server = ServerConnection.new()
+	#server.playerName = "TEMP"
+	#server.ready = false
+	#player_list.set(multiplayer.get_unique_id(),server)
 	scan_for_servers = false
 
 func _on_server_disconnected() -> void:
@@ -306,3 +317,32 @@ func disconnect_client(msg : String) -> void:
 	#if my_id == id:
 	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
 	return
+
+#@rpc("reliable","any_peer","call_remote")
+#func announce_name(name : String) -> void:
+	#if not multiplayer.is_server():
+		#return
+	#
+	#var client_id : int = multiplayer.get_remote_sender_id()
+	#recieve_name.rpc(client_id,name)
+#
+#@rpc("reliable","authority","call_local")
+#func recieve_name(client_id : int, name : String) -> void:
+	#assert(player_list.has(client_id),"unknown id")
+	#player_list[client_id].playerName = name
+func filter_name(name_raw : String) -> String:
+	if not multiplayer.is_server():
+		Debug.log_err("Non server cannot pick a name")
+		return ""
+	if name_raw == "":
+		return "Player "+str(player_list.size()+1)
+	else:
+		return name_raw
+	
+@rpc("reliable","authority","call_remote")
+func request_name() -> void:
+	recieve_name.rpc_id(1,displayName)
+
+@rpc("reliable","any_peer","call_remote")
+func recieve_name(name : String) -> void:
+	client_name_recieved.emit(name)

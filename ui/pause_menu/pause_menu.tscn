@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bgjdwnhkngufk"]
 
 [ext_resource type="Script" uid="uid://birm4eaulje21" path="res://ui/pause_menu/pause_menu.gd" id="1_5jicy"]
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_b4b0p"]
+[ext_resource type="Texture2D" uid="uid://d37a15wobl1uc" path="res://art/ui assets/PauseMenuBackground.png" id="2_jbgdu"]
+[ext_resource type="Theme" uid="uid://dq5h7a0rh3vaw" path="res://ui/themes/king_fisher_theme.tres" id="4_uraes"]
 
 [node name="PauseMenu" type="Control" unique_id=509264285]
 layout_mode = 3
@@ -9,51 +12,67 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_b4b0p")
 script = ExtResource("1_5jicy")
 
-[node name="Panel" type="Panel" parent="." unique_id=872384865]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -174.0
-offset_top = -102.0
-offset_right = 171.7627
-offset_bottom = 102.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Continue" type="Button" parent="Panel" unique_id=1717724632]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1379031614]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 46.0
-offset_right = 311.0
-offset_bottom = 95.0
-text = "Keep Fishin'!"
+offset_left = 273.0
+offset_top = -2.0
+offset_right = 902.0
+offset_bottom = 627.0
+texture = ExtResource("2_jbgdu")
+expand_mode = 1
 
-[node name="Quit" type="Button" parent="Panel" unique_id=1317785334]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 120.0
-offset_right = 312.0
-offset_bottom = 171.0
-text = "Quit"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=111497460]
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect" unique_id=84645475]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.051000003
 anchor_right = 0.5
 anchor_bottom = 0.051000003
-offset_left = -55.0
-offset_top = -6.018
-offset_right = 50.0
-offset_bottom = 17.982
+offset_left = -59.5
+offset_top = 95.921
+offset_right = 57.5
+offset_bottom = 197.92099
 grow_horizontal = 2
+theme = ExtResource("4_uraes")
+theme_override_colors/font_outline_color = Color(0, 0.15686275, 0.36078432, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/normal_font_size = 32
 text = "Pause Menu"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="Panel/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=1672195546]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = 234.0
+offset_right = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Button" parent="TextureRect/VBoxContainer" unique_id=1591642714]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Keep Fishin'!"
+
+[node name="Settings" type="Button" parent="TextureRect/VBoxContainer" unique_id=2018240968]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Settings"
+
+[node name="Quit" type="Button" parent="TextureRect/VBoxContainer" unique_id=831377726]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Quit"
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

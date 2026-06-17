@@ -70,8 +70,8 @@ func get_grade_string() -> String:
 		_:
 			return "Unset"
 
-static func pick(grade : Fish.Grade) -> int:
-	match grade:
+static func pick(fish_grade : Fish.Grade) -> int:
+	match fish_grade:
 		Fish.Grade.LEFTOVERS:
 			return randi_range(0,leftover_fishes.size()-1)
 		Fish.Grade.FRESH:
@@ -84,8 +84,8 @@ static func pick(grade : Fish.Grade) -> int:
 			assert(false, "invalid grade")
 			return -1
 
-static func create(grade : Grade, index : int) -> Fish:
-	match grade:
+static func create(fish_grade : Grade, index : int) -> Fish:
+	match fish_grade:
 		Fish.Grade.LEFTOVERS:
 			return leftover_fishes[index]
 		Fish.Grade.FRESH:

@@ -1,10 +1,11 @@
 extends CanvasLayer
 
 ## The amount of time it takes to fade in and out
-@export var fade_time : float = 0.75
+@export var fade_time : float = 0.5
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var loading_screen : ColorRect = $ColorRect
+##@onready var loading_screen : ColorRect = $ColorRect
+@onready var loading_screen : AnimatedSprite2D = $AnimatedSprite2D
 var currently_loading_scene : String
 
 var m_path : String
@@ -24,7 +25,7 @@ func change_to_packed(path: String):
 	ResourceLoader.load_threaded_request(path)
 	currently_loading_scene = path
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if currently_loading_scene == "":
 		return
 	

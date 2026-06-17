@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://j5xgm27rgkvp"]
+
+[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_qegak"]
+[ext_resource type="Script" uid="uid://cbcseolsntsi7" path="res://items/item_test_2/item_test_2.gd" id="2_078a7"]
+
+[node name="Item2" unique_id=1566519324 instance=ExtResource("1_qegak")]
+script = ExtResource("2_078a7")
+item_name = "Test 2"
+
+[node name="Sprite3D" parent="." index="0" unique_id=525106753]
+modulate = Color(1, 0.20999998, 0.20999998, 1)
