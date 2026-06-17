@@ -54,7 +54,6 @@
 [ext_resource type="Resource" uid="uid://gx6v31f20cyh" path="res://systems/rhythm/tracks/sushi/sushi_07.tres" id="44_baimx"]
 [ext_resource type="Resource" uid="uid://dkuwprcr7oxxj" path="res://systems/rhythm/tracks/sushi/sushi_08.tres" id="45_52knr"]
 [ext_resource type="Resource" uid="uid://c6krihkgb7iaf" path="res://systems/rhythm/tracks/sushi/sushi_09.tres" id="46_vi1yk"]
-[ext_resource type="Resource" path="res://systems/rhythm/tracks/premium/premium_14.tres" id="47_4o164"]
 
 [sub_resource type="Gradient" id="Gradient_yhodo"]
 offsets = PackedFloat32Array(1)
@@ -147,7 +146,6 @@ sushi_tracks = Array[ExtResource("6_i2p1o")]([ExtResource("37_7mxrj"), ExtResour
 hit_window_radius_ms = 100.0
 perfect_window_radius_ms = 25.0
 force_track_play_on_load = true
-forced_track = ExtResource("47_4o164")
 
 [node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("5_mq61g")]
 
