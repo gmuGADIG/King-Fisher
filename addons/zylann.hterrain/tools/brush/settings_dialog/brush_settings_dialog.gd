@@ -277,4 +277,3 @@ func _update_shape_list_buttons():
 
 func _on_shape_list_empty_clicked(at_position, mouse_button_index):
 	_update_shape_list_buttons()
-

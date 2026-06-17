@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://ie0c43cmrtky"]
 
 [ext_resource type="Script" uid="uid://oj6480q0nbfc" path="res://ui/screen_transition/screen_transition.gd" id="1_aepck"]
-[ext_resource type="Texture2D" uid="uid://c1m08d1w1cq5" path="res://temp/temp_art/fish.png" id="2_xeh5x"]
+[ext_resource type="Texture2D" uid="uid://dp3y6jnnyayyl" path="res://art/ui assets/Loading_Screen1.png" id="3_xnn7h"]
+[ext_resource type="Texture2D" uid="uid://b7g83s4sbmiqo" path="res://art/ui assets/Loading_Screen2.png" id="4_jbqg7"]
+[ext_resource type="Texture2D" uid="uid://dg8eepua0mmw2" path="res://art/ui assets/Fish_Button.png" id="4_xnn7h"]
 
 [sub_resource type="Animation" id="Animation_xeh5x"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect/TextureRect:rotation")
+tracks/0/path = NodePath("AnimatedSprite2D/TextureRect:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -17,21 +19,59 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"loading_screen_background"]
+}
 
 [sub_resource type="Animation" id="Animation_3cybn"]
 resource_name = "loading"
-length = 1.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect/TextureRect:rotation")
+tracks/0/path = NodePath("AnimatedSprite2D/TextureRect:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-1.0471975511965976, 1.0471975511965976]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"loading_screen_background"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", 1.0, false],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xnn7h"]
@@ -40,6 +80,38 @@ _data = {
 &"loading": SubResource("Animation_3cybn")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_d18py"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xnn7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbqg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xnn7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbqg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xnn7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbqg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xnn7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbqg7")
+}],
+"loop": true,
+"name": &"loading_screen_background",
+"speed": 2.0
+}]
+
 [node name="ScreenTransition" type="CanvasLayer" unique_id=74740270]
 process_mode = 3
 script = ExtResource("1_aepck")
@@ -47,39 +119,38 @@ script = ExtResource("1_aepck")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1581792833]
 libraries/ = SubResource("AnimationLibrary_xnn7h")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=135327081]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1226527638]
 visible = false
-z_index = 99
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.22948332, 0.22049999, 0.49, 1)
+position = Vector2(576.1111, 324)
+scale = Vector2(0.5999999, 0.59999996)
+sprite_frames = SubResource("SpriteFrames_d18py")
+animation = &"loading_screen_background"
+frame_progress = 0.62939125
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=35387397]
-layout_mode = 1
+[node name="TextureRect" type="TextureRect" parent="AnimatedSprite2D" unique_id=35387397]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -146.0
-offset_top = -95.0
-offset_right = -81.0
-offset_bottom = -30.0
+offset_left = -1181.8518
+offset_top = -850.0
+offset_right = -763.14
+offset_bottom = -482.9102
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 2)
-texture = ExtResource("2_xeh5x")
+texture = ExtResource("4_xnn7h")
 
-[node name="Label" type="Label" parent="ColorRect" unique_id=1457086035]
-layout_mode = 1
+[node name="Label" type="Label" parent="AnimatedSprite2D" unique_id=1457086035]
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 193.0
-offset_bottom = 216.0
+offset_left = -958.5186
+offset_top = 205.00005
+offset_right = -958.5186
+offset_bottom = 374.00006
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 123
 text = "Loading...."
 horizontal_alignment = 1
 vertical_alignment = 1

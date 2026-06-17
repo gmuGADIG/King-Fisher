@@ -19,6 +19,7 @@ var loaded_players: Array[int]
 
 var scan_server: UDPServer
 
+var extra_ip_scan : String
 var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
@@ -69,6 +70,10 @@ func _process_scan_for_servers(delta: float) -> void:
 		# also shout at ourselves in case there's multiple instances of the game running
 		scan_client.set_dest_address("127.0.0.1", PORT + 1)
 		scan_client.put_var(SCAN_MSG)
+		
+		if extra_ip_scan != "":
+			scan_client.set_dest_address(extra_ip_scan, PORT + 1)
+			scan_client.put_var(SCAN_MSG)
 
 		Debug.log("scan_client broadcasting...")
 	
@@ -209,7 +214,7 @@ func start_the_game():
 	await get_tree().process_frame
 	
 
-@rpc("call_local")
+@rpc("authority","call_local","reliable")
 func set_up_round_settings(song_name : String, round_time : float, fish_spawn : LobbySettings.SpawnRate, item_spawn : LobbySettings.SpawnRate) -> void:
 	WorldGameplay.song = LobbySettings.song_pool[song_name]
 	WorldGameplay.round_time = round_time

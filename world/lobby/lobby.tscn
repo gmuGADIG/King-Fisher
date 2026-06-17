@@ -4,9 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
 [ext_resource type="PackedScene" uid="uid://duc73d8nv7dpk" path="res://world/lobby/character_select_box/character_select_box.tscn" id="4_c06ik"]
 [ext_resource type="AudioStream" uid="uid://bo2n27tvtghjb" path="res://sound/music/song_files/OceanWaveLoop.mp3" id="5_vh6de"]
+[ext_resource type="PackedScene" uid="uid://ekklvqrqpytk" path="res://ui/lobby_settings/settings_control_panel.tscn" id="4_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
+
+[node name="LobbySettings" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="4" unique_id=1718361729 instance=ExtResource("3_vh6de")]
 
 [node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
 light_energy = 2.0
@@ -36,19 +39,25 @@ spawn_rate = 1.0
 transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 32, -8.628, 6.105)
 text = "#myawesomelobby"
 
-[node name="LobbySettings" parent="." index="5" unique_id=1718361729 instance=ExtResource("3_vh6de")]
-visible = false
-
-[node name="LobbyHud" parent="." index="6" unique_id=510906849 instance=ExtResource("6_56mmg")]
+[node name="LobbyHud" parent="." index="5" unique_id=510906849 instance=ExtResource("6_56mmg")]
 mouse_filter = 2
 
-[node name="IslandTerrain" parent="." index="7" unique_id=1398597706]
+[node name="IslandTerrain" parent="." index="6" unique_id=1398597706]
 visible = false
 
-[node name="LobbyBoat" parent="." index="10" unique_id=245968247]
+[node name="LobbyBoat" parent="." index="9" unique_id=245968247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
 
-[node name="SkinSelect" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="2" unique_id=1442961429 instance=ExtResource("4_c06ik")]
+[node name="Control Panel" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="1" unique_id=1438383831]
+visible = false
+
+[node name="SettingsControlPanel" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="2" unique_id=1429996587 node_paths=PackedStringArray("lobby_settings_menu") instance=ExtResource("4_vh6de")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.646, 3.25)
+collision_layer = 0
+collision_mask = 2
+lobby_settings_menu = NodePath("../../../CanvasLayer/LobbySettings")
+
+[node name="SkinSelect" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="3" unique_id=1442961429 instance=ExtResource("4_c06ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6512337, 3.227828, 12.059437)
 
 [node name="OceanAmbience" type="AudioStreamPlayer" parent="." index="12" unique_id=478886836]

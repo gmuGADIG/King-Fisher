@@ -1,7 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://dh53sqaw2xh6v"]
 
 [ext_resource type="FontFile" uid="uid://m4tsacqphblt" path="res://ui/themes/fonts/share_tech_mono/ShareTechMono-Regular.ttf" id="1_jg72k"]
-[ext_resource type="Texture2D" path="res://art/ui assets/x_button.png" id="2_f543i"]
+[ext_resource type="Texture2D" uid="uid://f0t357s37b7b" path="res://art/ui assets/x_button.png" id="2_f543i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f543i"]
 texture = ExtResource("2_f543i")
