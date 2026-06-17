@@ -198,8 +198,8 @@ func _process(_delta: float) -> void:
 				print("PASS")
 			else:
 				print("FAIL")
-			fishing_finished.emit(accuracy >= target_accuracy)
 			finish()
+			fishing_finished.emit(accuracy >= target_accuracy)
 
 func finish() -> void:
 	MainMusicPlayer.set_loudness(1.0,0.0)
@@ -209,7 +209,8 @@ func finish() -> void:
 	while not markers.is_empty():
 		var m = markers.pop_back()
 		m.queue_free()
-	UIState.ui_state = UIState.State.NONE
+	if not force_track_play_on_load:
+		UIState.ui_state = UIState.State.NONE
 
 func calculate_accuracy() -> float:
 	var presses : int = misses+good_hits+perfect_hits

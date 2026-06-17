@@ -63,3 +63,7 @@ func _on_refresh_button_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	closed.emit()
+
+
+func _on_ip_extra_text_submitted(new_text: String) -> void:
+	Multiplayer.extra_ip_scan = new_text
