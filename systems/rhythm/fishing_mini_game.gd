@@ -198,8 +198,8 @@ func _process(_delta: float) -> void:
 				print("PASS")
 			else:
 				print("FAIL")
-			fishing_finished.emit(accuracy >= target_accuracy)
 			finish()
+			fishing_finished.emit(accuracy >= target_accuracy)
 
 func finish() -> void:
 	MainMusicPlayer.set_loudness(1.0,0.0)

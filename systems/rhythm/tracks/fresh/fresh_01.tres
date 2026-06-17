@@ -7,113 +7,93 @@
 [sub_resource type="Resource" id="Resource_fngg6"]
 script = ExtResource("1_l1clq")
 beat_position = 1.0
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_nwv00"]
 script = ExtResource("1_l1clq")
 beat_position = 1.333
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_0nqhx"]
 script = ExtResource("1_l1clq")
 beat_position = 1.666
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_kpquo"]
 script = ExtResource("1_l1clq")
 beat_position = 2.0
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_vj8pa"]
 script = ExtResource("1_l1clq")
 beat_position = 2.333
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_dikqk"]
 script = ExtResource("1_l1clq")
 beat_position = 2.666
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_b7est"]
 script = ExtResource("1_l1clq")
 beat_position = 3.0
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_l1clq"]
 script = ExtResource("1_l1clq")
 beat_position = 3.333
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_sm1nl"]
 script = ExtResource("1_l1clq")
 beat_position = 3.666
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_h8as3"]
 script = ExtResource("1_l1clq")
 beat_position = 4.0
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_jxjfm"]
 script = ExtResource("1_l1clq")
 beat_position = 4.333
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_3ir3k"]
 script = ExtResource("1_l1clq")
 beat_position = 4.666
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_r8fk4"]
 script = ExtResource("1_l1clq")
 beat_position = 5.0
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_b18hc"]
 script = ExtResource("1_l1clq")
 beat_position = 5.333
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_omp8e"]
 script = ExtResource("1_l1clq")
 beat_position = 5.666
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_6ie5i"]
 script = ExtResource("1_l1clq")
 beat_position = 6.0
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_rdprt"]
 script = ExtResource("1_l1clq")
 beat_position = 6.333
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_ahcs3"]
 script = ExtResource("1_l1clq")
 beat_position = 6.666
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_j2nt6"]
 script = ExtResource("1_l1clq")
 beat_position = 7.0
 is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_po6p8"]
 script = ExtResource("1_l1clq")
 beat_position = 7.333
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_n0n3a"]
 script = ExtResource("1_l1clq")
