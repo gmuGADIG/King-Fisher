@@ -270,8 +270,16 @@ func create_server(serverName: String) -> void:
 	peer.create_server(PORT, size_limit)
 	multiplayer.multiplayer_peer = peer
 	var server = ServerConnection.new()
-	server.serverName = filter_name(serverName)
+	
+	##Parse Names
 	server.playerName = filter_name(playerDisplayName)
+	if serverName == "":
+		if playerDisplayName == "":
+			serverName = "Player's Server"
+		else:
+			serverName = server.playerName+"'s Server"
+	server.serverName = serverName
+	
 	server.ready = true
 	server.character_texture_id = CharacterSelect.pick_random_texture_index()
 	player_list.set(1, server)
