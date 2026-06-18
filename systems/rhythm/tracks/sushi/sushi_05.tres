@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Track" format=3 uid="uid://dpspiou3scvki"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://cjnjx4nc54dgx"]
 
 [ext_resource type="AudioStream" uid="uid://qbh8vij5unwm" path="res://systems/rhythm/tracks/backingTrack100.ogg" id="1_a8grv"]
 [ext_resource type="Script" path="res://systems/rhythm/note.gd" id="1_atple"]

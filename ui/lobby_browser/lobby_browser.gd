@@ -15,18 +15,23 @@ func _ready() -> void:
 	Multiplayer.found_server.connect(_on_found_server)
 	lobby_creation_window.hide()
 
-
-
 func _on_host_button_pressed() -> void:
+	lobby_creation_window.show()
+
+func _on_create_back_button_pressed() -> void:
+	lobby_creation_window.hide()
+
+
+func _on_create_lobby_button_pressed() -> void:
 	#if name_text.text.length() == 0:
 		#name_text.text = "Player"+str(randi_range(1,999))
-	Multiplayer.displayName = %NameInput.text
-	Multiplayer.create_server()
+	Multiplayer.playerDisplayName = %NameInput.text
+	Multiplayer.create_server(%LobbyNameInput.text)
 	
 	Debug.log("Host Created")
 	#Multiplayer.announce_name.rpc_id(1,%NameInput.text)
 	get_tree().change_scene_to_file("res://world/lobby/lobby.tscn")
-	
+
 
 func _on_found_server(ip: String, hostname: String, playerCount: String, status: String) -> void:
 	if ip in seen_ips: 
@@ -35,7 +40,6 @@ func _on_found_server(ip: String, hostname: String, playerCount: String, status:
 	seen_ips[ip] = true
 
 	var server_info: ServerInfo = server_info_packed.instantiate()
-
 
 	# hacky way to create an alternating bg color effect for the list
 	# there's probably an intended way of doing this, but ¯\_(ツ)_/¯
@@ -48,7 +52,7 @@ func _on_found_server(ip: String, hostname: String, playerCount: String, status:
 	server_info.ip = ip
 	
 	server_info.pressed.connect(func() -> void:
-		Multiplayer.displayName = %NameInput.text
+		Multiplayer.playerDisplayName = %NameInput.text
 		Multiplayer.join_server(ip)
 		Debug.log("Lobby Joined")
 		get_tree().change_scene_to_file("res://world/lobby/lobby.tscn")
@@ -60,6 +64,11 @@ func _on_found_server(ip: String, hostname: String, playerCount: String, status:
 func _on_refresh_button_pressed() -> void:
 	Multiplayer.scan_clock = 0
 
-
 func _on_back_button_pressed() -> void:
 	closed.emit()
+
+func _on_player_count_button_pressed(count: int):
+	Multiplayer.size_limit = count
+
+func _on_ip_extra_text_submitted(new_text: String) -> void:
+	Multiplayer.extra_ip_scan = new_text

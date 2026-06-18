@@ -33,6 +33,11 @@ func _ready() -> void:
 	music_slider.value = music_volume
 	master_slider.value = master_volume
 	hide()
+	$OptionsPanel/VBoxContainer/MouseSensitivtySlider.value = mouse_sensitivity
+	$OptionsPanel/VBoxContainer/AimingSensitivitySlider.value = aim_sesntivity
+	$OptionsPanel/VBoxContainer/MasterSlider.value = master_volume
+	$OptionsPanel/VBoxContainer/SFXSlider.value = sfx_volume
+	$OptionsPanel/VBoxContainer/MusicSlider.value = music_volume
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -56,7 +61,18 @@ func _on_mouse_sensitivty_slider_value_changed(value: float) -> void:
 func _on_aim_sensitivty_slider_value_changed(value: float) -> void:
 	aim_senstivity = value
 
+func _on_keybinds_button_pressed() -> void:
+	$OptionsPanel.hide()
+	$KeybindMenu.show()
+
 func _on_exit_button_pressed() -> void:
 	closed.emit()
 	print("Options Menu!")
+	$KeybindMenu.hide()
 	hide()
+	$OptionsPanel.show()
+
+
+func _on_keybind_menu_closed() -> void:
+	$OptionsPanel.show()
+	$KeybindMenu.hide()

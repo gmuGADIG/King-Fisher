@@ -77,6 +77,7 @@ func start_ragdoll(duration: float, prevent_move_check: bool):
 	print("%s is ragdolled for %f!" % [player.name, duration])
 
 	player.is_ragdolled = true
+	player.cancel_fishing_minigame()
 	physical_bones_start_simulation()
 
 	player.set_name_visible(false)
