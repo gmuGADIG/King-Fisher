@@ -33,3 +33,11 @@ func _on_quit_pressed() -> void:
 
 func _on_continue_pressed() -> void:
 	unpause()
+
+
+func _on_settings_pressed() -> void:
+	$OptionsMenu.closed.connect(func():
+		$PauseFish.show()
+	)
+	$PauseFish.hide()
+	$OptionsMenu.show()
