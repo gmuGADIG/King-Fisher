@@ -1,6 +1,8 @@
 class_name Keybinds
 extends Control
 
+signal closed
+
 @export var binding_prototype: HBoxContainer
 
 @onready var vbox: VBoxContainer = $KeybindPanel/ScrollContainer/VBoxContainer
@@ -75,3 +77,6 @@ func _on_reset_button_pressed() -> void:
 	InputMap.load_from_project_settings()
 	reflow_ui()
 	save_keybinds()
+	
+func _on_confirm_button_pressed() -> void:
+	closed.emit()
