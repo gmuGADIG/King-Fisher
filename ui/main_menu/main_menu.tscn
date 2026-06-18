@@ -126,7 +126,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_vertical = 2
 theme_type_variation = &"HeaderLarge"
-text = "Main Menu"
+text = "King Fisher"
 horizontal_alignment = 1
 
 [node name="FindLobbyBtn" type="Button" parent="MainMenuContainer/RightSide" unique_id=1934257107]
