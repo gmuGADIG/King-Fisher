@@ -3,15 +3,16 @@
 [ext_resource type="FontFile" uid="uid://b8gbecjr3q5m3" path="res://ui/themes/fonts/finger_paint/FingerPaintRegular-nmlV.ttf" id="1_3cepj"]
 [ext_resource type="Texture2D" uid="uid://6me4lrl5aru8" path="res://ui/main_menu/wooden_fishdex_blank.png" id="2_l6pnj"]
 [ext_resource type="Texture2D" uid="uid://skc0ljw45opd" path="res://ui/main_menu/wooden_itemdex_blank.png" id="3_1mp6f"]
-[ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="3_hdvj4"]
 [ext_resource type="Texture2D" uid="uid://bstcs4jr30rm4" path="res://ui/main_menu/wooden_mainmenu_blank.png" id="3_l6pnj"]
 [ext_resource type="Texture2D" uid="uid://dg8eepua0mmw2" path="res://art/ui assets/Fish_Button.png" id="3_vmgqp"]
-[ext_resource type="Texture2D" uid="uid://cchlpvc8u1e56" path="res://temp/temp_art/fish_tiny.png" id="4_5u2bq"]
 [ext_resource type="Texture2D" uid="uid://dhwvb7muj0i0r" path="res://art/ui assets/fish_button_x.png" id="4_137r2"]
 [ext_resource type="Texture2D" uid="uid://ggup6auyukpv" path="res://ui/main_menu/wooden_exit_blank.png" id="4_hdvj4"]
 [ext_resource type="StyleBox" uid="uid://ck6ntmss3fxrr" path="res://ui/themes/wooden_stylebox_large.tres" id="5_1mp6f"]
 [ext_resource type="Texture2D" uid="uid://3jhdnmftrr2e" path="res://temp/temp_art/tick.png" id="5_ho655"]
 [ext_resource type="Texture2D" uid="uid://43ok1tef6bmb" path="res://ui/main_menu/wooden_settings_blank.png" id="5_q7tkq"]
+[ext_resource type="Texture2D" uid="uid://cu0vmq5agdygi" path="res://art/ui assets/Fish_Button_Small.png" id="5_vmgqp"]
+[ext_resource type="Texture2D" uid="uid://iobe4x5v8jkm" path="res://art/ui assets/Fish_Button_Small_Outline.png" id="6_137r2"]
+[ext_resource type="Texture2D" uid="uid://cscsf7q0nw1fa" path="res://art/ui assets/Fish_Button_Small_Disabled.png" id="6_w10rl"]
 [ext_resource type="StyleBox" uid="uid://c40df75aiwmh1" path="res://ui/themes/wooden_stylebox_flat.tres" id="8_sgbaa"]
 [ext_resource type="Texture2D" uid="uid://bsphqh5kvj7g0" path="res://ui/itemdex/arrow.png" id="9_vmgqp"]
 
@@ -342,9 +343,9 @@ HScrollBar/styles/scroll_focus = null
 HSeparator/styles/separator = null
 HSlider/constants/center_grabber = 1
 HSlider/constants/grabber_offset = 0
-HSlider/icons/grabber = ExtResource("4_5u2bq")
-HSlider/icons/grabber_disabled = ExtResource("3_hdvj4")
-HSlider/icons/grabber_highlight = ExtResource("4_5u2bq")
+HSlider/icons/grabber = ExtResource("5_vmgqp")
+HSlider/icons/grabber_disabled = ExtResource("6_w10rl")
+HSlider/icons/grabber_highlight = ExtResource("6_137r2")
 HSlider/icons/tick = ExtResource("5_ho655")
 HSlider/styles/grabber_area = SubResource("StyleBoxLine_1mp6f")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_sgbaa")

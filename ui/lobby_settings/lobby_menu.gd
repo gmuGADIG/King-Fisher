@@ -80,7 +80,8 @@ func _ready() -> void:
 	
 	#assert(song_options.item_count == music_pool.size() + 1, "Number of songs do not match options")
 	_on_reset_button_pressed()
-	panel.hide()
+	hide()
+	#panel.hide()
 	panel.draw.connect(update_menu)
 
 ## Refreshes the menu with the current settings.
@@ -153,18 +154,17 @@ func set_buttons_from_bitmask(buttons: Array[Node], bitmask: int) -> void:
 			button.button_pressed = bool(bitmask & 1)
 			bitmask >>= 1
 
-func _input(event: InputEvent) -> void:
-	if(event.is_action_pressed("lobby_settings") && multiplayer.is_server()):
-		print("Menu pressed")
-		print("Authority checked")
-		visible = not visible
-		panel.visible = visible
-		# panel.visible = !panel.visible
+func open() -> void:
+	if not multiplayer.is_server():
+		return
+	show()
+	UIState.ui_state = UIState.State.LOBBY_SETTINGS
 
-		if visible:
-			UIState.ui_state = UIState.State.LOBBY_SETTINGS
-		else:
-			UIState.ui_state = UIState.State.NONE
+func close() -> void:
+	if not multiplayer.is_server():
+		return
+	hide()
+	UIState.ui_state = UIState.State.NONE
 
 func _on_timer_more_button_pressed() -> void:
 	if (roundTime < maximumRoundTime):
@@ -198,7 +198,7 @@ func update_timer() -> void:
 	more_time_button.disabled = roundTime >= maximumRoundTime
 
 func _on_exit_button_pressed() -> void:
-	panel.visible = false
+	close()
 
 static func get_song_selection() -> String:
 	var song_index : int
