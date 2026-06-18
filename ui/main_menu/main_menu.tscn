@@ -15,8 +15,7 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6q35d"]
 
-[node name="MainMenu" type="Control" unique_id=470134769]
-layout_mode = 3
+[node name="MainMenu" type="ColorRect" unique_id=1305341032]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

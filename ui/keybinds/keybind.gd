@@ -1,6 +1,8 @@
 class_name Keybinds
 extends Control
 
+signal closed
+
 @export var binding_prototype: HBoxContainer
 
 @onready var vbox: VBoxContainer = $KeybindPanel/ScrollContainer/VBoxContainer
@@ -77,8 +79,4 @@ func _on_reset_button_pressed() -> void:
 	save_keybinds()
 	
 func _on_confirm_button_pressed() -> void:
-	var options_menu_scene = preload("res://ui/options/options_menu.tscn")
-	var options_menu = options_menu_scene.instantiate()
-	add_sibling(options_menu)
-	options_menu.show()
-	queue_free()
+	closed.emit()

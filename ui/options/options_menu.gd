@@ -52,12 +52,17 @@ func _on_aim_sensitivty_slider_value_changed(value: float) -> void:
 	aim_sesntivity = value
 
 func _on_keybinds_button_pressed() -> void:
-	var keybinds_menu_scene = preload("res://ui/keybinds/keybind_menu.tscn")
-	var keybinds_menu = keybinds_menu_scene.instantiate()
-	add_sibling(keybinds_menu)
-	queue_free()
+	$OptionsPanel.hide()
+	$KeybindMenu.show()
 
 func _on_exit_button_pressed() -> void:
 	closed.emit()
 	print("Options Menu!")
+	$KeybindMenu.hide()
 	hide()
+	$OptionsPanel.show()
+
+
+func _on_keybind_menu_closed() -> void:
+	$OptionsPanel.show()
+	$KeybindMenu.hide()
