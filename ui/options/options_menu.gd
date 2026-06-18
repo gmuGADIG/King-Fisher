@@ -34,7 +34,7 @@ func _ready() -> void:
 	master_slider.value = master_volume
 	hide()
 	$OptionsPanel/VBoxContainer/MouseSensitivtySlider.value = mouse_sensitivity
-	$OptionsPanel/VBoxContainer/AimingSensitivitySlider.value = aim_sesntivity
+	$OptionsPanel/VBoxContainer/AimingSensitivitySlider.value = aim_senstivity
 	$OptionsPanel/VBoxContainer/MasterSlider.value = master_volume
 	$OptionsPanel/VBoxContainer/SFXSlider.value = sfx_volume
 	$OptionsPanel/VBoxContainer/MusicSlider.value = music_volume
