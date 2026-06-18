@@ -11,12 +11,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_bfydg"]
 font_size = 24
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_kwntm"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_5iw70"]
 font_size = 25
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_x8owp"]
-font_size = 31
 
 [node name="LobbyBrowser" type="Control" unique_id=245152877]
 layout_mode = 3
@@ -279,7 +277,6 @@ placeholder_text = "Enter name..."
 alignment = 1
 
 [node name="LobbyCreationWindow" type="TextureRect" parent="." unique_id=1549874564]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.47200003
@@ -333,8 +330,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=1591610615]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 7
+theme_override_constants/separation = 20
 
 [node name="LobbyName" type="HBoxContainer" parent="LobbyCreationWindow/VBoxContainer" unique_id=900111282]
 layout_mode = 2
@@ -347,11 +345,13 @@ label_settings = SubResource("LabelSettings_bfydg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="LobbyCreationWindow/VBoxContainer/LobbyName" unique_id=873317293]
+[node name="LobbyNameInput" type="LineEdit" parent="LobbyCreationWindow/VBoxContainer/LobbyName" unique_id=356368702]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="HSeparator2" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=2118327788]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 25
 
@@ -369,6 +369,8 @@ vertical_alignment = 1
 [node name="Button" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1235247534]
 layout_mode = 2
 size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kwntm")
 
 [node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button" unique_id=1416024420]
 layout_mode = 1
@@ -386,6 +388,8 @@ vertical_alignment = 1
 [node name="Button2" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1134808308]
 layout_mode = 2
 size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kwntm")
 
 [node name="Label2" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button2" unique_id=1174190182]
 layout_mode = 1
@@ -403,6 +407,8 @@ vertical_alignment = 1
 [node name="Button3" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=211331016]
 layout_mode = 2
 size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kwntm")
 
 [node name="Label3" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button3" unique_id=703835826]
 layout_mode = 1
@@ -418,15 +424,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HSeparator3" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=951405120]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 14
 
-[node name="Button" type="Button" parent="LobbyCreationWindow/VBoxContainer" unique_id=953535078]
+[node name="CreateLobbyButton" type="Button" parent="LobbyCreationWindow/VBoxContainer" unique_id=953535078]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/Button" unique_id=257631793]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/CreateLobbyButton" unique_id=257631793]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -434,7 +440,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Create"
-label_settings = SubResource("LabelSettings_x8owp")
+label_settings = SubResource("LabelSettings_5iw70")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -442,3 +448,8 @@ vertical_alignment = 1
 [connection signal="pressed" from="BackgroundImage/VBoxContainer/Buttons/MarginContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
 [connection signal="pressed" from="BackgroundImage/VBoxContainer/Buttons/MarginContainer2/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="text_changed" from="BackgroundImage/VBoxContainer/Buttons/IPExtra" to="." method="_on_ip_extra_text_submitted"]
+[connection signal="pressed" from="LobbyCreationWindow/BackButton" to="." method="_on_create_back_button_pressed"]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button" to="." method="_on_player_count_button_pressed" binds= [2]]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button2" to="." method="_on_player_count_button_pressed" binds= [3]]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button3" to="." method="_on_player_count_button_pressed" binds= [4]]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/CreateLobbyButton" to="." method="_on_create_lobby_button_pressed"]

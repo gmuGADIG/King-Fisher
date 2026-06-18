@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://b8jevivyblc6q"]
 
 [ext_resource type="Script" uid="uid://b8h20ju61nnj6" path="res://ui/fish_dex/fishdex.gd" id="1_5pj4m"]
-[ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="2_r31bl"]
-[ext_resource type="PackedScene" uid="uid://cur3ita1x152q" path="res://ui/fish_dex/hanging_fish.tscn" id="3_23nti"]
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_lk8gg"]
+[ext_resource type="PackedScene" path="res://ui/fish_dex/hanging_fish.tscn" id="3_23nti"]
 [ext_resource type="Texture2D" uid="uid://b7vpppabqkdok" path="res://ui/fish_dex/fishdex-stall.png" id="3_lk8gg"]
 [ext_resource type="Texture2D" uid="uid://b811kd3qst5nb" path="res://ui/fish_dex/fishdex-hologram.png" id="4_18pqh"]
-[ext_resource type="Script" uid="uid://bco87e2884pxw" path="res://ui/fish_dex/hanging_fish.gd" id="5_y04r0"]
-[ext_resource type="Script" uid="uid://c176eydus30qc" path="res://ui/fish_dex/selectable_fish_button.gd" id="6_03tvv"]
+[ext_resource type="Script" path="res://ui/fish_dex/hanging_fish.gd" id="5_y04r0"]
+[ext_resource type="Script" path="res://ui/fish_dex/selectable_fish_button.gd" id="6_03tvv"]
 [ext_resource type="Texture2D" uid="uid://bck4unx8s3so0" path="res://ui/fish_dex/arrow.png" id="6_m7gl5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mukbb"]
@@ -32,16 +32,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_lk8gg")
 script = ExtResource("1_5pj4m")
 
 [node name="Back_Button" type="Button" parent="." unique_id=269871336]
 layout_mode = 0
 offset_right = 101.935295
-offset_bottom = 86.0
-icon = ExtResource("2_r31bl")
-flat = true
-icon_alignment = 1
-expand_icon = true
+offset_bottom = 68.0
+theme_type_variation = &"FishXButton"
 
 [node name="Stall" type="TextureRect" parent="." unique_id=251214534]
 layout_mode = 1

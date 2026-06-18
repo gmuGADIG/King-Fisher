@@ -1,71 +1,71 @@
-[gd_resource type="Resource" script_class="Track" format=3 uid="uid://bfls3v5j0uf72"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://cx5wvnn38snlb"]
 
-[ext_resource type="AudioStream" uid="uid://qbh8vij5unwm" path="res://systems/rhythm/tracks/backingTrack100.ogg" id="1_3voas"]
-[ext_resource type="Script" path="res://systems/rhythm/note.gd" id="1_qh4cp"]
-[ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_3voas"]
+[ext_resource type="Script" path="res://systems/rhythm/note.gd" id="1_bmd6o"]
+[ext_resource type="AudioStream" uid="uid://qbh8vij5unwm" path="res://systems/rhythm/tracks/backingTrack100.ogg" id="1_rmqlf"]
+[ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_rmqlf"]
 
-[sub_resource type="Resource" id="Resource_acljw"]
-script = ExtResource("1_qh4cp")
+[sub_resource type="Resource" id="Resource_bmd6o"]
+script = ExtResource("1_bmd6o")
 beat_position = 1.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
-[sub_resource type="Resource" id="Resource_gfc4y"]
-script = ExtResource("1_qh4cp")
+[sub_resource type="Resource" id="Resource_rmqlf"]
+script = ExtResource("1_bmd6o")
 beat_position = 2.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
-[sub_resource type="Resource" id="Resource_8fg58"]
-script = ExtResource("1_qh4cp")
-beat_position = 2.5
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_gho1q"]
-script = ExtResource("1_qh4cp")
+[sub_resource type="Resource" id="Resource_3vkyw"]
+script = ExtResource("1_bmd6o")
 beat_position = 3.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
-[sub_resource type="Resource" id="Resource_h2qwu"]
-script = ExtResource("1_qh4cp")
-beat_position = 3.5
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_a70k6"]
-script = ExtResource("1_qh4cp")
+[sub_resource type="Resource" id="Resource_oi60v"]
+script = ExtResource("1_bmd6o")
 beat_position = 4.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
-[sub_resource type="Resource" id="Resource_sbolv"]
-script = ExtResource("1_qh4cp")
-beat_position = 4.5
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_synxt"]
-script = ExtResource("1_qh4cp")
+[sub_resource type="Resource" id="Resource_a0xmh"]
+script = ExtResource("1_bmd6o")
 beat_position = 5.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
-[sub_resource type="Resource" id="Resource_v0xak"]
-script = ExtResource("1_qh4cp")
+[sub_resource type="Resource" id="Resource_ww30l"]
+script = ExtResource("1_bmd6o")
+beat_position = 5.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_n6vu8"]
+script = ExtResource("1_bmd6o")
+beat_position = 6.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_frq05"]
+script = ExtResource("1_bmd6o")
+beat_position = 6.5
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_xsedy"]
+script = ExtResource("1_bmd6o")
 beat_position = 7.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
-[sub_resource type="Resource" id="Resource_talrl"]
-script = ExtResource("1_qh4cp")
+[sub_resource type="Resource" id="Resource_k7cmm"]
+script = ExtResource("1_bmd6o")
+beat_position = 7.25
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+
+[sub_resource type="Resource" id="Resource_ueavw"]
+script = ExtResource("1_bmd6o")
 beat_position = 7.5
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
-[sub_resource type="Resource" id="Resource_vkkc0"]
-script = ExtResource("1_qh4cp")
-beat_position = 8.0
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_oqbjl"]
-script = ExtResource("1_qh4cp")
-beat_position = 8.5
+[sub_resource type="Resource" id="Resource_u8mjx"]
+script = ExtResource("1_bmd6o")
+beat_position = 7.75
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]
-script = ExtResource("2_3voas")
-backing_track = ExtResource("1_3voas")
-notes = Array[ExtResource("1_qh4cp")]([SubResource("Resource_acljw"), SubResource("Resource_gfc4y"), SubResource("Resource_8fg58"), SubResource("Resource_gho1q"), SubResource("Resource_h2qwu"), SubResource("Resource_a70k6"), SubResource("Resource_sbolv"), SubResource("Resource_synxt"), SubResource("Resource_v0xak"), SubResource("Resource_talrl"), SubResource("Resource_vkkc0"), SubResource("Resource_oqbjl")])
+script = ExtResource("2_rmqlf")
+backing_track = ExtResource("1_rmqlf")
+notes = Array[ExtResource("1_bmd6o")]([SubResource("Resource_bmd6o"), SubResource("Resource_rmqlf"), SubResource("Resource_3vkyw"), SubResource("Resource_oi60v"), SubResource("Resource_a0xmh"), SubResource("Resource_ww30l"), SubResource("Resource_n6vu8"), SubResource("Resource_frq05"), SubResource("Resource_xsedy"), SubResource("Resource_k7cmm"), SubResource("Resource_ueavw"), SubResource("Resource_u8mjx")])
 metadata/_custom_type_script = "uid://duodpj15swkyd"

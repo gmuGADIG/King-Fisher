@@ -236,13 +236,31 @@ func set_loudness(perceived_level: float, duration: float = 0.0) -> void:
 	perceived_level = clampf(perceived_level, 0.0, 1.0)
 	_target_volume = perceived_level
 	var linear_level := pow(perceived_level, PERCEIVED_CURVE_EXPONENT)
-	_apply_player_volume_db(linear_level, duration)
+	var target_db := MUTE_DB if linear_level == 0.0 else linear_to_db(linear_level)
+	_kill_tween(_volume_tween)
+	if duration > 0.0:
+		_volume_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		for effect in _amplify_effects:
+			_volume_tween.tween_property(effect, "volume_db", target_db, duration)
+	else:
+		for effect in _amplify_effects:
+			effect.volume_db = target_db
+	##_apply_player_volume_db(linear_level, duration) ## This function should be obsolte with this change
 
 func set_volume(linear_level: float, duration: float = 0.0) -> void:
 	# Legacy: linear amplitude 0..1
 	linear_level = clampf(linear_level, 0.0, 1.0)
 	_target_volume = pow(maxf(linear_level, 0.0), 1.0 / PERCEIVED_CURVE_EXPONENT)
-	_apply_player_volume_db(linear_level, duration)
+	var target_db := MUTE_DB if linear_level == 0.0 else linear_to_db(linear_level)
+	_kill_tween(_volume_tween)
+	if duration > 0.0:
+		_volume_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		for effect in _amplify_effects:
+			_volume_tween.tween_property(effect, "volume_db", target_db,duration)
+	else:
+		for effect in _amplify_effects:
+			effect.volume_db = target_db
+	##_apply_player_volume_db(linear_level, duration)
 
 func set_master_loudness(perceived_level: float, duration: float = 0.0) -> void:
 	perceived_level = clampf(perceived_level, 0.0, 1.0)
