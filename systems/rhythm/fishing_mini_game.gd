@@ -281,7 +281,7 @@ func _input(event: InputEvent) -> void:
 
 func determine_accuracy() -> HitQuality:
 	#print(response_index)
-	##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
+	#HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
 	current_note = track.notes[response_index]
 	#print("input: ",rhythm_engine.beat_to_ms(current_note.beat_position))
 	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position+TRACK_LENGTH)

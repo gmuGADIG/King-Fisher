@@ -8,6 +8,7 @@ script = ExtResource("1_2na8t")
 fish_name = "Patchwork Fish"
 grade = 1
 sprite = ExtResource("2_nhe5o")
+catch_blurb = "You're...you don't...what is this thing?"
 description = "This “fish” is a grotesque amalgamation of parts from many different aquatic creatures—it’s impossible to tell if they were even all true fish. Many of these creatures dwell in the waters of [planet], but some may even have been imported from other places. This fish is simply uninterpretable.
 
 Each Patchwork Fish has a unique combination of features. No two specimens are exactly the same, though you may find similarities—a set of fins on one that look like they may belong with a head on another, until gradually, you might be able to piece together the original fish that came together to create the Patchwork. However, some of them contain anomalies that will probably never be understood: features that could only have occurred in the crowded, radiation-intoxicated environment of Pollywood.
