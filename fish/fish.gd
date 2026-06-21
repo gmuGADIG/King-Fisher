@@ -51,11 +51,28 @@ static var sushi_fishes : Array[Fish] = [
 @export var fish_name : String
 @export var grade : Grade
 @export var sprite : Texture
+@export var catch_blurb : String
 @export_multiline var description : String
 
 
 func _init() -> void:
 	return
+
+static func _static_init() -> void:
+	var yn_fish: Fish = load("res://fish/fresh/your_name_fish.tres")
+
+	# don't do this easter egg if the catch blurb is actually set
+	if not yn_fish.catch_blurb.is_empty():
+		return
+
+	# get the player's user name from their computer
+	var player_name := ""
+	if OS.has_environment("USERNAME"): # winblows
+		player_name = OS.get_environment("USERNAME")
+	elif OS.has_environment("USER"): # younex
+		player_name = OS.get_environment("USER")
+
+	yn_fish.catch_blurb = "It's name is %s." % player_name
 
 func get_grade_string() -> String:
 	match grade:

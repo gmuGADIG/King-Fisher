@@ -534,6 +534,8 @@ func on_fishing_finished(succeeded:bool) -> void:
 				
 		current_fishing_shadow.kill_fish_shadow.rpc()
 		give_fish_serialized.rpc(fish.serialize())
+
+		%CatchUI.present(fish)
 	else:
 		if is_multiplayer_authority():
 			$Sounds/FishCatchFail.play()

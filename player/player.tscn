@@ -23,6 +23,10 @@
 [ext_resource type="AudioStream" uid="uid://cs0oknyeydg6n" path="res://sound/sfx/player/fishing/FishCatchFail.mp3" id="15_knn7v"]
 [ext_resource type="Shader" uid="uid://dmiygqboqr8gs" path="res://player/player.gdshader" id="20_bjvpn"]
 [ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="23_s7qer"]
+[ext_resource type="Script" uid="uid://y8c1s0aorifb" path="res://player/catch_ui.gd" id="24_g4c7l"]
+[ext_resource type="Texture2D" uid="uid://iaien10yw0dm" path="res://temp/temp_art/fish-seven.png" id="26_rptt4"]
+[ext_resource type="FontFile" uid="uid://b8gbecjr3q5m3" path="res://ui/themes/fonts/finger_paint/FingerPaintRegular-nmlV.ttf" id="26_uw77l"]
+[ext_resource type="Shader" uid="uid://cbp477pnhwojb" path="res://player/catch_text.gdshader" id="28_rptt4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -42,7 +46,7 @@ shader = ExtResource("20_bjvpn")
 shader_parameter/albedo = Color(0, 1, 1, 1)
 shader_parameter/frensel_power = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4c7l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7pn3"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_s7qer")
 diffuse_mode = 3
@@ -60,10 +64,135 @@ radius = 0.05
 [sub_resource type="SphereShape3D" id="SphereShape3D_wodsf"]
 radius = 0.05
 
+[sub_resource type="FontVariation" id="FontVariation_b8hi5"]
+base_font = ExtResource("26_uw77l")
+variation_embolden = 1.06
+
+[sub_resource type="Gradient" id="Gradient_2uvqg"]
+offsets = PackedFloat32Array(0.5366667, 0.68183595)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1s1yo"]
+gradient = SubResource("Gradient_2uvqg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_5ejfk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.72163117, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jd2rm"]
+texture_mode = 1
+curve = SubResource("Curve_5ejfk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q28gw"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 85.549995
+initial_velocity_max = 277.25998
+gravity = Vector3(0, 0, 0)
+damping_min = 41.593002
+damping_max = 53.586002
+scale_min = 0.29999998
+scale_max = 0.39999998
+alpha_curve = SubResource("CurveTexture_jd2rm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ge24q"]
+shader = ExtResource("28_rptt4")
+shader_parameter/speed = 2.0
+shader_parameter/intensity = 3.5
+
+[sub_resource type="Animation" id="Animation_pnw6m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1so5t"]
+resource_name = "anim"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.4, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_55jnj"]
+_data = {
+&"RESET": SubResource("Animation_pnw6m"),
+&"anim": SubResource("Animation_1so5t")
+}
+
 [node name="Player" type="CharacterBody3D" unique_id=1653185810 node_paths=PackedStringArray("player_mesh") groups=["Player"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_onrkg")
+player_mesh = NodePath("DefaultPlayer")
 footstep_distance = 3.5
 min_footstep_period = 0.2
 accuracy_threshold_decrease = 5.0
@@ -71,7 +200,6 @@ ragdoll_time_increase = 5.0
 ragdoll_time_decrease = 5.0
 movement_speed_increase = 5.0
 jump_height_increase = 5.0
-player_mesh = NodePath("DefaultPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1812883740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -166,7 +294,7 @@ bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
 [node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="0" unique_id=1732977114]
 layers = 8
-material_override = SubResource("StandardMaterial3D_g4c7l")
+material_override = SubResource("StandardMaterial3D_r7pn3")
 
 [node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
@@ -429,5 +557,97 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="FishingMiniGame" parent="CanvasLayer" unique_id=476640078 instance=ExtResource("14_32hag")]
 unique_name_in_owner = true
 visible = false
+
+[node name="CatchUI" type="Control" parent="." unique_id=1678572669]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("24_g4c7l")
+
+[node name="YouCaught" type="Label" parent="CatchUI" unique_id=1449177507]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 77.0
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("FontVariation_b8hi5")
+theme_override_font_sizes/font_size = 20
+text = "You Caught"
+horizontal_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CatchUI" unique_id=28840130]
+z_index = -1
+position = Vector2(576, 185)
+emitting = false
+amount = 10
+texture = SubResource("GradientTexture2D_1s1yo")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.2
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_q28gw")
+
+[node name="FishTextureRect" type="TextureRect" parent="CatchUI" unique_id=1119023084]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -218.0
+offset_right = 68.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("26_rptt4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FishTitle" type="Label" parent="CatchUI" unique_id=1914030148]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ge24q")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 244.0
+offset_bottom = 289.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("FontVariation_b8hi5")
+theme_override_font_sizes/font_size = 30
+text = "AWESOME fish (tm)"
+horizontal_alignment = 1
+
+[node name="CatchBlurb" type="Label" parent="CatchUI" unique_id=242295433]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 304.0
+offset_bottom = 329.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("FontVariation_b8hi5")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CatchUIAnimator" type="AnimationPlayer" parent="CatchUI" unique_id=1263020970]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_55jnj")
 
 [editable path="DefaultPlayer"]

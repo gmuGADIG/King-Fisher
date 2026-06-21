@@ -8,5 +8,6 @@ script = ExtResource("1_pdjik")
 fish_name = "Taiyaki Fish"
 grade = 1
 sprite = ExtResource("2_7b31f")
+catch_blurb = "Wait... it's alive???"
 description = "Upon its first discovery, the Taikyaki Fish was easily mistaken for a littered pastry that a previous fisher had thrown in the water. It was only until these fish started appearing more commonly throughout the waters that a further look at these fish was warranted. Turns out, their pastry-like design is nothing but a disguise for the fact that these fish are very much live organisms. They live, breathe, feed, and die just as the other fish do, you just might have trouble distinguishing...any of their behaviors. Their lifestyle can be best compared to that of a starfish, lying dormant at the bed of the waters, feeding off of anything that just so happens to land into its open mouth. As such, these creatures are a bit of an annoyance to catch, as they tend to cover the bottom of all sorts fishing ponds, completely out of sight to fishers across the planet. If you're looking for a fish to get tired of catching, Taiyaki Fish will always be waiting for your next hook."
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
