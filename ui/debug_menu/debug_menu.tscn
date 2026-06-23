@@ -51,7 +51,7 @@ for the time being"
 horizontal_alignment = 1
 
 [node name="Separator2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1476855931]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
 [node name="HeightMap" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=312352702 instance=ExtResource("2_bvele")]
@@ -71,6 +71,12 @@ scene_path = "res://ui/keybinds/keybind_menu.tscn"
 layout_mode = 2
 text = "Open Fishing Minigame (test)"
 scene_path = "res://systems/rhythm/fishing_mini_game.tscn"
+
+[node name="OpenSceneTest" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=285877010 instance=ExtResource("2_bvele")]
+visible = false
+layout_mode = 2
+text = "Scene Test (Elijah M)"
+scene_path = "res://ui/HUD/active_buffs/buff.tscn"
 
 [node name="Separator3" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1848434056]
 layout_mode = 2

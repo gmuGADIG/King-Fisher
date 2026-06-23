@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://gskq3ns5ix4c"]
+
+[ext_resource type="Script" uid="uid://dnukkca7l0f68" path="res://ui/HUD/Buffs/displayed_buffs.gd" id="1_hgipu"]
+[ext_resource type="PackedScene" uid="uid://durefp0jx5cuv" path="res://ui/HUD/Buffs/hud_buff.tscn" id="2_j3whc"]
+
+[node name="ActiveBuffs" type="Control" unique_id=351441021]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hgipu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=889932991]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 246.0
+theme_override_constants/separation = 175
+
+[node name="Buff_One" parent="HBoxContainer" unique_id=720167877 instance=ExtResource("2_j3whc")]
+visible = false
+layout_mode = 2
+
+[node name="Buff_Two" parent="HBoxContainer" unique_id=861731903 instance=ExtResource("2_j3whc")]
+visible = false
+layout_mode = 2
+
+[node name="Buff_Three" parent="HBoxContainer" unique_id=1290978596 instance=ExtResource("2_j3whc")]
+visible = false
+layout_mode = 2
+
+[connection signal="buff_ended" from="HBoxContainer/Buff_One" to="." method="shift_buffs"]
+[connection signal="buff_ended" from="HBoxContainer/Buff_Two" to="." method="shift_buffs"]
+[connection signal="buff_ended" from="HBoxContainer/Buff_Three" to="." method="shift_buffs"]

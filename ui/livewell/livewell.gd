@@ -51,7 +51,9 @@ func _input(event: InputEvent) -> void:
 
 
 ##Holdover functions that are kept for now before the way items interact with buffs is changed
-func remove_buff(b : String) -> void:
+func add_buff(buff_name : String, duration : float, texture : Texture2D) -> void:
+	# Adds the buff to the players HUD.
+	get_tree().current_scene.get_node("%GameHud").get_node("ActiveBuffs").add_buff(buff_name, duration, texture)
 	pass
-func add_buff(b : String) -> void:
+func remove_buff(buff_name : String) -> void:
 	pass
