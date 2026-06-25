@@ -150,9 +150,13 @@ offset_bottom = 68.0
 theme_type_variation = &"FishXButton"
 
 [connection signal="closed" from="KeybindMenu" to="." method="_on_keybind_menu_closed"]
+[connection signal="drag_ended" from="OptionsPanel/VBoxContainer/MouseSensitivtySlider" to="." method="_on_slider_released"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MouseSensitivtySlider" to="." method="_on_mouse_sensitivty_slider_value_changed"]
+[connection signal="drag_ended" from="OptionsPanel/VBoxContainer/AimingSensitivitySlider" to="." method="_on_slider_released"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/AimingSensitivitySlider" to="." method="_on_aim_sensitivty_slider_value_changed"]
+[connection signal="drag_ended" from="OptionsPanel/VBoxContainer/MasterSlider" to="." method="_on_slider_released"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="drag_ended" from="OptionsPanel/VBoxContainer/SFXSlider" to="." method="_on_slider_released"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="OptionsPanel/VBoxContainer/KeybindsButton" to="." method="_on_keybinds_button_pressed"]

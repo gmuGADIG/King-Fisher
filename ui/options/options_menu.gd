@@ -1,6 +1,8 @@
 extends Control
 class_name Options
 
+static var config = ConfigFile.new()
+
 static var mouse_sensitivity : float = 1
 static var aim_senstivity : float = 1
 static var master_volume : float = 1:
@@ -27,6 +29,7 @@ signal closed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	load_settings()
 	mouse_sens_slider.value = mouse_sensitivity
 	aim_sens_slider.value = aim_senstivity
 	sfx_slider.value = sfx_volume
@@ -60,6 +63,29 @@ func _on_mouse_sensitivty_slider_value_changed(value: float) -> void:
 
 func _on_aim_sensitivty_slider_value_changed(value: float) -> void:
 	aim_senstivity = value
+
+func save_settings() -> void:
+	config.set_value("options", "mouse_sensitivity", mouse_sensitivity)
+	config.set_value("options", "aim_sensitivity", aim_senstivity)
+	config.set_value("options", "master_volume", master_volume)
+	config.set_value("options", "sfx_volume", sfx_volume)
+	config.set_value("options", "music_volume", music_volume)
+	config.save("user://settings.cfg")
+	Debug.log("Saving Settings")
+
+func load_settings() -> void:
+	var info = config.load("user://settings.cfg")
+	if info != OK:
+		print("No settings file found, using defaults")
+		return
+	mouse_sensitivity = config.get_value("options", "mouse_sensitivity", 1)
+	aim_senstivity = config.get_value("options", "aim_sensitivity", 1)
+	master_volume = config.get_value("options", "master_volume", 1)
+	sfx_volume = config.get_value("options", "sfx_volume", 1)
+	music_volume = config.get_value("options", "music_volume", 1)
+
+func _on_slider_released(_value : float) -> void:
+	save_settings()
 
 func _on_keybinds_button_pressed() -> void:
 	$OptionsPanel.hide()
