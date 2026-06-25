@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://m8ni6fp80eqq" path="res://ui/main_menu/main_menu.gd" id="1_ctg6d"]
 [ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_lknku"]
+[ext_resource type="Texture2D" uid="uid://ho7b7tdmq0o7" path="res://ui/main_menu/main_menu_background_texture.tres" id="1_tf5ef"]
 [ext_resource type="PackedScene" uid="uid://n6fltg0vkvl" path="res://ui/options/options_menu.tscn" id="2_3c04x"]
 [ext_resource type="PackedScene" uid="uid://dih1wbmgk3wkg" path="res://ui/lobby_browser/lobby_browser.tscn" id="2_i5wg5"]
 [ext_resource type="Resource" uid="uid://bqu88uxbyg1y4" path="res://sound/music/song_files/settings_erina.tres" id="2_u2jyo"]
@@ -15,27 +16,33 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6q35d"]
 
-[node name="MainMenu" type="ColorRect" unique_id=1305341032]
+[node name="MainMenu" type="TextureRect" unique_id=1952771162]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_tf5ef")
+expand_mode = 1
 script = ExtResource("1_ctg6d")
 options_song = ExtResource("2_u2jyo")
 fishdex_song = ExtResource("3_qewnw")
 lobby_browse_song = ExtResource("4_db6af")
 
 [node name="OptionsMenu" parent="." unique_id=1087068024 instance=ExtResource("2_3c04x")]
+visible = false
 layout_mode = 1
 
 [node name="LobbyBrowser" parent="." unique_id=245152877 instance=ExtResource("2_i5wg5")]
+visible = false
 layout_mode = 1
 
 [node name="Fishdex" parent="." unique_id=1890729006 instance=ExtResource("4_4e78x")]
+visible = false
 layout_mode = 1
 
 [node name="Itemdex" parent="." unique_id=976872789 instance=ExtResource("5_s4pem")]
+visible = false
 layout_mode = 1
 
 [node name="MainMenuContainer" type="Control" parent="." unique_id=1931984883]
@@ -48,6 +55,7 @@ grow_vertical = 2
 theme = ExtResource("1_lknku")
 
 [node name="Background" type="TextureRect" parent="MainMenuContainer" unique_id=277350682]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,6 +65,7 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_6q35d")
 
 [node name="Divider2" type="TextureRect" parent="MainMenuContainer" unique_id=915958547]
+visible = false
 layout_mode = 0
 offset_left = 277.0
 offset_right = 498.40515
