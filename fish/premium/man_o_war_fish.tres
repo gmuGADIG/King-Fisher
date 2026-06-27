@@ -8,6 +8,7 @@ script = ExtResource("1_solsc")
 fish_name = "Man-o-War Fish"
 grade = 3
 sprite = ExtResource("2_324cw")
+catch_blurb = "Back from the trenches"
 description = "The Man o' War are extremely toxic, colonial creatures made up of different organisms. They are recognizable by their transparent blue, gas-filled heads that almost look like hats and 30-foot-long stinging tentacles.
 They work together in groups called legions, drifting around in practiced patterns as if patrolling something. Though they don't seek violence, a Man o' War will paralyze, injure, and on rare occasions kill anyone who gets too close. Their battle strategies are so advanced that the Druyip navy has begun to integrate their tactics.
 In terms of relations with other fish, The Man o' War seem to have a mutual respect for Swordfish. They both believe in only using force when necessary. On the other hand, Man o' war seems to have a violent disdain for British fish. British fish are the only thing that can make a Man o' War break its patrol.

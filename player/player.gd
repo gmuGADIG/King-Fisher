@@ -308,6 +308,16 @@ func _mouse_input(event : InputEvent) -> void:
 		take_fish_serialized.rpc(newFish.serialize())
 		#take_fish(nes
 
+## Interrupts and cancels the fishing minigame if active.
+## Called by the Ragdoll system to interrupt fishing when ragdolled.
+func cancel_fishing_minigame():
+	if fishing_minigame.state != FishingMinigame.Phase.MINIGAME_INACTIVE:
+		fishing_minigame.finish()
+		fishing_minigame.state = FishingMinigame.Phase.MINIGAME_INACTIVE
+	if current_fishing_shadow:
+		current_fishing_shadow.current_fishing_state.rpc(false)
+		current_fishing_shadow = null
+
 @rpc("call_local")
 func slow(time : float, speed_debuf : float):
 	slow_timer = time
@@ -529,6 +539,8 @@ func on_fishing_finished(succeeded:bool) -> void:
 				
 		current_fishing_shadow.kill_fish_shadow.rpc()
 		give_fish_serialized.rpc(fish.serialize())
+
+		%CatchUI.present(fish)
 	else:
 		if is_multiplayer_authority():
 			$Sounds/FishCatchFail.play()

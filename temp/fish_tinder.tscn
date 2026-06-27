@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://sa8cd5ey3scy"]
+
+[ext_resource type="Script" uid="uid://cxemd865tqywc" path="res://temp/fish_tinder.gd" id="1_7o2m4"]
+[ext_resource type="PackedScene" uid="uid://bpo4nvgeh8dat" path="res://systems/rhythm/fishing_mini_game.tscn" id="61_vknvt"]
+
+[node name="InfiniteSushiBelt" type="Control" unique_id=1363946866]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7o2m4")
+
+[node name="FishingMiniGame" parent="." unique_id=476640078 instance=ExtResource("61_vknvt")]
+process_mode = 1
+layout_mode = 1
+force_track_play_on_load = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FishingMiniGame" unique_id=179539033]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -223.0
+offset_top = -126.0
+offset_right = 223.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 34
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FishingMiniGame/VBoxContainer" unique_id=435443246]
+process_mode = 3
+layout_mode = 2
+theme_override_constants/separation = 43
+alignment = 1
+
+[node name="Previous" type="Button" parent="FishingMiniGame/VBoxContainer/HBoxContainer" unique_id=1331226382]
+process_mode = 3
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Previous"
+
+[node name="Skip" type="Button" parent="FishingMiniGame/VBoxContainer/HBoxContainer" unique_id=2110891276]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Skip"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="FishingMiniGame/VBoxContainer" unique_id=1298932623]
+process_mode = 3
+layout_mode = 2
+theme_override_constants/separation = 43
+
+[node name="Mode" type="Button" parent="FishingMiniGame/VBoxContainer/HBoxContainer2" unique_id=384791357]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+toggle_mode = true
+button_pressed = true
+text = "Mode: Random"
+
+[node name="Pause" type="Button" parent="FishingMiniGame/VBoxContainer/HBoxContainer2" unique_id=172718841]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+toggle_mode = true
+text = "Pause"
+
+[node name="Accuracy" type="Label" parent="FishingMiniGame" unique_id=900387532]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Last Accuracy:"
+
+[node name="Start" type="Control" parent="." unique_id=1912379320]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Start" unique_id=732797108]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Start/VBoxContainer" unique_id=482337260]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "The Infinite Sushi Belt
+(Fish Tinder)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Start/VBoxContainer" unique_id=88457187]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/minimum_character_width = 22
+placeholder_text = "Track Name - e.g. \"fresh_01\" (Optional)"
+
+[node name="Start" type="Button" parent="Start/VBoxContainer" unique_id=1522937708]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 41
+text = "Play"
+
+[connection signal="fishing_finished" from="FishingMiniGame" to="." method="_on_fishing_mini_game_fishing_finished"]
+[connection signal="pressed" from="FishingMiniGame/VBoxContainer/HBoxContainer/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="FishingMiniGame/VBoxContainer/HBoxContainer/Skip" to="." method="_on_skip_pressed"]
+[connection signal="toggled" from="FishingMiniGame/VBoxContainer/HBoxContainer2/Mode" to="." method="_on_mode_toggled"]
+[connection signal="toggled" from="FishingMiniGame/VBoxContainer/HBoxContainer2/Pause" to="." method="_on_pause_toggled"]
+[connection signal="pressed" from="Start/VBoxContainer/Start" to="." method="_on_start_pressed"]
