@@ -113,6 +113,11 @@ texture = ExtResource("5_cuuia")
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0.47722334)
 texture = ExtResource("5_cuuia")
 
+[node name="Label3D" type="Label3D" parent="Water/Water3/ReadyUpFishShadow" index="3" unique_id=1413871310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9672928, 0)
+text = "Fish here to ready up!"
+font_size = 48
+
 [node name="LobbyBoat" parent="." index="10" unique_id=245968247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
 
