@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://ctgre567eb6fp"]
 
 [ext_resource type="Script" uid="uid://dt4ctryx0tnjv" path="res://ui/credits/credits.gd" id="2_2n5wy"]
-[ext_resource type="PackedScene" uid="uid://dx6rmy7tmc1w7" path="res://ui/credits/letter_rigidbody.tscn" id="2_sunqn"]
 [ext_resource type="Texture2D" uid="uid://cgmnrkikdntxe" path="res://ui/main_menu/water.png" id="3_nnsry"]
 [ext_resource type="Texture2D" uid="uid://b6n11x0s76aku" path="res://ui/main_menu/water_mask.png" id="3_rqgi2"]
-[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="4_rqgi2"]
+[ext_resource type="PackedScene" uid="uid://bqbkr71lpmjur" path="res://ui/credits/credits_text.tscn" id="5_sunqn"]
 
 [sub_resource type="Animation" id="Animation_ydyd3"]
 length = 0.001
@@ -25,9 +24,14 @@ size = Vector2(1584, 352)
 
 [node name="Credits" type="Node2D" unique_id=1309332414]
 script = ExtResource("2_2n5wy")
-letter_rigidbody_packed = ExtResource("2_sunqn")
-random_angular = 2.5
-random_linear = Vector2(10, 50)
+credits_raw = "1~Programmers
+3~Michael Campbell
+3~Kaiden Zamora-Soon
+3~Jessup Gravvit
+3~two
+3~two
+1~Thanks For Playing!"
+credits_text_packed = ExtResource("5_sunqn")
 
 [node name="ScrollingWater" type="Parallax2D" parent="." unique_id=306376776]
 repeat_size = Vector2(1906, 0)
@@ -67,16 +71,11 @@ texture = ExtResource("3_nnsry")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1757121054]
 zoom = Vector2(0.755, 0.755)
 
-[node name="Guy" type="Node2D" parent="." unique_id=204027427]
-position = Vector2(-104, -168)
+[node name="CreditsText" type="Node2D" parent="." unique_id=1704840751]
+position = Vector2(0, -368)
 
-[node name="Label" type="Label" parent="Guy" unique_id=1684179304]
-offset_top = -40.0
-offset_right = 233.0
-offset_bottom = 42.0
-theme = ExtResource("4_rqgi2")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 53
-text = "Credits"
-vertical_alignment = 1
+[node name="CreditsTimer" type="Timer" parent="." unique_id=777950620]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="CreditsTimer" to="." method="_on_credits_timer_timeout"]
