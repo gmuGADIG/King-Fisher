@@ -24,14 +24,129 @@ size = Vector2(1584, 352)
 
 [node name="Credits" type="Node2D" unique_id=1309332414]
 script = ExtResource("2_2n5wy")
-credits_raw = "1~Programmers
-3~Michael Campbell
-3~Kaiden Zamora-Soon
-3~Jessup Gravvit
-3~two
-3~two
-1~Thanks For Playing!"
+credits_raw = "1~King Fisher Credits
+2~Sound
+3~Adrian Colon-Flores                          Music
+3~Alex Dugan                                     SFX
+3~Alexander Edralin                            Music
+3~Becs Neuman                                  Music
+3~Christopher Taylor                           Music
+3~Cooper Rummel          Music, SFX, Cutscene Scores
+3~Dale N                                         SFX
+3~E                                            Music
+3~Jesse de la Cruz                             Music
+3~Justin Lam                                   Music
+3~Matthew Caldwell                             Music
+3~Nathan Caruso                                Music
+3~Theo Serket                                  Music
+3~january                                        SFX
+2~Programming
+3~Camber Boles                Level, Enemies, Player
+3~Clancy Mahoney                              Player
+3~Connor Harrison                         UI, Bosses
+3~Emily Hansen                   UI, Enemies, Player
+3~Ethan Nguyen                                    UI
+3~Jamie Wexton                           UI, Enemies
+3~Jessup Gravitt                 UI, Enemies, Player
+3~Jordan Myers                                    UI
+3~Kaiden Zamora-Soon              UI, Bosses, Player
+3~Kernighan Mitchell                  Level, Enemies
+3~Martell Collins                            Enemies
+3~Matthew  N.                             UI, Player
+3~Maximilian Fowlkes                 Enemies, Player
+3~Oscar Angleberger                   Level, Enemies
+3~Rahul Mathew                                    UI
+3~Shakeeb Uddin                                   UI
+3~Trinity Himes                                   UI
+3~Tristan Napoliello                              UI
+3~Tushar Rangaswamy                          Enemies
+2~Design
+3~Adam Levine                              Narrative
+3~Andrew Zhan                                  Level
+3~Ari Pashya                   Narrative, Characters
+3~Beau                                    Characters
+3~Benjamin Wright                   Level, QA Tester
+3~Chadwick Edralin II                      Narrative
+3~Clancy Mahoney                           QA Tester
+3~Connor Reynolds                          Narrative
+3~Edward Crawley               Narrative, Characters
+3~Ethan Davis                 UI, Systems, QA Tester
+3~Ethan Mejias                 Characters, Narrative
+3~Hanwen Zhang             Enemies/Bosses, Narrative
+3~Jacob Kinney             UI, Skill Tree, QA Tester
+3~Jeremy Scott                      Level, QA Tester
+3~Joan Palacios                            QA Tester
+3~Jordan McGill                     Level, QA Tester
+3~Jose Semidey                UI, Systems, QA Tester
+3~Josh Garnett                             Narrative
+3~Kailyn Evans                            Characters
+3~Kellen Berger                  Weapons, Skill Tree
+3~Kelley Dugan                        Enemies/Bosses
+3~Lily Lofgren                        Enemies/Bosses
+3~Logan Downs              UI, Skill Tree, QA Tester
+3~Lukas Brockman                  Weapons, Narrative
+3~Maggie                                  Characters
+3~Matthew Hinkle                               Level
+3~Matthew Ng                        QA Tester, Level
+3~Micah Dickerson                     Enemies/Bosses
+3~Nathan Caruso                                Level
+3~Noah Lee                                     Level
+3~Ray Patterson                            Narrative
+3~Shaun Roseberry                          Narrative
+3~Solomon Kefyalew            UI, Systems, QA Tester
+3~Thomas Byrum                 Narrative, Characters
+3~Trinity Himes                       UI, Skill Tree
+3~Wynona \"Gin\" Pimentel                   Characters
+2~Art
+3~Alyssa Jemmott                         Environment
+3~Ana Mercogliano                        Environment
+3~Arthur wiggins                                  UI
+3~Beau                                     Character
+3~Breeana Rivera              Character, Environment
+3~Celenia Plemmons                        Enemy/Boss
+3~Damien Williams                         Enemy/Boss
+3~Emma Cypcar                             Enemy/Boss
+3~Finch Spear                             Enemy/Boss
+3~Gloria El Hage                Character, Cutscenes
+3~Grace Crowley                          Environment
+3~Ivory Jemmott                          Environment
+3~Jack Novak                                      UI
+3~Jay Larsen                    Environment, Weapons
+3~Jesse Park                             Environment
+3~Jonah Kossoy                             Character
+3~Kailyn Evans                             Character
+3~Kelley Dugan                            Enemy/Boss
+3~Lily Hesselton                           Cutscenes
+3~Lily Lofgren                            Enemy/Boss
+3~Logan Downs                                     UI
+3~Maggie                                 Environment
+3~Maya Banks                         Environment, UI
+3~Mu Ying Yong                            Enemy/Boss
+3~Sage Moore                              Enemy/Boss
+3~Wynona \"Gin\" Pimentel                    Character
+2~Officers
+3~Khalid Moosa                             President
+3~Mira Maclennan                      Vice President
+3~Joan Palacios                   Production Manager
+3~Alex Xayavong         Assistant Production Manager
+3~Kaiden Zamora-Soon                       Webmaster
+3~Jordan Tatum                  Social Media Manager
+3~Jonathan Seek                            Secretary
+3~Zachary Kim                              Treasurer
+3~Jesse Park                           Game Director
+3~Connor Hayes                        Sound Director
+3~Grace Dorl                Assistant Sound Director
+3~Michael Campbell           Programming Co-director
+3~Justin Langdon             Programming Co-director
+3~Ethan Hayes                        Design Director
+3~Kshaunish Shaik          Assistant Design Director
+3~Jordan McGill            Assistant Design Director
+3~Jonah Kossoy                          Art Director
+3~Jordan Tatum                Assistant Art Director
+1~Thanks for playing!"
 credits_text_packed = ExtResource("5_sunqn")
+time_between_credits = 10.0
+time_before_credits_fall = 6.0
 
 [node name="ScrollingWater" type="Parallax2D" parent="." unique_id=306376776]
 repeat_size = Vector2(1906, 0)
@@ -75,7 +190,7 @@ zoom = Vector2(0.755, 0.755)
 position = Vector2(0, -368)
 
 [node name="CreditsTimer" type="Timer" parent="." unique_id=777950620]
-wait_time = 5.0
+wait_time = 8.0
 autostart = true
 
 [connection signal="timeout" from="CreditsTimer" to="." method="_on_credits_timer_timeout"]
