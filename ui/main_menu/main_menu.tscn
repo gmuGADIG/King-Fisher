@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://buov3yp7bnbcr"]
 
 [ext_resource type="Script" uid="uid://m8ni6fp80eqq" path="res://ui/main_menu/main_menu.gd" id="1_ctg6d"]
-[ext_resource type="Texture2D" uid="uid://ho7b7tdmq0o7" path="res://ui/main_menu/main_menu_background_texture.tres" id="1_tf5ef"]
+[ext_resource type="Texture2D" uid="uid://bkp5381ci0wco" path="res://ui/main_menu/pier_empty.png" id="1_tf5ef"]
 [ext_resource type="PackedScene" uid="uid://n6fltg0vkvl" path="res://ui/options/options_menu.tscn" id="2_3c04x"]
 [ext_resource type="PackedScene" uid="uid://dih1wbmgk3wkg" path="res://ui/lobby_browser/lobby_browser.tscn" id="2_i5wg5"]
 [ext_resource type="Resource" uid="uid://bqu88uxbyg1y4" path="res://sound/music/song_files/settings_erina.tres" id="2_u2jyo"]
@@ -53,6 +53,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_tf5ef")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TextureRect" parent="MainMenuContainer" unique_id=277350682]
 visible = false
@@ -145,12 +146,11 @@ theme_override_font_sizes/font_size = 47
 text = "  Find
   Lobby"
 
-[node name="CreatedByGadig" type="Label" parent="MainMenuContainer/RightSide" unique_id=1155163912]
+[node name="CreatedByGadig" type="Button" parent="MainMenuContainer/RightSide" unique_id=1018702588]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "Created by GADIG"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 4
+text = "Credits"
 
 [node name="PlaySongForScene" parent="." unique_id=1137292663 instance=ExtResource("14_qao3l")]
 song = ExtResource("15_lknku")

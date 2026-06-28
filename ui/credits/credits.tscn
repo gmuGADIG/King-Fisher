@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://ctgre567eb6fp"]
+
+[ext_resource type="Script" uid="uid://dt4ctryx0tnjv" path="res://ui/credits/credits.gd" id="2_2n5wy"]
+[ext_resource type="PackedScene" uid="uid://dx6rmy7tmc1w7" path="res://ui/credits/letter_rigidbody.tscn" id="2_sunqn"]
+[ext_resource type="Texture2D" uid="uid://cgmnrkikdntxe" path="res://ui/main_menu/water.png" id="3_nnsry"]
+[ext_resource type="Texture2D" uid="uid://b6n11x0s76aku" path="res://ui/main_menu/water_mask.png" id="3_rqgi2"]
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="4_rqgi2"]
+
+[sub_resource type="Animation" id="Animation_ydyd3"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_2n5wy"]
+resource_name = "credits"
+length = 30.0
+step = 30.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nnsry"]
+_data = {
+&"RESET": SubResource("Animation_ydyd3"),
+&"credits": SubResource("Animation_2n5wy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnsry"]
+size = Vector2(1584, 352)
+
+[node name="Credits" type="Node2D" unique_id=1309332414]
+script = ExtResource("2_2n5wy")
+letter_rigidbody_packed = ExtResource("2_sunqn")
+random_angular = 2.5
+random_linear = Vector2(10, 50)
+
+[node name="ScrollingWater" type="Parallax2D" parent="." unique_id=306376776]
+repeat_size = Vector2(1906, 0)
+autoscroll = Vector2(75, 0)
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollingWater" unique_id=1509121098]
+texture = ExtResource("3_nnsry")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ScrollingWater" unique_id=92459457]
+self_modulate = Color(1, 1, 1, 0.5294118)
+z_index = 5
+texture = ExtResource("3_rqgi2")
+
+[node name="CreditsAnimation" type="AnimationPlayer" parent="." unique_id=440540596]
+libraries/ = SubResource("AnimationLibrary_nnsry")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1791435739]
+position = Vector2(0, 272)
+gravity_space_override = 1
+gravity_point_center = Vector2(1, 0)
+gravity_direction = Vector2(1, 0)
+gravity = 800.0
+linear_damp_space_override = 1
+linear_damp = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=631088147]
+shape = SubResource("RectangleShape2D_nnsry")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=676974155]
+visible = false
+self_modulate = Color(1, 1, 1, 0.5882353)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_nnsry")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1757121054]
+zoom = Vector2(0.755, 0.755)
+
+[node name="Guy" type="Node2D" parent="." unique_id=204027427]
+position = Vector2(-104, -168)
+
+[node name="Label" type="Label" parent="Guy" unique_id=1684179304]
+offset_top = -40.0
+offset_right = 233.0
+offset_bottom = 42.0
+theme = ExtResource("4_rqgi2")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 53
+text = "Credits"
+vertical_alignment = 1
