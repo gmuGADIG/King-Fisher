@@ -145,8 +145,7 @@ credits_raw = "1~King Fisher Credits
 3~Jordan Tatum                Assistant Art Director
 1~Thanks for playing!"
 credits_text_packed = ExtResource("5_sunqn")
-time_between_credits = 10.0
-time_before_credits_fall = 6.0
+time_between_credits = 9.0
 
 [node name="ScrollingWater" type="Parallax2D" parent="." unique_id=306376776]
 repeat_size = Vector2(1906, 0)
@@ -186,11 +185,12 @@ texture = ExtResource("3_nnsry")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1757121054]
 zoom = Vector2(0.755, 0.755)
 
-[node name="CreditsText" type="Node2D" parent="." unique_id=1704840751]
+[node name="HeaderAnchor" type="Node2D" parent="." unique_id=2107256522]
 position = Vector2(0, -368)
 
+[node name="CreditsAnchor" type="Node2D" parent="." unique_id=1704840751]
+position = Vector2(0, -296)
+
 [node name="CreditsTimer" type="Timer" parent="." unique_id=777950620]
-wait_time = 8.0
-autostart = true
 
 [connection signal="timeout" from="CreditsTimer" to="." method="_on_credits_timer_timeout"]

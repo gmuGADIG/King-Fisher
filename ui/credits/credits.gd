@@ -1,3 +1,4 @@
+class_name Credits
 extends Node2D
 
 class CreditData:
@@ -26,16 +27,21 @@ class CreditData:
 @export var credits_text_packed : PackedScene
 
 @export_category("Credit Timings")
-@export var time_between_credits : float
-@export var time_before_credits_fall : float
+@export var time_between_credits : float = 10
+@export var credits_duration : float = 6
+
 var credits_data : Array[CreditData]
 
 
+var current_header : CreditText
+var keep_header : bool = true
+
+@onready var credits_timer : Timer = $CreditsTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	$CreditsTimer.wait_time = time_between_credits
+	credits_timer.wait_time = time_between_credits
+	credits_timer.start()
 	
 	
 	for c in credits_raw.split("\n"):
@@ -53,10 +59,17 @@ func _on_credits_timer_timeout() -> void:
 	print("AAA")
 	generate_next_credits_group()
 	
-	await get_tree().create_timer(time_before_credits_fall).timeout
-	for child in $CreditsText.get_children():
+	
+	
+	await get_tree().create_timer(credits_duration).timeout
+	for child in $CreditsAnchor.get_children():
 		if child is CreditText:
 			child.to_letter_rigid()
+	
+	if not keep_header:
+		current_header.to_letter_rigid()
+		current_header = null
+	
 
 func generate_next_credits_group() -> void:
 	if credits_data.size() == 0:
@@ -65,35 +78,46 @@ func generate_next_credits_group() -> void:
 	var tween : Tween = get_tree().create_tween()
 	tween.set_parallel()
 	
-	##Up to 6 lines of credits at a time
-	for i in 6:
+	##Check if header needs to be changed
+	if current_header == null:
+		var header_data : CreditData = credits_data.pop_front()
+		assert(header_data.size <= 2, "not header?")
+		var new_header : CreditText = create_credit_text(header_data)
+		new_header.position = 150*Vector2.UP
+		tween.tween_property(new_header,"position",Vector2.ZERO,1.0)
+		current_header = new_header
+		keep_header = true
+		$HeaderAnchor.add_child(new_header)
+	
+	##Up to 5 lines of credits at a time
+	for i in 5:
 		if credits_data.size() == 0:
 			break
 		var current_data : CreditData = credits_data[0]
 		
 		##If next credit line is title, it should be skipped (unless alone)
-		if current_data.size <= 2 and i != 0:
+		if current_data.size <= 2:
 			break
 		
 		credits_data.pop_front()
 		
 		##Create the line of text
-		var new_credit_text : CreditText = credits_text_packed.instantiate()
-		new_credit_text.label.text = current_data.text
-		new_credit_text.label.add_theme_font_size_override("font_size",current_data.get_font_size())
-		#new_credit_text.position.y = 
+		var new_credit_text : CreditText = create_credit_text(current_data)
 		var target_position : Vector2 = Vector2(0,i*current_data.get_font_size())
 		
-		##Titles come from the top
-		if current_data.size <= 2:
-			new_credit_text.position = target_position + 150*Vector2.UP
-		else:
-			new_credit_text.position = target_position + 2000*Vector2.LEFT
-			if i % 2 == 1:
-				new_credit_text.position.x = -new_credit_text.position.x
-		tween.tween_property(new_credit_text,"position",target_position,1.0)
+		new_credit_text.position = target_position + 2000*Vector2.LEFT
+		if i % 2 == 1:
+			new_credit_text.position.x = -new_credit_text.position.x
 		
-		$CreditsText.add_child(new_credit_text)
+		tween.tween_property(new_credit_text,"position",target_position,1.5)
 		
-		if current_data.size == 1 and i == 0:
-			break
+		$CreditsAnchor.add_child(new_credit_text)
+	
+	if credits_data[0].size <= 2:
+		keep_header = false
+
+func create_credit_text(credit_data : CreditData) -> CreditText:
+	var new_credit_text : CreditText = credits_text_packed.instantiate()
+	new_credit_text.label.text = credit_data.text
+	new_credit_text.label.add_theme_font_size_override("font_size",credit_data.get_font_size())
+	return new_credit_text
