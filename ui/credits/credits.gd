@@ -58,6 +58,7 @@ func _ready() -> void:
 func _on_credits_timer_timeout() -> void:
 	print("AAA")
 	generate_next_credits_group()
+	$Fish.play_animation()
 	
 	
 	
@@ -121,3 +122,8 @@ func create_credit_text(credit_data : CreditData) -> CreditText:
 	new_credit_text.label.text = credit_data.text
 	new_credit_text.label.add_theme_font_size_override("font_size",credit_data.get_font_size())
 	return new_credit_text
+
+
+func _on_letter_killer_body_exited(body: Node2D) -> void:
+	if body is LetterRigid:
+		body.queue_free()
