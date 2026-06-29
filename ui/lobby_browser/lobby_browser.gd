@@ -6,26 +6,32 @@ signal closed
 @export var server_info_packed : PackedScene
 
 @onready var lobby_creation_window : TextureRect = $LobbyCreationWindow
+@onready var lobby_join_window : TextureRect = $LobbyJoinWindow
 @onready var name_text := $DisplayName/NameInput
 var seen_ips: Dictionary[String, bool]
 var infos: Dictionary[String, ServerInfo]
+
+var currently_joining : ServerInfo
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Multiplayer.found_server.connect(_on_found_server)
 	lobby_creation_window.hide()
+	lobby_join_window.hide()
 
 func _on_host_button_pressed() -> void:
 	lobby_creation_window.show()
 
 func _on_create_back_button_pressed() -> void:
 	lobby_creation_window.hide()
+	lobby_join_window.hide()
+	currently_joining = null
 
 
 func _on_create_lobby_button_pressed() -> void:
 	#if name_text.text.length() == 0:
 		#name_text.text = "Player"+str(randi_range(1,999))
-	Multiplayer.playerDisplayName = %NameInput.text
+	Multiplayer.playerDisplayName = %HostNameInput.text
 	Multiplayer.create_server(%LobbyNameInput.text)
 	
 	Debug.log("Host Created")
@@ -52,14 +58,17 @@ func _on_found_server(ip: String, hostname: String, playerCount: String, status:
 	server_info.ip = ip
 	
 	server_info.pressed.connect(func() -> void:
-		Multiplayer.playerDisplayName = %NameInput.text
-		Multiplayer.join_server(ip)
-		Debug.log("Lobby Joined")
-		get_tree().change_scene_to_file("res://world/lobby/lobby.tscn")
+		currently_joining = server_info
+		lobby_join_window.show()
 	)
 	infos[ip] = server_info
 	%ServerInfoParent.add_child(server_info)
 
+func _on_join_lobby_button_pressed() -> void:
+	Multiplayer.playerDisplayName = %ClientNameInput.text
+	Multiplayer.join_server(currently_joining.ip)
+	Debug.log("Lobby Joined")
+	get_tree().change_scene_to_file("res://world/lobby/lobby.tscn")
 
 func _on_refresh_button_pressed() -> void:
 	Multiplayer.scan_clock = 0
