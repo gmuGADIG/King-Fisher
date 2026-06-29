@@ -40,9 +40,6 @@ var keep_header : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	credits_timer.wait_time = time_between_credits
-	credits_timer.start()
-	
 	
 	for c in credits_raw.split("\n"):
 		var new_data : CreditData = CreditData.new()
@@ -51,15 +48,24 @@ func _ready() -> void:
 		new_data.text = line_data[1]
 		credits_data.append(new_data)
 	
+	await SceneTransition.finished_loading
+	
+	credits_timer.wait_time = time_between_credits
+	credits_timer.start()
+	
 	#await get_tree().create_timer(1.0).timeout
 	#$CreditsText.to_letter_rigid()
 	_on_credits_timer_timeout()
 
 func _on_credits_timer_timeout() -> void:
+	
+	if credits_data.is_empty():
+		SceneTransition.change_to_packed("res://ui/main_menu/main_menu.tscn")
+		return
+	
 	print("AAA")
 	generate_next_credits_group()
 	$Fish.play_animation()
-	
 	
 	
 	await get_tree().create_timer(credits_duration).timeout
@@ -67,9 +73,14 @@ func _on_credits_timer_timeout() -> void:
 		if child is CreditText:
 			child.to_letter_rigid()
 	
+	if credits_data.is_empty():
+		keep_header = false
+		
 	if not keep_header:
 		current_header.to_letter_rigid()
 		current_header = null
+	
+	
 	
 
 func generate_next_credits_group() -> void:
@@ -92,7 +103,7 @@ func generate_next_credits_group() -> void:
 	
 	##Up to 5 lines of credits at a time
 	for i in 5:
-		if credits_data.size() == 0:
+		if credits_data.is_empty():
 			break
 		var current_data : CreditData = credits_data[0]
 		
@@ -110,10 +121,12 @@ func generate_next_credits_group() -> void:
 		if i % 2 == 1:
 			new_credit_text.position.x = -new_credit_text.position.x
 		
-		tween.tween_property(new_credit_text,"position",target_position,1.5)
+		tween.tween_property(new_credit_text,"position",target_position,1.25)
 		
 		$CreditsAnchor.add_child(new_credit_text)
 	
+	if credits_data.is_empty():
+		return
 	if credits_data[0].size <= 2:
 		keep_header = false
 

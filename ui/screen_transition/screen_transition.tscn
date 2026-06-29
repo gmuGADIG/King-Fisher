@@ -3,75 +3,76 @@
 [ext_resource type="Script" uid="uid://oj6480q0nbfc" path="res://ui/screen_transition/screen_transition.gd" id="1_aepck"]
 [ext_resource type="Texture2D" uid="uid://dp3y6jnnyayyl" path="res://art/ui assets/Loading_Screen1.png" id="3_xnn7h"]
 [ext_resource type="Texture2D" uid="uid://b7g83s4sbmiqo" path="res://art/ui assets/Loading_Screen2.png" id="4_jbqg7"]
-[ext_resource type="Texture2D" uid="uid://dg8eepua0mmw2" path="res://art/ui assets/Fish_Button.png" id="4_xnn7h"]
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="4_xnn7h"]
 
 [sub_resource type="Animation" id="Animation_xeh5x"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/TextureRect:rotation")
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [&"loading_screen_background"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("AnimatedSprite2D/Label:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"loading_screen_background"]
+"values": ["Loading...."]
 }
 
 [sub_resource type="Animation" id="Animation_3cybn"]
 resource_name = "loading"
 length = 2.0
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/TextureRect:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.0471975511965976, 1.0471975511965976]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"loading_screen_background"]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"", 1.0, false],
 "method": &"play"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Loading", "Loading.", "Loading..", "Loading..."]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xnn7h"]
@@ -127,21 +128,6 @@ sprite_frames = SubResource("SpriteFrames_d18py")
 animation = &"loading_screen_background"
 frame_progress = 0.62939125
 
-[node name="TextureRect" type="TextureRect" parent="AnimatedSprite2D" unique_id=35387397]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1181.8518
-offset_top = -850.0
-offset_right = -763.14
-offset_bottom = -482.9102
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 2)
-texture = ExtResource("4_xnn7h")
-
 [node name="Label" type="Label" parent="AnimatedSprite2D" unique_id=1457086035]
 anchors_preset = 10
 anchor_right = 1.0
@@ -150,6 +136,9 @@ offset_top = 205.00005
 offset_right = -958.5186
 offset_bottom = 374.00006
 grow_horizontal = 2
+theme = ExtResource("4_xnn7h")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 123
 text = "Loading...."
 horizontal_alignment = 1

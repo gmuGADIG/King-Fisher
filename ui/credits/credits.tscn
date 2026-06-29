@@ -9,14 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://oteep0k5625r" path="res://fish/sprites/angel_devil_fish.png" id="6_f3hvk"]
 [ext_resource type="Texture2D" uid="uid://cqn3l6kuh6pd5" path="res://fish/sprites/angle_r_fish.png" id="7_l2ser"]
 [ext_resource type="Texture2D" uid="uid://d3liw2xyaylh0" path="res://fish/sprites/bassilisk.png" id="8_hw7ch"]
-[ext_resource type="Texture2D" uid="uid://cn5jbi0l62nkx" path="res://fish/sprites/british_fish.png" id="9_rjkmi"]
+[ext_resource type="Texture2D" uid="uid://c3fgk85uxh6s8" path="res://fish/sprites/british_fish_small.png" id="9_f3hvk"]
 [ext_resource type="Texture2D" uid="uid://b4rohad6umqaw" path="res://fish/sprites/ceo_fish.png" id="10_e0q28"]
 [ext_resource type="Texture2D" uid="uid://cl0a24dcpl2sj" path="res://fish/sprites/emo_bass_fish.png" id="11_vd17t"]
 [ext_resource type="Texture2D" uid="uid://tm0h3rinwtna" path="res://fish/sprites/fish_seven.png" id="12_hiqgi"]
 [ext_resource type="Texture2D" uid="uid://cibo6ot84lbhy" path="res://fish/sprites/gold_fish.png" id="14_s0dn7"]
 [ext_resource type="Texture2D" uid="uid://boovw47fllxou" path="res://fish/sprites/lovers_fish.png" id="15_kaf7g"]
 [ext_resource type="Texture2D" uid="uid://cfvrqvxkee5e8" path="res://fish/sprites/man_o_war_fish.png" id="16_vawuj"]
-[ext_resource type="Texture2D" uid="uid://byhye7monr5cd" path="res://fish/sprites/moai_fish.png" id="17_sfjjl"]
+[ext_resource type="Texture2D" uid="uid://ba10pnshpio6g" path="res://fish/sprites/moai_fish_small.png" id="17_f3hvk"]
 [ext_resource type="Texture2D" uid="uid://cnvc1vghj8m3c" path="res://fish/sprites/oh_my_cod.png" id="18_66dae"]
 [ext_resource type="Texture2D" uid="uid://dw7juwgm2naml" path="res://fish/sprites/patchwork_fish.png" id="19_os0pm"]
 [ext_resource type="Texture2D" uid="uid://dw2uts6pt27go" path="res://fish/sprites/performative_fish.png" id="20_oemtj"]
@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cv88mg5v4x720" path="res://fish/sprites/please_I_need_fish.png" id="22_vvfsr"]
 [ext_resource type="Texture2D" uid="uid://jkjmeo42kibj" path="res://fish/sprites/Sardines.png" id="23_qltlo"]
 [ext_resource type="Texture2D" uid="uid://ck3bm1irl43x2" path="res://fish/sprites/sasha_splash.png" id="24_kgj74"]
-[ext_resource type="Texture2D" uid="uid://c8okmb1osxprx" path="res://fish/sprites/shrimp_tempura_fish.png" id="25_to6bt"]
+[ext_resource type="Texture2D" uid="uid://bk3w6u7xs7muo" path="res://fish/sprites/shrimp_tempura_fish_small.png" id="25_l2ser"]
 [ext_resource type="Texture2D" uid="uid://buwht7m5hgjwk" path="res://fish/sprites/star_fish.png" id="26_v25wm"]
 [ext_resource type="Texture2D" uid="uid://bn1dbb1dcyhgq" path="res://fish/sprites/steven.png" id="27_hlhn3"]
 [ext_resource type="Texture2D" uid="uid://l0c300xxuqd7" path="res://fish/sprites/taiyaki_fish.png" id="28_nn4yr"]
@@ -39,9 +39,6 @@ size = Vector2(1584, 352)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqgi2"]
 size = Vector2(1776, 1024)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3hvk"]
-size = Vector2(352, 408)
 
 [sub_resource type="Animation" id="Animation_ydyd3"]
 length = 0.001
@@ -229,118 +226,7 @@ credits_raw = "1~King Fisher Credits
 3~Becs Neuman                                  Music
 3~Christopher Taylor                           Music
 3~Cooper Rummel          Music, SFX, Cutscene Scores
-3~Dale N                                         SFX
-3~E                                            Music
-3~Jesse de la Cruz                             Music
-3~Justin Lam                                   Music
-3~Matthew Caldwell                             Music
-3~Nathan Caruso                                Music
-3~Theo Serket                                  Music
-3~january                                        SFX
-2~Programming
-3~Camber Boles                Level, Enemies, Player
-3~Clancy Mahoney                              Player
-3~Connor Harrison                         UI, Bosses
-3~Emily Hansen                   UI, Enemies, Player
-3~Ethan Nguyen                                    UI
-3~Jamie Wexton                           UI, Enemies
-3~Jessup Gravitt                 UI, Enemies, Player
-3~Jordan Myers                                    UI
-3~Kaiden Zamora-Soon              UI, Bosses, Player
-3~Kernighan Mitchell                  Level, Enemies
-3~Martell Collins                            Enemies
-3~Matthew  N.                             UI, Player
-3~Maximilian Fowlkes                 Enemies, Player
-3~Oscar Angleberger                   Level, Enemies
-3~Rahul Mathew                                    UI
-3~Shakeeb Uddin                                   UI
-3~Trinity Himes                                   UI
-3~Tristan Napoliello                              UI
-3~Tushar Rangaswamy                          Enemies
-2~Design
-3~Adam Levine                              Narrative
-3~Andrew Zhan                                  Level
-3~Ari Pashya                   Narrative, Characters
-3~Beau                                    Characters
-3~Benjamin Wright                   Level, QA Tester
-3~Chadwick Edralin II                      Narrative
-3~Clancy Mahoney                           QA Tester
-3~Connor Reynolds                          Narrative
-3~Edward Crawley               Narrative, Characters
-3~Ethan Davis                 UI, Systems, QA Tester
-3~Ethan Mejias                 Characters, Narrative
-3~Hanwen Zhang             Enemies/Bosses, Narrative
-3~Jacob Kinney             UI, Skill Tree, QA Tester
-3~Jeremy Scott                      Level, QA Tester
-3~Joan Palacios                            QA Tester
-3~Jordan McGill                     Level, QA Tester
-3~Jose Semidey                UI, Systems, QA Tester
-3~Josh Garnett                             Narrative
-3~Kailyn Evans                            Characters
-3~Kellen Berger                  Weapons, Skill Tree
-3~Kelley Dugan                        Enemies/Bosses
-3~Lily Lofgren                        Enemies/Bosses
-3~Logan Downs              UI, Skill Tree, QA Tester
-3~Lukas Brockman                  Weapons, Narrative
-3~Maggie                                  Characters
-3~Matthew Hinkle                               Level
-3~Matthew Ng                        QA Tester, Level
-3~Micah Dickerson                     Enemies/Bosses
-3~Nathan Caruso                                Level
-3~Noah Lee                                     Level
-3~Ray Patterson                            Narrative
-3~Shaun Roseberry                          Narrative
-3~Solomon Kefyalew            UI, Systems, QA Tester
-3~Thomas Byrum                 Narrative, Characters
-3~Trinity Himes                       UI, Skill Tree
-3~Wynona \"Gin\" Pimentel                   Characters
-2~Art
-3~Alyssa Jemmott                         Environment
-3~Ana Mercogliano                        Environment
-3~Arthur wiggins                                  UI
-3~Beau                                     Character
-3~Breeana Rivera              Character, Environment
-3~Celenia Plemmons                        Enemy/Boss
-3~Damien Williams                         Enemy/Boss
-3~Emma Cypcar                             Enemy/Boss
-3~Finch Spear                             Enemy/Boss
-3~Gloria El Hage                Character, Cutscenes
-3~Grace Crowley                          Environment
-3~Ivory Jemmott                          Environment
-3~Jack Novak                                      UI
-3~Jay Larsen                    Environment, Weapons
-3~Jesse Park                             Environment
-3~Jonah Kossoy                             Character
-3~Kailyn Evans                             Character
-3~Kelley Dugan                            Enemy/Boss
-3~Lily Hesselton                           Cutscenes
-3~Lily Lofgren                            Enemy/Boss
-3~Logan Downs                                     UI
-3~Maggie                                 Environment
-3~Maya Banks                         Environment, UI
-3~Mu Ying Yong                            Enemy/Boss
-3~Sage Moore                              Enemy/Boss
-3~Wynona \"Gin\" Pimentel                    Character
-2~Officers
-3~Khalid Moosa                             President
-3~Mira Maclennan                      Vice President
-3~Joan Palacios                   Production Manager
-3~Alex Xayavong         Assistant Production Manager
-3~Kaiden Zamora-Soon                       Webmaster
-3~Jordan Tatum                  Social Media Manager
-3~Jonathan Seek                            Secretary
-3~Zachary Kim                              Treasurer
-3~Jesse Park                           Game Director
-3~Connor Hayes                        Sound Director
-3~Grace Dorl                Assistant Sound Director
-3~Michael Campbell           Programming Co-director
-3~Justin Langdon             Programming Co-director
-3~Ethan Hayes                        Design Director
-3~Kshaunish Shaik          Assistant Design Director
-3~Jordan McGill            Assistant Design Director
-3~Jonah Kossoy                          Art Director
-3~Jordan Tatum                Assistant Art Director
-1~Thanks for playing!"
+1~Thanks For Playing!"
 credits_text_packed = ExtResource("5_sunqn")
 time_between_credits = 9.0
 
@@ -389,15 +275,18 @@ debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="Fish" type="Node2D" parent="." unique_id=536657686]
 script = ExtResource("5_cva3t")
-fish_textures = Array[Texture]([ExtResource("6_f3hvk"), ExtResource("7_l2ser"), ExtResource("8_hw7ch"), ExtResource("9_rjkmi"), ExtResource("10_e0q28"), ExtResource("11_vd17t"), ExtResource("12_hiqgi"), ExtResource("5_xwmn8"), ExtResource("14_s0dn7"), ExtResource("15_kaf7g"), ExtResource("16_vawuj"), ExtResource("17_sfjjl"), ExtResource("18_66dae"), ExtResource("19_os0pm"), ExtResource("20_oemtj"), ExtResource("21_ocunf"), ExtResource("22_vvfsr"), ExtResource("23_qltlo"), ExtResource("24_kgj74"), ExtResource("25_to6bt"), ExtResource("26_v25wm"), ExtResource("27_hlhn3"), ExtResource("28_nn4yr"), ExtResource("29_f3hvk"), ExtResource("30_httng"), ExtResource("31_6porp"), ExtResource("32_4bi7s"), ExtResource("33_hwh0u")])
+fish_textures = Array[Texture]([ExtResource("6_f3hvk"), ExtResource("7_l2ser"), ExtResource("8_hw7ch"), ExtResource("9_f3hvk"), ExtResource("10_e0q28"), ExtResource("11_vd17t"), ExtResource("12_hiqgi"), ExtResource("5_xwmn8"), ExtResource("14_s0dn7"), ExtResource("15_kaf7g"), ExtResource("16_vawuj"), ExtResource("17_f3hvk"), ExtResource("18_66dae"), ExtResource("19_os0pm"), ExtResource("20_oemtj"), ExtResource("21_ocunf"), ExtResource("22_vvfsr"), ExtResource("23_qltlo"), ExtResource("24_kgj74"), ExtResource("25_l2ser"), ExtResource("26_v25wm"), ExtResource("27_hlhn3"), ExtResource("28_nn4yr"), ExtResource("29_f3hvk"), ExtResource("30_httng"), ExtResource("31_6porp"), ExtResource("32_4bi7s"), ExtResource("33_hwh0u")])
 
 [node name="Fish1" type="Sprite2D" parent="Fish" unique_id=1567313553]
 position = Vector2(912, 200)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_xwmn8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish/Fish1" unique_id=187567200]
-shape = SubResource("RectangleShape2D_f3hvk")
+[node name="Fish2" type="Sprite2D" parent="Fish" unique_id=1535203783]
+visible = false
+position = Vector2(912, 247.84917)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_xwmn8")
 
 [node name="FishAnimation" type="AnimationPlayer" parent="Fish" unique_id=440540596]
 root_node = NodePath("../..")

@@ -146,7 +146,7 @@ theme_override_font_sizes/font_size = 47
 text = "  Find
   Lobby"
 
-[node name="CreatedByGadig" type="Button" parent="MainMenuContainer/RightSide" unique_id=1018702588]
+[node name="Credits" type="Button" parent="MainMenuContainer/RightSide" unique_id=1018702588]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -164,3 +164,4 @@ song = ExtResource("15_lknku")
 [connection signal="pressed" from="MainMenuContainer/LeftSide/ItemDexBtn" to="." method="itemdex_pressed"]
 [connection signal="pressed" from="MainMenuContainer/LeftSide/QuitBtn" to="." method="quit_pressed"]
 [connection signal="pressed" from="MainMenuContainer/RightSide/FindLobbyBtn" to="." method="find_lobby_pressed"]
+[connection signal="pressed" from="MainMenuContainer/RightSide/Credits" to="." method="_on_credits_pressed"]
