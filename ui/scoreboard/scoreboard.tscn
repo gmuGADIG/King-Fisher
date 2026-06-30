@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cge03ev5n16xf" path="res://ui/scoreboard/scoreboard.gd" id="1_gftpv"]
 [ext_resource type="Theme" uid="uid://bm31025lr7hs1" path="res://ui/themes/finger_paint_dark.tres" id="1_hissq"]
-[ext_resource type="Texture2D" uid="uid://ldqafbx7wp7r" path="res://ui/main_menu/quit_dark.png" id="2_n8r4c"]
 [ext_resource type="PackedScene" uid="uid://b5dalgcckscne" path="res://ui/scoreboard/scoreboard_row.tscn" id="2_phke7"]
+[ext_resource type="Texture2D" uid="uid://db4lt8mwovea0" path="res://ui/scoreboard/scoreboard_panel.png" id="4_hissq"]
 
 [node name="Scoreboard" type="Control" unique_id=1670028390]
 layout_mode = 3
@@ -21,40 +21,35 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 160.0
-offset_top = 64.0
-offset_right = -160.0
-offset_bottom = -72.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_n8r4c")
+texture = ExtResource("4_hissq")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BackPanel" unique_id=324786855]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -259.0
-offset_top = -104.0
-offset_right = 259.0
-offset_bottom = 176.0
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = 56.0
+offset_right = 272.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LeaderboardLabel" type="Label" parent="BackPanel/VBoxContainer" unique_id=327968706]
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 41
 text = "Leaderboard"
 horizontal_alignment = 1
 
 [node name="HSeparator2" type="HSeparator" parent="BackPanel/VBoxContainer" unique_id=2131908892]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 80
 
 [node name="TopRow" type="HBoxContainer" parent="BackPanel/VBoxContainer" unique_id=1113933182]
 layout_mode = 2
@@ -63,47 +58,47 @@ alignment = 1
 [node name="PlayerLabel" type="Label" parent="BackPanel/VBoxContainer/TopRow" unique_id=1209676177]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
-text = "Player Name"
+theme_override_font_sizes/font_size = 22
+text = "Player"
 
 [node name="VSeparator" type="VSeparator" parent="BackPanel/VBoxContainer/TopRow" unique_id=172623366]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
 
 [node name="ScoreLabel" type="Label" parent="BackPanel/VBoxContainer/TopRow" unique_id=208405398]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 22
 text = "Score"
 
 [node name="VSeparator2" type="VSeparator" parent="BackPanel/VBoxContainer/TopRow" unique_id=1433568281]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
 
 [node name="FishCountLabel" type="Label" parent="BackPanel/VBoxContainer/TopRow" unique_id=2008070560]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 22
 text = "Fish Count"
 
 [node name="VSeparator3" type="VSeparator" parent="BackPanel/VBoxContainer/TopRow" unique_id=1292561123]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
 
 [node name="SushiCountLabel" type="Label" parent="BackPanel/VBoxContainer/TopRow" unique_id=1725203282]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
-text = "Sushi Grades"
+theme_override_font_sizes/font_size = 22
+text = "Sushi Count"
 
 [node name="HSeparator" type="HSeparator" parent="BackPanel/VBoxContainer" unique_id=1059254070]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 41
 
 [node name="Players" type="VBoxContainer" parent="BackPanel/VBoxContainer" unique_id=471167304]
 layout_mode = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 54

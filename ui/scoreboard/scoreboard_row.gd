@@ -20,6 +20,9 @@ func setup(player_id : int) -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if player_id == -1:
+		return
+	
 	var player_instance : Player = Multiplayer.player_list[player_id].player
 	if player_instance == null:
 		return

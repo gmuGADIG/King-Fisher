@@ -10,43 +10,43 @@ script = ExtResource("1_kqdlp")
 
 [node name="PlayerLabel" type="Label" parent="." unique_id=832482727]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(115, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
-text = "Player"
+theme_override_font_sizes/font_size = 22
+text = "x"
 
 [node name="VSeparator" type="VSeparator" parent="." unique_id=1072091291]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=708350984]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(115, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
-text = "Score"
+theme_override_font_sizes/font_size = 22
+text = "x"
 
 [node name="VSeparator2" type="VSeparator" parent="." unique_id=1515104434]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
 
 [node name="FishCountLabel" type="Label" parent="." unique_id=634188307]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(115, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
-text = "Total Fish"
+theme_override_font_sizes/font_size = 22
+text = "x"
 
 [node name="VSeparator3" type="VSeparator" parent="." unique_id=1184021476]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
 
 [node name="SushiCountLabel" type="Label" parent="." unique_id=581515941]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(115, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
-text = "Sushi Grade"
+theme_override_font_sizes/font_size = 22
+text = "x"
