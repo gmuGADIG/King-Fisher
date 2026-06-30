@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bx8rb13al7o7e" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://bg5yj4acmsreh" path="res://art/3d-assets/DefaultPlayer.fbx" id="2_ebec5"]
 [ext_resource type="Script" uid="uid://b0w3b5ncyaqf2" path="res://player/player_mesh.gd" id="2_pmesh"]
+[ext_resource type="Script" uid="uid://c8tmnn2ixgmhx" path="res://player/ready_label.gd" id="3_rptt4"]
 [ext_resource type="Curve" uid="uid://bica5djvhxub0" path="res://player/body_rotation_speed_curve.tres" id="4_kb6p2"]
 [ext_resource type="Script" uid="uid://dm41gwejdfgy" path="res://player/player_id.gd" id="5_g6k8r"]
 [ext_resource type="Script" uid="uid://bqpwk0pccci1t" path="res://player/ragdoll.gd" id="6_boad6"]
@@ -46,7 +47,7 @@ shader = ExtResource("20_bjvpn")
 shader_parameter/albedo = Color(0, 1, 1, 1)
 shader_parameter/frensel_power = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7pn3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uw77l"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_s7qer")
 diffuse_mode = 3
@@ -228,6 +229,14 @@ font_size = 47
 outline_size = 25
 script = ExtResource("5_g6k8r")
 
+[node name="ReadyLabel" type="Label3D" parent="." unique_id=319383580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9416633, 0)
+billboard = 2
+text = "Not Ready"
+font_size = 47
+outline_size = 25
+script = ExtResource("3_rptt4")
+
 [node name="Aiming" type="Node3D" parent="." unique_id=1376626479]
 unique_name_in_owner = true
 script = ExtResource("6_g6k8r")
@@ -292,11 +301,11 @@ mesh = NodePath("PlayerSkeleton/Skeleton3D/DefaultPlayer")
 rotation_speed_curve = ExtResource("4_kb6p2")
 bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
-[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="0" unique_id=1732977114]
+[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="0" unique_id=3456117]
 layers = 8
-material_override = SubResource("StandardMaterial3D_r7pn3")
+material_override = SubResource("StandardMaterial3D_uw77l")
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1835178431) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
 
