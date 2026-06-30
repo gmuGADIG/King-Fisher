@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://dq5h7a0rh3vaw" path="res://ui/themes/king_fisher_theme.tres" id="4_uraes"]
 
 [node name="PauseMenu" type="Control" unique_id=509264285]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

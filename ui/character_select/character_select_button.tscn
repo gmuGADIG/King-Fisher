@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dwbcnp6vyllkx"]
 
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="1_gem0a"]
 [ext_resource type="Script" uid="uid://bvxp5xbfacia2" path="res://ui/character_select/character_select_button.gd" id="2_wehrg"]
 [ext_resource type="PackedScene" uid="uid://bg5yj4acmsreh" path="res://art/3d-assets/DefaultPlayer.fbx" id="3_gem0a"]
 [ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/ourple.png" id="4_8gjgk"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0muq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wehrg"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 1
@@ -21,6 +22,7 @@ z_index = 1
 custom_minimum_size = Vector2(128, 128)
 offset_right = 128.0
 offset_bottom = 128.0
+theme = ExtResource("1_gem0a")
 script = ExtResource("2_wehrg")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=892067237]
@@ -45,7 +47,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9781476, 0, -0.2079117, 0, 1, 0, 0.2079117, 0, 0.9781476, 0, -0.45650017, 0.106036425)
 
 [node name="DefaultPlayer" parent="SubViewportContainer/SubViewport/DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(75581515, 1645880762) index="0" unique_id=3456117]
-material_override = SubResource("StandardMaterial3D_r0muq")
+material_override = SubResource("StandardMaterial3D_wehrg")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=2129378042]
 transform = Transform3D(1, 0, 0, 0, 0.97333926, 0.22937025, 0, -0.22937025, 0.97333926, 0, 1.1183407, 1.4241077)
