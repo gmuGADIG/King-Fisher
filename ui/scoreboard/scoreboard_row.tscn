@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://b5dalgcckscne"]
 
-[ext_resource type="Script" uid="uid://bn0u0u8u8tv52" path="res://ui/scoreboard/player_row.gd" id="1_kqdlp"]
+[ext_resource type="Theme" uid="uid://bm31025lr7hs1" path="res://ui/themes/finger_paint_dark.tres" id="1_4m2ou"]
+[ext_resource type="Script" uid="uid://bn0u0u8u8tv52" path="res://ui/scoreboard/scoreboard_row.gd" id="1_kqdlp"]
 
-[node name="PlayerRow" type="HBoxContainer" unique_id=2141616029]
+[node name="ScoreboardRow" type="HBoxContainer" unique_id=2141616029]
+theme = ExtResource("1_4m2ou")
 alignment = 1
 script = ExtResource("1_kqdlp")
 
@@ -10,6 +12,7 @@ script = ExtResource("1_kqdlp")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 17
 text = "Player"
 
 [node name="VSeparator" type="VSeparator" parent="." unique_id=1072091291]
@@ -21,6 +24,7 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 17
 text = "Score"
 
 [node name="VSeparator2" type="VSeparator" parent="." unique_id=1515104434]
@@ -32,6 +36,7 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 17
 text = "Total Fish"
 
 [node name="VSeparator3" type="VSeparator" parent="." unique_id=1184021476]
@@ -43,4 +48,5 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 17
 text = "Sushi Grade"
