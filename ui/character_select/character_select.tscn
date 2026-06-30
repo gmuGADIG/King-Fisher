@@ -38,10 +38,13 @@ diffuse_mode = 3
 specular_mode = 1
 roughness = 0.0
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_o7qwi"]
-top_radius = 0.7
-bottom_radius = 0.7
-height = 0.001
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kj5ae"]
+shading_mode = 0
+albedo_color = Color(0.13333334, 0.47843137, 0.70980394, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_bhxhm"]
+material = SubResource("StandardMaterial3D_kj5ae")
+inner_radius = 0.779
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bhxhm"]
 shader = ExtResource("7_bhxhm")
@@ -186,9 +189,9 @@ transform = Transform3D(1, 0, 0, 0, 0.97333926, 0.22937025, 0, -0.22937025, 0.97
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Panel/HBoxContainer/Control/SubViewportContainer/SubViewport" unique_id=318157303]
 transform = Transform3D(1, 0, 0, 0, 0.7906896, 0.6122173, 0, -0.6122173, 0.7906896, 0, 0, 3.9035742)
 
-[node name="FootCircle" type="MeshInstance3D" parent="Panel/HBoxContainer/Control/SubViewportContainer/SubViewport" unique_id=407374989]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5301405, 0, 0, 0.10804647)
-mesh = SubResource("CylinderMesh_o7qwi")
+[node name="FootCircle2" type="MeshInstance3D" parent="Panel/HBoxContainer/Control/SubViewportContainer/SubViewport" unique_id=746843087]
+transform = Transform3D(0.698, 0, 0, 0, 0.07, 0, 0, 0, 0.37, 0, 0, 0.10804647)
+mesh = SubResource("TorusMesh_bhxhm")
 
 [node name="ConfirmButton" type="Button" parent="Panel/HBoxContainer/Control" unique_id=186994076]
 custom_minimum_size = Vector2(50, 5.945)
