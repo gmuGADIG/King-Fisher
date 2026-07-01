@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy8oq7y4xpxwe"
-path.s3tc="res://.godot/imported/ourple.png-e0b4ee1f6f242270c01c23ee9cadc7f7.s3tc.ctex"
+uid="uid://ctqyjapriy26t"
+path.s3tc="res://.godot/imported/player_orange.png-61f017f005cd6128f45461784471fd8d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://player/textures/ourple.png"
-dest_files=["res://.godot/imported/ourple.png-e0b4ee1f6f242270c01c23ee9cadc7f7.s3tc.ctex"]
+source_file="res://player/textures/player_orange.png"
+dest_files=["res://.godot/imported/player_orange.png-61f017f005cd6128f45461784471fd8d.s3tc.ctex"]
 
 [params]
 

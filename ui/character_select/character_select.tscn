@@ -4,12 +4,13 @@
 [ext_resource type="Script" uid="uid://disc3yxeaq8l5" path="res://ui/character_select/character_select.gd" id="1_xrmg0"]
 [ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="1_yov7p"]
 [ext_resource type="PackedScene" uid="uid://dwbcnp6vyllkx" path="res://ui/character_select/character_select_button.tscn" id="2_xrmg0"]
-[ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/ourple.png" id="3_x8414"]
-[ext_resource type="Texture2D" uid="uid://ctqyjapriy26t" path="res://player/textures/prange.png" id="4_qc8oi"]
-[ext_resource type="Texture2D" uid="uid://d1kuw106u7nj3" path="res://player/textures/blue.png" id="5_yov7p"]
+[ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/player_purple.png" id="3_x8414"]
+[ext_resource type="Texture2D" uid="uid://ctqyjapriy26t" path="res://player/textures/player_orange.png" id="4_qc8oi"]
+[ext_resource type="Texture2D" uid="uid://d1kuw106u7nj3" path="res://player/textures/player_blue.png" id="5_yov7p"]
+[ext_resource type="Texture2D" uid="uid://bfaqt3mqmwbh1" path="res://player/textures/player_pink.png" id="6_bhxhm"]
 [ext_resource type="Texture2D" uid="uid://b811kd3qst5nb" path="res://ui/fish_dex/fishdex-hologram.png" id="7_40405"]
 [ext_resource type="Shader" uid="uid://bs05iysjfdeoy" path="res://ui/character_select/chromatic_abberation.gdshader" id="7_bhxhm"]
-[ext_resource type="Texture2D" uid="uid://bnlagva46a01r" path="res://temp/tmp_grass_that_i_love.tres" id="8_40405"]
+[ext_resource type="Material" uid="uid://b78uomg0t2i8g" path="res://ui/results/player_texture_4.tres" id="9_ipm0l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhxhm"]
 resource_local_to_scene = true
@@ -59,7 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_yov7p")
 script = ExtResource("1_xrmg0")
-character_textures = Array[Texture]([ExtResource("3_x8414"), ExtResource("4_qc8oi"), ExtResource("5_yov7p"), ExtResource("8_40405")])
+character_textures = Array[Texture]([ExtResource("3_x8414"), ExtResource("4_qc8oi"), ExtResource("5_yov7p"), ExtResource("6_bhxhm")])
 player_mesh = NodePath("Panel/HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer/PlayerSkeleton/Skeleton3D/DefaultPlayer")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=300854297]
@@ -148,6 +149,9 @@ material_override = SubResource("StandardMaterial3D_i323y")
 layout_mode = 2
 skin_index = 3
 
+[node name="DefaultPlayer" parent="Panel/HBoxContainer/CharacterOptions/HBoxContainer2/CharacterSelectButton2/SubViewportContainer/SubViewport/DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(1984927082, 75581515, 1645880762) index="0" unique_id=3456117]
+material_override = ExtResource("9_ipm0l")
+
 [node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/CharacterOptions/HBoxContainer2" unique_id=206282817]
 layout_mode = 2
 theme_override_constants/margin_right = 45
@@ -233,4 +237,6 @@ metadata/_edit_lock_ = true
 [editable path="Panel/HBoxContainer/CharacterOptions/HBoxContainer/CharacterSelectButton2/SubViewportContainer/SubViewport/DefaultPlayer"]
 [editable path="Panel/HBoxContainer/CharacterOptions/HBoxContainer2/CharacterSelectButton"]
 [editable path="Panel/HBoxContainer/CharacterOptions/HBoxContainer2/CharacterSelectButton/SubViewportContainer/SubViewport/DefaultPlayer"]
+[editable path="Panel/HBoxContainer/CharacterOptions/HBoxContainer2/CharacterSelectButton2"]
+[editable path="Panel/HBoxContainer/CharacterOptions/HBoxContainer2/CharacterSelectButton2/SubViewportContainer/SubViewport/DefaultPlayer"]
 [editable path="Panel/HBoxContainer/Control/SubViewportContainer/SubViewport/DefaultPlayer"]

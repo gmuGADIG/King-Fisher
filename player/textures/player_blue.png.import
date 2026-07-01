@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctqyjapriy26t"
-path.s3tc="res://.godot/imported/prange.png-e95b3b745e6d02a30cf8e7a2b4fb7e53.s3tc.ctex"
+uid="uid://d1kuw106u7nj3"
+path.s3tc="res://.godot/imported/player_blue.png-bbf40fb4494bb48d1226ff1049fecf14.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://player/textures/prange.png"
-dest_files=["res://.godot/imported/prange.png-e95b3b745e6d02a30cf8e7a2b4fb7e53.s3tc.ctex"]
+source_file="res://player/textures/player_blue.png"
+dest_files=["res://.godot/imported/player_blue.png-bbf40fb4494bb48d1226ff1049fecf14.s3tc.ctex"]
 
 [params]
 

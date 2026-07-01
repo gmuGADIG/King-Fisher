@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://b6bw62c5b8s23" path="res://art/3d-assets/temp-dead-fish.glb" id="3_gr0du"]
 [ext_resource type="Environment" uid="uid://byjvy8xudhe0n" path="res://world/environment.tres" id="4_gr0du"]
 [ext_resource type="PackedScene" uid="uid://bg5yj4acmsreh" path="res://art/3d-assets/DefaultPlayer.fbx" id="5_50pv5"]
-[ext_resource type="Texture2D" uid="uid://ctqyjapriy26t" path="res://player/textures/prange.png" id="6_7d7up"]
-[ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/ourple.png" id="7_f31ym"]
+[ext_resource type="Texture2D" uid="uid://ctqyjapriy26t" path="res://player/textures/player_orange.png" id="6_7d7up"]
+[ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/player_purple.png" id="7_f31ym"]
 [ext_resource type="Texture2D" uid="uid://skc0ljw45opd" path="res://ui/main_menu/wooden_itemdex_blank.png" id="8_stkol"]
 [ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="9_cvp0m"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://sound/music/music_player/play_song_for_scene.tscn" id="10_ih241"]
-[ext_resource type="Resource" path="res://sound/music/song_files/results_jesse.tres" id="11_2kl2d"]
+[ext_resource type="Resource" uid="uid://bjgcxflmgpwll" path="res://sound/music/song_files/results_jesse.tres" id="11_2kl2d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w547k"]
 resource_local_to_scene = true

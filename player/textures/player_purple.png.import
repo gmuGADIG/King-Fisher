@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1kuw106u7nj3"
-path.s3tc="res://.godot/imported/blue.png-89174625c79db4b0cbe7f281f3378e1b.s3tc.ctex"
+uid="uid://cy8oq7y4xpxwe"
+path.s3tc="res://.godot/imported/player_purple.png-b30a189d327c7eabac89da5eb98ac69a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://player/textures/blue.png"
-dest_files=["res://.godot/imported/blue.png-89174625c79db4b0cbe7f281f3378e1b.s3tc.ctex"]
+source_file="res://player/textures/player_purple.png"
+dest_files=["res://.godot/imported/player_purple.png-b30a189d327c7eabac89da5eb98ac69a.s3tc.ctex"]
 
 [params]
 
