@@ -126,7 +126,7 @@ func _process(delta: float) -> void:
 	if is_ragdolled:
 		%Aiming.stop_aiming()
 		velocity = Vector3.ZERO
-		if (can_exit_ragdoll or ragdoll_phys.is_moving()) and Input.is_action_just_pressed("jump"):
+		if (can_exit_ragdoll or ragdoll_phys.is_moving()) and Input.is_action_just_pressed("jump") and (not force_respawn):
 			ragdoll_phys.end_ragdoll()
 		return
 	# don't process input if this is not our player
