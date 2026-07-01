@@ -21,7 +21,6 @@ static var music_volume : float = 1:
 @onready var aim_sens_slider = $OptionsPanel/VBoxContainer/VBoxContainer/AimingSensitivitySlider
 @onready var sfx_slider = $OptionsPanel/VBoxContainer/VBoxContainer/SFXSlider
 @onready var music_slider = $OptionsPanel/VBoxContainer/VBoxContainer/MusicSlider
-@onready var master_slider = $OptionsPanel/VBoxContainer/VBoxContainer/MasterSlider
 
 signal closed
 

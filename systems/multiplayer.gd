@@ -93,7 +93,7 @@ func _process_scan_for_servers(delta: float) -> void:
 		Debug.log("scan_client recieved something from %s!" % server_ip)
 
 		if(statusString == ""):
-			statusString = "Ready to start"
+			statusString = "Lobby"
 		found_server.emit(server_ip, foundHostName, playersOnlineString, statusString)
 
 func _process(delta: float) -> void:
@@ -110,6 +110,10 @@ func _on_peer_connected(id: int) -> void:
 	if not multiplayer.is_server():
 		return
 	if (player_list.size() >= size_limit):
+		disconnect_client.rpc_id(id, "lobby full")
+		player_list.erase(id)
+		return
+	if (status == "In Game"):
 		disconnect_client.rpc_id(id, "lobby full")
 		player_list.erase(id)
 		return

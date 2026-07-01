@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://sebpacttibvk" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
 [ext_resource type="PackedScene" uid="uid://cksuxnaqh3sqr" path="res://ui/lobby_browser/server_info.tscn" id="2_csvqp"]
 [ext_resource type="Texture2D" uid="uid://dfkve0oupbjtw" path="res://temp/lobby_select.png" id="3_pxnt7"]
-[ext_resource type="Texture2D" uid="uid://ddtl1bbfi35vb" path="res://art/UI/lobby_browser_window.png" id="4_5eayx"]
-[ext_resource type="Texture2D" uid="uid://gdbqhrx7mqps" path="res://art/ui assets/LobbyBrowser_NoX.png" id="5_kwntm"]
+[ext_resource type="Texture2D" uid="uid://cj0d2datoa5u1" path="res://art/UI/LobbyBrowserBG.png" id="5_kwntm"]
+[ext_resource type="Texture2D" uid="uid://cmngkfnyxrhan" path="res://art/UI/big_lobby_browser_window.png" id="6_kwntm"]
 [ext_resource type="LabelSettings" uid="uid://cqgavuhu2tpo4" path="res://lobby_creation_title.tres" id="7_4j0i0"]
+[ext_resource type="Texture2D" uid="uid://ohws5o7x7ing" path="res://art/UI/lobby_join_window.png" id="8_4j0i0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bfydg"]
 font_size = 24
@@ -50,34 +51,37 @@ texture = ExtResource("3_pxnt7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="BackgroundImage" type="TextureRect" parent="." unique_id=91559886]
+[node name="BackgroundImage" type="NinePatchRect" parent="." unique_id=1764882556]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -384.0
-offset_top = -324.0
-offset_right = 384.0
-offset_bottom = 324.0
+offset_left = -448.0
+offset_top = -308.0
+offset_right = 448.0
+offset_bottom = 308.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_kwntm")
-expand_mode = 1
-stretch_mode = 5
+region_rect = Rect2(0, 0, 991, 739)
+patch_margin_left = 192
+patch_margin_top = 120
+patch_margin_right = 239
+patch_margin_bottom = 131
 
 [node name="BackButton" type="Button" parent="BackgroundImage" unique_id=1608866824]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.031000001
-anchor_top = 0.11100002
-anchor_right = 0.08358333
-anchor_bottom = 0.17265433
-offset_left = 0.19199944
+anchor_left = 0.068587154
+anchor_top = 0.03692594
+anchor_right = 0.12117049
+anchor_bottom = 0.098580256
+offset_left = 0.19200134
 offset_top = 0.07199097
-offset_right = -0.19200134
-offset_bottom = 0.11999512
+offset_right = -0.6606674
+offset_bottom = 5.119995
 theme_type_variation = &"XButton"
 metadata/_edit_use_anchors_ = true
 
@@ -88,9 +92,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
+offset_left = -312.0
 offset_top = -212.0
-offset_right = 280.0
+offset_right = 288.0
 offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -128,37 +132,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopbarCategories" type="HBoxContainer" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1696651080]
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=41716656]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="TopbarCategories" type="HBoxContainer" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/MarginContainer" unique_id=1696651080]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-alignment = 1
 
-[node name="NameLabel" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=319740659]
+[node name="NameLabel" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/MarginContainer/TopbarCategories" unique_id=319740659]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Server Name"
 horizontal_alignment = 1
 
-[node name="PlayerLabel" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=1045212857]
+[node name="PlayerLabel" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/MarginContainer/TopbarCategories" unique_id=1045212857]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Players"
 horizontal_alignment = 1
 
-[node name="StatusLabel" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=2129217139]
+[node name="StatusLabel" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/MarginContainer/TopbarCategories" unique_id=2129217139]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Status"
 horizontal_alignment = 1
 
-[node name="PingLabel" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=225361243]
+[node name="null" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/MarginContainer/TopbarCategories" unique_id=1709028140]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Ping"
 horizontal_alignment = 1
 
 [node name="ServerInfoParent" type="VBoxContainer" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1149710568]
@@ -255,28 +260,8 @@ offset_left = 0.19999981
 placeholder_text = "Debug: Scan Extra IP"
 alignment = 1
 
-[node name="DisplayName" type="VBoxContainer" parent="." unique_id=927114755]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -58.0
-offset_right = 150.0
-grow_vertical = 0
-
-[node name="NameLabel" type="Label" parent="DisplayName" unique_id=283235027]
-layout_mode = 2
-text = "Display name"
-horizontal_alignment = 1
-
-[node name="NameInput" type="LineEdit" parent="DisplayName" unique_id=2144933206]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-placeholder_text = "Enter name..."
-alignment = 1
-
 [node name="LobbyCreationWindow" type="TextureRect" parent="." unique_id=1549874564]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.47200003
@@ -284,30 +269,28 @@ anchor_top = 0.523
 anchor_right = 0.47200003
 anchor_bottom = 0.523
 offset_left = -274.74402
-offset_top = -274.904
+offset_top = -312.904
 offset_right = 275.25598
-offset_bottom = 275.096
+offset_bottom = 237.09601
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_5eayx")
+texture = ExtResource("6_kwntm")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="BackButton" type="Button" parent="LobbyCreationWindow" unique_id=1866124005]
-modulate = Color(1, 1, 1, 0)
+[node name="BackButton" type="Button" parent="LobbyCreationWindow" unique_id=765186444]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -203.0
-offset_top = -166.0
-offset_right = -194.49199
-offset_bottom = -156.76422
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5.0540633, 4.439263)
+anchors_preset = -1
+anchor_left = 0.1432873
+anchor_top = 0.20532365
+anchor_right = 0.18942371
+anchor_bottom = 0.2506909
+offset_left = 0.19198608
+offset_top = 0.07199097
+offset_right = -0.19200897
+offset_bottom = 0.11999512
+theme_type_variation = &"XButton"
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LobbyCreationWindow" unique_id=201208762]
 layout_mode = 1
@@ -319,7 +302,7 @@ anchor_bottom = 0.51100004
 offset_left = -169.0
 offset_top = -139.05002
 offset_right = 204.0
-offset_bottom = 138.94998
+offset_bottom = 204.94998
 
 [node name="Title" type="Label" parent="LobbyCreationWindow/VBoxContainer" unique_id=11373254]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
@@ -426,6 +409,28 @@ vertical_alignment = 1
 [node name="HSeparator3" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=951405120]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+theme_override_constants/separation = 27
+
+[node name="PlayerName" type="HBoxContainer" parent="LobbyCreationWindow/VBoxContainer" unique_id=556425555]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerName" unique_id=2126802656]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+text = "Player Name:"
+label_settings = SubResource("LabelSettings_bfydg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HostNameInput" type="LineEdit" parent="LobbyCreationWindow/VBoxContainer/PlayerName" unique_id=374897497]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Player 1"
+
+[node name="HSeparator4" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=658602131]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 theme_override_constants/separation = 14
 
 [node name="CreateLobbyButton" type="Button" parent="LobbyCreationWindow/VBoxContainer" unique_id=953535078]
@@ -444,6 +449,100 @@ label_settings = SubResource("LabelSettings_5iw70")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LobbyJoinWindow" type="TextureRect" parent="." unique_id=1138870387]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47200003
+anchor_top = 0.523
+anchor_right = 0.47200003
+anchor_bottom = 0.523
+offset_left = -274.74402
+offset_top = -274.904
+offset_right = 275.25598
+offset_bottom = 275.096
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_4j0i0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackButton" type="Button" parent="LobbyJoinWindow" unique_id=2137451829]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1432873
+anchor_top = 0.20532365
+anchor_right = 0.18942371
+anchor_bottom = 0.2506909
+offset_left = 0.19200325
+offset_top = 0.07199097
+offset_right = -0.19199753
+offset_bottom = 0.11999512
+theme_type_variation = &"XButton"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LobbyJoinWindow" unique_id=748067225]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.51100004
+anchor_right = 0.5
+anchor_bottom = 0.51100004
+offset_left = -169.0
+offset_top = -139.05002
+offset_right = 204.0
+offset_bottom = 67.94998
+
+[node name="Title" type="Label" parent="LobbyJoinWindow/VBoxContainer" unique_id=1065551745]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+text = "Join Lobby"
+label_settings = ExtResource("7_4j0i0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="LobbyJoinWindow/VBoxContainer" unique_id=790944912]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LobbyName" type="HBoxContainer" parent="LobbyJoinWindow/VBoxContainer" unique_id=620647447]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LobbyJoinWindow/VBoxContainer/LobbyName" unique_id=875891829]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+text = "Player Name:"
+label_settings = SubResource("LabelSettings_bfydg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClientNameInput" type="LineEdit" parent="LobbyJoinWindow/VBoxContainer/LobbyName" unique_id=406514695]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="LobbyJoinWindow/VBoxContainer" unique_id=1504603799]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="JoinLobbyButton" type="Button" parent="LobbyJoinWindow/VBoxContainer" unique_id=456322044]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="LobbyJoinWindow/VBoxContainer/JoinLobbyButton" unique_id=1913938046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Join"
+label_settings = SubResource("LabelSettings_5iw70")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="BackgroundImage/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="BackgroundImage/VBoxContainer/Buttons/MarginContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
 [connection signal="pressed" from="BackgroundImage/VBoxContainer/Buttons/MarginContainer2/HostButton" to="." method="_on_host_button_pressed"]
@@ -453,3 +552,5 @@ vertical_alignment = 1
 [connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button2" to="." method="_on_player_count_button_pressed" binds= [3]]
 [connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button3" to="." method="_on_player_count_button_pressed" binds= [4]]
 [connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/CreateLobbyButton" to="." method="_on_create_lobby_button_pressed"]
+[connection signal="pressed" from="LobbyJoinWindow/BackButton" to="." method="_on_create_back_button_pressed"]
+[connection signal="pressed" from="LobbyJoinWindow/VBoxContainer/JoinLobbyButton" to="." method="_on_join_lobby_button_pressed"]
