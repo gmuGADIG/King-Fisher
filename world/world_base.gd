@@ -10,6 +10,8 @@ func _ready() -> void:
 		Multiplayer.report_loaded.rpc()
 		if not multiplayer.is_server():
 			spawn_request.rpc_id(1)
+	else:
+		Multiplayer.status = ""
 	
 	Multiplayer.new_player.connect(on_player_join)
 	if multiplayer.is_server():

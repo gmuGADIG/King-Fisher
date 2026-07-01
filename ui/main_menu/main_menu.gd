@@ -6,6 +6,12 @@ extends Control
 
 # Hide Everything that isn't the Main Menu
 func _ready() -> void:
+	##Reset multiplayer stuff
+	Multiplayer.player_list.clear()
+	Multiplayer.game_starting = false
+	Multiplayer.loaded_players.clear()
+	
+	
 	#UIState.ui_state = UIState.State.MAIN_MENU
 	Keybinds.load_keybinds()
 	$LobbyBrowser.hide()
