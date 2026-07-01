@@ -51,9 +51,9 @@ func use_throwable(targetPos) -> void:
 	await tween.finished
 	
 	_on_land()
-	
-	
+
+
 func _on_land() -> void:
 	## do impact code
-	print("Death")
+	print("Deleting Thrown Item")
 	queue_free()
