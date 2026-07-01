@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://df6i8q0vfa0xv" path="res://ui/lobby_browser/server_info.gd" id="1_7crmb"]
 
 [node name="ServerInfo" type="PanelContainer" unique_id=859087533]
-custom_minimum_size = Vector2(300, 0)
+offset_right = 600.0
+offset_bottom = 51.0
 script = ExtResource("1_7crmb")
 ip = "192.168.1.2"
 hostname = "- Hostname -"
@@ -18,31 +19,31 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=564481778]
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=673213215]
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=769102954]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "- Hostname -"
-
-[node name="SpaceLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=7792534]
-layout_mode = 2
-text = "-"
+text = "Player's Server"
+horizontal_alignment = 1
+text_overrun_behavior = 5
 
 [node name="CountLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=817665762]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 text = "0/0"
+horizontal_alignment = 1
 
 [node name="StatusLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1492029016]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-
-[node name="IPLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=165369734]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "192.168.1.2"
+text = "Ready to Play"
+horizontal_alignment = 1
+text_overrun_behavior = 5
 
 [node name="JoinButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1509485563]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Join"
