@@ -458,13 +458,14 @@ func equip_helmet(node : Node) -> void:
 	helmet_node.reparent(get_node("DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Head"))
 	helmet_node.position = Vector3(0, -0.2, 0.35) # So it fits the player's head
 	helmet_node.rotation = Vector3((-2 * 3.14) / 9, 0, 0) # -40 degrees in radians
-	print("null")
+	
 
 func unequip_helmet() -> void:
 	if !wearing_helmet:
 		return
 	wearing_helmet = false
 	helmet_node.queue_free()
+	get_tree().current_scene.get_node("%GameHud").get_node("ActiveBuffs").remove_buff("Helmet")
 
 
 ##NOTICE: This is abusable as it is any_peer
@@ -535,6 +536,22 @@ func apply_bone_force(vec : Vector3) -> void:
 		if node is PhysicalBone3D:
 			print("Bone found")
 			node.apply_central_impulse(vec)
+
+func add_item_buff(buff_name : String, duration : float, texture : Texture2D) -> void:
+	get_tree().current_scene.get_node("%GameHud").get_node("ActiveBuffs").add_buff(buff_name, duration, texture)
+
+##Incredibly evil function of bad code design
+func remove_item_buff(buff_name : String) -> void:
+	match buff_name:
+		"Golden Worm":
+			golden_worm_active = false
+		"Ziplock Bag":
+			has_ziplock_bag = false
+		"Helmet", "Ragdoll":
+			pass
+		_:
+			assert(false,"invalid buff")
+		
 
 ## The player is granted specific buffs after catching sushi grade fish.
 func buff_player(fish: Fish):

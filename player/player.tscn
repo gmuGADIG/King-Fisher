@@ -9,9 +9,9 @@
 [ext_resource type="Script" uid="uid://c3ahl7fgjexil" path="res://player/aiming.gd" id="6_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://gepb6fuq6ysv" path="res://sound/sfx/player/footsteps_grass.tscn" id="7_rgyib"]
 [ext_resource type="PackedScene" uid="uid://5aei5tauflq7" path="res://sound/sfx/player/footsteps_stone.tscn" id="8_hg6s5"]
-[ext_resource type="PackedScene" path="res://sound/sfx/player/player_pickup_item.tscn" id="9_e7oew"]
+[ext_resource type="PackedScene" uid="uid://lma8sgp2bvs1" path="res://sound/sfx/player/player_pickup_item.tscn" id="9_e7oew"]
 [ext_resource type="PackedScene" uid="uid://dqg3ndn6eihef" path="res://sound/sfx/player/player_jump.tscn" id="9_hg6s5"]
-[ext_resource type="PackedScene" path="res://ui/HUD/held_item.tscn" id="9_kb6p2"]
+[ext_resource type="PackedScene" uid="uid://ddyo36leg583m" path="res://ui/HUD/held_item.tscn" id="9_kb6p2"]
 [ext_resource type="AudioStream" uid="uid://iennuv5a5p7t" path="res://sound/sfx/items/sfx_fishignRodThrowsfx.wav" id="10_65viv"]
 [ext_resource type="PackedScene" uid="uid://bodlvi5m57jef" path="res://sound/sfx/player/player_land_grass.tscn" id="11_2ieo8"]
 [ext_resource type="AudioStream" uid="uid://dq308ws67l5jd" path="res://sound/sfx/player/fishing/FishcatchLevel1_ver2.mp3" id="11_g4c7l"]
@@ -21,7 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://bpo4nvgeh8dat" path="res://systems/rhythm/fishing_mini_game.tscn" id="14_32hag"]
 [ext_resource type="AudioStream" uid="uid://b5qsduosl8iom" path="res://sound/sfx/player/fishing/fishcatch4.mp3" id="14_uw77l"]
 [ext_resource type="AudioStream" uid="uid://cs0oknyeydg6n" path="res://sound/sfx/player/fishing/FishCatchFail.mp3" id="15_knn7v"]
-[ext_resource type="Shader" path="res://player/player.gdshader" id="20_bjvpn"]
+[ext_resource type="Shader" uid="uid://dmiygqboqr8gs" path="res://player/player.gdshader" id="20_bjvpn"]
+[ext_resource type="Texture2D" uid="uid://cafna4qfjv2ba" path="res://player/Ragdolled.png" id="22_s7qer"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -159,13 +160,14 @@ mesh = NodePath("PlayerSkeleton/Skeleton3D/DefaultPlayer")
 rotation_speed_curve = ExtResource("4_kb6p2")
 bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
-[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1244344583) index="0" unique_id=2032046742]
+[node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="0" unique_id=3456117]
 layers = 8
 material_override = SubResource("StandardMaterial3D_bjvpn")
 
-[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 468903528) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
+[node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
+ragdoll_icon = ExtResource("22_s7qer")
 
 [node name="Physical Bone Pelvis" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1864368423]
 transform = Transform3D(0.010000001, 0, 0, 0, -0.010000002, 1.1920933e-09, 0, -1.1920933e-09, -0.010000002, 0, -1.1542001e-10, 0.0067132604)

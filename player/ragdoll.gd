@@ -1,6 +1,7 @@
 extends PhysicalBoneSimulator3D
 
 @export var player: Player
+@export var ragdoll_icon : Texture
 var skeleton: Skeleton3D
 # This is for if the item prevents getting up from not moving
 var check_movement_toggle = true
@@ -80,7 +81,7 @@ func start_ragdoll(duration: float, prevent_move_check: bool):
 	physical_bones_start_simulation()
 
 	player.set_name_visible(false)
-
+	player.add_item_buff("Ragdoll",duration,ragdoll_icon)
 	await get_tree().create_timer(duration).timeout
 	if player.is_ragdolled:
 		player.can_exit_ragdoll = true

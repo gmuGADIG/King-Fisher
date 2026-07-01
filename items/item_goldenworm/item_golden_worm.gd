@@ -12,9 +12,9 @@ func use() -> void:
 		audio_player.bus = "SFX"
 		audio_player.play()
 		player.golden_worm_active = true
-		Livewell.add_buff("Golden Worm", duration, buff_texture)
-		await get_tree().create_timer(duration).timeout
-		player.golden_worm_active = false
-		Livewell.remove_buff("Golden Worm")
+		player.add_item_buff("Golden Worm", duration, buff_texture)
+		await get_tree().create_timer(2.25).timeout
+		#player.golden_worm_active = false
+		##player.remove_item_buff("Golden Worm")
 		Debug.log("Golden Worm deleted.")
 		queue_free()

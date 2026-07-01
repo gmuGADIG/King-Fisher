@@ -1,6 +1,7 @@
 extends Item
 
-var duration = 10
+@export var duration : float = 10
+@export var buff_texture : Texture
 
 func use() -> void:
 	if !is_held: Debug.log_err("Item was used while not held, WTF?")
@@ -9,7 +10,6 @@ func use() -> void:
 		visible = false
 		player.has_ziplock_bag = true
 		$ZiplocUse.play()
-		await get_tree().create_timer(duration).timeout
-		player.has_ziplock_bag = false
-		
+		player.add_item_buff("Ziplock Bag", duration, buff_texture)
+		await get_tree().create_timer(1.0).timeout
 		queue_free()

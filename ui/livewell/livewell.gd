@@ -48,12 +48,3 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_released("livewell_menu") and UIState.ui_state == UIState.State.LIVEWELL:
 		UIState.ui_state = UIState.State.NONE
 		hide()
-
-
-##Holdover functions that are kept for now before the way items interact with buffs is changed
-func add_buff(buff_name : String, duration : float, texture : Texture2D) -> void:
-	# Adds the buff to the players HUD.
-	get_tree().current_scene.get_node("%GameHud").get_node("ActiveBuffs").add_buff(buff_name, duration, texture)
-	pass
-func remove_buff(buff_name : String) -> void:
-	pass
