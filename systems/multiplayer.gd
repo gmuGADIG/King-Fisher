@@ -246,14 +246,14 @@ func _handle_ready_up() -> void:
 	if game_starting: return
 	
 	for player in player_list:
-			if not player_list.get(player).ready:
-				return
+		if not player_list.get(player).ready:
+			return
 	
 	game_starting = true
 	start_game.emit()
 	start_the_game.rpc()
 	status = "In Game"
-			
+
 func set_map(mapString:String,pool:Array):
 	#Array to be returned
 	#Normalize the binary string, has to be the same length as pool

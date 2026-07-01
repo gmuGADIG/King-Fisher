@@ -105,7 +105,7 @@ var fishing_minigame : FishingMinigame
 
 
 @onready var livewell : Livewell = %Livewell
-
+@onready var player_id := $PlayerId as Label3D
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -249,14 +249,19 @@ func _mouse_input(event : InputEvent) -> void:
 				$Sounds/CastRod.play()
 				var body : Node = $Aiming/AimRayCast.get_collider()
 				if body is FishShadow:
-					if body.currently_fishing:
-						return
-					body.current_fishing_state.rpc(true)
-					current_fishing_shadow = body
-					
-					##TODO: Play Fishing Minigame
-					Debug.log("fish: ",body.fish)
-					fishing_minigame.start(body.fish)
+					if get_tree().get_first_node_in_group("Lobby") == null:
+						# This is normal fishing behaviour during the game.
+						if body.currently_fishing:
+							return
+						body.current_fishing_state.rpc(true)
+						current_fishing_shadow = body
+						
+						##TODO: Play Fishing Minigame
+						Debug.log("fish: ",body.fish)
+						fishing_minigame.start(body.fish)
+					else:
+						# Fishing in the lobby is equivalent to readying up.
+						Multiplayer._handle_ready_up()
 					
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
@@ -511,7 +516,7 @@ func take_fish_serialized(data : Array) -> void:
 	take_fish(Fish.create(data[0],data[1]))
 
 func set_name_visible(val : bool) -> void:
-	$PlayerId.visible = val
+	player_id.visible = val
 
 func on_fishing_finished(succeeded:bool) -> void:
 	if succeeded:

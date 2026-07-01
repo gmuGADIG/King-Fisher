@@ -2,8 +2,54 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
+[ext_resource type="Script" uid="uid://ckvni2truxdul" path="res://world/fish_spawner/fish_shadow.gd" id="4_56mmg"]
+[ext_resource type="Texture2D" uid="uid://uhkf240tog2p" path="res://temp/fishadow.png" id="5_cuuia"]
 [ext_resource type="AudioStream" uid="uid://bo2n27tvtghjb" path="res://sound/music/song_files/OceanWaveLoop.mp3" id="5_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
+[ext_resource type="FontFile" uid="uid://m4tsacqphblt" path="res://ui/themes/fonts/share_tech_mono/ShareTechMono-Regular.ttf" id="6_gc6gh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l6qdk"]
+height = 0.3
+radius = 1.5893555
+
+[sub_resource type="Animation" id="Animation_u8h35"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishSprites:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_p7gih"]
+resource_name = "fish_spin"
+length = 1.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishSprites:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_at2c7"]
+_data = {
+&"RESET": SubResource("Animation_u8h35"),
+&"fish_spin": SubResource("Animation_p7gih")
+}
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
@@ -50,6 +96,37 @@ metadata/_edit_lock_ = true
 
 [node name="IslandTerrain" parent="." index="6" unique_id=1398597706]
 visible = false
+
+[node name="ReadyUpFishShadow" type="Area3D" parent="Water/Water3" parent_id_path=PackedInt32Array(1778158506) index="2" unique_id=771290171]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 1, 0, 0.32783696)
+script = ExtResource("4_56mmg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/Water3/ReadyUpFishShadow" index="0" unique_id=1649717876]
+shape = SubResource("CylinderShape3D_l6qdk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Water/Water3/ReadyUpFishShadow" index="1" unique_id=369600579]
+libraries/ = SubResource("AnimationLibrary_at2c7")
+
+[node name="FishSprites" type="Node3D" parent="Water/Water3/ReadyUpFishShadow" index="2" unique_id=187028224]
+transform = Transform3D(1.855, 0, 0, 0, 1.855, 0, 0, 0, 1.855, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Water/Water3/ReadyUpFishShadow/FishSprites" index="0" unique_id=286291941]
+transform = Transform3D(-0.049999993, -0.086602546, 3.7855172e-09, 0, -4.371139e-09, -0.1, 0.086602546, -0.049999993, 2.185569e-09, -0.35406983, 0, -0.23383504)
+texture = ExtResource("5_cuuia")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Water/Water3/ReadyUpFishShadow/FishSprites" index="1" unique_id=2095011726]
+transform = Transform3D(-0.05000001, 0.08660254, -3.7855172e-09, 0, -4.371139e-09, -0.099999994, -0.08660254, -0.05000001, 2.1855695e-09, 0.34414685, 0, -0.21523058)
+texture = ExtResource("5_cuuia")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Water/Water3/ReadyUpFishShadow/FishSprites" index="2" unique_id=1133154699]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0.47722334)
+texture = ExtResource("5_cuuia")
+
+[node name="Label3D" type="Label3D" parent="Water/Water3/ReadyUpFishShadow" index="3" unique_id=1413871310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+text = "Fish here to ready up!"
+font = ExtResource("6_gc6gh")
+font_size = 48
 
 [node name="LobbyBoat" parent="." index="9" unique_id=245968247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
