@@ -104,7 +104,6 @@ var fishing_minigame : FishingMinigame
 			camera_yaw = new_val
 
 
-@onready var livewell : Livewell = %Livewell
 @onready var player_id := $PlayerId as Label3D
 
 func _ready() -> void:
@@ -493,7 +492,7 @@ func give_fish(fish : Fish) -> void:
 	#livewell.addFish(fish)
 	#TODO update livewell ui
 	if is_multiplayer_authority():
-		livewell.update_inventory_visuals(fish_inventory,score)
+		Livewell.update_inventory_visuals(fish_inventory,score)
 	##%fishdex.caught_fish(fish)
 
 func take_fish(fish: Fish) -> void:
@@ -502,7 +501,7 @@ func take_fish(fish: Fish) -> void:
 		score-=fish.get_score()
 		#TODO update livewell ui
 		if is_multiplayer_authority():
-			livewell.update_inventory_visuals(fish_inventory,score)
+			Livewell.update_inventory_visuals(fish_inventory,score)
 		Debug.log("Player " + self.name +" lost a " + fish.fish_name)
 	else:
 		Debug.log("Player " + self.name + " doesn't have a " + fish.fish_name + " to take!")

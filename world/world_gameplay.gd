@@ -139,7 +139,7 @@ func _spawn_fish() -> void:
 func create_fish(id : int, pos : Vector3, grade : Fish.Grade, grade_index : int) -> void:
 	var fish : Fish = Fish.create(grade,grade_index)
 	assert(fish != null, "illegal")
-	Debug.log("Spawning Fish");
+	#Debug.log("Spawning Fish");
 	var new_fish_shadow : FishShadow = fish_shadow.instantiate()
 	new_fish_shadow.name = "FishShadow"+str(id)
 	##HACK: THIS IS FOR SHOWOFF NIGHT. Fish sometimes is just null for some reason

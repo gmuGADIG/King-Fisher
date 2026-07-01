@@ -32,6 +32,7 @@ SceneTransition="*uid://ie0c43cmrtky"
 MainMusicPlayer="*uid://3lris5j0nmj4"
 CharacterSelect="*uid://llchqpmwcxj6"
 UIState="*res://ui/ui_state.gd"
+Livewell="*uid://dyc2qekcn8phe"
 
 [display]
 

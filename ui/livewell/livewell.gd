@@ -1,4 +1,3 @@
-class_name Livewell
 extends Control
 
 @export var livewell_entry_packed : PackedScene
@@ -7,10 +6,6 @@ var livewell_entries : Array[LivewellEntry]
 @onready var grid_container : GridContainer = $Background/GridContainer
 @onready var score_label : RichTextLabel = $Background/Score
 
-static var instance: Livewell
-
-func _init() -> void:
-	instance = self
 
 func _ready() -> void:
 	hide()
@@ -33,6 +28,8 @@ func update_inventory_visuals(fish_inventory : Array[Fish], new_score : int) -> 
 		var new_entry : LivewellEntry = livewell_entry_packed.instantiate()
 		livewell_entries.append(new_entry)
 		grid_container.add_child(new_entry)
+		Debug.log("created entry")
+		print("child", grid_container.get_child_count())
 	elif livewell_entries.size() > fish_counts.size():
 		var removed_entry : LivewellEntry = livewell_entries.pop_back()
 		removed_entry.queue_free()

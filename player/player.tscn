@@ -24,7 +24,6 @@
 [ext_resource type="AudioStream" uid="uid://cs0oknyeydg6n" path="res://sound/sfx/player/fishing/FishCatchFail.mp3" id="15_knn7v"]
 [ext_resource type="Shader" uid="uid://dmiygqboqr8gs" path="res://player/player.gdshader" id="20_bjvpn"]
 [ext_resource type="Texture2D" uid="uid://cafna4qfjv2ba" path="res://player/Ragdolled.png" id="22_s7qer"]
-[ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="23_s7qer"]
 [ext_resource type="Script" uid="uid://y8c1s0aorifb" path="res://player/catch_ui.gd" id="24_g4c7l"]
 [ext_resource type="Texture2D" uid="uid://iaien10yw0dm" path="res://temp/temp_art/fish-seven.png" id="26_rptt4"]
 [ext_resource type="FontFile" uid="uid://b8gbecjr3q5m3" path="res://ui/themes/fonts/finger_paint/FingerPaintRegular-nmlV.ttf" id="26_uw77l"]
@@ -48,7 +47,7 @@ shader = ExtResource("20_bjvpn")
 shader_parameter/albedo = Color(0, 1, 1, 1)
 shader_parameter/frensel_power = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rptt4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7pn3"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_s7qer")
 diffuse_mode = 3
@@ -292,10 +291,6 @@ volume_db = 6.0
 
 [node name="HeldItem" parent="." unique_id=1114095646 instance=ExtResource("9_kb6p2")]
 
-[node name="Livewell" parent="." unique_id=1231020864 instance=ExtResource("23_s7qer")]
-unique_name_in_owner = true
-visible = false
-
 [node name="DefaultPlayer" parent="." unique_id=268378426 node_paths=PackedStringArray("mesh", "bones") instance=ExtResource("2_ebec5")]
 script = ExtResource("2_pmesh")
 mesh = NodePath("PlayerSkeleton/Skeleton3D/DefaultPlayer")
@@ -304,7 +299,7 @@ bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
 [node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="0" unique_id=3456117]
 layers = 8
-material_override = SubResource("StandardMaterial3D_rptt4")
+material_override = SubResource("StandardMaterial3D_r7pn3")
 
 [node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
