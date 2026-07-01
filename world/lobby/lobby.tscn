@@ -7,7 +7,14 @@
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
+[node name="VBoxContainer" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="0" unique_id=1460678116]
+visible = false
+
+[node name="GameHud" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="2" unique_id=207102908]
+visible = false
+
 [node name="LobbySettings" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="4" unique_id=1718361729 instance=ExtResource("3_vh6de")]
+visible = false
 
 [node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
 light_energy = 2.0
@@ -39,6 +46,7 @@ text = "#myawesomelobby"
 
 [node name="LobbyHud" parent="." index="5" unique_id=510906849 instance=ExtResource("6_56mmg")]
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="IslandTerrain" parent="." index="6" unique_id=1398597706]
 visible = false

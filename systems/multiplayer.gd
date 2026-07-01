@@ -7,6 +7,7 @@ signal client_name_recieved(name : String)
 
 signal start_game
 signal server_disconnected
+signal status_changed
 
 const PORT = 25575
 const MAX_CLIENTS = 4
@@ -25,7 +26,11 @@ var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
 var playerDisplayName: String
-var status: String
+var status: String:
+	set(new_val):
+		status = new_val
+		status_changed.emit()
+	
 #Allowed maps starts with a safety in case start game is loaded without going into lobby menu
 var allowedMaps:Array = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
 
@@ -231,7 +236,7 @@ func _handle_ready_up() -> void:
 		return
 	
 	if not multiplayer.is_server():
-		set_ready.rpc_id(1)
+		set_ready.rpc()
 			
 	if not multiplayer.is_server(): return
 	if game_starting: return
@@ -262,8 +267,9 @@ func _input(event: InputEvent) -> void:
 
 @rpc("any_peer","call_local","reliable")
 func set_ready():
-	var sender = multiplayer.get_remote_sender_id();
-	player_list[sender].ready = !player_list[sender].ready;
+	var sender = multiplayer.get_remote_sender_id()
+	player_list[sender].ready = !player_list[sender].ready
+	Debug.log("Ready up!!")
 	
 func create_server(serverName: String) -> void:
 	var peer = ENetMultiplayerPeer.new()
