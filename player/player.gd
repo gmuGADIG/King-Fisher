@@ -20,7 +20,7 @@ var force_respawn := false
 @export_category("Variables")
 @export var speed := 10.
 var slow_timer := 0.0
-var speed_modifier := 0.0
+var speed_multiplier := 1.0
 var jump_height := 15.
 
 var last_pos : Vector3 = Vector3.ZERO
@@ -138,7 +138,9 @@ func _process(delta: float) -> void:
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
-
+	if slow_timer > 0:
+		velocity *= Vector3(speed_multiplier,1,speed_multiplier)
+		slow_timer -= delta
 	
 	if not is_on_floor():
 		velocity += GRAVITY * delta * Vector3.DOWN
@@ -163,11 +165,6 @@ func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
 		handle_camera_position()
-	
-	if slow_timer > 0:
-		Debug.log("player %s has been slowed!" % name, "; speed_mod = ", speed_modifier)
-		velocity.x *= 1. - speed_modifier
-		velocity.z *= 1. - speed_modifier
 	
 	#Debug.log("velocity ", velocity)
 
@@ -316,7 +313,7 @@ func cancel_fishing_minigame():
 @rpc("call_local")
 func slow(time : float, speed_debuf : float):
 	slow_timer = time
-	speed_modifier = speed_debuf
+	speed_multiplier = 1-speed_debuf
 	
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
