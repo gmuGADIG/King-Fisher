@@ -25,8 +25,6 @@ func use_throwable(targetPos) -> void:
 	reparent(get_tree().current_scene,true)
 	show()
 	targetPosition = targetPos
-
-	pre_throw()
 	
 	var dist : float = global_position.distance_to(targetPosition)
 	var throw_time : float = TWEEN_TIME_MULTIPLIER * dist
@@ -53,12 +51,7 @@ func use_throwable(targetPos) -> void:
 	await tween.finished
 	
 	_on_land()
-	
 
-# This will be for particles/etc that can change per throwable item.
-func pre_throw() -> void:
-	## do pre-throw code
-	pass
 
 func _on_land() -> void:
 	## do impact code
