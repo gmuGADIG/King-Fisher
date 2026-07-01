@@ -320,6 +320,7 @@ func slow(time : float, speed_debuf : float):
 	slow_timer = time
 	speed_multiplier = 1-speed_debuf
 	
+	
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
 	velocity = vel
@@ -562,7 +563,7 @@ func remove_item_buff(buff_name : String) -> void:
 			golden_worm_active = false
 		"Ziplock Bag":
 			has_ziplock_bag = false
-		"Helmet", "Ragdoll":
+		"Helmet", "Ragdoll", "Glue":
 			pass
 		_:
 			assert(false,"invalid buff")
