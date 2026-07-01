@@ -16,7 +16,6 @@ script = ExtResource("1_7o2m4")
 [node name="FishingMiniGame" parent="." unique_id=476640078 instance=ExtResource("61_vknvt")]
 process_mode = 1
 layout_mode = 1
-force_track_play_on_load = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FishingMiniGame" unique_id=179539033]
 layout_mode = 1

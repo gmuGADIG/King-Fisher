@@ -20,7 +20,7 @@ var force_respawn := false
 @export_category("Variables")
 @export var speed := 10.
 var slow_timer := 0.0
-var speed_modifier := 0.0
+var speed_multiplier := 1.0
 var jump_height := 15.
 
 var last_pos : Vector3 = Vector3.ZERO
@@ -126,7 +126,7 @@ func _process(delta: float) -> void:
 	if is_ragdolled:
 		%Aiming.stop_aiming()
 		velocity = Vector3.ZERO
-		if (can_exit_ragdoll or ragdoll_phys.is_moving()) and Input.is_action_just_pressed("jump"):
+		if (can_exit_ragdoll or ragdoll_phys.is_moving()) and Input.is_action_just_pressed("jump") and (not force_respawn):
 			ragdoll_phys.end_ragdoll()
 		return
 	# don't process input if this is not our player
@@ -138,7 +138,9 @@ func _process(delta: float) -> void:
 	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
-
+	if slow_timer > 0:
+		velocity *= Vector3(speed_multiplier,1,speed_multiplier)
+		slow_timer -= delta
 	
 	if not is_on_floor():
 		velocity += GRAVITY * delta * Vector3.DOWN
@@ -163,11 +165,6 @@ func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
 		handle_camera_position()
-	
-	if slow_timer > 0:
-		Debug.log("player %s has been slowed!" % name, "; speed_mod = ", speed_modifier)
-		velocity.x *= 1. - speed_modifier
-		velocity.z *= 1. - speed_modifier
 	
 	#Debug.log("velocity ", velocity)
 
@@ -316,7 +313,7 @@ func cancel_fishing_minigame():
 @rpc("call_local")
 func slow(time : float, speed_debuf : float):
 	slow_timer = time
-	speed_modifier = speed_debuf
+	speed_multiplier = 1-speed_debuf
 	
 @rpc("unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
@@ -605,3 +602,13 @@ func buff_player(fish: Fish):
 ## This will run whenever a rubber mallet is picked up to increase the default time.
 func swordfish(mallet: RubberMallet):
 	mallet.ragdollTime += ragdoll_time_increase
+
+func get_fish_count() -> int:
+	return fish_inventory.size()
+
+func get_sushi_count() -> int:
+	var count : int = 0
+	for fish in fish_inventory:
+		if fish.grade == Fish.Grade.SUSHI:
+			count += 1
+	return count

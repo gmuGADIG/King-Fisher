@@ -1,15 +1,14 @@
 extends ThrowableItem
-@export var slow_time : float
-@export var slow_amount : float
+@export var slow_time : float = 50
+@export_range(0.0, 1.0, 0.01) var slow_amount : float = 0.4
 
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	var players = get_overlapping_bodies()
-	Debug.log(player)
-	for p in players:
-		#Debug.log("p = %s; player = %s" % [p, player])
-		if (p is Player) and p != player  :
-			#$GPUParticles3D.emitting = true
+func _on_land() -> void:
+	$GPUParticles3D.emitting = true
+	var hit_players = get_overlapping_bodies()
+	for hit_player in hit_players:
+		Debug.log("p = %s; player = %s" % [hit_player, player])
+		if hit_player is Player:
 			Debug.log("hit player")
-			p.slow(50,0.2)
+			hit_player.slow(slow_time, slow_amount)
+			await get_tree().create_timer(0.5).timeout
 			queue_free()
