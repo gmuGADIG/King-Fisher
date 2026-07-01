@@ -4,14 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
 [ext_resource type="Script" uid="uid://ckvni2truxdul" path="res://world/fish_spawner/fish_shadow.gd" id="4_56mmg"]
 [ext_resource type="PackedScene" uid="uid://duc73d8nv7dpk" path="res://world/lobby/character_select_box/character_select_box.tscn" id="4_c06ik"]
+[ext_resource type="PackedScene" uid="uid://ekklvqrqpytk" path="res://ui/lobby_settings/settings_control_panel.tscn" id="4_vh6de"]
 [ext_resource type="Texture2D" uid="uid://uhkf240tog2p" path="res://temp/fishadow.png" id="5_cuuia"]
 [ext_resource type="AudioStream" uid="uid://bo2n27tvtghjb" path="res://sound/music/song_files/OceanWaveLoop.mp3" id="5_vh6de"]
-[ext_resource type="PackedScene" uid="uid://ekklvqrqpytk" path="res://ui/lobby_settings/settings_control_panel.tscn" id="4_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
+[ext_resource type="FontFile" uid="uid://m4tsacqphblt" path="res://ui/themes/fonts/share_tech_mono/ShareTechMono-Regular.ttf" id="6_gc6gh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l6qdk"]
 height = 0.3
-radius = 0.75
+radius = 1.5893555
 
 [sub_resource type="Animation" id="Animation_u8h35"]
 length = 0.001
@@ -101,6 +102,7 @@ shape = SubResource("CylinderShape3D_l6qdk")
 libraries/ = SubResource("AnimationLibrary_at2c7")
 
 [node name="FishSprites" type="Node3D" parent="Water/Water3/ReadyUpFishShadow" index="2" unique_id=187028224]
+transform = Transform3D(1.855, 0, 0, 0, 1.855, 0, 0, 0, 1.855, 0, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Water/Water3/ReadyUpFishShadow/FishSprites" index="0" unique_id=286291941]
 transform = Transform3D(-0.049999993, -0.086602546, 3.7855172e-09, 0, -4.371139e-09, -0.1, 0.086602546, -0.049999993, 2.185569e-09, -0.35406983, 0, -0.23383504)
@@ -115,11 +117,12 @@ transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09
 texture = ExtResource("5_cuuia")
 
 [node name="Label3D" type="Label3D" parent="Water/Water3/ReadyUpFishShadow" index="3" unique_id=1413871310]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9672928, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
 text = "Fish here to ready up!"
+font = ExtResource("6_gc6gh")
 font_size = 48
 
-[node name="LobbyBoat" parent="." index="10" unique_id=245968247]
+[node name="LobbyBoat" parent="." index="9" unique_id=245968247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
 
 [node name="Control Panel" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="1" unique_id=1438383831]
@@ -134,7 +137,7 @@ lobby_settings_menu = NodePath("../../../CanvasLayer/LobbySettings")
 [node name="SkinSelect" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="3" unique_id=1442961429 instance=ExtResource("4_c06ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6512337, 3.227828, 12.059437)
 
-[node name="OceanAmbience" type="AudioStreamPlayer" parent="." index="12" unique_id=478886836]
+[node name="OceanAmbience" type="AudioStreamPlayer" parent="." index="11" unique_id=478886836]
 stream = ExtResource("5_vh6de")
 autoplay = true
 bus = &"SFX"
