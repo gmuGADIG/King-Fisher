@@ -66,7 +66,6 @@ func _on_aim_sensitivty_slider_value_changed(value: float) -> void:
 func save_settings() -> void:
 	config.set_value("options", "mouse_sensitivity", mouse_sensitivity)
 	config.set_value("options", "aim_sensitivity", aim_senstivity)
-	config.set_value("options", "master_volume", master_volume)
 	config.set_value("options", "sfx_volume", sfx_volume)
 	config.set_value("options", "music_volume", music_volume)
 	config.save("user://settings.cfg")
@@ -79,7 +78,6 @@ func load_settings() -> void:
 		return
 	mouse_sensitivity = config.get_value("options", "mouse_sensitivity", 1)
 	aim_senstivity = config.get_value("options", "aim_sensitivity", 1)
-	master_volume = config.get_value("options", "master_volume", 1)
 	sfx_volume = config.get_value("options", "sfx_volume", 1)
 	music_volume = config.get_value("options", "music_volume", 1)
 
