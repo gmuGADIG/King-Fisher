@@ -602,3 +602,13 @@ func buff_player(fish: Fish):
 ## This will run whenever a rubber mallet is picked up to increase the default time.
 func swordfish(mallet: RubberMallet):
 	mallet.ragdollTime += ragdoll_time_increase
+
+func get_fish_count() -> int:
+	return fish_inventory.size()
+
+func get_sushi_count() -> int:
+	var count : int = 0
+	for fish in fish_inventory:
+		if fish.grade == Fish.Grade.SUSHI:
+			count += 1
+	return count
