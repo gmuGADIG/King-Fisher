@@ -6,6 +6,7 @@ extends Control
 
 # Hide Everything that isn't the Main Menu
 func _ready() -> void:
+	#UIState.ui_state = UIState.State.MAIN_MENU
 	Keybinds.load_keybinds()
 	$LobbyBrowser.hide()
 	$Fishdex.hide()
@@ -60,3 +61,7 @@ func _on_options_closed() -> void:
 	$OptionsMenu.hide()
 	$MainMenuContainer.show()
 	MainMusicPlayer.pop_song(0.0, 0.0, 0.0)
+
+
+func _on_credits_pressed() -> void:
+	SceneTransition.change_to_packed("res://ui/credits/credits.tscn")

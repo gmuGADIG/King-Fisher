@@ -8,6 +8,7 @@ script = ExtResource("1_3ouy1")
 fish_name = "Gold Fish"
 grade = 3
 sprite = ExtResource("2_6a6s7")
+catch_blurb = "This one better not be a floater..."
 description = "Gold Fish possess a malleable outer shell. Depending on the temperature, mineral composition, and depth of the water, their shells take a variety of beautiful forms. A slight caveat is that in unsuitable conditions, they crumple into dense, rock-like corpses.
 The ebb and flow of various environmental factors can often wipe out entire populations of Gold Fish at once, resulting in sudden graveyards of this species. Depending on the quality of their shell, their corpses may sink to the bed or float on the surface. In either case, the sudden accumulation of such hard-shelled corpses has dire consequences on an ecosystem, so they are collected in sifting nets by highly-trained swimmers. 
 With the transfer of Gold Fish corpses onto land, many were plagued with figuring out how to make use of them. Older civilizations tried to make use of these corpses by smelting them into useful tools, but found the results inferior to more easily reproducible tools. It was terribly mindboggling...which makes the solution all the more elegant. Civilizations sought to scatter these corpses across various planets, secretly burying them deep inside the dirt in hopes that no species would discover the trash hidden beneath. 

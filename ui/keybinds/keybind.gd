@@ -1,9 +1,14 @@
 class_name Keybinds
 extends Control
 
+signal closed
+
 @export var binding_prototype: HBoxContainer
 
 @onready var vbox: VBoxContainer = $KeybindPanel/ScrollContainer/VBoxContainer
+
+static var config = ConfigFile.new()
+const SAVE_PATH = "user://keybinds.cfg"
 
 var keybind_buttons: Dictionary[StringName, HBoxContainer]
 
@@ -55,14 +60,15 @@ func save_keybinds() -> void:
 	var keybind_dict: Dictionary[StringName, InputEvent]
 	for action in keybind_buttons.keys():
 		keybind_dict[action] = InputMap.action_get_events(action)[0]
-	var save_file = FileAccess.open("user://keybinds.cfg", FileAccess.WRITE)
+	var save_file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	print(keybind_dict)
 	save_file.store_var(keybind_dict, true)
 
 ## Loads the previously saved keybinds.
 ## If a saved file exists and the keybinds are loaded successfully, returns true.
 ## Otherwise, returns false.
 static func load_keybinds() -> void:
-	var save_file = FileAccess.open("user://keybinds.cfg", FileAccess.READ)
+	var save_file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if save_file:
 		var keybind_dict: Dictionary[StringName, InputEvent] = save_file.get_var(true)
 		for action in keybind_dict:
@@ -75,3 +81,7 @@ func _on_reset_button_pressed() -> void:
 	InputMap.load_from_project_settings()
 	reflow_ui()
 	save_keybinds()
+	
+func _on_confirm_button_pressed() -> void:
+	save_keybinds()
+	closed.emit()

@@ -8,6 +8,7 @@ script = ExtResource("1_s6gv3")
 fish_name = "Fish Team Fish"
 grade = 1
 sprite = ExtResource("2_6xbey")
+catch_blurb = "Don't touch it we don't know if its contagious yet..."
 description = "An Amethyst Anthias fish was used as the basis for a scientific experiment. The experiments intended to create a fish that would become the perfect mate for any female fish.
 
 However, the lead scientist was arrested for smelting live Gold Fish and turning them into a set of armor.

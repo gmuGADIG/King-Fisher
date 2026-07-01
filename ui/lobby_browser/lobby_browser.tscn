@@ -4,18 +4,18 @@
 [ext_resource type="Script" uid="uid://sebpacttibvk" path="res://ui/lobby_browser/lobby_browser.gd" id="1_k67f4"]
 [ext_resource type="PackedScene" uid="uid://cksuxnaqh3sqr" path="res://ui/lobby_browser/server_info.tscn" id="2_csvqp"]
 [ext_resource type="Texture2D" uid="uid://dfkve0oupbjtw" path="res://temp/lobby_select.png" id="3_pxnt7"]
-[ext_resource type="Texture2D" uid="uid://ddtl1bbfi35vb" path="res://art/UI/lobby_browser_window.png" id="4_5eayx"]
+[ext_resource type="Texture2D" uid="uid://cj0d2datoa5u1" path="res://art/UI/LobbyBrowserBG.png" id="5_kwntm"]
+[ext_resource type="Texture2D" uid="uid://cmngkfnyxrhan" path="res://art/UI/big_lobby_browser_window.png" id="6_kwntm"]
 [ext_resource type="LabelSettings" uid="uid://cqgavuhu2tpo4" path="res://lobby_creation_title.tres" id="7_4j0i0"]
+[ext_resource type="Texture2D" uid="uid://ohws5o7x7ing" path="res://art/UI/lobby_join_window.png" id="8_4j0i0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bfydg"]
 font_size = 24
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_kwntm"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_5iw70"]
 font_size = 25
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_x8owp"]
-font_size = 31
 
 [node name="LobbyBrowser" type="Control" unique_id=245152877]
 layout_mode = 3
@@ -51,71 +51,62 @@ texture = ExtResource("3_pxnt7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="BackgroundImage" type="TextureRect" parent="." unique_id=91559886]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -488.0
-offset_top = -436.0
-offset_right = 416.0
-offset_bottom = 436.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_5eayx")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1550717719]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 144.0
-offset_top = 8.0
-offset_right = -168.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BackButton" type="Button" parent="TextureRect" unique_id=1608866824]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -348.0
-offset_top = -268.0
-offset_right = -284.0
-offset_bottom = -212.0
-text = "Back"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=44045274]
+[node name="BackgroundImage" type="NinePatchRect" parent="." unique_id=1764882556]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -292.0
-offset_top = -220.0
-offset_right = 300.0
-offset_bottom = 220.0
+offset_left = -448.0
+offset_top = -308.0
+offset_right = 448.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_kwntm")
+region_rect = Rect2(0, 0, 991, 739)
+patch_margin_left = 192
+patch_margin_top = 120
+patch_margin_right = 239
+patch_margin_bottom = 131
+
+[node name="BackButton" type="Button" parent="BackgroundImage" unique_id=1608866824]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.068587154
+anchor_top = 0.03692594
+anchor_right = 0.12117049
+anchor_bottom = 0.098580256
+offset_left = 0.19200134
+offset_top = 0.07199097
+offset_right = -0.6606674
+offset_bottom = 5.119995
+theme_type_variation = &"XButton"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundImage" unique_id=44045274]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -212.0
+offset_right = 288.0
+offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 21
 
-[node name="TitleTextBox" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=1446485913]
+[node name="TitleTextBox" type="ColorRect" parent="BackgroundImage/VBoxContainer" unique_id=1446485913]
 custom_minimum_size = Vector2(0, 64.805)
 layout_mode = 2
 size_flags_vertical = 4
 color = Color(0.69803923, 0, 0.69803923, 0)
 
-[node name="LobbyBrowserLabel" type="Label" parent="TextureRect/VBoxContainer/TitleTextBox" unique_id=1423046525]
+[node name="LobbyBrowserLabel" type="Label" parent="BackgroundImage/VBoxContainer/TitleTextBox" unique_id=1423046525]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,63 +119,93 @@ text = "LOBBY BROWSER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LobbyBrowser" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=949388055]
+[node name="LobbyBrowser" type="ColorRect" parent="BackgroundImage/VBoxContainer" unique_id=949388055]
 custom_minimum_size = Vector2(0, 269.87)
 layout_mode = 2
 color = Color(0.69803923, 0, 0.69803923, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/VBoxContainer/LobbyBrowser" unique_id=1980928500]
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundImage/VBoxContainer/LobbyBrowser" unique_id=1980928500]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 19.054993
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopbarCategories" type="HBoxContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1696651080]
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=41716656]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="TopbarCategories" type="HBoxContainer" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/MarginContainer" unique_id=1696651080]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-alignment = 1
 
-[node name="NameLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=319740659]
+[node name="NameLabel" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/MarginContainer/TopbarCategories" unique_id=319740659]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Server Name"
 horizontal_alignment = 1
 
-[node name="PlayerLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=1045212857]
+[node name="PlayerLabel" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/MarginContainer/TopbarCategories" unique_id=1045212857]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Players"
 horizontal_alignment = 1
 
-[node name="StatusLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=2129217139]
+[node name="StatusLabel" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/MarginContainer/TopbarCategories" unique_id=2129217139]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 text = "Status"
 horizontal_alignment = 1
 
-[node name="PingLabel" type="Label" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/TopbarCategories" unique_id=225361243]
+[node name="null" type="Label" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer/MarginContainer/TopbarCategories" unique_id=1709028140]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Ping"
 horizontal_alignment = 1
 
-[node name="ServerInfoParent" type="VBoxContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1149710568]
+[node name="ServerInfoParent" type="VBoxContainer" parent="BackgroundImage/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1149710568]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Buttons" type="Control" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer" unique_id=1857130252]
+[node name="JoiningGame" type="ColorRect" parent="BackgroundImage/VBoxContainer" unique_id=1769578127]
+visible = false
+custom_minimum_size = Vector2(0, 64.805)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0.69803923, 0, 0.69803923, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackgroundImage/VBoxContainer/JoiningGame" unique_id=1127197303]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="JoiningGameLabel" type="Label" parent="BackgroundImage/VBoxContainer/JoiningGame/HBoxContainer" unique_id=853758261]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Joining Game..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CancelJoinButton" type="Button" parent="BackgroundImage/VBoxContainer/JoiningGame/HBoxContainer" unique_id=1689267815]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Cancel"
+
+[node name="Buttons" type="Control" parent="BackgroundImage/VBoxContainer" unique_id=1857130252]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons" unique_id=1467097020]
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundImage/VBoxContainer/Buttons" unique_id=1467097020]
 layout_mode = 0
 offset_right = 106.0
 offset_bottom = 50.0
@@ -194,13 +215,14 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="RefreshButton" type="Button" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons/MarginContainer" unique_id=674890748]
+[node name="RefreshButton" type="Button" parent="BackgroundImage/VBoxContainer/Buttons/MarginContainer" unique_id=674890748]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Refresh"
 
-[node name="MarginContainer2" type="MarginContainer" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons" unique_id=1164648850]
+[node name="MarginContainer2" type="MarginContainer" parent="BackgroundImage/VBoxContainer/Buttons" unique_id=1164648850]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -218,66 +240,28 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HostButton" type="Button" parent="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons/MarginContainer2" unique_id=1691354350]
-custom_minimum_size = Vector2(200, 35.165)
+[node name="HostButton" type="Button" parent="BackgroundImage/VBoxContainer/Buttons/MarginContainer2" unique_id=1691354350]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Create Lobby"
 
-[node name="JoiningGame" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=1769578127]
-custom_minimum_size = Vector2(0, 64.805)
-layout_mode = 2
-size_flags_vertical = 4
-color = Color(0.69803923, 0, 0.69803923, 0)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer/JoiningGame" unique_id=1127197303]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 28
-alignment = 1
-
-[node name="JoiningGameLabel" type="Label" parent="TextureRect/VBoxContainer/JoiningGame/HBoxContainer" unique_id=853758261]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 45
-text = "Joining Game..."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CancelJoinButton" type="Button" parent="TextureRect/VBoxContainer/JoiningGame/HBoxContainer" unique_id=1689267815]
-layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "Cancel"
-
-[node name="DisplayName" type="VBoxContainer" parent="." unique_id=927114755]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -58.0
-offset_right = 150.0
-grow_vertical = 0
-
-[node name="NameLabel" type="Label" parent="DisplayName" unique_id=283235027]
-layout_mode = 2
-text = "Display name"
-horizontal_alignment = 1
-
-[node name="NameInput" type="LineEdit" parent="DisplayName" unique_id=2144933206]
-unique_name_in_owner = true
+[node name="IPExtra" type="LineEdit" parent="BackgroundImage/VBoxContainer/Buttons" unique_id=791245381]
 custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-placeholder_text = "Enter name..."
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 1.94
+anchor_right = 0.48000002
+anchor_bottom = 2.66
+offset_left = 0.19999981
+placeholder_text = "Debug: Scan Extra IP"
 alignment = 1
 
 [node name="LobbyCreationWindow" type="TextureRect" parent="." unique_id=1549874564]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.47200003
@@ -285,30 +269,28 @@ anchor_top = 0.523
 anchor_right = 0.47200003
 anchor_bottom = 0.523
 offset_left = -274.74402
-offset_top = -274.904
+offset_top = -312.904
 offset_right = 275.25598
-offset_bottom = 275.096
+offset_bottom = 237.09601
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_5eayx")
+texture = ExtResource("6_kwntm")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="BackButton" type="Button" parent="LobbyCreationWindow" unique_id=1866124005]
-modulate = Color(1, 1, 1, 0)
+[node name="BackButton" type="Button" parent="LobbyCreationWindow" unique_id=765186444]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -203.0
-offset_top = -166.0
-offset_right = -194.49199
-offset_bottom = -156.76422
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5.0540633, 4.439263)
+anchors_preset = -1
+anchor_left = 0.1432873
+anchor_top = 0.20532365
+anchor_right = 0.18942371
+anchor_bottom = 0.2506909
+offset_left = 0.19198608
+offset_top = 0.07199097
+offset_right = -0.19200897
+offset_bottom = 0.11999512
+theme_type_variation = &"XButton"
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LobbyCreationWindow" unique_id=201208762]
 layout_mode = 1
@@ -320,7 +302,7 @@ anchor_bottom = 0.51100004
 offset_left = -169.0
 offset_top = -139.05002
 offset_right = 204.0
-offset_bottom = 138.94998
+offset_bottom = 204.94998
 
 [node name="Title" type="Label" parent="LobbyCreationWindow/VBoxContainer" unique_id=11373254]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
@@ -331,8 +313,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=1591610615]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 7
+theme_override_constants/separation = 20
 
 [node name="LobbyName" type="HBoxContainer" parent="LobbyCreationWindow/VBoxContainer" unique_id=900111282]
 layout_mode = 2
@@ -345,11 +328,13 @@ label_settings = SubResource("LabelSettings_bfydg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="LobbyCreationWindow/VBoxContainer/LobbyName" unique_id=873317293]
+[node name="LobbyNameInput" type="LineEdit" parent="LobbyCreationWindow/VBoxContainer/LobbyName" unique_id=356368702]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="HSeparator2" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=2118327788]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 25
 
@@ -367,6 +352,8 @@ vertical_alignment = 1
 [node name="Button" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1235247534]
 layout_mode = 2
 size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kwntm")
 
 [node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button" unique_id=1416024420]
 layout_mode = 1
@@ -384,6 +371,8 @@ vertical_alignment = 1
 [node name="Button2" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=1134808308]
 layout_mode = 2
 size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kwntm")
 
 [node name="Label2" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button2" unique_id=1174190182]
 layout_mode = 1
@@ -401,6 +390,8 @@ vertical_alignment = 1
 [node name="Button3" type="Button" parent="LobbyCreationWindow/VBoxContainer/PlayerCount" unique_id=211331016]
 layout_mode = 2
 size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kwntm")
 
 [node name="Label3" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerCount/Button3" unique_id=703835826]
 layout_mode = 1
@@ -416,15 +407,37 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HSeparator3" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=951405120]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 27
 
-[node name="Button" type="Button" parent="LobbyCreationWindow/VBoxContainer" unique_id=953535078]
+[node name="PlayerName" type="HBoxContainer" parent="LobbyCreationWindow/VBoxContainer" unique_id=556425555]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/PlayerName" unique_id=2126802656]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+text = "Player Name:"
+label_settings = SubResource("LabelSettings_bfydg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HostNameInput" type="LineEdit" parent="LobbyCreationWindow/VBoxContainer/PlayerName" unique_id=374897497]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Player 1"
+
+[node name="HSeparator4" type="HSeparator" parent="LobbyCreationWindow/VBoxContainer" unique_id=658602131]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="CreateLobbyButton" type="Button" parent="LobbyCreationWindow/VBoxContainer" unique_id=953535078]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/Button" unique_id=257631793]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+[node name="Label" type="Label" parent="LobbyCreationWindow/VBoxContainer/CreateLobbyButton" unique_id=257631793]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -432,10 +445,112 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Create"
-label_settings = SubResource("LabelSettings_x8owp")
+label_settings = SubResource("LabelSettings_5iw70")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="TextureRect/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons/MarginContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/LobbyBrowser/VBoxContainer/Buttons/MarginContainer2/HostButton" to="." method="_on_host_button_pressed"]
+[node name="LobbyJoinWindow" type="TextureRect" parent="." unique_id=1138870387]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47200003
+anchor_top = 0.523
+anchor_right = 0.47200003
+anchor_bottom = 0.523
+offset_left = -274.74402
+offset_top = -274.904
+offset_right = 275.25598
+offset_bottom = 275.096
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_4j0i0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackButton" type="Button" parent="LobbyJoinWindow" unique_id=2137451829]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1432873
+anchor_top = 0.20532365
+anchor_right = 0.18942371
+anchor_bottom = 0.2506909
+offset_left = 0.19200325
+offset_top = 0.07199097
+offset_right = -0.19199753
+offset_bottom = 0.11999512
+theme_type_variation = &"XButton"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LobbyJoinWindow" unique_id=748067225]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.51100004
+anchor_right = 0.5
+anchor_bottom = 0.51100004
+offset_left = -169.0
+offset_top = -139.05002
+offset_right = 204.0
+offset_bottom = 67.94998
+
+[node name="Title" type="Label" parent="LobbyJoinWindow/VBoxContainer" unique_id=1065551745]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+text = "Join Lobby"
+label_settings = ExtResource("7_4j0i0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="LobbyJoinWindow/VBoxContainer" unique_id=790944912]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LobbyName" type="HBoxContainer" parent="LobbyJoinWindow/VBoxContainer" unique_id=620647447]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LobbyJoinWindow/VBoxContainer/LobbyName" unique_id=875891829]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+text = "Player Name:"
+label_settings = SubResource("LabelSettings_bfydg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClientNameInput" type="LineEdit" parent="LobbyJoinWindow/VBoxContainer/LobbyName" unique_id=406514695]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="LobbyJoinWindow/VBoxContainer" unique_id=1504603799]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="JoinLobbyButton" type="Button" parent="LobbyJoinWindow/VBoxContainer" unique_id=456322044]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="LobbyJoinWindow/VBoxContainer/JoinLobbyButton" unique_id=1913938046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Join"
+label_settings = SubResource("LabelSettings_5iw70")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BackgroundImage/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="BackgroundImage/VBoxContainer/Buttons/MarginContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
+[connection signal="pressed" from="BackgroundImage/VBoxContainer/Buttons/MarginContainer2/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="text_changed" from="BackgroundImage/VBoxContainer/Buttons/IPExtra" to="." method="_on_ip_extra_text_submitted"]
+[connection signal="pressed" from="LobbyCreationWindow/BackButton" to="." method="_on_create_back_button_pressed"]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button" to="." method="_on_player_count_button_pressed" binds= [2]]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button2" to="." method="_on_player_count_button_pressed" binds= [3]]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/PlayerCount/Button3" to="." method="_on_player_count_button_pressed" binds= [4]]
+[connection signal="pressed" from="LobbyCreationWindow/VBoxContainer/CreateLobbyButton" to="." method="_on_create_lobby_button_pressed"]
+[connection signal="pressed" from="LobbyJoinWindow/BackButton" to="." method="_on_create_back_button_pressed"]
+[connection signal="pressed" from="LobbyJoinWindow/VBoxContainer/JoinLobbyButton" to="." method="_on_join_lobby_button_pressed"]

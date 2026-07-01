@@ -6,6 +6,7 @@
 script = ExtResource("1_vr88a")
 fish_name = "Movie Snob Fish"
 grade = 2
+catch_blurb = "Its opinion matters more than yours."
 description = "★☆☆☆☆
 “It’s just a kids movie, don’t criticize it!”
 That’s exactly why it should be criticized. These kids are the future generation and movies are pieces of art. We should be careful with what we consume, especially what we show little kids.

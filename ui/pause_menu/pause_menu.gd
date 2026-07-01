@@ -30,3 +30,14 @@ func unpause() -> void:
 func _on_quit_pressed() -> void:
 	Multiplayer.disconnect_from_game()
 	visible = false
+
+func _on_continue_pressed() -> void:
+	unpause()
+
+
+func _on_settings_pressed() -> void:
+	$OptionsMenu.closed.connect(func():
+		$PauseFish.show()
+	)
+	$PauseFish.hide()
+	$OptionsMenu.show()

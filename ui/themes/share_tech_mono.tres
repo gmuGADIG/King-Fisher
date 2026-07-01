@@ -1,12 +1,52 @@
 [gd_resource type="Theme" format=3 uid="uid://dh53sqaw2xh6v"]
 
 [ext_resource type="FontFile" uid="uid://m4tsacqphblt" path="res://ui/themes/fonts/share_tech_mono/ShareTechMono-Regular.ttf" id="1_jg72k"]
+[ext_resource type="Texture2D" uid="uid://se8x4oy0bfie" path="res://art/UI/holo_ui.png" id="2_4ovmf"]
+[ext_resource type="Texture2D" uid="uid://f0t357s37b7b" path="res://art/ui assets/x_button.png" id="2_f543i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ckch7"]
+texture = ExtResource("2_4ovmf")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.9, 0.9, 0.9, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vd4ee"]
+texture = ExtResource("2_4ovmf")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1rwqu"]
+texture = ExtResource("2_4ovmf")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.75, 0.75, 0.75, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f543i"]
+texture = ExtResource("2_f543i")
+modulate_color = Color(0.74509805, 0.74509805, 0.74509805, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ovmf"]
+texture = ExtResource("2_f543i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1ova"]
+texture = ExtResource("2_f543i")
+modulate_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
 
 [resource]
 default_font = ExtResource("1_jg72k")
 default_font_size = 24
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_jg72k")
+Button/styles/focus = SubResource("StyleBoxTexture_ckch7")
+Button/styles/hover = SubResource("StyleBoxTexture_ckch7")
+Button/styles/normal = SubResource("StyleBoxTexture_vd4ee")
+Button/styles/pressed = SubResource("StyleBoxTexture_1rwqu")
 CheckBox/font_sizes/font_size = 24
 CheckBox/fonts/font = ExtResource("1_jg72k")
 CheckButton/font_sizes/font_size = 24
@@ -67,3 +107,8 @@ Tree/fonts/font = ExtResource("1_jg72k")
 Tree/fonts/title_button_font = ExtResource("1_jg72k")
 Window/font_sizes/title_font_size = 24
 Window/fonts/title_font = ExtResource("1_jg72k")
+XButton/base_type = &"Button"
+XButton/styles/focus = SubResource("StyleBoxTexture_f543i")
+XButton/styles/hover = SubResource("StyleBoxTexture_f543i")
+XButton/styles/normal = SubResource("StyleBoxTexture_4ovmf")
+XButton/styles/pressed = SubResource("StyleBoxTexture_u1ova")

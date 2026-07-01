@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bx8rb13al7o7e" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://bg5yj4acmsreh" path="res://art/3d-assets/DefaultPlayer.fbx" id="2_ebec5"]
 [ext_resource type="Script" uid="uid://b0w3b5ncyaqf2" path="res://player/player_mesh.gd" id="2_pmesh"]
+[ext_resource type="Script" uid="uid://c8tmnn2ixgmhx" path="res://player/ready_label.gd" id="3_rptt4"]
 [ext_resource type="Curve" uid="uid://bica5djvhxub0" path="res://player/body_rotation_speed_curve.tres" id="4_kb6p2"]
 [ext_resource type="Script" uid="uid://dm41gwejdfgy" path="res://player/player_id.gd" id="5_g6k8r"]
 [ext_resource type="Script" uid="uid://bqpwk0pccci1t" path="res://player/ragdoll.gd" id="6_boad6"]
@@ -23,6 +24,11 @@
 [ext_resource type="AudioStream" uid="uid://cs0oknyeydg6n" path="res://sound/sfx/player/fishing/FishCatchFail.mp3" id="15_knn7v"]
 [ext_resource type="Shader" uid="uid://dmiygqboqr8gs" path="res://player/player.gdshader" id="20_bjvpn"]
 [ext_resource type="Texture2D" uid="uid://cafna4qfjv2ba" path="res://player/Ragdolled.png" id="22_s7qer"]
+[ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="23_s7qer"]
+[ext_resource type="Script" uid="uid://y8c1s0aorifb" path="res://player/catch_ui.gd" id="24_g4c7l"]
+[ext_resource type="Texture2D" uid="uid://iaien10yw0dm" path="res://temp/temp_art/fish-seven.png" id="26_rptt4"]
+[ext_resource type="FontFile" uid="uid://b8gbecjr3q5m3" path="res://ui/themes/fonts/finger_paint/FingerPaintRegular-nmlV.ttf" id="26_uw77l"]
+[ext_resource type="Shader" uid="uid://cbp477pnhwojb" path="res://player/catch_text.gdshader" id="28_rptt4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -42,7 +48,7 @@ shader = ExtResource("20_bjvpn")
 shader_parameter/albedo = Color(0, 1, 1, 1)
 shader_parameter/frensel_power = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjvpn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rptt4"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_s7qer")
 diffuse_mode = 3
@@ -59,6 +65,130 @@ radius = 0.05
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wodsf"]
 radius = 0.05
+
+[sub_resource type="FontVariation" id="FontVariation_b8hi5"]
+base_font = ExtResource("26_uw77l")
+variation_embolden = 1.06
+
+[sub_resource type="Gradient" id="Gradient_2uvqg"]
+offsets = PackedFloat32Array(0.5366667, 0.68183595)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1s1yo"]
+gradient = SubResource("Gradient_2uvqg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_5ejfk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.72163117, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jd2rm"]
+texture_mode = 1
+curve = SubResource("Curve_5ejfk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q28gw"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 85.549995
+initial_velocity_max = 277.25998
+gravity = Vector3(0, 0, 0)
+damping_min = 41.593002
+damping_max = 53.586002
+scale_min = 0.29999998
+scale_max = 0.39999998
+alpha_curve = SubResource("CurveTexture_jd2rm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ge24q"]
+shader = ExtResource("28_rptt4")
+shader_parameter/speed = 2.0
+shader_parameter/intensity = 3.5
+
+[sub_resource type="Animation" id="Animation_pnw6m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1so5t"]
+resource_name = "anim"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.4, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_55jnj"]
+_data = {
+&"RESET": SubResource("Animation_pnw6m"),
+&"anim": SubResource("Animation_1so5t")
+}
 
 [node name="Player" type="CharacterBody3D" unique_id=1653185810 node_paths=PackedStringArray("player_mesh") groups=["Player"]]
 collision_layer = 2
@@ -99,6 +229,14 @@ text = "1234"
 font_size = 47
 outline_size = 25
 script = ExtResource("5_g6k8r")
+
+[node name="ReadyLabel" type="Label3D" parent="." unique_id=319383580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9416633, 0)
+billboard = 2
+text = "Not Ready"
+font_size = 47
+outline_size = 25
+script = ExtResource("3_rptt4")
 
 [node name="Aiming" type="Node3D" parent="." unique_id=1376626479]
 unique_name_in_owner = true
@@ -154,6 +292,10 @@ volume_db = 6.0
 
 [node name="HeldItem" parent="." unique_id=1114095646 instance=ExtResource("9_kb6p2")]
 
+[node name="Livewell" parent="." unique_id=1231020864 instance=ExtResource("23_s7qer")]
+unique_name_in_owner = true
+visible = false
+
 [node name="DefaultPlayer" parent="." unique_id=268378426 node_paths=PackedStringArray("mesh", "bones") instance=ExtResource("2_ebec5")]
 script = ExtResource("2_pmesh")
 mesh = NodePath("PlayerSkeleton/Skeleton3D/DefaultPlayer")
@@ -162,7 +304,7 @@ bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
 [node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="0" unique_id=3456117]
 layers = 8
-material_override = SubResource("StandardMaterial3D_bjvpn")
+material_override = SubResource("StandardMaterial3D_rptt4")
 
 [node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
@@ -242,11 +384,11 @@ shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
 [node name="Physical Bone Shoulder L" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1590057692]
-transform = Transform3D(-0.0023430062, 0.00027500448, -0.009717752, -0.00040721, -0.009990003, -0.0001845283, -0.009713112, 0.00035248147, 0.0023518624, 0.0013861575, -3.1270254e-05, 0.011039665)
+transform = Transform3D(-0.0023430062, 0.0002750045, -0.009717752, -0.00040721, -0.009990004, -0.0001845283, -0.009713112, 0.00035248147, 0.0023518624, 0.0013861575, -3.1270254e-05, 0.011039665)
 collision_layer = 0
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3001542e-05, -0.0004901786, 0.143953)
-body_offset = Transform3D(0.010000001, -2.5320332e-09, -5.2410996e-08, -5.1101324e-08, 3.0559022e-10, -0.009999998, 2.9394869e-09, 0.010000004, 4.3655746e-10, -5.2247196e-07, 0.0014395297, 4.9017253e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.300154e-05, -0.00049017865, 0.14395301)
+body_offset = Transform3D(0.010000001, -2.590241e-09, -5.2410996e-08, -5.1101324e-08, 3.2014214e-10, -0.009999998, 2.9394869e-09, 0.010000003, 4.3655746e-10, -5.2247196e-07, 0.0014395297, 4.9017253e-06)
 bone_name = "Shoulder L"
 joint_constraints/swing_span = 19.999992
 joint_constraints/twist_span = 19.999992
@@ -314,11 +456,11 @@ shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
 [node name="Physical Bone UpperArm R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=486194789]
-transform = Transform3D(-0.008615248, -0.0010656009, 0.0049640727, 0.0005046803, -0.009908584, -0.0012511195, 0.005052012, -0.0008273435, 0.008590269, -0.0032623797, 0.000120492376, 0.009874841)
+transform = Transform3D(-0.008615248, -0.0010656008, 0.0049640727, 0.0005046803, -0.009908584, -0.0012511195, 0.005052012, -0.0008273435, 0.008590269, -0.0032623797, 0.000120492376, 0.009874841)
 collision_layer = 0
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8740595e-05, 6.264344e-06, 0.09611042)
-body_offset = Transform3D(0.01, 3.4173718e-07, 2.154411e-08, 2.1835149e-08, -1.4272518e-07, -0.010000002, -3.4202822e-07, 0.010000008, -1.4191028e-07, 1.8533319e-07, 0.0009611044, -4.901085e-08)
+body_offset = Transform3D(0.01, 3.418536e-07, 2.154411e-08, 2.1835149e-08, -1.4272518e-07, -0.010000002, -3.4202822e-07, 0.010000008, -1.4191028e-07, 1.8533319e-07, 0.0009611044, -4.901085e-08)
 bone_name = "UpperArm R"
 joint_constraints/swing_span = 19.999992
 joint_constraints/twist_span = 19.999992
@@ -332,11 +474,11 @@ shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
 [node name="Physical Bone Forearm R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=2091765003]
-transform = Transform3D(-0.0081561515, 0.0027557765, 0.005087525, 0.0005903534, -0.008350646, 0.0054697567, 0.0057557537, 0.00476156, 0.006648224, -0.004009396, -4.8686994e-05, 0.008696964)
+transform = Transform3D(-0.0081561515, 0.0027557765, 0.005087525, 0.0005903534, -0.008350645, 0.0054697567, 0.0057557537, 0.0047615594, 0.006648224, -0.004009396, -4.8686994e-05, 0.008696964)
 collision_layer = 0
 joint_type = 2
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7056553e-05, -1.6932827e-05, 0.052908055)
-body_offset = Transform3D(0.009999996, -8.731149e-10, 1.1263182e-08, 1.0884833e-08, 3.259629e-09, -0.010000002, -3.4924597e-10, 0.01, -3.259629e-09, 5.699694e-07, 0.00052908063, 1.6950071e-07)
+body_offset = Transform3D(0.009999996, -4.656613e-10, 1.1263182e-08, 1.0884833e-08, 2.7939677e-09, -0.010000002, -3.4924597e-10, 0.01, -3.259629e-09, 5.699694e-07, 0.00052908063, 1.6950071e-07)
 bone_name = "Forearm R"
 joint_constraints/swing_span = 19.999992
 joint_constraints/twist_span = 19.999992
@@ -404,11 +546,11 @@ shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
 [node name="Physical Bone Shin R" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=2119351414]
-transform = Transform3D(0.0012309741, -0.009906467, 0.0005887508, 0.009864575, 0.0011566562, -0.0011629005, 0.0010839251, 0.0007239276, 0.00991469, -0.0015365831, -0.00015403521, 0.0020237209)
+transform = Transform3D(0.0012309741, -0.009906468, 0.00058875076, 0.009864575, 0.0011566564, -0.0011629005, 0.0010839251, 0.0007239276, 0.00991469, -0.0015365831, -0.00015403521, 0.0020237209)
 collision_layer = 0
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.225206e-06, -9.579791e-06, 0.16513638)
-body_offset = Transform3D(0.010000002, -2.3283064e-09, 1.9790605e-09, 2.2118911e-09, 7.858034e-10, -0.010000003, 4.656613e-10, 0.010000015, 1.3387762e-09, -4.2578904e-08, 0.0016513643, 9.557698e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2252063e-06, -9.578832e-06, 0.16513638)
+body_offset = Transform3D(0.010000002, -2.561137e-09, 1.9790605e-09, 2.2118911e-09, 7.421477e-10, -0.010000003, 4.656613e-10, 0.010000014, 1.2805685e-09, -4.2578904e-08, 0.0016513643, 9.557698e-08)
 bone_name = "Shin R"
 joint_constraints/swing_span = 19.999992
 joint_constraints/twist_span = 19.999992
@@ -426,5 +568,97 @@ debug_color = Color(1, 0, 0.7833333, 1)
 [node name="FishingMiniGame" parent="CanvasLayer" unique_id=476640078 instance=ExtResource("14_32hag")]
 unique_name_in_owner = true
 visible = false
+
+[node name="CatchUI" type="Control" parent="." unique_id=1678572669]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("24_g4c7l")
+
+[node name="YouCaught" type="Label" parent="CatchUI" unique_id=1449177507]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 77.0
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("FontVariation_b8hi5")
+theme_override_font_sizes/font_size = 20
+text = "You Caught"
+horizontal_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CatchUI" unique_id=28840130]
+z_index = -1
+position = Vector2(576, 185)
+emitting = false
+amount = 10
+texture = SubResource("GradientTexture2D_1s1yo")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.2
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_q28gw")
+
+[node name="FishTextureRect" type="TextureRect" parent="CatchUI" unique_id=1119023084]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -218.0
+offset_right = 68.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("26_rptt4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FishTitle" type="Label" parent="CatchUI" unique_id=1914030148]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ge24q")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 244.0
+offset_bottom = 289.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("FontVariation_b8hi5")
+theme_override_font_sizes/font_size = 30
+text = "AWESOME fish (tm)"
+horizontal_alignment = 1
+
+[node name="CatchBlurb" type="Label" parent="CatchUI" unique_id=242295433]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 304.0
+offset_bottom = 329.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("FontVariation_b8hi5")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CatchUIAnimator" type="AnimationPlayer" parent="CatchUI" unique_id=1263020970]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_55jnj")
 
 [editable path="DefaultPlayer"]

@@ -8,6 +8,7 @@ script = ExtResource("1_4w8xq")
 fish_name = "Thrasher Shark"
 grade = 3
 sprite = ExtResource("2_4w8xq")
+catch_blurb = "Don’t let it drag you to the mosh pit."
 description = "The Thrasher Shark is the scourge of the seas, the fish of fear, the monster from every young minnow’s nightmares. When you hear that deadly bassline coming, swim away as fast as you can, because if it catches you, it’ll mosh you into oblivion.
 
 Its large, muscular body lends it to lightning-fast movement—it can catch unsuspecting fish in the blink of an eye. The only warning is the sound of its terrifying music, like the rattle of a rattlesnake as it poises to attack. Its long, bladelike tail could slice any fish to ribbons, but it’ll always give mosh competitors a fair chance first, once it captures them and carries them away. Unfortunately, most fish lose, and many once-glorious species have been made extinct from its predation.

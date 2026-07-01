@@ -2,6 +2,7 @@ extends Node
 
 enum State{
 	NONE,
+	MAIN_MENU,
 	PAUSE,
 	LIVEWELL,
 	SCOREBOARD,
@@ -13,7 +14,7 @@ enum State{
 var ui_state : State:
 	set(val):
 		if ui_state == State.LIVEWELL:
-			Livewell.hide()
+			Livewell.instance.hide()
 		
 		ui_state = val
 		match val:
@@ -29,7 +30,7 @@ var ui_state : State:
 				player_mouse_input_blocked = false
 				player_click_input_blocked = false
 				more_ui_blocked = true
-			State.PAUSE, State.FISHING_MINIGAME, State.LOBBY_SETTINGS:
+			State.PAUSE, State.FISHING_MINIGAME:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				player_keyboard_input_blocked = true
 				player_mouse_input_blocked = true
@@ -41,7 +42,7 @@ var ui_state : State:
 				player_mouse_input_blocked = true
 				player_click_input_blocked = true
 				more_ui_blocked = true
-			State.CHARACTER_SELECT:
+			State.CHARACTER_SELECT, State.LOBBY_SETTINGS:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				player_keyboard_input_blocked = false
 				player_mouse_input_blocked = true

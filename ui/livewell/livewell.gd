@@ -1,3 +1,4 @@
+class_name Livewell
 extends Control
 
 @export var livewell_entry_packed : PackedScene
@@ -5,6 +6,11 @@ var livewell_entries : Array[LivewellEntry]
 
 @onready var grid_container : GridContainer = $Background/GridContainer
 @onready var score_label : RichTextLabel = $Background/Score
+
+static var instance: Livewell
+
+func _init() -> void:
+	instance = self
 
 func _ready() -> void:
 	hide()

@@ -74,3 +74,4 @@ text = "Confirm
 flat = true
 
 [connection signal="pressed" from="KeybindPanel/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="KeybindPanel/ConfirmButton" to="." method="_on_confirm_button_pressed"]

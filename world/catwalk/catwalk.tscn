@@ -41,8 +41,10 @@ textures = [[ExtResource("5_cwonv")], [null]]
 [sub_resource type="BoxShape3D" id="BoxShape3D_lkfwd"]
 size = Vector3(51.594765, 0.001, 51.320484)
 
-[node name="Catwalk" unique_id=1821617715 instance=ExtResource("1_o8th1")]
+[node name="Catwalk" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_o8th1")]
 script = ExtResource("2_psob2")
+fish_spawners = []
+fish_spawner_weights = []
 
 [node name="Players" parent="." index="2" unique_id=1891362098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.346844, 0.010801315, 30.659712)
@@ -253,7 +255,7 @@ transform = Transform3D(-0.2107693, 0.09742967, -0.0926485, 0.097819805, 0.22931
 transform = Transform3D(-0.015337931, 0, 0.047589373, 0, 0.05, 0, -0.047589373, 0, -0.015337931, 2.304051, 0, 15.361975)
 
 [node name="Tent" parent="Props/Ruins_Buildings" index="1" unique_id=511804915 instance=ExtResource("19_ry5b0")]
-transform = Transform3D(-0.3238871, 0, -0.3809162, 0, 0.5, 0, 0.3809162, 0, -0.3238871, 28.066883, 0.0619092, 7.6022873)
+transform = Transform3D(-0.016194357, 0, -0.019045811, 0, 0.025, 0, 0.019045811, 0, -0.016194357, 28.066883, 0.0619092, 7.6022873)
 
 [node name="Campfire" parent="Props/Ruins_Buildings" index="2" unique_id=1236529479 instance=ExtResource("19_rxol8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.638628, 0.030471332, 6.0921416)
@@ -342,3 +344,5 @@ transform = Transform3D(0.24661385, -0.03887505, -0.013051412, 0.0368094, 0.2449
 
 [node name="Cattail9" parent="Props/Vegitation" index="18" unique_id=474332564 instance=ExtResource("23_rxol8")]
 transform = Transform3D(0.24977249, 0.008010898, -0.007036649, -0.007029619, 0.24777181, 0.032552924, 0.00801705, -0.032325495, 0.24777162, 5.2873077, -0.6501405, 61.994217)
+
+[editable path="Water/Killbox"]

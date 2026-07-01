@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 signal character_selected(skin_index : int)
 @export var skin_index : int

@@ -68,6 +68,9 @@ var current_note:Note
 
 var state : Phase = Phase.MINIGAME_INACTIVE
 
+# Stores the Player's volume
+var _loudness_before_minigame: float = 1.0
+
 signal fishing_finished(success:bool)
 
 
@@ -86,6 +89,7 @@ signal fishing_finished(success:bool)
 
 func start(fish : Fish) -> void:
 	UIState.ui_state = UIState.State.FISHING_MINIGAME
+	_loudness_before_minigame = MainMusicPlayer.get_volume() #Record Loudness
 	MainMusicPlayer.set_loudness(0.25,0.0)
 	misses = 0
 	good_hits = 0
@@ -198,18 +202,19 @@ func _process(_delta: float) -> void:
 				print("PASS")
 			else:
 				print("FAIL")
-			fishing_finished.emit(accuracy >= target_accuracy)
 			finish()
+			fishing_finished.emit(accuracy >= target_accuracy)
 
 func finish() -> void:
-	MainMusicPlayer.set_loudness(1.0,0.0)
+	MainMusicPlayer.set_loudness(_loudness_before_minigame,0.0)
 	rhythm_engine.stop()
 	tempo_audio_stream.stop()
 	hide()
 	while not markers.is_empty():
 		var m = markers.pop_back()
 		m.queue_free()
-	UIState.ui_state = UIState.State.NONE
+	if not force_track_play_on_load:
+		UIState.ui_state = UIState.State.NONE
 
 func calculate_accuracy() -> float:
 	var presses : int = misses+good_hits+perfect_hits
@@ -281,7 +286,7 @@ func _input(event: InputEvent) -> void:
 
 func determine_accuracy() -> HitQuality:
 	#print(response_index)
-	##HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
+	#HACK: there's an off by one here to actually get it to be on the line, there's likely something going on elsewhere in the code
 	current_note = track.notes[response_index]
 	#print("input: ",rhythm_engine.beat_to_ms(current_note.beat_position))
 	var note_position_ms : float = rhythm_engine.beat_to_ms(current_note.beat_position+TRACK_LENGTH)

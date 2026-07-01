@@ -7,6 +7,7 @@ signal client_name_recieved(name : String)
 
 signal start_game
 signal server_disconnected
+signal status_changed
 
 const PORT = 25575
 const MAX_CLIENTS = 4
@@ -16,14 +17,20 @@ const SCAN_INTERVAL := 5.
 var allow_connections : bool = true
 var player_list: Dictionary[int,ServerConnection] = {}
 var loaded_players: Array[int]
+var size_limit: int = MAX_CLIENTS
 
 var scan_server: UDPServer
 
+var extra_ip_scan : String
 var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
-var displayName: String
-var status: String
+var playerDisplayName: String
+var status: String:
+	set(new_val):
+		status = new_val
+		status_changed.emit()
+	
 #Allowed maps starts with a safety in case start game is loaded without going into lobby menu
 var allowedMaps:Array = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
 
@@ -48,8 +55,8 @@ func _process_scan_server() -> void:
 		if peer.get_var(0) == SCAN_MSG:
 			Debug.log("sending something to the client.")
 			# TODO: send meaningful data, like our username or something
-			var playersOnlineString: String = str(int(multiplayer.get_peers().size())+1) + "/" + str(MAX_CLIENTS)
-			peer.put_var([displayName, playersOnlineString, status])
+			var playersOnlineString: String = str(int(multiplayer.get_peers().size())+1) + "/" + str(size_limit)
+			peer.put_var([player_list[1].serverName, playersOnlineString, status])
 			
 # measure the time since we shouted into the void
 var scan_clock := 0.
@@ -69,6 +76,10 @@ func _process_scan_for_servers(delta: float) -> void:
 		# also shout at ourselves in case there's multiple instances of the game running
 		scan_client.set_dest_address("127.0.0.1", PORT + 1)
 		scan_client.put_var(SCAN_MSG)
+		
+		if extra_ip_scan != "":
+			scan_client.set_dest_address(extra_ip_scan, PORT + 1)
+			scan_client.put_var(SCAN_MSG)
 
 		Debug.log("scan_client broadcasting...")
 	
@@ -82,7 +93,7 @@ func _process_scan_for_servers(delta: float) -> void:
 		Debug.log("scan_client recieved something from %s!" % server_ip)
 
 		if(statusString == ""):
-			statusString = "Ready to start"
+			statusString = "Lobby"
 		found_server.emit(server_ip, foundHostName, playersOnlineString, statusString)
 
 func _process(delta: float) -> void:
@@ -98,7 +109,11 @@ func _on_peer_connected(id: int) -> void:
 	
 	if not multiplayer.is_server():
 		return
-	if (player_list.size() >= MAX_CLIENTS):
+	if (player_list.size() >= size_limit):
+		disconnect_client.rpc_id(id, "lobby full")
+		player_list.erase(id)
+		return
+	if (status == "In Game"):
 		disconnect_client.rpc_id(id, "lobby full")
 		player_list.erase(id)
 		return
@@ -209,7 +224,7 @@ func start_the_game():
 	await get_tree().process_frame
 	
 
-@rpc("call_local")
+@rpc("authority","call_local","reliable")
 func set_up_round_settings(song_name : String, round_time : float, fish_spawn : LobbySettings.SpawnRate, item_spawn : LobbySettings.SpawnRate) -> void:
 	WorldGameplay.song = LobbySettings.song_pool[song_name]
 	WorldGameplay.round_time = round_time
@@ -225,20 +240,20 @@ func _handle_ready_up() -> void:
 		return
 	
 	if not multiplayer.is_server():
-		set_ready.rpc_id(1)
+		set_ready.rpc()
 			
 	if not multiplayer.is_server(): return
 	if game_starting: return
 	
 	for player in player_list:
-			if not player_list.get(player).ready:
-				return
+		if not player_list.get(player).ready:
+			return
 	
 	game_starting = true
 	start_game.emit()
 	start_the_game.rpc()
 	status = "In Game"
-			
+
 func set_map(mapString:String,pool:Array):
 	#Array to be returned
 	#Normalize the binary string, has to be the same length as pool
@@ -256,15 +271,25 @@ func _input(event: InputEvent) -> void:
 
 @rpc("any_peer","call_local","reliable")
 func set_ready():
-	var sender = multiplayer.get_remote_sender_id();
-	player_list[sender].ready = !player_list[sender].ready;
+	var sender = multiplayer.get_remote_sender_id()
+	player_list[sender].ready = !player_list[sender].ready
+	Debug.log("Ready up!!")
 	
-func create_server() -> void:
+func create_server(serverName: String) -> void:
 	var peer = ENetMultiplayerPeer.new()
-	peer.create_server(PORT, MAX_CLIENTS)
+	peer.create_server(PORT, size_limit)
 	multiplayer.multiplayer_peer = peer
 	var server = ServerConnection.new()
-	server.playerName = filter_name(displayName)
+	
+	##Parse Names
+	server.playerName = filter_name(playerDisplayName)
+	if serverName == "":
+		if playerDisplayName == "":
+			serverName = "Player's Server"
+		else:
+			serverName = server.playerName+"'s Server"
+	server.serverName = serverName
+	
 	server.ready = true
 	server.character_texture_id = CharacterSelect.pick_random_texture_index()
 	player_list.set(1, server)
@@ -336,7 +361,7 @@ func filter_name(name_raw : String) -> String:
 	
 @rpc("reliable","authority","call_remote")
 func request_name() -> void:
-	recieve_name.rpc_id(1,displayName)
+	recieve_name.rpc_id(1,playerDisplayName)
 
 @rpc("reliable","any_peer","call_remote")
 func recieve_name(name : String) -> void:

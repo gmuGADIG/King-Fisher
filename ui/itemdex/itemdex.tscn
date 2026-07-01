@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://70y60pu1le3w"]
 
 [ext_resource type="Script" uid="uid://88ka2wn4si2t" path="res://ui/itemdex/itemdex.gd" id="1_43rrp"]
-[ext_resource type="Texture2D" uid="uid://b4hg2q6p8f8xr" path="res://ui/fish_dex/fish_x.png" id="2_peb0g"]
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_tq711"]
 [ext_resource type="Texture2D" uid="uid://bw6cuoglpu530" path="res://ui/itemdex/itemdex-background.png" id="2_tq711"]
 [ext_resource type="Texture2D" uid="uid://c7fyt1h4ljmf3" path="res://ui/itemdex/box.png" id="3_dfsup"]
 [ext_resource type="Texture2D" uid="uid://bsphqh5kvj7g0" path="res://ui/itemdex/arrow.png" id="4_tq711"]
@@ -13,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_tq711")
 script = ExtResource("1_43rrp")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1440524425]
@@ -257,15 +258,11 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 icon = ExtResource("4_tq711")
 flat = true
 
-[node name="Back_Button" type="Button" parent="." unique_id=413754069]
+[node name="Back_Button" type="Button" parent="." unique_id=1148487743]
 layout_mode = 0
-offset_right = 129.19705
-offset_bottom = 109.0
-icon = ExtResource("2_peb0g")
-flat = true
-icon_alignment = 1
-expand_icon = true
-metadata/_edit_lock_ = true
+offset_right = 101.935295
+offset_bottom = 68.0
+theme_type_variation = &"FishXButton"
 
 [connection signal="pressed" from="Background/RightArrow" to="." method="_on_right_arrow_pressed"]
 [connection signal="pressed" from="Background/LeftArrow" to="." method="_on_left_arrow_pressed"]

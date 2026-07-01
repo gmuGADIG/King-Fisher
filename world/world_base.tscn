@@ -50,11 +50,12 @@ text = "Hello"
 [node name="Scoreboard" parent="CanvasLayer" unique_id=1670028390 instance=ExtResource("3_7di53")]
 visible = false
 
-[node name="PauseMenu" parent="CanvasLayer" unique_id=509264285 instance=ExtResource("4_uycxt")]
-visible = false
-
 [node name="GameHud" parent="CanvasLayer" unique_id=207102908 instance=ExtResource("5_7trks")]
 unique_name_in_owner = true
+mouse_filter = 2
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=509264285 instance=ExtResource("4_uycxt")]
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1620714622]
 transform = Transform3D(1, 0, 0, 0, 0.5577596, 0.83000255, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
