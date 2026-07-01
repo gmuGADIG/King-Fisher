@@ -10,6 +10,8 @@ height = 1.6774902
 
 [node name="Item" unique_id=1566519324 instance=ExtResource("1_2087j")]
 script = ExtResource("2_byajs")
+duration = 10
+buff_texture = null
 item_name = "Golden Worm"
 description = "When used, the player plays an animation. The worm upgrades the net fish the player attempts to catch in the next 10 seconds into the next highest rarities point value. It does not give any sushi grade fish a buff, only the point value."
 lore = "This shining, gold-colored worm is not only valuable for its beauty, but for its power to increase the quality of fish that consume it. Thus, it has become popular and highly marketed for bait, particularly in the Intergalactic Fishbowl.

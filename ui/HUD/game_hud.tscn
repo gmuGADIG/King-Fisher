@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dcf8prpy057vk" path="res://ui/HUD/game_hud.gd" id="1_1c5in"]
 [ext_resource type="Texture2D" uid="uid://cidywq0cy3pl6" path="res://temp/item.png" id="1_aipem"]
+[ext_resource type="PackedScene" uid="uid://gskq3ns5ix4c" path="res://ui/HUD/Buffs/displayed_buffs.tscn" id="3_ekma4"]
 
 [node name="GameHud" type="Control" unique_id=207102908 node_paths=PackedStringArray("time_remaining_label")]
 layout_mode = 3
@@ -117,6 +118,14 @@ grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Pts: XXXXX"
+
+[node name="ActiveBuffs" parent="." unique_id=351441021 instance=ExtResource("3_ekma4")]
+layout_mode = 1
+offset_left = 1044.0
+offset_top = 22.000002
+offset_right = 433.66675
+offset_bottom = -401.0
+scale = Vector2(0.1978254, 0.1978254)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2010545455]
 layout_mode = 1

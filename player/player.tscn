@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://b5qsduosl8iom" path="res://sound/sfx/player/fishing/fishcatch4.mp3" id="14_uw77l"]
 [ext_resource type="AudioStream" uid="uid://cs0oknyeydg6n" path="res://sound/sfx/player/fishing/FishCatchFail.mp3" id="15_knn7v"]
 [ext_resource type="Shader" uid="uid://dmiygqboqr8gs" path="res://player/player.gdshader" id="20_bjvpn"]
+[ext_resource type="Texture2D" uid="uid://cafna4qfjv2ba" path="res://player/Ragdolled.png" id="22_s7qer"]
 [ext_resource type="PackedScene" uid="uid://dyc2qekcn8phe" path="res://ui/livewell/livewell_menu.tscn" id="23_s7qer"]
 [ext_resource type="Script" uid="uid://y8c1s0aorifb" path="res://player/catch_ui.gd" id="24_g4c7l"]
 [ext_resource type="Texture2D" uid="uid://iaien10yw0dm" path="res://temp/temp_art/fish-seven.png" id="26_rptt4"]
@@ -308,6 +309,7 @@ material_override = SubResource("StandardMaterial3D_rptt4")
 [node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")
 player = NodePath("../../../..")
+ragdoll_icon = ExtResource("22_s7qer")
 
 [node name="Physical Bone Pelvis" type="PhysicalBone3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D/Bones" unique_id=1864368423]
 transform = Transform3D(0.010000001, 0, 0, 0, -0.010000002, 1.1920933e-09, 0, -1.1920933e-09, -0.010000002, 0, -1.1542001e-10, 0.0067132604)

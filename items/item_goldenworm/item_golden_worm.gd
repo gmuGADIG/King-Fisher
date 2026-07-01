@@ -1,6 +1,7 @@
 extends Item 
-var duration = 10
 @onready var audio_player : AudioStreamPlayer3D = $AudioStreamPlayer3D
+@export var duration = 10
+@export var buff_texture : Texture2D
 
 ## The generic use function. You can write your own in a class that extends Item.
 func use() -> void:
@@ -11,9 +12,9 @@ func use() -> void:
 		audio_player.bus = "SFX"
 		audio_player.play()
 		player.golden_worm_active = true
-		player.livewell.add_buff("Golden Worm")
-		await get_tree().create_timer(duration).timeout
-		player.golden_worm_active = false
-		player.livewell.remove_buff("Golden Worm")
+		player.add_item_buff("Golden Worm", duration, buff_texture)
+		await get_tree().create_timer(2.25).timeout
+		#player.golden_worm_active = false
+		##player.remove_item_buff("Golden Worm")
 		Debug.log("Golden Worm deleted.")
 		queue_free()

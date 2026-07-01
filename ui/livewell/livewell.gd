@@ -54,10 +54,3 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_released("livewell_menu") and UIState.ui_state == UIState.State.LIVEWELL:
 		UIState.ui_state = UIState.State.NONE
 		hide()
-
-
-##Holdover functions that are kept for now before the way items interact with buffs is changed
-func remove_buff(b : String) -> void:
-	pass
-func add_buff(b : String) -> void:
-	pass

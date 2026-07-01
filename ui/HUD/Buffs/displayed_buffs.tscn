@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://gskq3ns5ix4c"]
+
+[ext_resource type="Script" uid="uid://dnukkca7l0f68" path="res://ui/HUD/Buffs/displayed_buffs.gd" id="1_hgipu"]
+[ext_resource type="PackedScene" uid="uid://durefp0jx5cuv" path="res://ui/HUD/Buffs/hud_buff.tscn" id="2_j3whc"]
+
+[node name="ActiveBuffs" type="Control" unique_id=351441021]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hgipu")
+buff_packed = ExtResource("2_j3whc")
+
+[node name="BuffList" type="HBoxContainer" parent="." unique_id=889932991]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -576.0
+offset_bottom = 246.0
+grow_horizontal = 0
+alignment = 2

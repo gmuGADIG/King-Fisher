@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 	#super._process(delta)
 	remaining_time -= delta
 	hud.update_time(remaining_time)
+	hud.find_child("ActiveBuffs").update_buffs(delta)
 
 	if remaining_time < 60. and almost_over_not_triggered:
 		almost_over_not_triggered = false
