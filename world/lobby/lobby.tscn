@@ -2,9 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_cv4rh"]
 [ext_resource type="PackedScene" uid="uid://b58jma116gexu" path="res://ui/lobby_settings/lobby_settings.tscn" id="3_vh6de"]
-[ext_resource type="PackedScene" uid="uid://duc73d8nv7dpk" path="res://world/lobby/character_select_box/character_select_box.tscn" id="4_c06ik"]
 [ext_resource type="AudioStream" uid="uid://bo2n27tvtghjb" path="res://sound/music/song_files/OceanWaveLoop.mp3" id="5_vh6de"]
-[ext_resource type="PackedScene" uid="uid://ekklvqrqpytk" path="res://ui/lobby_settings/settings_control_panel.tscn" id="4_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
@@ -48,23 +46,14 @@ visible = false
 [node name="LobbyBoat" parent="." index="9" unique_id=245968247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
 
-[node name="Control Panel" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="1" unique_id=1438383831]
-visible = false
-
-[node name="SettingsControlPanel" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="2" unique_id=1429996587 node_paths=PackedStringArray("lobby_settings_menu") instance=ExtResource("4_vh6de")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.646, 3.25)
-collision_layer = 0
-collision_mask = 2
+[node name="SettingsControlPanel" parent="LobbyBoat/TallRoofBoat" parent_id_path=PackedInt32Array(245968247, 1656329038) index="2" unique_id=1429996587 node_paths=PackedStringArray("lobby_settings_menu")]
 lobby_settings_menu = NodePath("../../../CanvasLayer/LobbySettings")
 
-[node name="SkinSelect" parent="LobbyBoat/LobbyBoat" parent_id_path=PackedInt32Array(245968247, 164808968) index="3" unique_id=1442961429 instance=ExtResource("4_c06ik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6512337, 3.227828, 12.059437)
-
-[node name="OceanAmbience" type="AudioStreamPlayer" parent="." index="12" unique_id=478886836]
+[node name="OceanAmbience" type="AudioStreamPlayer" parent="." index="10" unique_id=478886836]
 stream = ExtResource("5_vh6de")
 autoplay = true
 bus = &"SFX"
 
 [editable path="Water/Killbox"]
 [editable path="LobbyBoat"]
-[editable path="LobbyBoat/LobbyBoat"]
+[editable path="LobbyBoat/TallRoofBoat"]
