@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal finished_loading
+
 ## The amount of time it takes to fade in and out
 @export var fade_time : float = 0.5
 
@@ -9,6 +11,9 @@ extends CanvasLayer
 var currently_loading_scene : String
 
 var m_path : String
+
+func _ready() -> void:
+	loading_screen.hide()
 
 func change_to_packed(path: String):
 	loading_screen.modulate.a = 0
@@ -39,7 +44,9 @@ func _process(_delta: float) -> void:
 	# wait for animation to end
 	if anim.is_playing():
 		await anim.animation_finished
-
+	
+	finished_loading.emit()
+	
 	## Fade into scene
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)

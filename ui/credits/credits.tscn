@@ -1,0 +1,297 @@
+[gd_scene format=3 uid="uid://ctgre567eb6fp"]
+
+[ext_resource type="Script" uid="uid://dt4ctryx0tnjv" path="res://ui/credits/credits.gd" id="2_2n5wy"]
+[ext_resource type="Texture2D" uid="uid://cgmnrkikdntxe" path="res://ui/main_menu/water.png" id="3_nnsry"]
+[ext_resource type="Texture2D" uid="uid://b6n11x0s76aku" path="res://ui/main_menu/water_mask.png" id="3_rqgi2"]
+[ext_resource type="Script" uid="uid://bsxh1ygocmur4" path="res://ui/credits/credits_fish.gd" id="5_cva3t"]
+[ext_resource type="PackedScene" uid="uid://bqbkr71lpmjur" path="res://ui/credits/credits_text.tscn" id="5_sunqn"]
+[ext_resource type="Texture2D" uid="uid://c4qlso8ydaqiw" path="res://fish/sprites/fish_with_legs.png" id="5_xwmn8"]
+[ext_resource type="Texture2D" uid="uid://oteep0k5625r" path="res://fish/sprites/angel_devil_fish.png" id="6_f3hvk"]
+[ext_resource type="Texture2D" uid="uid://cqn3l6kuh6pd5" path="res://fish/sprites/angle_r_fish.png" id="7_l2ser"]
+[ext_resource type="Texture2D" uid="uid://d3liw2xyaylh0" path="res://fish/sprites/bassilisk.png" id="8_hw7ch"]
+[ext_resource type="Texture2D" uid="uid://c3fgk85uxh6s8" path="res://fish/sprites/british_fish_small.png" id="9_f3hvk"]
+[ext_resource type="Texture2D" uid="uid://b4rohad6umqaw" path="res://fish/sprites/ceo_fish.png" id="10_e0q28"]
+[ext_resource type="Texture2D" uid="uid://cl0a24dcpl2sj" path="res://fish/sprites/emo_bass_fish.png" id="11_vd17t"]
+[ext_resource type="Texture2D" uid="uid://tm0h3rinwtna" path="res://fish/sprites/fish_seven.png" id="12_hiqgi"]
+[ext_resource type="Texture2D" uid="uid://cibo6ot84lbhy" path="res://fish/sprites/gold_fish.png" id="14_s0dn7"]
+[ext_resource type="Texture2D" uid="uid://boovw47fllxou" path="res://fish/sprites/lovers_fish.png" id="15_kaf7g"]
+[ext_resource type="Texture2D" uid="uid://cfvrqvxkee5e8" path="res://fish/sprites/man_o_war_fish.png" id="16_vawuj"]
+[ext_resource type="Texture2D" uid="uid://ba10pnshpio6g" path="res://fish/sprites/moai_fish_small.png" id="17_f3hvk"]
+[ext_resource type="Texture2D" uid="uid://cnvc1vghj8m3c" path="res://fish/sprites/oh_my_cod.png" id="18_66dae"]
+[ext_resource type="Texture2D" uid="uid://dw7juwgm2naml" path="res://fish/sprites/patchwork_fish.png" id="19_os0pm"]
+[ext_resource type="Texture2D" uid="uid://dw2uts6pt27go" path="res://fish/sprites/performative_fish.png" id="20_oemtj"]
+[ext_resource type="Texture2D" uid="uid://b1qeg6yysxa10" path="res://fish/sprites/phishing_scam_fish.png" id="21_ocunf"]
+[ext_resource type="Texture2D" uid="uid://cv88mg5v4x720" path="res://fish/sprites/please_I_need_fish.png" id="22_vvfsr"]
+[ext_resource type="Texture2D" uid="uid://jkjmeo42kibj" path="res://fish/sprites/Sardines.png" id="23_qltlo"]
+[ext_resource type="Texture2D" uid="uid://ck3bm1irl43x2" path="res://fish/sprites/sasha_splash.png" id="24_kgj74"]
+[ext_resource type="Texture2D" uid="uid://bk3w6u7xs7muo" path="res://fish/sprites/shrimp_tempura_fish_small.png" id="25_l2ser"]
+[ext_resource type="Texture2D" uid="uid://buwht7m5hgjwk" path="res://fish/sprites/star_fish.png" id="26_v25wm"]
+[ext_resource type="Texture2D" uid="uid://bn1dbb1dcyhgq" path="res://fish/sprites/steven.png" id="27_hlhn3"]
+[ext_resource type="Texture2D" uid="uid://l0c300xxuqd7" path="res://fish/sprites/taiyaki_fish.png" id="28_nn4yr"]
+[ext_resource type="Texture2D" uid="uid://b3bw8cnuhe0cd" path="res://fish/sprites/the_quote_on_quote_fish_small.png" id="29_f3hvk"]
+[ext_resource type="Texture2D" uid="uid://cr2p50dgdofth" path="res://fish/sprites/thrasher_shark.png" id="30_httng"]
+[ext_resource type="Texture2D" uid="uid://cpyyr1mdaaplu" path="res://fish/sprites/trash_fish.png" id="31_6porp"]
+[ext_resource type="Texture2D" uid="uid://b7h3t6blafw7u" path="res://fish/sprites/your_name_fish.png" id="32_4bi7s"]
+[ext_resource type="Texture2D" uid="uid://dpvq5dvnt3ggo" path="res://fish/sprites/yuri_fish.png" id="33_hwh0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnsry"]
+size = Vector2(1584, 352)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqgi2"]
+size = Vector2(1776, 1024)
+
+[sub_resource type="Animation" id="Animation_ydyd3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish/Fish1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [912.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish/Fish1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [200.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fish/Fish1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fish/Fish1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fish/Fish1:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.5]
+}
+
+[sub_resource type="Animation" id="Animation_2d0lf"]
+resource_name = "fish_1"
+length = 5.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish/Fish1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [912.0, -944.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish/Fish1:position:y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [250.0, 300.0, 250.0, 300.0, 250.0, 300.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fish/Fish1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.0, 0.17453292519943295, 0.0, -0.17453292519943295, 0.0, 0.17453292519943295, 0.0, -0.17453292519943295, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fish/Fish1:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.5]
+}
+
+[sub_resource type="Animation" id="Animation_f3hvk"]
+resource_name = "fish_2"
+length = 5.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish/Fish1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-944.0, 912.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish/Fish1:position:y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [300.0, 250.0, 300.0, 250.0, 300.0, 250.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fish/Fish1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.0, 0.17453292519943295, 0.0, -0.17453292519943295, 0.0, 0.17453292519943295, 0.0, -0.17453292519943295, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fish/Fish1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nnsry"]
+_data = {
+&"RESET": SubResource("Animation_ydyd3"),
+&"fish_1": SubResource("Animation_2d0lf"),
+&"fish_2": SubResource("Animation_f3hvk")
+}
+
+[node name="Credits" type="Node2D" unique_id=1309332414]
+script = ExtResource("2_2n5wy")
+credits_raw = "1~King Fisher Credits
+2~Sound
+3~Adrian Colon-Flores                          Music
+3~Alex Dugan                                     SFX
+3~Alexander Edralin                            Music
+3~Becs Neuman                                  Music
+3~Christopher Taylor                           Music
+3~Cooper Rummel          Music, SFX, Cutscene Scores
+1~Thanks For Playing!"
+credits_text_packed = ExtResource("5_sunqn")
+time_between_credits = 9.0
+
+[node name="ScrollingWater" type="Parallax2D" parent="." unique_id=306376776]
+repeat_size = Vector2(1906, 0)
+autoscroll = Vector2(75, 0)
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollingWater" unique_id=1509121098]
+texture = ExtResource("3_nnsry")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ScrollingWater" unique_id=92459457]
+self_modulate = Color(1, 1, 1, 0.5294118)
+z_index = 5
+texture = ExtResource("3_rqgi2")
+
+[node name="WaterForce" type="Area2D" parent="." unique_id=1791435739]
+position = Vector2(0, 272)
+gravity_space_override = 1
+gravity_point_center = Vector2(1, -0.7)
+gravity_direction = Vector2(1, -0.7)
+gravity = 600.0
+linear_damp_space_override = 1
+linear_damp = 5.0
+angular_damp_space_override = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterForce" unique_id=631088147]
+shape = SubResource("RectangleShape2D_nnsry")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1757121054]
+zoom = Vector2(0.755, 0.755)
+
+[node name="HeaderAnchor" type="Node2D" parent="." unique_id=2107256522]
+position = Vector2(0, -368)
+
+[node name="CreditsAnchor" type="Node2D" parent="." unique_id=1704840751]
+position = Vector2(0, -296)
+
+[node name="CreditsTimer" type="Timer" parent="." unique_id=777950620]
+
+[node name="LetterKiller" type="Area2D" parent="." unique_id=1717483155]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LetterKiller" unique_id=479112203]
+shape = SubResource("RectangleShape2D_rqgi2")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Fish" type="Node2D" parent="." unique_id=536657686]
+script = ExtResource("5_cva3t")
+fish_textures = Array[Texture]([ExtResource("6_f3hvk"), ExtResource("7_l2ser"), ExtResource("8_hw7ch"), ExtResource("9_f3hvk"), ExtResource("10_e0q28"), ExtResource("11_vd17t"), ExtResource("12_hiqgi"), ExtResource("5_xwmn8"), ExtResource("14_s0dn7"), ExtResource("15_kaf7g"), ExtResource("16_vawuj"), ExtResource("17_f3hvk"), ExtResource("18_66dae"), ExtResource("19_os0pm"), ExtResource("20_oemtj"), ExtResource("21_ocunf"), ExtResource("22_vvfsr"), ExtResource("23_qltlo"), ExtResource("24_kgj74"), ExtResource("25_l2ser"), ExtResource("26_v25wm"), ExtResource("27_hlhn3"), ExtResource("28_nn4yr"), ExtResource("29_f3hvk"), ExtResource("30_httng"), ExtResource("31_6porp"), ExtResource("32_4bi7s"), ExtResource("33_hwh0u")])
+
+[node name="Fish1" type="Sprite2D" parent="Fish" unique_id=1567313553]
+position = Vector2(912, 200)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_xwmn8")
+
+[node name="Fish2" type="Sprite2D" parent="Fish" unique_id=1535203783]
+visible = false
+position = Vector2(912, 247.84917)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_xwmn8")
+
+[node name="FishAnimation" type="AnimationPlayer" parent="Fish" unique_id=440540596]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_nnsry")
+
+[connection signal="timeout" from="CreditsTimer" to="." method="_on_credits_timer_timeout"]
+[connection signal="body_exited" from="LetterKiller" to="." method="_on_letter_killer_body_exited"]
+[connection signal="animation_finished" from="Fish/FishAnimation" to="Fish" method="_on_animation_finished"]
