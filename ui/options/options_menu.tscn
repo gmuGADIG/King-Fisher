@@ -130,6 +130,35 @@ theme_type_variation = &"ItemDexButton"
 theme_override_font_sizes/font_size = 31
 text = "Keybinds"
 
+[node name="MarginContainer" type="MarginContainer" parent="OptionsPanel" unique_id=1283207303]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -91.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 66
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="OptionsPanel/MarginContainer" unique_id=2076235961]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsPanel/MarginContainer/Button" unique_id=752678601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "🗘"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1061228079]
 stream = ExtResource("3_8hrnt")
 
@@ -145,4 +174,5 @@ theme_type_variation = &"FishXButton"
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="OptionsPanel/VBoxContainer/VBoxContainer/KeybindsButton" to="." method="_on_keybinds_button_pressed"]
+[connection signal="pressed" from="OptionsPanel/MarginContainer/Button" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

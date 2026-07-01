@@ -7,6 +7,7 @@ signal client_name_recieved(name : String)
 
 signal start_game
 signal server_disconnected
+signal status_changed
 
 const PORT = 25575
 const MAX_CLIENTS = 4
@@ -25,7 +26,11 @@ var scan_for_servers := false
 var scan_client: PacketPeerUDP
 
 var playerDisplayName: String
-var status: String
+var status: String:
+	set(new_val):
+		status = new_val
+		status_changed.emit()
+	
 #Allowed maps starts with a safety in case start game is loaded without going into lobby menu
 var allowedMaps:Array = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
 
@@ -88,7 +93,7 @@ func _process_scan_for_servers(delta: float) -> void:
 		Debug.log("scan_client recieved something from %s!" % server_ip)
 
 		if(statusString == ""):
-			statusString = "Ready to start"
+			statusString = "Lobby"
 		found_server.emit(server_ip, foundHostName, playersOnlineString, statusString)
 
 func _process(delta: float) -> void:
@@ -105,6 +110,10 @@ func _on_peer_connected(id: int) -> void:
 	if not multiplayer.is_server():
 		return
 	if (player_list.size() >= size_limit):
+		disconnect_client.rpc_id(id, "lobby full")
+		player_list.erase(id)
+		return
+	if (status == "In Game"):
 		disconnect_client.rpc_id(id, "lobby full")
 		player_list.erase(id)
 		return
@@ -231,7 +240,7 @@ func _handle_ready_up() -> void:
 		return
 	
 	if not multiplayer.is_server():
-		set_ready.rpc_id(1)
+		set_ready.rpc()
 			
 	if not multiplayer.is_server(): return
 	if game_starting: return
@@ -262,13 +271,10 @@ func _input(event: InputEvent) -> void:
 
 @rpc("any_peer","call_local","reliable")
 func set_ready():
-	var sender = multiplayer.get_remote_sender_id();
-	player_list[sender].ready = !player_list[sender].ready;
-	if player_list[sender].ready:
-		LobbyHUD.instance.add_player_ready(sender, player_list[sender].playerName)
-	else:
-		LobbyHUD.instance.remove_player_ready(sender)
-
+	var sender = multiplayer.get_remote_sender_id()
+	player_list[sender].ready = !player_list[sender].ready
+	Debug.log("Ready up!!")
+	
 func create_server(serverName: String) -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT, size_limit)
