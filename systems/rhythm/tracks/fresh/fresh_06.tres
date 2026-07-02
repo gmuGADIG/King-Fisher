@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="1_6yxs5"]
 [ext_resource type="AudioStream" uid="uid://bbqsah8ks5u6" path="res://systems/rhythm/tracks/backingTrack120.ogg" id="1_mgeuc"]
-[ext_resource type="Script" path="res://systems/rhythm/note.gd" id="1_n2fmx"]
+[ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_n2fmx"]
 
 [sub_resource type="Resource" id="Resource_0"]
 script = ExtResource("1_n2fmx")

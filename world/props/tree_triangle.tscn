@@ -14,7 +14,7 @@ data = PackedVector3Array(0.7071, -1, -0.7071, 0.7881, 9.6025, 0, 0.5573, 9.6025
 [node name="Trees_Triangle" parent="." unique_id=211640041 instance=ExtResource("1_yd73d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05159092, -1.1920929e-07, -0.24529219)
 
-[node name="Cylinder" parent="Trees_Triangle" index="0" unique_id=1184382235]
+[node name="Cylinder" parent="Trees_Triangle" index="0" unique_id=2010972388]
 surface_material_override/0 = ExtResource("2_3ncde")
 
 [node name="Trees_Triangle_Cylinder_003#StaticBody3D" type="StaticBody3D" parent="Trees_Triangle/Cylinder" index="0" unique_id=899061945]
@@ -24,7 +24,7 @@ transform = Transform3D(0.99612, 0, 0, 0, 1, 0, 0, 0, 1, 0.05159092, 1.1920929e-
 transform = Transform3D(0.43791452, 0, 0, 0, 0.8041034, 0, 0, 0, 0.56111795, 0, 0.7382097, -0.29849756)
 shape = SubResource("ConcavePolygonShape3D_3ncde")
 
-[node name="Trees_Triangle_Cylinder_004#StaticBody3D" type="StaticBody3D" parent="Trees_Triangle/Cylinder_001" parent_id_path=PackedInt32Array(211640041, 2130276242) index="0" unique_id=1753433957]
+[node name="Trees_Triangle_Cylinder_004#StaticBody3D" type="StaticBody3D" parent="Trees_Triangle/Cylinder_001" parent_id_path=PackedInt32Array(211640041, 1097002864) index="0" unique_id=1753433957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05159092, 1.1920929e-07, 0.24529219)
 
 [node name="Trees_Triangle_Cylinder_004_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="Trees_Triangle/Cylinder_001/Trees_Triangle_Cylinder_004#StaticBody3D" unique_id=841960384]

@@ -967,7 +967,7 @@ polygon = PackedVector2Array(8.711293, 14.201077, 14.099179, 49.946228, 50.32643
 [node name="Item" parent="." index="271" unique_id=1566519324 instance=ExtResource("24_loicf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.357807, 1.1075009, 32.82943)
 
-[node name="Rubber Mallet" parent="." index="272" unique_id=1678140614 instance=ExtResource("25_vs71a")]
+[node name="Rubber Mallet" parent="." index="272" unique_id=781243647 instance=ExtResource("25_vs71a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.422941, 0.26853234, 25.195616)
 
 [editable path="Water/Killbox"]
