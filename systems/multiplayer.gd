@@ -319,9 +319,14 @@ func report_loaded() -> void:
 	player_loaded.emit(multiplayer.get_remote_sender_id())
 
 @rpc("call_local")
-func results_screen(place: int) -> void:
-	Debug.log("results_screen(place = %d)" % place)
-	ResultsScreen.place = place
+func results_screen(first_place_id: int, second_place_id : int, third_place_id : int, fourth_place_id : int) -> void:
+	#Debug.log("results_screen(place = %d)" % place)
+	ResultsScreen.placements = [
+		first_place_id,
+		second_place_id,
+		third_place_id,
+		fourth_place_id
+	]
 	SceneTransition.change_to_file("res://ui/results/results_screen.tscn")
 
 # host disconnecting client
@@ -363,3 +368,6 @@ func request_name() -> void:
 @rpc("reliable","any_peer","call_remote")
 func recieve_name(name : String) -> void:
 	client_name_recieved.emit(name)
+
+#func send_all_to_lobby() -> void:
+	
