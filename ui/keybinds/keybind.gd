@@ -5,7 +5,7 @@ signal closed
 
 @export var binding_prototype: HBoxContainer
 
-@onready var vbox: VBoxContainer = $KeybindPanel/ScrollContainer/VBoxContainer
+@onready var vbox: VBoxContainer = %KeybindList
 
 static var config = ConfigFile.new()
 const SAVE_PATH = "user://keybinds.cfg"

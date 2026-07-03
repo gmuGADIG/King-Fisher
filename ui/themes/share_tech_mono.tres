@@ -27,6 +27,27 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 modulate_color = Color(0.75, 0.75, 0.75, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ovmf"]
+bg_color = Color(0.12036916, 0.26733765, 0.45896107, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1ova"]
+bg_color = Color(0.17133099, 0.35737488, 0.5951661, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckch7"]
+bg_color = Color(0.09803922, 0.22745098, 0.39607844, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f543i"]
 texture = ExtResource("2_f543i")
 modulate_color = Color(0.74509805, 0.74509805, 0.74509805, 1)
@@ -41,6 +62,12 @@ modulate_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
 [resource]
 default_font = ExtResource("1_jg72k")
 default_font_size = 24
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_jg72k")
 Button/styles/focus = SubResource("StyleBoxTexture_ckch7")
@@ -65,6 +92,8 @@ HeaderMedium/font_sizes/font_size = 24
 HeaderSmall/font_sizes/font_size = 24
 ItemList/font_sizes/font_size = 24
 ItemList/fonts/font = ExtResource("1_jg72k")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_jg72k")
 LineEdit/font_sizes/font_size = 24
@@ -93,6 +122,8 @@ RichTextLabel/fonts/bold_italics_font = ExtResource("1_jg72k")
 RichTextLabel/fonts/italics_font = ExtResource("1_jg72k")
 RichTextLabel/fonts/mono_font = ExtResource("1_jg72k")
 RichTextLabel/fonts/normal_font = ExtResource("1_jg72k")
+ScrollContainer/colors/scroll_hint_horizontal_color = Color(1, 0, 0, 1)
+ScrollContainer/colors/scroll_hint_vertical_color = Color(1, 0, 0, 1)
 TabBar/font_sizes/font_size = 24
 TabBar/fonts/font = ExtResource("1_jg72k")
 TabContainer/font_sizes/font_size = 24
@@ -105,6 +136,9 @@ Tree/font_sizes/font_size = 24
 Tree/font_sizes/title_button_font_size = 24
 Tree/fonts/font = ExtResource("1_jg72k")
 Tree/fonts/title_button_font = ExtResource("1_jg72k")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_4ovmf")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_u1ova")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_ckch7")
 Window/font_sizes/title_font_size = 24
 Window/fonts/title_font = ExtResource("1_jg72k")
 XButton/base_type = &"Button"
