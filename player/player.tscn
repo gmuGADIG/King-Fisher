@@ -47,7 +47,7 @@ shader = ExtResource("20_bjvpn")
 shader_parameter/albedo = Color(0, 1, 1, 1)
 shader_parameter/frensel_power = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7pn3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rptt4"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_s7qer")
 diffuse_mode = 3
@@ -299,7 +299,7 @@ bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
 [node name="DefaultPlayer" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="0" unique_id=3456117]
 layers = 8
-material_override = SubResource("StandardMaterial3D_r7pn3")
+material_override = SubResource("StandardMaterial3D_rptt4")
 
 [node name="Bones" type="PhysicalBoneSimulator3D" parent="DefaultPlayer/PlayerSkeleton/Skeleton3D" parent_id_path=PackedInt32Array(268378426, 1645880762) index="1" unique_id=495216820 node_paths=PackedStringArray("player")]
 script = ExtResource("6_boad6")

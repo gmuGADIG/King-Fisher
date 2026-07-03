@@ -3,8 +3,8 @@ extends Control
 @export var livewell_entry_packed : PackedScene
 var livewell_entries : Array[LivewellEntry]
 
-@onready var grid_container : GridContainer = $Background/GridContainer
-@onready var score_label : RichTextLabel = $Background/Score
+@onready var grid_container : GridContainer = $Background/Background/GridContainer
+@onready var score_label : RichTextLabel = $Background/Background/Score
 
 
 func _ready() -> void:

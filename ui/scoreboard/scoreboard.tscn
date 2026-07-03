@@ -49,14 +49,14 @@ horizontal_alignment = 1
 [node name="HSeparator2" type="HSeparator" parent="BackPanel/VBoxContainer" unique_id=2131908892]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 76
 
 [node name="TopRow" type="HBoxContainer" parent="BackPanel/VBoxContainer" unique_id=1113933182]
 layout_mode = 2
 alignment = 1
 
 [node name="PlayerLabel" type="Label" parent="BackPanel/VBoxContainer/TopRow" unique_id=1209676177]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(175, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Player"
@@ -71,6 +71,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Score"
+horizontal_alignment = 1
 
 [node name="VSeparator2" type="VSeparator" parent="BackPanel/VBoxContainer/TopRow" unique_id=1433568281]
 modulate = Color(1, 1, 1, 0)
@@ -80,8 +81,11 @@ theme_override_constants/separation = 12
 [node name="FishCountLabel" type="Label" parent="BackPanel/VBoxContainer/TopRow" unique_id=2008070560]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_constants/line_spacing = -5
 theme_override_font_sizes/font_size = 22
-text = "Fish Count"
+text = "Fish
+Count"
+horizontal_alignment = 1
 
 [node name="VSeparator3" type="VSeparator" parent="BackPanel/VBoxContainer/TopRow" unique_id=1292561123]
 modulate = Color(1, 1, 1, 0)
@@ -91,8 +95,11 @@ theme_override_constants/separation = 12
 [node name="SushiCountLabel" type="Label" parent="BackPanel/VBoxContainer/TopRow" unique_id=1725203282]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_constants/line_spacing = -5
 theme_override_font_sizes/font_size = 22
-text = "Sushi Count"
+text = "Sushi
+Count"
+horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="BackPanel/VBoxContainer" unique_id=1059254070]
 modulate = Color(1, 1, 1, 0)

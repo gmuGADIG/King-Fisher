@@ -124,6 +124,8 @@ spot_angle = 30.0
 [node name="Ziplock Bag" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=1566519324 instance=ExtResource("8_0gq26")]
 transform = Transform3D(-4.371139e-08, 0.2317479, -0.9727759, 0, 0.9727759, 0.2317479, 1, 1.0130022e-08, -4.2521386e-08, 0, 0.486, -0.18)
 visible = false
+duration = 10.0
+buff_texture = null
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot/Ziplock Bag" unique_id=2022706705]
 transform = Transform3D(-3.5721225e-08, 3.8621177e-08, 1, 0.23215537, 0.9726787, -2.9273123e-08, -0.9726787, 0.23215537, -4.371139e-08, 1.6800001, 0.013617694, 0.0032501742)
@@ -150,6 +152,7 @@ spot_angle = 30.0
 [node name="Glue Grenade" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=1294314743 instance=ExtResource("9_rcaxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025, 0.53, -1.57)
 visible = false
+glue_icon = null
 
 [node name="Brick" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=1746002413 instance=ExtResource("7_0gq26")]
 transform = Transform3D(0.21238945, -0.0368286, -0.33436313, -0.21926722, 0.2847243, -0.1706409, 0.2551019, 0.27539083, 0.13170913, -0.015, 0.503, 0.77)

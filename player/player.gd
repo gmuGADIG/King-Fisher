@@ -226,6 +226,15 @@ func _mouse_input(event : InputEvent) -> void:
 	if UIState.player_click_input_blocked:
 		return
 	
+	## TODO remove these two debug actions
+	if event.is_action_pressed("debug_add_fish"):
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		give_fish_serialized.rpc(newFish.serialize())
+	if event.is_action_pressed("debug_remove_fish"):
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		take_fish_serialized.rpc(newFish.serialize())
+		#take_fish(nes
+	
 	match aim_mode:
 		AimMode.NONE:
 			if event.is_action_pressed("cast_rod"):
@@ -295,14 +304,7 @@ func _mouse_input(event : InputEvent) -> void:
 		#item = null
 		#%Aiming.stop_aiming()
 	
-	## TODO remove these two debug actions
-	if event.is_action_pressed("add_fish"):
-		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
-		give_fish_serialized.rpc(newFish.serialize())
-	if event.is_action_pressed("remove_fish"):
-		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
-		take_fish_serialized.rpc(newFish.serialize())
-		#take_fish(nes
+	
 
 ## Interrupts and cancels the fishing minigame if active.
 ## Called by the Ragdoll system to interrupt fishing when ragdolled.
@@ -509,6 +511,7 @@ func take_fish(fish: Fish) -> void:
 ##NOTICE: This is abusable as it is any_peer
 @rpc("any_peer","reliable","call_local")
 func give_fish_serialized(data : Array) -> void:
+	
 	give_fish(Fish.create(data[0],data[1]))
 
 ##NOTICE: This is abusable as it is any_peer
