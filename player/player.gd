@@ -480,7 +480,7 @@ func unequip_helmet() -> void:
 		return
 	wearing_helmet = false
 	helmet_node.queue_free()
-	get_tree().current_scene.get_node("%GameHud").get_node("ActiveBuffs").remove_buff("Helmet")
+	get_tree().current_scene.get_node("%GameHud").get_node("%ActiveBuffs").remove_buff("Helmet")
 
 
 ##NOTICE: This is abusable as it is any_peer
@@ -556,7 +556,7 @@ func apply_bone_force(vec : Vector3) -> void:
 			node.apply_central_impulse(vec)
 
 func add_item_buff(buff_name : String, duration : float, texture : Texture2D) -> void:
-	get_tree().current_scene.get_node("%GameHud").get_node("ActiveBuffs").add_buff(buff_name, duration, texture)
+	get_tree().current_scene.get_node("%GameHud").get_node("%ActiveBuffs").add_buff(buff_name, duration, texture)
 
 ##Incredibly evil function of bad code design
 func remove_item_buff(buff_name : String) -> void:

@@ -17,9 +17,10 @@ func _ready() -> void:
 	if multiplayer.is_server():
 		Debug.log("Creating player...")
 		spawn_player.rpc(1, $Players.get_safe_spawn_point())
-		$CanvasLayer/VBoxContainer/Label.text = "Server"
+		#$CanvasLayer/VBoxContainer/Label.text = "Server"
 	else:
-		$CanvasLayer/VBoxContainer/Label.text = "Client"
+		#$CanvasLayer/VBoxContainer/Label.text = "Client"
+		pass
 
 @rpc("any_peer")
 func spawn_request():

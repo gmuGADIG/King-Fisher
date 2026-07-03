@@ -1,11 +1,15 @@
 extends Area3D
 class_name FishShadow
 
-
+@export var partical_mat : StandardMaterial3D
 
 var id : int
 var currently_fishing : bool
-var fish : Fish
+var fish : Fish:
+	set(val):
+		fish = val
+		if fish != null:
+			$CPUParticles3D.mesh = fish.grade_particle()
 
 
 func _ready() -> void:

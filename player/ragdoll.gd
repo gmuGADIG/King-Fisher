@@ -64,12 +64,12 @@ func is_valid_ground() -> Array:
 
 # Performs the actual ragdolling
 @rpc("any_peer", "call_local", "reliable")
-func start_ragdoll(duration: float, prevent_move_check: bool):
+func start_ragdoll(duration: float, prevent_move_check: bool, force : bool = false):
 	if not multiplayer.is_server() and multiplayer.get_remote_sender_id() != 1:
 		Debug.log("Not the server, and not the client that triggered this, ignoring")
 		return
 	if player.is_ragdolled: return
-	if !can_ragdoll(): return
+	if not can_ragdoll(force): return
 	if prevent_move_check:
 		check_movement_toggle = false
 
@@ -124,11 +124,11 @@ func confirm_end_ragdoll():
 	player.force_respawn = false
 	check_movement_toggle = true
 
-func can_ragdoll() -> bool:
+func can_ragdoll(force : bool) -> bool:
 	if player.wearing_helmet:
 		Debug.log("Player has helmet, cannot ragdoll.")
 		player.unequip_helmet()
-		return false
+		return force
 	return true
 
 var stopped_moving := false

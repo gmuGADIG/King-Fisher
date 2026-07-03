@@ -12,5 +12,5 @@ func _on_land() -> void:
 			Debug.log("hit player")
 			hit_player.slow(slow_time, slow_amount)
 			hit_player.add_item_buff("Glue",slow_time,glue_icon)
-			await get_tree().create_timer(0.5).timeout
-			queue_free()
+	await get_tree().create_timer(0.5).timeout
+	queue_free()

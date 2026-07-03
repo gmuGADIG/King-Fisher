@@ -9,6 +9,11 @@ enum Grade{
 	SUSHI,
 }
 
+static var leftover_particle : BoxMesh = load("res://fish/particles/leftovers_particle.tres")
+static var fresh_particle : BoxMesh = load("res://fish/particles/fresh_particle.tres")
+static var premium_particle : BoxMesh = load("res://fish/particles/premium_particle.tres")
+static var sushi_particle : BoxMesh = load("res://fish/particles/sushi_particle.tres")
+
 static var leftover_fishes : Array[Fish] = [
 	load("res://fish/leftovers/british_fish.tres"),
 	load("res://fish/leftovers/patchwork_fish.tres"),
@@ -168,3 +173,16 @@ func grade_color() -> Color:
 			return Color.GOLD # Gold
 		_:
 			return Color.DIM_GRAY # Gray for Unset or unknown grades
+
+func grade_particle() -> Mesh:
+	match grade:
+		Fish.Grade.LEFTOVERS:
+			return leftover_particle
+		Fish.Grade.FRESH:
+			return fresh_particle
+		Fish.Grade.PREMIUM:
+			return premium_particle
+		Fish.Grade.SUSHI:
+			return sushi_particle
+		_:
+			return null

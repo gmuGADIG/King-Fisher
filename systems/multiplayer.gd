@@ -184,7 +184,7 @@ func broadcast_player_info() -> void:
 func _countdown(duration: int) -> void:
 	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
 	label.duration = duration
-	label.position = Vector2(500, 500)
+	#label.position = Vector2(500, 0)
 	get_tree().current_scene.add_child(label)
 	label.start()
 	await label.finished

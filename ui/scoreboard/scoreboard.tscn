@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://db4lt8mwovea0" path="res://ui/scoreboard/scoreboard_panel.png" id="4_hissq"]
 
 [node name="Scoreboard" type="Control" unique_id=1670028390]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -2,7 +2,7 @@ class_name GameHud
 extends Control
 
 @export var time_remaining_label : Label
-@onready var active_buffs : Control = $ActiveBuffs
+@onready var active_buffs : Control = %ActiveBuffs
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
