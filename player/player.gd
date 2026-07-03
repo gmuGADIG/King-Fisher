@@ -214,7 +214,7 @@ func _keyboard_input(event : InputEvent) -> void:
 	
 	if event.is_action_pressed("scoreboard"):
 		pass
-	if event.is_action_pressed("test1"):
+	if event.is_action_pressed("debug_test1"):
 		ragdoll_phys.ragdoll(1)
 		# force_respawn = true
 		pass

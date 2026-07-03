@@ -264,10 +264,7 @@ func set_map(mapString:String,pool:Array):
 		if mapString[i] == "0":
 			pool.remove_at(i)
 	allowedMaps = pool
-			
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ready_up"):
-		_handle_ready_up()
+
 
 @rpc("any_peer","call_local","reliable")
 func set_ready():
