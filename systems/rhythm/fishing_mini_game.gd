@@ -86,11 +86,14 @@ signal fishing_finished(success:bool)
 @onready var fish_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/FishBar/SequenceLine/FishIndicator
 @onready var rating_label: Label = $TextureRect/VBoxContainer/ColorRect/RatingLabel
 @onready var rating_animation: AnimationPlayer = $TextureRect/VBoxContainer/ColorRect/RatingAnimation
+@onready var progress_bar : ProgressBar = $TextureRect/VBoxContainer/Control/ProgressBar
+@onready var requirement_marker : TextureRect = $TextureRect/VBoxContainer/Control/ProgressBar/RequirementMarker
 
 func start(fish : Fish) -> void:
 	UIState.ui_state = UIState.State.FISHING_MINIGAME
 	_loudness_before_minigame = MainMusicPlayer.get_volume() #Record Loudness
 	MainMusicPlayer.set_loudness(0.25,0.0)
+	progress_bar.value = 0
 	misses = 0
 	good_hits = 0
 	perfect_hits = 0
@@ -115,6 +118,9 @@ func start(fish : Fish) -> void:
 		Fish.Grade.SUSHI:
 			track = sushi_tracks.pick_random()
 			target_accuracy = sushi_accuracy_requirement
+	
+	##Position of the requirement bar
+	requirement_marker.position.x = 0.01 * target_accuracy * progress_bar.size.x + 0.5 * requirement_marker.size.x
 	
 	if force_track_play_on_load:
 		track = forced_track
@@ -270,7 +276,7 @@ func _input(event: InputEvent) -> void:
 		## Draw marker to screen
 		add_tap_marker(input_type)
 		
-		
+		progress_bar.value = calculate_accuracy()
 		#if event.is_action_pressed("catch_fish_main"):
 			#tap_type = NoteType.NON_ARTICULATED
 			#add_tap_marker(NoteType.NON_ARTICULATED)
@@ -353,9 +359,6 @@ func show_rating(text:String) -> void:
 	rating_label.text = text
 	rating_animation.stop()
 	rating_animation.play("rating_pulse")
-
-func calculate_total_accuracy() -> void:
-	pass
 
 func ms_to_position(ms:float) -> float:
 	

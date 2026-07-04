@@ -58,6 +58,12 @@
 [ext_resource type="Texture2D" uid="uid://kurj7owk3xtu" path="res://systems/rhythm/art/hook_icon.png" id="52_0c5i1"]
 [ext_resource type="Texture2D" uid="uid://bbldh4d01tfi7" path="res://systems/rhythm/art/marker.png" id="53_xttff"]
 
+[sub_resource type="Gradient" id="Gradient_nkmp6"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xttff"]
+gradient = SubResource("Gradient_nkmp6")
+
 [sub_resource type="Animation" id="Animation_2nsaa"]
 length = 0.001
 tracks/0/type = "value"
@@ -171,12 +177,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 152.0
+offset_top = 216.0
 offset_right = -40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 95
-alignment = 1
+theme_override_constants/separation = 123
 
 [node name="Control" type="Control" parent="TextureRect/VBoxContainer" unique_id=1119023935]
 layout_mode = 2
@@ -247,6 +252,25 @@ z_index = 2
 position = Vector2(0, -25)
 scale = Vector2(0.11470588, 0.11470589)
 texture = ExtResource("53_xttff")
+
+[node name="ProgressBar" type="ProgressBar" parent="TextureRect/VBoxContainer/Control" unique_id=1302192083]
+layout_mode = 0
+offset_left = -420.0
+offset_top = 72.0
+offset_right = 468.0
+offset_bottom = 88.0
+show_percentage = false
+
+[node name="RequirementMarker" type="TextureRect" parent="TextureRect/VBoxContainer/Control/ProgressBar" unique_id=367420453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -883.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_xttff")
+expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="TextureRect/VBoxContainer" unique_id=1594080517]
 custom_minimum_size = Vector2(100, 50)
