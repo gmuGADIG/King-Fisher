@@ -60,6 +60,8 @@ var misses:int = 0
 
 var target_accuracy : float
 
+var calculated_offset : float
+
 # Called when the node enters the scene tree for the first time.
 
 var call_index:int = 0
@@ -97,6 +99,7 @@ func start(fish : Fish) -> void:
 	misses = 0
 	good_hits = 0
 	perfect_hits = 0
+	calculated_offset = 0
 	call_index = 0
 	response_index = 0
 	current_note = null
@@ -183,7 +186,7 @@ func _process(_delta: float) -> void:
 			state = Phase.PLAYER_RESPONSE
 			player_indicator.show()
 			fish_indicator.hide()
-		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 1 and not tempo_audio_stream.playing and not Debug.disable_backing_track:
+		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms+RhythmSettings.manual_audio_offset) >= 1 and not tempo_audio_stream.playing and not Debug.disable_backing_track:
 			tempo_audio_stream.play()
 	
 	##Response
@@ -200,6 +203,7 @@ func _process(_delta: float) -> void:
 			player_indicator.hide()
 			##Percentage accuracy from 0 to 1
 			var accuracy : float = calculate_accuracy()
+			calculated_offset /= misses+good_hits+perfect_hits
 			#$TextureRect/VBoxContainer/ColorRect/ScoreLabel.text = str("%.2f" % (accuracy*100.0)) + "%"
 			print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 			state = Phase.MINIGAME_INACTIVE
@@ -299,6 +303,7 @@ func determine_accuracy() -> HitQuality:
 	var current_time : float = rhythm_engine.current_time_ms
 	
 	var difference : float = note_position_ms - current_time
+	calculated_offset += difference
 	#print("diff: ",difference)
 	if (difference > hit_window_radius_ms):
 		return HitQuality.MISS

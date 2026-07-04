@@ -214,6 +214,7 @@ content_margin_left = 0.0
 content_margin_top = 20.0
 content_margin_bottom = 20.0
 texture = ExtResource("5_q7tkq")
+region_rect = Rect2(0, 0, 512, 244)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abcvk"]
 content_margin_left = 0.0

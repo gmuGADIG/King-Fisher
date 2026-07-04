@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://dfgxtl7sfhpoc"]
+
+[ext_resource type="Texture2D" uid="uid://dohal7iocsei8" path="res://art/ui assets/options_UI_art.png" id="1_gddlb"]
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_gvqyn"]
+[ext_resource type="Script" uid="uid://b377kgkbpiuj7" path="res://ui/rhythm_settings/rhythm_settings.gd" id="2_mts4g"]
+[ext_resource type="PackedScene" uid="uid://bpo4nvgeh8dat" path="res://systems/rhythm/fishing_mini_game.tscn" id="4_3cb81"]
+[ext_resource type="Resource" uid="uid://hoqwqyla4oem" path="res://systems/rhythm/tracks/leftovers/leftovers_03.tres" id="5_jhx3c"]
+
+[node name="RhythmSettings" type="Control" unique_id=1247132815]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gvqyn")
+script = ExtResource("2_mts4g")
+
+[node name="RhythmPanel" type="NinePatchRect" parent="." unique_id=1639483791]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24739583
+anchor_top = 0.0061728396
+anchor_right = 0.7994792
+anchor_bottom = 0.97993827
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gddlb")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RhythmPanel" unique_id=123390506]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -159.5
+offset_right = 205.0
+offset_bottom = 304.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 103
+
+[node name="Label" type="Label" parent="RhythmPanel/VBoxContainer" unique_id=1438305472]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.27951375, 0.17142016, 0.024948912, 1)
+theme_override_font_sizes/font_size = 33
+text = "Rhythm Settings"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RhythmPanel/VBoxContainer" unique_id=968656375]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AudioOffsetLabel" type="Label" parent="RhythmPanel/VBoxContainer/VBoxContainer" unique_id=354605715]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24144319, 0.13249117, 0.024500538, 1)
+theme_override_font_sizes/font_size = 18
+text = "Audio Offset: 0 ms"
+
+[node name="AudioOffsetSlider" type="HSlider" parent="RhythmPanel/VBoxContainer/VBoxContainer" unique_id=461943834]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+min_value = -200.0
+max_value = 200.0
+value = 1.0
+
+[node name="TestButton" type="Button" parent="RhythmPanel/VBoxContainer/VBoxContainer" unique_id=682650986]
+custom_minimum_size = Vector2(140, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"ItemDexButton"
+theme_override_font_sizes/font_size = 31
+
+[node name="Label" type="Label" parent="RhythmPanel/VBoxContainer/VBoxContainer/TestButton" unique_id=382259507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="TextureRect" type="TextureRect" parent="RhythmPanel/VBoxContainer/VBoxContainer" unique_id=1067338783]
+custom_minimum_size = Vector2(1.995, 68.975)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AccuracyLabel" type="Label" parent="RhythmPanel/VBoxContainer/VBoxContainer/TextureRect" unique_id=1505891420]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You hit ~0 ms early"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TestButton2" type="Button" parent="RhythmPanel/VBoxContainer/VBoxContainer" unique_id=2144440642]
+custom_minimum_size = Vector2(166.655, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"ItemDexButton"
+theme_override_font_sizes/font_size = 31
+
+[node name="Label" type="Label" parent="RhythmPanel/VBoxContainer/VBoxContainer/TestButton2" unique_id=1663862299]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="FishingMiniGame" parent="." unique_id=476640078 instance=ExtResource("4_3cb81")]
+visible = false
+layout_mode = 1
+forced_track = ExtResource("5_jhx3c")
+
+[connection signal="drag_ended" from="RhythmPanel/VBoxContainer/VBoxContainer/AudioOffsetSlider" to="." method="_on_audio_offset_slider_drag_ended"]
+[connection signal="value_changed" from="RhythmPanel/VBoxContainer/VBoxContainer/AudioOffsetSlider" to="." method="_on_audio_offset_slider_value_changed"]
+[connection signal="pressed" from="RhythmPanel/VBoxContainer/VBoxContainer/TestButton" to="." method="_on_test_button_pressed"]
+[connection signal="pressed" from="RhythmPanel/VBoxContainer/VBoxContainer/TestButton2" to="." method="_on_exit_button_pressed"]

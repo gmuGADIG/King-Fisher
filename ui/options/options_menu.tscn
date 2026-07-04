@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bp1ga0y2284ok" path="res://ui/options/options_menu.gd" id="2_gacm8"]
 [ext_resource type="AudioStream" uid="uid://crho3l0hcp0cc" path="res://temp/temp_sfx/test_unlock.wav" id="3_8hrnt"]
 [ext_resource type="PackedScene" uid="uid://vpljqilqhkbb" path="res://ui/keybinds/keybind_menu.tscn" id="3_xewkt"]
+[ext_resource type="PackedScene" uid="uid://dfgxtl7sfhpoc" path="res://ui/rhythm_settings/rhythm_settings.tscn" id="4_882kb"]
 
 [node name="OptionsMenu" type="Control" unique_id=1087068024]
 layout_mode = 3
@@ -17,6 +18,10 @@ theme = ExtResource("1_a4bum")
 script = ExtResource("2_gacm8")
 
 [node name="KeybindMenu" parent="." unique_id=1736237721 instance=ExtResource("3_xewkt")]
+visible = false
+layout_mode = 1
+
+[node name="RhythmSettings" parent="." unique_id=1247132815 instance=ExtResource("4_882kb")]
 visible = false
 layout_mode = 1
 
@@ -90,9 +95,6 @@ max_value = 2.0
 step = 0.1
 value = 1.0
 
-[node name="MarginContainer" type="MarginContainer" parent="OptionsPanel/VBoxContainer/VBoxContainer" unique_id=1665212673]
-layout_mode = 2
-
 [node name="SFXVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer/VBoxContainer" unique_id=682179707]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.24313726, 0.13333334, 0.023529412, 1)
@@ -105,9 +107,6 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
-
-[node name="MarginContainer2" type="MarginContainer" parent="OptionsPanel/VBoxContainer/VBoxContainer" unique_id=1327836431]
-layout_mode = 2
 
 [node name="MusicVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer/VBoxContainer" unique_id=231721356]
 layout_mode = 2
@@ -122,30 +121,53 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="KeybindsButton" type="Button" parent="OptionsPanel/VBoxContainer/VBoxContainer" unique_id=2140402261]
+[node name="MarginContainer" type="MarginContainer" parent="OptionsPanel" unique_id=1283207303]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -106.0
+offset_right = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 14
+
+[node name="RhythmSettings" type="Button" parent="OptionsPanel/MarginContainer" unique_id=463372499]
+custom_minimum_size = Vector2(113.395, 84)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_type_variation = &"ItemDexButton"
+theme_override_font_sizes/font_size = 14
+
+[node name="Label" type="Label" parent="OptionsPanel/MarginContainer/RhythmSettings" unique_id=741228057]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Rhythm
+Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeybindsButton" type="Button" parent="OptionsPanel/MarginContainer" unique_id=2140402261]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 theme_type_variation = &"ItemDexButton"
 theme_override_font_sizes/font_size = 31
 text = "Keybinds"
 
-[node name="MarginContainer" type="MarginContainer" parent="OptionsPanel" unique_id=1283207303]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -145.0
-offset_top = -91.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/margin_right = 66
-theme_override_constants/margin_bottom = 20
-
 [node name="Button" type="Button" parent="OptionsPanel/MarginContainer" unique_id=2076235961]
+custom_minimum_size = Vector2(86, 86)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 
 [node name="Label" type="Label" parent="OptionsPanel/MarginContainer/Button" unique_id=752678601]
 layout_mode = 1
@@ -169,10 +191,12 @@ offset_bottom = 68.0
 theme_type_variation = &"FishXButton"
 
 [connection signal="closed" from="KeybindMenu" to="." method="_on_keybind_menu_closed"]
+[connection signal="closed" from="RhythmSettings" to="." method="_on_rhythm_settings_closed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/VBoxContainer/MouseSensitivtySlider" to="." method="_on_mouse_sensitivty_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/VBoxContainer/AimingSensitivitySlider" to="." method="_on_aim_sensitivty_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/VBoxContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="pressed" from="OptionsPanel/VBoxContainer/VBoxContainer/KeybindsButton" to="." method="_on_keybinds_button_pressed"]
+[connection signal="pressed" from="OptionsPanel/MarginContainer/RhythmSettings" to="." method="_on_rhythm_settings_pressed"]
+[connection signal="pressed" from="OptionsPanel/MarginContainer/KeybindsButton" to="." method="_on_keybinds_button_pressed"]
 [connection signal="pressed" from="OptionsPanel/MarginContainer/Button" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
