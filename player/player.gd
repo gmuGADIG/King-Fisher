@@ -163,6 +163,7 @@ func _physics_process(delta: float) -> void:
 	var pre_velocity_y := velocity.y
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
+		sync_position.rpc(position)
 		handle_camera_position()
 	
 	#Debug.log("velocity ", velocity)
@@ -322,9 +323,15 @@ func slow(time : float, speed_debuf : float):
 	speed_multiplier = 1-speed_debuf
 	
 	
-@rpc("unreliable_ordered")
+@rpc("authority","unreliable_ordered")
 func sync_velocity(vel: Vector3) -> void:
 	velocity = vel
+
+@rpc("authority","unreliable_ordered")
+func sync_position(new_pos : Vector3) -> void:
+	if position.distance_squared_to(new_pos) > 10:
+		Debug.log("position desynced")
+		position = new_pos
 
 @rpc("unreliable")
 func sync_jump_event(event_id: int) -> void:
