@@ -9,7 +9,6 @@ static var manual_video_offset : float
 @onready var audio_offset_slider : HSlider = $RhythmPanel/VBoxContainer/VBoxContainer/AudioOffsetSlider
 
 @onready var audio_offset_label : Label = $RhythmPanel/VBoxContainer/VBoxContainer/AudioOffsetLabel
-@onready var video_offset_label : Label = $RhythmPanel/VBoxContainer/VBoxContainer/VideoOffsetLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,10 +25,6 @@ func _on_audio_offset_slider_value_changed(value: float) -> void:
 	manual_audio_offset = -value
 	audio_offset_label.text = str("Audio Offset: ",audio_timing_string(-value))
 
-func _on_video_offset_slider_value_changed(value: float) -> void:
-	manual_video_offset = value
-	video_offset_label.text = str("Video Offset: ",visual_timing_string(value))
-	
 func _on_test_button_pressed() -> void:
 	$RhythmPanel.hide()
 	$FishingMiniGame.start(preload("res://fish/fresh/angle_r_fish.tres"))
