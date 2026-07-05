@@ -13,7 +13,7 @@ data = PackedVector3Array(-0.98029995, 0.089499995, 1.76, -0.9684, 0.13329999, -
 [node name="TallRoofBoat" parent="." unique_id=1656329038 instance=ExtResource("1_hl5v7")]
 script = ExtResource("2_1aoby")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="TallRoofBoat/LobbyBoat" parent_id_path=PackedInt32Array(1656329038, 1644316044) index="0" unique_id=1970389255]
+[node name="StaticBody3D" type="StaticBody3D" parent="TallRoofBoat/LobbyBoat" parent_id_path=PackedInt32Array(1656329038, 1281826233) index="0" unique_id=1970389255]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TallRoofBoat/LobbyBoat/StaticBody3D" unique_id=1222104524]
 shape = SubResource("ConcavePolygonShape3D_cq325")
