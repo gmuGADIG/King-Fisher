@@ -152,7 +152,7 @@ func _process(delta: float) -> void:
 
 	if input != Vector2.ZERO:
 		player_mesh.turn_towards(movement_dir.rotated(-PI/2), delta)
-	
+		sync_rotation.rpc(player_mesh.rotation)
 	
 		
 
@@ -323,15 +323,18 @@ func slow(time : float, speed_debuf : float):
 	speed_multiplier = 1-speed_debuf
 	
 	
-@rpc("authority","unreliable_ordered")
+@rpc("authority","unreliable_ordered","call_remote")
 func sync_velocity(vel: Vector3) -> void:
 	velocity = vel
 
-@rpc("authority","unreliable_ordered")
+@rpc("authority","unreliable_ordered","call_remote")
 func sync_position(new_pos : Vector3) -> void:
-	if position.distance_squared_to(new_pos) > 10:
-		Debug.log("position desynced")
+	if position.distance_squared_to(new_pos) > 1:
 		position = new_pos
+
+@rpc("authority","unreliable_ordered","call_remote")
+func sync_rotation(new_rotation : Vector3) -> void:
+	player_mesh.rotation = new_rotation
 
 @rpc("unreliable")
 func sync_jump_event(event_id: int) -> void:
