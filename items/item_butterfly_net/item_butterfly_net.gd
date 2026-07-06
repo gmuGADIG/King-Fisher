@@ -1,3 +1,4 @@
+class_name FishingNet
 extends SwingableItem
 
 # The butterfly net! This item steals a random fish from the victim's livewell.

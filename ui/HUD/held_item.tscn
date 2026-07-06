@@ -70,6 +70,7 @@ far = 5.0
 unique_name_in_owner = true
 
 [node name="BananaPeel" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=691257726 instance=ExtResource("3_0gq26")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4636166, 0.057698607, 0.23433483)
 visible = false
 
@@ -83,6 +84,7 @@ spot_attenuation = 0.0
 spot_angle = 30.0
 
 [node name="Butterfly Net" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=2027398117 instance=ExtResource("4_hg5wk")]
+unique_name_in_owner = true
 transform = Transform3D(0.3623724, -0.786566, 0.49999997, 0.35355338, 0.6123724, 0.70710677, -0.8623724, -0.07945928, 0.49999997, 0.427, 0.126, 0.04)
 visible = false
 
@@ -96,6 +98,7 @@ spot_attenuation = 0.0
 spot_angle = 30.0
 
 [node name="Golden Worm" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=103183768 instance=ExtResource("5_rcaxk")]
+unique_name_in_owner = true
 transform = Transform3D(-0.3051785, 0.85577667, 0.41774678, 0.4115456, -0.27707502, 0.8682511, 0.85877687, 0.43689293, -0.26763368, -0.39087054, 0.7221911, -0.1358943)
 visible = false
 
@@ -109,6 +112,7 @@ spot_attenuation = 0.0
 spot_angle = 30.0
 
 [node name="Helmet" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=1022277145 instance=ExtResource("6_ofcw7")]
+unique_name_in_owner = true
 transform = Transform3D(0.87296516, -0.17852667, -0.4539383, -0.06895119, 0.8761079, -0.47715878, 0.4828845, 0.44784257, 0.75250214, 0.274, -0.848, -0.325)
 visible = false
 
@@ -122,9 +126,9 @@ spot_attenuation = 0.0
 spot_angle = 30.0
 
 [node name="Ziplock Bag" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=1566519324 instance=ExtResource("8_0gq26")]
+unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0.2317479, -0.9727759, 0, 0.9727759, 0.2317479, 1, 1.0130022e-08, -4.2521386e-08, 0, 0.486, -0.18)
 visible = false
-duration = 10.0
 buff_texture = null
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot/Ziplock Bag" unique_id=2022706705]
@@ -137,6 +141,7 @@ spot_attenuation = 0.0
 spot_angle = 30.0
 
 [node name="Rubber Mallet" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=1850795106 instance=ExtResource("9_hg5wk")]
+unique_name_in_owner = true
 transform = Transform3D(0.2477393, -1.6752563e-09, 0.14303233, -0.14303233, -6.252142e-09, 0.2477393, 1.6752563e-09, -0.28606468, -6.252142e-09, -0.207, 0.09, 0.496)
 visible = false
 
@@ -150,12 +155,15 @@ spot_attenuation = 0.0
 spot_angle = 30.0
 
 [node name="Glue Grenade" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=1294314743 instance=ExtResource("9_rcaxk")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025, 0.53, -1.57)
 visible = false
 glue_icon = null
 
 [node name="Brick" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot" unique_id=1746002413 instance=ExtResource("7_0gq26")]
+unique_name_in_owner = true
 transform = Transform3D(0.21238945, -0.0368286, -0.33436313, -0.21926722, 0.2847243, -0.1706409, 0.2551019, 0.27539083, 0.13170913, -0.015, 0.503, 0.77)
+visible = false
 
 [node name="SpotLight3D7" type="SpotLight3D" parent="ItemBG/ItemPlaceholder/ItemViewport/Root/ItemRoot/Brick" unique_id=857923078]
 transform = Transform3D(1.0291706, 0.6283628, 2.2055633, -0.54204214, 2.415629, -0.43528008, -2.2283494, -0.29738623, 1.1245283, 1.5112643, 0.12684608, 0.90114886)

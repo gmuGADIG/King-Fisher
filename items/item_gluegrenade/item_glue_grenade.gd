@@ -1,3 +1,4 @@
+class_name GlueGrenade
 extends ThrowableItem
 @export var slow_time : float = 50
 @export_range(0.0, 1.0, 0.01) var slow_amount : float = 0.4

@@ -1,3 +1,4 @@
+class_name BananaPeel
 extends ThrowableItem
 var hit_ground : bool
 @export var ragdollTime : float = 1.0

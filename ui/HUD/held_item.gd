@@ -2,6 +2,16 @@ class_name HeldItemUI extends Control
 
 @onready var held_item_root = %ItemRoot
 
+
+@onready var banana_peel = %BananaPeel
+@onready var fishing_net = %"Butterfly Net"
+@onready var golden_worm = %"Golden Worm"
+@onready var helmet = %Helmet
+@onready var ziplock_bag = %"Ziplock Bag"
+@onready var rubber_mallet = %"Rubber Mallet"
+@onready var glue_grenade = %"Glue Grenade"
+@onready var brick = %Brick
+
 func _ready() -> void:
 	clear_item()
 	print("Hide")
@@ -17,12 +27,27 @@ func _ui_state_updated(state : UIState.State) -> void:
 	elif state == UIState.State.NONE:
 		show()
 
-func hold_item(item_name: String) -> void:
+func hold_item(item: Item) -> void:
 	clear_item()
-	if held_item_root.has_node(item_name):
-		held_item_root.get_node(item_name).visible = true
+	print("Showing item")
+	if item is BananaPeel:
+		banana_peel.show()
+	elif item is FishingNet:
+		fishing_net.show()
+	elif item is GoldenWorm:
+		golden_worm.show()
+	elif item is Helmet:
+		helmet.show()
+	elif item is ZiplockBag:
+		ziplock_bag.show()
+	elif item is RubberMallet:
+		rubber_mallet.show()
+	elif item is GlueGrenade:
+		glue_grenade.show()
+	elif item is Brick:
+		brick.show()
 	else:
-		print("Cannot find the item named %s!" % item_name)
+		assert(false,"Invalid item")
 
 func clear_item() -> void:
 	for item in held_item_root.get_children():

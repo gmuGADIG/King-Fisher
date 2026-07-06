@@ -1,3 +1,4 @@
+class_name ZiplockBag
 extends Item
 
 @export var duration : float = 10
