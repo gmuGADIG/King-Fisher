@@ -49,4 +49,5 @@ func _on_continue_button_pressed() -> void:
 
 @rpc("authority","call_local","reliable")
 func send_all_to_lobby() -> void:
+	WorldBase.returning_to_lobby = true
 	SceneTransition.change_to_file("res://world/lobby/lobby.tscn")
