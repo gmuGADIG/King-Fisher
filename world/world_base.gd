@@ -13,6 +13,7 @@ func _ready() -> void:
 	else:
 		Multiplayer.status = ""
 	
+	Debug.log("Coming!")
 	Multiplayer.new_player.connect(on_player_join)
 	if multiplayer.is_server():
 		Debug.log("Creating player...")
