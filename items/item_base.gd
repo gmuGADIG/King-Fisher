@@ -28,9 +28,14 @@ func _on_body_entered(body: Node3D) -> void:
 		item_got_picked_up.emit()
 		# We call deferred because this is physics and getting picked up involves reparenting.
 		# No fucking with the scene tree before physics is done happening!
-		body.pick_up_item.call_deferred(self)
+		request_pick_up_item.rpc(body.get_multiplayer_authority())
 	else:
 		Debug.log_err("Player does not have pick_up_item function!")
+
+@rpc("reliable","any_peer","call_local")
+func request_pick_up_item(player_id : int) -> void:
+	if Multiplayer.player_list.has(player_id):
+		Multiplayer.player_list[player_id].player.pick_up_item.call_deferred(self)
 
 ## The generic use function. You can write your own in a class that extends Item.
 func use() -> void:
