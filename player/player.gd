@@ -117,7 +117,8 @@ func _ready() -> void:
 	_last_played_jump_event_id = -1
 	fishing_minigame = %FishingMiniGame
 	fishing_minigame.fishing_finished.connect(on_fishing_finished)
-
+	Livewell.update_inventory_visuals(fish_inventory,score)
+	
 func _process(delta: float) -> void:
 	# Prevents errors when disconnection happens
 	if not multiplayer.has_multiplayer_peer(): return
