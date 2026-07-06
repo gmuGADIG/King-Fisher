@@ -9,7 +9,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ukp2"]
 size = Vector3(16.80385, 33.004704, 58.001907)
 
-[node name="Rubber Mallet" unique_id=1566519324 instance=ExtResource("1_synbb")]
+[node name="FishingNet" unique_id=1566519324 instance=ExtResource("1_synbb")]
 script = ExtResource("2_wudq6")
 item_name = "Rubber Mallet"
 description = "When used, the player swings the mallet, playing an animation. If the mallet connects with another player it will cause them to ragdoll. It can only affect 1 player in the hitbox and gets discarded after use. 

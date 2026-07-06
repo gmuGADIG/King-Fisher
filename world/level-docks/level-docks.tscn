@@ -24,8 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://7pg60uc0tj5" path="res://world/props/mushroom_small.tscn" id="20_b51yu"]
 [ext_resource type="PackedScene" uid="uid://gpcvf0ox46m1" path="res://world/props/cattail.tscn" id="21_s3jgv"]
 [ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="23_loicf"]
-[ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="25_vs71a"]
-[ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="26_qkpls"]
+[ext_resource type="PackedScene" uid="uid://d1jfxq12olkv2" path="res://items/item_butterfly_net/new_fishing_net.tscn" id="25_qkpls"]
+[ext_resource type="PackedScene" uid="uid://pkvxbw6wyjxu" path="res://items/item_ziplock_bag/item_ziplock_bag.tscn" id="26_fdhgo"]
 
 [sub_resource type="Resource" id="Resource_qen0n"]
 script = ExtResource("4_4k232")
@@ -964,20 +964,29 @@ transform = Transform3D(-0.24999754, 0, -0.0011082633, 0, 0.25, 0, 0.0011082633,
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.07, 0)
 polygon = PackedVector2Array(8.711293, 14.201077, 14.099179, 49.946228, 50.326435, 49.183876, 50.969425, 14.791773)
 
-[node name="Rubber Mallet" parent="." index="271" unique_id=1678140614 instance=ExtResource("25_vs71a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.422941, 0.26853234, 25.195616)
+[node name="FishingNet" parent="." index="271" unique_id=1566519324 instance=ExtResource("25_qkpls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.681498, 0.54364973, 31.553549)
 
-[node name="Item" parent="." index="272" unique_id=621433209 instance=ExtResource("26_qkpls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.142834, 1.7157286, 30.099829)
+[node name="FishingNet2" parent="." index="272" unique_id=1998429435 instance=ExtResource("25_qkpls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.838625, 0.543893, 32.3405)
 
-[node name="Item2" parent="." index="273" unique_id=721638055 instance=ExtResource("26_qkpls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.070805, 1.714997, 32.80802)
+[node name="FishingNet3" parent="." index="273" unique_id=1634822784 instance=ExtResource("25_qkpls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.70985, 0.543893, 32.3405)
 
-[node name="Item3" parent="." index="274" unique_id=745964194 instance=ExtResource("26_qkpls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.329117, 1.7284186, 30.622143)
+[node name="FishingNet4" parent="." index="274" unique_id=1737902934 instance=ExtResource("25_qkpls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.56635, 0.543893, 32.3405)
 
-[node name="Item4" parent="." index="275" unique_id=468244156 instance=ExtResource("26_qkpls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.090916, 1.7149999, 31.037333)
+[node name="ZiplockBag" parent="." index="275" unique_id=1431311737 instance=ExtResource("26_fdhgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.390947, 0.57122827, 33.522842)
+
+[node name="ZiplockBag2" parent="." index="276" unique_id=1525929567 instance=ExtResource("26_fdhgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.490824, 0.5712268, 33.534813)
+
+[node name="ZiplockBag3" parent="." index="277" unique_id=1102357498 instance=ExtResource("26_fdhgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.69689, 0.5712268, 33.534813)
+
+[node name="ZiplockBag4" parent="." index="278" unique_id=1057526995 instance=ExtResource("26_fdhgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.185074, 0.5712268, 33.534813)
 
 [editable path="Water/Killbox"]
 [editable path="Water/Killbox2"]

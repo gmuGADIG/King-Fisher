@@ -318,6 +318,10 @@ func cancel_fishing_minigame():
 		current_fishing_shadow.current_fishing_state.rpc(false)
 		current_fishing_shadow = null
 
+@rpc("call_local","authority","reliable")
+func set_has_ziplock(val : bool) -> void:
+	has_ziplock_bag = val
+
 @rpc("call_local")
 func slow(time : float, speed_debuf : float):
 	slow_timer = time
@@ -578,7 +582,7 @@ func remove_item_buff(buff_name : String) -> void:
 		"Golden Worm":
 			golden_worm_active = false
 		"Ziplock Bag":
-			has_ziplock_bag = false
+			set_has_ziplock.rpc(false)
 		"Helmet", "Ragdoll", "Glue":
 			pass
 		_:
