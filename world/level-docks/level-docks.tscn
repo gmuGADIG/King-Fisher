@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://gpcvf0ox46m1" path="res://world/props/cattail.tscn" id="21_s3jgv"]
 [ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="23_loicf"]
 [ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="25_vs71a"]
-[ext_resource type="PackedScene" uid="uid://d1jfxq12olkv2" path="res://items/item_butterfly_net/new_fishing_net.tscn" id="26_qkpls"]
+[ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="26_qkpls"]
 
 [sub_resource type="Resource" id="Resource_qen0n"]
 script = ExtResource("4_4k232")
@@ -967,20 +967,17 @@ polygon = PackedVector2Array(8.711293, 14.201077, 14.099179, 49.946228, 50.32643
 [node name="Rubber Mallet" parent="." index="271" unique_id=1678140614 instance=ExtResource("25_vs71a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.422941, 0.26853234, 25.195616)
 
-[node name="Rubber Mallet2" parent="." index="272" unique_id=1566519324 instance=ExtResource("26_qkpls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.942627, 0.5456986, 30.395231)
+[node name="Item" parent="." index="272" unique_id=621433209 instance=ExtResource("26_qkpls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.142834, 1.7157286, 30.099829)
 
-[node name="Rubber Mallet3" parent="." index="273" unique_id=846843021 instance=ExtResource("26_qkpls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.601677, 0.5456986, 30.395231)
+[node name="Item2" parent="." index="273" unique_id=721638055 instance=ExtResource("26_qkpls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.070805, 1.714997, 32.80802)
 
-[node name="Rubber Mallet4" parent="." index="274" unique_id=727970657 instance=ExtResource("26_qkpls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.634632, 0.5456986, 30.395231)
+[node name="Item3" parent="." index="274" unique_id=745964194 instance=ExtResource("26_qkpls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.329117, 1.7284186, 30.622143)
 
-[node name="Rubber Mallet5" parent="." index="275" unique_id=1232964471 instance=ExtResource("26_qkpls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.634632, 0.5456986, 28.459368)
-
-[node name="Rubber Mallet6" parent="." index="276" unique_id=1529654416 instance=ExtResource("26_qkpls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.439526, 0.5456986, 28.459368)
+[node name="Item4" parent="." index="275" unique_id=468244156 instance=ExtResource("26_qkpls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.090916, 1.7149999, 31.037333)
 
 [editable path="Water/Killbox"]
 [editable path="Water/Killbox2"]
