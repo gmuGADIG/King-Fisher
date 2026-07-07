@@ -477,6 +477,7 @@ func pick_up_item(item: Item) -> void:
 func use_held_item() -> void:
 	# If you don't have an item, don't try and use a nonexistent item.
 	if held_item==null:return
+	if is_ragdolled: return
 	held_item.visible = true
 	held_item.use()
 	held_item=null
