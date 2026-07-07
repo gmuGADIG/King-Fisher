@@ -125,10 +125,13 @@ func confirm_end_ragdoll():
 	check_movement_toggle = true
 
 func can_ragdoll(force : bool) -> bool:
-	if player.wearing_helmet:
-		Debug.log("Player has helmet, cannot ragdoll.")
-		player.unequip_helmet()
-		return force
+	if not force:
+		# All code that checks if the player can ragdoll should be here. 
+		#If its a force ragdoll(Nothing can block it) means that the player is meant to ragdoll no-matter what.
+		if player.wearing_helmet:
+			Debug.log("Player has helmet, cannot ragdoll.")
+			player.unequip_helmet()
+			return force
 	return true
 
 var stopped_moving := false
