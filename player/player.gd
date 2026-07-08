@@ -542,6 +542,8 @@ func on_fishing_finished(succeeded:bool) -> void:
 	if succeeded:
 		var fish : Fish = current_fishing_shadow.fish
 		if is_multiplayer_authority():
+			FishDex.caught_fish(fish)
+			
 			match fish.grade:
 				Fish.Grade.LEFTOVERS:
 					$Sounds/LeftoverCatch.play()
