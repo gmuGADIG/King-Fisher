@@ -9,21 +9,6 @@ enum Grade{
 	SUSHI,
 }
 
-static var leftover_particle : BoxMesh = load("res://fish/particles/leftovers_particle.tres")
-static var fresh_particle : BoxMesh = load("res://fish/particles/fresh_particle.tres")
-static var premium_particle : BoxMesh = load("res://fish/particles/premium_particle.tres")
-#static var sushi_particle : BoxMesh = load("res://fish/particles/sushi_particle.tres")
-
-static var sushi_materials : Array[StandardMaterial3D] = [
-	load("res://fish/particles/sushi/sushi_mat_red.tres"),
-	load("res://fish/particles/sushi/sushi_mat_orange.tres"),
-	load("res://fish/particles/sushi/sushi_mat_yellow.tres"),
-	load("res://fish/particles/sushi/sushi_mat_green.tres"),
-	load("res://fish/particles/sushi/sushi_mat_blue.tres"),
-	load("res://fish/particles/sushi/sushi_mat_purple.tres"),
-	load("res://fish/particles/sushi/sushi_mat_pink.tres"),
-]
-
 static var leftover_fishes : Array[Fish] = [
 	load("res://fish/leftovers/british_fish.tres"),
 	load("res://fish/leftovers/patchwork_fish.tres"),
@@ -174,7 +159,7 @@ func serialize() -> Array:
 func grade_color() -> Color:
 	match grade:
 		Fish.Grade.LEFTOVERS:
-			return Color.WHITE # Gray
+			return Color.GRAY # Gray
 		Fish.Grade.FRESH:
 			return Color.GREEN # Green
 		Fish.Grade.PREMIUM:
@@ -183,22 +168,6 @@ func grade_color() -> Color:
 			return Color.GOLD # Gold
 		_:
 			return Color.DIM_GRAY # Gray for Unset or unknown grades
-
-func grade_particle() -> Mesh:
-	match grade:
-		Fish.Grade.LEFTOVERS:
-			return leftover_particle
-		Fish.Grade.FRESH:
-			return fresh_particle
-		Fish.Grade.PREMIUM:
-			return premium_particle
-		Fish.Grade.SUSHI:
-			#var sushi_particle : BoxMesh = BoxMesh.new()
-			#sushi_particle.size = Vector3(0.05,0.05,0.05)
-			#sushi_particle.albedo_color = sushi_materials.pick_random()
-			return premium_particle
-		_:
-			return null
 
 func grade_string() -> String:
 	match grade:

@@ -1,7 +1,0 @@
-[gd_resource type="BoxMesh" format=3 uid="uid://je72mt2t24pd"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tb5nl"]
-
-[resource]
-material = SubResource("StandardMaterial3D_tb5nl")
-size = Vector3(0.05, 0.05, 0.05)
