@@ -7,6 +7,7 @@ enum AimMode{
 	ITEM
 }
 
+
 const GRAVITY := 30.
 const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 
@@ -191,7 +192,7 @@ func set_authority(id : int):
 	set_multiplayer_authority(id)
 	update_camera()
 	if id == multiplayer.get_unique_id():
-		held_item_ui.show()
+`		held_item_ui.show()
 		audio_listener.make_current()
 	else:
 		held_item_ui.hide()
