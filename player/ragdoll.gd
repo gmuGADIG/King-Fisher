@@ -23,14 +23,14 @@ func _process(delta: float) -> void:
 
 # Call this function
 # Second variable is optional, set it to true to force players to wait the entire duration
-func ragdoll(duration: float, prevent_move_check: bool = false):
-	if multiplayer.is_server(): start_ragdoll.rpc(duration, prevent_move_check)
-	else: ragdoll_request.rpc_id(1, duration, prevent_move_check)
+func ragdoll(duration: float, prevent_move_check: bool = false, force : bool = false):
+	if multiplayer.is_server(): start_ragdoll.rpc(duration, prevent_move_check, force)
+	else: ragdoll_request.rpc_id(1, duration, prevent_move_check, force)
 
 # Has the Host call the ragdoll so everyone recieves it.
 @rpc("any_peer", "reliable")
-func ragdoll_request(duration: float, prevent_move_check: bool):
-	if multiplayer.is_server(): start_ragdoll.rpc(duration, prevent_move_check)
+func ragdoll_request(duration: float, prevent_move_check: bool, force : bool):
+	if multiplayer.is_server(): start_ragdoll.rpc(duration, prevent_move_check, force)
 
 # Checks if the player's ragdoll is on the ground.
 func is_ragdoll_on_floor() -> bool:
@@ -125,10 +125,14 @@ func confirm_end_ragdoll():
 	check_movement_toggle = true
 
 func can_ragdoll(force : bool) -> bool:
-	if player.wearing_helmet:
-		Debug.log("Player has helmet, cannot ragdoll.")
-		player.unequip_helmet()
-		return force
+	if not force:
+		# All code that checks if the player can ragdoll should be here. 
+		#If its a force ragdoll(Nothing can block it) means that the player is meant to ragdoll no-matter what.
+		if player.wearing_helmet:
+			Debug.log("Player has helmet, cannot ragdoll.")
+			player.unequip_helmet()
+			return force
+	print("CAN RAGDOLL")
 	return true
 
 var stopped_moving := false
