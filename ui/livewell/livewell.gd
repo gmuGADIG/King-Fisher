@@ -45,6 +45,8 @@ func update_inventory_visuals(fish_inventory : Array[Fish], new_score : int) -> 
 	
 	
 func _input(event: InputEvent) -> void:
+	if UIState.ui_state == UIState.State.MAIN_MENU:
+		return
 	if event.is_action_pressed("livewell_menu") and not UIState.more_ui_blocked:
 		UIState.ui_state = UIState.State.LIVEWELL
 		show()

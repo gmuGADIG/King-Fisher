@@ -12,7 +12,7 @@ func _ready() -> void:
 	Multiplayer.loaded_players.clear()
 	
 	
-	#UIState.ui_state = UIState.State.MAIN_MENU
+	UIState.ui_state = UIState.State.MAIN_MENU
 	Keybinds.load_keybinds()
 	$LobbyBrowser.hide()
 	$Fishdex.hide()
