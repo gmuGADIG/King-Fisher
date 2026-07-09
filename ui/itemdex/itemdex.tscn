@@ -142,14 +142,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("13_as6mg")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/normal_font = ExtResource("14_gb0db")
-theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/normal_font_size = 15
 
 [node name="Lore" type="RichTextLabel" parent="Background/Item1Container" unique_id=1977059269]
 custom_minimum_size = Vector2(135, 50)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("13_as6mg")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/normal_font = ExtResource("14_gb0db")
 theme_override_font_sizes/normal_font_size = 15
 
@@ -212,8 +216,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("13_as6mg")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/normal_font = ExtResource("14_gb0db")
-theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/normal_font_size = 15
 
 [node name="Box" type="TextureRect" parent="Background/Item2Container/HBoxContainer" unique_id=1788041510]
 custom_minimum_size = Vector2(150, 150)
@@ -239,6 +245,8 @@ custom_minimum_size = Vector2(135, 50)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("13_as6mg")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/normal_font = ExtResource("14_gb0db")
 theme_override_font_sizes/normal_font_size = 15
 
