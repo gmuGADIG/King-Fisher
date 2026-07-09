@@ -1,5 +1,6 @@
 extends Control
 
+@onready var anim : AnimationPlayer = $PauseFish/TextureRect/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,13 +17,20 @@ func _input(event: InputEvent) -> void:
 			pause()
 		else:
 			unpause()
+		await anim.animation_finished
 
 func pause() -> void:
 	UIState.ui_state = UIState.State.PAUSE
 	visible = true
+	anim.play("drop_down")
 
 
 func unpause() -> void:
+	if anim.is_playing():
+		anim.play_backwards("drop_down")
+	else:
+		anim.play("pull_up")
+	await anim.animation_finished
 	UIState.ui_state = UIState.State.NONE
 	visible = false
 

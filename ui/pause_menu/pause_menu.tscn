@@ -6,6 +6,84 @@
 [ext_resource type="PackedScene" uid="uid://n6fltg0vkvl" path="res://ui/options/options_menu.tscn" id="3_c3jo5"]
 [ext_resource type="Theme" uid="uid://dq5h7a0rh3vaw" path="res://ui/themes/king_fisher_theme.tres" id="4_uraes"]
 
+[sub_resource type="Animation" id="Animation_c3jo5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(273, -650)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uraes"]
+resource_name = "drop_down"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6666667, 1.1333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(273, -650), Vector2(273, 0), Vector2(273, -100), Vector2(273, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.93333334, 1.3, 1.5333333, 1.7666667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.08726646, 0.08726646259971647, -0.034906585, 0.017453292, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ihaig"]
+resource_name = "pull_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(273, 0), Vector2(273, 50), Vector2(273, -650)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_umsyg"]
+_data = {
+&"RESET": SubResource("Animation_c3jo5"),
+&"drop_down": SubResource("Animation_uraes"),
+&"pull_up": SubResource("Animation_ihaig")
+}
+
 [node name="PauseMenu" type="Control" unique_id=509264285]
 layout_mode = 3
 anchors_preset = 15
@@ -27,9 +105,10 @@ grow_vertical = 2
 [node name="TextureRect" type="TextureRect" parent="PauseFish" unique_id=1379031614]
 layout_mode = 0
 offset_left = 273.0
-offset_top = -2.0
+offset_top = -650.0
 offset_right = 902.0
-offset_bottom = 627.0
+offset_bottom = -21.0
+pivot_offset_ratio = Vector2(0.5, -0.5)
 texture = ExtResource("2_jbgdu")
 expand_mode = 1
 
@@ -82,6 +161,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 15
 text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PauseFish/TextureRect" unique_id=394482681]
+libraries/ = SubResource("AnimationLibrary_umsyg")
 
 [node name="OptionsMenu" parent="." unique_id=1087068024 instance=ExtResource("3_c3jo5")]
 visible = false
