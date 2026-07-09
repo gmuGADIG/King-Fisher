@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbpteyodpmjq3" path="res://world/world_base.gd" id="1_p433e"]
 [ext_resource type="PackedScene" uid="uid://bffxe171rcnea" path="res://player/player.tscn" id="2_bl271"]
-[ext_resource type="Script" uid="uid://b6jnwssa8pgx8" path="res://systems/player_spawn_manager.gd" id="3_3xj4d"]
+[ext_resource type="Script" path="res://systems/player_spawn_manager.gd" id="3_3xj4d"]
 [ext_resource type="PackedScene" uid="uid://dcw4q486qsqsy" path="res://ui/scoreboard/scoreboard.tscn" id="3_7di53"]
 [ext_resource type="PackedScene" uid="uid://c60phfujl8qwv" path="res://systems/player_spawn_point.tscn" id="4_lgvll"]
 [ext_resource type="PackedScene" uid="uid://bgjdwnhkngufk" path="res://ui/pause_menu/pause_menu.tscn" id="4_uycxt"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="13_k5ckw"]
 [ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="14_34arh"]
 [ext_resource type="Environment" uid="uid://byjvy8xudhe0n" path="res://world/environment.tres" id="14_48nxm"]
+[ext_resource type="PackedScene" uid="uid://oeceqna2vrke" path="res://items/item_brick/brick_item.tscn" id="16_belcf"]
 [ext_resource type="PackedScene" uid="uid://drb1uf1i8esqm" path="res://world/killbox/killbox.tscn" id="21_uaf31"]
 [ext_resource type="AudioStream" uid="uid://chsdonglah64k" path="res://sound/sfx/one.minute.remaining.final.wav" id="23_cq2ek"]
 
@@ -69,7 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7846797, 0, 1.7462559)
 
 [node name="ItemSpawner" parent="." unique_id=1588789630 instance=ExtResource("5_lgvll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
-items = Array[PackedScene]([ExtResource("8_xvf6j"), ExtResource("9_32lhn"), ExtResource("10_cq2ek"), ExtResource("11_uaf31"), ExtResource("12_belcf"), ExtResource("13_k5ckw"), ExtResource("14_34arh")])
+items = Array[PackedScene]([ExtResource("8_xvf6j"), ExtResource("9_32lhn"), ExtResource("10_cq2ek"), ExtResource("11_uaf31"), ExtResource("12_belcf"), ExtResource("13_k5ckw"), ExtResource("14_34arh"), ExtResource("16_belcf")])
 
 [node name="IslandTerrain" type="Node3D" parent="." unique_id=1398597706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -32)

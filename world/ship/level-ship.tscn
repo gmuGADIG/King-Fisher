@@ -23,16 +23,20 @@
 [ext_resource type="PackedScene" uid="uid://cdq820vurkg0t" path="res://world/props/tree_round.tscn" id="19_kixhr"]
 [ext_resource type="PackedScene" uid="uid://bhgnooactcump" path="res://world/props/tree_triangle.tscn" id="20_4j17c"]
 [ext_resource type="PackedScene" uid="uid://c16dgg4echeu6" path="res://world/props/lilypad.tscn" id="21_osct5"]
+[ext_resource type="PackedScene" uid="uid://drb1uf1i8esqm" path="res://world/killbox/killbox.tscn" id="24_osct5"]
 
 [sub_resource type="Resource" id="Resource_74kgb"]
 script = ExtResource("4_8dgjh")
 mode = 0
 textures = [[ExtResource("5_1uk8t")], [null]]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_poe62"]
+size = Vector3(3.2966309, 1, 3.118164)
+
 [node name="LevelShip" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_liscy")]
 script = ExtResource("2_a8xj4")
-fish_spawners = []
-fish_spawner_weights = Array[int]([1, 1])
+fish_spawners = [NodePath("FishSpawners/FishSpawner"), NodePath("FishSpawners/FishSpawner2"), NodePath("FishSpawners/Rotated/FishSpawner"), NodePath("FishSpawners/Rotated2/FishSpawner")]
+fish_spawner_weights = Array[int]([3, 1, 1, 1])
 
 [node name="FishSpawners" type="Node3D" parent="." index="0" unique_id=306249710]
 
@@ -44,6 +48,20 @@ polygon = PackedVector2Array(48.93573, 23.555271, 51.033417, 24.5399, 52.80289, 
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.954236, 0)
 polygon = PackedVector2Array(34.831814, 47.755005, 37.79536, 45.69501, 41.730953, 44.830254, 44.790916, 45.939384, 46.81322, 48.587006, 46.97483, 51.740177, 46.220146, 55.501553, 44.66627, 57.3173, 42.229393, 58.478905, 37.933037, 58.397427, 35.19408, 55.812256)
 
+[node name="Rotated" type="Node3D" parent="FishSpawners" index="2" unique_id=1143886384]
+transform = Transform3D(0.9845295, 0.019105462, -0.17417419, -0.08241503, 0.9277087, -0.36409366, 0.15462673, 0.3728155, 0.91493124, 19.401049, 4.373691, 8.463787)
+
+[node name="FishSpawner" parent="FishSpawners/Rotated" index="0" unique_id=546105529 instance=ExtResource("3_osct5")]
+polygon = PackedVector2Array(-1.0391922, 0.7662916, -1.0853157, -0.49046373, 0.53178024, -1.6459527, 1.4273491, -1.4720182, 1.9310398, -0.5003848, 1.5245533, 0.49632692, -0.07366943, 1.033668)
+fish_spawnrate = 1
+
+[node name="Rotated2" type="Node3D" parent="FishSpawners" index="3" unique_id=871564051]
+transform = Transform3D(1, 0, 0, 0, 0.9766722, 0.21473534, 0, -0.21473531, 0.9766723, 16.871124, 5.729216, 59.05745)
+
+[node name="FishSpawner" parent="FishSpawners/Rotated2" index="0" unique_id=1168679466 instance=ExtResource("3_osct5")]
+polygon = PackedVector2Array(1.576685, 0.5223007, 0.7873459, 0.9504738, -0.52920914, 0.8915787, -1.3634281, -0.22104263, -0.82201385, -1.3200035, -0.4618435, -1.6685867, 1.345005, -1.4413834)
+fish_spawnrate = 1
+
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.589916, 0.091186166, 23.8113)
 
@@ -51,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.589916, 0.091186166, 23.81
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.672585, 0.11380124, 36.124855)
 
 [node name="PlayerSpawnPoint3" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="2" unique_id=805091295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.149466, 0.4104737, 45.27409)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.149466, 2.7082844, 45.27409)
 
 [node name="PlayerSpawnPoint4" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="3" unique_id=909904993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.431675, 0, 16.077618)
@@ -278,3 +296,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.44681, -1.7900887, 52.3374
 
 [node name="MushroomTall3" parent="." index="59" unique_id=2066710319 instance=ExtResource("14_ff6jl")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 49.857388, -2.8096042, 51.257942)
+
+[node name="Killboxes" type="Node3D" parent="." index="61" unique_id=1070085029]
+
+[node name="Killbox" parent="Killboxes" index="0" unique_id=407025254 instance=ExtResource("24_osct5")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40.900497, -5.421695, 52.313286)
+
+[node name="CollisionBox" parent="Killboxes/Killbox" index="0" unique_id=2090026275]
+shape = SubResource("BoxShape3D_poe62")
+
+[node name="Killbox2" parent="Killboxes" index="1" unique_id=783789797 instance=ExtResource("24_osct5")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 50.900204, -5.121204, 19.275087)
+
+[node name="CollisionBox" parent="Killboxes/Killbox2" index="0" unique_id=2090026275]
+shape = SubResource("BoxShape3D_poe62")
+
+[editable path="Water/Killbox"]
+[editable path="Killboxes/Killbox"]
+[editable path="Killboxes/Killbox2"]
