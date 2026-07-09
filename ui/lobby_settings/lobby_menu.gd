@@ -12,9 +12,9 @@ const RANDOM_SONG : int = 0
 #var igabla : int = 0
 static var song_pool : Dictionary[String,Song] = {
 	"Ben Song" : load("res://sound/music/song_files/main_level_ben.tres"),
-	"Matthew C Song" : load("res://sound/music/song_files/main_level_matthew_c.tres"),
-	"Matthew P Song" : load("res://sound/music/song_files/main_level_matthew_p.tres"),
-	"Nathan Song" : load("res://sound/music/song_files/main_level_nathan.tres")
+	"Crazy Fish" : load("res://sound/music/song_files/main_level_matthew_c.tres"),
+	"Coral Beef" : load("res://sound/music/song_files/main_level_matthew_p.tres"),
+	"Fishing Hole Frolic" : load("res://sound/music/song_files/main_level_nathan.tres")
 }
 
 static var mapPool = [

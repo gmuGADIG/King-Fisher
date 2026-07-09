@@ -59,7 +59,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5ffiu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_i0nya"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g47ou"]
@@ -67,7 +67,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i0nya"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fh8yv"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ffiu"]
@@ -75,7 +75,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_fh8yv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1b0y7"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0nya"]
@@ -83,7 +83,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1b0y7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_m2d5r"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fh8yv"]
@@ -91,7 +91,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_m2d5r"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sgmg3"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1b0y7"]
@@ -99,7 +99,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sgmg3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lfejf"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m2d5r"]
@@ -107,7 +107,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lfejf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rnt8h"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6lp2s"]
@@ -115,12 +115,16 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rnt8h"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0u54a"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cybch"]
 shader = ExtResource("15_i0nya")
-shader_parameter/aberration_strength = 0.0010000000475
+shader_parameter/aberration_direction = Vector2(1, 0.2)
+shader_parameter/aberration_strength = 0.002000000095
+shader_parameter/noise_freq = 5.0
+shader_parameter/noise_intensity = 0.0
+shader_parameter/noise_exp = 1.0
 
 [node name="LobbySettings" type="Control" unique_id=1718361729]
 layout_mode = 3
@@ -633,7 +637,7 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_5ffiu")
+texture = SubResource("ViewportTexture_i0nya")
 visible_item = "Rubber Mallet"
 
 [node name="ButterflyNet" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1208334514]
@@ -656,7 +660,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_i0nya")
+texture = SubResource("ViewportTexture_fh8yv")
 visible_item = "Butterfly Net"
 
 [node name="BananaPeel" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=2050551459]
@@ -679,7 +683,7 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_fh8yv")
+texture = SubResource("ViewportTexture_1b0y7")
 
 [node name="Brick" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1021693364]
 material = SubResource("ShaderMaterial_i0nya")
@@ -701,7 +705,7 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_1b0y7")
+texture = SubResource("ViewportTexture_m2d5r")
 visible_item = "Brick"
 
 [node name="GlueGrenade" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=504065254]
@@ -722,7 +726,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_m2d5r")
+texture = SubResource("ViewportTexture_sgmg3")
 visible_item = "Glue Grenade"
 
 [node name="Helmet" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=776286025]
@@ -745,7 +749,7 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_sgmg3")
+texture = SubResource("ViewportTexture_lfejf")
 visible_item = "Helmet"
 
 [node name="ZiplockBag" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1588063442]
@@ -768,7 +772,7 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_lfejf")
+texture = SubResource("ViewportTexture_rnt8h")
 visible_item = "Ziplock Bag"
 
 [node name="GoldenWorm" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1578861966]
@@ -789,7 +793,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_rnt8h")
+texture = SubResource("ViewportTexture_0u54a")
 
 [node name="ExitButton" type="TextureButton" parent="Background" unique_id=1099861076]
 visible = false
