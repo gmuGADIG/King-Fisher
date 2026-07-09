@@ -21,7 +21,7 @@ func _on_body_entered(body: Node3D) -> void:
 	if !body.force_respawn:
 		body.force_respawn = true
 		if not body.is_ragdolled:
-			body.ragdoll_phys.ragdoll(force_respawn_delay)
+			body.ragdoll_phys.ragdoll(force_respawn_delay,false,true)
 			Debug.log("Killbox: " + body.name + " entered killbox, killing player.")
 			
 		Debug.log("Killbox: Starting force respawn in " + str(force_respawn_delay) + " seconds for " + body.name + ".")
