@@ -55,6 +55,16 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vd4ee"]
+bg_color = Color(0.6474235, 0.93801385, 0.95866007, 1)
+border_width_left = 5
+border_width_right = 5
+border_color = Color(0.64705884, 0.9372549, 0.95686275, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f543i"]
 texture = ExtResource("2_f543i")
 modulate_color = Color(0.74509805, 0.74509805, 0.74509805, 1)
@@ -132,8 +142,6 @@ RichTextLabel/fonts/mono_font = ExtResource("1_jg72k")
 RichTextLabel/fonts/normal_font = ExtResource("1_jg72k")
 ScrollContainer/colors/scroll_hint_horizontal_color = Color(1, 0, 0, 1)
 ScrollContainer/colors/scroll_hint_vertical_color = Color(1, 0, 0, 1)
-TabBar/font_sizes/font_size = 24
-TabBar/fonts/font = ExtResource("1_jg72k")
 TabContainer/font_sizes/font_size = 24
 TabContainer/fonts/font = ExtResource("1_jg72k")
 TextEdit/font_sizes/font_size = 24
@@ -147,6 +155,7 @@ Tree/fonts/title_button_font = ExtResource("1_jg72k")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_4ovmf")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_u1ova")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_ckch7")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_vd4ee")
 Window/font_sizes/title_font_size = 24
 Window/fonts/title_font = ExtResource("1_jg72k")
 XButton/base_type = &"Button"

@@ -4,7 +4,79 @@
 [ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_tq711"]
 [ext_resource type="Texture2D" uid="uid://bw6cuoglpu530" path="res://ui/itemdex/itemdex-background.png" id="2_tq711"]
 [ext_resource type="Texture2D" uid="uid://c7fyt1h4ljmf3" path="res://ui/itemdex/box.png" id="3_dfsup"]
+[ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="3_mf1ib"]
+[ext_resource type="PackedScene" uid="uid://oeceqna2vrke" path="res://items/item_brick/brick_item.tscn" id="4_as6mg"]
 [ext_resource type="Texture2D" uid="uid://bsphqh5kvj7g0" path="res://ui/itemdex/arrow.png" id="4_tq711"]
+[ext_resource type="PackedScene" uid="uid://d1jfxq12olkv2" path="res://items/item_butterfly_net/new_fishing_net.tscn" id="5_gb0db"]
+[ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="6_wjmbk"]
+[ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="7_avvd7"]
+[ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="8_2q8cg"]
+[ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="9_yng5x"]
+[ext_resource type="PackedScene" uid="uid://pkvxbw6wyjxu" path="res://items/item_ziplock_bag/item_ziplock_bag.tscn" id="10_oy8vb"]
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="13_as6mg"]
+[ext_resource type="FontFile" uid="uid://b8gbecjr3q5m3" path="res://ui/themes/fonts/finger_paint/FingerPaintRegular-nmlV.ttf" id="14_gb0db"]
+
+[sub_resource type="Animation" id="Animation_as6mg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_mf1ib"]
+resource_name = "open"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_as6mg"]
+_data = {
+&"RESET": SubResource("Animation_as6mg"),
+&"open": SubResource("Animation_mf1ib")
+}
 
 [node name="Itemdex" type="Control" unique_id=976872789]
 layout_mode = 3
@@ -15,214 +87,71 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_tq711")
 script = ExtResource("1_43rrp")
+items = Array[PackedScene]([ExtResource("3_mf1ib"), ExtResource("4_as6mg"), ExtResource("5_gb0db"), ExtResource("6_wjmbk"), ExtResource("7_avvd7"), ExtResource("8_2q8cg"), ExtResource("9_yng5x"), ExtResource("10_oy8vb")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1440524425]
 layout_mode = 0
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 1096.0
+scale = Vector2(0.2, 0.2)
+pivot_offset_ratio = Vector2(0.5, 0.25)
 texture = ExtResource("2_tq711")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Item1Container" type="HBoxContainer" parent="Background" unique_id=1595440194]
+[node name="Item1Container" type="VBoxContainer" parent="Background" unique_id=711047095]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -264.0
-offset_right = -38.0
-offset_bottom = -168.99998
+offset_left = -440.0
+offset_top = -460.0
+offset_right = -32.0
+offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Box" type="TextureRect" parent="Background/Item1Container" unique_id=753713319]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/Item1Container" unique_id=1445195997]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Box" type="TextureRect" parent="Background/Item1Container/HBoxContainer" unique_id=753713319]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("3_dfsup")
+stretch_mode = 5
 
-[node name="Image" type="TextureRect" parent="Background/Item1Container/Box" unique_id=49021947]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 11.0
-offset_right = 75.0
-offset_bottom = 86.0
-expand_mode = 1
-
-[node name="Textbox" type="VBoxContainer" parent="Background/Item1Container" unique_id=872120776]
-layout_mode = 2
-theme_override_constants/separation = -5
-
-[node name="Description" type="Label" parent="Background/Item1Container/Textbox" unique_id=840121512]
-clip_contents = true
-custom_minimum_size = Vector2(135, 50)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-clip_text = true
-
-[node name="Lore" type="Label" parent="Background/Item1Container/Textbox" unique_id=321719215]
-clip_contents = true
-custom_minimum_size = Vector2(135, 50)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-clip_text = true
-
-[node name="Item2Container" type="HBoxContainer" parent="Background" unique_id=747432574]
+[node name="Image" type="TextureRect" parent="Background/Item1Container/HBoxContainer/Box" unique_id=49021947]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -144.0
-offset_right = -38.0
-offset_bottom = -49.0
+anchors_preset = -1
+anchor_left = 0.053333335
+anchor_top = 0.046511628
+anchor_right = 0.96
+anchor_bottom = 0.9767442
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Textbox" type="VBoxContainer" parent="Background/Item2Container" unique_id=50791158]
-layout_mode = 2
-theme_override_constants/separation = -5
-
-[node name="Description" type="Label" parent="Background/Item2Container/Textbox" unique_id=1058447326]
-clip_contents = true
-custom_minimum_size = Vector2(135, 50)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-clip_text = true
-
-[node name="Lore" type="Label" parent="Background/Item2Container/Textbox" unique_id=504339220]
-clip_contents = true
-custom_minimum_size = Vector2(135, 50)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-clip_text = true
-
-[node name="Box" type="TextureRect" parent="Background/Item2Container" unique_id=675119649]
-layout_mode = 2
-texture = ExtResource("3_dfsup")
-
-[node name="Image" type="TextureRect" parent="Background/Item2Container/Box" unique_id=1561886179]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 11.0
-offset_right = 75.0
-offset_bottom = 86.0
 expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="Item3Container" type="HBoxContainer" parent="Background" unique_id=969074321]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -264.0
-offset_right = 242.0
-offset_bottom = -169.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Textbox" type="VBoxContainer" parent="Background/Item3Container" unique_id=572954756]
-layout_mode = 2
-theme_override_constants/separation = -5
-
-[node name="Description" type="Label" parent="Background/Item3Container/Textbox" unique_id=980562160]
-clip_contents = true
+[node name="Description" type="RichTextLabel" parent="Background/Item1Container/HBoxContainer" unique_id=1501898809]
 custom_minimum_size = Vector2(135, 50)
 layout_mode = 2
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-clip_text = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("13_as6mg")
+theme_override_fonts/normal_font = ExtResource("14_gb0db")
+theme_override_font_sizes/normal_font_size = 13
 
-[node name="Lore" type="Label" parent="Background/Item3Container/Textbox" unique_id=1275281479]
-clip_contents = true
+[node name="Lore" type="RichTextLabel" parent="Background/Item1Container" unique_id=1977059269]
 custom_minimum_size = Vector2(135, 50)
 layout_mode = 2
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-clip_text = true
-
-[node name="Box" type="TextureRect" parent="Background/Item3Container" unique_id=531288119]
-layout_mode = 2
-texture = ExtResource("3_dfsup")
-
-[node name="Image" type="TextureRect" parent="Background/Item3Container/Box" unique_id=775305246]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 11.0
-offset_right = 75.0
-offset_bottom = 86.0
-expand_mode = 1
-
-[node name="Item4Container" type="HBoxContainer" parent="Background" unique_id=953457426]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -144.0
-offset_right = 242.0
-offset_bottom = -49.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Box" type="TextureRect" parent="Background/Item4Container" unique_id=1450567841]
-layout_mode = 2
-texture = ExtResource("3_dfsup")
-
-[node name="Image" type="TextureRect" parent="Background/Item4Container/Box" unique_id=1397194566]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 11.0
-offset_right = 75.0
-offset_bottom = 86.0
-expand_mode = 1
-
-[node name="Textbox" type="VBoxContainer" parent="Background/Item4Container" unique_id=200252994]
-layout_mode = 2
-theme_override_constants/separation = -5
-
-[node name="Description" type="Label" parent="Background/Item4Container/Textbox" unique_id=1741509971]
-clip_contents = true
-custom_minimum_size = Vector2(135, 50)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-clip_text = true
-
-[node name="Lore" type="Label" parent="Background/Item4Container/Textbox" unique_id=1966551075]
-clip_contents = true
-custom_minimum_size = Vector2(135, 50)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-clip_text = true
+size_flags_vertical = 3
+theme = ExtResource("13_as6mg")
+theme_override_fonts/normal_font = ExtResource("14_gb0db")
+theme_override_font_sizes/normal_font_size = 15
 
 [node name="RightArrow" type="Button" parent="Background" unique_id=523777718]
 layout_mode = 1
@@ -231,9 +160,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 199.0
-offset_top = -49.0
-offset_right = 249.0
+offset_left = 328.0
+offset_top = -68.0
+offset_right = 430.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -247,10 +177,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -270.0
-offset_top = -59.0
-offset_right = -220.0
-offset_bottom = -9.0
+offset_left = -456.0
+offset_top = -76.0
+offset_right = -354.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 3.1415927
@@ -258,11 +188,68 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 icon = ExtResource("4_tq711")
 flat = true
 
+[node name="Item2Container" type="VBoxContainer" parent="Background" unique_id=729384360]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -460.0
+offset_right = 416.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/Item2Container" unique_id=224525297]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Description" type="RichTextLabel" parent="Background/Item2Container/HBoxContainer" unique_id=922302787]
+custom_minimum_size = Vector2(135, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("13_as6mg")
+theme_override_fonts/normal_font = ExtResource("14_gb0db")
+theme_override_font_sizes/normal_font_size = 13
+
+[node name="Box" type="TextureRect" parent="Background/Item2Container/HBoxContainer" unique_id=1788041510]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("3_dfsup")
+stretch_mode = 5
+
+[node name="Image" type="TextureRect" parent="Background/Item2Container/HBoxContainer/Box" unique_id=363916943]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053333335
+anchor_top = 0.046511628
+anchor_right = 0.96
+anchor_bottom = 0.9767442
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Lore" type="RichTextLabel" parent="Background/Item2Container" unique_id=671677637]
+custom_minimum_size = Vector2(135, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("13_as6mg")
+theme_override_fonts/normal_font = ExtResource("14_gb0db")
+theme_override_font_sizes/normal_font_size = 15
+
 [node name="Back_Button" type="Button" parent="." unique_id=1148487743]
 layout_mode = 0
 offset_right = 101.935295
 offset_bottom = 68.0
 theme_type_variation = &"FishXButton"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=722160420]
+libraries/ = SubResource("AnimationLibrary_as6mg")
 
 [connection signal="pressed" from="Background/RightArrow" to="." method="_on_right_arrow_pressed"]
 [connection signal="pressed" from="Background/LeftArrow" to="." method="_on_left_arrow_pressed"]

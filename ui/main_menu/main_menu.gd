@@ -35,6 +35,7 @@ func fishdex_pressed() -> void:
 
 func itemdex_pressed() -> void:
 	$MainMenuContainer.hide()
+	$Itemdex/AnimationPlayer.play("open")
 	$Itemdex.show()
 	MainMusicPlayer.push_song(fishdex_song, 0.0, 0.0)
 
