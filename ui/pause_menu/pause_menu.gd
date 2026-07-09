@@ -12,7 +12,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if UIState.more_ui_blocked and UIState.ui_state != UIState.State.PAUSE:
 			return
-			
+		if $OptionsMenu.visible:
+			$OptionsMenu._on_exit_button_pressed()
+		
 		if not visible:
 			pause()
 		else:
@@ -26,10 +28,7 @@ func pause() -> void:
 
 
 func unpause() -> void:
-	if anim.is_playing():
-		anim.play_backwards("drop_down")
-	else:
-		anim.play("pull_up")
+	anim.play("pull_up",0.5)
 	await anim.animation_finished
 	UIState.ui_state = UIState.State.NONE
 	visible = false
