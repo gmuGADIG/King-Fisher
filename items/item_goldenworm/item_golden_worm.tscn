@@ -5,6 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://tfsb8cebqr51" path="res://items/item_goldenworm/item_golden_worm.glb" id="2_kahv6"]
 [ext_resource type="AudioStream" uid="uid://bjelkor0pmbt6" path="res://sound/sfx/items/goldenworm.mp3" id="4_ctgyv"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctgyv"]
+resource_name = "Material.001"
+cull_mode = 2
+diffuse_mode = 3
+albedo_color = Color(0.90650964, 0.65494937, 0.1174138, 1)
+metallic = 0.91
+metallic_specular = 0.24
+roughness = 0.84
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7pkk"]
 height = 1.6774902
 
@@ -24,6 +33,9 @@ disabled = true
 
 [node name="GoldWorm" parent="." index="1" unique_id=1151117212 instance=ExtResource("2_kahv6")]
 
+[node name="Cylinder" parent="GoldWorm" index="0" unique_id=1738058241]
+material_override = SubResource("StandardMaterial3D_ctgyv")
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2" unique_id=842352755]
 transform = Transform3D(1, 0, 0, 0, 0.026682861, -0.9996439, 0, 0.9996439, 0.026682861, 0, 0.37834162, 0.016824156)
 shape = SubResource("CapsuleShape3D_t7pkk")
@@ -31,3 +43,5 @@ debug_color = Color(0, 0.6039216, 0.68235296, 1)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3" unique_id=616415717]
 stream = ExtResource("4_ctgyv")
+
+[editable path="GoldWorm"]

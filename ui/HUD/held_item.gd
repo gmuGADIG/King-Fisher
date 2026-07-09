@@ -1,17 +1,12 @@
 class_name HeldItemUI extends Control
 
-@onready var held_item_root = %ItemRoot
+@onready var item_sprite: ItemSprite = %ItemSprite
 
-func _ready() -> void:
-	clear_item()
-
-func hold_item(item_name: String) -> void:
-	clear_item()
-	if held_item_root.has_node(item_name):
-		held_item_root.get_node(item_name).visible = true
-	else:
-		print("Cannot find the item named %s!" % item_name)
+# func _ready() -> void:
+# 	item_sprite.visible_item = "" # clear visible item
 
 func clear_item() -> void:
-	for item in held_item_root.get_children():
-		item.visible = false
+	item_sprite.visible_item = ""
+
+func hold_item(item_name: String) -> void:
+	item_sprite.visible_item = item_name

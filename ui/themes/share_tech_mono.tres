@@ -3,6 +3,15 @@
 [ext_resource type="FontFile" uid="uid://m4tsacqphblt" path="res://ui/themes/fonts/share_tech_mono/ShareTechMono-Regular.ttf" id="1_jg72k"]
 [ext_resource type="Texture2D" uid="uid://se8x4oy0bfie" path="res://art/UI/holo_ui.png" id="2_4ovmf"]
 [ext_resource type="Texture2D" uid="uid://f0t357s37b7b" path="res://art/ui assets/x_button.png" id="2_f543i"]
+[ext_resource type="Texture2D" uid="uid://rgqcb7ogi4id" path="res://art/UI/holo_ui_grey.png" id="2_u1ova"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7fby"]
+texture = ExtResource("2_u1ova")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.9, 0.9, 0.9, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ckch7"]
 texture = ExtResource("2_4ovmf")
@@ -43,6 +52,7 @@ default_font = ExtResource("1_jg72k")
 default_font_size = 24
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_jg72k")
+Button/styles/disabled = SubResource("StyleBoxTexture_u7fby")
 Button/styles/focus = SubResource("StyleBoxTexture_ckch7")
 Button/styles/hover = SubResource("StyleBoxTexture_ckch7")
 Button/styles/normal = SubResource("StyleBoxTexture_vd4ee")
@@ -65,6 +75,9 @@ HeaderMedium/font_sizes/font_size = 24
 HeaderSmall/font_sizes/font_size = 24
 ItemList/font_sizes/font_size = 24
 ItemList/fonts/font = ExtResource("1_jg72k")
+Label/colors/font_color = Color(0.62, 0.9303333, 1, 1)
+Label/colors/font_outline_color = Color(0.17940001, 0.24947008, 0.78, 1)
+Label/constants/outline_size = 7
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_jg72k")
 LineEdit/font_sizes/font_size = 24
@@ -99,6 +112,8 @@ TabContainer/font_sizes/font_size = 24
 TabContainer/fonts/font = ExtResource("1_jg72k")
 TextEdit/font_sizes/font_size = 24
 TextEdit/fonts/font = ExtResource("1_jg72k")
+ToggleButton/base_type = &"Button"
+ToggleButton/styles/pressed = SubResource("StyleBoxTexture_vd4ee")
 TooltipLabel/font_sizes/font_size = 24
 TooltipLabel/fonts/font = ExtResource("1_jg72k")
 Tree/font_sizes/font_size = 24
