@@ -7,7 +7,70 @@ enum AimMode{
 	ITEM
 }
 
+# Animation
+@onready var anim_player: AnimationPlayer =  $Player_Animated/AnimationPlayer
 
+var current_anim: StringName = &""
+var action_locked := false
+
+func play_anim(anim_name: StringName, blend_time: float = 0.15) -> void:
+	if current_anim == anim_name:
+		return
+		
+	if not anim_player.has_animation(anim_name):
+		push_warning("Animation not found: " + str(anim_name))
+		return
+	
+	current_anim = anim_name
+	anim_player.play(anim_name, blend_time)
+	
+func update_animation() -> void:
+	if action_locked:
+		return
+	
+	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	
+	if not is_on_floor():
+		play_anim("&Jump")
+	elif horizontal_speed > 0.1:
+		play_anim(&"Walk")
+	else: 
+		play_anim(&"Idle")
+	
+func play_action(anim_name: StringName, blend_time: float = 0.1) -> void:
+	if action_locked:
+		return
+		
+	if not anim_player.has_animation(anim_name):
+		push_warning("Animation not found: " + str(anim_name))
+		return
+	
+	action_locked = true
+	current_anim = anim_name
+	anim_player.play(anim_name, blend_time)
+
+	await anim_player.animation_finished
+	
+	action_locked = false
+	current_anim = &""
+	update_animation()
+			
+			
+func play_loop_action(anim_name: StringName, blend_time: float = 0.1) -> void:
+	if not anim_player.has_animation(anim_name):
+		push_warning("Animation not found: " + str(anim_name))
+		return
+	
+	action_locked = true
+	current_anim = anim_name
+	anim_player.play(anim_name, blend_time)
+
+
+func stop_loop_action() -> void:
+	action_locked = false
+	current_anim = &""
+	update_animation()
+		
 const GRAVITY := 30.
 const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
 
@@ -169,6 +232,7 @@ func _physics_process(delta: float) -> void:
 	#Debug.log("velocity ", velocity)
 
 	move_and_slide()
+	update_animation()
 	_update_footsteps(delta)
 	_update_landing_sfx(delta, was_on_floor, pre_velocity_y)
 
