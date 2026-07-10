@@ -94,6 +94,9 @@ metadata/_edit_lock_ = true
 [node name="IslandTerrain" parent="." index="6" unique_id=1398597706]
 visible = false
 
+[node name="Water" parent="." index="7" unique_id=1426951503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
+
 [node name="ReadyUpFishShadow" type="Area3D" parent="Water/Water3" parent_id_path=PackedInt32Array(1778158506) index="2" unique_id=771290171]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 1, 0, 0.32783696)
 script = ExtResource("4_56mmg")
