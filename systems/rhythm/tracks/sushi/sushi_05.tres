@@ -31,6 +31,7 @@ beat_position = 3.5
 [sub_resource type="Resource" id="Resource_1uw81"]
 script = ExtResource("1_atple")
 beat_position = 3.75
+is_articulated = true
 
 [sub_resource type="Resource" id="Resource_tib3g"]
 script = ExtResource("1_atple")
@@ -43,6 +44,7 @@ beat_position = 4.5
 [sub_resource type="Resource" id="Resource_5f4rk"]
 script = ExtResource("1_atple")
 beat_position = 4.75
+is_articulated = true
 
 [sub_resource type="Resource" id="Resource_ldycf"]
 script = ExtResource("1_atple")
@@ -71,6 +73,7 @@ beat_position = 7.333
 [sub_resource type="Resource" id="Resource_0jnj7"]
 script = ExtResource("1_atple")
 beat_position = 7.666
+is_articulated = true
 
 [sub_resource type="Resource" id="Resource_jt7d2"]
 script = ExtResource("1_atple")
