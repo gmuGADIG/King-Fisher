@@ -87,7 +87,6 @@ beat_position = 7.0
 [sub_resource type="Resource" id="Resource_g54ii"]
 script = ExtResource("1_g54ii")
 beat_position = 7.25
-is_articulated = true
 
 [sub_resource type="Resource" id="Resource_d4ho6"]
 script = ExtResource("1_g54ii")
