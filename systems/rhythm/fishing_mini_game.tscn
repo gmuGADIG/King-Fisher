@@ -212,7 +212,7 @@ expand_mode = 1
 
 [node name="SequenceLine" type="Line2D" parent="TextureRect/VBoxContainer/Control/FishBar" unique_id=567685213]
 position = Vector2(87.5, 36)
-points = PackedVector2Array(0, 0, 680, 0)
+points = PackedVector2Array(0, 0, 682, 0)
 default_color = Color(0.73683435, 0.8248663, 1, 1)
 
 [node name="FishIndicator" type="Sprite2D" parent="TextureRect/VBoxContainer/Control/FishBar/SequenceLine" unique_id=1808826955]
@@ -245,7 +245,7 @@ expand_mode = 1
 
 [node name="PlayerLine" type="Line2D" parent="TextureRect/VBoxContainer/Control/PlayerBar" unique_id=378649705]
 position = Vector2(87.5, 36)
-points = PackedVector2Array(0, 0, 680, 0)
+points = PackedVector2Array(0, 0, 682, 0)
 default_color = Color(1, 0.6926795, 0.64385, 1)
 
 [node name="PlayerIndicator" type="Sprite2D" parent="TextureRect/VBoxContainer/Control/PlayerBar/PlayerLine" unique_id=1567962701]
