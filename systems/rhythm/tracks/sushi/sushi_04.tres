@@ -7,86 +7,76 @@
 [sub_resource type="Resource" id="Resource_0743h"]
 script = ExtResource("1_0743h")
 beat_position = 1.0
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_edw8e"]
 script = ExtResource("1_0743h")
 beat_position = 2.0
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_ju2jb"]
 script = ExtResource("1_0743h")
-beat_position = 2.9
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 3.0
+
+[sub_resource type="Resource" id="Resource_k1lmt"]
+script = ExtResource("1_0743h")
+beat_position = 3.25
 
 [sub_resource type="Resource" id="Resource_6jxnf"]
 script = ExtResource("1_0743h")
-beat_position = 3.7
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 3.75
+is_articulated = true
 
 [sub_resource type="Resource" id="Resource_vk1gs"]
 script = ExtResource("1_0743h")
-beat_position = 4.4
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 4.0
 
 [sub_resource type="Resource" id="Resource_7u7on"]
 script = ExtResource("1_0743h")
 beat_position = 5.0
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_7pnax"]
 script = ExtResource("1_0743h")
 beat_position = 5.5
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_a2h1t"]
 script = ExtResource("1_0743h")
-beat_position = 5.95
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 6.0
 
 [sub_resource type="Resource" id="Resource_6wwb4"]
 script = ExtResource("1_0743h")
-beat_position = 6.35
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 6.5
 
 [sub_resource type="Resource" id="Resource_4o7fk"]
 script = ExtResource("1_0743h")
-beat_position = 6.6
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 6.75
 
 [sub_resource type="Resource" id="Resource_epsif"]
 script = ExtResource("1_0743h")
-beat_position = 6.9
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 7.0
 
 [sub_resource type="Resource" id="Resource_gwwrh"]
 script = ExtResource("1_0743h")
-beat_position = 7.15
-is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 7.25
 
 [sub_resource type="Resource" id="Resource_ktjox"]
 script = ExtResource("1_0743h")
-beat_position = 7.35
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 7.375
+is_articulated = true
 
 [sub_resource type="Resource" id="Resource_aacwh"]
 script = ExtResource("1_0743h")
-beat_position = 7.6
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 7.5
 
 [sub_resource type="Resource" id="Resource_5ft62"]
 script = ExtResource("1_0743h")
-beat_position = 7.8
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
+beat_position = 7.75
+is_articulated = true
 
 [sub_resource type="Resource" id="Resource_328w4"]
 script = ExtResource("1_0743h")
 beat_position = 8.0
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]
 script = ExtResource("2_edw8e")
 backing_track = ExtResource("1_xvbgf")
-notes = Array[ExtResource("1_0743h")]([SubResource("Resource_0743h"), SubResource("Resource_edw8e"), SubResource("Resource_ju2jb"), SubResource("Resource_6jxnf"), SubResource("Resource_vk1gs"), SubResource("Resource_7u7on"), SubResource("Resource_7pnax"), SubResource("Resource_a2h1t"), SubResource("Resource_6wwb4"), SubResource("Resource_4o7fk"), SubResource("Resource_epsif"), SubResource("Resource_gwwrh"), SubResource("Resource_ktjox"), SubResource("Resource_aacwh"), SubResource("Resource_5ft62"), SubResource("Resource_328w4")])
+notes = Array[ExtResource("1_0743h")]([SubResource("Resource_0743h"), SubResource("Resource_edw8e"), SubResource("Resource_ju2jb"), SubResource("Resource_k1lmt"), SubResource("Resource_6jxnf"), SubResource("Resource_vk1gs"), SubResource("Resource_7u7on"), SubResource("Resource_7pnax"), SubResource("Resource_a2h1t"), SubResource("Resource_6wwb4"), SubResource("Resource_4o7fk"), SubResource("Resource_epsif"), SubResource("Resource_gwwrh"), SubResource("Resource_ktjox"), SubResource("Resource_aacwh"), SubResource("Resource_5ft62"), SubResource("Resource_328w4")])
 metadata/_custom_type_script = "uid://duodpj15swkyd"
