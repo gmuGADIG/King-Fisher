@@ -303,12 +303,15 @@ func _mouse_input(event : InputEvent) -> void:
 					# print("item aim")
 					%Aiming.start_aiming(AimMode.ITEM)
 				else:
+					#swing anim
+					play_action(&"Swing")
 					use_held_item.rpc()
 			if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 				camera_yaw += -event.relative.x * Options.mouse_sensitivity
 				$CameraMount.rotation.y = deg_to_rad(camera_yaw)
 		AimMode.FISHING_ROD:
 			if event.is_action_released("cast_rod"):
+				play_action(&"CastRod")
 				%Aiming.stop_aiming()
 				$Sounds/CastRod.play()
 				var body : Node = $Aiming/AimRayCast.get_collider()
@@ -319,6 +322,8 @@ func _mouse_input(event : InputEvent) -> void:
 							return
 						body.current_fishing_state.rpc(true)
 						current_fishing_shadow = body
+						#animation cast idle
+						play_loop_action(&"FisingIdle")
 						
 						##TODO: Play Fishing Minigame
 						Debug.log("fish: ",body.fish)
@@ -330,6 +335,7 @@ func _mouse_input(event : InputEvent) -> void:
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
 			if event.is_action_released("use_item"):
+				play_action(&"Throw")
 				assert(held_item != null, "Item is null somehow")
 				assert(held_item is ThrowableItem, "Thrown item is somehow not throable")
 				var throw_item : ThrowableItem = held_item
@@ -344,7 +350,7 @@ func _mouse_input(event : InputEvent) -> void:
 	
 		
 		
-		###AAAAAAAAAAa
+		###AAAAAAAAAAaah
 		#if Input.is_action_just_pressed("cast_rod"):
 			#%Aiming.start_aiming()
 	#if Input.is_action_just_released("cast_rod"):
@@ -400,6 +406,8 @@ func _on_jump_event(event_id: int) -> void:
 		return
 
 	_last_played_jump_event_id = event_id
+
+	play_anim(&"Jump")
 
 	if jump_sound.playing:
 		jump_sound.stop()
@@ -524,6 +532,8 @@ func pick_up_item(item: Item) -> void:
 func use_held_item() -> void:
 	# If you don't have an item, don't try and use a nonexistent item.
 	if held_item==null:return
+	#Apply to self anim
+	play_action(&"ApplyToSelf")
 	held_item.visible = true
 	held_item.use()
 	held_item=null
@@ -585,7 +595,11 @@ func set_name_visible(val : bool) -> void:
 	player_id.visible = val
 
 func on_fishing_finished(succeeded:bool) -> void:
+	#stopping cast idle anim
+	stop_loop_action()
 	if succeeded:
+		#animation reel in
+		play_action(	&"ReelIn")
 		var fish : Fish = current_fishing_shadow.fish
 		if is_multiplayer_authority():
 			match fish.grade:
@@ -605,6 +619,7 @@ func on_fishing_finished(succeeded:bool) -> void:
 
 		%CatchUI.present(fish)
 	else:
+		stop_loop_action()
 		if is_multiplayer_authority():
 			$Sounds/FishCatchFail.play()
 		current_fishing_shadow.current_fishing_state.rpc(false)
