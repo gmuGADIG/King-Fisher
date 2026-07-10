@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://sa8cd5ey3scy"]
 
 [ext_resource type="Script" uid="uid://cxemd865tqywc" path="res://temp/fish_tinder.gd" id="1_7o2m4"]
+[ext_resource type="PackedScene" uid="uid://vpljqilqhkbb" path="res://ui/keybinds/keybind_menu.tscn" id="3_dodv4"]
 [ext_resource type="PackedScene" uid="uid://bpo4nvgeh8dat" path="res://systems/rhythm/fishing_mini_game.tscn" id="61_vknvt"]
 
 [node name="InfiniteSushiBelt" type="Control" unique_id=1363946866]
@@ -116,6 +117,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 41
 text = "Play"
+
+[node name="KeybindMenu" parent="." unique_id=1087068024 instance=ExtResource("3_dodv4")]
+visible = false
+layout_mode = 1
 
 [connection signal="fishing_finished" from="FishingMiniGame" to="." method="_on_fishing_mini_game_fishing_finished"]
 [connection signal="pressed" from="FishingMiniGame/VBoxContainer/HBoxContainer/Previous" to="." method="_on_previous_pressed"]
