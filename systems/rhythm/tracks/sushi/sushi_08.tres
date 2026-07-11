@@ -32,18 +32,9 @@ beat_position = 3.5
 script = ExtResource("1_e7v72")
 beat_position = 4.0
 
-[sub_resource type="Resource" id="Resource_ekigv"]
-script = ExtResource("1_e7v72")
-beat_position = 4.125
-is_articulated = true
-
 [sub_resource type="Resource" id="Resource_vpi7y"]
 script = ExtResource("1_e7v72")
 beat_position = 4.25
-
-[sub_resource type="Resource" id="Resource_mdmcn"]
-script = ExtResource("1_e7v72")
-beat_position = 4.375
 is_articulated = true
 
 [sub_resource type="Resource" id="Resource_gij0r"]
@@ -95,5 +86,5 @@ beat_position = 8.375
 [resource]
 script = ExtResource("2_kje6x")
 backing_track = ExtResource("1_84q26")
-notes = Array[ExtResource("1_e7v72")]([SubResource("Resource_h7q4i"), SubResource("Resource_ijcj2"), SubResource("Resource_ii4ld"), SubResource("Resource_pwk34"), SubResource("Resource_poxwp"), SubResource("Resource_ehdgw"), SubResource("Resource_vg4pn"), SubResource("Resource_ekigv"), SubResource("Resource_vpi7y"), SubResource("Resource_mdmcn"), SubResource("Resource_gij0r"), SubResource("Resource_nnxn3"), SubResource("Resource_ug4ux"), SubResource("Resource_2cnel"), SubResource("Resource_vs5sg"), SubResource("Resource_tmmpm"), SubResource("Resource_svc4f"), SubResource("Resource_8f1jp"), SubResource("Resource_741lp"), SubResource("Resource_0qkqx"), SubResource("Resource_w0fb8")])
+notes = Array[ExtResource("1_e7v72")]([SubResource("Resource_h7q4i"), SubResource("Resource_ijcj2"), SubResource("Resource_ii4ld"), SubResource("Resource_pwk34"), SubResource("Resource_poxwp"), SubResource("Resource_ehdgw"), SubResource("Resource_vg4pn"), SubResource("Resource_vpi7y"), SubResource("Resource_gij0r"), SubResource("Resource_nnxn3"), SubResource("Resource_ug4ux"), SubResource("Resource_2cnel"), SubResource("Resource_vs5sg"), SubResource("Resource_tmmpm"), SubResource("Resource_svc4f"), SubResource("Resource_8f1jp"), SubResource("Resource_741lp"), SubResource("Resource_0qkqx"), SubResource("Resource_w0fb8")])
 metadata/_custom_type_script = "uid://duodpj15swkyd"
