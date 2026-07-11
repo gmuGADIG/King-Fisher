@@ -18,11 +18,6 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_32mhh"]
 script = ExtResource("1_ca0mc")
 beat_position = 2.5
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_nvsdj"]
-script = ExtResource("1_ca0mc")
-beat_position = 3.0
 is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
@@ -33,17 +28,11 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_3yg7r"]
 script = ExtResource("1_ca0mc")
-beat_position = 4.0
-is_articulated = true
-metadata/_custom_type_script = "uid://bc1rjslobm0p6"
-
-[sub_resource type="Resource" id="Resource_arx1b"]
-script = ExtResource("1_ca0mc")
 beat_position = 4.5
 is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
-[sub_resource type="Resource" id="Resource_m4abk"]
+[sub_resource type="Resource" id="Resource_arx1b"]
 script = ExtResource("1_ca0mc")
 beat_position = 5.0
 is_articulated = true
@@ -51,7 +40,7 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_jkvae"]
 script = ExtResource("1_ca0mc")
-beat_position = 5.5
+beat_position = 6.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_q7lpw"]
@@ -68,11 +57,11 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_qk8li"]
 script = ExtResource("1_ca0mc")
-beat_position = 8.5
+beat_position = 8.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]
 script = ExtResource("2_o6lvi")
 backing_track = ExtResource("1_o6lvi")
-notes = Array[ExtResource("1_ca0mc")]([SubResource("Resource_ca0mc"), SubResource("Resource_o6lvi"), SubResource("Resource_32mhh"), SubResource("Resource_nvsdj"), SubResource("Resource_b6ftl"), SubResource("Resource_3yg7r"), SubResource("Resource_arx1b"), SubResource("Resource_m4abk"), SubResource("Resource_jkvae"), SubResource("Resource_q7lpw"), SubResource("Resource_edudg"), SubResource("Resource_qk8li")])
+notes = Array[ExtResource("1_ca0mc")]([SubResource("Resource_ca0mc"), SubResource("Resource_o6lvi"), SubResource("Resource_32mhh"), SubResource("Resource_b6ftl"), SubResource("Resource_3yg7r"), SubResource("Resource_arx1b"), SubResource("Resource_jkvae"), SubResource("Resource_q7lpw"), SubResource("Resource_edudg"), SubResource("Resource_qk8li")])
 metadata/_custom_type_script = "uid://duodpj15swkyd"
