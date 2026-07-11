@@ -97,8 +97,6 @@ func _process_scan_for_servers(delta: float) -> void:
 		found_server.emit(server_ip, foundHostName, playersOnlineString, statusString)
 
 func _process(delta: float) -> void:
-	if randi_range(0,300) == 50:
-		print(player_list)
 	if scan_server: _process_scan_server()
 	if scan_for_servers: _process_scan_for_servers(delta)
 
