@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bywfwjbyygik4"
-path="res://.godot/imported/rhythm_bar_edit.png-d68c3020a14b2ada262f0f4dd78e96e0.ctex"
+uid="uid://00e13cyr74k8"
+path="res://.godot/imported/rhythm_bar_edit_response.png-7275eec29787bfeaa0a2cec7572b2b3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://systems/rhythm/art/rhythm_bar_edit.png"
-dest_files=["res://.godot/imported/rhythm_bar_edit.png-d68c3020a14b2ada262f0f4dd78e96e0.ctex"]
+source_file="res://systems/rhythm/art/rhythm_bar_edit_response.png"
+dest_files=["res://.godot/imported/rhythm_bar_edit_response.png-7275eec29787bfeaa0a2cec7572b2b3f.ctex"]
 
 [params]
 
