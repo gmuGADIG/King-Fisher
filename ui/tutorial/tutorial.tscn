@@ -77,8 +77,11 @@ tutorial_pages = Array[ExtResource("3_leiwb")]([SubResource("Resource_vy52c"), S
 
 [node name="Background" type="TextureRect" parent="." unique_id=1440524425]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -299.0
+offset_top = 10.0
+offset_right = 853.0
+offset_bottom = 658.0
+scale = Vector2(1.5807521, 1.5807521)
 texture = ExtResource("3_lqqlb")
 expand_mode = 1
 stretch_mode = 5
