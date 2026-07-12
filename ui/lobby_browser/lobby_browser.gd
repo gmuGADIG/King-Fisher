@@ -42,6 +42,7 @@ func _on_create_lobby_button_pressed() -> void:
 func _on_found_server(ip: String, hostname: String, playerCount: String, status: String) -> void:
 	if ip in seen_ips: 
 		infos[ip].status = status
+		infos[ip].playerCount = playerCount
 		return
 	seen_ips[ip] = true
 
