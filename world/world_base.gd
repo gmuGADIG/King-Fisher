@@ -56,6 +56,7 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	new_player.name = "Player_" + str(id)
 	add_child(new_player)
 	new_player.set_authority(id) # we don't need to use RPC here since this function call is RPC'd
+
 	if multiplayer.is_server():
 		var server_conn: ServerConnection = Multiplayer.player_list.get(id)
 		if server_conn != null: # should only be == null if we started this level w/ F6
