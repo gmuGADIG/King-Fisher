@@ -18,6 +18,11 @@ func _ready() -> void:
 	Multiplayer.found_server.connect(_on_found_server)
 	lobby_creation_window.hide()
 	lobby_join_window.hide()
+	
+	##If the player has already set a name, retrieve it
+	if Multiplayer.playerDisplayName != "":
+		%HostNameInput.text = Multiplayer.playerDisplayName
+		%ClientNameInput.text = Multiplayer.playerDisplayName
 
 func _on_host_button_pressed() -> void:
 	lobby_creation_window.show()
