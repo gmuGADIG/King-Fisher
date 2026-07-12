@@ -18,7 +18,7 @@ roughness = 0.84
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7pkk"]
 height = 1.6774902
 
-[node name="Item" unique_id=1566519324 instance=ExtResource("1_2087j")]
+[node name="Golden Worm" unique_id=1566519324 instance=ExtResource("1_2087j")]
 script = ExtResource("2_byajs")
 duration = 10
 buff_texture = ExtResource("3_p653s")

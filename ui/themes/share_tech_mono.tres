@@ -36,13 +36,6 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 modulate_color = Color(0.75, 0.75, 0.75, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7fby"]
-texture = ExtResource("2_4ovmf")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ovmf"]
 bg_color = Color(0.12036916, 0.26733765, 0.45896107, 1)
 corner_radius_top_left = 30
