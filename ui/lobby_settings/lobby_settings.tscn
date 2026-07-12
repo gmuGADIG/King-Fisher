@@ -140,7 +140,7 @@ grow_vertical = 2
 theme = ExtResource("1_6lp2s")
 script = ExtResource("1_fh8yv")
 defaultMapSelect = 7
-defaultItemSelect = 15
+defaultItemSelect = 255
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1279630505]
 layout_mode = 1
