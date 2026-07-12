@@ -13,9 +13,49 @@ extends CollisionShape3D
 @export var max_items: int = 12
 var spawned_items: int = 0
 
+var bit_idx_to_item: Dictionary[int, Script] = {
+	0: RubberMallet,
+	1: FishingNet,
+	2: BananaPeel,
+	3: Brick,
+	4: GlueGrenade,
+	5: Helmet,
+	6: ZiplockBag,
+	7: GoldenWorm
+}
+
+var allowed_items_indexes: Array[int]
+
+func find_item_idx(item: Script) -> int:
+	for idx in items.size():
+		var scene := items[idx]
+		var instantiated := scene.instantiate()
+		if instantiated.get_script() ==  item:
+			return idx
+
+	return -1
+
 func _ready() -> void:
 	if disable_spawning: queue_free()
+
+	var item_mask = LobbySettings.itemSelect
+	var bit_idx = 0
+	while item_mask != 0:
+		if (item_mask & 1) == 1:
+			var item = bit_idx_to_item[bit_idx]
+			var item_idx = find_item_idx(item)
+			allowed_items_indexes.push_back(item_idx)
+
+		item_mask >>= 1
+		bit_idx += 1
 	
+	match LobbySettings.itemSpawn:
+		LobbySettings.SpawnRate.LOW:
+			spawn_rate *= .5
+		LobbySettings.SpawnRate.HIGH:
+			spawn_rate *= 2.
+		_:
+			pass
 	
 	# Make sure designers aren't scaling the object instead of changing the actual shape
 	assert(scale==Vector3.ONE, "Please set the scale of the Item Spawner to 1,1,1!")
@@ -59,7 +99,7 @@ func getItemSpawnLocation() -> void:
 			
 			# If so, spawn random fish
 			if items.size()!=0:
-				var itemIndex = randi_range(0, items.size()-1)
+				var itemIndex = allowed_items_indexes.pick_random()
 				spawnItem.rpc(itemIndex, result.position)
 				locationFound=true
 				# Increments to make sure no more than max_items lie around at once.

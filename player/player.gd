@@ -541,6 +541,9 @@ func set_name_visible(val : bool) -> void:
 
 func on_fishing_finished(succeeded:bool) -> void:
 	if succeeded:
+		if golden_worm_active:
+			current_fishing_shadow.fish = Fish.sushi_fishes.pick_random()
+
 		var fish : Fish = current_fishing_shadow.fish
 		if is_multiplayer_authority():
 			FishDex.caught_fish(fish)

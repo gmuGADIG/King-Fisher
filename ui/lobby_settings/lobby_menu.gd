@@ -12,9 +12,9 @@ const RANDOM_SONG : int = 0
 #var igabla : int = 0
 static var song_pool : Dictionary[String,Song] = {
 	"Ben Song" : load("res://sound/music/song_files/main_level_ben.tres"),
-	"Matthew C Song" : load("res://sound/music/song_files/main_level_matthew_c.tres"),
-	"Matthew P Song" : load("res://sound/music/song_files/main_level_matthew_p.tres"),
-	"Nathan Song" : load("res://sound/music/song_files/main_level_nathan.tres")
+	"Crazy Fish" : load("res://sound/music/song_files/main_level_matthew_c.tres"),
+	"Coral Beef" : load("res://sound/music/song_files/main_level_matthew_p.tres"),
+	"Fishing Hole Frolic" : load("res://sound/music/song_files/main_level_nathan.tres")
 }
 
 static var mapPool = [
@@ -50,6 +50,17 @@ var defaultMapSelect: int
 	"Glue Grenade", "Helmet", "Ziplock Bag", "Golden Worm")
 var defaultItemSelect: int
 
+enum Items {
+	RUBBER_MALLET = 1,
+	BUTTERFLY_NET = 2,
+	BANANA_PEEL = 4,
+	BRICK = 8,
+	GLUE_GRENADE = 16,
+	HELMET = 32,
+	ZIPLOCK_BAG = 64,
+	GOLDEN_WORM = 128
+}
+
 ## The current length of each round, in seconds.
 static var roundTime: int = 180
 ## The current spawn rate of items (Low, Medium, or High).
@@ -64,15 +75,37 @@ static var mapSelect: int
 static var songSelect: int
 
 @onready var panel: Control = $Background
-@onready var timerInput: LineEdit = %MinuteBox
-@onready var itemRateSelection: ItemList = %ItemRateSelect
-@onready var fishRateSelection: ItemList = %FishRateSelect
-@onready var itemSelectList := %ItemSelection.find_children("*", "TextureButton")
+@onready var timerInput: Label = %MinuteBox
+@onready var fishRadios: Radios = %FishSpawnRateRadios
+@onready var itemRadios: Radios = %ItemSpawnRateRadios
+@onready var itemSelectList := %ItemSelection.find_children("*", "Button")
 @onready var mapSelectList := %MapSelection.find_children("*", "TextureButton")
 @onready var song_options: OptionButton = %SongOptions
 
 @onready var more_time_button : Button = %MoreButton
 @onready var less_time_button : Button = %LessButton
+
+func set_greyed_out(node: Control, setting: bool) -> void:
+	const param_name = "greyed_out"
+	var mat := node.material as ShaderMaterial
+	if mat:
+		mat.set_shader_parameter(param_name, setting)
+
+func to_bin(n: int, min_bits: int = 8) -> String:
+	if n == 0:
+		return "0".repeat(min_bits)
+
+	var ret := ""
+
+	while n != 0:
+		if n & 1: ret += "1"
+		else: ret += "0"
+		n >>= 1
+	
+	if ret.length() < min_bits:
+		ret += "0".repeat(min_bits - ret.length())
+	
+	return ret.reverse()
 
 func _ready() -> void:
 	for entry : String in song_pool.keys():
@@ -80,16 +113,34 @@ func _ready() -> void:
 	
 	#assert(song_options.item_count == music_pool.size() + 1, "Number of songs do not match options")
 	_on_reset_button_pressed()
-	hide()
+
+	if not get_tree().current_scene == self:
+		hide()
 	#panel.hide()
 	panel.draw.connect(update_menu)
+
+	for button: BaseButton in itemSelectList:
+		button.pressed.connect(func():
+			# update greyed out state
+			itemSelect = get_bitmask_from_buttons(itemSelectList)
+			Debug.log("itemSelect = ", to_bin(itemSelect))
+			set_buttons_from_bitmask(itemSelectList, itemSelect)
+		)
+
+	for button: BaseButton in mapSelectList:
+		button.pressed.connect(func():
+			# update greyed out state
+			mapSelect = get_bitmask_from_buttons(mapSelectList)
+			Debug.log("itemSelect = ", to_bin(mapSelect))
+			set_buttons_from_bitmask(mapSelectList, mapSelect)
+		)
 
 ## Refreshes the menu with the current settings.
 ## This is called automatically when the panel becomes visible.
 func update_menu() -> void:
 	update_timer()
-	itemRateSelection.select(itemSpawn)
-	fishRateSelection.select(fishSpawn)
+	itemRadios.set_value(itemSpawn)
+	fishRadios.set_value(fishSpawn)
 	set_buttons_from_bitmask(itemSelectList, itemSelect)
 	set_buttons_from_bitmask(mapSelectList, mapSelect)
 	song_options.select(song_options.get_item_index(songSelect))
@@ -105,13 +156,11 @@ func _on_save_button_pressed() -> void:
 			roundTime = int(timerText[0]) * 60
 		_:
 			roundTime = defaultRoundTime
+
 	# Spawn rates
-	if itemRateSelection.is_anything_selected():
-		itemSpawn = itemRateSelection.get_selected_items()[0] as SpawnRate
-	else: itemSpawn = defaultItemSpawn
-	if fishRateSelection.is_anything_selected():
-		fishSpawn = fishRateSelection.get_selected_items()[0] as SpawnRate
-	else: fishSpawn = defaultFishSpawn
+	itemSpawn = itemRadios.get_value() as SpawnRate
+	fishSpawn = fishRadios.get_value() as SpawnRate
+
 	# Selections
 	itemSelect = get_bitmask_from_buttons(itemSelectList)
 	mapSelect = get_bitmask_from_buttons(mapSelectList)
@@ -151,7 +200,10 @@ func get_bitmask_from_buttons(buttons: Array[Node]) -> int:
 func set_buttons_from_bitmask(buttons: Array[Node], bitmask: int) -> void:
 	for button in buttons:
 		if button is BaseButton:
-			button.button_pressed = bool(bitmask & 1)
+			var selected = bool(bitmask & 1)
+			button.button_pressed = selected
+
+			set_greyed_out(button, not selected)
 			bitmask >>= 1
 
 func open() -> void:
@@ -163,6 +215,7 @@ func open() -> void:
 func close() -> void:
 	if not multiplayer.is_server():
 		return
+	_on_save_button_pressed()
 	hide()
 	UIState.ui_state = UIState.State.NONE
 

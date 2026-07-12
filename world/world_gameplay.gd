@@ -46,6 +46,13 @@ func _ready() -> void:
 		fish_timer.timeout.connect(_spawn_fish)
 		fish_timer.one_shot = false
 		fish_timer.wait_time = FISH_SPAWN_RATE ##This might need to be different per map?
+
+		match LobbySettings.fishSpawn:
+			LobbySettings.SpawnRate.LOW:
+				fish_timer.wait_time *= 1.5
+			LobbySettings.SpawnRate.HIGH:
+				fish_timer.wait_time *= 0.5
+
 		add_child(fish_timer)
 		fish_timer.start()
 	

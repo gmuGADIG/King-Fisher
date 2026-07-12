@@ -6,15 +6,24 @@
 [ext_resource type="Texture2D" uid="uid://6jyn2rkkx28i" path="res://items/item_goldenworm/gold_worm_icon.png" id="3_p653s"]
 [ext_resource type="AudioStream" uid="uid://bjelkor0pmbt6" path="res://sound/sfx/items/goldenworm.mp3" id="4_ctgyv"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctgyv"]
+resource_name = "Material.001"
+cull_mode = 2
+diffuse_mode = 3
+albedo_color = Color(1, 0.8000001, 0, 1)
+metallic = 0.78
+metallic_specular = 0.29
+roughness = 0.2
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7pkk"]
 height = 1.6774902
 
-[node name="Item" unique_id=1566519324 instance=ExtResource("1_2087j")]
+[node name="Golden Worm" unique_id=1566519324 instance=ExtResource("1_2087j")]
 script = ExtResource("2_byajs")
-duration = 10
+duration = 30
 buff_texture = ExtResource("3_p653s")
 item_name = "Golden Worm"
-description = "When used, the player plays an animation. The worm upgrades the net fish the player attempts to catch in the next 10 seconds into the next highest rarities point value. It does not give any sushi grade fish a buff, only the point value."
+description = "When used, the player plays an animation. The worm upgrades the net fish the player attempts to catch in the next 30 seconds into a sushi grade fish."
 lore = "This shining, gold-colored worm is not only valuable for its beauty, but for its power to increase the quality of fish that consume it. Thus, it has become popular and highly marketed for bait, particularly in the Intergalactic Fishbowl.
 There’s a few leading theories about its unique golden exterior. The first is that it might be an alien, a migrant to [planet] from its remarkable golden, crown-shaped moon. The moon has yet to be explored, as the [native race] have been resistant to it, ostensibly for religious reasons. However, this theory is the most popular because it makes both the Golden Worm and the moon seem even more magical.
 The other competing theory is that the worm acquired its glow from hazardous waste dumped in [planet]’s waters as a result of F.I.S.H.E. The nuclear radiation has mutated several other species’ appearances and abilities, so it’s definitely a possibility, although no one knows how exactly it could’ve happened—and at no detriment to the worm itself; the Golden Worm species is plentiful and thriving."
@@ -25,6 +34,9 @@ disabled = true
 
 [node name="GoldWorm" parent="." index="1" unique_id=1151117212 instance=ExtResource("2_kahv6")]
 
+[node name="Cylinder" parent="GoldWorm" index="0" unique_id=1738058241]
+material_override = SubResource("StandardMaterial3D_ctgyv")
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2" unique_id=842352755]
 transform = Transform3D(1, 0, 0, 0, 0.026682861, -0.9996439, 0, 0.9996439, 0.026682861, 0, 0.37834162, 0.016824156)
 shape = SubResource("CapsuleShape3D_t7pkk")
@@ -32,3 +44,5 @@ debug_color = Color(0, 0.6039216, 0.68235296, 1)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3" unique_id=616415717]
 stream = ExtResource("4_ctgyv")
+
+[editable path="GoldWorm"]
