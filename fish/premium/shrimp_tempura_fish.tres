@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_gihqb")
-fish_name = "Shrimp Tempura Fish"
+fish_name = "Shrimp Tempura"
 grade = 3
 sprite = ExtResource("2_rgnlf")
 catch_blurb = "Is it wrong if I wanna eat it?"

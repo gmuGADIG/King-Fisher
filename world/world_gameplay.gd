@@ -5,7 +5,7 @@ static var fish_shadows : Dictionary[int,FishShadow]
 static var next_fish_shadow_id : int = 0
 
 static var fish_shadow : PackedScene = load("res://world/fish_spawner/fish_shadow.tscn")
-const FISH_SPAWN_RATE : float = 0.2
+const FISH_SPAWN_RATE : float = 5.0
 
 static var song : Song
 static var round_time : float
@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 	#super._process(delta)
 	remaining_time -= delta
 	hud.update_time(remaining_time)
-	hud.find_child("ActiveBuffs").update_buffs(delta)
+	hud.get_node("%ActiveBuffs").update_buffs(delta)
 
 	if remaining_time < 60. and almost_over_not_triggered:
 		almost_over_not_triggered = false
@@ -73,15 +73,21 @@ func _process(delta: float) -> void:
 	if remaining_time < 0. and round_going and multiplayer.is_server():
 		round_going = false
 		
-		Multiplayer.results_screen.rpc()
+		
 		var players : Array[Player]
 		for p in get_tree().get_nodes_in_group("Player"):
 			players.append(p)
 		players.sort_custom(sort_by_score)
 		
+		var ids : Array[int]
 		for i in players.size():
 			var id := players[i].get_multiplayer_authority()
-			Multiplayer.results_screen.rpc_id(id, i+1)
+			ids.append(id)
+		
+		while ids.size() < 4:
+			ids.append(-1)
+		
+		Multiplayer.results_screen.rpc(ids[0],ids[1],ids[2],ids[3])
 
 func sort_by_score(a : Player, b : Player) -> bool:
 	return a.score > b.score

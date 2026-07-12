@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="Fish" format=3 uid="uid://brs4gtafy5r8l"]
 
 [ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_3p4cv"]
+[ext_resource type="Texture2D" uid="uid://b3hb2utkkdq12" path="res://fish/sprites/sword_fish.png" id="2_asthi"]
 
 [resource]
 script = ExtResource("1_3p4cv")
 fish_name = "Sword Fish"
 grade = 4
+sprite = ExtResource("2_asthi")
 description = "Caution! This species is quite dangerous due to its long and sharp appendage that it will use on you. I repeat, it is not for show! It WILL use its long, sharp, blade-like nose to cut you into pieces. RIP Marvin.
 This species is widely known as a docile breed–as long as it is not disturbed, that is. It is normally a nocturnal fish, waking under the moonlight, however, we’ve managed to find a way to wake them during the day as well. We put adderall into their food supply to guarantee that they’ll be active during the daytime. Our hope is to fully convert them into daylight fish to boost proficiency in the tournament. As of now, the fish is pretty common and nothing to scoff at. Just have to be mindful of the sword part."
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

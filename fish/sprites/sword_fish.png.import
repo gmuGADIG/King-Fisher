@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3fgk85uxh6s8"
-path="res://.godot/imported/british_fish_small.png-57d5b32f9a90e94a7b88f7d2611a56a5.ctex"
+uid="uid://b3hb2utkkdq12"
+path="res://.godot/imported/sword_fish.png-bb042522b99641c7aaba76d4bac7529a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fish/sprites/british_fish_small.png"
-dest_files=["res://.godot/imported/british_fish_small.png-57d5b32f9a90e94a7b88f7d2611a56a5.ctex"]
+source_file="res://fish/sprites/sword_fish.png"
+dest_files=["res://.godot/imported/sword_fish.png-bb042522b99641c7aaba76d4bac7529a.ctex"]
 
 [params]
 

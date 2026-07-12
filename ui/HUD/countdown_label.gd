@@ -8,7 +8,7 @@ signal finished
 
 func start():
 	for current_count in range(duration, 0, -1):
-		text = str(current_count)
+		text = str("Game Starting in\n",current_count)
 		await get_tree().create_timer(1.).timeout
 	
 	finished.emit()

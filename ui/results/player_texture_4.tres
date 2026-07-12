@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b78uomg0t2i8g"]
+
+[ext_resource type="Texture2D" uid="uid://bfaqt3mqmwbh1" path="res://player/textures/player_pink.png" id="1_b840q"]
+
+[resource]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_b840q")
+roughness = 0.0

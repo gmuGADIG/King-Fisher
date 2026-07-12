@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba10pnshpio6g"
-path="res://.godot/imported/moai_fish_small.png-f6ac940ccbb3f93938ec48490cd1180e.ctex"
+uid="uid://cieuukrykpjqc"
+path="res://.godot/imported/rhythm_bar_edit_call.png-a059d0f54219308b135985479201ee96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fish/sprites/moai_fish_small.png"
-dest_files=["res://.godot/imported/moai_fish_small.png-f6ac940ccbb3f93938ec48490cd1180e.ctex"]
+source_file="res://systems/rhythm/art/rhythm_bar_edit_call.png"
+dest_files=["res://.godot/imported/rhythm_bar_edit_call.png-a059d0f54219308b135985479201ee96.ctex"]
 
 [params]
 

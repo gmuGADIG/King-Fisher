@@ -1,3 +1,4 @@
+class_name GlueGrenade
 extends ThrowableItem
 @export var slow_time : float = 50
 @export_range(0.0, 1.0, 0.01) var slow_amount : float = 0.4
@@ -12,5 +13,5 @@ func _on_land() -> void:
 			Debug.log("hit player")
 			hit_player.slow(slow_time, slow_amount)
 			hit_player.add_item_buff("Glue",slow_time,glue_icon)
-			await get_tree().create_timer(0.5).timeout
-			queue_free()
+	await get_tree().create_timer(0.5).timeout
+	queue_free()

@@ -7,7 +7,7 @@ signal closed
 
 @onready var lobby_creation_window : TextureRect = $LobbyCreationWindow
 @onready var lobby_join_window : TextureRect = $LobbyJoinWindow
-@onready var name_text := $DisplayName/NameInput
+
 var seen_ips: Dictionary[String, bool]
 var infos: Dictionary[String, ServerInfo]
 

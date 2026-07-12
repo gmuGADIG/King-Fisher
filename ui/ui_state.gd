@@ -1,5 +1,7 @@
 extends Node
 
+signal state_updated(new_state : State)
+
 enum State{
 	NONE,
 	MAIN_MENU,
@@ -45,7 +47,7 @@ var ui_state : State:
 				player_mouse_input_blocked = true
 				player_click_input_blocked = true
 				more_ui_blocked = true
-
+		state_updated.emit(val)
 var player_keyboard_input_blocked : bool
 var player_mouse_input_blocked : bool
 var player_click_input_blocked : bool

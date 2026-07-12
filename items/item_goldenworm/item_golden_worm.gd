@@ -1,3 +1,4 @@
+class_name GoldenWorm
 extends Item 
 @onready var audio_player : AudioStreamPlayer3D = $AudioStreamPlayer3D
 @export var duration = 10

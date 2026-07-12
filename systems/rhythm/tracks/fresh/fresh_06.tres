@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Track" format=3 uid="uid://by3v2g3b7kwof"]
 
-[ext_resource type="Script" path="res://systems/rhythm/note.gd" id="1_73jh4"]
+[ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_73jh4"]
 [ext_resource type="AudioStream" uid="uid://qbh8vij5unwm" path="res://systems/rhythm/tracks/backingTrack100.ogg" id="1_kdblu"]
 [ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_kdblu"]
 
@@ -17,11 +17,13 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_nr1cu"]
 script = ExtResource("1_73jh4")
 beat_position = 2.0
+is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_41vf1"]
 script = ExtResource("1_73jh4")
 beat_position = 2.5
+is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_b77mc"]
@@ -37,21 +39,25 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_1oomn"]
 script = ExtResource("1_73jh4")
 beat_position = 4.0
+is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_vj8w8"]
 script = ExtResource("1_73jh4")
 beat_position = 4.25
+is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_dev3u"]
 script = ExtResource("1_73jh4")
 beat_position = 5.0
+is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_fomw7"]
 script = ExtResource("1_73jh4")
 beat_position = 5.5
+is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_c43u5"]
@@ -67,11 +73,13 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_3hunq"]
 script = ExtResource("1_73jh4")
 beat_position = 7.0
+is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_7742e"]
 script = ExtResource("1_73jh4")
 beat_position = 7.5
+is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_ws835"]

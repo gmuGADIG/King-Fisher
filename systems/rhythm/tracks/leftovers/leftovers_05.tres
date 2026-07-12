@@ -28,12 +28,12 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_vj8pa"]
 script = ExtResource("1_0yyu0")
-beat_position = 5.25
+beat_position = 5.5
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_dikqk"]
 script = ExtResource("1_0yyu0")
-beat_position = 5.5
+beat_position = 6.0
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_b7est"]

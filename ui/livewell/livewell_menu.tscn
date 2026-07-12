@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dyc2qekcn8phe"]
 
 [ext_resource type="Script" uid="uid://tdrxdvr5hlfn" path="res://ui/livewell/livewell.gd" id="1_7nkjd"]
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="1_ayab0"]
 [ext_resource type="PackedScene" uid="uid://o1613vdgdphk" path="res://ui/livewell/livewell_entry.tscn" id="2_gmmwj"]
+[ext_resource type="Texture2D" uid="uid://b811kd3qst5nb" path="res://ui/fish_dex/fishdex-hologram.png" id="3_kg36v"]
 
 [node name="LivewellMenu" type="Control" unique_id=1231020864]
 layout_mode = 3
@@ -10,15 +12,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ayab0")
 script = ExtResource("1_7nkjd")
 livewell_entry_packed = ExtResource("2_gmmwj")
 
-[node name="Background" type="Panel" parent="." unique_id=1728696874]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="Background" type="NinePatchRect" parent="." unique_id=603400995]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_kg36v")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 9
+patch_margin_bottom = 112
 
-[node name="Score" type="RichTextLabel" parent="Background" unique_id=733993845]
+[node name="Background" type="Control" parent="Background" unique_id=304691735]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.84300005
+offset_bottom = -0.21606445
+
+[node name="Score" type="RichTextLabel" parent="Background/Background" unique_id=733993845]
 layout_mode = 0
 offset_left = 36.0
 offset_top = 27.0
@@ -29,7 +50,7 @@ bbcode_enabled = true
 text = "[u]0 pts[/u]"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Background" unique_id=464157247]
+[node name="GridContainer" type="GridContainer" parent="Background/Background" unique_id=464157247]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,13 +65,12 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 5
 
-[node name="ActiveBuffs" type="RichTextLabel" parent="Background" unique_id=87351982]
+[node name="ActiveBuffs" type="RichTextLabel" parent="Background/Background" unique_id=87351982]
 layout_mode = 0
 offset_left = 184.0
 offset_top = 16.0
-offset_right = 804.1389
+offset_right = 1080.0
 offset_bottom = 88.0
-scale = Vector2(1.44, 1)
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[u]No Active Buffs[/u]"

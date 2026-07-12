@@ -1,6 +1,8 @@
 class_name WorldBase
 extends Node3D
 
+static var returning_to_lobby : bool = false
+
 @export var player : PackedScene
 
 func _ready() -> void:
@@ -13,13 +15,18 @@ func _ready() -> void:
 	else:
 		Multiplayer.status = ""
 	
+	if returning_to_lobby:
+		spawn_request.rpc_id(1)
+		returning_to_lobby = false
+	
 	Multiplayer.new_player.connect(on_player_join)
 	if multiplayer.is_server():
 		Debug.log("Creating player...")
 		spawn_player.rpc(1, $Players.get_safe_spawn_point())
-		$CanvasLayer/VBoxContainer/Label.text = "Server"
+		#$CanvasLayer/VBoxContainer/Label.text = "Server"
 	else:
-		$CanvasLayer/VBoxContainer/Label.text = "Client"
+		#$CanvasLayer/VBoxContainer/Label.text = "Client"
+		pass
 
 @rpc("any_peer")
 func spawn_request():

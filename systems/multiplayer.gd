@@ -184,7 +184,7 @@ func broadcast_player_info() -> void:
 func _countdown(duration: int) -> void:
 	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
 	label.duration = duration
-	label.position = Vector2(500, 500)
+	#label.position = Vector2(500, 0)
 	get_tree().current_scene.add_child(label)
 	label.start()
 	await label.finished
@@ -215,7 +215,7 @@ func start_the_game():
 		return
 
 	#var levelLoad:String = allowedMaps.pick_random()
-	var levelLoad : String = "res://world/level-docks/level-docks.tscn"
+	var levelLoad : String = ["res://world/level-docks/level-docks.tscn","res://world/ship/level-ship.tscn"].pick_random()
 	
 	load_players.rpc(levelLoad)
 	Debug.log(player_list.size())
@@ -264,10 +264,7 @@ func set_map(mapString:String,pool:Array):
 		if mapString[i] == "0":
 			pool.remove_at(i)
 	allowedMaps = pool
-			
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ready_up"):
-		_handle_ready_up()
+
 
 @rpc("any_peer","call_local","reliable")
 func set_ready():
@@ -322,9 +319,14 @@ func report_loaded() -> void:
 	player_loaded.emit(multiplayer.get_remote_sender_id())
 
 @rpc("call_local")
-func results_screen(place: int) -> void:
-	Debug.log("results_screen(place = %d)" % place)
-	ResultsScreen.place = place
+func results_screen(first_place_id: int, second_place_id : int, third_place_id : int, fourth_place_id : int) -> void:
+	#Debug.log("results_screen(place = %d)" % place)
+	ResultsScreen.placements = [
+		first_place_id,
+		second_place_id,
+		third_place_id,
+		fourth_place_id
+	]
 	SceneTransition.change_to_file("res://ui/results/results_screen.tscn")
 
 # host disconnecting client
@@ -366,3 +368,6 @@ func request_name() -> void:
 @rpc("reliable","any_peer","call_remote")
 func recieve_name(name : String) -> void:
 	client_name_recieved.emit(name)
+
+#func send_all_to_lobby() -> void:
+	

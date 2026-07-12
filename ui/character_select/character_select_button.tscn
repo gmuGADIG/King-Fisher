@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="1_gem0a"]
 [ext_resource type="Script" uid="uid://bvxp5xbfacia2" path="res://ui/character_select/character_select_button.gd" id="2_wehrg"]
 [ext_resource type="PackedScene" uid="uid://bg5yj4acmsreh" path="res://art/3d-assets/DefaultPlayer.fbx" id="3_gem0a"]
-[ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/ourple.png" id="4_8gjgk"]
+[ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/player_purple.png" id="4_8gjgk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gem0a"]
 resource_local_to_scene = true

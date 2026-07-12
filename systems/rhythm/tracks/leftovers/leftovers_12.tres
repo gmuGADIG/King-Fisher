@@ -12,6 +12,7 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_gwspt"]
 script = ExtResource("1_jxe7u")
 beat_position = 3.0
+is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_m52c5"]
@@ -27,6 +28,7 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_a1xw6"]
 script = ExtResource("1_jxe7u")
 beat_position = 7.0
+is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_taggl"]

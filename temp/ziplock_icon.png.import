@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3bw8cnuhe0cd"
-path="res://.godot/imported/the_quote_on_quote_fish_small.png-d9362c2247ca6876add47597c1ddaebf.ctex"
+uid="uid://cxbplhxrtwvvj"
+path="res://.godot/imported/ziplock_icon.png-db07371232811c75242f88a3921d44be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fish/sprites/the_quote_on_quote_fish_small.png"
-dest_files=["res://.godot/imported/the_quote_on_quote_fish_small.png-d9362c2247ca6876add47597c1ddaebf.ctex"]
+source_file="res://temp/ziplock_icon.png"
+dest_files=["res://.godot/imported/ziplock_icon.png-db07371232811c75242f88a3921d44be.ctex"]
 
 [params]
 

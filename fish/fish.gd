@@ -159,7 +159,7 @@ func serialize() -> Array:
 func grade_color() -> Color:
 	match grade:
 		Fish.Grade.LEFTOVERS:
-			return Color.WHITE # Gray
+			return Color.GRAY # Gray
 		Fish.Grade.FRESH:
 			return Color.GREEN # Green
 		Fish.Grade.PREMIUM:
@@ -168,3 +168,18 @@ func grade_color() -> Color:
 			return Color.GOLD # Gold
 		_:
 			return Color.DIM_GRAY # Gray for Unset or unknown grades
+
+func grade_string() -> String:
+	match grade:
+		Grade.UNSET:
+			return "Unset"
+		Grade.LEFTOVERS:
+			return "Leftovers"
+		Grade.FRESH:
+			return "Fresh"
+		Grade.PREMIUM:
+			return "Premium"
+		Grade.SUSHI:
+			return "Sushi"
+		_:
+			return "ERROR"

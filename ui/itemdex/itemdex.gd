@@ -1,7 +1,7 @@
 extends Control
 signal closed
 
-var ITEMS = []
+@export var items : Array[PackedScene]
 var page = 0
 
 @onready var left_arrow = $Background/LeftArrow
@@ -10,7 +10,8 @@ var page = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()
-	load_items()
+	items.sort_custom(custom_sort_items)
+	print(items)
 
 func _on_back_button_pressed() -> void:
 	closed.emit()
@@ -18,27 +19,32 @@ func _on_back_button_pressed() -> void:
 	hide()
 
 func setup_item(index : int) -> void:
-	var page_location = index - (page*4) + 1
-	var item = ITEMS[index].instantiate()
+	var page_location = index - (page*2) + 1
+	var item = items[index].instantiate()
+	
 	get_node("Background/Item"+str(page_location)+"Container/Box/Image").texture = item.sprite
 	get_node("Background/Item"+str(page_location)+"Container/Textbox/Description").text = "Description: " + item.description
 	get_node("Background/Item"+str(page_location)+"Container/Textbox/Lore").text = "Lore: " + item.lore
+	item.queue_free()
 
 func draw_page() -> void:
-	for i in range(4):
-		var index = page*4 + i
-		var page_location = i + 1
-		if index < len(ITEMS):
-			setup_item(index)
-			get_node("Background/Item"+str(page_location)+"Container").show()
-		else:
-			get_node("Background/Item"+str(page_location)+"Container").hide()
+	var item_1 : Item = items[page*2].instantiate()
+	var item_2 : Item = items[page*2+1].instantiate()
+	
+	$Background/Item1Container/HBoxContainer/Box/Image.texture = item_1.sprite
+	$Background/Item1Container/HBoxContainer/Description.text = item_1.description
+	$Background/Item1Container/Lore.text = item_1.lore
+	
+	$Background/Item2Container/HBoxContainer/Box/Image.texture = item_2.sprite
+	$Background/Item2Container/HBoxContainer/Description.text = item_2.description
+	$Background/Item2Container/Lore.text = item_2.lore
+	
 	if page == 0:
 		left_arrow.hide()
 	else:
 		left_arrow.show()
 
-	if (page+1)*4 < len(ITEMS):
+	if (page+1)*2 < len(items):
 		right_arrow.show()
 	else:
 		right_arrow.hide()
@@ -49,38 +55,14 @@ var BlOCKEDITEMS = [
 	"throwable_item.tscn",
 ]
 
-func loop_through_dir(location : String) -> void:
-	var dir = DirAccess.open(location)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tscn") and file_name.begins_with("item_") and file_name not in BlOCKEDITEMS:
-				var item_resource = load(location + "/" + file_name)
-				ITEMS.append(item_resource)
-			file_name = dir.get_next()
-		dir.list_dir_end()
 
-func load_items() -> void:
-	var location = "res://items"
-	var dir = DirAccess.open(location)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if dir.current_is_dir():
-				loop_through_dir(location + "/" + file_name)
-			elif file_name.ends_with(".tscn") and file_name not in BlOCKEDITEMS:
-				var item_resource = load(location + "/" + file_name)
-				ITEMS.append(item_resource)
-			file_name = dir.get_next()
-		ITEMS.sort()
-		dir.list_dir_end()
 
-func custom_sort_items(a, b):
-	var a_name = a.get("item_name")
-	var b_name = b.get("item_name")
-	return a_name < b_name
+func custom_sort_items(a : PackedScene, b : PackedScene):
+	var item_a : Item = a.instantiate()
+	var item_b : Item = b.instantiate()
+	var result : bool = item_a.item_name < item_b.item_name
+	item_a.queue_free()
+	item_b.queue_free() 
 
 
 func _on_left_arrow_pressed() -> void:

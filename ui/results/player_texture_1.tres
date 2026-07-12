@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://8tghhbtw5eg0"]
 
-[ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/ourple.png" id="1_2poou"]
+[ext_resource type="Texture2D" uid="uid://cy8oq7y4xpxwe" path="res://player/textures/player_purple.png" id="1_2poou"]
 
 [resource]
 resource_local_to_scene = true

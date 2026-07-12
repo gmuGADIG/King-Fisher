@@ -60,6 +60,8 @@ var misses:int = 0
 
 var target_accuracy : float
 
+var calculated_offset : float
+
 # Called when the node enters the scene tree for the first time.
 
 var call_index:int = 0
@@ -86,14 +88,18 @@ signal fishing_finished(success:bool)
 @onready var fish_indicator: Sprite2D = $TextureRect/VBoxContainer/Control/FishBar/SequenceLine/FishIndicator
 @onready var rating_label: Label = $TextureRect/VBoxContainer/ColorRect/RatingLabel
 @onready var rating_animation: AnimationPlayer = $TextureRect/VBoxContainer/ColorRect/RatingAnimation
+@onready var progress_bar : ProgressBar = $TextureRect/VBoxContainer/Control/ProgressBar
+@onready var requirement_marker : TextureRect = $TextureRect/VBoxContainer/Control/ProgressBar/RequirementMarker
 
 func start(fish : Fish) -> void:
 	UIState.ui_state = UIState.State.FISHING_MINIGAME
 	_loudness_before_minigame = MainMusicPlayer.get_volume() #Record Loudness
 	MainMusicPlayer.set_loudness(0.25,0.0)
+	progress_bar.value = 0
 	misses = 0
 	good_hits = 0
 	perfect_hits = 0
+	calculated_offset = 0
 	call_index = 0
 	response_index = 0
 	current_note = null
@@ -115,6 +121,9 @@ func start(fish : Fish) -> void:
 		Fish.Grade.SUSHI:
 			track = sushi_tracks.pick_random()
 			target_accuracy = sushi_accuracy_requirement
+	
+	##Position of the requirement bar
+	requirement_marker.position.x = 0.01 * target_accuracy * progress_bar.size.x + 0.5 * requirement_marker.size.x
 	
 	if force_track_play_on_load:
 		track = forced_track
@@ -177,7 +186,7 @@ func _process(_delta: float) -> void:
 			state = Phase.PLAYER_RESPONSE
 			player_indicator.show()
 			fish_indicator.hide()
-		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= 1 and not tempo_audio_stream.playing and not Debug.disable_backing_track:
+		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms+RhythmSettings.manual_audio_offset) >= 1 and not tempo_audio_stream.playing and not Debug.disable_backing_track:
 			tempo_audio_stream.play()
 	
 	##Response
@@ -194,6 +203,7 @@ func _process(_delta: float) -> void:
 			player_indicator.hide()
 			##Percentage accuracy from 0 to 1
 			var accuracy : float = calculate_accuracy()
+			calculated_offset /= misses+good_hits+perfect_hits
 			#$TextureRect/VBoxContainer/ColorRect/ScoreLabel.text = str("%.2f" % (accuracy*100.0)) + "%"
 			print("perfect: " + str(perfect_hits) + " good: " + str(good_hits) + " misses: " + str(misses))
 			state = Phase.MINIGAME_INACTIVE
@@ -270,7 +280,7 @@ func _input(event: InputEvent) -> void:
 		## Draw marker to screen
 		add_tap_marker(input_type)
 		
-		
+		progress_bar.value = calculate_accuracy()
 		#if event.is_action_pressed("catch_fish_main"):
 			#tap_type = NoteType.NON_ARTICULATED
 			#add_tap_marker(NoteType.NON_ARTICULATED)
@@ -293,6 +303,7 @@ func determine_accuracy() -> HitQuality:
 	var current_time : float = rhythm_engine.current_time_ms
 	
 	var difference : float = note_position_ms - current_time
+	calculated_offset += difference
 	#print("diff: ",difference)
 	if (difference > hit_window_radius_ms):
 		return HitQuality.MISS
@@ -353,9 +364,6 @@ func show_rating(text:String) -> void:
 	rating_label.text = text
 	rating_animation.stop()
 	rating_animation.play("rating_pulse")
-
-func calculate_total_accuracy() -> void:
-	pass
 
 func ms_to_position(ms:float) -> float:
 	
