@@ -10,10 +10,10 @@
 resource_name = "Material.001"
 cull_mode = 2
 diffuse_mode = 3
-albedo_color = Color(0.90650964, 0.65494937, 0.1174138, 1)
-metallic = 0.91
-metallic_specular = 0.24
-roughness = 0.84
+albedo_color = Color(1, 0.8000001, 0, 1)
+metallic = 0.78
+metallic_specular = 0.29
+roughness = 0.2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7pkk"]
 height = 1.6774902
