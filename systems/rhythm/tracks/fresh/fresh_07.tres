@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Track" format=3 uid="uid://bc7fg02xtufsg"]
 
-[ext_resource type="Script" uid="uid://bc1rjslobm0p6" path="res://systems/rhythm/note.gd" id="1_0x3pr"]
+[ext_resource type="Script" path="res://systems/rhythm/note.gd" id="1_0x3pr"]
 [ext_resource type="AudioStream" uid="uid://qbh8vij5unwm" path="res://systems/rhythm/tracks/backingTrack100.ogg" id="1_g85o2"]
 [ext_resource type="Script" uid="uid://duodpj15swkyd" path="res://systems/rhythm/tracks/track.gd" id="2_g85o2"]
 
@@ -22,19 +22,16 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_kw70p"]
 script = ExtResource("1_0x3pr")
 beat_position = 3.5
-is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_edoku"]
 script = ExtResource("1_0x3pr")
 beat_position = 3.75
-is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_yq6sp"]
 script = ExtResource("1_0x3pr")
 beat_position = 4.0
-is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_oanw4"]
@@ -55,19 +52,16 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_ltm5s"]
 script = ExtResource("1_0x3pr")
 beat_position = 7.5
-is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_3v27i"]
 script = ExtResource("1_0x3pr")
 beat_position = 7.75
-is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_judos"]
 script = ExtResource("1_0x3pr")
 beat_position = 8.0
-is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]

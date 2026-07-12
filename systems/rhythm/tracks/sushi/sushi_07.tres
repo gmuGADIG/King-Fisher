@@ -6,7 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_wqbia"]
 script = ExtResource("1_tmvkm")
-beat_position = 8.5
+beat_position = 8.0
+metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]
 script = ExtResource("2_hde7a")

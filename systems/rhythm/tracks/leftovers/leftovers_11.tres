@@ -12,7 +12,6 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_jehai"]
 script = ExtResource("1_h4hv3")
 beat_position = 2.0
-is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_jpuxh"]
@@ -23,7 +22,6 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_yp4pi"]
 script = ExtResource("1_h4hv3")
 beat_position = 4.0
-is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_fg112"]
@@ -34,7 +32,6 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_3hnpi"]
 script = ExtResource("1_h4hv3")
 beat_position = 6.0
-is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [sub_resource type="Resource" id="Resource_irkbq"]
@@ -45,7 +42,6 @@ metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 [sub_resource type="Resource" id="Resource_ik6fs"]
 script = ExtResource("1_h4hv3")
 beat_position = 8.0
-is_articulated = true
 metadata/_custom_type_script = "uid://bc1rjslobm0p6"
 
 [resource]
