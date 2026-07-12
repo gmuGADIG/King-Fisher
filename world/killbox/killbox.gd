@@ -17,15 +17,23 @@ func _on_body_entered(body: Node3D) -> void:
 		body = body.player
 	print(body)
 	if body is not Player: return
-
-	if !body.force_respawn:
-		body.force_respawn = true
-		if not body.is_ragdolled:
-			body.ragdoll_phys.ragdoll(force_respawn_delay,false,true)
-			Debug.log("Killbox: " + body.name + " entered killbox, killing player.")
-			
-		Debug.log("Killbox: Starting force respawn in " + str(force_respawn_delay) + " seconds for " + body.name + ".")
-		await get_tree().create_timer(force_respawn_delay).timeout
-		# Incase someone manages to respawn before the forced respawn.
-		if not body.is_ragdolled: return
-		body.ragdoll_phys.end_ragdoll()
+	
+	body.force_respawn = true
+	
+	if not body.is_ragdolled:
+		body.ragdoll_phys.ragdoll(force_respawn_delay)
+	
+	#body.add_item_buff("Ragdoll",force_respawn_delay,body.ragdoll_phys.ragdoll_icon)
+	await get_tree().create_timer(force_respawn_delay).timeout
+	body.ragdoll_phys.end_ragdoll(true)
+	#if !body.force_respawn:
+		#body.force_respawn = true
+		#if not body.is_ragdolled:
+			#body.ragdoll_phys.ragdoll(force_respawn_delay,false,true)
+			#Debug.log("Killbox: " + body.name + " entered killbox, killing player.")
+			#
+		#Debug.log("Killbox: Starting force respawn in " + str(force_respawn_delay) + " seconds for " + body.name + ".")
+		#await get_tree().create_timer(force_respawn_delay).timeout
+		## Incase someone manages to respawn before the forced respawn.
+		#if not body.is_ragdolled: return
+		#body.ragdoll_phys.end_ragdoll()

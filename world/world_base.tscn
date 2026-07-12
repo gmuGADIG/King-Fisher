@@ -54,6 +54,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 0.5577596, 0.83000255, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
 
 [node name="Players" type="Node3D" parent="." unique_id=1891362098 groups=["Spawnpoints"]]
+unique_name_in_owner = true
 script = ExtResource("3_3xj4d")
 
 [node name="PlayerSpawnPoint" parent="Players" unique_id=1956364351 instance=ExtResource("4_lgvll")]
