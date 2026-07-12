@@ -794,6 +794,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_0u54a")
+visible_item = "Golden Worm"
 
 [node name="ExitButton" type="TextureButton" parent="Background" unique_id=1099861076]
 visible = false
