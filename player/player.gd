@@ -13,7 +13,7 @@ enum AimMode{
 var current_anim: StringName = &""
 var action_locked := false
 
-func play_anim(anim_name: StringName, blend_time: float = 0.15) -> void:
+func play_anim(anim_name: StringName, blend_time: float = 0.15, anim_speed: float = 1.00) -> void:
 	if current_anim == anim_name:
 		return
 		
@@ -22,7 +22,7 @@ func play_anim(anim_name: StringName, blend_time: float = 0.15) -> void:
 		return
 	
 	current_anim = anim_name
-	anim_player.play(anim_name, blend_time)
+	anim_player.play(anim_name, blend_time, anim_speed)
 	
 func update_animation() -> void:
 	if action_locked:
@@ -33,11 +33,12 @@ func update_animation() -> void:
 	if not is_on_floor():
 		play_anim("&Jump")
 	elif horizontal_speed > 0.1:
-		play_anim(&"Walk")
+		#the last int changes walk speed
+		play_anim(&"Walk", 0.15, 2)
 	else: 
 		play_anim(&"Idle")
 	
-func play_action(anim_name: StringName, blend_time: float = 0.1) -> void:
+func play_action(anim_name: StringName, blend_time: float = 0.1, anim_speed: float = 1.00) -> void:
 	if action_locked:
 		return
 		
@@ -47,7 +48,7 @@ func play_action(anim_name: StringName, blend_time: float = 0.1) -> void:
 	
 	action_locked = true
 	current_anim = anim_name
-	anim_player.play(anim_name, blend_time)
+	anim_player.play(anim_name, blend_time, anim_speed)
 
 	await anim_player.animation_finished
 	
@@ -311,7 +312,8 @@ func _mouse_input(event : InputEvent) -> void:
 				$CameraMount.rotation.y = deg_to_rad(camera_yaw)
 		AimMode.FISHING_ROD:
 			if event.is_action_released("cast_rod"):
-				play_action(&"CastRod")
+				#last int is anim speed
+				play_action(&"CastRod", .15, 2)
 				%Aiming.stop_aiming()
 				$Sounds/CastRod.play()
 				var body : Node = $Aiming/AimRayCast.get_collider()
