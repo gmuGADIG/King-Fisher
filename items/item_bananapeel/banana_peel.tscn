@@ -55,6 +55,7 @@ transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, -0.42570877, 0, 0
 
 [node name="Armadillo" parent="." index="4" unique_id=1877560320 instance=ExtResource("5_3j6y8")]
 transform = Transform3D(1.74, 0, 0, 0, 1.74, 0, 0, 0, 1.74, 0, 0, -0.21022841)
+visible = false
 
 [node name="Armadillo" parent="Armadillo/Node" parent_id_path=PackedInt32Array(1877560320, 1857077457) index="0" unique_id=1612515961]
 material_override = SubResource("StandardMaterial3D_52u3r")

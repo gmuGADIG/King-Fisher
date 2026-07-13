@@ -171,6 +171,7 @@ light_energy = 0.358
 
 [node name="Armadillo" parent="ItemViewport/Root/ItemRoot" unique_id=1877560320 instance=ExtResource("10_jix1e")]
 transform = Transform3D(1.4809349, 0, -0.5923317, 0, 1.595, 0, 0.5923317, 0, 1.4809349, 0.185, 0.215, 0)
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Armadillo" unique_id=222395440]
 transform = Transform3D(1, 0, 0, 0, 0.9754654, 0.22015266, 0, -0.22015266, 0.9754654, 0.4636166, 0.8432065, 1.2656652)

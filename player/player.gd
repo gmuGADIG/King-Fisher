@@ -285,6 +285,7 @@ func _mouse_input(event : InputEvent) -> void:
 				var throw_item : ThrowableItem = held_item
 				throw_item.use_throwable.rpc(%Aiming.get_aim_pos())
 				held_item = null
+				held_item_ui.clear_item()
 				%Aiming.stop_aiming()
 			pass
 		_:
