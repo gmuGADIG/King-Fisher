@@ -197,6 +197,7 @@ func _process(_delta: float) -> void:
 			response_index+=1
 			#print("Miss!")
 			misses+=1
+			progress_bar.value = calculate_accuracy()
 	
 	if state == Phase.PLAYER_RESPONSE:
 		if rhythm_engine.ms_to_beat(rhythm_engine.current_time_ms) >= (2*TRACK_LENGTH + 1):

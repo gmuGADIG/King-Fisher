@@ -73,6 +73,9 @@ func load_file() -> void:
 	var dict : Dictionary = json.get_data()
 	for key in dict.keys():
 		print("test")
+		if not FISHES.has(key):
+			continue
+		
 		fishdex_entries.set(key,dict.get(key))
 	
 	

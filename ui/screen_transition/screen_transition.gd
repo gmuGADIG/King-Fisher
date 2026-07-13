@@ -16,6 +16,9 @@ func _ready() -> void:
 	loading_screen.hide()
 
 func change_to_packed(path: String):
+	for conn : ServerConnection in Multiplayer.player_list.values():
+		conn.player = null
+	
 	loading_screen.modulate.a = 0
 	loading_screen.visible = true
 	anim.play("loading")

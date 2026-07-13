@@ -49,6 +49,10 @@ func on_player_join(id : int) -> void:
 
 @rpc("reliable", "call_local")
 func spawn_player(id: int, pos: Vector3) -> void:
+	var server_conn: ServerConnection = Multiplayer.player_list.get(id)
+	if server_conn != null and server_conn.player != null:
+		return
+	
 	Debug.log("Creating player of id ",id)
 	var new_player: Player = player.instantiate()
 	
@@ -56,11 +60,10 @@ func spawn_player(id: int, pos: Vector3) -> void:
 	new_player.name = "Player_" + str(id)
 	add_child(new_player)
 	new_player.set_authority(id) # we don't need to use RPC here since this function call is RPC'd
-
-	if multiplayer.is_server():
-		var server_conn: ServerConnection = Multiplayer.player_list.get(id)
-		if server_conn != null: # should only be == null if we started this level w/ F6
-			server_conn.player = new_player
-			CharacterSelect.assign_skin(id,server_conn.character_texture_id)
-			# tell everyone about the new player and the new player the current players
-			Debug.log("Spawning Player ", id, " at ", pos)
+	
+	
+	if server_conn != null: # should only be == null if we started this level w/ F6
+		server_conn.player = new_player
+		CharacterSelect.assign_skin(id,server_conn.character_texture_id)
+		# tell everyone about the new player and the new player the current players
+		Debug.log("Spawning Player ", id, " at ", pos)

@@ -90,28 +90,36 @@ func start_ragdoll(duration: float, prevent_move_check: bool, force : bool = fal
 
 # This is seperate so if something else happens, this fucntion can be called to end the ragdoll state if the start_ragdoll script breaks after ragdolling
 # Call this to end ragdoll
-func end_ragdoll():
-	if multiplayer.is_server(): confirm_end_ragdoll.rpc()
-	else: end_ragdoll_request.rpc_id(1)
+func end_ragdoll(respawn : bool = false):
+	if multiplayer.is_server(): confirm_end_ragdoll.rpc(respawn)
+	else: end_ragdoll_request.rpc_id(1,respawn)
 
 # Has the Host call the ragdoll so everyone recieves it.
 @rpc("any_peer", "reliable")
-func end_ragdoll_request():
-	if multiplayer.is_server(): confirm_end_ragdoll.rpc()
+func end_ragdoll_request(respawn : bool):
+	if multiplayer.is_server(): confirm_end_ragdoll.rpc(respawn)
 
 @rpc("any_peer", "call_local", "reliable")
-func confirm_end_ragdoll():
+func confirm_end_ragdoll(respawn : bool):
 	# If ragdoll is on the floor(Or close Enough) it will spawn the player at the ragdolls position.
 	# If ragdoll isn't on valid ground(Clipped through map)
-	if is_valid_ground() and !player.force_respawn:
+	##NEEDS a respawn
+	if player.force_respawn and not respawn:
+		return
+	
+	if respawn:
+		var player_spawnpoints = get_tree().current_scene.get_node("%Players")
+		assert(player_spawnpoints,"no spawnpoint node???")
+		player.global_position = player_spawnpoints.get_safe_spawn_point()
+	else:
 		player.global_position = self.get_node("Physical Bone Pelvis").global_position + Vector3(0, 1.5, 0)
-	elif not is_valid_ground()[0] or player.force_respawn:
-		var player_spawnpoints = get_tree().current_scene.get_node("Players")
-		if player_spawnpoints:
-			player.global_position = player_spawnpoints.get_safe_spawn_point()
-		else:
-			Debug.log_err("No spawner found in scene, and player ragdolled onto invalid ground. Player will be teleported to world origin.")
-			player.global_position = Vector3.ZERO + Vector3(0, 1.5, 0)
+	#if is_valid_ground() and !player.force_respawn:
+		
+	#elif not is_valid_ground()[0] or player.force_respawn:
+		#
+		#else:
+			#Debug.log_err("No spawner found in scene, and player ragdolled onto invalid ground. Player will be teleported to world origin.")
+			#player.global_position = Vector3.ZERO + Vector3(0, 1.5, 0)
 
 	physical_bones_stop_simulation()
 	player.is_ragdolled = false
