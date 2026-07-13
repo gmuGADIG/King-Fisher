@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c6dqd4qu5q6om"]
+
+[ext_resource type="Texture2D" uid="uid://cng8lbdfkrhmy" path="res://art/3d-materials/Slopadillo.png" id="1_sio75"]
+
+[resource]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_sio75")
+roughness = 0.0

@@ -208,11 +208,13 @@ func start_the_game():
 		Debug.log("Song Selected: ",song_name)
 		#var song_index : int = randi_range(0,song_pool)
 		##TODO: More stuff added to this to set up in WorldGameplay
+		
 		set_up_round_settings.rpc(
 			song_name,
 			LobbySettings.roundTime,
 			LobbySettings.fishSpawn,
-			LobbySettings.itemSpawn
+			LobbySettings.itemSpawn,
+			BananaPeel.armadillo_mode
 		)
 		##TODO: Set up item pool
 		
@@ -232,9 +234,15 @@ func start_the_game():
 	
 
 @rpc("authority","call_local","reliable")
-func set_up_round_settings(song_name : String, round_time : float, fish_spawn : LobbySettings.SpawnRate, item_spawn : LobbySettings.SpawnRate) -> void:
+func set_up_round_settings(song_name : String,
+							round_time : float,
+							fish_spawn : LobbySettings.SpawnRate, 
+							item_spawn : LobbySettings.SpawnRate,
+							armadillo_mode : bool
+						) -> void:
 	WorldGameplay.song = LobbySettings.song_pool[song_name]
 	WorldGameplay.round_time = round_time
+	BananaPeel.armadillo_mode = armadillo_mode
 	##TODO: Modify Fish Spawn Rate
 	##TODO: Modify Item Spawn Rate
 	

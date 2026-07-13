@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="6_feijl"]
 [ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="7_3c3m4"]
 [ext_resource type="PackedScene" uid="uid://oeceqna2vrke" path="res://items/item_brick/brick_item.tscn" id="8_8hqjo"]
+[ext_resource type="PackedScene" uid="uid://bbr4yioeph7xy" path="res://art/3d-assets/Armadillo.glb" id="10_jix1e"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cemo4"]
 viewport_path = NodePath("ItemViewport")
@@ -25,7 +26,7 @@ texture = SubResource("ViewportTexture_cemo4")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("1_rdw6a")
-visible_item = "BananaPeel"
+visible_item = "Armadillo"
 
 [node name="ItemViewport" type="SubViewport" parent="." unique_id=1275166423]
 own_world_3d = true
@@ -50,6 +51,7 @@ unique_name_in_owner = true
 
 [node name="BananaPeel" parent="ItemViewport/Root/ItemRoot" unique_id=1091538548 instance=ExtResource("1_cemo4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4636166, 0.057698607, 0.23433483)
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/BananaPeel" unique_id=1069185331]
 transform = Transform3D(1, 0, 0, 0, 0.9754654, 0.22015266, 0, -0.22015266, 0.9754654, 0.4636166, 0.8432065, 1.2656652)
@@ -121,7 +123,6 @@ spot_angle_attenuation = 2.9408832
 [node name="Ziplock Bag" parent="ItemViewport/Root/ItemRoot" unique_id=1566519324 instance=ExtResource("5_vu8t3")]
 transform = Transform3D(-4.371139e-08, 0.2317479, -0.9727759, 0, 0.9727759, 0.2317479, 1, 1.0130022e-08, -4.2521386e-08, 0, 0.486, -0.18)
 visible = false
-duration = 10.0
 buff_texture = null
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Ziplock Bag" unique_id=1472514874]
@@ -167,3 +168,28 @@ spot_angle_attenuation = 1.918839
 [node name="OmniLight3D" type="OmniLight3D" parent="ItemViewport/Root/ItemRoot/Brick" unique_id=1093963857]
 transform = Transform3D(2.5136712, -3.5762787e-07, -1.7881393e-07, 1.1920929e-07, 2.513671, -2.9802322e-07, -5.9604645e-08, -5.9604645e-08, 2.5136712, 0.59190035, -0.10263634, -0.9318243)
 light_energy = 0.358
+
+[node name="Armadillo" parent="ItemViewport/Root/ItemRoot" unique_id=1877560320 instance=ExtResource("10_jix1e")]
+transform = Transform3D(1.4809349, 0, -0.5923317, 0, 1.595, 0, 0.5923317, 0, 1.4809349, 0.185, 0.215, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Armadillo" unique_id=222395440]
+transform = Transform3D(1, 0, 0, 0, 0.9754654, 0.22015266, 0, -0.22015266, 0.9754654, 0.4636166, 0.8432065, 1.2656652)
+light_energy = 0.688
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = -4.88
+spot_angle = 118.66
+spot_angle_attenuation = 3.7656317
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Armadillo" unique_id=647787196]
+transform = Transform3D(0.58711934, -0.58806676, 0.55629873, 0.541113, 0.7962236, 0.27060044, -0.6020693, 0.14214574, 0.78568894, 2.35, 0.843, 1.266)
+light_energy = 1.727
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = -4.88
+spot_angle = 180.0
+spot_angle_attenuation = 3.7656317
+
+[editable path="ItemViewport/Root/ItemRoot/Armadillo"]

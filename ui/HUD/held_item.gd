@@ -13,8 +13,11 @@ var item_to_string_table: Dictionary[Script, String] = {
 	Brick: "Brick"
 }
 
-# func _ready() -> void:
-# 	item_sprite.visible_item = "" # clear visible item
+func _ready() -> void:
+	if BananaPeel.armadillo_mode:
+		item_to_string_table.set(BananaPeel,"SlopAdillo")
+	else:
+		item_to_string_table.set(BananaPeel,"BananaPeel")
 
 func clear_item() -> void:
 	item_sprite.visible_item = ""
