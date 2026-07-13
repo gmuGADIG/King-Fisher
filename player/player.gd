@@ -92,6 +92,10 @@ var moai_fish_active: bool = false
 
 var fishing_minigame : FishingMinigame
 
+var ready_state := false:
+	set(v):
+		ready_state = v
+		Multiplayer._handle_ready_up(v)
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -271,7 +275,7 @@ func _mouse_input(event : InputEvent) -> void:
 						fishing_minigame.start(body.fish)
 					else:
 						# Fishing in the lobby is equivalent to readying up.
-						Multiplayer._handle_ready_up()
+						ready_state = not ready_state
 					
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
@@ -541,6 +545,9 @@ func set_name_visible(val : bool) -> void:
 
 func on_fishing_finished(succeeded:bool) -> void:
 	if succeeded:
+		if golden_worm_active:
+			current_fishing_shadow.fish = Fish.sushi_fishes.pick_random()
+
 		var fish : Fish = current_fishing_shadow.fish
 		if is_multiplayer_authority():
 			FishDex.caught_fish(fish)

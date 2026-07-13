@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqaq4"]
 size = Vector3(1.9138184, 1, 3.5633545)
 
-[node name="Item" unique_id=1566519324 instance=ExtResource("1_qsp0l")]
+[node name="ButterflyNet" unique_id=1566519324 instance=ExtResource("1_qsp0l")]
 script = ExtResource("2_gqaq4")
 item_name = "Butterfly Net"
 description = "When used, the player swings the net, playing an animation. If the mallet connects with another player it will steal a random fish from them. It can only affect 1 player in the hitbox and gets discarded after use. "
