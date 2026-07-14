@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="1_1ny5p"]
 [ext_resource type="Script" uid="uid://ssx7ri0ins75" path="res://items/item_gluegrenade/item_glue_grenade.gd" id="2_1e24p"]
 [ext_resource type="Texture2D" uid="uid://2dxp6q4887l5" path="res://temp/temp_art/gleep.png" id="2_xhcbl"]
+[ext_resource type="PackedScene" uid="uid://bexjqusttkrm6" path="res://art/3d-assets/GlueGranadine.glb" id="4_dxa6s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1e24p"]
 radius = 1.0517309
@@ -48,6 +49,9 @@ As they always do, F.I.S.H.E. turned this sticky situation into an opportunity. 
 When asked how they felt about the increasingly negative feedback F.I.S.H.E. been receiving, their CEO said \"I'm rubber, you’re glue\"
 "
 
+[node name="GlueGranadine" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=82581485 instance=ExtResource("4_dxa6s")]
+transform = Transform3D(1, 0, 0, 0, 0.8829886, -0.4693945, 0, 0.4693945, 0.8829886, 0, -0.11261624, 0)
+
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=1191979190]
 collision_layer = 3
 collision_mask = 3
@@ -56,10 +60,7 @@ collision_mask = 3
 shape = SubResource("SphereShape3D_1e24p")
 debug_color = Color(0.9254902, 0, 0.6784314, 1)
 
-[node name="Sprite3D" type="Sprite3D" parent="." index="2" unique_id=721164333]
-texture = ExtResource("2_xhcbl")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3" unique_id=1889681586]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="2" unique_id=1889681586]
 emitting = false
 amount = 50
 explosiveness = 1.0

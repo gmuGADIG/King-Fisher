@@ -121,7 +121,7 @@ spot_angle = 74.16
 spot_angle_attenuation = 2.9408832
 
 [node name="Ziplock Bag" parent="ItemViewport/Root/ItemRoot" unique_id=1566519324 instance=ExtResource("5_vu8t3")]
-transform = Transform3D(-4.371139e-08, 0.2317479, -0.9727759, 0, 0.9727759, 0.2317479, 1, 1.0130022e-08, -4.2521386e-08, 0, 0.486, -0.18)
+transform = Transform3D(1, 0, 0, 0, 0.9727758, 0.2317479, 0, -0.2317479, 0.9727758, 0, 0, 0)
 visible = false
 buff_texture = null
 
@@ -136,7 +136,7 @@ spot_angle = 141.19
 spot_angle_attenuation = 2.2457364
 
 [node name="Rubber Mallet" parent="ItemViewport/Root/ItemRoot" unique_id=78825208 instance=ExtResource("6_feijl")]
-transform = Transform3D(0.2477393, -1.6752563e-09, 0.14303233, -0.14303233, -6.252142e-09, 0.2477393, 1.6752563e-09, -0.28606468, -6.252142e-09, -0.207, 0.16589639, 0.60799485)
+transform = Transform3D(-1.2504285e-08, 0.28606468, 0, -0.14303233, -6.252142e-09, 0.2477393, 0.2477393, 1.0829028e-08, 0.14303233, 0, 0, 0)
 visible = false
 
 [node name="SpotLight3D6" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Rubber Mallet" unique_id=1033843042]
@@ -149,12 +149,11 @@ spot_attenuation = 0.0
 spot_angle = 108.98
 
 [node name="Glue Grenade" parent="ItemViewport/Root/ItemRoot" unique_id=1606150827 instance=ExtResource("7_3c3m4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025, 0.53, -1.57)
 visible = false
 glue_icon = null
 
 [node name="Brick" parent="ItemViewport/Root/ItemRoot" unique_id=768764637 instance=ExtResource("8_8hqjo")]
-transform = Transform3D(0.24221411, -0.12997407, -0.28758195, -0.13306315, 0.28666002, -0.24162896, 0.28616577, 0.24330455, 0.13105865, 0.012, 0.529, 0.88)
+transform = Transform3D(0.3608443, 0.16749837, 0, -0.13306315, 0.28666002, -0.24162896, -0.10173445, 0.2191681, 0.31603757, 0, 0, 0)
 visible = false
 
 [node name="SpotLight3D7" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Brick" unique_id=1605178848]
@@ -171,7 +170,6 @@ light_energy = 0.358
 
 [node name="Armadillo" parent="ItemViewport/Root/ItemRoot" unique_id=1877560320 instance=ExtResource("10_jix1e")]
 transform = Transform3D(1.4809349, 0, -0.5923317, 0, 1.595, 0, 0.5923317, 0, 1.4809349, 0.185, 0.215, 0)
-visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Armadillo" unique_id=222395440]
 transform = Transform3D(1, 0, 0, 0, 0.9754654, 0.22015266, 0, -0.22015266, 0.9754654, 0.4636166, 0.8432065, 1.2656652)
