@@ -85,6 +85,8 @@ static var songSelect: int
 @onready var more_time_button : Button = %MoreButton
 @onready var less_time_button : Button = %LessButton
 
+@onready var banana_item_sprite : ItemSprite = $Background/SettingsMenu/ItemSelection/HBoxContainer/BananaPeel/ItemSprite3
+
 func set_greyed_out(node: Control, setting: bool) -> void:
 	const param_name = "greyed_out"
 	var mat := node.material as ShaderMaterial
@@ -209,6 +211,10 @@ func set_buttons_from_bitmask(buttons: Array[Node], bitmask: int) -> void:
 func open() -> void:
 	if not multiplayer.is_server():
 		return
+	if BananaPeel.armadillo_mode:
+		banana_item_sprite.visible_item = "Armadillo"
+	else:
+		banana_item_sprite.visible_item = "BananaPeel"
 	show()
 	UIState.ui_state = UIState.State.LOBBY_SETTINGS
 

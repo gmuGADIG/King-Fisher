@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://7jnn21bdcshv" path="res://world/lobby/armadillo/armadillo.gd" id="1_0n5ix"]
 [ext_resource type="PackedScene" uid="uid://bbr4yioeph7xy" path="res://art/3d-assets/Armadillo.glb" id="2_62yca"]
-[ext_resource type="Material" uid="uid://c6dqd4qu5q6om" path="res://art/3d-materials/armadillo_material.tres" id="3_p285n"]
 [ext_resource type="AudioStream" uid="uid://bebqhq1joresp" path="res://sound/sfx/player/fishing/fitchcatch3.mp3" id="3_trypd"]
 [ext_resource type="AudioStream" uid="uid://cs0oknyeydg6n" path="res://sound/sfx/player/fishing/FishCatchFail.mp3" id="4_62yca"]
+[ext_resource type="Texture2D" uid="uid://cng8lbdfkrhmy" path="res://art/3d-materials/Slopadillo.png" id="5_p285n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p285n"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("5_p285n")
+roughness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8x4l0"]
 shading_mode = 0
@@ -41,7 +48,7 @@ disable_sound = ExtResource("4_62yca")
 transform = Transform3D(1.74, 0, 0, 0, 1.74, 0, 0, 0, 1.74, 0, 0, 0)
 
 [node name="Armadillo" parent="Armadillo/Node" parent_id_path=PackedInt32Array(1877560320, 1857077457) index="0" unique_id=1612515961]
-material_override = ExtResource("3_p285n")
+material_override = SubResource("StandardMaterial3D_p285n")
 
 [node name="Outline" type="MeshInstance3D" parent="Armadillo/Node/Armadillo" index="0" unique_id=1290331427]
 unique_name_in_owner = true

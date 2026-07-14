@@ -3,7 +3,8 @@ extends SwingableItem
 
 # The butterfly net! This item steals a random fish from the victim's livewell.
 
-
+#func _ready() -> void:
+	#super._ready()
 ## This function is connected to the item entering a body!
 ## If the item is held, and the body entered is not the holder,
 ## do something to them. (Override this in a child class.)

@@ -8,11 +8,11 @@ var hit_ground : bool
 
 func _ready() -> void:
 	if armadillo_mode:
-		$BANANNA2.hide()
-		$Armadillo.show()
+		%BANANNA2.hide()
+		%Armadillo.show()
 	else:
-		$BANANNA2.show()
-		$Armadillo.hide()
+		%BANANNA2.show()
+		%Armadillo.hide()
 	super._ready()
 
 func _on_land() -> void:
