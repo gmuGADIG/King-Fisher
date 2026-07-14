@@ -463,6 +463,7 @@ func pick_up_item(item: Item) -> void:
 	if held_item!=null: return
 	# TODO: Parent to player hand instead, with an offset for appropriate placement.
 	# Item origin is center/pickup area. Item hold point is offset in pos+rot.
+	item.stop_animation()
 	item.reparent($DefaultPlayer, false)
 	held_item = item
 	held_item.player = self

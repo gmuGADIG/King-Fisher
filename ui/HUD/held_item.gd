@@ -18,6 +18,7 @@ func _ready() -> void:
 		item_to_string_table.set(BananaPeel,"SlopAdillo")
 	else:
 		item_to_string_table.set(BananaPeel,"BananaPeel")
+	clear_item()
 
 func clear_item() -> void:
 	item_sprite.visible_item = ""

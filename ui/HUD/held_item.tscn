@@ -41,7 +41,7 @@ offset_top = 20.0
 offset_right = 81.0
 offset_bottom = 81.0
 texture = SubResource("ViewportTexture_pk4qh")
-visible_item = "- nothing -"
+visible_item = "Helmet"
 
 [node name="ItemHook" type="TextureRect" parent="." unique_id=223968066]
 layout_mode = 1

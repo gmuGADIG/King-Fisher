@@ -19,6 +19,8 @@ var player: Player = null
 signal item_got_picked_up
 
 func _ready() -> void:
+	$ItemAnimation.play("spin",-1,randf_range(0.9,1.1))
+	$ItemAnimation.seek(randf_range(0,$ItemAnimation.current_animation_length))
 	self.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node3D) -> void:
@@ -26,6 +28,7 @@ func _on_body_entered(body: Node3D) -> void:
 	if is_held || !body.is_in_group("Player"): return
 	if body.has_method("pick_up_item"): 
 		item_got_picked_up.emit()
+		self.rotation_degrees.y = 0
 		# We call deferred because this is physics and getting picked up involves reparenting.
 		# No fucking with the scene tree before physics is done happening!
 		request_pick_up_item.rpc(body.get_multiplayer_authority())
@@ -43,3 +46,8 @@ func use() -> void:
 	else:
 		Debug.log("Base Item used.")
 		queue_free()
+
+func stop_animation() -> void:
+	$ItemAnimation.stop()
+	$Visuals.rotation = Vector3.ZERO
+	$Visuals.position = Vector3.ZERO
