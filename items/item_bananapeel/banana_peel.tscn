@@ -10,7 +10,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_mwydt"]
 radius = 0.9446206
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52u3r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3j6y8"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 1
@@ -58,7 +58,7 @@ transform = Transform3D(1.74, 0, 0, 0, 1.74, 0, 0, 0, 1.74, 0, 0, -0.21022841)
 visible = false
 
 [node name="Armadillo" parent="Armadillo/Node" parent_id_path=PackedInt32Array(1877560320, 1857077457) index="0" unique_id=1612515961]
-material_override = SubResource("StandardMaterial3D_52u3r")
+material_override = SubResource("StandardMaterial3D_3j6y8")
 
 [node name="Outline" type="MeshInstance3D" parent="Armadillo/Node/Armadillo" index="0" unique_id=978573820]
 unique_name_in_owner = true

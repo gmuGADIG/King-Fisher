@@ -684,6 +684,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_1b0y7")
+visible_item = "BananaPeel"
 
 [node name="Brick" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1021693364]
 material = SubResource("ShaderMaterial_i0nya")
