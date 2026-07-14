@@ -513,6 +513,8 @@ func give_fish(fish : Fish) -> void:
 	fish_inventory.append(fish)
 	fish_catch_sound(fish.grade)
 	score+=fish.get_score()
+	if is_multiplayer_authority():
+		get_tree().current_scene.get_node("%GameHud").show_score_change(fish.get_score())
 	if fish.grade == Fish.Grade.SUSHI:
 		buff_player(fish)
 	#livewell.addFish(fish)
@@ -527,6 +529,8 @@ func take_fish(fish: Fish) -> void:
 		if is_multiplayer_authority():
 			$Sounds/FishCatchFail.play()
 		score-=fish.get_score()
+		if is_multiplayer_authority():
+			get_tree().current_scene.get_node("%GameHud").show_score_change(-fish.get_score())
 		#TODO update livewell ui
 		if is_multiplayer_authority():
 			Livewell.update_inventory_visuals(fish_inventory,score)

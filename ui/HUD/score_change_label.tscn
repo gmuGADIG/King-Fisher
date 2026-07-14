@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dda6d1o25sxn0"]
+
+[ext_resource type="Script" uid="uid://b4ujue3q8076j" path="res://ui/HUD/score_change_label.gd" id="1_nb62v"]
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_wyyal"]
+
+[node name="ScoreChangeLabel" type="Label" unique_id=1746505600]
+custom_minimum_size = Vector2(50, 0)
+offset_right = 50.0
+offset_bottom = 14.0
+theme = ExtResource("1_wyyal")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 15
+text = "+300"
+horizontal_alignment = 1
+script = ExtResource("1_nb62v")
+rise_time = 3.0
