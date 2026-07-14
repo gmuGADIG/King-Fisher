@@ -19,6 +19,7 @@ Some of the Pollywood’s natives might complain about their planet being “clo
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)
 
 [node name="ZiplocUse" parent="." index="1" unique_id=118816862 instance=ExtResource("4_v6unp")]
+bus = &"SFX"
 
 [node name="PickupShape" parent="." index="2" unique_id=829023768]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
