@@ -19,9 +19,7 @@ var player: Player = null
 signal item_got_picked_up
 
 func _ready() -> void:
-	$ItemAnimation.play("spin",-1,randf_range(0.9,1.1))
-	$ItemAnimation.seek(randf_range(0,$ItemAnimation.current_animation_length))
-	self.body_entered.connect(_on_body_entered)
+	pass
 
 func _on_body_entered(body: Node3D) -> void:
 	# Items don't care about collisions if they're from non-players or if the item is already held.
@@ -47,7 +45,12 @@ func use() -> void:
 		Debug.log("Base Item used.")
 		queue_free()
 
-func stop_animation() -> void:
+func start_spin() -> void:
+	$ItemAnimation.play("spin",-1,randf_range(0.9,1.1))
+	$ItemAnimation.seek(randf_range(0,$ItemAnimation.current_animation_length))
+	self.body_entered.connect(_on_body_entered)
+
+func stop_spin() -> void:
 	$ItemAnimation.stop()
 	$Visuals.rotation = Vector3.ZERO
 	$Visuals.position = Vector3.ZERO

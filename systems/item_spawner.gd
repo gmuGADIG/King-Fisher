@@ -116,6 +116,7 @@ func spawnItem(itemIndex: int, spawnPosition: Vector3) -> void:
 	var newItem: Item = items[itemIndex].instantiate()
 	newItem.position = spawnPosition
 	add_sibling(newItem)
+	newItem.start_spin()
 	newItem.item_got_picked_up.connect(_on_item_got_picked_up)
 
 
