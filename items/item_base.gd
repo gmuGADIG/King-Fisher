@@ -37,6 +37,8 @@ func _on_body_entered(body: Node3D) -> void:
 func request_pick_up_item(player_id : int) -> void:
 	if Multiplayer.player_list.has(player_id):
 		Multiplayer.player_list[player_id].player.pick_up_item.call_deferred(self)
+	else:
+		assert(false,"NO PERSON??")
 
 ## The generic use function. You can write your own in a class that extends Item.
 func use() -> void:

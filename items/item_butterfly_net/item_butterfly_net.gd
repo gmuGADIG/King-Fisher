@@ -20,16 +20,21 @@ func effect_on_contact(body: Node3D):
 		Debug.log("Doing something to %s!" % body.name)
 		var hitPlayer: Player = body
 		
+		##Does not take a fish if they are broke
+		if hitPlayer.fish_inventory.is_empty():
+			return
 		
 		##FIXME: There's a chance this runs numPlayers times, which is unintended
-		##Also FIXME: Resources are not serializable
 		Debug.log("I hit a guy, they have ",hitPlayer.fish_inventory)
 		var target_fish : Fish
 		if hitPlayer.has_ziplock_bag:
-			target_fish = hitPlayer.fish_inventory.filter(
+			var non_sushis : Array[Fish] = hitPlayer.fish_inventory.filter(
 				func(fish : Fish) -> bool:
 					return fish.grade != Fish.Grade.SUSHI
-			).pick_random()
+			)
+			if non_sushis.is_empty():
+				return
+			target_fish = non_sushis.pick_random()
 		else:	
 			target_fish = hitPlayer.fish_inventory.pick_random()
 		

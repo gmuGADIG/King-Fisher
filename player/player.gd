@@ -511,6 +511,7 @@ func unequip_helmet() -> void:
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player " + self.name + " got a " + fish.fish_name)
 	fish_inventory.append(fish)
+	fish_catch_sound(fish.grade)
 	score+=fish.get_score()
 	if fish.grade == Fish.Grade.SUSHI:
 		buff_player(fish)
@@ -523,6 +524,8 @@ func give_fish(fish : Fish) -> void:
 func take_fish(fish: Fish) -> void:
 	if fish_inventory.has(fish):
 		fish_inventory.erase(fish)
+		if is_multiplayer_authority():
+			$Sounds/FishCatchFail.play()
 		score-=fish.get_score()
 		#TODO update livewell ui
 		if is_multiplayer_authority():
@@ -554,17 +557,7 @@ func on_fishing_finished(succeeded:bool) -> void:
 		if is_multiplayer_authority():
 			FishDex.caught_fish(fish)
 			
-			match fish.grade:
-				Fish.Grade.LEFTOVERS:
-					$Sounds/LeftoverCatch.play()
-				Fish.Grade.FRESH:
-					$Sounds/FreshCatch.play()
-				Fish.Grade.PREMIUM:
-					$Sounds/PremiumCatch.play()
-				Fish.Grade.SUSHI:
-					$Sounds/SushiCatch.play()
-				_:
-					$Sounds/LeftoverCatch.play()
+			#fish_catch_sound(fish.grade)
 				
 		current_fishing_shadow.kill_fish_shadow.rpc()
 		give_fish_serialized.rpc(fish.serialize())
@@ -575,6 +568,22 @@ func on_fishing_finished(succeeded:bool) -> void:
 			$Sounds/FishCatchFail.play()
 		current_fishing_shadow.current_fishing_state.rpc(false)
 	current_fishing_shadow = null
+
+func fish_catch_sound(grade : Fish.Grade) -> void:
+	if not is_multiplayer_authority():
+		return
+	match grade:
+		Fish.Grade.LEFTOVERS:
+			$Sounds/LeftoverCatch.play()
+		Fish.Grade.FRESH:
+			$Sounds/FreshCatch.play()
+		Fish.Grade.PREMIUM:
+			$Sounds/PremiumCatch.play()
+		Fish.Grade.SUSHI:
+			$Sounds/SushiCatch.play()
+		_:
+			$Sounds/LeftoverCatch.play()
+
 
 @rpc("any_peer","call_local","reliable")
 func apply_bone_force(vec : Vector3) -> void:
