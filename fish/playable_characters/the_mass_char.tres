@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://b8ygkq6uomj2n"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_mwsft"]
+
+[resource]
+script = ExtResource("1_mwsft")
+fish_name = "The Mass"
+description = "Mass is a . . .
+The being called Mass is . . .
+The species of the humanoid-shaped being called Mass is unknown. Its biological or mechanical origin is unknown. No one has been able to identify any details of its functioning, language, aims, or reasoning. It simply appeared one day at F.I.S.H.E.’s floating headquarters—a privately guarded planet that should be unreachable for the public—communicated its demand through an unidentified, advanced digital device, and refused to leave until it was invited to the Intergalactic Fishbowl. After an initial refusal, it somehow turned the entire station dark, removed electricity, and starting sucking up objects into itself, functionally becoming a human-shaped black hole. The threat worked, leading to the Mass’s quick acceptance. (This was much to the dismay of the tournament organizers, who had to reject another planned contestant at the last minute.)
+
+It was later hypothesized and confirmed that Mass emerged from the giant black hole at the center of Pollywood’s home galaxy. Nearby planets orbit around this black hole, and occasional materials or space travelers are lost to it, but never before has any new being come out of it. The Mass remains private and standoffish, refusing close inspection and avoiding questions about its possible birth or society. It rarely communicates with other contestants or organizers, and rarely emits vocal speech, which is unintelligible to all linguists when spoken. 
+
+However, its fishing skills at least seem to meet F.I.S.H.E.’s mark. In fact, it behaves so naturally in the water—when swimming, fishing, sailing, or anything else—that some suspect it may have cold-blooded, fishlike relations. All aquatic creatures seem especially drawn to it, even when it is not exercising its black hole powers. So far, this is the closest guess scientists have for classifying the unnamed Mass. Recent efforts to get closer to the truth have been made challenging by the Mass’ insistence on maintaining a “TV-friendly” appearance for the duration of the tournament.
+"
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

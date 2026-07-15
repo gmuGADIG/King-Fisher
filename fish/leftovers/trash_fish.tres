@@ -8,5 +8,13 @@ script = ExtResource("1_em47p")
 fish_name = "Trash Fish"
 grade = 1
 sprite = ExtResource("2_a8auk")
-description = "Ooh, stinky..."
+catch_blurb = "Fishdex scan buffering..."
+description = "This fish is the embodiment of tried and true evolution—that is, the evolution of a mass-producing species with a consequent need to mass-dispose. Theories state that this species fell from Monol-ITH, a neighboring trash-planet (which was once a planetoid, which was once a meteoroid, which was once a singular crushed can of sardine soda). The acronym at its tail stands for “Intergalactic Trash Heap.”
+
+Scans indicate that this specimen descends from a land mammal. While a soft, quadripedal form would make scavenging difficult on Monol-ITH, its evolution into a swift navigator allows it to plunge deep into the heap to find untouched deposits of nutrients.
+
+This fish, then, is a stupendous breed that brings F.I.S.H.E. executives to tears—what was originally (and still is) considered improper handling of waste may instead be a catalyst for new life. However, do not rely on this fish for sustenance. It is nothing more than the garbage it is made out of, and its scavenging nature means it likely hasn’t kept any leftovers for you.
+
+ERROR LOG: Major incidents of Fishdex hallucination reported. Traces of evolution may be: in-tact DNA from expired leftovers. Signs of life may be: entirely absent. Chances of Monol-ITH’s formation being net positive may be: non-nonzero.
+"
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

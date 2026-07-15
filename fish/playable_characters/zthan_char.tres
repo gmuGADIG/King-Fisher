@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://dyx7wp1mxg40a"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_smrgf"]
+
+[resource]
+script = ExtResource("1_smrgf")
+fish_name = "Zthan"
+description = "Zthan is a middle-aged humanoid who hails from Guryola, a distant planet that the rest of the galaxy still has little information about. Apparently its technological advancements are largely digital, similar to Earth. When scanning the universe for possible contestants, F.I.S.H.E. scouts heard rumors about a resident there—that he was so skilled at fishing, he was making planetwide news, and that he had earned more money than any other fisher in history.
+
+At the time, the leadership of F.I.S.H.E. did not realize the colloquial difference between fishing and “phishing.” This ignorance has since been corrected.
+
+Unfortunately, this correction wasn’t made in time to avoid the invitation of Zthan to the Intergalactic Fishbowl, and his subsequent acceptance. It seems that he is the first accepted contestant in history that has never actually caught a fish before. All the money he made was, in fact, acquired illegally through phishing scams directed at various Guryola planetary leaders. It was an impressive business, but not one that should have merited participation in the Fishbowl. Zthan, however, saw the grand prize as another opportunity to get rich through sketchy means, and eagerly secured his spot. Fortunately, this mistake will not happen again.
+
+Interestingly, upon Zthan’s arrival in Pollywood, populations of local “Phishing Scam” fish began to suddenly swell. Not only that, but the fish tend to flock to him in the water as if he were some great hero or forefather. He likewise shows great entertainment at their presence, making a habit of quoting the scams they display to by-standing tournament staff.
+
+A fun fact about Guryolans is that they refer to all users on their wide digital platform as “fish,” while fish that are able to trick other fish online can also be “fishers” (or “phishers,” depending on circumstance). They use water and swimming metaphors to describe online activity—the web is “the ocean,” and platforms are “reefs.” Zthan was especially active, spending all his time digitally and rarely leaving his house. This means he’s also developed a pale, clammy (or fishlike) appearance."
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

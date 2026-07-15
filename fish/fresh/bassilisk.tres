@@ -8,7 +8,13 @@ script = ExtResource("1_ijjly")
 fish_name = "Bassilisk"
 grade = 2
 sprite = ExtResource("2_ijjly")
-description = "While the name of the species and its appearance is quite daunting, this particular fish is quite peaceful when left alone. The specimens are quite long, with some reports of reaching up to 9 to 10 meters in length. From our own research, we believe that this specimen, in a controlled environment, could continue to grow even longer. The reason for this size we’ve gathered is for defence purposes. It is able to whip its tail and spit out an acidic substance and its size plays a role in its capabilities to do so. It is the only known fish that can lay eggs. Eggs are deceptively small and are kept under the mother’s belly. Pregnant females are highly territorial and will attack anything that comes near besides its mate.
+catch_blurb = "Don’t look it in the eyes!!"
+description = "While the name and appearance of this species are daunting, Bassilisks are usually very peaceful when left alone. They mostly prey upon floor-dwelling flatfish and shellfish, then retreat to the caves where they nest. They form their own communities, bringing their kills to share among the group, and setting aside extra portions for new or expecting mothers. Their behavior demonstrates a rare degree of intelligence even among Pollywood’s curiosities.
 
-To avoid any unnecessary damages, contestants should only be permitted to fish for males. Make sure that all fishing regions are away from any known Bassilisk breeding grounds. Males have been the least volatile of the two and only attack when they feel threatened."
+Full-grown specimens are monstrous, the largest recorded reaching 10 meters in length. Their size is mainly used for defense purposes. Bassilisks are able to whip their tails and spit out an acidic substance to deter predators, and their size grants them impressive speed to do so. These natural weapons make adult Bassilisks apex predators, but their eggs, which have a year-long incubation period, are extremely vulnerable. Eggs are deceptively small and are kept under the mother’s belly. Pregnant and egg-guarding females are highly territorial and will attack anything that comes near except their mate. 
+
+With no working explanation as to how, Pollywood Bassilisks are thought to be related to the basilisks from Earth mythology, but with the key evolutionary advantage of swimming speed. They can also reproduce on their own, while Earth basilisks were allegedly a strange spawn of toad and rooster with no reproductive capacity. Similarly, both have extremely tough outer scales, making the mouth one of their only weak spots.
+
+To avoid any unnecessary damages, contestants are only permitted to fish for males—distinguished by yellow markings on their fins and body. However, remain cautious when one bites your hook, for the stories are all true: looking into the eyes of a Bassilisk means instant paralysis.
+"
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

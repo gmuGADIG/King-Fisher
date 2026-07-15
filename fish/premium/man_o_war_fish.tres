@@ -5,12 +5,17 @@
 
 [resource]
 script = ExtResource("1_solsc")
-fish_name = "Man-o-War Fish"
+fish_name = "Druyip Man o' War"
 grade = 3
 sprite = ExtResource("2_324cw")
-catch_blurb = "Back from the trenches"
-description = "The Man o' War are extremely toxic, colonial creatures made up of different organisms. They are recognizable by their transparent blue, gas-filled heads that almost look like hats and 30-foot-long stinging tentacles.
-They work together in groups called legions, drifting around in practiced patterns as if patrolling something. Though they don't seek violence, a Man o' War will paralyze, injure, and on rare occasions kill anyone who gets too close. Their battle strategies are so advanced that the Druyip navy has begun to integrate their tactics.
-In terms of relations with other fish, The Man o' War seem to have a mutual respect for Swordfish. They both believe in only using force when necessary. On the other hand, Man o' war seems to have a violent disdain for British fish. British fish are the only thing that can make a Man o' War break its patrol.
-No one knows what the Man o' War are protecting because no one has managed to break through their formation. The leading theory is that the Man o' War are protecting their young."
+catch_blurb = "Back from the trenches."
+description = "The Man o' War is the only known genus found thriving across so many separate galaxies. Their genetic similarity suggests they once shared a home, which is believed to be none other than the supermassive form of Alcedo Atthis. Their transparent, gas-filled “hats” keep them floating near the surface, and their 30-foot-long, stinging tentacles prevent the passage of organisms of any size. Thus, a popular theory among the Pwaaga is that they were once components of Alcedo Atthis’ immune system, but many scientists still question if she even existed.
+
+Because Man o’ War are colonial creatures, it is a rite of passage for many budding biologists to analyze the small organisms that a Man o’ War is composed of. This exercise sheds light on the subtle differences in fundamental biology across different galaxies. However, because their tentacles can paralyze, injure, or kill those who come into contact with them, it is also considered the most stressful part of the field. A young intern by the name of Marvin once said, “I would rather wrangle a Swordfish.”
+
+On planets with an atmosphere, Man o’ War are pushed by the sail-like protrusions on their heads. However, Druyip* Man o’ War are often found with sailor hats** and weighted medals. These accessories appear to keep the Men o’ War in place by blocking their sails and weighing them down. After observing F.I.S.H.E. officials placing these accessories on the Man o’ War, locals have started to theorize that the corporation is exploiting this species’ impenetrable defenses to protect their “trade-secrets-in-a-bottle.” However, no one has managed to break through their formation—some believe they are simply protecting their young.
+
+*Druyip is the original, “dated” name for Pollywood. 
+**A few incidents report sentient behavior from these sailor hats. There is no clear theory on why.
+"
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

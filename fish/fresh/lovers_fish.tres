@@ -5,9 +5,12 @@
 
 [resource]
 script = ExtResource("1_36r1s")
-fish_name = "Lovers Fish"
+fish_name = "The Lovers"
 grade = 2
 sprite = ExtResource("2_bliok")
-catch_blurb = "How are babies made? Well when a daddy fish loves a mommy fish very much…"
-description = "It’s hard to find love in the waters of Pollywood. In this day and age it’s hard for fish to meet other decent fish! What with the unrealistic expectations brought about by fishmedia, the paradox of dating webnets! Oh the horrors… However… These two fish have overcome the odds and found their one true love for life! This male has found his lover and has latched onto her to fuse with her permanently. Their bond is a permanent one. Together they are Bonnie and Clyde! Or Antony and Cleopatra! Or Romeo and Juliet! Because in this bond once the female dies so does the other…"
+catch_blurb = "How are babies made? These fish could definitely show you…"
+description = "It’s hard to find love in the waters of Pollywood. In this day and age, it’s hard for most fish to meet other decent fish. What with the unrealistic expectations brought about by fishmedia (denoted by the romance in the new King Fisher movie, which critics have called “out-of-place” or even “egregious”) and the paradox of dating webnets, it’s becoming truly impossible! Oh the horrors… However, these two fish have overcome the odds and found their one true love! This male has found his lover and has latched on for dear life, fusing on as a permanent sperm producing appendage parasite! Their bond will last for the rest of their lives, as does it for any mated pair in the Lovers species. Together they are Bonnie and Clyde! Or Antony and Cleopatra! Or Romeo and Juliet! Because in this bond, once the female dies, so does the other…
+
+Despite the tragedy of their inevitable demise (as the bond is quite unstable and no female has ever lasted more than a few years after bonding with a male), this species’ romantic destiny is fawned upon by every fish in Pollywood! They’re considered the ideal in terms of love, and “fusing” has become a common trope in new fishmedia. It’s even started popping up in the ads produced by Phishing Scams. F.I.S.H.E. organizers are flabbergasted by this apparent proof of intelligence, and so far have done nothing to combat it. (Although some very…interesting…films have recently been spotted on staff computers…)
+"
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

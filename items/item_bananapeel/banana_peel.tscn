@@ -37,9 +37,12 @@ radius = 0.9446206
 script = ExtResource("2_k385h")
 ragdollTime = 3.0
 description = "When used, the player throws the peel, playing an animation. When the peel lands on the ground it becomes a hazard that will cause the next player to walk on top of it to ragdoll."
-lore = "A banana peel found in King Fisher's trash can. It has small traces of King Fisher’s saliva. He (presumably) ate said banana while (presumably) holding said banana peel. The price for items interacted with by King Fisher have been skyrocketing recently, thus, it was sold for an unspeakable amount of money and donated to the tournament.
+lore = "King Fisher loved bananas. As a Pwaaga born with only one arm, he struggled to enjoy most of his culture’s dining experiences, which often required all four hands to hold some kind of utensil. King Fisher gives a firsthand account on the convenience of snacking on a banana in his most famous written work, the Art of Angling, which is graciously provided to all Fishbowl competitors.
 
-To each their own I guess."
+Presumably, a fanatic found a fresh banana peel in King Fisher’s trash can after his passing. It was bought by F.I.S.H.E. for an outrageous sum of money. To ease a spike of allegations against F.I.S.H.E.’s practices, they promised to “release King Fisher’s banana peel, hidden among others, onto tournament grounds,” and the public has since been more invested in who will become the “rightful heir” to the King Fisher name than in giving F.I.S.H.E. further trouble.
+
+If you find a banana peel, you’re better off throwing it back on the ground than banking on it carrying traces of King Fisher’s saliva on it. And, no—saliva is not sufficient for cloning.
+"
 
 [node name="BANANNA2" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=1955039305 instance=ExtResource("3_k385h")]
 unique_name_in_owner = true
