@@ -3,6 +3,15 @@
 [ext_resource type="FontFile" uid="uid://m4tsacqphblt" path="res://ui/themes/fonts/share_tech_mono/ShareTechMono-Regular.ttf" id="1_jg72k"]
 [ext_resource type="Texture2D" uid="uid://se8x4oy0bfie" path="res://art/UI/holo_ui.png" id="2_4ovmf"]
 [ext_resource type="Texture2D" uid="uid://f0t357s37b7b" path="res://art/ui assets/x_button.png" id="2_f543i"]
+[ext_resource type="Texture2D" uid="uid://rgqcb7ogi4id" path="res://art/UI/holo_ui_grey.png" id="2_u1ova"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7fby"]
+texture = ExtResource("2_u1ova")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.9, 0.9, 0.9, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ckch7"]
 texture = ExtResource("2_4ovmf")
@@ -27,13 +36,6 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 modulate_color = Color(0.75, 0.75, 0.75, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7fby"]
-texture = ExtResource("2_4ovmf")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ovmf"]
 bg_color = Color(0.12036916, 0.26733765, 0.45896107, 1)
 corner_radius_top_left = 30
@@ -54,6 +56,16 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vd4ee"]
+bg_color = Color(0.6474235, 0.93801385, 0.95866007, 1)
+border_width_left = 5
+border_width_right = 5
+border_color = Color(0.64705884, 0.9372549, 0.95686275, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f543i"]
 texture = ExtResource("2_f543i")
@@ -77,6 +89,7 @@ Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_jg72k")
+Button/styles/disabled = SubResource("StyleBoxTexture_u7fby")
 Button/styles/focus = SubResource("StyleBoxTexture_ckch7")
 Button/styles/hover = SubResource("StyleBoxTexture_ckch7")
 Button/styles/normal = SubResource("StyleBoxTexture_vd4ee")
@@ -99,8 +112,9 @@ HeaderMedium/font_sizes/font_size = 24
 HeaderSmall/font_sizes/font_size = 24
 ItemList/font_sizes/font_size = 24
 ItemList/fonts/font = ExtResource("1_jg72k")
-Label/colors/font_color = Color(1, 1, 1, 1)
-Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_color = Color(0.62, 0.9303333, 1, 1)
+Label/colors/font_outline_color = Color(0.17940001, 0.24947008, 0.78, 1)
+Label/constants/outline_size = 7
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_jg72k")
 LineEdit/font_sizes/font_size = 24
@@ -132,12 +146,12 @@ RichTextLabel/fonts/mono_font = ExtResource("1_jg72k")
 RichTextLabel/fonts/normal_font = ExtResource("1_jg72k")
 ScrollContainer/colors/scroll_hint_horizontal_color = Color(1, 0, 0, 1)
 ScrollContainer/colors/scroll_hint_vertical_color = Color(1, 0, 0, 1)
-TabBar/font_sizes/font_size = 24
-TabBar/fonts/font = ExtResource("1_jg72k")
 TabContainer/font_sizes/font_size = 24
 TabContainer/fonts/font = ExtResource("1_jg72k")
 TextEdit/font_sizes/font_size = 24
 TextEdit/fonts/font = ExtResource("1_jg72k")
+ToggleButton/base_type = &"Button"
+ToggleButton/styles/pressed = SubResource("StyleBoxTexture_vd4ee")
 TooltipLabel/font_sizes/font_size = 24
 TooltipLabel/fonts/font = ExtResource("1_jg72k")
 Tree/font_sizes/font_size = 24
@@ -147,6 +161,7 @@ Tree/fonts/title_button_font = ExtResource("1_jg72k")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_4ovmf")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_u1ova")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_ckch7")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_vd4ee")
 Window/font_sizes/title_font_size = 24
 Window/fonts/title_font = ExtResource("1_jg72k")
 XButton/base_type = &"Button"

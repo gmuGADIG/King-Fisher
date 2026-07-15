@@ -8,8 +8,14 @@ cat_map = {
         "Enemy Programmer": "Enemies",
         "Boss Programmer": "Bosses",
         "Player Programmer": "Player",
+        "Fish Programmer": "Fish",
+        "Rhythm Game Programmer": "Rhythm Game",
+        "Game Systems Programmer": "Systems",
+        "Item Programmer": "Items",
 
         "Music (Sound)": "Music",
+        "BG Music (Sound)": "Music",
+        "Rhythm Game (Sound)": "Rhythm Game",
         "SFX (Sound)": "SFX",
         "Cutscene Scores (Sound)": "Cutscene Scores",
 
@@ -19,7 +25,12 @@ cat_map = {
         "Weapon Artist": "Weapons",
         "Cutscene Artist": "Cutscenes",
         "UI (art)": "UI",
-
+        "Fish Artist": "Fish",
+        "UI/UX Artist": "UI",
+        "Animation Artist": "Animations",
+        "Fish Designer": "Fish",
+        "3D Artist": "3D Assets",
+        "Player Artist": "Player",
 
         "UI/UX Designer": "UI",
         "Enemies/bosses (design)": "Enemies/Bosses",
@@ -27,8 +38,13 @@ cat_map = {
         "Skill Tree (design)": "Skill Tree",
         "Systems Designer": "Systems",
         "Level Designer": "Level",
-        "Narrative Designer & Scriptwriter (design)": "Narrative",
+        "Narrative Designer": "Narrative",
         "Character Designer": "Characters",
+        "QA Tester": "QA Tester",
+        "World Designer": "World",
+        "Items Designer": "Items",
+        "Player Designer": "Player",
+        "Game Writer": "Writer",
 }
 
 # category -> team
@@ -38,9 +54,15 @@ team_map = {
         "Enemy Programmer": "programming",
         "Boss Programmer": "programming",
         "Player Programmer": "programming",
+        "Fish Programmer": "programming",
+        "Rhythm Game Programmer": "programming",
+        "Game Systems Programmer": "programming",
+        "Item Programmer": "programming",
 
         "Music (Sound)": "sound",
         "SFX (Sound)": "sound",
+        "BG Music (Sound)": "sound",
+        "Rhythm Game (Sound)": "sound",
         "Cutscene Scores (Sound)": "sound",
 
         "Character Artist": "art",
@@ -49,6 +71,11 @@ team_map = {
         "Weapon Artist": "art",
         "Cutscene Artist": "art",
         "UI (art)": "art",
+        "Fish Artist": "art",
+        "UI/UX Artist": "art",
+        "Animation Artist": "art",
+        "3D Artist": "art",
+        "Player Artist": "art",
 
         "UI/UX Designer": "design",
         "Enemies/bosses (design)": "design",
@@ -56,9 +83,14 @@ team_map = {
         "Skill Tree (design)": "design",
         "Systems Designer": "design",
         "Level Designer": "design",
-        "Narrative Designer & Scriptwriter (design)": "design",
+        "Narrative Designer": "design",
         "Character Designer": "design",
         "QA Tester": "design",
+        "Fish Designer": "design",
+        "World Designer": "design",
+        "Items Designer": "design",
+        "Player Designer": "design",
+        "Game Writer": "design",
 }
 
 # team -> category
@@ -103,8 +135,8 @@ officers = [
     Person("Mira Maclennan", ["Vice President"]),
     Person("Joan Palacios", ["Production Manager"]),
     Person("Alex Xayavong", ["Assistant Production Manager"]),
-    Person("Kaiden Zamora-Soon", ["Webmaster"]),
-    Person("Jordan Tatum", ["Social Media Manager"]),
+    Person("Ethan Nguyen", ["Webmaster"]),
+    Person("Jessup Gravitt", ["Social Media Manager"]),
     Person("Jonathan Seek", ["Secretary"]),
     Person("Zachary Kim", ["Treasurer"]),
 
@@ -113,12 +145,12 @@ officers = [
     Person("Connor Hayes", ["Sound Director"]),
     Person("Grace Dorl", ["Assistant Sound Director"]),
     Person("Michael Campbell", ["Programming Co-director"]),
-    Person("Justin Langdon", ["Programming Co-director"]),
+    Person("Kaiden Zamora-Soon", ["Programming Co-director"]),
     Person("Ethan Hayes", ["Design Director"]),
     Person("Kshaunish Shaik", ["Assistant Design Director"]),
     Person("Jordan McGill", ["Assistant Design Director"]),
-    Person("Jonah Kossoy", ["Art Director"]),
-    Person("Jordan Tatum", ["Assistant Art Director"]),
+    Person("Jordan Tatum", ["Art Director"]),
+    Person("Jesse Park", ["Assistant Art Director"]),
 ]
 
 inv_team_map["officers"] = []
@@ -140,7 +172,7 @@ def build_string(left: str, cats: list[str], length: int, max_right: int, pad: s
     for cat in cats:
         if len(cat_strings[-1]) > max_right:
             cat_strings[-1] += ','
-            cat_strings.append("")
+            cat_strings.append('')
         if cat_strings[-1] == "":
             cat_strings[-1] = cat
         else:
@@ -149,7 +181,7 @@ def build_string(left: str, cats: list[str], length: int, max_right: int, pad: s
     ret = ""
     ret += left + (pad * ((length - len(left) - len(cat_strings[0])) // len(pad))) + cat_strings[0]
     for s in cat_strings[1:]:
-        ret += '' + (pad * ((length - len(s)) // len(pad))) + s
+        ret += '\n3~' + (pad * ((length - len(s)) // len(pad))) + s
 
     return ret
     # length = length - len(left) - len(right)

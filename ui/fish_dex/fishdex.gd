@@ -47,9 +47,10 @@ func _ready() -> void:
 		_file_read = true
 	
 	populate_stall()
-	if not fishdex_entries.is_empty():
-		##hack to get the ui to update
-		_on_left_tab_pressed()
+	if $VBoxContainer/CarouselContainer.get_child_count() > 0:
+		update_info($VBoxContainer/CarouselContainer.get_child(0).fish)
+	else:
+		update_info(null)
 	
 	#if OS.is_debug_build():
 		#for fish_name in LIST_OF_FISH:
@@ -72,6 +73,9 @@ func load_file() -> void:
 	var dict : Dictionary = json.get_data()
 	for key in dict.keys():
 		print("test")
+		if not FISHES.has(key):
+			continue
+		
 		fishdex_entries.set(key,dict.get(key))
 	
 	
@@ -144,9 +148,20 @@ func _update_tabs() -> void:
 func _on_fish_selected(node: Node) -> void:
 	var hanging_fish : HangingFish = node
 	var fish : Fish = hanging_fish.fish
-	current_fish_name.text = fish.fish_name
-	current_fish_texture.texture = fish.sprite
-	current_fish_rarity.text = fish.grade_string()
-	current_fish_worth.text = str(fish.get_score(),"¤")
-	current_fish_caught.text = str(fishdex_entries.get(fish.fish_name)," Caught")
-	current_fish_description.text = fish.description
+	update_info(fish)
+
+func update_info(fish : Fish) -> void:
+	if fish != null:
+		current_fish_name.text = fish.fish_name
+		current_fish_texture.texture = fish.sprite
+		current_fish_rarity.text = fish.grade_string()
+		current_fish_worth.text = str(fish.get_score(),"¤")
+		current_fish_caught.text = str(fishdex_entries.get(fish.fish_name)," Caught")
+		current_fish_description.text = fish.description
+	else:
+		current_fish_name.text = ""
+		current_fish_texture.texture = null
+		current_fish_rarity.text = ""
+		current_fish_worth.text = ""
+		current_fish_caught.text = ""
+		current_fish_description.text = ""

@@ -23,24 +23,29 @@ Of course, most fisherfolk with unprotected vital organs do not live long enough
 
 If, against our expectations, you indeed have an unprotected brain, the best we can do is tell you to stand proud. You are strong to have made it this far. And, if necessary, we have funds to make a statue of you."
 
+[node name="Visuals" parent="." index="0" unique_id=1993111827]
+transform = Transform3D(1, 0, 0, 0, 0.56784374, 0.8231364, 0, -0.8231364, 0.56784374, 0, 0, 0)
+
+[node name="Rubber Mallet" parent="Visuals" index="0" unique_id=1649869042 instance=ExtResource("3_r4hne")]
+transform = Transform3D(8.5403334e-17, -1.9538005e-09, -0.044697747, -0.044697747, -1.9538005e-09, 0, -1.9538005e-09, 0.044697747, -1.9538005e-09, 0, 0, 0)
+
 [node name="SwingHitbox" type="Area3D" parent="." index="1" unique_id=1812700899]
 transform = Transform3D(0.044697747, 0, 0, 0, 0.044697747, 0, 0, 0, 0.044697747, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
 
-[node name="Rubber Mallet" parent="SwingHitbox" index="0" unique_id=1649869042 instance=ExtResource("3_r4hne")]
-transform = Transform3D(-4.3711385e-08, 0.015358277, -0.99988204, -1, -6.713316e-10, 4.3706233e-08, 0, 0.9998821, 0.015358278, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SwingHitbox" index="1" unique_id=599896765]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwingHitbox" index="0" unique_id=599896765]
 transform = Transform3D(1, 0, 0, 0, 0.99988204, 0.015358277, 0, -0.015358277, 0.99988204, 0, 0.44540456, 28.997534)
 shape = SubResource("BoxShape3D_0ukp2")
 
 [node name="HitSound" type="AudioStreamPlayer3D" parent="." index="2" unique_id=346856034]
 stream = ExtResource("4_tfoe6")
+bus = &"SFX"
 
 [node name="SwingSound" type="AudioStreamPlayer3D" parent="." index="3" unique_id=21777151]
 stream = ExtResource("5_kvrfg")
+bus = &"SFX"
 
 [connection signal="body_entered" from="SwingHitbox" to="." method="_on_swing_hitbox_body_entered"]
 
-[editable path="SwingHitbox/Rubber Mallet"]
+[editable path="Visuals/Rubber Mallet"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3fgk85uxh6s8"
-path="res://.godot/imported/british_fish_small.png-57d5b32f9a90e94a7b88f7d2611a56a5.ctex"
+uid="uid://rgqcb7ogi4id"
+path="res://.godot/imported/holo_ui_grey.png-6b966c8a7c7a00e12b4e923bf1c203b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fish/sprites/british_fish_small.png"
-dest_files=["res://.godot/imported/british_fish_small.png-57d5b32f9a90e94a7b88f7d2611a56a5.ctex"]
+source_file="res://art/UI/holo_ui_grey.png"
+dest_files=["res://.godot/imported/holo_ui_grey.png-6b966c8a7c7a00e12b4e923bf1c203b5.ctex"]
 
 [params]
 

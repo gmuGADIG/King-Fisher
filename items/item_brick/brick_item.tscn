@@ -21,12 +21,12 @@ HE’S BOLTING. I have no choice, I have to chase after him! We ran out onto the
 
 This legendary tale has cemented \"brick-throwing\" as \"incredibly hype.\" F.I.S.H.E. found such notions perfectly suitable for its 10-step plan to improve the Intergalactic Fishbowl."
 
+[node name="Brick" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=1628203237 instance=ExtResource("3_ry2hy")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.65271723)
+
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=423811974]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=970838849]
 shape = SubResource("SphereShape3D_ofeen")
-
-[node name="Brick" parent="." index="2" unique_id=1628203237 instance=ExtResource("3_ry2hy")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.65271723)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

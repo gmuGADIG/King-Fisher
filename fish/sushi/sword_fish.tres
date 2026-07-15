@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="Fish" format=3 uid="uid://brs4gtafy5r8l"]
 
 [ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_3p4cv"]
+[ext_resource type="Texture2D" uid="uid://b3hb2utkkdq12" path="res://fish/sprites/sword_fish.png" id="2_asthi"]
 
 [resource]
 script = ExtResource("1_3p4cv")
 fish_name = "Sword Fish"
 grade = 4
+sprite = ExtResource("2_asthi")
 catch_blurb = "Is there a convention in town?"
 description = "CAUTION! This species is quite dangerous due to its long and sharp appendage. While the species is widely known to be docile, several tourists have tried to hold them by their tails with their blade-like noses pointed towards the sky. Following such a provocation, this fish will absolutely employ its defenses against your whole, and then your quarters, and then your quarters’ quarters, and so on. May Marvin rest in peace.
 

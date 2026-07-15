@@ -1,33 +1,9 @@
 [gd_scene format=3 uid="uid://co3jb4h8t4qlo"]
 
-[ext_resource type="Script" uid="uid://8ehhjjp1h0rb" path="res://items/item_helmet/item_helmet.gd" id="1_qcj4k"]
-[ext_resource type="Texture2D" uid="uid://bpvrj5cvkcjxc" path="res://items/item_helmet/hardhat_icon.png" id="2_mlh0n"]
-[ext_resource type="Texture2D" uid="uid://pn1ciuluerri" path="res://temp/temp_art/happy-godot.png" id="2_ubknq"]
+[ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_blfdr"]
 [ext_resource type="PackedScene" uid="uid://c5ycm85kmus1n" path="res://art/3d-assets/Hardhat.fbx" id="3_ubknq"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_mlh0n"]
-radius = 1.6796818
+[node name="HardHat" unique_id=1566519324 instance=ExtResource("1_blfdr")]
 
-[node name="Item" type="Area3D" unique_id=621433209]
-collision_layer = 4
-collision_mask = 3
-script = ExtResource("1_qcj4k")
-helmet_icon = ExtResource("2_mlh0n")
-item_name = "Helmet"
-description = "When used, the player puts the helmet on, playing an animation. When the helmet is on it protects the player from the next attempt to ragdoll or fling them. The helmet gets discarded upon use."
-lore = "This protective head covering is traditional on Earth. It’s used by menial laborers in dangerous jobs, such as “construction work,” where employees tirelessly dig, demolish, and build infrastructure and housing to support Earth’s huge population. They use these helmets to guard their fragile skulls, which, as in many of our cases, contain all of their brain material.F.I.S.H.E. has adapted these creative pieces of equipment to serve our purposes in the Intergalactic Fishbowl. They will now protect contestants from a variety of different harms! Earth scientists developed the basic form, which protected humans from falling debris, and F.I.S.H.E. innovators have perfected it.
-Contact one of the tournament organizers for help if the helmet shape is incompatible with your head structure."
-sprite = ExtResource("2_ubknq")
-metadata/_custom_type_script = "uid://b53s0xyvnpnrm"
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1353045385]
-visible = false
-modulate = Color(0.38, 0.8036667, 1, 1)
-billboard = 1
-texture = ExtResource("2_ubknq")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=993904494]
-shape = SubResource("SphereShape3D_mlh0n")
-
-[node name="Hardhat" parent="." unique_id=182256990 instance=ExtResource("3_ubknq")]
+[node name="Hardhat" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=1960061355 instance=ExtResource("3_ubknq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

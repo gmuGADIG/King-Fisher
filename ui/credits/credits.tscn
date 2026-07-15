@@ -9,14 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://oteep0k5625r" path="res://fish/sprites/angel_devil_fish.png" id="6_f3hvk"]
 [ext_resource type="Texture2D" uid="uid://cqn3l6kuh6pd5" path="res://fish/sprites/angle_r_fish.png" id="7_l2ser"]
 [ext_resource type="Texture2D" uid="uid://d3liw2xyaylh0" path="res://fish/sprites/bassilisk.png" id="8_hw7ch"]
-[ext_resource type="Texture2D" uid="uid://c3fgk85uxh6s8" path="res://fish/sprites/british_fish_small.png" id="9_f3hvk"]
+[ext_resource type="Texture2D" uid="uid://cn5jbi0l62nkx" path="res://fish/sprites/british_fish.png" id="9_f3hvk"]
 [ext_resource type="Texture2D" uid="uid://b4rohad6umqaw" path="res://fish/sprites/ceo_fish.png" id="10_e0q28"]
 [ext_resource type="Texture2D" uid="uid://cl0a24dcpl2sj" path="res://fish/sprites/emo_bass_fish.png" id="11_vd17t"]
 [ext_resource type="Texture2D" uid="uid://tm0h3rinwtna" path="res://fish/sprites/fish_seven.png" id="12_hiqgi"]
 [ext_resource type="Texture2D" uid="uid://cibo6ot84lbhy" path="res://fish/sprites/gold_fish.png" id="14_s0dn7"]
 [ext_resource type="Texture2D" uid="uid://boovw47fllxou" path="res://fish/sprites/lovers_fish.png" id="15_kaf7g"]
 [ext_resource type="Texture2D" uid="uid://cfvrqvxkee5e8" path="res://fish/sprites/man_o_war_fish.png" id="16_vawuj"]
-[ext_resource type="Texture2D" uid="uid://ba10pnshpio6g" path="res://fish/sprites/moai_fish_small.png" id="17_f3hvk"]
+[ext_resource type="Texture2D" uid="uid://byhye7monr5cd" path="res://fish/sprites/moai_fish.png" id="17_f3hvk"]
 [ext_resource type="Texture2D" uid="uid://cnvc1vghj8m3c" path="res://fish/sprites/oh_my_cod.png" id="18_66dae"]
 [ext_resource type="Texture2D" uid="uid://dw7juwgm2naml" path="res://fish/sprites/patchwork_fish.png" id="19_os0pm"]
 [ext_resource type="Texture2D" uid="uid://dw2uts6pt27go" path="res://fish/sprites/performative_fish.png" id="20_oemtj"]
@@ -24,11 +24,11 @@
 [ext_resource type="Texture2D" uid="uid://cv88mg5v4x720" path="res://fish/sprites/please_I_need_fish.png" id="22_vvfsr"]
 [ext_resource type="Texture2D" uid="uid://jkjmeo42kibj" path="res://fish/sprites/Sardines.png" id="23_qltlo"]
 [ext_resource type="Texture2D" uid="uid://ck3bm1irl43x2" path="res://fish/sprites/sasha_splash.png" id="24_kgj74"]
-[ext_resource type="Texture2D" uid="uid://bk3w6u7xs7muo" path="res://fish/sprites/shrimp_tempura_fish_small.png" id="25_l2ser"]
+[ext_resource type="Texture2D" uid="uid://c8okmb1osxprx" path="res://fish/sprites/shrimp_tempura_fish.png" id="25_l2ser"]
 [ext_resource type="Texture2D" uid="uid://buwht7m5hgjwk" path="res://fish/sprites/star_fish.png" id="26_v25wm"]
 [ext_resource type="Texture2D" uid="uid://bn1dbb1dcyhgq" path="res://fish/sprites/steven.png" id="27_hlhn3"]
 [ext_resource type="Texture2D" uid="uid://l0c300xxuqd7" path="res://fish/sprites/taiyaki_fish.png" id="28_nn4yr"]
-[ext_resource type="Texture2D" uid="uid://b3bw8cnuhe0cd" path="res://fish/sprites/the_quote_on_quote_fish_small.png" id="29_f3hvk"]
+[ext_resource type="Texture2D" uid="uid://dpnd3e2f3wg30" path="res://fish/sprites/the_quote_on_quote_fish.png" id="29_f3hvk"]
 [ext_resource type="Texture2D" uid="uid://cr2p50dgdofth" path="res://fish/sprites/thrasher_shark.png" id="30_httng"]
 [ext_resource type="Texture2D" uid="uid://cpyyr1mdaaplu" path="res://fish/sprites/trash_fish.png" id="31_6porp"]
 [ext_resource type="Texture2D" uid="uid://b7h3t6blafw7u" path="res://fish/sprites/your_name_fish.png" id="32_4bi7s"]
@@ -220,15 +220,118 @@ _data = {
 script = ExtResource("2_2n5wy")
 credits_raw = "1~King Fisher Credits
 2~Sound
+3~Aaron Thapa                                  Music
 3~Adrian Colon-Flores                          Music
-3~Alex Dugan                                     SFX
-3~Alexander Edralin                            Music
-3~Becs Neuman                                  Music
-3~Christopher Taylor                           Music
-3~Cooper Rummel          Music, SFX, Cutscene Scores
-1~Thanks For Playing!"
+3~Ata                                     Music, SFX
+3~Becs Neuman                                    SFX
+3~Benjamin Wright                 Music, Rhythm Game
+3~Jacob Kinney                            Music, SFX
+3~January Deichmann                       Music, SFX
+3~Jesse de la CruZ                             Music
+3~Matthew Caldwell                             Music
+3~Nathan Caruso                                Music
+3~Toby Schultz               Music, SFX, Rhythm Game
+3~Turtloid                                     Music
+2~Programming
+3~Aaron Thapa                                     UI
+3~Alora Powell                    UI, Items, Systems
+3~Camber Boles                             UI, Items
+3~Clancy Mahoney                       Fish, Systems
+3~Connor Harrison                    Player, Systems
+3~Emily Hansen                            UI, Player
+3~Jack Whritenour                             Player
+3~Kaiden Zamora-Soon               UI, Fish, Player,
+3~                              Rhythm Game, Systems
+3~Logan Downs                               UI, Fish
+3~Max fermayer                                Player
+3~Maximilian Fowlkes                  Items, Systems
+3~Nic Lipari                                      UI
+3~Oscar Angleberger                      Rhythm Game
+3~Rayan Qadri                      Fish, Rhythm Game
+3~Serena                                          UI
+3~Shakeeb Uddin                  UI, Player, Systems
+3~Toby Schultz                  Rhythm Game, Systems
+2~Design
+3~Alexis Doherty                           Items, UI
+3~Ata                                      QA Tester
+3~Ayame Soto                                    Fish
+3~Damien Williams                               Fish
+3~ 
+3~Edward Crawley            Fish, Player, Narrative,
+3~                                            Writer
+3~Essey Mesfin                     Items, World, UI,
+3~                                Player, Narrative,
+3~                                         QA Tester
+3~Gin M. Pimentel                               Fish
+3~Harrison Miller         Fish, Items, UI, QA Tester
+3~Ivory Jemmott                        UI, QA Tester
+3~Jadyn (Juno) Nguyen                           Fish
+3~Jeremy Scott                                 World
+3~Jordan McGill                     World, QA Tester
+3~Jose Semidey              Fish, Items, UI, Player,
+3~                                         QA Tester
+3~Kai Liu                                     Writer
+3~ 
+3~Kai Minskey                    Fish, Items, World,
+3~                             UI, Player, QA Tester
+3~Kellen Berger                            Items, UI
+3~Kelley Dugan                    Fish, Items, World
+3~ 
+3~Kshaunish Shaik                Fish, Items, World,
+3~                            UI, Player, Narrative,
+3~                                         QA Tester
+3~Logan Hayes             Fish, Items, UI, QA Tester
+3~Lukas Brockman                   Narrative, Writer
+3~Maggie Minks                           Fish, Items
+3~Matt Ng                           World, QA Tester
+3~Matthew Hinkle                               World
+3~Maya Banks                       Items, QA Tester,
+3~                                          UI, Fish
+3~Michael Haile                 Items, UI, QA Tester
+3~Michael Ozan Bailey                          World
+3~Rhyme Pelczar                    Narrative, Writer
+3~Shaun Roseberry                  Narrative, Writer
+3~Toby Schultz                             QA Tester
+2~Art
+3~Alexis Doherty                                  UI
+3~Ana Mercogliano                          3D Assets
+3~Ayame Soto                                Fish, UI
+3~Breeana Rivera               3D Assets, Animations
+3~Damien Williams               Fish, UI, Animations
+3~Elizabeth Yang                                Fish
+3~Elliot Hee Sun Kim                            Fish
+3~Elliot Kim                                    Fish
+3~Essey Mesfin                                    UI
+3~Jesse Park                                    Fish
+3~Joaquin Flores-Vaccari               3D Assets, UI
+3~Jonah Kossoy                                  Fish
+3~Kailyn Evans                          Player, Fish
+3~Kelley Dugan                  3D Assets, Fish, UI,
+3~                                        Animations
+3~Maggie Minks                              Fish, UI
+3~Max fermayer                 3D Assets, Animations
+3~Mu Ying Yong                             3D Assets
+2~Officers
+3~Khalid Moosa                             President
+3~Mira Maclennan                      Vice President
+3~Joan Palacios                   Production Manager
+3~Alex Xayavong         Assistant Production Manager
+3~Ethan Nguyen                             Webmaster
+3~Jessup Gravitt                Social Media Manager
+3~Jonathan Seek                            Secretary
+3~Zachary Kim                              Treasurer
+3~Jesse Park                           Game Director
+3~Connor Hayes                        Sound Director
+3~Grace Dorl                Assistant Sound Director
+3~Michael Campbell           Programming Co-director
+3~Kaiden Zamora-Soon         Programming Co-director
+3~Ethan Hayes                        Design Director
+3~Kshaunish Shaik          Assistant Design Director
+3~Jordan McGill            Assistant Design Director
+3~Jordan Tatum                          Art Director
+3~Jesse Park                  Assistant Art Director
+1~Thanks for playing!"
 credits_text_packed = ExtResource("5_sunqn")
-time_between_credits = 9.0
 
 [node name="ScrollingWater" type="Parallax2D" parent="." unique_id=306376776]
 repeat_size = Vector2(1906, 0)

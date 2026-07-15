@@ -92,6 +92,10 @@ var moai_fish_active: bool = false
 
 var fishing_minigame : FishingMinigame
 
+var ready_state := false:
+	set(v):
+		ready_state = v
+		Multiplayer._handle_ready_up(v)
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -271,7 +275,7 @@ func _mouse_input(event : InputEvent) -> void:
 						fishing_minigame.start(body.fish)
 					else:
 						# Fishing in the lobby is equivalent to readying up.
-						Multiplayer._handle_ready_up()
+						ready_state = not ready_state
 					
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
@@ -281,6 +285,7 @@ func _mouse_input(event : InputEvent) -> void:
 				var throw_item : ThrowableItem = held_item
 				throw_item.use_throwable.rpc(%Aiming.get_aim_pos())
 				held_item = null
+				held_item_ui.clear_item()
 				%Aiming.stop_aiming()
 			pass
 		_:
@@ -458,6 +463,7 @@ func pick_up_item(item: Item) -> void:
 	if held_item!=null: return
 	# TODO: Parent to player hand instead, with an offset for appropriate placement.
 	# Item origin is center/pickup area. Item hold point is offset in pos+rot.
+	item.stop_spin()
 	item.reparent($DefaultPlayer, false)
 	held_item = item
 	held_item.player = self
@@ -477,6 +483,7 @@ func pick_up_item(item: Item) -> void:
 func use_held_item() -> void:
 	# If you don't have an item, don't try and use a nonexistent item.
 	if held_item==null:return
+	if is_ragdolled: return
 	held_item.visible = true
 	held_item.use()
 	held_item=null
@@ -504,7 +511,10 @@ func unequip_helmet() -> void:
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player " + self.name + " got a " + fish.fish_name)
 	fish_inventory.append(fish)
+	fish_catch_sound(fish.grade)
 	score+=fish.get_score()
+	if is_multiplayer_authority():
+		get_tree().current_scene.get_node("%GameHud").show_score_change(fish.get_score())
 	if fish.grade == Fish.Grade.SUSHI:
 		buff_player(fish)
 	#livewell.addFish(fish)
@@ -516,7 +526,11 @@ func give_fish(fish : Fish) -> void:
 func take_fish(fish: Fish) -> void:
 	if fish_inventory.has(fish):
 		fish_inventory.erase(fish)
+		if is_multiplayer_authority():
+			$Sounds/FishCatchFail.play()
 		score-=fish.get_score()
+		if is_multiplayer_authority():
+			get_tree().current_scene.get_node("%GameHud").show_score_change(-fish.get_score())
 		#TODO update livewell ui
 		if is_multiplayer_authority():
 			Livewell.update_inventory_visuals(fish_inventory,score)
@@ -540,21 +554,14 @@ func set_name_visible(val : bool) -> void:
 
 func on_fishing_finished(succeeded:bool) -> void:
 	if succeeded:
+		if golden_worm_active:
+			current_fishing_shadow.fish = Fish.sushi_fishes.pick_random()
+
 		var fish : Fish = current_fishing_shadow.fish
 		if is_multiplayer_authority():
 			FishDex.caught_fish(fish)
 			
-			match fish.grade:
-				Fish.Grade.LEFTOVERS:
-					$Sounds/LeftoverCatch.play()
-				Fish.Grade.FRESH:
-					$Sounds/FreshCatch.play()
-				Fish.Grade.PREMIUM:
-					$Sounds/PremiumCatch.play()
-				Fish.Grade.SUSHI:
-					$Sounds/SushiCatch.play()
-				_:
-					$Sounds/LeftoverCatch.play()
+			#fish_catch_sound(fish.grade)
 				
 		current_fishing_shadow.kill_fish_shadow.rpc()
 		give_fish_serialized.rpc(fish.serialize())
@@ -565,6 +572,22 @@ func on_fishing_finished(succeeded:bool) -> void:
 			$Sounds/FishCatchFail.play()
 		current_fishing_shadow.current_fishing_state.rpc(false)
 	current_fishing_shadow = null
+
+func fish_catch_sound(grade : Fish.Grade) -> void:
+	if not is_multiplayer_authority():
+		return
+	match grade:
+		Fish.Grade.LEFTOVERS:
+			$Sounds/LeftoverCatch.play()
+		Fish.Grade.FRESH:
+			$Sounds/FreshCatch.play()
+		Fish.Grade.PREMIUM:
+			$Sounds/PremiumCatch.play()
+		Fish.Grade.SUSHI:
+			$Sounds/SushiCatch.play()
+		_:
+			$Sounds/LeftoverCatch.play()
+
 
 @rpc("any_peer","call_local","reliable")
 func apply_bone_force(vec : Vector3) -> void:

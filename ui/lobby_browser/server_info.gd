@@ -1,5 +1,5 @@
 @tool
-extends PanelContainer
+extends Panel
 class_name ServerInfo
 
 signal pressed

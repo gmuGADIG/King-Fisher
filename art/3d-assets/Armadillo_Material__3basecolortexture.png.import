@@ -2,20 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3bw8cnuhe0cd"
-path="res://.godot/imported/the_quote_on_quote_fish_small.png-d9362c2247ca6876add47597c1ddaebf.ctex"
+uid="uid://br13gibdfwvse"
+path.s3tc="res://.godot/imported/Armadillo_Material__3basecolortexture.png-b327b17bf7401ac0ce68386188b494f1.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "088ba4edd4f7b2dcaa73ac7d3d7d8471"
 }
 
 [deps]
 
-source_file="res://fish/sprites/the_quote_on_quote_fish_small.png"
-dest_files=["res://.godot/imported/the_quote_on_quote_fish_small.png-d9362c2247ca6876add47597c1ddaebf.ctex"]
+source_file="res://art/3d-assets/Armadillo_Material__3basecolortexture.png"
+dest_files=["res://.godot/imported/Armadillo_Material__3basecolortexture.png-b327b17bf7401ac0ce68386188b494f1.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -23,7 +27,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,4 +41,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

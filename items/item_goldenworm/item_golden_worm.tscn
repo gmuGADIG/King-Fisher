@@ -6,12 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://6jyn2rkkx28i" path="res://items/item_goldenworm/gold_worm_icon.png" id="3_p653s"]
 [ext_resource type="AudioStream" uid="uid://bjelkor0pmbt6" path="res://sound/sfx/items/goldenworm.mp3" id="4_ctgyv"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctgyv"]
+resource_name = "Material.001"
+cull_mode = 2
+diffuse_mode = 3
+albedo_color = Color(1, 0.8000001, 0, 1)
+metallic = 0.78
+metallic_specular = 0.29
+roughness = 0.2
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7pkk"]
 height = 1.6774902
 
-[node name="Item" unique_id=1566519324 instance=ExtResource("1_2087j")]
+[node name="Golden Worm" unique_id=1566519324 instance=ExtResource("1_2087j")]
 script = ExtResource("2_byajs")
-duration = 10
+duration = 30
 buff_texture = ExtResource("3_p653s")
 item_name = "Golden Worm"
 description = "When used, the player plays an animation. The worm upgrades the net fish the player attempts to catch in the next 10 seconds into the next highest rarities point value. It does not give any sushi grade fish a buff, only the point value."
@@ -22,16 +31,22 @@ There’s a few leading theories about its unique golden exterior, but the likel
 Regardless, it’s as likely as not that the “alien worm” theory is true. Interestingly, the idea of worms in old feces does make sense… But it’s impossible that there’s actually a monstrous turtle treating the galaxy as its ocean, right?
 "
 
-[node name="PickupShape" parent="." index="0" unique_id=829023768]
-visible = false
-disabled = true
+[node name="GoldWorm" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=1151117212 instance=ExtResource("2_kahv6")]
 
-[node name="GoldWorm" parent="." index="1" unique_id=1151117212 instance=ExtResource("2_kahv6")]
+[node name="Cylinder" parent="Visuals/GoldWorm" index="0" unique_id=443420651]
+material_override = SubResource("StandardMaterial3D_ctgyv")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2" unique_id=842352755]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1" unique_id=842352755]
 transform = Transform3D(1, 0, 0, 0, 0.026682861, -0.9996439, 0, 0.9996439, 0.026682861, 0, 0.37834162, 0.016824156)
 shape = SubResource("CapsuleShape3D_t7pkk")
 debug_color = Color(0, 0.6039216, 0.68235296, 1)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3" unique_id=616415717]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2" unique_id=616415717]
 stream = ExtResource("4_ctgyv")
+bus = &"SFX"
+
+[node name="PickupShape" parent="." index="3" unique_id=829023768]
+visible = false
+disabled = true
+
+[editable path="Visuals/GoldWorm"]

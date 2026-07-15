@@ -166,12 +166,13 @@ func delete_disconnected_player(id) -> void:
 	player_list.erase(id)
 
 @rpc("reliable")
-func learn_player(player_id: int, player_name: String, player_path: NodePath, tex_id : int) -> void:
+func learn_player(player_id: int, player_name: String, player_path: NodePath, tex_id : int, is_ready: bool) -> void:
 	player_list.get_or_add(player_id)
 	var server_conn = ServerConnection.new()
 	server_conn.playerName = player_name
 	server_conn.player = get_node(player_path)
 	server_conn.character_texture_id  = tex_id
+	server_conn.ready = is_ready
 	player_list.set(player_id, server_conn)
 	CharacterSelect.assign_skin(player_id,tex_id)
 
@@ -179,7 +180,13 @@ func broadcast_player_info() -> void:
 	await get_tree().process_frame
 	for player_id in player_list.keys():
 		var server_conn : ServerConnection = player_list.get(player_id)
-		learn_player.rpc(player_id, server_conn.playerName, server_conn.player.get_path(), server_conn.character_texture_id)
+		learn_player.rpc(
+			player_id, 
+			server_conn.playerName, 
+			server_conn.player.get_path(),
+			server_conn.character_texture_id,
+			server_conn.ready
+		)
 
 func _countdown(duration: int) -> void:
 	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
@@ -201,11 +208,13 @@ func start_the_game():
 		Debug.log("Song Selected: ",song_name)
 		#var song_index : int = randi_range(0,song_pool)
 		##TODO: More stuff added to this to set up in WorldGameplay
+		
 		set_up_round_settings.rpc(
 			song_name,
 			LobbySettings.roundTime,
 			LobbySettings.fishSpawn,
-			LobbySettings.itemSpawn
+			LobbySettings.itemSpawn,
+			BananaPeel.armadillo_mode
 		)
 		##TODO: Set up item pool
 		
@@ -215,7 +224,7 @@ func start_the_game():
 		return
 
 	#var levelLoad:String = allowedMaps.pick_random()
-	var levelLoad : String = "res://world/level-docks/level-docks.tscn"
+	var levelLoad : String = ["res://world/level-docks/level-docks.tscn","res://world/ship/level-ship.tscn"].pick_random()
 	
 	load_players.rpc(levelLoad)
 	Debug.log(player_list.size())
@@ -225,9 +234,15 @@ func start_the_game():
 	
 
 @rpc("authority","call_local","reliable")
-func set_up_round_settings(song_name : String, round_time : float, fish_spawn : LobbySettings.SpawnRate, item_spawn : LobbySettings.SpawnRate) -> void:
+func set_up_round_settings(song_name : String,
+							round_time : float,
+							fish_spawn : LobbySettings.SpawnRate, 
+							item_spawn : LobbySettings.SpawnRate,
+							armadillo_mode : bool
+						) -> void:
 	WorldGameplay.song = LobbySettings.song_pool[song_name]
 	WorldGameplay.round_time = round_time
+	BananaPeel.armadillo_mode = armadillo_mode
 	##TODO: Modify Fish Spawn Rate
 	##TODO: Modify Item Spawn Rate
 	
@@ -235,14 +250,16 @@ func set_up_round_settings(song_name : String, round_time : float, fish_spawn : 
 func load_players(level: String):
 	SceneTransition.change_to_file(level)
 	
-func _handle_ready_up() -> void:
+func _handle_ready_up(ready_state: bool) -> void:
 	if get_tree().get_first_node_in_group("Lobby") == null:
 		return
 	
 	if not multiplayer.is_server():
-		set_ready.rpc()
-			
-	if not multiplayer.is_server(): return
+		set_ready.rpc(ready_state)
+		return
+
+	# if server:
+
 	if game_starting: return
 	
 	for player in player_list:
@@ -267,9 +284,9 @@ func set_map(mapString:String,pool:Array):
 
 
 @rpc("any_peer","call_local","reliable")
-func set_ready():
+func set_ready(ready_state: bool):
 	var sender = multiplayer.get_remote_sender_id()
-	player_list[sender].ready = !player_list[sender].ready
+	player_list[sender].ready = ready_state
 	Debug.log("Ready up!!")
 	
 func create_server(serverName: String) -> void:
