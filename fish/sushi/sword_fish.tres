@@ -6,6 +6,10 @@
 script = ExtResource("1_3p4cv")
 fish_name = "Sword Fish"
 grade = 4
-description = "Caution! This species is quite dangerous due to its long and sharp appendage that it will use on you. I repeat, it is not for show! It WILL use its long, sharp, blade-like nose to cut you into pieces. RIP Marvin.
-This species is widely known as a docile breed–as long as it is not disturbed, that is. It is normally a nocturnal fish, waking under the moonlight, however, we’ve managed to find a way to wake them during the day as well. We put adderall into their food supply to guarantee that they’ll be active during the daytime. Our hope is to fully convert them into daylight fish to boost proficiency in the tournament. As of now, the fish is pretty common and nothing to scoff at. Just have to be mindful of the sword part."
+catch_blurb = "Is there a convention in town?"
+description = "CAUTION! This species is quite dangerous due to its long and sharp appendage. While the species is widely known to be docile, several tourists have tried to hold them by their tails with their blade-like noses pointed towards the sky. Following such a provocation, this fish will absolutely employ its defenses against your whole, and then your quarters, and then your quarters’ quarters, and so on. May Marvin rest in peace.
+
+Swordfish are nocturnal. They are best observed from afar, where the moonlight reflects off of their metallic exoskeletons as they “joust” about. If you’re lucky, you may observe a friendly duel between them. If a Swordfish cannot find a more suitable spot to sleep during the day, it will drift underneath a legion of Man o’ Wars, where its exoskeleton protects it from stings.
+
+F.I.S.H.E. has recently managed to create a drug that makes Swordfish active during the day, thus converting their behavior from nocturnal to diurnal. A side effect of this drug is increased aggression. Still, they have announced plans to permanently convert them for the sake of spicing up the tournament. Because F.I.S.H.E. also uses the tournament grounds for their experiments, you can expect these fish to be quite common this season—and for your reaction time to involuntarily improve."
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

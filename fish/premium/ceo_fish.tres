@@ -5,12 +5,17 @@
 
 [resource]
 script = ExtResource("1_aqhxa")
-fish_name = "CEO Fish"
+fish_name = "CEO Shark"
 grade = 3
 sprite = ExtResource("2_7hjkq")
-description = "Fish have a stench to them, everyone knows that. The C.E.O Fish only knows the stench of victory.
-When he first arrived at the company, nobody looked up to him, but always down on him. Nobody expected anything from him.
-When he returned to the office shortly after a couple years, everyone had no choice but to submit to his rigorous tactics of business planning. He was almost unrecognizable to the shrimp he was before.
-But then he met someone. She made him experience a whole new world that nobody could show him before, one consisting of various fanfictions.
-Now he controls the biggest corporation in the pond. Reeking of the stench of victory."
+catch_blurb = "It smells like...victory?"
+description = "Everyone knows that fish have a particular stench to them. The CEO Shark knows only the stench of victory.
+A young CEO Shark constantly pines for the spotlight, spending most of its time swimming in sunlit zones. Despite its tendency to swim above them, most denizens of the deep look down on the CEO Shark...at first.
+
+An inevitable part of every CEO Shark’s life cycle is realizing that there just isn’t enough daylight to make them shine. The only reasonable conclusion to this species is to abstain from sunlit zones and become an agent of the night. Early morning rises, late curfews, and shameless afternoon naps—they claim it improves their productivity, and scientists are scrambling to learn why.
+
+Shortly after a CEO Shark adopts this hustle, it achieves tremendous success. No more coral-walled cubicles, and no more cheap barnacle brew. Wealth and fame become familiar to them, but when they stare into the reflection of their ice bubble plunge in the morning, they can’t quite recognize themselves.
+
+If a CEO Shark is lucky enough, it will meet someone of luscious hair and unmatched charisma and fall in love. When this happens, the CEO Shark learns to love its past self. 
+"
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

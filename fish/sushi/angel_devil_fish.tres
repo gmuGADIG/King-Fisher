@@ -9,5 +9,12 @@ fish_name = "Angel & Devil"
 grade = 4
 sprite = ExtResource("2_7g5ue")
 catch_blurb = "Two supernatural fishes fight for your attention! Which fish will you follow…"
-description = "Two fish appear! One on each of your shoulders. To your left is a fish with a devilish grin, and to your right a fish smiles at you, beaming with holy light. They’re your shoulder Devil and Angel– Fish? They compete with each other in guiding you to either sin and temptation or virtue and righteousness! Honestly it’s a bit exhausting to have the two prattling away, telling you to do this or that… Take care to take both of their ideas into great consideration for they both want to steer you in the “right” direction…"
+description = "Two fish appear, one on each of your shoulders! To your left is a fish with a devilish grin, and to your right a fish smiles innocently at you, beaming with holy light. They’re your shoulder Devil and Angel—Fish? They compete with each other in guiding you to either sin and temptation or virtue and righteousness!
+
+At least, such is what happens if you catch either the Angel or the Devil Fish. The two are inseparable, so unexplainable magic allows one to teleport to the other member of the duo at any time. They are sought out by fishers with troubles weighing on them, for the otherworldly pair is reputed for always giving advice. However, whether the listener can make sense of it or not is a different story. The Angel and Devil often present conflicting narratives that can drive a susceptible mind to madness—but if you can withstand their mischief, you may just gain some enlightenment on your situation!
+
+It is said that all Angel and Devil Fish must submit to the authority of Oh My Cod in all things. Thus, they are not allowed to give advice—however devious or holy it may be—that hurts the native fish populations in any way, or presents themselves as Pollywood’s highest powers. The Angels and Devils are only minions of higher authorities—which in turn, Pwaaga would say, are subject to the ultimate ruling of Alcedo Atthis.
+
+Interestingly, Devil and Angel Fish can be of any species, and therefore appear to be made, not born. They’ve appeared to different fishers as the tiniest minnows or the largest salmon. Their virtue or lack thereof is the only consistency. They seem to have been created as a way for common folk to touch the divine.
+"
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

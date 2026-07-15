@@ -8,5 +8,11 @@ script = ExtResource("1_kjil3")
 fish_name = "Oh My Cod"
 grade = 4
 sprite = ExtResource("2_k081y")
-description = "No depths, no matter how much the water may scatter the light, can escape the all-seeing gaze of the Oh My Cod."
+catch_blurb = "“No paradise needs a watchful eye,” —Bentham Nekton"
+description = "This “species” of fish is strongly associated with the Pwaagan deity, Alcedo Atthis. She was once a supermassive being covered in teeming bodies of water. In an act of benevolence, she scattered herself across the universe, marking the beginning of life for countless planets—or so the story goes. An Oh My Cod is believed to be her means of keeping watch wherever parts of her body now lie.
+
+In times preceding disastrous events, sightings of Oh My Cods skyrocket. Their populations were notably dense before F.I.S.H.E.’s acquisition of the Intergalactic Fishbowl and before the recent reactor meltdown. While these two most recent sightings are sometimes considered “unfortunate coincidences,” ancient records note sightings of Oh My Cods before Mt. Lymphocye’s catastrophic eruption and a believed-to-be-fabricated event where the fin of a spaceborn world turtle cleaved a canyon into the planet. Regarding these disasters, a famous philosopher popularized the idea that an Oh My Cod does not signal the presence of Alcedo Atthis, but her absence.
+
+Sometimes, an Oh My Cod’s eyes are found swimming in the water completely on their own. This, paired with the Oh My Cod’s tendency to resemble the forms of unimpressive fish, leads some scientists to believe that these eyes are a parasite, and their carrier a carcass.
+"
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

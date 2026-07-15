@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://do8pumt6mx3ge"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_6lmkr"]
+
+[resource]
+script = ExtResource("1_6lmkr")
+fish_name = "Cye"
+description = "Although he has the features that most species would consider childlike, he is not a child. He comes from a planet where the species physically ages quite slowly. What most would view as their prepubescent phase of development is actually their mid-to-late 20s on their planet. It is believed that the subject is in their late 20s, but it is hard to discern.
+
+
+What is not hard to analyze is the staggering debt the subject has incurred from their addiction to gabbling. The subject has multiple accounts, most of which are blacklisted from participating in gambling events, which present us with data on the subject's addiction. The history of these accounts shows a myriad of bets and trades the subject has made, with their debt increasing over time. When the subject has no money to bet on, it appears that anything is on the table to get more—organs, social securities, inheritances, and by evading taxes. Personal safety means very little to them.
+
+The subject may be using the alias 'Cye' to gain entry into the event; their original name is unknown. We are unsure how they obtained an invitation to the competition in the first place. Regardless, the subject is a great choice to participate in this year's event. Their carelessness of bodily harm and poor life choices will make them an entertaining contestant, hopefully boosting viewership. Funnily enough, maybe the audience can place bets on those they believe will win the competition—some Cye inspiration. As for how Cye is allowed to safely broadcast themselves on television, few can say. They are a notoriously slippery individual—any galactic law enforcement conglomerates who catch them will find Cye slipping out of their hands like a fish eager to return to water.
+"
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

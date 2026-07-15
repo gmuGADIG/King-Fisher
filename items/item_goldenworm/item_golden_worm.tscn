@@ -15,9 +15,12 @@ duration = 10
 buff_texture = ExtResource("3_p653s")
 item_name = "Golden Worm"
 description = "When used, the player plays an animation. The worm upgrades the net fish the player attempts to catch in the next 10 seconds into the next highest rarities point value. It does not give any sushi grade fish a buff, only the point value."
-lore = "This shining, gold-colored worm is not only valuable for its beauty, but for its power to increase the quality of fish that consume it. Thus, it has become popular and highly marketed for bait, particularly in the Intergalactic Fishbowl.
-There’s a few leading theories about its unique golden exterior. The first is that it might be an alien, a migrant to [planet] from its remarkable golden, crown-shaped moon. The moon has yet to be explored, as the [native race] have been resistant to it, ostensibly for religious reasons. However, this theory is the most popular because it makes both the Golden Worm and the moon seem even more magical.
-The other competing theory is that the worm acquired its glow from hazardous waste dumped in [planet]’s waters as a result of F.I.S.H.E. The nuclear radiation has mutated several other species’ appearances and abilities, so it’s definitely a possibility, although no one knows how exactly it could’ve happened—and at no detriment to the worm itself; the Golden Worm species is plentiful and thriving."
+lore = "This shining, gold-colored worm is not only valuable for its beauty, but for its power to level-up the value of fish that consume it. It seems to make their very essences brighter, higher quality, more. Thus, it’s become a highly marketable and popular bait, particularly in the Intergalactic Fishbowl.
+
+There’s a few leading theories about its unique golden exterior, but the likeliest is that it might be an alien: a migrant to Pollywood from its remarkable golden, crown-shaped moon. The moon has yet to be explored, as the Pwaaga have been resistant to it, ostensibly for religious reasons. In Pwaaga tradition, the moon is believed to be… well, excrement, produced by a giant floating world turtle that swims through the heavens. It is believed that various discard and remnants of the turtle formed every celestial body, including Pollywood itself. The golden moon is considered especially sacred because of its beauty. From above, it distantly crowns each new King Fisher, and every Pollywood resident.
+
+Regardless, it’s as likely as not that the “alien worm” theory is true. Interestingly, the idea of worms in old feces does make sense… But it’s impossible that there’s actually a monstrous turtle treating the galaxy as its ocean, right?
+"
 
 [node name="PickupShape" parent="." index="0" unique_id=829023768]
 visible = false
