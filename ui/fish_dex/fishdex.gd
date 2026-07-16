@@ -47,10 +47,12 @@ func _ready() -> void:
 		_file_read = true
 	
 	populate_stall()
+	_update_tabs()
 	if $VBoxContainer/CarouselContainer.get_child_count() > 0:
 		update_info($VBoxContainer/CarouselContainer.get_child(0).fish)
 	else:
 		update_info(null)
+		%Description.text = "Welcome to the fishdex! Caught fish will be logged here with their name, rarity, value, number caught, and description!"
 	
 	#if OS.is_debug_build():
 		#for fish_name in LIST_OF_FISH:
