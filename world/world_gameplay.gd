@@ -26,6 +26,9 @@ var fish_rng : RandomNumberGenerator
 
 
 func _ready() -> void:
+	var connection : ServerConnection = Multiplayer.player_list.get(multiplayer.get_unique_id())
+	if connection:
+		FishDex.caught_fish(CharacterSelect.character_bios[connection.character_texture_id])
 	MainMusicPlayer.play_song(song)
 	assert(fish_spawner_weights.size() == fish_spawners.size(), "water pool count and weight counts are not equal")
 	hud = %GameHud

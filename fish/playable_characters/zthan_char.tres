@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="Fish" format=3 uid="uid://dyx7wp1mxg40a"]
 
 [ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_smrgf"]
+[ext_resource type="Texture2D" uid="uid://crg63yq22hf2a" path="res://art/UI/ztan_book.png" id="2_fw2qv"]
 
 [resource]
 script = ExtResource("1_smrgf")
 fish_name = "Zthan"
+grade = 5
+sprite = ExtResource("2_fw2qv")
 description = "Zthan is a middle-aged humanoid who hails from Guryola, a distant planet that the rest of the galaxy still has little information about. Apparently its technological advancements are largely digital, similar to Earth. When scanning the universe for possible contestants, F.I.S.H.E. scouts heard rumors about a resident there—that he was so skilled at fishing, he was making planetwide news, and that he had earned more money than any other fisher in history.
 
 At the time, the leadership of F.I.S.H.E. did not realize the colloquial difference between fishing and “phishing.” This ignorance has since been corrected.

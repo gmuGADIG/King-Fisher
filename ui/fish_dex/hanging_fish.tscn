@@ -14,7 +14,7 @@ layout_mode = 0
 offset_left = 61.5
 offset_top = -16.0
 offset_right = 66.5
-offset_bottom = 24.0
+offset_bottom = 49.0
 color = Color(0, 0, 0, 1)
 
 [node name="Fish_Image" type="TextureRect" parent="." unique_id=965798515]

@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="Fish" format=3 uid="uid://do8pumt6mx3ge"]
 
 [ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_6lmkr"]
+[ext_resource type="Texture2D" uid="uid://qfndia16tikm" path="res://art/UI/cye_book.png" id="2_qipoo"]
 
 [resource]
 script = ExtResource("1_6lmkr")
 fish_name = "Cye"
+grade = 5
+sprite = ExtResource("2_qipoo")
 description = "Although he has the features that most species would consider childlike, he is not a child. He comes from a planet where the species physically ages quite slowly. What most would view as their prepubescent phase of development is actually their mid-to-late 20s on their planet. It is believed that the subject is in their late 20s, but it is hard to discern.
 
 

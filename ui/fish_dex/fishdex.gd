@@ -5,6 +5,8 @@ signal closed
 
 const SAVE_PATH = "user://fishdex.json"
 
+
+
 @export var hanging_fish_packed : PackedScene
 
 static var _file_read : bool = false
@@ -40,7 +42,8 @@ func _ready() -> void:
 			FISHES[fish.fish_name] = fish
 		for fish : Fish in Fish.sushi_fishes:
 			FISHES[fish.fish_name] = fish
-	
+		for fish : Fish in CharacterSelect.character_bios:
+			FISHES[fish.fish_name] = fish
 	##Checks if the game has read from file yet
 	if not _file_read:
 		load_file()
@@ -157,8 +160,15 @@ func update_info(fish : Fish) -> void:
 		current_fish_name.text = fish.fish_name
 		current_fish_texture.texture = fish.sprite
 		current_fish_rarity.text = fish.grade_string()
-		current_fish_worth.text = str(fish.get_score(),"¤")
-		current_fish_caught.text = str(fishdex_entries.get(fish.fish_name)," Caught")
+		if fish.grade == Fish.Grade.NOT_A_FISH:
+			current_fish_worth.add_theme_font_size_override("font_size",13)
+			current_fish_worth.text = str("1,000,000,000,000¤")
+			var playcount : int = fishdex_entries.get(fish.fish_name)
+			current_fish_caught.text = str("Played ",playcount," time", "" if playcount == 1 else "s")
+		else:
+			current_fish_worth.add_theme_font_size_override("font_size",25)
+			current_fish_worth.text = str(fish.get_score(),"¤")
+			current_fish_caught.text = str(fishdex_entries.get(fish.fish_name)," Caught")
 		current_fish_description.text = fish.description
 	else:
 		current_fish_name.text = ""

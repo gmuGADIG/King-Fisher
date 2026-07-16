@@ -7,6 +7,7 @@ enum Grade{
 	FRESH,
 	PREMIUM,
 	SUSHI,
+	NOT_A_FISH
 }
 
 static var leftover_fishes : Array[Fish] = [
@@ -117,6 +118,8 @@ static func create(fish_grade : Grade, index : int) -> Fish:
 
 func get_score() -> int:
 	match grade:
+		Grade.UNSET:
+			return 0
 		Grade.LEFTOVERS:
 			return 100
 		Grade.FRESH:
@@ -125,8 +128,8 @@ func get_score() -> int:
 			return 300
 		Grade.SUSHI:
 			return 500
-		_: # This is also known as Unset Grade
-			return 0
+		_: # This is also known as not a fish
+			return -1
 
 static func custom_sort_fish(a : Fish, b : Fish) -> bool:
 	##Grade
