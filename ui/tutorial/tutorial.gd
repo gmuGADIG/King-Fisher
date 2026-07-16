@@ -1,4 +1,4 @@
-class_name Tutorial extends Control
+extends Control
 
 @export var tutorial_pages: Array[Page]
 var current_page: int = 0
@@ -7,7 +7,16 @@ var current_page: int = 0
 @onready var page2: Control = $Background/Page2
 
 func _ready() -> void:
+	hide()
 	display_pages()
+
+func open() -> void:
+	show()
+	UIState.ui_state = UIState.State.TUTORIAL
+
+func close() -> void:
+	hide()
+	UIState.ui_state = UIState.State.NONE
 
 func _on_right_arrow_pressed() -> void:
 	current_page = clampi(current_page + 2, 0, tutorial_pages.size() - 1)
