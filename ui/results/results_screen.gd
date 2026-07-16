@@ -3,11 +3,13 @@ extends Node3D
 
 # can be 1, 2, 3, or 4
 static var placements : Array[int]
+static var scores : Array[int]
 
 @onready var label: Label = %PlacementLabel
 
 @export var player_meshes : Array[MeshInstance3D]
 @export var player_labels : Array[Label3D]
+@export var score_labels : Array[Label3D]
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -20,9 +22,12 @@ func _ready() -> void:
 		if player_id == -1 or not Multiplayer.player_list.has(player_id):
 			player_meshes[placement].hide()
 			player_labels[placement].hide()
+			score_labels[placement].hide()
 		else:
 			player_meshes[placement].show()
 			player_labels[placement].show()
+			score_labels[placement].text = str(scores[placement],"¤")
+			score_labels[placement].show()
 			
 				
 			var tex_id : int = Multiplayer.player_list[player_id].character_texture_id

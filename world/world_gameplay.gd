@@ -87,14 +87,20 @@ func _process(delta: float) -> void:
 		players.sort_custom(sort_by_score)
 		
 		var ids : Array[int]
+		var scores : Array[int]
 		for i in players.size():
 			var id := players[i].get_multiplayer_authority()
 			ids.append(id)
+			scores.append(players[i].score)
 		
 		while ids.size() < 4:
 			ids.append(-1)
+			scores.append(-1)
 		
-		Multiplayer.results_screen.rpc(ids[0],ids[1],ids[2],ids[3])
+		Multiplayer.results_screen.rpc(
+			ids[0],ids[1],ids[2],ids[3],
+			scores[0],scores[1],scores[2],scores[3],
+		)
 
 func sort_by_score(a : Player, b : Player) -> bool:
 	return a.score > b.score

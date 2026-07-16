@@ -336,13 +336,28 @@ func report_loaded() -> void:
 	player_loaded.emit(multiplayer.get_remote_sender_id())
 
 @rpc("call_local")
-func results_screen(first_place_id: int, second_place_id : int, third_place_id : int, fourth_place_id : int) -> void:
+func results_screen(
+	first_place_id: int,
+	second_place_id : int, 
+	third_place_id : int, 
+	fourth_place_id : int,
+	first_score : int,
+	second_score : int,
+	third_score : int,
+	fourth_score : int,
+) -> void:
 	#Debug.log("results_screen(place = %d)" % place)
 	ResultsScreen.placements = [
 		first_place_id,
 		second_place_id,
 		third_place_id,
 		fourth_place_id
+	]
+	ResultsScreen.scores = [
+		first_score,
+		second_score,
+		third_score,
+		fourth_score
 	]
 	SceneTransition.change_to_file("res://ui/results/results_screen.tscn")
 
