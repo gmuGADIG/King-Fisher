@@ -4,8 +4,10 @@ extends WorldBase
 static var fish_shadows : Dictionary[int,FishShadow]
 static var next_fish_shadow_id : int = 0
 
+const MAX_FISH : int = 15
+
 static var fish_shadow : PackedScene = load("res://world/fish_spawner/fish_shadow.tscn")
-const FISH_SPAWN_RATE : float = 5.0
+static var fish_spawn_rate : float = 5.0
 
 static var song : Song
 static var round_time : float
@@ -24,8 +26,10 @@ var hud : GameHud
 @onready var remaining_time : float = LobbySettings.roundTime
 var fish_rng : RandomNumberGenerator
 
+var fish_count : int = 0
 
 func _ready() -> void:
+	
 	var connection : ServerConnection = Multiplayer.player_list.get(multiplayer.get_unique_id())
 	if connection:
 		FishDex.caught_fish(CharacterSelect.character_bios[connection.character_texture_id])
@@ -45,10 +49,15 @@ func _ready() -> void:
 	if multiplayer.is_server():
 		fish_rng = RandomNumberGenerator.new()
 		
+		##Reset fish shadow data
+		fish_shadows.clear()
+		next_fish_shadow_id = 0
+		
+		##Fish spawn timer
 		var fish_timer : Timer = Timer.new()
 		fish_timer.timeout.connect(_spawn_fish)
 		fish_timer.one_shot = false
-		fish_timer.wait_time = FISH_SPAWN_RATE ##This might need to be different per map?
+		fish_timer.wait_time = fish_spawn_rate ##This might need to be different per map?
 
 		match LobbySettings.fishSpawn:
 			LobbySettings.SpawnRate.LOW:
@@ -113,32 +122,16 @@ func _spawn_fish() -> void:
 		return
 	if fish_spawners.is_empty():
 		return
+	if fish_count >= MAX_FISH:
+		return
 	
 	##Choose pool
 	var index : int = fish_rng.rand_weighted(fish_spawner_weights)
-	#var rand : int = randi_range(1,water_pool_weight_total)
-	#var target_pool : WaterPool = null
-	#
-	#for i in range(water_pool_weights.size()):
-		#var curr_weight : int = water_pool_weights[i]
-		#if rand <= curr_weight:
-			##Found Pol
-			#target_pool = water_pools[i]
-		## Try the next pool
-		#rand -= curr_weight
 	assert(index != -1, "weights empty")
 	var target_spawner = fish_spawners[index]
 	
 	
 	assert(target_spawner != null, "No pool selected?")
-	
-	##Pick random point in pool
-	#var test : Sprite3D = Sprite3D.new()
-	#test.texture = load("res://temp/temp_art/icon.svg")
-	#test.scale = Vector3(0.25,0.25,0.25)
-	#add_child(test)
-	#test.global_position = target_spawner.get_random_point()
-	#print(target_spawner.get_random_point())
 	
 	##Pick Specific fish
 	var grade : Fish.Grade = target_spawner.pick_rarity()

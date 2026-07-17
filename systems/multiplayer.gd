@@ -244,6 +244,14 @@ func set_up_round_settings(song_name : String,
 	WorldGameplay.round_time = round_time
 	BananaPeel.armadillo_mode = armadillo_mode
 	##TODO: Modify Fish Spawn Rate
+	if multiplayer.is_server():
+		match fish_spawn:
+			LobbySettings.SpawnRate.LOW:
+				WorldGameplay.fish_spawn_rate = 10
+			LobbySettings.SpawnRate.MEDIUM:
+				WorldGameplay.fish_spawn_rate = 7
+			LobbySettings.SpawnRate.HIGH:
+				WorldGameplay.fish_spawn_rate = 4
 	##TODO: Modify Item Spawn Rate
 	
 @rpc("authority","call_local","reliable")
