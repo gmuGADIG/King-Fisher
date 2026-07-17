@@ -135,6 +135,7 @@ grow_vertical = 2
 [node name="Title" type="Label" parent="Background/Page" unique_id=808158201]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 25
 text = "Chapter Title"
 horizontal_alignment = 1
 
@@ -145,6 +146,7 @@ theme = ExtResource("4_xpy58")
 theme_type_variation = &"TooltipLabel"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 5
 text = "Lots of little text here"
 autowrap_mode = 3
 
@@ -170,6 +172,7 @@ grow_vertical = 2
 [node name="Title" type="Label" parent="Background/Page2" unique_id=1512299606]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 25
 text = "Chapter Title"
 horizontal_alignment = 1
 
@@ -180,7 +183,8 @@ theme = ExtResource("4_xpy58")
 theme_type_variation = &"TooltipLabel"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
-text = "Lots of little text here"
+theme_override_font_sizes/font_size = 5
+text = "	"
 autowrap_mode = 3
 
 [node name="Image" type="TextureRect" parent="Background/Page2" unique_id=1241950258]
