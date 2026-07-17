@@ -17,43 +17,77 @@
 
 [sub_resource type="Resource" id="Resource_vy52c"]
 script = ExtResource("3_leiwb")
-title = "Page 1"
-description = "sdfjlskdfjsldfjlsdkjfskldjflskdjflskdjfdlksjfsl"
+title = "The Fishdex"
+description = "self-updating manual of information about the fish you’ve caught. On their page, it displays each fish species’ lore, info, rarity, and effects on your competition experience.
+
+A copy of the Fishdex, graciously provided to each competitor, can be found on your main menu screen. You can return to it between rounds to admire and learn more about your catches.
+
+While the entries for each fish are simply compiled summaries of wiki entries, forums, and physical media (for those poor old planets who are still inscribing things on stone but simultaneously have time to invest in “fish research”), there was an eclectic number of great minds who put the device together, and people are frothing at the mouth to see the melting pot of technology within. Why? Probably because they believe its processing power is strong enough to run their favorite game with modded shaders.
+
+© F.I.S.H.E. Corporation
+"
 image = ExtResource("4_jhac3")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_sqq7s"]
 script = ExtResource("3_leiwb")
-title = "Page 2"
-description = "ksjdflksjdlsjdgksldfjsd"
+title = "Fish Rarities"
+description = "“We’ve discovered that the further you venture out from the shoreline, the more interesting the fish become. There are unimaginable creatures out there, and exploring the depths can only yield more wonders.
+
+“We’ve designated the most common fish, the closest to land, as ‘Leftovers’ grade. Those will fetch you the lowest values. After that is ‘Fresh,’ where the fish get delicious enough to eat. Next is ‘Premium,’ the point where market buyers start to argue over the last one. Finally, ‘Sushi’ grade fish are the best and most valuable things you’ll catch. Fish in this grade have special powers that might affect your fishing skills or your interactions with others.
+
+“These varieties make fish classification easier—and more fun. Happy fishing!”
+—King Fisher
+
+© F.I.S.H.E. Corporation
+"
 image = ExtResource("5_j0hjb")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_jg6hm"]
 script = ExtResource("3_leiwb")
-title = "page 3"
-description = "A quart jar of oil mixed with zinc oxide makes a very bright paint."
+title = "Fisher's Equipment"
+description = "“It is taught that the aqueous Alcedo Atthis was once whole, but shared her water with planets across the universe. Fishing in these waters thus warrants great reverence. To achieve this, all you need is a fishing rod and some bait*. They’re easy enough to acquire**, and graceful to use***. Once you’ve got your rod, the wonders of Druyip’s vast waters are yours to behold.”
+—King Fisher
+
+* The right tools are not so plain and boring! Fishing is a fierce competition, and you’ll want to get a leg up on your competitors by using items. They each have unique effects for you to employ! 
+** Items are dropped into the fishing grounds at random locations and incredibly easy to pick-up (it’s as if you can just walk into them!) Competition rules dictate one item at a time, and for fair play, your held item is holographically displayed above your head for your opponents to see!
+*** You can use your items with right-click. Afterwards, your pockets are free and you can pick up another one! 
+
+© F.I.S.H.E. Corporation
+"
 image = ExtResource("6_jhac3")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_otvs0"]
 script = ExtResource("3_leiwb")
-title = "Page 4"
-description = "More words go here about how to play the fish game"
+title = "Initiating a Catch"
+description = "“Fishing’s more about focus than patience, my friends. If you look closely enough, you may notice the silhouettes of the fish swimming in the water! Once you’ve decided on a silhouette that looks like a good catch, hold the left-click button to aim your cast, and release to execute it! Should your bobber land on the fish’s silhouette, it will quickly take the bait. Now you’ve initiated a catch! Quiet your mind and focus on the rhythmic battle of reeling and tugging that will ensue. Find out more in the chapter on reeling in a fish!”
+—King Fisher
+
+© F.I.S.H.E. Corporation
+"
 image = ExtResource("7_vy52c")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_6cimi"]
 script = ExtResource("3_leiwb")
-title = "page 5"
-description = "Play with your friends or whatever"
+title = "Reeling in a Fish"
+description = "“Once you’ve hooked a fish, you’ll need to gracefully reel it in to complete the catch! A fish will try to swim away with light and heavy undulations, and these undulations create a beautiful rhythm. Don't interrupt the poor thing until it's done—afterwards, you’ll need to copy the pattern near the top of your screen as closely as you can. To imitate a light beat, press [key]. To imitate a heavy beat, press [key]. If you’re accurate enough, you’ll overpower the fish and reel it out of the pond! If not...you’ll have to relax while you await your next bite.”
+—King Fisher
+
+© F.I.S.H.E. Corporation
+"
 image = ExtResource("8_ajco1")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_kw5rs"]
 script = ExtResource("3_leiwb")
-title = "page 6"
-description = "Some fish are fishier than the other fish"
+title = "Fishbowl Scoring"
+description = "Your score is calculated from your livewell based on the number of fish from each rarity you’ve caught. This means the more rare your catches are, the better your chances of winning are! Whoever has the highest score at the end of the round is crowned the next King Fisher! Whoever has the highest score DURING the round is everybody's next target...
+
+© F.I.S.H.E. Corporation
+"
 image = ExtResource("9_u6ate")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
