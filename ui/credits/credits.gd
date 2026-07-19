@@ -27,7 +27,7 @@ class CreditData:
 @export var credits_text_packed : PackedScene
 
 @export_category("Credit Timings")
-@export var time_between_credits : float = 10
+@export var time_between_credits : float = 9
 @export var credits_duration : float = 6
 
 var credits_data : Array[CreditData]

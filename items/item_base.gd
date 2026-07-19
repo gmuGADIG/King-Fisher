@@ -19,13 +19,14 @@ var player: Player = null
 signal item_got_picked_up
 
 func _ready() -> void:
-	self.body_entered.connect(_on_body_entered)
+	pass
 
 func _on_body_entered(body: Node3D) -> void:
 	# Items don't care about collisions if they're from non-players or if the item is already held.
 	if is_held || !body.is_in_group("Player"): return
 	if body.has_method("pick_up_item"): 
 		item_got_picked_up.emit()
+		self.rotation_degrees.y = 0
 		# We call deferred because this is physics and getting picked up involves reparenting.
 		# No fucking with the scene tree before physics is done happening!
 		request_pick_up_item.rpc(body.get_multiplayer_authority())
@@ -36,6 +37,8 @@ func _on_body_entered(body: Node3D) -> void:
 func request_pick_up_item(player_id : int) -> void:
 	if Multiplayer.player_list.has(player_id):
 		Multiplayer.player_list[player_id].player.pick_up_item.call_deferred(self)
+	else:
+		assert(false,"NO PERSON??")
 
 ## The generic use function. You can write your own in a class that extends Item.
 func use() -> void:
@@ -43,3 +46,13 @@ func use() -> void:
 	else:
 		Debug.log("Base Item used.")
 		queue_free()
+
+func start_spin() -> void:
+	$ItemAnimation.play("spin",-1,randf_range(0.9,1.1))
+	$ItemAnimation.seek(randf_range(0,$ItemAnimation.current_animation_length))
+	self.body_entered.connect(_on_body_entered)
+
+func stop_spin() -> void:
+	$ItemAnimation.stop()
+	$Visuals.rotation = Vector3.ZERO
+	$Visuals.position = Vector3.ZERO

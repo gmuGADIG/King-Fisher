@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_22ess"]
 [ext_resource type="Texture2D" uid="uid://cidywq0cy3pl6" path="res://temp/item.png" id="1_aipem"]
 [ext_resource type="Texture2D" uid="uid://qyqpyx1t6vsk" path="res://temp/scoreboard_icon.png" id="3_7f6fh"]
+[ext_resource type="PackedScene" uid="uid://dda6d1o25sxn0" path="res://ui/HUD/score_change_label.tscn" id="3_17e2f"]
 [ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="3_76rk5"]
 [ext_resource type="PackedScene" uid="uid://gskq3ns5ix4c" path="res://ui/HUD/Buffs/displayed_buffs.tscn" id="3_ekma4"]
 [ext_resource type="Texture2D" uid="uid://cl7ovfgsq88pn" path="res://temp/livewell_icon.png" id="3_qujba"]
@@ -18,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_22ess")
 script = ExtResource("1_1c5in")
+score_changed_label_packed = ExtResource("3_17e2f")
 time_remaining_label = NodePath("TimeRemaining/MarginContainer/TimeRemaining")
 
 [node name="ButtomPrompts" type="MarginContainer" parent="." unique_id=1558955761]
@@ -98,6 +100,14 @@ layout_mode = 2
 texture = ExtResource("3_qujba")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="ScoreChangeLocation" type="Control" parent="ButtomPrompts/HBoxContainer/VBoxContainer2/ColorRect" unique_id=1525430220]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
 
 [node name="Label" type="Label" parent="ButtomPrompts/HBoxContainer/VBoxContainer2" unique_id=1244768666]
 layout_mode = 2

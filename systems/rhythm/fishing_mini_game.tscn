@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://hoqwqyla4oem" path="res://systems/rhythm/tracks/leftovers/leftovers_03.tres" id="7_4o164"]
 [ext_resource type="Resource" uid="uid://bue3pkfodvvfa" path="res://systems/rhythm/tracks/leftovers/leftovers_04.tres" id="8_0c5i1"]
 [ext_resource type="Resource" uid="uid://ccq6brkrlijv8" path="res://systems/rhythm/tracks/leftovers/leftovers_05.tres" id="9_nkmp6"]
-[ext_resource type="Texture2D" uid="uid://0q6vu72wg5pn" path="res://systems/rhythm/art/rhythm_bar_edit.png" id="10_dsd34"]
+[ext_resource type="Texture2D" uid="uid://bywfwjbyygik4" path="res://systems/rhythm/art/rhythm_bar_edit.png" id="10_dsd34"]
 [ext_resource type="Resource" uid="uid://ckbds2olv2beh" path="res://systems/rhythm/tracks/leftovers/leftovers_06.tres" id="11_mhqun"]
 [ext_resource type="Texture2D" uid="uid://mxbipnxyr4xf" path="res://systems/rhythm/art/Screenshot 2026-04-22 195817.png" id="12_2nsaa"]
 [ext_resource type="Resource" uid="uid://1g8a5xiii6ng" path="res://systems/rhythm/tracks/leftovers/leftovers_07.tres" id="12_ibwex"]
@@ -47,7 +47,7 @@
 [ext_resource type="Resource" uid="uid://dp14dxlww3umw" path="res://systems/rhythm/tracks/sushi/sushi_04.tres" id="40_nr8cj"]
 [ext_resource type="Resource" uid="uid://cjnjx4nc54dgx" path="res://systems/rhythm/tracks/sushi/sushi_05.tres" id="41_l3olo"]
 [ext_resource type="Resource" uid="uid://t4m2u8uiuykq" path="res://systems/rhythm/tracks/sushi/sushi_06.tres" id="42_br0d6"]
-[ext_resource type="Resource" uid="uid://da5camwdn4o2p" path="res://systems/rhythm/tracks/leftovers/leftovers_13.tres" id="43_5xodx"]
+[ext_resource type="Resource" uid="uid://ccfha47htuqem" path="res://systems/rhythm/tracks/leftovers/leftovers_13.tres" id="43_5xodx"]
 [ext_resource type="Resource" uid="uid://bagr86c2ui03d" path="res://systems/rhythm/tracks/sushi/sushi_02.tres" id="43_e7dis"]
 [ext_resource type="Resource" uid="uid://gx6v31f20cyh" path="res://systems/rhythm/tracks/sushi/sushi_07.tres" id="44_baimx"]
 [ext_resource type="Resource" uid="uid://dkuwprcr7oxxj" path="res://systems/rhythm/tracks/sushi/sushi_08.tres" id="45_52knr"]
@@ -150,6 +150,7 @@ perfect_window_radius_ms = 40.0
 [node name="rhythm_engine" parent="." unique_id=749923115 instance=ExtResource("5_mq61g")]
 
 [node name="TempoAudioStream" type="AudioStreamPlayer" parent="." unique_id=440330173]
+bus = &"Music"
 
 [node name="WinLose" type="Sprite2D" parent="." unique_id=1017937469]
 visible = false
@@ -203,16 +204,17 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
+offset_left = -10.0
+offset_top = -37.5
+offset_right = 65.0
+offset_bottom = 37.5
 grow_vertical = 2
 texture = ExtResource("50_4o164")
 expand_mode = 1
 
 [node name="SequenceLine" type="Line2D" parent="TextureRect/VBoxContainer/Control/FishBar" unique_id=567685213]
-position = Vector2(87.5, 36)
-points = PackedVector2Array(0, 0, 680, 0)
+position = Vector2(132.5, 36)
+points = PackedVector2Array(0, 0, 682, 0)
 default_color = Color(0.73683435, 0.8248663, 1, 1)
 
 [node name="FishIndicator" type="Sprite2D" parent="TextureRect/VBoxContainer/Control/FishBar/SequenceLine" unique_id=1808826955]
@@ -236,16 +238,17 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
+offset_left = -10.0
 offset_top = -37.5
-offset_right = 75.0
+offset_right = 65.0
 offset_bottom = 37.5
 grow_vertical = 2
 texture = ExtResource("52_0c5i1")
 expand_mode = 1
 
 [node name="PlayerLine" type="Line2D" parent="TextureRect/VBoxContainer/Control/PlayerBar" unique_id=378649705]
-position = Vector2(87.5, 36)
-points = PackedVector2Array(0, 0, 680, 0)
+position = Vector2(132.5, 36)
+points = PackedVector2Array(0, 0, 682, 0)
 default_color = Color(1, 0.6926795, 0.64385, 1)
 
 [node name="PlayerIndicator" type="Sprite2D" parent="TextureRect/VBoxContainer/Control/PlayerBar/PlayerLine" unique_id=1567962701]
@@ -303,11 +306,13 @@ texture = ExtResource("12_2nsaa")
 stream = ExtResource("17_i2p1o")
 volume_db = 20.0
 pitch_scale = 2.0
+bus = &"SFX"
 
 [node name="NonArticulated" type="AudioStreamPlayer" parent="." unique_id=1265424431]
 stream = ExtResource("18_i2p1o")
 volume_db = 20.0
 pitch_scale = 2.0
+bus = &"SFX"
 
 [node name="DebugTrackPath" type="Label" parent="." unique_id=192003425]
 visible = false

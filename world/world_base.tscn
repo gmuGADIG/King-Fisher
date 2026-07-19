@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://belf74xnjd8p8" path="res://ui/HUD/game_hud.tscn" id="5_7trks"]
 [ext_resource type="PackedScene" uid="uid://3jux6npjxhxf" path="res://systems/item_spawner.tscn" id="5_lgvll"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="8_ddkgs"]
-[ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_xvf6j"]
+[ext_resource type="PackedScene" uid="uid://d1jfxq12olkv2" path="res://items/item_butterfly_net/new_fishing_net.tscn" id="8_xvf6j"]
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="9_32lhn"]
 [ext_resource type="Resource" uid="uid://lr43qgruj361" path="res://world/lobby/data.hterrain" id="9_hpp7h"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="10_7trks"]
@@ -64,6 +64,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 0.5577596, 0.83000255, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
 
 [node name="Players" type="Node3D" parent="." unique_id=1891362098 groups=["Spawnpoints"]]
+unique_name_in_owner = true
 script = ExtResource("3_3xj4d")
 
 [node name="PlayerSpawnPoint" parent="Players" unique_id=1956364351 instance=ExtResource("4_lgvll")]

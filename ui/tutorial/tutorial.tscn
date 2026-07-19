@@ -1,0 +1,239 @@
+[gd_scene format=3 uid="uid://dygxpoaqm8553"]
+
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_aybw7"]
+[ext_resource type="Script" uid="uid://vxybv4dcl8tg" path="res://ui/tutorial/tutorial.gd" id="2_3nh40"]
+[ext_resource type="Script" uid="uid://6nq2iqnl4gt3" path="res://ui/tutorial/page.gd" id="3_leiwb"]
+[ext_resource type="Texture2D" uid="uid://bw6cuoglpu530" path="res://ui/itemdex/itemdex-background.png" id="3_lqqlb"]
+[ext_resource type="Texture2D" uid="uid://d0iq6ivnp0gvc" path="res://temp/micheals_mansion/MichealsMansionBackground.webp" id="4_jhac3"]
+[ext_resource type="Texture2D" uid="uid://c7fyt1h4ljmf3" path="res://ui/itemdex/box.png" id="4_pxdlg"]
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="4_xpy58"]
+[ext_resource type="Texture2D" uid="uid://bsphqh5kvj7g0" path="res://ui/itemdex/arrow.png" id="5_do47i"]
+[ext_resource type="Texture2D" uid="uid://cw036ankdpuo5" path="res://temp/temp_art/silk.png" id="5_j0hjb"]
+[ext_resource type="Texture2D" uid="uid://dmu8fcsfr37py" path="res://temp/temp_art/catboy.png" id="6_jhac3"]
+[ext_resource type="Texture2D" uid="uid://cjnwf45j1c0rv" path="res://temp/temp_art/king-fisher.png" id="7_vy52c"]
+[ext_resource type="Texture2D" uid="uid://bm7m1kt2nq2q1" path="res://temp/temp_art/ghostfriend.png" id="8_ajco1"]
+[ext_resource type="Texture2D" uid="uid://buwht7m5hgjwk" path="res://fish/sprites/star_fish.png" id="9_u6ate"]
+[ext_resource type="Texture2D" uid="uid://tm0h3rinwtna" path="res://fish/sprites/fish_seven.png" id="10_ss0bh"]
+
+[sub_resource type="Resource" id="Resource_vy52c"]
+script = ExtResource("3_leiwb")
+title = "The Fishdex"
+description = "self-updating manual of information about the fish you’ve caught. On their page, it displays each fish species’ lore, info, rarity, and effects on your competition experience.
+
+A copy of the Fishdex, graciously provided to each competitor, can be found on your main menu screen. You can return to it between rounds to admire and learn more about your catches.
+
+While the entries for each fish are simply compiled summaries of wiki entries, forums, and physical media (for those poor old planets who are still inscribing things on stone but simultaneously have time to invest in “fish research”), there was an eclectic number of great minds who put the device together, and people are frothing at the mouth to see the melting pot of technology within. Why? Probably because they believe its processing power is strong enough to run their favorite game with modded shaders.
+
+© F.I.S.H.E. Corporation
+"
+image = ExtResource("4_jhac3")
+metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
+
+[sub_resource type="Resource" id="Resource_sqq7s"]
+script = ExtResource("3_leiwb")
+title = "Fish Rarities"
+description = "“We’ve discovered that the further you venture out from the shoreline, the more interesting the fish become. There are unimaginable creatures out there, and exploring the depths can only yield more wonders.
+
+“We’ve designated the most common fish, the closest to land, as ‘Leftovers’ grade. Those will fetch you the lowest values. After that is ‘Fresh,’ where the fish get delicious enough to eat. Next is ‘Premium,’ the point where market buyers start to argue over the last one. Finally, ‘Sushi’ grade fish are the best and most valuable things you’ll catch. Fish in this grade have special powers that might affect your fishing skills or your interactions with others.
+
+“These varieties make fish classification easier—and more fun. Happy fishing!”
+—King Fisher
+
+© F.I.S.H.E. Corporation
+"
+image = ExtResource("5_j0hjb")
+metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
+
+[sub_resource type="Resource" id="Resource_jg6hm"]
+script = ExtResource("3_leiwb")
+title = "Fisher's Equipment"
+description = "“It is taught that the aqueous Alcedo Atthis was once whole, but shared her water with planets across the universe. Fishing in these waters thus warrants great reverence. To achieve this, all you need is a fishing rod and some bait*. They’re easy enough to acquire**, and graceful to use***. Once you’ve got your rod, the wonders of Druyip’s vast waters are yours to behold.”
+—King Fisher
+
+* The right tools are not so plain and boring! Fishing is a fierce competition, and you’ll want to get a leg up on your competitors by using items. They each have unique effects for you to employ! 
+** Items are dropped into the fishing grounds at random locations and incredibly easy to pick-up (it’s as if you can just walk into them!) Competition rules dictate one item at a time, and for fair play, your held item is holographically displayed above your head for your opponents to see!
+*** You can use your items with right-click. Afterwards, your pockets are free and you can pick up another one! 
+
+© F.I.S.H.E. Corporation
+"
+image = ExtResource("6_jhac3")
+metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
+
+[sub_resource type="Resource" id="Resource_otvs0"]
+script = ExtResource("3_leiwb")
+title = "Initiating a Catch"
+description = "“Fishing’s more about focus than patience, my friends. If you look closely enough, you may notice the silhouettes of the fish swimming in the water! Once you’ve decided on a silhouette that looks like a good catch, hold the left-click button to aim your cast, and release to execute it! Should your bobber land on the fish’s silhouette, it will quickly take the bait. Now you’ve initiated a catch! Quiet your mind and focus on the rhythmic battle of reeling and tugging that will ensue. Find out more in the chapter on reeling in a fish!”
+—King Fisher
+
+© F.I.S.H.E. Corporation
+"
+image = ExtResource("7_vy52c")
+metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
+
+[sub_resource type="Resource" id="Resource_6cimi"]
+script = ExtResource("3_leiwb")
+title = "Reeling in a Fish"
+description = "“Once you’ve hooked a fish, you’ll need to gracefully reel it in to complete the catch! A fish will try to swim away with light and heavy undulations, and these undulations create a beautiful rhythm. Don't interrupt the poor thing until it's done—afterwards, you’ll need to copy the pattern near the top of your screen as closely as you can. To imitate a light beat, press [key]. To imitate a heavy beat, press [key]. If you’re accurate enough, you’ll overpower the fish and reel it out of the pond! If not...you’ll have to relax while you await your next bite.”
+—King Fisher
+
+© F.I.S.H.E. Corporation
+"
+image = ExtResource("8_ajco1")
+metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
+
+[sub_resource type="Resource" id="Resource_kw5rs"]
+script = ExtResource("3_leiwb")
+title = "Fishbowl Scoring"
+description = "Your score is calculated from your livewell based on the number of fish from each rarity you’ve caught. This means the more rare your catches are, the better your chances of winning are! Whoever has the highest score at the end of the round is crowned the next King Fisher! Whoever has the highest score DURING the round is everybody's next target...
+
+© F.I.S.H.E. Corporation
+"
+image = ExtResource("9_u6ate")
+metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
+
+[sub_resource type="Resource" id="Resource_wseuc"]
+script = ExtResource("3_leiwb")
+title = "Page 7"
+description = "Fish Seven"
+image = ExtResource("10_ss0bh")
+metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
+
+[node name="Tutorial" type="Control" unique_id=976872789]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_aybw7")
+script = ExtResource("2_3nh40")
+tutorial_pages = Array[ExtResource("3_leiwb")]([SubResource("Resource_vy52c"), SubResource("Resource_sqq7s"), SubResource("Resource_jg6hm"), SubResource("Resource_otvs0"), SubResource("Resource_6cimi"), SubResource("Resource_kw5rs"), SubResource("Resource_wseuc")])
+
+[node name="Background" type="TextureRect" parent="." unique_id=1440524425]
+layout_mode = 0
+offset_left = -299.0
+offset_top = 10.0
+offset_right = 853.0
+offset_bottom = 658.0
+scale = Vector2(1.5807521, 1.5807521)
+texture = ExtResource("3_lqqlb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page" type="VBoxContainer" parent="Background" unique_id=559845163]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 319.0
+offset_top = 41.0
+offset_right = -598.0
+offset_bottom = -347.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Background/Page" unique_id=808158201]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 25
+text = "Chapter Title"
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="Background/Page" unique_id=1634702440]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("4_xpy58")
+theme_type_variation = &"TooltipLabel"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 5
+text = "Lots of little text here"
+autowrap_mode = 3
+
+[node name="Image" type="TextureRect" parent="Background/Page" unique_id=1335146015]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_pxdlg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page2" type="VBoxContainer" parent="Background" unique_id=615350727]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 588.0
+offset_top = 41.0
+offset_right = -329.0
+offset_bottom = -347.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Background/Page2" unique_id=1512299606]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 25
+text = "Chapter Title"
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="Background/Page2" unique_id=1137754849]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("4_xpy58")
+theme_type_variation = &"TooltipLabel"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 5
+text = "	"
+autowrap_mode = 3
+
+[node name="Image" type="TextureRect" parent="Background/Page2" unique_id=1241950258]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_pxdlg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RightArrow" type="Button" parent="Background" unique_id=523777718]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 199.0
+offset_top = -49.0
+offset_right = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+icon = ExtResource("5_do47i")
+flat = true
+
+[node name="LeftArrow" type="Button" parent="Background" unique_id=1388117822]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -59.0
+offset_right = -220.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+pivot_offset_ratio = Vector2(0.5, 0.5)
+icon = ExtResource("5_do47i")
+flat = true
+
+[node name="Back_Button" type="Button" parent="." unique_id=1148487743]
+layout_mode = 0
+offset_right = 101.935295
+offset_bottom = 68.0
+theme_type_variation = &"FishXButton"
+
+[connection signal="pressed" from="Background/RightArrow" to="." method="_on_right_arrow_pressed"]
+[connection signal="pressed" from="Background/LeftArrow" to="." method="_on_left_arrow_pressed"]
+[connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]

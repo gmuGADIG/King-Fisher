@@ -1,5 +1,12 @@
 extends Control
 
+static var character_bios : Array[Fish] = [
+	load("res://fish/playable_characters/cye_char.tres"),
+	load("res://fish/playable_characters/frank_miller_char.tres"),
+	load("res://fish/playable_characters/zthan_char.tres"),
+	load("res://fish/playable_characters/the_mass_char.tres")
+]
+
 @export var character_textures : Array[Texture]
 
 @export var spin_speed : float = 1.0

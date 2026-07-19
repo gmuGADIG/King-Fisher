@@ -252,39 +252,51 @@ collide_with_areas = true
 [node name="Sounds" type="Node3D" parent="." unique_id=1366050825]
 
 [node name="FootstepsGrass" parent="Sounds" unique_id=1032111526 instance=ExtResource("7_rgyib")]
+bus = &"SFX"
 
 [node name="FootstepsStone" parent="Sounds" unique_id=728023090 instance=ExtResource("8_hg6s5")]
+bus = &"SFX"
 
 [node name="PlayerJump" parent="Sounds" unique_id=229356321 instance=ExtResource("9_hg6s5")]
+bus = &"SFX"
 
 [node name="PlayerLandStone" parent="Sounds" unique_id=301000011 instance=ExtResource("11_land_stone")]
+bus = &"SFX"
 
 [node name="PlayerLandGrass" parent="Sounds" unique_id=301000001 instance=ExtResource("11_2ieo8")]
+bus = &"SFX"
 
 [node name="PlayerPickupItem" parent="Sounds" unique_id=1633662803 instance=ExtResource("9_e7oew")]
+bus = &"SFX"
 
 [node name="CastRod" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1264743241]
 stream = ExtResource("10_65viv")
+bus = &"SFX"
 
 [node name="LeftoverCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=1803346818]
 stream = ExtResource("11_g4c7l")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="FreshCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=2037820873]
 stream = ExtResource("12_knn7v")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="PremiumCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=1615553549]
 stream = ExtResource("13_7pqkx")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="SushiCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=1648040884]
 stream = ExtResource("14_uw77l")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="FishCatchFail" type="AudioStreamPlayer" parent="Sounds" unique_id=372674188]
 stream = ExtResource("15_knn7v")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="HeldItem" parent="." unique_id=1114095646 instance=ExtResource("9_kb6p2")]
 

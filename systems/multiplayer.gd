@@ -97,8 +97,6 @@ func _process_scan_for_servers(delta: float) -> void:
 		found_server.emit(server_ip, foundHostName, playersOnlineString, statusString)
 
 func _process(delta: float) -> void:
-	if randi_range(0,300) == 50:
-		print(player_list)
 	if scan_server: _process_scan_server()
 	if scan_for_servers: _process_scan_for_servers(delta)
 
@@ -168,12 +166,13 @@ func delete_disconnected_player(id) -> void:
 	player_list.erase(id)
 
 @rpc("reliable")
-func learn_player(player_id: int, player_name: String, player_path: NodePath, tex_id : int) -> void:
+func learn_player(player_id: int, player_name: String, player_path: NodePath, tex_id : int, is_ready: bool) -> void:
 	player_list.get_or_add(player_id)
 	var server_conn = ServerConnection.new()
 	server_conn.playerName = player_name
 	server_conn.player = get_node(player_path)
 	server_conn.character_texture_id  = tex_id
+	server_conn.ready = is_ready
 	player_list.set(player_id, server_conn)
 	CharacterSelect.assign_skin(player_id,tex_id)
 
@@ -181,7 +180,13 @@ func broadcast_player_info() -> void:
 	await get_tree().process_frame
 	for player_id in player_list.keys():
 		var server_conn : ServerConnection = player_list.get(player_id)
-		learn_player.rpc(player_id, server_conn.playerName, server_conn.player.get_path(), server_conn.character_texture_id)
+		learn_player.rpc(
+			player_id, 
+			server_conn.playerName, 
+			server_conn.player.get_path(),
+			server_conn.character_texture_id,
+			server_conn.ready
+		)
 
 func _countdown(duration: int) -> void:
 	var label: CountdownLabel = load("res://ui/HUD/countdown_label.tscn").instantiate()
@@ -203,11 +208,13 @@ func start_the_game():
 		Debug.log("Song Selected: ",song_name)
 		#var song_index : int = randi_range(0,song_pool)
 		##TODO: More stuff added to this to set up in WorldGameplay
+		
 		set_up_round_settings.rpc(
 			song_name,
 			LobbySettings.roundTime,
 			LobbySettings.fishSpawn,
-			LobbySettings.itemSpawn
+			LobbySettings.itemSpawn,
+			BananaPeel.armadillo_mode
 		)
 		##TODO: Set up item pool
 		
@@ -227,24 +234,40 @@ func start_the_game():
 	
 
 @rpc("authority","call_local","reliable")
-func set_up_round_settings(song_name : String, round_time : float, fish_spawn : LobbySettings.SpawnRate, item_spawn : LobbySettings.SpawnRate) -> void:
+func set_up_round_settings(song_name : String,
+							round_time : float,
+							fish_spawn : LobbySettings.SpawnRate, 
+							item_spawn : LobbySettings.SpawnRate,
+							armadillo_mode : bool
+						) -> void:
 	WorldGameplay.song = LobbySettings.song_pool[song_name]
 	WorldGameplay.round_time = round_time
+	BananaPeel.armadillo_mode = armadillo_mode
 	##TODO: Modify Fish Spawn Rate
+	if multiplayer.is_server():
+		match fish_spawn:
+			LobbySettings.SpawnRate.LOW:
+				WorldGameplay.fish_spawn_rate = 10
+			LobbySettings.SpawnRate.MEDIUM:
+				WorldGameplay.fish_spawn_rate = 7
+			LobbySettings.SpawnRate.HIGH:
+				WorldGameplay.fish_spawn_rate = 4
 	##TODO: Modify Item Spawn Rate
 	
 @rpc("authority","call_local","reliable")
 func load_players(level: String):
 	SceneTransition.change_to_file(level)
 	
-func _handle_ready_up() -> void:
+func _handle_ready_up(ready_state: bool) -> void:
 	if get_tree().get_first_node_in_group("Lobby") == null:
 		return
 	
 	if not multiplayer.is_server():
-		set_ready.rpc()
-			
-	if not multiplayer.is_server(): return
+		set_ready.rpc(ready_state)
+		return
+
+	# if server:
+
 	if game_starting: return
 	
 	for player in player_list:
@@ -269,9 +292,9 @@ func set_map(mapString:String,pool:Array):
 
 
 @rpc("any_peer","call_local","reliable")
-func set_ready():
+func set_ready(ready_state: bool):
 	var sender = multiplayer.get_remote_sender_id()
-	player_list[sender].ready = !player_list[sender].ready
+	player_list[sender].ready = ready_state
 	Debug.log("Ready up!!")
 	
 func create_server(serverName: String) -> void:
@@ -321,13 +344,28 @@ func report_loaded() -> void:
 	player_loaded.emit(multiplayer.get_remote_sender_id())
 
 @rpc("call_local")
-func results_screen(first_place_id: int, second_place_id : int, third_place_id : int, fourth_place_id : int) -> void:
+func results_screen(
+	first_place_id: int,
+	second_place_id : int, 
+	third_place_id : int, 
+	fourth_place_id : int,
+	first_score : int,
+	second_score : int,
+	third_score : int,
+	fourth_score : int,
+) -> void:
 	#Debug.log("results_screen(place = %d)" % place)
 	ResultsScreen.placements = [
 		first_place_id,
 		second_place_id,
 		third_place_id,
 		fourth_place_id
+	]
+	ResultsScreen.scores = [
+		first_score,
+		second_score,
+		third_score,
+		fourth_score
 	]
 	SceneTransition.change_to_file("res://ui/results/results_screen.tscn")
 

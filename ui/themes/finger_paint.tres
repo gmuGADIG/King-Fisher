@@ -29,16 +29,16 @@ content_margin_bottom = 20.0
 texture = ExtResource("2_l6pnj")
 modulate_color = Color(0.9529412, 0.78431374, 0.5568628, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qak5"]
+content_margin_left = 0.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("2_l6pnj")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dacd"]
 content_margin_left = 30.0
 content_margin_top = 20.0
 content_margin_right = 30.0
-content_margin_bottom = 20.0
-texture = ExtResource("2_l6pnj")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qak5"]
-content_margin_left = 0.0
-content_margin_top = 20.0
 content_margin_bottom = 20.0
 texture = ExtResource("2_l6pnj")
 
@@ -258,6 +258,7 @@ Button/fonts/font = ExtResource("1_3cepj")
 Button/styles/disabled = SubResource("StyleBoxTexture_tafe6")
 Button/styles/focus = SubResource("StyleBoxTexture_hrw3r")
 Button/styles/hover = SubResource("StyleBoxTexture_hrw3r")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_7qak5")
 Button/styles/normal = SubResource("StyleBoxTexture_5dacd")
 Button/styles/pressed = SubResource("StyleBoxTexture_7qak5")
 CheckBox/font_sizes/font_size = 24

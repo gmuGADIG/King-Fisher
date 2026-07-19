@@ -5,18 +5,16 @@
 
 [resource]
 script = ExtResource("1_s6gv3")
-fish_name = "Fish Team Fish"
+fish_name = "Performative Minnow"
 grade = 1
 sprite = ExtResource("2_6xbey")
-catch_blurb = "Don't touch it we don't know if its contagious yet..."
-description = "An Amethyst Anthias fish was used as the basis for a scientific experiment. The experiments intended to create a fish that would become the perfect mate for any female fish.
+catch_blurb = "Don't touch it! We don't know if its contagious yet..."
+description = "Recently, some scientists on Pollywood undertook a series of experiments intending to create a line of male fish that would become the perfect mates for any female fish. Minnows were used as the base for the experiment, as they were easy to catch en masse, and seemed somehow eager to undergo the transformation.
 
-However, the lead scientist was arrested for smelting live Gold Fish and turning them into a set of armor.
+However, the lead scientist was arrested for smelting live Gold Fish and turning them into a suit of armor. Because of this, a younger, less experienced scientist took over the experiment. He messed up the last step of the procedure, and everything began to go awry.
 
-Because of this, a young, newer scientist took over the experiment. Due to his inexperience, he messed up the last step of the experiment, and everything went wrong.
-The Amethyst Anthias changed, he did not become the most desired fish in the sea, instead, he became something... horrifying. He started reading feminist literature, he started drinking matcha tea, he started wearing quarter-zip sweaters, and he carried all of it in his special tote bag.
+The minnows changed. Instead of becoming more desirable, they morphed into something… horrifying. They started reading feminist literature, drinking matcha, wearing quarter-zip sweaters, and carrying all their possessions in special tote bags (the scientists claim they did not provide any of these items, and their appearance is altogether mysterious). They began to swim around separately from their fellows as if looking for something, but grew more insecure about their small size when solitary—observed through experimentation with mirrors placed in the water. Due to this disconnect in their behavior when alone versus in company, the subspecies was dubbed the “Performative Minnow.”
 
-The group of scientists immediately attempted to exterminate the fish, but driven by his desire to get a girlfriend, he escaped.
-
-It has not been seen since the incident."
+The scientists immediately attempted to exterminate the unnatural fish, but, driven by their desire to get girlfriends, they all escaped. Seemingly from nowhere, calm, feminine-sounding music started to follow them as they swam away from the laboratory (the current theory is that it may have something to do with the tote bags, but this is still under investigation). This is much to the dismay of Emo Bass and Thrasher Sharks, whose colonies have been in a state of disarray for the last several months. Scientists nervously await what other developments might come with their presence in Pollywood’s waters.
+"
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

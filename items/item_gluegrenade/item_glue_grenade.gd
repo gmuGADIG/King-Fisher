@@ -5,6 +5,7 @@ extends ThrowableItem
 @export var glue_icon : Texture
 
 func _on_land() -> void:
+	$Visuals.hide()
 	$GPUParticles3D.emitting = true
 	var hit_players = get_overlapping_bodies()
 	for hit_player in hit_players:

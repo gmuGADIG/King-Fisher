@@ -5,13 +5,14 @@
 
 [resource]
 script = ExtResource("1_vgim8")
-fish_name = "British Fish"
+fish_name = "Britfish"
 grade = 1
 sprite = ExtResource("2_c6gco")
-description = "The British fish is a genetically altered variant of the standard fish species that populates the ponds and lakes of Pollywood. This species originally had a handful of them stolen by British insurgents and then took them to their home base in London to paint them with the british flag colors
+catch_blurb = "Tastes like breakfast."
+description = "British fisherfolk from Earth once anchored their galactic fleet in Pollywood’s orbit. They caught as many unique species of fish as they could with the hopes of adding them to their aquarium back in London. Apparently, only the common Pollywood Trout survived the voyage, and was sorry that it did. After undergoing genetic alteration and a series of “finishing schools” (originally misunderstood as “fishing schools”), the now-Britfish was sneakily returned to Pollywood with an ingrown top hat and tea cup. Somehow, a new top hat and tea cup eventually finds its way to all Britfish progeny.
 
-They then returned the painted variant and then sneakily placed them back into the ponds, specifically in densely populated areas. The fish then populated with the other fish, and to everyone’s surprise, the British flag colors were fully imprinted on the progeny. Like they were pure blooded.
+While the Britfish reproduce at the same rate as the Pollywood Trout, you should not hope to catch the latter—it was taught in finishing school that one must always bite a hook if one is offered. Pollywood Trout simply lack that same etiquette. Another consequence of their finishing school is that although Britfish are the only known species capable of breaking through a Druyip Man o’ War’s formation, they insist that it is “unbecoming” to do so.
 
-The British fish tends to feast on anything that tastes similar to tea and crackers. Just don't ask them about weetbix.... 
+An interesting quality of Britfish is that they can be boiled in a kettle to extract a rich, tea-like flavor from their skin. Additionally, their meat tastes like a crispy baked good, and their eyes like beans. Nobody is too sure why this resulted from the genetic alterations.
 "
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"
