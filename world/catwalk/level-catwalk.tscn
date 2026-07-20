@@ -7,19 +7,12 @@
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_5gcag"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_cwonv"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_5gcag"]
-[ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="6_iwfht"]
 [ext_resource type="PackedScene" path="res://world/props/cargo_box.tscn" id="7_aemix"]
-[ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="7_hqw5t"]
-[ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="8_5lo8q"]
-[ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="9_25hqm"]
-[ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="10_l8w8w"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="10_xyhru"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="11_7wsnx"]
-[ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="11_25hqm"]
 [ext_resource type="PackedScene" uid="uid://chdjv4pfi24ch" path="res://world/props/waste_barrel.tscn" id="11_clqaf"]
 [ext_resource type="PackedScene" uid="uid://dot3qmugnfdcx" path="res://world/props/dock.tscn" id="11_xyhru"]
 [ext_resource type="PackedScene" path="res://world/props/upturned_boat.tscn" id="12_ggfat"]
-[ext_resource type="PackedScene" uid="uid://pkvxbw6wyjxu" path="res://items/item_ziplock_bag/item_ziplock_bag.tscn" id="12_l8w8w"]
 [ext_resource type="PackedScene" uid="uid://bcdu3eu5jmtu2" path="res://world/props/rock_3.tscn" id="12_yblsa"]
 [ext_resource type="PackedScene" uid="uid://7pg60uc0tj5" path="res://world/props/mushroom_small.tscn" id="13_ggfat"]
 [ext_resource type="PackedScene" uid="uid://bhgnooactcump" path="res://world/props/tree_triangle.tscn" id="14_ucxb8"]
@@ -83,7 +76,7 @@ metadata/_custom_type_script = "uid://cb6f5am52xc7"
 [node name="ItemSpawner" parent="." index="4" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.646378, 14.528157, 30.433125)
 shape = SubResource("BoxShape3D_lkfwd")
-items = Array[PackedScene]([ExtResource("6_iwfht"), ExtResource("7_hqw5t"), ExtResource("8_5lo8q"), ExtResource("9_25hqm"), ExtResource("10_l8w8w"), ExtResource("11_25hqm"), ExtResource("12_l8w8w")])
+items = []
 spawn_rate = 0.4
 max_items = 24
 

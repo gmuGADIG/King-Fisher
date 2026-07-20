@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_uq7of"]
 [ext_resource type="Resource" uid="uid://bsvpg3fo22nud" path="res://world/level_mushroom/terrain/data.hterrain" id="3_dowhw"]
 [ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="3_q8niw"]
-[ext_resource type="Resource" uid="uid://bguwhw4xujfv8" path="res://world/fish_spawner/normal_rates.tres" id="4_ldwln"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_of031"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_dowhw"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_of031"]
@@ -49,27 +48,22 @@ fish_spawner_weights = Array[int]([1, 1, 1, 1, 1])
 [node name="FishSpawner" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("3_q8niw")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.9041348, -3.2628295, 19.579819)
 polygon = PackedVector2Array(3.5498943, 2.5765743, 0.7856469, 2.851038, -0.3318143, 2.223692, -0.86113834, 1.027811, -0.4494424, -0.1484642, -0.52786016, -1.4031582, -0.11616421, -2.6578522, 0.86406565, -3.677291, 1.6678543, -4.6967306, 4.3492174, -5.891944, 6.388095, -6.0487814, 7.4075327, -5.578271, 9.05432, -4.8529005, 9.152343, -3.2257195, 9.407203, -1.4220963, 8.603415, -0.10858917, 7.701603, 0.8324318, 6.270467, 1.4597778, 4.5452633, 1.949892)
-fish_spawnrate = ExtResource("4_ldwln")
 
 [node name="FishSpawner2" parent="FishSpawners" index="1" unique_id=928294635 instance=ExtResource("3_q8niw")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.9041348, -3.3932598, 19.579819)
 polygon = PackedVector2Array(15.053904, -13.737136, 16.88051, -13.835871, 19.546368, -13.3915615, 22.212227, -13.3915615, 24.038832, -13.440928, 25.273026, -12.404207, 25.816069, -11.268748, 25.717335, -9.738349, 25.026186, -8.454787, 23.051476, -7.7142715, 20.484354, -7.418065, 18.855219, -7.3193293, 16.337465, -7.96111, 15.350109, -9.392775, 15.004536, -10.429498, 14.905798, -11.416852)
-fish_spawnrate = ExtResource("4_ldwln")
 
 [node name="FishSpawner3" parent="FishSpawners" index="2" unique_id=1734535392 instance=ExtResource("3_q8niw")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.9041348, -3.4405458, 19.579819)
 polygon = PackedVector2Array(26.080362, 29.967575, 28.49938, 30.263783, 30.227251, 31.251137, 32.794373, 32.534695, 34.81845, 33.472683, 35.460228, 35.29929, 34.86782, 36.681587, 33.238686, 37.570206, 30.07915, 37.323364, 26.376566, 36.533485, 24.500593, 35.447395, 24.006914, 33.52205, 25.093006, 31.399239)
-fish_spawnrate = ExtResource("4_ldwln")
 
 [node name="FishSpawner4" parent="FishSpawners" index="3" unique_id=56659014 instance=ExtResource("3_q8niw")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.9041348, -3.6278474, 19.579819)
 polygon = PackedVector2Array(51.298492, 18.146091, 52.532684, 18.39293, 52.779526, 19.133446, 52.976997, 20.417007, 52.878265, 21.947407, 52.582054, 23.033497, 52.18711, 24.712002, 51.792175, 26.242397, 51.347862, 27.279121, 50.409874, 28.118374, 48.97821, 28.61205, 47.990852, 29.056358, 46.954132, 29.3032, 45.57184, 29.3032, 44.68322, 29.451302, 43.794594, 29.401936, 42.955345, 28.85889, 42.807243, 27.920902, 43.152817, 26.884178, 43.54776, 26.143665, 44.288277, 25.304413, 45.028793, 24.168953, 45.6212, 23.181599, 46.361717, 21.996773, 47.102234, 20.713211, 47.64528, 20.219536, 48.92884, 19.67649, 49.81746, 19.084076)
-fish_spawnrate = ExtResource("4_ldwln")
 
 [node name="FishSpawner5" parent="FishSpawners" index="4" unique_id=448894828 instance=ExtResource("3_q8niw")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.9041348, -4.9754333, 19.579819)
 polygon = PackedVector2Array(22.19016, 8.026497, 23.302153, 6.0825825, 25.37908, 5.5098934, 28.521112, 5.263508, 30.655546, 5.6381416, 32.53576, 7.7658157, 33.343163, 10.33564, 33.365356, 13.389648, 32.161125, 16.126667, 29.60539, 18.178444, 26.047956, 18.827423, 23.593157, 17.359524, 22.710688, 15.345917)
-fish_spawnrate = ExtResource("4_ldwln")
 
 [node name="DirectionalLight3D" parent="." index="2" unique_id=1620714622]
 light_energy = 2.5
@@ -1270,3 +1264,4 @@ transform = Transform3D(0.23835433, 0, 0.075413615, 0, 0.25, 0, -0.075413615, 0,
 transform = Transform3D(0.23742205, 0, -0.07829925, 0, 0.25, 0, 0.07829925, 0, 0.23742205, 0.32211304, -4.900538, -1.8276825)
 
 [editable path="Crystals/LakeCrystal01"]
+[editable path="Water/Killbox"]
