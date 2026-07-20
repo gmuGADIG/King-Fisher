@@ -9,7 +9,6 @@
 viewport_path = NodePath("ItemViewport")
 
 [node name="HeldItem" type="Control" unique_id=1114095646]
-z_index = 5
 layout_mode = 3
 anchors_preset = 0
 offset_right = 150.0

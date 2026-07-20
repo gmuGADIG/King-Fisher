@@ -41,4 +41,4 @@ func display_pages():
 		page2.get_child(2).texture = null
 
 func _on_back_button_pressed() -> void:
-	hide()
+	close()

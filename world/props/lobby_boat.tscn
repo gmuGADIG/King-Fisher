@@ -30,6 +30,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.646, 3.25)
 transform = Transform3D(-0.6322321, 0, -0.774779, 0, 0.9999999, 0, 0.77477914, 0, -0.63223195, 3.4678538, 9.158565, 17.13982)
 
 [node name="TutorialTable" parent="TallRoofBoat" unique_id=1807823361 instance=ExtResource("6_idwaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1882033, 2.6456003, 12.243928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45828, 2.6456003, 12.243928)
 
 [editable path="TallRoofBoat"]

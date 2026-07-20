@@ -14,6 +14,7 @@ var item_to_string_table: Dictionary[Script, String] = {
 }
 
 func _ready() -> void:
+	UIState.state_updated.connect(_state_updated)
 	if BananaPeel.armadillo_mode:
 		item_to_string_table.set(BananaPeel,"SlopAdillo")
 	else:
@@ -25,3 +26,10 @@ func clear_item() -> void:
 
 func hold_item(item: Item) -> void:
 	item_sprite.visible_item = item_to_string_table[item.get_script()]
+
+func _state_updated(new_state : UIState.State) -> void:
+	match new_state:
+		UIState.State.CHARACTER_SELECT, UIState.State.TUTORIAL,UIState.State.LOBBY_SETTINGS, UIState.State.LIVEWELL, UIState.State.FISHING_MINIGAME:
+			hide()
+		_:
+			show()
