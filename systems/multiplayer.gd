@@ -113,8 +113,8 @@ func _on_peer_connected(id: int) -> void:
 		disconnect_client.rpc_id(id, "lobby full")
 		player_list.erase(id)
 		return
-	if (status == "In Game"):
-		disconnect_client.rpc_id(id, "lobby full")
+	if (status == "In Game" or status == "Starting"):
+		disconnect_client.rpc_id(id, "In Game")
 		player_list.erase(id)
 		return
 	
@@ -199,7 +199,7 @@ func _countdown(duration: int) -> void:
 
 @rpc("call_local")
 func start_the_game():
-
+	start_game.emit()
 	status = "Starting"
 
 	if multiplayer.is_server():
@@ -222,10 +222,11 @@ func start_the_game():
 		
 		
 	await _countdown(5)
+	status = "In Game"
 	game_starting = false;
 	if(not multiplayer.is_server()):
 		return
-
+	
 	#var levelLoad:String = allowedMaps.pick_random()
 	var levelLoad : String = ["res://world/level-docks/level-docks.tscn","res://world/ship/level-ship.tscn"].pick_random()
 	
@@ -269,9 +270,7 @@ func _handle_ready_up(ready_state: bool) -> void:
 			return
 	
 	game_starting = true
-	start_game.emit()
 	start_the_game.rpc()
-	status = "In Game"
 
 func set_map(mapString:String,pool:Array):
 	#Array to be returned

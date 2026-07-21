@@ -17,6 +17,7 @@ var selected_skin : int
 @onready var mat := player_mesh.material_override as StandardMaterial3D
 
 func _ready() -> void:
+	Multiplayer.start_game.connect(close)
 	hide()
 
 func _input(event: InputEvent) -> void:
