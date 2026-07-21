@@ -28,6 +28,10 @@ func setup_item(index : int) -> void:
 	item.queue_free()
 
 func draw_page() -> void:
+	$Background/Item1Container/HBoxContainer/Description.get_v_scroll_bar().value = 0
+	$Background/Item1Container/Lore.get_v_scroll_bar().value = 0
+	$Background/Item2Container/HBoxContainer/Description.get_v_scroll_bar().value = 0
+	$Background/Item2Container/Lore.get_v_scroll_bar().value = 0
 	var item_1 : Item = items[page*2].instantiate()
 	var item_2 : Item = items[page*2+1].instantiate()
 	
