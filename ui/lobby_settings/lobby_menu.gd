@@ -218,9 +218,9 @@ func open() -> void:
 	if not multiplayer.is_server():
 		return
 	if BananaPeel.armadillo_mode:
-		banana_item_sprite.visible_item = "Armadillo"
+		banana_item_sprite.visible_item = Item.Type.ARMADILLO
 	else:
-		banana_item_sprite.visible_item = "BananaPeel"
+		banana_item_sprite.visible_item = Item.Type.BANANA_PEEL
 	show()
 	UIState.ui_state = UIState.State.LOBBY_SETTINGS
 

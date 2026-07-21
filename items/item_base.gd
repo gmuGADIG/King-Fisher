@@ -1,6 +1,20 @@
 class_name Item
 extends Area3D
 
+
+enum Type{
+	NONE,
+	BANANA_PEEL,
+	BUTTERFLY_NET,
+	GOLDEN_WORM,
+	HELMET,
+	ZIPLOCK_BAG,
+	RUBBER_MALLET,
+	GLUE_GRENADE,
+	BRICK,
+	ARMADILLO,
+}
+
 ## This is the base item. The item as it exists in the player's hand, inventory, and lying around the world are all the same thing.
 ## Create an inherited scene from res://items/item_base.tscn, then create a script that extends Item with a unique use() function to create a new item.
 ## You can also change the item_name string in the inspector, which will probably show in the HUD.

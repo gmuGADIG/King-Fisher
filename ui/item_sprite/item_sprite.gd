@@ -2,7 +2,7 @@
 class_name ItemSprite
 extends Node
 
-var visible_item: String: 
+@export var visible_item: Item.Type: 
 	set(v):
 		visible_item = v
 		update_visible_item()
@@ -14,18 +14,18 @@ func _ready() -> void:
 
 func update_visible_item():
 	if not is_node_ready(): return
-	for item in item_root.get_children():
-		item.visible = item.name == visible_item
+	for i in item_root.get_child_count():
+		item_root.get_child(i).visible = i == visible_item-1
 
 # programmatically generate the exported property list.
 #
 # all this function does is create an enum in the inspector property list
 # that fits what `visible_item` is expecting.
-func _get_property_list() -> Array[Dictionary]:
-	return [{
-		"name": "visible_item",
-		"type": TYPE_STRING,
-		"hint": PROPERTY_HINT_ENUM,
-		"hint_string": "- nothing -," + ",".join(item_root.get_children()
-				.map(func(node: Node) -> String: return node.name))
-	}]
+#func _get_property_list() -> Array[Dictionary]:
+	#return [{
+		#"name": "visible_item",
+		#"type": TYPE_STRING,
+		#"hint": PROPERTY_HINT_ENUM,
+		#"hint_string": "- nothing -," + ",".join(item_root.get_children()
+				#.map(func(node: Node) -> String: return node.name))
+	#}]
