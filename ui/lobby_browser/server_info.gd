@@ -43,7 +43,7 @@ func _ready() -> void:
 	
 func _update_joinability() -> void:
 	#var can_join : bool = true
-	if status == "In Game":
+	if status == "In Game" or status == "Starting":
 		%JoinButton.disabled = true
 		return
 	

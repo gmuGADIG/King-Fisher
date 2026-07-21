@@ -39,8 +39,7 @@ description = "“We’ve discovered that the further you venture out from the s
 “These varieties make fish classification easier—and more fun. Happy fishing!”
 —King Fisher
 
-© F.I.S.H.E. Corporation
-"
+© F.I.S.H.E. Corporation"
 image = ExtResource("5_j0hjb")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
@@ -120,37 +119,39 @@ texture = ExtResource("3_lqqlb")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Page" type="VBoxContainer" parent="Background" unique_id=559845163]
+[node name="Page" type="VBoxContainer" parent="Background" unique_id=1639937937]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 319.0
-offset_top = 41.0
-offset_right = -598.0
-offset_bottom = -347.0
+offset_left = 315.67252
+offset_top = 44.28272
+offset_right = -593.40515
+offset_bottom = -335.49054
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="Background/Page" unique_id=808158201]
+[node name="Title" type="Label" parent="Background/Page" unique_id=1350825712]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 25
 text = "Chapter Title"
 horizontal_alignment = 1
 
-[node name="Text" type="Label" parent="Background/Page" unique_id=1634702440]
-custom_minimum_size = Vector2(0, 50)
+[node name="Text" type="RichTextLabel" parent="Background/Page" unique_id=260057619]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme = ExtResource("4_xpy58")
 theme_type_variation = &"TooltipLabel"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 5
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
 text = "Lots of little text here"
-autowrap_mode = 3
 
-[node name="Image" type="TextureRect" parent="Background/Page" unique_id=1335146015]
+[node name="Image" type="TextureRect" parent="Background/Page" unique_id=1727927341]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("4_pxdlg")
@@ -162,30 +163,32 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 588.0
-offset_top = 41.0
-offset_right = -329.0
-offset_bottom = -347.0
+offset_left = 578.8384
+offset_top = 44.28272
+offset_right = -330.23926
+offset_bottom = -335.49054
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Title" type="Label" parent="Background/Page2" unique_id=1512299606]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 25
 text = "Chapter Title"
 horizontal_alignment = 1
 
-[node name="Text" type="Label" parent="Background/Page2" unique_id=1137754849]
-custom_minimum_size = Vector2(0, 50)
+[node name="Text" type="RichTextLabel" parent="Background/Page2" unique_id=982654346]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme = ExtResource("4_xpy58")
 theme_type_variation = &"TooltipLabel"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 5
-text = "	"
-autowrap_mode = 3
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "Lots of little text here"
 
 [node name="Image" type="TextureRect" parent="Background/Page2" unique_id=1241950258]
 layout_mode = 2

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bexjqusttkrm6" path="res://art/3d-assets/GlueGranadine.glb" id="4_dxa6s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1e24p"]
-radius = 1.0517309
+radius = 2.975165
 
 [sub_resource type="Curve" id="Curve_1e24p"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
@@ -18,11 +18,18 @@ curve = SubResource("Curve_1e24p")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ci60"]
 lifetime_randomness = 1.0
-emission_shape = 1
-emission_sphere_radius = 1.5
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.2
+emission_ring_radius = 3.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
 angle_min = -19.99999
 angle_max = 20.000011
 angle_curve = SubResource("CurveTexture_dxa6s")
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 5.0
+gravity = Vector3(0, -4, 0)
 linear_accel_min = -3.0000021
 linear_accel_max = 2.9999976
 scale_min = 0.5
@@ -40,7 +47,7 @@ material = SubResource("StandardMaterial3D_8i4hd")
 collision_layer = 1
 script = ExtResource("2_1e24p")
 slow_time = 15.0
-slow_amount = 0.4
+slow_amount = 0.6
 glue_icon = ExtResource("2_xhcbl")
 item_name = "Glue Grenade"
 description = "When used, the player throws the grenade. When thrown if it hits a player it will explode covering them in glue and giving them a debuff to their speed. Any other players within the explosion radius will also be given a debuff. "
@@ -52,20 +59,19 @@ When asked how they felt about the increasingly negative feedback F.I.S.H.E. bee
 [node name="GlueGranadine" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=82581485 instance=ExtResource("4_dxa6s")]
 transform = Transform3D(1, 0, 0, 0, 0.8829886, -0.4693945, 0, 0.4693945, 0.8829886, 0, -0.11261624, 0)
 
-[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1191979190]
+[node name="GlueArea" type="Area3D" parent="." index="1" unique_id=1191979190]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1351171899]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GlueArea" index="0" unique_id=1351171899]
 shape = SubResource("SphereShape3D_1e24p")
 debug_color = Color(0.9254902, 0, 0.6784314, 1)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="2" unique_id=1889681586]
 emitting = false
 amount = 50
+one_shot = true
 explosiveness = 1.0
 collision_base_size = 0.1
 process_material = SubResource("ParticleProcessMaterial_7ci60")
 draw_pass_1 = SubResource("SphereMesh_we5kf")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

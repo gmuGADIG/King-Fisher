@@ -17,6 +17,8 @@ func _ready() -> void:
 	
 	if returning_to_lobby:
 		spawn_request.rpc_id(1)
+		if not multiplayer.is_server():
+			Multiplayer.set_ready.rpc(false)
 		returning_to_lobby = false
 	
 	Multiplayer.new_player.connect(on_player_join)

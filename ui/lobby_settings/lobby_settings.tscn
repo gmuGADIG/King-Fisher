@@ -139,7 +139,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6lp2s")
 script = ExtResource("1_fh8yv")
-defaultMapSelect = 7
+defaultMapSelect = 31
 defaultItemSelect = 255
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1279630505]
@@ -638,7 +638,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_i0nya")
-visible_item = "Rubber Mallet"
+visible_item = 6
 
 [node name="ButterflyNet" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1208334514]
 material = SubResource("ShaderMaterial_g47ou")
@@ -661,7 +661,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_fh8yv")
-visible_item = "Butterfly Net"
+visible_item = 2
 
 [node name="BananaPeel" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=2050551459]
 material = SubResource("ShaderMaterial_5ffiu")
@@ -684,7 +684,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_1b0y7")
-visible_item = "BananaPeel"
+visible_item = 1
 
 [node name="Brick" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1021693364]
 material = SubResource("ShaderMaterial_i0nya")
@@ -707,7 +707,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_m2d5r")
-visible_item = "Brick"
+visible_item = 8
 
 [node name="GlueGrenade" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=504065254]
 material = SubResource("ShaderMaterial_fh8yv")
@@ -728,7 +728,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_sgmg3")
-visible_item = "Glue Grenade"
+visible_item = 7
 
 [node name="Helmet" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=776286025]
 material = SubResource("ShaderMaterial_1b0y7")
@@ -751,7 +751,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_lfejf")
-visible_item = "Helmet"
+visible_item = 4
 
 [node name="ZiplockBag" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1588063442]
 material = SubResource("ShaderMaterial_m2d5r")
@@ -774,7 +774,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_rnt8h")
-visible_item = "Ziplock Bag"
+visible_item = 5
 
 [node name="GoldenWorm" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1578861966]
 material = SubResource("ShaderMaterial_6lp2s")
@@ -795,7 +795,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_0u54a")
-visible_item = "Golden Worm"
+visible_item = 3
 
 [node name="ExitButton" type="TextureButton" parent="Background" unique_id=1099861076]
 visible = false

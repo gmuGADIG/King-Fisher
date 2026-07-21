@@ -36,6 +36,7 @@ radius = 0.9446206
 [node name="BananaPeel" unique_id=1566519324 instance=ExtResource("1_cv4ru")]
 script = ExtResource("2_k385h")
 ragdollTime = 3.0
+type = 1
 description = "When used, the player throws the peel, playing an animation. When the peel lands on the ground it becomes a hazard that will cause the next player to walk on top of it to ragdoll."
 lore = "King Fisher loved bananas. As a Pwaaga born with only one arm, he struggled to enjoy most of his culture’s dining experiences, which often required all four hands to hold some kind of utensil. King Fisher gives a firsthand account on the convenience of snacking on a banana in his most famous written work, the Art of Angling, which is graciously provided to all Fishbowl competitors.
 
@@ -53,7 +54,7 @@ unique_name_in_owner = true
 transform = Transform3D(1.74, 0, 0, 0, 1.74, 0, 0, 0, 1.74, 0, 0, -0.21022841)
 visible = false
 
-[node name="Armadillo" parent="Visuals/Armadillo/Node" parent_id_path=PackedInt32Array(1877560320, 1656690974) index="0" unique_id=1176594358]
+[node name="Armadillo" parent="Visuals/Armadillo/Node" parent_id_path=PackedInt32Array(1877560320, 1857077457) index="0" unique_id=1612515961]
 material_override = SubResource("StandardMaterial3D_3j6y8")
 
 [node name="Outline" type="MeshInstance3D" parent="Visuals/Armadillo/Node/Armadillo" index="0" unique_id=978573820]

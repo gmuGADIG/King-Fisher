@@ -6,6 +6,8 @@ func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
 		if multiplayer.get_unique_id() != body.get_multiplayer_authority():
 			return
+		if Multiplayer.status != "":
+			return
 		CharacterSelect.open()
 		
 

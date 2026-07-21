@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="9_yng5x"]
 [ext_resource type="PackedScene" uid="uid://pkvxbw6wyjxu" path="res://items/item_ziplock_bag/item_ziplock_bag.tscn" id="10_oy8vb"]
 [ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="13_as6mg"]
-[ext_resource type="FontFile" uid="uid://b8gbecjr3q5m3" path="res://ui/themes/fonts/finger_paint/FingerPaintRegular-nmlV.ttf" id="14_gb0db"]
 
 [sub_resource type="Animation" id="Animation_as6mg"]
 length = 0.001
@@ -142,9 +141,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("13_as6mg")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/normal_font = ExtResource("14_gb0db")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/normal_font_size = 15
 
 [node name="Lore" type="RichTextLabel" parent="Background/Item1Container" unique_id=1977059269]
@@ -152,9 +150,8 @@ custom_minimum_size = Vector2(135, 50)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("13_as6mg")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/normal_font = ExtResource("14_gb0db")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/normal_font_size = 15
 
 [node name="RightArrow" type="Button" parent="Background" unique_id=523777718]
@@ -216,9 +213,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("13_as6mg")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/normal_font = ExtResource("14_gb0db")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/normal_font_size = 15
 
 [node name="Box" type="TextureRect" parent="Background/Item2Container/HBoxContainer" unique_id=1788041510]
@@ -245,9 +241,8 @@ custom_minimum_size = Vector2(135, 50)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("13_as6mg")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/normal_font = ExtResource("14_gb0db")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/normal_font_size = 15
 
 [node name="Back_Button" type="Button" parent="." unique_id=1148487743]

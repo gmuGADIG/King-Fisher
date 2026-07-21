@@ -1,13 +1,13 @@
 class_name GlueGrenade
 extends ThrowableItem
 @export var slow_time : float = 50
-@export_range(0.0, 1.0, 0.01) var slow_amount : float = 0.4
+@export_range(0.0, 1.0, 0.01) var slow_amount : float = 0.5
 @export var glue_icon : Texture
 
 func _on_land() -> void:
 	$Visuals.hide()
 	$GPUParticles3D.emitting = true
-	var hit_players = get_overlapping_bodies()
+	var hit_players = $GlueArea.get_overlapping_bodies()
 	for hit_player in hit_players:
 		Debug.log("p = %s; player = %s" % [hit_player, player])
 		if hit_player is Player:

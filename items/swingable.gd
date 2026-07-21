@@ -25,10 +25,24 @@ func use():
 ## If the item is held, and the body entered is not the holder,
 ## do something to them. (Override this in a child class.)
 func effect_on_contact(body: Node3D):
-	if is_held and body.is_in_group("Player") and body != holder:
-		Debug.log("Doing something to %s!" % body.name)
+	Debug.log("Doing something to %s!" % body.name)
 
 func _on_swing_hitbox_body_entered(body):
+	if not swing_active:
+		return
+	if not is_held:
+		return
+	
+	if body.name == "Physical Bone Pelvis":
+		body = body.get_parent() # Get the Bones node from the pelvis bone
+		body = body.player
+	print(body)
+	
+	if body is not Player: return
+	
+	if body == holder:
+		return
+	
 	
 	if swing_active && !hitPlayers.has(body): 
 		hitPlayers.append(body)

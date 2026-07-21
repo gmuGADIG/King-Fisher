@@ -33,7 +33,7 @@ static var mapPool = [
 
 # TODO: replace with names of actual maps
 ## The default maps selected for a round.
-@export_flags("Map1","Map2","Map3","Map4","Map5")
+@export_flags("Catwalks","Heightmap Test","Coffin","Docks","Map5")
 var defaultMapSelect: int
 
 ## The default song selection for the round.
@@ -60,6 +60,8 @@ enum Items {
 	ZIPLOCK_BAG = 64,
 	GOLDEN_WORM = 128
 }
+
+static var first_time : bool = true
 
 ## The current length of each round, in seconds.
 static var roundTime: int = 180
@@ -114,7 +116,10 @@ func _ready() -> void:
 		song_options.add_item(entry)
 	
 	#assert(song_options.item_count == music_pool.size() + 1, "Number of songs do not match options")
-	_on_reset_button_pressed()
+	
+	if first_time:
+		_on_reset_button_pressed()
+		first_time = false
 
 	if not get_tree().current_scene == self:
 		hide()
@@ -161,6 +166,7 @@ func _on_save_button_pressed() -> void:
 
 	# Spawn rates
 	itemSpawn = itemRadios.get_value() as SpawnRate
+	print("Item spawn rate: ",itemSpawn)
 	fishSpawn = fishRadios.get_value() as SpawnRate
 
 	# Selections
@@ -172,9 +178,20 @@ func _on_save_button_pressed() -> void:
 	print(fishSpawn)
 	print(itemSelect)
 	
-	print("Maps" +str(String.num_int64(mapSelect,2)))
-	print(songSelect)
-	Multiplayer.set_map(String.num_int64(mapSelect,2),mapPool)
+	print("mapSelect: ",mapSelect)
+	##Map Selections
+	Multiplayer.allowedMaps.clear()
+	for i in mapPool.size():
+		if mapSelect & 1<<i:
+			Multiplayer.allowedMaps.append(mapPool[i])
+	
+	#Fallback if no map selected
+	if Multiplayer.allowedMaps.is_empty():
+		Multiplayer.allowedMaps.append_array(mapPool)
+	Debug.log("Level pool: ",Multiplayer.allowedMaps)
+	#print("Maps" +str(String.num_int64(mapSelect,2)))
+	#print(songSelect)
+	#Multiplayer.set_map(String.num_int64(mapSelect,2),mapPool)
 
 ## Reset settings to default.
 func _on_reset_button_pressed() -> void:
@@ -212,9 +229,9 @@ func open() -> void:
 	if not multiplayer.is_server():
 		return
 	if BananaPeel.armadillo_mode:
-		banana_item_sprite.visible_item = "Armadillo"
+		banana_item_sprite.visible_item = Item.Type.ARMADILLO
 	else:
-		banana_item_sprite.visible_item = "BananaPeel"
+		banana_item_sprite.visible_item = Item.Type.BANANA_PEEL
 	show()
 	UIState.ui_state = UIState.State.LOBBY_SETTINGS
 

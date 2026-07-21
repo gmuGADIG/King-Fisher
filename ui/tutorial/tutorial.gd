@@ -27,6 +27,8 @@ func _on_left_arrow_pressed() -> void:
 	display_pages()
 
 func display_pages():
+	$Background/Page/Text.get_v_scroll_bar().value = 0
+	$Background/Page2/Text.get_v_scroll_bar().value = 0
 	page1.get_child(0).text = tutorial_pages[current_page].title
 	page1.get_child(1).text = tutorial_pages[current_page].description
 	page1.get_child(2).texture = tutorial_pages[current_page].image
@@ -41,4 +43,4 @@ func display_pages():
 		page2.get_child(2).texture = null
 
 func _on_back_button_pressed() -> void:
-	hide()
+	close()

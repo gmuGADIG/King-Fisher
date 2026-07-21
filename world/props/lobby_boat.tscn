@@ -15,7 +15,7 @@ data = PackedVector3Array(-0.98029995, 0.089499995, 1.76, -0.9684, 0.13329999, -
 [node name="TallRoofBoat" parent="." unique_id=1656329038 instance=ExtResource("1_hl5v7")]
 script = ExtResource("2_1aoby")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="TallRoofBoat/LobbyBoat" parent_id_path=PackedInt32Array(1656329038, 1668835439) index="0" unique_id=1970389255]
+[node name="StaticBody3D" type="StaticBody3D" parent="TallRoofBoat/LobbyBoat" parent_id_path=PackedInt32Array(1656329038, 1772835676) index="0" unique_id=1970389255]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TallRoofBoat/LobbyBoat/StaticBody3D" unique_id=1222104524]
 shape = SubResource("ConcavePolygonShape3D_cq325")
@@ -30,6 +30,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.646, 3.25)
 transform = Transform3D(-0.6322321, 0, -0.774779, 0, 0.9999999, 0, 0.77477914, 0, -0.63223195, 3.4678538, 9.158565, 17.13982)
 
 [node name="TutorialTable" parent="TallRoofBoat" unique_id=1807823361 instance=ExtResource("6_idwaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1103141, 2.6456003, 12.243928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45828, 2.6456003, 12.243928)
 
 [editable path="TallRoofBoat"]
