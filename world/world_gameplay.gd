@@ -4,10 +4,10 @@ extends WorldBase
 static var fish_shadows : Dictionary[int,FishShadow]
 static var next_fish_shadow_id : int = 0
 
-const MAX_FISH : int = 15
+const MAX_FISH : int = 30
 
 static var fish_shadow : PackedScene = load("res://world/fish_spawner/fish_shadow.tscn")
-static var fish_spawn_rate : float = 5.0
+static var fish_spawn_rate : LobbySettings.SpawnRate = LobbySettings.SpawnRate.MEDIUM
 
 static var song : Song
 static var round_time : float
@@ -57,13 +57,13 @@ func _ready() -> void:
 		var fish_timer : Timer = Timer.new()
 		fish_timer.timeout.connect(_spawn_fish)
 		fish_timer.one_shot = false
-		fish_timer.wait_time = fish_spawn_rate ##This might need to be different per map?
-
-		match LobbySettings.fishSpawn:
+		match fish_spawn_rate:
 			LobbySettings.SpawnRate.LOW:
-				fish_timer.wait_time *= 1.5
+				fish_timer.wait_time = 10
+			LobbySettings.SpawnRate.MEDIUM:
+				fish_timer.wait_time = 5
 			LobbySettings.SpawnRate.HIGH:
-				fish_timer.wait_time *= 0.5
+				fish_timer.wait_time = 3
 
 		add_child(fish_timer)
 		fish_timer.start()
@@ -125,6 +125,7 @@ func _spawn_fish() -> void:
 	if fish_count >= MAX_FISH:
 		return
 	
+	Debug.log("Spawning fish")
 	##Choose pool
 	var index : int = fish_rng.rand_weighted(fish_spawner_weights)
 	assert(index != -1, "weights empty")

@@ -9,5 +9,5 @@ func get_value() -> int:
 
 func set_value(value: int) -> void:
 	for radio_button: RadioButton in get_children():
-		radio_button.unselect()
-	get_child(value).select()
+		radio_button.selected = false
+	get_child(value).selected = true

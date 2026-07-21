@@ -212,11 +212,14 @@ func start_the_game():
 		set_up_round_settings.rpc(
 			song_name,
 			LobbySettings.roundTime,
-			LobbySettings.fishSpawn,
 			LobbySettings.itemSpawn,
 			BananaPeel.armadillo_mode
 		)
+		
+		##Fish Spawn Rate
+		WorldGameplay.fish_spawn_rate
 		##TODO: Set up item pool
+		
 		
 	await _countdown(5)
 	game_starting = false;
@@ -236,7 +239,6 @@ func start_the_game():
 @rpc("authority","call_local","reliable")
 func set_up_round_settings(song_name : String,
 							round_time : float,
-							fish_spawn : LobbySettings.SpawnRate, 
 							item_spawn : LobbySettings.SpawnRate,
 							armadillo_mode : bool
 						) -> void:
@@ -244,14 +246,6 @@ func set_up_round_settings(song_name : String,
 	WorldGameplay.round_time = round_time
 	BananaPeel.armadillo_mode = armadillo_mode
 	##TODO: Modify Fish Spawn Rate
-	if multiplayer.is_server():
-		match fish_spawn:
-			LobbySettings.SpawnRate.LOW:
-				WorldGameplay.fish_spawn_rate = 10
-			LobbySettings.SpawnRate.MEDIUM:
-				WorldGameplay.fish_spawn_rate = 7
-			LobbySettings.SpawnRate.HIGH:
-				WorldGameplay.fish_spawn_rate = 4
 	##TODO: Modify Item Spawn Rate
 	
 @rpc("authority","call_local","reliable")

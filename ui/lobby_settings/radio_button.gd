@@ -5,7 +5,11 @@ var _peers: Array[RadioButton]
 @onready var _btn: Button = $Sense
 @onready var _circle: Sprite2D = $Circle
 
-var selected := true
+var selected : bool = false:
+	set(val):
+		selected = val
+		_circle.visible = selected
+			
 
 func _ready() -> void:
 	for sibling in get_parent().get_children():
@@ -14,16 +18,8 @@ func _ready() -> void:
 	
 	_btn.pressed.connect(func():
 		for peer in _peers:
-			peer.unselect()
-		select()
+			peer.selected = false
+		selected = true
 	)
 
-	unselect()
-
-func select() -> void:
-	_circle.show()
-	pass
-
-func unselect() -> void:
-	_circle.hide()
-	pass
+	selected = false

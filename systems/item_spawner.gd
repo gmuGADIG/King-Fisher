@@ -7,7 +7,7 @@ extends CollisionShape3D
 @export var disable_spawning: bool = false
 
 @export var items: Array[PackedScene]
-@export var spawn_rate: float = 4.0
+@export var spawn_rate: float = 100.0
 @export var spawn_timer: Timer
 
 @export var max_items: int = 12
@@ -51,11 +51,11 @@ func _ready() -> void:
 	
 	match LobbySettings.itemSpawn:
 		LobbySettings.SpawnRate.LOW:
-			spawn_rate *= .5
+			spawn_rate = 15
+		LobbySettings.SpawnRate.MEDIUM:
+			spawn_rate = 10
 		LobbySettings.SpawnRate.HIGH:
-			spawn_rate *= 2.
-		_:
-			pass
+			spawn_rate = 6
 	
 	# Make sure designers aren't scaling the object instead of changing the actual shape
 	assert(scale==Vector3.ONE, "Please set the scale of the Item Spawner to 1,1,1!")

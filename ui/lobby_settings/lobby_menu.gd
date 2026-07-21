@@ -61,6 +61,8 @@ enum Items {
 	GOLDEN_WORM = 128
 }
 
+static var first_time : bool = true
+
 ## The current length of each round, in seconds.
 static var roundTime: int = 180
 ## The current spawn rate of items (Low, Medium, or High).
@@ -114,7 +116,10 @@ func _ready() -> void:
 		song_options.add_item(entry)
 	
 	#assert(song_options.item_count == music_pool.size() + 1, "Number of songs do not match options")
-	_on_reset_button_pressed()
+	
+	if first_time:
+		_on_reset_button_pressed()
+		first_time = false
 
 	if not get_tree().current_scene == self:
 		hide()
@@ -161,6 +166,7 @@ func _on_save_button_pressed() -> void:
 
 	# Spawn rates
 	itemSpawn = itemRadios.get_value() as SpawnRate
+	print("Item spawn rate: ",itemSpawn)
 	fishSpawn = fishRadios.get_value() as SpawnRate
 
 	# Selections
