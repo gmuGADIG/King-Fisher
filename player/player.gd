@@ -151,6 +151,8 @@ func _process(delta: float) -> void:
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump") and not UIState.player_keyboard_input_blocked:
 		velocity.y = jump_height
+		if slow_timer > 0:
+			velocity.y *= speed_multiplier
 		_jump_event_id += 1
 		_on_jump_event(_jump_event_id)
 		sync_jump_event.rpc(_jump_event_id)
