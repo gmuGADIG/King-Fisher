@@ -33,7 +33,7 @@ static var mapPool = [
 
 # TODO: replace with names of actual maps
 ## The default maps selected for a round.
-@export_flags("Map1","Map2","Map3","Map4","Map5")
+@export_flags("Catwalks","Heightmap Test","Coffin","Docks","Map5")
 var defaultMapSelect: int
 
 ## The default song selection for the round.
@@ -178,9 +178,20 @@ func _on_save_button_pressed() -> void:
 	print(fishSpawn)
 	print(itemSelect)
 	
-	print("Maps" +str(String.num_int64(mapSelect,2)))
-	print(songSelect)
-	Multiplayer.set_map(String.num_int64(mapSelect,2),mapPool)
+	print("mapSelect: ",mapSelect)
+	##Map Selections
+	Multiplayer.allowedMaps.clear()
+	for i in mapPool.size():
+		if mapSelect & 1<<i:
+			Multiplayer.allowedMaps.append(mapPool[i])
+	
+	#Fallback if no map selected
+	if Multiplayer.allowedMaps.is_empty():
+		Multiplayer.allowedMaps.append_array(mapPool)
+	Debug.log("Level pool: ",Multiplayer.allowedMaps)
+	#print("Maps" +str(String.num_int64(mapSelect,2)))
+	#print(songSelect)
+	#Multiplayer.set_map(String.num_int64(mapSelect,2),mapPool)
 
 ## Reset settings to default.
 func _on_reset_button_pressed() -> void:

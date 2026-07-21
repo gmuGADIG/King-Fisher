@@ -32,7 +32,13 @@ var status: String:
 		status_changed.emit()
 	
 #Allowed maps starts with a safety in case start game is loaded without going into lobby menu
-var allowedMaps:Array = ["res://world/catwalk/catwalk.tscn","res://world/heightmap_test/heightmap_test.tscn","res://world/level-coffin/level-coffin.tscn","res://world/level-docks/level-docks.tscn","res://world/catwalk/catwalk.tscn"]
+var allowedMaps:Array = [
+	"res://world/catwalk/catwalk.tscn",
+	"res://world/heightmap_test/heightmap_test.tscn",
+	"res://world/level-coffin/level-coffin.tscn",
+	"res://world/level-docks/level-docks.tscn",
+	"res://world/catwalk/catwalk.tscn"
+]
 
 #var HUD = LobbyHUD.new();
 var game_starting : bool = false
@@ -227,9 +233,8 @@ func start_the_game():
 	if(not multiplayer.is_server()):
 		return
 	
-	#var levelLoad:String = allowedMaps.pick_random()
-	var levelLoad : String = ["res://world/level-docks/level-docks.tscn","res://world/ship/level-ship.tscn"].pick_random()
-	
+	var levelLoad:String = allowedMaps.pick_random()
+
 	load_players.rpc(levelLoad)
 	Debug.log(player_list.size())
 	for i in range(player_list.size()):
