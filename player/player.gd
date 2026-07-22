@@ -419,7 +419,7 @@ func _mouse_input(event : InputEvent) -> void:
 				input_locked = false
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
-			if event.is_action_released("use_item"):
+			if event.is_action_released("use_item") and not input_locked:
 				#play_action(&"Throw")
 				assert(held_item != null, "Item is null somehow")
 				assert(held_item is ThrowableItem, "Thrown item is somehow not throable")
@@ -431,7 +431,7 @@ func _mouse_input(event : InputEvent) -> void:
 				anim_player.stop()
 				anim_player.play_section("Throw",
 					0.4, -1,
-					0.0, 1.0
+					0.0, 2.0
 				)
 				await anim_player.animation_finished
 				input_locked = false
