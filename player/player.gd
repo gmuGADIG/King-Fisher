@@ -31,7 +31,7 @@ func update_animation() -> void:
 	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
 	
 	if not is_on_floor():
-		play_anim("&Jump")
+		play_anim(&"Jump")
 	elif horizontal_speed > 0.1:
 		#the last int changes walk speed
 		play_anim(&"Walk", 0.15, 2)
