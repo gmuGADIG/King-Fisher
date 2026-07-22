@@ -1,6 +1,14 @@
 class_name Player
 extends CharacterBody3D
 
+enum AnimationState{
+	NORMAL,
+	JUMPING,
+	AIMING,
+	CASTING,
+	FISHING,
+}
+
 enum AimMode{
 	NONE,
 	FISHING_ROD,
@@ -10,67 +18,69 @@ enum AimMode{
 # Animation
 @onready var anim_player: AnimationPlayer =  $Player_Animated/AnimationPlayer
 
-var current_anim: StringName = &""
-var action_locked := false
+#var current_anim: StringName = &""
+var animation_state := AnimationState.NORMAL
 
-func play_anim(anim_name: StringName, blend_time: float = 0.15, anim_speed: float = 1.00) -> void:
-	if current_anim == anim_name:
-		return
-		
-	if not anim_player.has_animation(anim_name):
-		push_warning("Animation not found: " + str(anim_name))
-		return
-	
-	current_anim = anim_name
-	anim_player.play(anim_name, blend_time, anim_speed)
-	
-func update_animation() -> void:
-	if action_locked:
-		return
-	
-	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
-	
-	if not is_on_floor():
-		play_anim(&"Jump")
-	elif horizontal_speed > 0.1:
-		#the last int changes walk speed
-		play_anim(&"Walk", 0.15, 2)
-	else: 
-		play_anim(&"Idle")
-	
-func play_action(anim_name: StringName, blend_time: float = 0.1, anim_speed: float = 1.00) -> void:
-	if action_locked:
-		return
-		
-	if not anim_player.has_animation(anim_name):
-		push_warning("Animation not found: " + str(anim_name))
-		return
-	
-	action_locked = true
-	current_anim = anim_name
-	anim_player.play(anim_name, blend_time, anim_speed)
-
-	await anim_player.animation_finished
-	
-	action_locked = false
-	current_anim = &""
-	update_animation()
-			
-			
-func play_loop_action(anim_name: StringName, blend_time: float = 0.1) -> void:
-	if not anim_player.has_animation(anim_name):
-		push_warning("Animation not found: " + str(anim_name))
-		return
-	
-	action_locked = true
-	current_anim = anim_name
-	anim_player.play(anim_name, blend_time)
-
-
-func stop_loop_action() -> void:
-	action_locked = false
-	current_anim = &""
-	update_animation()
+##Stop the player from taking inputs
+var input_locked : bool = false
+#func play_anim(anim_name: StringName, blend_time: float = 0.15, anim_speed: float = 1.00) -> void:
+	#if current_anim == anim_name:
+		#return
+		#
+	#if not anim_player.has_animation(anim_name):
+		#push_warning("Animation not found: " + str(anim_name))
+		#return
+	#
+	#current_anim = anim_name
+	#anim_player.play(anim_name, blend_time, anim_speed)
+	#
+#func update_animation() -> void:
+	#if action_locked:
+		#return
+	#
+	#var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	#
+	#if not is_on_floor():
+		#play_anim(&"Jump")
+	#elif horizontal_speed > 0.1:
+		##the last int changes walk speed
+		#play_anim(&"Walk", 0.15, 2)
+	#else: 
+		#play_anim(&"Idle")
+	#
+#func play_action(anim_name: StringName, blend_time: float = 0.1, anim_speed: float = 1.00) -> void:
+	#if action_locked:
+		#return
+		#
+	#if not anim_player.has_animation(anim_name):
+		#push_warning("Animation not found: " + str(anim_name))
+		#return
+	#
+	#action_locked = true
+	#current_anim = anim_name
+	#anim_player.play(anim_name, blend_time, anim_speed)
+#
+	#await anim_player.animation_finished
+	#
+	#action_locked = false
+	#current_anim = &""
+	#update_animation()
+			#
+			#
+#func play_loop_action(anim_name: StringName, blend_time: float = 0.1) -> void:
+	#if not anim_player.has_animation(anim_name):
+		#push_warning("Animation not found: " + str(anim_name))
+		#return
+	#
+	#action_locked = true
+	#current_anim = anim_name
+	#anim_player.play(anim_name, blend_time)
+#
+#
+#func stop_loop_action() -> void:
+	#action_locked = false
+	#current_anim = &""
+	#update_animation()
 		
 const GRAVITY := 30.
 const FOOTSTEP_MIN_HORIZONTAL_SPEED := 0.1
@@ -201,31 +211,56 @@ func _process(delta: float) -> void:
 	# don't process input if this is not our player
 	if not is_multiplayer_authority(): return
 	
+	
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	if UIState.player_keyboard_input_blocked:
+	if UIState.player_keyboard_input_blocked or input_locked:
 		input = Vector2.ZERO
-	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))		
+	var movement_dir : Vector2 = input.rotated(-deg_to_rad(camera_yaw))
+	
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.y * speed
+	
 	if slow_timer > 0:
 		velocity *= Vector3(speed_multiplier,1,speed_multiplier)
 		slow_timer -= delta
 	
+	if input.is_zero_approx():
+		##Not moving
+		if aim_mode != AimMode.NONE and animation_state == AnimationState.NORMAL:
+			if aim_mode == AimMode.FISHING_ROD:
+				anim_player.play_section("CastRod",
+					0, 1.1,
+					0.0, 4.0
+				)
+			elif aim_mode == AimMode.ITEM:
+				anim_player.play_section("Throw",
+					0, 0.4,
+					0.0, 1.0
+				)
+			animation_state = AnimationState.AIMING
+		elif animation_state == AnimationState.NORMAL:
+			anim_player.play("Idle",0.5)
+	else:
+		if is_on_floor():
+			if animation_state == AnimationState.AIMING:
+				animation_state = AnimationState.NORMAL
+			if animation_state == AnimationState.NORMAL:
+				var horizontal_speed : float = sqrt(velocity.x*velocity.x+velocity.z*velocity.z)
+				anim_player.play("Walk",-1,0.2*horizontal_speed)
+	
 	if not is_on_floor():
 		velocity += GRAVITY * delta * Vector3.DOWN
 	
-	if is_on_floor() and Input.is_action_just_pressed("jump") and not UIState.player_keyboard_input_blocked:
-		velocity.y = jump_height
-		if slow_timer > 0:
-			velocity.y *= speed_multiplier
-		_jump_event_id += 1
-		_on_jump_event(_jump_event_id)
-		sync_jump_event.rpc(_jump_event_id)
-
-	if input != Vector2.ZERO:
-		player_mesh.turn_towards(movement_dir.rotated(-PI/2), delta)
-		sync_rotation.rpc(player_mesh.rotation)
 	
+	if animation_state == AnimationState.NORMAL or animation_state == AnimationState.JUMPING:
+		##Rotate towards walk dir
+		if input != Vector2.ZERO:
+			player_mesh.turn_towards(movement_dir.rotated(-PI/2), delta)
+			sync_rotation.rpc(player_mesh.rotation)
+	else:
+		##Rotate towards aim dir
+		var dir : Vector3 = global_position.direction_to(%Aiming.get_aim_pos())
+		player_mesh.turn_towards(Vector2(dir.x,dir.z).rotated(-PI/2), delta)
 		
 
 func _physics_process(delta: float) -> void:
@@ -241,7 +276,7 @@ func _physics_process(delta: float) -> void:
 	#Debug.log("velocity ", velocity)
 
 	move_and_slide()
-	update_animation()
+	#update_animation()
 	_update_footsteps(delta)
 	_update_landing_sfx(delta, was_on_floor, pre_velocity_y)
 
@@ -286,6 +321,21 @@ func _keyboard_input(event : InputEvent) -> void:
 	if UIState.player_keyboard_input_blocked:
 		return
 	
+	if event.is_action_pressed("jump") and is_on_floor() and not input_locked:
+		velocity.y = jump_height
+		animation_state = AnimationState.JUMPING
+		Debug.log("jump!!")
+		anim_player.stop()
+		anim_player.play_section("Jump",
+			0.15,-1, ##Start/End
+			0.0,0.5 ##Blend/Speed
+		)
+		if slow_timer > 0:
+			velocity.y *= speed_multiplier
+		_jump_event_id += 1
+		_on_jump_event(_jump_event_id)
+		sync_jump_event.rpc(_jump_event_id)
+	
 	if event.is_action_pressed("scoreboard"):
 		pass
 	if event.is_action_pressed("debug_test1"):
@@ -311,9 +361,10 @@ func _mouse_input(event : InputEvent) -> void:
 	
 	match aim_mode:
 		AimMode.NONE:
-			if event.is_action_pressed("cast_rod"):
+			if event.is_action_pressed("cast_rod") and not input_locked:
 				%Aiming.start_aiming()
-			if event.is_action_pressed("use_item"):
+				%Rod.show()
+			if event.is_action_pressed("use_item") and not input_locked:
 				if held_item == null:
 					return
 				# print("item aim")
@@ -322,7 +373,7 @@ func _mouse_input(event : InputEvent) -> void:
 					%Aiming.start_aiming(AimMode.ITEM)
 				else:
 					#swing anim
-					play_action(&"Swing")
+					#play_action(&"Swing")
 					use_held_item.rpc()
 			if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 				camera_yaw += -event.relative.x * Options.mouse_sensitivity
@@ -330,9 +381,20 @@ func _mouse_input(event : InputEvent) -> void:
 		AimMode.FISHING_ROD:
 			if event.is_action_released("cast_rod"):
 				#last int is anim speed
-				play_action(&"CastRod", .15, 2)
+				#play_action(&"CastRod", .15, 2)
 				%Aiming.stop_aiming()
 				$Sounds/CastRod.play()
+				input_locked = true
+				anim_player.stop()
+				var seg_time : Array[float] = [1.1,1.45]
+				var anim_speed : float = 2
+				anim_player.play_section("CastRod",
+					seg_time[0],seg_time[1],
+					0,anim_speed
+				)
+				await get_tree().create_timer(anim_speed*(seg_time[1]-seg_time[0])).timeout
+				Debug.log("anim stopped")
+				var next_anim_state : AnimationState = AnimationState.NORMAL
 				var body : Node = $Aiming/AimRayCast.get_collider()
 				if body is FishShadow:
 					if get_tree().get_first_node_in_group("Lobby") == null:
@@ -342,25 +404,37 @@ func _mouse_input(event : InputEvent) -> void:
 						body.current_fishing_state.rpc(true)
 						current_fishing_shadow = body
 						#animation cast idle
-						play_loop_action(&"FisingIdle")
+						#play_loop_action(&"FisingIdle")
 						
 						##TODO: Play Fishing Minigame
 						Debug.log("fish: ",body.fish)
 						fishing_minigame.start(body.fish)
+						next_anim_state = AnimationState.FISHING
 					else:
 						# Fishing in the lobby is equivalent to readying up.
 						ready_state = not ready_state
-					
+				if next_anim_state != AnimationState.FISHING:
+					%Rod.hide()
+				animation_state = next_anim_state
+				input_locked = false
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
 			if event.is_action_released("use_item"):
-				play_action(&"Throw")
+				#play_action(&"Throw")
 				assert(held_item != null, "Item is null somehow")
 				assert(held_item is ThrowableItem, "Thrown item is somehow not throable")
 				var throw_item : ThrowableItem = held_item
 				throw_item.use_throwable.rpc(%Aiming.get_aim_pos())
 				held_item = null
 				held_item_ui.clear_item()
+				input_locked = true
+				anim_player.stop()
+				anim_player.play_section("Throw",
+					0.4, -1,
+					0.0, 1.0
+				)
+				await anim_player.animation_finished
+				input_locked = false
 				%Aiming.stop_aiming()
 			pass
 		_:
@@ -433,7 +507,7 @@ func _on_jump_event(event_id: int) -> void:
 
 	_last_played_jump_event_id = event_id
 
-	play_anim(&"Jump")
+	#play_anim(&"Jump")
 
 	if jump_sound.playing:
 		jump_sound.stop()
@@ -562,7 +636,7 @@ func use_held_item() -> void:
 	if held_item==null:return
 	if is_ragdolled: return
 	#Apply to self anim
-	play_action(&"ApplyToSelf")
+	#play_action(&"ApplyToSelf")
 	held_item.visible = true
 	held_item.use()
 	held_item=null
@@ -633,10 +707,10 @@ func set_name_visible(val : bool) -> void:
 
 func on_fishing_finished(succeeded:bool) -> void:
 	#stopping cast idle anim
-	stop_loop_action()
+	#stop_loop_action()
 	if succeeded:
 		#animation reel in
-		play_action(	&"ReelIn")
+		#play_action(	&"ReelIn")
 		if golden_worm_active:
 			current_fishing_shadow.fish = Fish.sushi_fishes.pick_random()
 
@@ -651,7 +725,7 @@ func on_fishing_finished(succeeded:bool) -> void:
 
 		%CatchUI.present(fish)
 	else:
-		stop_loop_action()
+		#stop_loop_action()
 		if is_multiplayer_authority():
 			$Sounds/FishCatchFail.play()
 		current_fishing_shadow.current_fishing_state.rpc(false)
@@ -765,3 +839,8 @@ func get_sushi_count() -> int:
 		if fish.grade == Fish.Grade.SUSHI:
 			count += 1
 	return count
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Jump" and animation_state == AnimationState.JUMPING:
+		animation_state = AnimationState.NORMAL
