@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3bw8cnuhe0cd"
-path="res://.godot/imported/the_quote_on_quote_fish_small.png-d9362c2247ca6876add47597c1ddaebf.ctex"
+uid="uid://hlbgkidy5ctb"
+path="res://.godot/imported/options_UI_tall.png-ca7fff157b212d270a7cff47e08266f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fish/sprites/the_quote_on_quote_fish_small.png"
-dest_files=["res://.godot/imported/the_quote_on_quote_fish_small.png-d9362c2247ca6876add47597c1ddaebf.ctex"]
+source_file="res://art/ui assets/options_UI_tall.png"
+dest_files=["res://.godot/imported/options_UI_tall.png-ca7fff157b212d270a7cff47e08266f3.ctex"]
 
 [params]
 

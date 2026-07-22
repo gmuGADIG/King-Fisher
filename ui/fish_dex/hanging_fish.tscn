@@ -1,28 +1,29 @@
 [gd_scene format=3 uid="uid://cur3ita1x152q"]
 
+[ext_resource type="Script" uid="uid://bco87e2884pxw" path="res://ui/fish_dex/hanging_fish.gd" id="1_loka2"]
 [ext_resource type="Texture2D" uid="uid://ck3bm1irl43x2" path="res://fish/sprites/sasha_splash.png" id="1_yqy8o"]
 
-[node name="HangingFish" type="Control" unique_id=826188047]
-layout_mode = 3
+[node name="HangingFish" type="Button" unique_id=2012105867]
+offset_right = 125.0
+offset_bottom = 125.0
+flat = true
+script = ExtResource("1_loka2")
+
+[node name="Hook" type="ColorRect" parent="." unique_id=944352986]
+layout_mode = 0
+offset_left = 61.5
+offset_top = -16.0
+offset_right = 66.5
+offset_bottom = 49.0
+color = Color(0, 0, 0, 1)
+
+[node name="Fish_Image" type="TextureRect" parent="." unique_id=965798515]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Hook" type="ColorRect" parent="." unique_id=944352986]
-layout_mode = 0
-offset_left = 40.000015
-offset_right = 45.000015
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
-
-[node name="Fish_Image" type="TextureRect" parent="." unique_id=965798515]
-layout_mode = 0
-offset_left = -28.0
-offset_top = 132.0
-offset_right = 71.0
-offset_bottom = 302.0
-rotation = -1.5707964
 texture = ExtResource("1_yqy8o")
 expand_mode = 1
+stretch_mode = 5

@@ -1,16 +1,31 @@
 [gd_scene format=3 uid="uid://cksuxnaqh3sqr"]
 
 [ext_resource type="Script" uid="uid://df6i8q0vfa0xv" path="res://ui/lobby_browser/server_info.gd" id="1_7crmb"]
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="1_t6dc3"]
+[ext_resource type="Texture2D" uid="uid://rgqcb7ogi4id" path="res://art/UI/holo_ui_grey.png" id="2_t6dc3"]
 
-[node name="ServerInfo" type="PanelContainer" unique_id=859087533]
-offset_right = 600.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ujmib"]
+texture = ExtResource("2_t6dc3")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[node name="ServerInfo" type="Panel" unique_id=2056664521]
+custom_minimum_size = Vector2(590, 51)
+offset_right = 590.0
 offset_bottom = 51.0
+theme = ExtResource("1_t6dc3")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ujmib")
 script = ExtResource("1_7crmb")
-ip = "192.168.1.2"
-hostname = "- Hostname -"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1430094084]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -23,7 +38,11 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Player's Server"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = -2
+theme_override_font_sizes/font_size = 20
+text = "Hostname"
 horizontal_alignment = 1
 text_overrun_behavior = 5
 
@@ -31,6 +50,10 @@ text_overrun_behavior = 5
 unique_name_in_owner = true
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = -2
+theme_override_font_sizes/font_size = 20
 text = "0/0"
 horizontal_alignment = 1
 
@@ -38,14 +61,36 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-text = "Ready to Play"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = -2
+theme_override_font_sizes/font_size = 20
+text = "None"
 horizontal_alignment = 1
 text_overrun_behavior = 5
 
 [node name="JoinButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1509485563]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(56.985, 33.05)
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_font_sizes/font_size = 24
+disabled = true
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/JoinButton" unique_id=146373311]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_constants/outline_size = -219
+theme_override_font_sizes/font_size = 16
 text = "Join"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

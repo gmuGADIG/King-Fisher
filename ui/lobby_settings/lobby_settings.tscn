@@ -1,40 +1,159 @@
 [gd_scene format=3 uid="uid://b58jma116gexu"]
 
-[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_1b0y7"]
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="1_6lp2s"]
 [ext_resource type="Script" uid="uid://c12k8l1exwkfs" path="res://ui/lobby_settings/lobby_menu.gd" id="1_fh8yv"]
+[ext_resource type="Texture2D" uid="uid://b811kd3qst5nb" path="res://ui/fish_dex/fishdex-hologram.png" id="3_g47ou"]
 [ext_resource type="Texture2D" uid="uid://1eediuddjlw5" path="res://temp/micheals_mansion/MichealsMansionLoss.webp" id="3_yshnh"]
 [ext_resource type="Texture2D" uid="uid://d0iq6ivnp0gvc" path="res://temp/micheals_mansion/MichealsMansionBackground.webp" id="4_6lp2s"]
 [ext_resource type="Texture2D" uid="uid://dhcolnyal1vst" path="res://temp/micheals_mansion/MichaelsMansionLogo.webp" id="5_g47ou"]
 [ext_resource type="Texture2D" uid="uid://w3kwucyj45eg" path="res://temp/micheals_mansion/mmts.webp" id="6_5ffiu"]
 [ext_resource type="Texture2D" uid="uid://iuoaof0oh7dp" path="res://temp/temp_art/evil-burger2.png" id="6_i0nya"]
-[ext_resource type="Texture2D" uid="uid://qcvpwjegjtab" path="res://temp/temp_art/amog.png" id="8_i0nya"]
-[ext_resource type="Texture2D" uid="uid://c1m08d1w1cq5" path="res://temp/temp_art/fish.png" id="9_1b0y7"]
-[ext_resource type="Texture2D" uid="uid://2dxp6q4887l5" path="res://temp/temp_art/gleep.png" id="9_fh8yv"]
-[ext_resource type="Texture2D" uid="uid://k0shq81hj765" path="res://temp/temp_art/bonk.png" id="9_m2d5r"]
-[ext_resource type="Texture2D" uid="uid://dcqgrj0rwm8k7" path="res://temp/temp_art/godot.png" id="10_1b0y7"]
-[ext_resource type="Texture2D" uid="uid://crnrtjqoxx317" path="res://temp/temp_art/deadlock.png" id="11_m2d5r"]
-[ext_resource type="Texture2D" uid="uid://c0g1tho1n5fbj" path="res://temp/temp_art/exploding-head.png" id="12_sgmg3"]
-[ext_resource type="Texture2D" uid="uid://b2x302v0vyb2g" path="res://temp/temp_art/hollow-knight.png" id="13_lfejf"]
-[ext_resource type="Texture2D" uid="uid://om30c0ke7lnt" path="res://temp/temp_art/super-cookie.png" id="14_rnt8h"]
+[ext_resource type="Shader" uid="uid://cugbpyl6n0pk2" path="res://ui/lobby_settings/greyed_out.gdshader" id="9_yshnh"]
+[ext_resource type="Script" uid="uid://i1pqjmcrryv6" path="res://ui/lobby_settings/radio_button.gd" id="10_5ffiu"]
+[ext_resource type="Texture2D" uid="uid://dg8eepua0mmw2" path="res://art/ui assets/Fish_Button.png" id="10_g47ou"]
+[ext_resource type="Script" uid="uid://rdp5417xjq8k" path="res://ui/lobby_settings/radios.gd" id="10_i0nya"]
+[ext_resource type="PackedScene" uid="uid://bhigax78q6y2v" path="res://ui/item_sprite/item_sprite.tscn" id="10_m2d5r"]
 [ext_resource type="Texture2D" uid="uid://ctpqe6giktgw7" path="res://temp/micheals_mansion/Quit.webp" id="15_fh8yv"]
+[ext_resource type="Shader" uid="uid://bs05iysjfdeoy" path="res://ui/character_select/chromatic_abberation.gdshader" id="15_i0nya"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i0nya"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ffiu"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fh8yv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sgmg3"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 1.0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1b0y7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfejf"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rnt8h"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0u54a"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcr2c"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 1.0
+
+[sub_resource type="Gradient" id="Gradient_i0nya"]
+offsets = PackedFloat32Array(0.5986979, 0.6203704, 0.64444447, 0.6661169)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fh8yv"]
+gradient = SubResource("Gradient_i0nya")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yshnh"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 0.818000038855
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i0nya"]
+viewport_path = NodePath("ItemViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g47ou"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 0.818000038855
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fh8yv"]
+viewport_path = NodePath("ItemViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ffiu"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 0.818000038855
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1b0y7"]
+viewport_path = NodePath("ItemViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0nya"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 0.818000038855
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m2d5r"]
+viewport_path = NodePath("ItemViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fh8yv"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 0.818000038855
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sgmg3"]
+viewport_path = NodePath("ItemViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1b0y7"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 0.818000038855
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lfejf"]
+viewport_path = NodePath("ItemViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m2d5r"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 0.818000038855
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rnt8h"]
+viewport_path = NodePath("ItemViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lp2s"]
+shader = ExtResource("9_yshnh")
+shader_parameter/greyed_out = false
+shader_parameter/intensity = 0.818000038855
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0u54a"]
+viewport_path = NodePath("ItemViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cybch"]
+shader = ExtResource("15_i0nya")
+shader_parameter/aberration_direction = Vector2(1, 0.2)
+shader_parameter/aberration_strength = 0.002000000095
+shader_parameter/noise_freq = 5.0
+shader_parameter/noise_intensity = 0.0
+shader_parameter/noise_exp = 1.0
 
 [node name="LobbySettings" type="Control" unique_id=1718361729]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = 4.0
+offset_right = -5.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_1b0y7")
+theme = ExtResource("1_6lp2s")
 script = ExtResource("1_fh8yv")
-defaultMapSelect = 7
-defaultItemSelect = 15
+defaultMapSelect = 31
+defaultItemSelect = 255
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1279630505]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = 296.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_g47ou")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Background" type="Panel" parent="." unique_id=1426977561]
 clip_contents = true
@@ -43,13 +162,14 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 69.0
-offset_top = 43.0
+offset_top = 22.0
 offset_right = -69.0
-offset_bottom = -43.0
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5ffiu")
 
-[node name="SettingsMenu" type="VBoxContainer" parent="Background" unique_id=1580852191]
+[node name="SettingsMenu" type="Control" parent="Background" unique_id=1597066960]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,15 +182,22 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Background/SettingsMenu" unique_id=1617668478]
-layout_mode = 2
+layout_mode = 0
+offset_right = 826.0
+offset_bottom = 72.0
 theme_type_variation = &"HeaderMedium"
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 45
 text = "Lobby Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MapSelection" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=76473059]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
+offset_top = 76.0
+offset_right = 826.0
+offset_bottom = 161.0
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/MapSelection" unique_id=443095070]
@@ -94,56 +221,60 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Map1" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=1543678358]
+material = SubResource("ShaderMaterial_sgmg3")
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("3_yshnh")
-texture_pressed = SubResource("PlaceholderTexture2D_i0nya")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Map2" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=332136863]
+material = SubResource("ShaderMaterial_lfejf")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("4_6lp2s")
-texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Map3" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=1300675293]
+material = SubResource("ShaderMaterial_rnt8h")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("5_g47ou")
-texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Map4" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=578539672]
+material = SubResource("ShaderMaterial_0u54a")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("6_5ffiu")
-texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Map5" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=1511769561]
+material = SubResource("ShaderMaterial_kcr2c")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
 texture_normal = ExtResource("6_i0nya")
-texture_pressed = SubResource("PlaceholderTexture2D_fh8yv")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="SongTimer" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=611751636]
-layout_mode = 2
+layout_mode = 0
+offset_top = 172.0
+offset_right = 826.0
+offset_bottom = 257.0
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/SongTimer" unique_id=2050405693]
@@ -193,48 +324,42 @@ vertical_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Buttons" type="VBoxContainer" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=328802681]
+[node name="LessButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=1461640249]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 0
-alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 29
+text = "<"
 
-[node name="MoreButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons" unique_id=730368332]
+[node name="Spacer" type="Control" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=306614917]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="MinuteBox" type="Label" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=1476772684]
+unique_name_in_owner = true
+layout_mode = 2
+text = "3:00"
+
+[node name="Spacer2" type="Control" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=802408835]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="MoreButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=730368332]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"FishButton"
-theme_override_font_sizes/font_size = 8
-text = "+"
-
-[node name="LessButton" type="Button" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons" unique_id=1461640249]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_type_variation = &"FishButton"
-theme_override_font_sizes/font_size = 8
-text = "-"
-flat = true
-
-[node name="MinuteBox" type="LineEdit" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=768082620]
-unique_name_in_owner = true
-layout_mode = 2
-placeholder_text = "0:00"
-alignment = 1
-max_length = 5
-emoji_menu_enabled = false
-virtual_keyboard_type = 2
-
-[node name="Label2" type="Label" parent="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput" unique_id=1342507525]
-layout_mode = 2
-theme_type_variation = &"GraphFrameTitleLabel"
-text = "minutes"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 29
+text = ">"
 
 [node name="FishSpawnRate" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=648934071]
-layout_mode = 2
+layout_mode = 0
+offset_left = -53.0
+offset_top = 292.0
+offset_right = 773.0
+offset_bottom = 377.0
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/FishSpawnRate" unique_id=1863841341]
@@ -256,30 +381,105 @@ text = "fish spawn rate"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FishRateSelect" type="ItemList" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer" unique_id=1714077782]
+[node name="FishSpawnRateRadios" type="Node2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer" unique_id=615267458]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-allow_search = false
-auto_width = true
-auto_height = true
-item_count = 3
-max_columns = 3
-same_column_width = true
-fixed_column_width = 170
-fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Low"
-item_0/icon = ExtResource("9_1b0y7")
-item_1/text = "Medium"
-item_1/icon = ExtResource("9_1b0y7")
-item_2/text = "High"
-item_2/icon = ExtResource("9_1b0y7")
+script = ExtResource("10_i0nya")
 
-[node name="ItemSpawnRate" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=1792343566]
-layout_mode = 2
+[node name="OneFish" type="Node2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios" unique_id=968725684]
+position = Vector2(252, 27)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("10_5ffiu")
+
+[node name="Sense" type="Button" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/OneFish" unique_id=1000654116]
+custom_minimum_size = Vector2(96, 96)
+offset_left = -48.0
+offset_top = -47.0
+offset_right = 48.0
+offset_bottom = 49.0
+flat = true
+
+[node name="FishButtonSmallOutline" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/OneFish" unique_id=411081508]
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="Circle" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/OneFish" unique_id=1540736866]
+modulate = Color(0, 0.42466673, 0.98, 1)
+texture = SubResource("GradientTexture2D_fh8yv")
+
+[node name="TwoFish" type="Node2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios" unique_id=1518845929]
+position = Vector2(312, 27)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("10_5ffiu")
+
+[node name="Sense" type="Button" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/TwoFish" unique_id=1468785537]
+custom_minimum_size = Vector2(96, 96)
+offset_left = -48.0
+offset_top = -47.0
+offset_right = 48.0
+offset_bottom = 49.0
+flat = true
+
+[node name="FishButtonSmallOutline" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/TwoFish" unique_id=1034254351]
+position = Vector2(-5.4292607, 0)
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="FishButtonSmallOutline2" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/TwoFish" unique_id=812060162]
+position = Vector2(9.570742, 0)
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="Circle" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/TwoFish" unique_id=1059555473]
+modulate = Color(0, 0.42466673, 0.98, 1)
+texture = SubResource("GradientTexture2D_fh8yv")
+
+[node name="ThreeFish" type="Node2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios" unique_id=1548826478]
+position = Vector2(373, 28)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("10_5ffiu")
+
+[node name="Sense" type="Button" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/ThreeFish" unique_id=234791802]
+custom_minimum_size = Vector2(96, 96)
+offset_left = -48.0
+offset_top = -47.0
+offset_right = 48.0
+offset_bottom = 49.0
+flat = true
+
+[node name="FishButtonSmallOutline" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/ThreeFish" unique_id=681455360]
+position = Vector2(-10.999971, -1.0220174e-07)
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="FishButtonSmallOutline2" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/ThreeFish" unique_id=1612036612]
+position = Vector2(0.5707102, 0)
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="FishButtonSmallOutline3" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/ThreeFish" unique_id=1828203085]
+position = Vector2(12.000004, 1.1920929e-07)
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="Circle" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate/HBoxContainer/FishSpawnRateRadios/ThreeFish" unique_id=1545726895]
+modulate = Color(0, 0.42466673, 0.98, 1)
+texture = SubResource("GradientTexture2D_fh8yv")
+
+[node name="FishSpawnRate2" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=894862438]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 292.0
+offset_right = 1241.0
+offset_bottom = 377.0
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/ItemSpawnRate" unique_id=238415009]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/SettingsMenu/FishSpawnRate2" unique_id=910648699]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -291,35 +491,110 @@ offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ItemSpawnLabel" type="Label" parent="Background/SettingsMenu/ItemSpawnRate/HBoxContainer" unique_id=1098535640]
+[node name="FishSpawnLabel" type="Label" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer" unique_id=1257128590]
 layout_mode = 2
 theme_type_variation = &"GraphFrameTitleLabel"
 text = "item spawn rate"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ItemRateSelect" type="ItemList" parent="Background/SettingsMenu/ItemSpawnRate/HBoxContainer" unique_id=1936280347]
+[node name="ItemSpawnRateRadios" type="Node2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer" unique_id=206837978]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-allow_search = false
-auto_width = true
-auto_height = true
-item_count = 3
-max_columns = 3
-same_column_width = true
-fixed_column_width = 170
-fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Low"
-item_0/icon = ExtResource("9_1b0y7")
-item_1/text = "Medium"
-item_1/icon = ExtResource("9_1b0y7")
-item_2/text = "High"
-item_2/icon = ExtResource("9_1b0y7")
+position = Vector2(-8, 0)
+script = ExtResource("10_i0nya")
+
+[node name="OneFish" type="Node2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios" unique_id=1576006215]
+position = Vector2(252, 27)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("10_5ffiu")
+
+[node name="Sense" type="Button" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/OneFish" unique_id=606670273]
+custom_minimum_size = Vector2(96, 96)
+offset_left = -48.0
+offset_top = -47.0
+offset_right = 48.0
+offset_bottom = 49.0
+flat = true
+
+[node name="FishButtonSmallOutline" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/OneFish" unique_id=505040762]
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="Circle" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/OneFish" unique_id=157877779]
+modulate = Color(0, 0.42466673, 0.98, 1)
+texture = SubResource("GradientTexture2D_fh8yv")
+
+[node name="TwoFish" type="Node2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios" unique_id=1245749771]
+position = Vector2(312, 27)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("10_5ffiu")
+
+[node name="Sense" type="Button" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/TwoFish" unique_id=1629379798]
+custom_minimum_size = Vector2(96, 96)
+offset_left = -48.0
+offset_top = -47.0
+offset_right = 48.0
+offset_bottom = 49.0
+flat = true
+
+[node name="FishButtonSmallOutline" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/TwoFish" unique_id=341130042]
+position = Vector2(-5.4292607, 0)
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="FishButtonSmallOutline2" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/TwoFish" unique_id=808607040]
+position = Vector2(9.570742, 0)
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="Circle" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/TwoFish" unique_id=1964044892]
+modulate = Color(0, 0.42466673, 0.98, 1)
+texture = SubResource("GradientTexture2D_fh8yv")
+
+[node name="ThreeFish" type="Node2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios" unique_id=1550597502]
+position = Vector2(373, 28)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("10_5ffiu")
+
+[node name="Sense" type="Button" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/ThreeFish" unique_id=110044848]
+custom_minimum_size = Vector2(96, 96)
+offset_left = -48.0
+offset_top = -47.0
+offset_right = 48.0
+offset_bottom = 49.0
+flat = true
+
+[node name="FishButtonSmallOutline" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/ThreeFish" unique_id=1321267994]
+position = Vector2(-10.999971, -1.0220174e-07)
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="FishButtonSmallOutline2" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/ThreeFish" unique_id=944030160]
+position = Vector2(0.5707102, 0)
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="FishButtonSmallOutline3" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/ThreeFish" unique_id=586557530]
+position = Vector2(12.000004, 1.1920929e-07)
+rotation = -1.0471976
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_g47ou")
+
+[node name="Circle" type="Sprite2D" parent="Background/SettingsMenu/FishSpawnRate2/HBoxContainer/ItemSpawnRateRadios/ThreeFish" unique_id=1881027350]
+modulate = Color(0, 0.42466673, 0.98, 1)
+texture = SubResource("GradientTexture2D_fh8yv")
 
 [node name="ItemSelection" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=60528816]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
+offset_top = 395.0
+offset_right = 826.0
+offset_bottom = 481.0
 size_flags_vertical = 3
 region_rect = Rect2(60.666687, 50, 319.33337, 50)
 
@@ -342,87 +617,188 @@ text = "select items"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RubberMallet" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1899605932]
+[node name="RubberMallet" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1802475052]
+material = SubResource("ShaderMaterial_yshnh")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-texture_normal = ExtResource("9_m2d5r")
-texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="ButterflyNet" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1241871880]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ToggleButton"
-toggle_mode = true
-texture_normal = ExtResource("9_fh8yv")
-texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
-ignore_texture_size = true
-stretch_mode = 5
+[node name="ItemSprite" parent="Background/SettingsMenu/ItemSelection/HBoxContainer/RubberMallet" unique_id=2088070855 instance=ExtResource("10_m2d5r")]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 3.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_i0nya")
+visible_item = 6
 
-[node name="BananaPeel" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1872799980]
+[node name="ButterflyNet" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1208334514]
+material = SubResource("ShaderMaterial_g47ou")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-texture_normal = ExtResource("10_1b0y7")
-texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="Brick" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1088161231]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ToggleButton"
-toggle_mode = true
-texture_normal = ExtResource("11_m2d5r")
-texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
-ignore_texture_size = true
-stretch_mode = 5
+[node name="ItemSprite2" parent="Background/SettingsMenu/ItemSelection/HBoxContainer/ButterflyNet" unique_id=764379670 instance=ExtResource("10_m2d5r")]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -12.0
+offset_right = 6.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_fh8yv")
+visible_item = 2
 
-[node name="GlueGrenade" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1945136145]
+[node name="BananaPeel" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=2050551459]
+material = SubResource("ShaderMaterial_5ffiu")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-texture_normal = ExtResource("12_sgmg3")
-texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="Helmet" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=335319416]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ToggleButton"
-toggle_mode = true
-texture_normal = ExtResource("13_lfejf")
-texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
-ignore_texture_size = true
-stretch_mode = 5
+[node name="ItemSprite3" parent="Background/SettingsMenu/ItemSelection/HBoxContainer/BananaPeel" unique_id=2004744195 instance=ExtResource("10_m2d5r")]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 3.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_1b0y7")
+visible_item = 1
 
-[node name="ZiplockBag" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=775743348]
+[node name="Brick" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1021693364]
+material = SubResource("ShaderMaterial_i0nya")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-texture_normal = ExtResource("14_rnt8h")
-texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="GoldenWorm" type="TextureButton" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1606961270]
+[node name="ItemSprite4" parent="Background/SettingsMenu/ItemSelection/HBoxContainer/Brick" unique_id=111059630 instance=ExtResource("10_m2d5r")]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_m2d5r")
+visible_item = 8
+
+[node name="GlueGrenade" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=504065254]
+material = SubResource("ShaderMaterial_fh8yv")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-texture_normal = ExtResource("8_i0nya")
-texture_pressed = SubResource("PlaceholderTexture2D_1b0y7")
-ignore_texture_size = true
-stretch_mode = 5
+
+[node name="ItemSprite5" parent="Background/SettingsMenu/ItemSelection/HBoxContainer/GlueGrenade" unique_id=659974870 instance=ExtResource("10_m2d5r")]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_sgmg3")
+visible_item = 7
+
+[node name="Helmet" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=776286025]
+material = SubResource("ShaderMaterial_1b0y7")
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+
+[node name="ItemSprite6" parent="Background/SettingsMenu/ItemSelection/HBoxContainer/Helmet" unique_id=2071092201 instance=ExtResource("10_m2d5r")]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -3.0
+offset_right = -5.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_lfejf")
+visible_item = 4
+
+[node name="ZiplockBag" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1588063442]
+material = SubResource("ShaderMaterial_m2d5r")
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+
+[node name="ItemSprite7" parent="Background/SettingsMenu/ItemSelection/HBoxContainer/ZiplockBag" unique_id=8995698 instance=ExtResource("10_m2d5r")]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 7.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_rnt8h")
+visible_item = 5
+
+[node name="GoldenWorm" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1578861966]
+material = SubResource("ShaderMaterial_6lp2s")
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+
+[node name="ItemSprite8" parent="Background/SettingsMenu/ItemSelection/HBoxContainer/GoldenWorm" unique_id=329230778 instance=ExtResource("10_m2d5r")]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_0u54a")
+visible_item = 3
 
 [node name="ExitButton" type="TextureButton" parent="Background" unique_id=1099861076]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -430,41 +806,48 @@ texture_normal = ExtResource("15_fh8yv")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Save Button" type="Button" parent="Background" unique_id=627820565]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=1525743453]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -37.0
-offset_top = -31.0
-offset_right = 7.0
+offset_left = -84.0
+offset_top = -61.0
+offset_right = 242.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_type_variation = &"FlatButton"
+scale = Vector2(0.6, 0.6)
+theme_override_constants/separation = 35
+
+[node name="Save Button" type="Button" parent="Background/HBoxContainer" unique_id=627820565]
+layout_mode = 2
+theme_type_variation = &"ItemDexButton"
+theme_override_font_sizes/font_size = 48
 text = "Save"
-flat = true
 
-[node name="Reset Button" type="Button" parent="Background" unique_id=515205326]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 13.0
-offset_top = -31.0
-offset_right = 64.00073
-grow_horizontal = 2
-grow_vertical = 0
-theme_type_variation = &"FlatButton"
+[node name="Reset Button" type="Button" parent="Background/HBoxContainer" unique_id=515205326]
+layout_mode = 2
+theme_type_variation = &"ItemDexButton"
+theme_override_font_sizes/font_size = 48
 text = "Reset"
-flat = true
 
-[connection signal="pressed" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons/MoreButton" to="." method="_on_timer_more_button_pressed"]
-[connection signal="pressed" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/Buttons/LessButton" to="." method="_on_timer_less_button_pressed"]
-[connection signal="editing_toggled" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/MinuteBox" to="." method="_on_minute_box_editing_toggled"]
+[node name="ChromaticAberration" type="ColorRect" parent="." unique_id=1798157781]
+z_index = 1
+material = SubResource("ShaderMaterial_cybch")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/LessButton" to="." method="_on_timer_less_button_pressed"]
+[connection signal="pressed" from="Background/SettingsMenu/SongTimer/HBoxContainer/TimerSetting/TimerInput/MoreButton" to="." method="_on_timer_more_button_pressed"]
 [connection signal="pressed" from="Background/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="Background/Save Button" to="." method="_on_save_button_pressed"]
-[connection signal="pressed" from="Background/Reset Button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/Save Button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/Reset Button" to="." method="_on_reset_button_pressed"]

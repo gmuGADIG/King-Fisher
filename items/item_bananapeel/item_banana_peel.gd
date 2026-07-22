@@ -1,6 +1,19 @@
+class_name BananaPeel
 extends ThrowableItem
+
+static var armadillo_mode : bool = false
+
 var hit_ground : bool
 @export var ragdollTime : float = 1.0
+
+func _ready() -> void:
+	if armadillo_mode:
+		%BANANNA2.hide()
+		%Armadillo.show()
+	else:
+		%BANANNA2.show()
+		%Armadillo.hide()
+	super._ready()
 
 func _on_land() -> void:
 	hit_ground = true
@@ -36,3 +49,7 @@ func on_player_collide(body: Node3D) -> void:
 		node.global_transform = global_transform
 		node.play()
 		queue_free()
+
+@rpc("reliable","call_local","authority")
+static func set_armadillo_mode(val : bool) -> void:
+	armadillo_mode = val

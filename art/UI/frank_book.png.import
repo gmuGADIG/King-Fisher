@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk3w6u7xs7muo"
-path="res://.godot/imported/shrimp_tempura_fish_small.png-3ce7bc4961b802eb7974e600a7d285dc.ctex"
+uid="uid://xlvirtwuoueb"
+path="res://.godot/imported/frank_book.png-034327413ef71a85122e1d7223f70fbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fish/sprites/shrimp_tempura_fish_small.png"
-dest_files=["res://.godot/imported/shrimp_tempura_fish_small.png-3ce7bc4961b802eb7974e600a7d285dc.ctex"]
+source_file="res://art/UI/frank_book.png"
+dest_files=["res://.godot/imported/frank_book.png-034327413ef71a85122e1d7223f70fbf.ctex"]
 
 [params]
 

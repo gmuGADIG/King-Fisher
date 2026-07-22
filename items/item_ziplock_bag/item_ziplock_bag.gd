@@ -1,3 +1,4 @@
+class_name ZiplockBag
 extends Item
 
 @export var duration : float = 10
@@ -8,7 +9,8 @@ func use() -> void:
 	else:
 		Debug.log("Ziplock bag used.")
 		visible = false
-		player.has_ziplock_bag = true
+		if player.is_multiplayer_authority():
+			player.set_has_ziplock.rpc(true)
 		$ZiplocUse.play()
 		player.add_item_buff("Ziplock Bag", duration, buff_texture)
 		await get_tree().create_timer(1.0).timeout

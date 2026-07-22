@@ -1,6 +1,6 @@
 extends Node
 
-@export var dex : fishdex
+@export var dex : FishDex
 
 func _on_pressed() -> void:
 	dex.current_fish.fish = get_parent().fish

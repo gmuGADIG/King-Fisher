@@ -12,7 +12,7 @@ func _ready() -> void:
 	Multiplayer.loaded_players.clear()
 	
 	
-	#UIState.ui_state = UIState.State.MAIN_MENU
+	UIState.ui_state = UIState.State.MAIN_MENU
 	Keybinds.load_keybinds()
 	$LobbyBrowser.hide()
 	$Fishdex.hide()
@@ -35,6 +35,7 @@ func fishdex_pressed() -> void:
 
 func itemdex_pressed() -> void:
 	$MainMenuContainer.hide()
+	$Itemdex/AnimationPlayer.play("open")
 	$Itemdex.show()
 	MainMusicPlayer.push_song(fishdex_song, 0.0, 0.0)
 

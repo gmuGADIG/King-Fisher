@@ -24,8 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://7pg60uc0tj5" path="res://world/props/mushroom_small.tscn" id="20_b51yu"]
 [ext_resource type="PackedScene" uid="uid://gpcvf0ox46m1" path="res://world/props/cattail.tscn" id="21_s3jgv"]
 [ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="23_loicf"]
-[ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="24_loicf"]
-[ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="25_vs71a"]
 
 [sub_resource type="Resource" id="Resource_qen0n"]
 script = ExtResource("4_4k232")
@@ -525,6 +523,7 @@ transform = Transform3D(-0.9940924, 0, -0.10853721, 0, 1, 0, 0.10853721, 0, -0.9
 
 [node name="Tent" parent="." index="124" unique_id=978489015 instance=ExtResource("17_ck03o")]
 transform = Transform3D(0.19442269, 0, -0.98091793, 0, 1, 0, 0.98091793, 0, 0.19442269, 25.763035, 0.064718485, 62.850426)
+visible = false
 
 [node name="Campfire" parent="." index="125" unique_id=1236529479 instance=ExtResource("18_s3jgv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.896435, 0.030472092, 58.593575)
@@ -959,16 +958,10 @@ transform = Transform3D(-0.24999754, 0, -0.0011082633, 0, 0.25, 0, 0.0011082633,
 transform = Transform3D(-0.24999754, 0, -0.0011082633, 0, 0.25, 0, 0.0011082633, 0, -0.24999754, 27.740276, -1.1526653, 26.675444)
 
 [node name="FishSpawners" type="Node3D" parent="." index="269" unique_id=874643269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.943, 0)
 
 [node name="FishSpawner" parent="FishSpawners" index="0" unique_id=545651138 instance=ExtResource("23_loicf")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.07, 0)
-polygon = PackedVector2Array(8.711293, 14.201077, 14.099179, 49.946228, 50.326435, 49.183876, 50.969425, 14.791773)
-
-[node name="Item" parent="." index="271" unique_id=1566519324 instance=ExtResource("24_loicf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.357807, 1.1075009, 32.82943)
-
-[node name="Rubber Mallet" parent="." index="272" unique_id=1678140614 instance=ExtResource("25_vs71a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.422941, 0.26853234, 25.195616)
+polygon = PackedVector2Array(29.58344, 49.267, 26.793104, 51.143707, 11.056775, 50.957367, 8.619484, 45.146152, 9.114967, 15.197256, 13.192847, 12.908334, 35.827797, 12.858571, 46.571136, 15.545535, 50.39927, 17.78427, 50.334423, 34.538273, 50.19584, 41.64852, 50.639145, 46.81657, 47.307915, 50.393307, 40.452827, 48.80376, 35.63377, 48.406345, 30.268026, 49.300514, 29.732721, 47.786438, 30.075743, 37.62481, 34.62652, 35.75121, 34.95358, 30.049583, 33.877987, 28.216997, 31.21374, 26.846354, 27.584969, 26.922506, 25.428686, 28.521547, 24.538422, 30.073792, 24.66582, 34.263115, 28.015373, 37.130714, 29.512241, 37.71424)
 
 [editable path="Water/Killbox"]
 [editable path="Water/Killbox2"]

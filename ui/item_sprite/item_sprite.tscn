@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://bhigax78q6y2v"]
+
+[ext_resource type="PackedScene" uid="uid://bvdat3iyqqhl4" path="res://art/3d-assets/BANANNA2.glb" id="1_cemo4"]
+[ext_resource type="Script" uid="uid://dr3tf7lqp70ul" path="res://ui/item_sprite/item_sprite.gd" id="1_rdw6a"]
+[ext_resource type="PackedScene" uid="uid://ckvxigvoeramv" path="res://art/3d-assets/bug_net.glb" id="2_rdw6a"]
+[ext_resource type="PackedScene" uid="uid://tfsb8cebqr51" path="res://items/item_goldenworm/item_golden_worm.glb" id="3_jix1e"]
+[ext_resource type="PackedScene" uid="uid://c5ycm85kmus1n" path="res://art/3d-assets/Hardhat.fbx" id="4_kooak"]
+[ext_resource type="PackedScene" uid="uid://pkvxbw6wyjxu" path="res://items/item_ziplock_bag/item_ziplock_bag.tscn" id="5_vu8t3"]
+[ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="7_3c3m4"]
+[ext_resource type="PackedScene" uid="uid://ci63k6qi746cg" path="res://art/3d-assets/Rubber Mallet.glb" id="7_kooak"]
+[ext_resource type="PackedScene" uid="uid://oeceqna2vrke" path="res://items/item_brick/brick_item.tscn" id="8_8hqjo"]
+[ext_resource type="PackedScene" uid="uid://bbr4yioeph7xy" path="res://art/3d-assets/Armadillo.glb" id="10_jix1e"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cemo4"]
+viewport_path = NodePath("ItemViewport")
+
+[sub_resource type="Environment" id="Environment_jix1e"]
+
+[sub_resource type="World3D" id="World3D_kooak"]
+environment = SubResource("Environment_jix1e")
+
+[node name="ItemSprite" type="TextureRect" unique_id=2088070855]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = SubResource("ViewportTexture_cemo4")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("1_rdw6a")
+
+[node name="ItemViewport" type="SubViewport" parent="." unique_id=1275166423]
+own_world_3d = true
+world_3d = SubResource("World3D_kooak")
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1024, 1024)
+render_target_update_mode = 4
+
+[node name="Root" type="Node3D" parent="ItemViewport" unique_id=1717902607]
+
+[node name="ItemCam" type="Camera3D" parent="ItemViewport/Root" unique_id=26970030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.5)
+keep_aspect = 0
+current = true
+fov = 50.0
+size = 2.0
+far = 5.0
+
+[node name="ItemRoot" type="Node3D" parent="ItemViewport/Root" unique_id=811640275]
+unique_name_in_owner = true
+
+[node name="BananaPeel" parent="ItemViewport/Root/ItemRoot" unique_id=1091538548 instance=ExtResource("1_cemo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4636166, 0.057698607, 0.23433483)
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/BananaPeel" unique_id=1069185331]
+transform = Transform3D(1, 0, 0, 0, 0.9754654, 0.22015266, 0, -0.22015266, 0.9754654, 0.4636166, 0.8432065, 1.2656652)
+light_energy = 0.688
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 118.66
+spot_angle_attenuation = 3.7656317
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/BananaPeel" unique_id=859605508]
+transform = Transform3D(0.58711934, -0.58806676, 0.55629873, 0.541113, 0.7962236, 0.27060044, -0.6020693, 0.14214574, 0.78568894, 2.35, 0.843, 1.266)
+light_energy = 1.727
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 180.0
+spot_angle_attenuation = 3.7656317
+
+[node name="Butterfly Net" parent="ItemViewport/Root/ItemRoot" unique_id=116810103 instance=ExtResource("2_rdw6a")]
+transform = Transform3D(0.4282213, -0.64132595, 0.6366533, 0.42792612, 0.7644292, 0.4822111, -0.7959309, 0.06594756, 0.60178447, 0.66056436, -0.16938834, 0.53237617)
+visible = false
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Butterfly Net" unique_id=1949902485]
+transform = Transform3D(0.36237246, 0.35355344, -0.86237246, -0.7865662, 0.61237246, -0.07945933, 0.50000006, 0.7071069, 0.50000006, -1.2815678, 0.44888046, 0.78095806)
+light_energy = 0.7
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 30.0
+
+[node name="Golden Worm" parent="ItemViewport/Root/ItemRoot" unique_id=103183768 instance=ExtResource("3_jix1e")]
+transform = Transform3D(-0.3051785, 0.85577667, 0.41774678, 0.4115456, -0.27707502, 0.8682511, 0.85877687, 0.43689293, -0.26763368, -0.39087054, 0.7221911, -0.1358943)
+visible = false
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Golden Worm" unique_id=815117306]
+transform = Transform3D(-0.13457406, 0.85376513, 0.50296533, 0.68207145, -0.28838575, 0.6720211, 0.7187965, 0.4334952, -0.54352003, 0.90733606, 1.5036547, -0.74638677)
+light_energy = 0.256
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 80.06
+spot_angle_attenuation = 4.1253977
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Golden Worm" unique_id=800551675]
+transform = Transform3D(0.34837213, -0.46360964, 0.8146792, 0.5261305, -0.6225914, -0.57928085, 0.7757728, 0.63043326, 0.027025681, 1.437, -0.512, 0.246)
+light_energy = 0.685
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 34.95
+spot_angle_attenuation = 9.67733
+
+[node name="Helmet" parent="ItemViewport/Root/ItemRoot" unique_id=1237175848 instance=ExtResource("4_kooak")]
+transform = Transform3D(0.87296516, -0.17852667, -0.4539383, -0.06895119, 0.8761079, -0.47715878, 0.4828845, 0.44784257, 0.75250214, 0.274, -0.848, -0.024041593)
+visible = false
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Helmet" unique_id=1257357944]
+transform = Transform3D(0.795853, 0.47387588, 0.37690824, -0.5112567, 0.19241892, 0.83761084, 0.3243993, -0.8593118, 0.39540917, 0.5041833, 2.6182656, 0.54347676)
+light_energy = 0.7
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 74.16
+spot_angle_attenuation = 2.9408832
+
+[node name="Ziplock Bag" parent="ItemViewport/Root/ItemRoot" unique_id=1566519324 instance=ExtResource("5_vu8t3")]
+transform = Transform3D(-0.09739188, -0.2306462, 0.96815133, 0, 0.9727758, 0.2317479, -0.9952461, 0.022570364, -0.094740465, 0, 0.50209725, 0)
+visible = false
+buff_texture = null
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Ziplock Bag" unique_id=1472514874]
+transform = Transform3D(0.1938478, -0.010711567, -0.9809731, 0.22593234, -0.9725742, 0.055265814, -0.954661, -0.23234674, -0.18611127, -0.24277785, 0.055039465, -0.17061982)
+light_energy = 2.6
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 141.19
+spot_angle_attenuation = 2.2457364
+
+[node name="Rubber Mallet" parent="ItemViewport/Root/ItemRoot" unique_id=729993028 instance=ExtResource("7_kooak")]
+transform = Transform3D(0.014008432, 0.035240076, -0.024226043, -0.017622836, 0.027984587, 0.030517185, 0.03896408, -1.2583584e-05, 0.022512227, -1.121, -0.61, -1.327)
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Rubber Mallet" unique_id=1779017236]
+transform = Transform3D(22.22222, -2.6226044e-06, -4.7683716e-06, 1.5418045e-06, 21.67701, 4.8922815, 3.8146973e-06, -4.892281, 21.67701, 7.639223, 27.450394, 41.880024)
+light_energy = 0.688
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 118.66
+spot_angle_attenuation = 3.7656317
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Rubber Mallet" unique_id=367666482]
+transform = Transform3D(5.001663, 8.300117, 19.997961, 12.057198, 15.98013, -9.648135, -17.984282, 13.021927, -0.90670204, 40.259567, 40.566837, -13.269414)
+light_energy = 1.727
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 112.45
+spot_angle_attenuation = 3.7656317
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Rubber Mallet" unique_id=981055347]
+transform = Transform3D(14.162903, -17.078709, 1.2478056, 14.225472, 12.635588, 11.480639, -9.532862, -6.5181904, 18.985916, 21.712988, 70.01829, 18.84738)
+light_energy = 1.727
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 112.45
+spot_angle_attenuation = 3.7656317
+
+[node name="Glue Grenade" parent="ItemViewport/Root/ItemRoot" unique_id=1606150827 instance=ExtResource("7_3c3m4")]
+visible = false
+glue_icon = null
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Glue Grenade" unique_id=863747529]
+transform = Transform3D(1, 0, 0, 0, 0.9754654, 0.22015266, 0, -0.22015266, 0.9754654, 0.4636166, 0.8432065, 1.2656652)
+light_energy = 0.688
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 118.66
+spot_angle_attenuation = 3.7656317
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Glue Grenade" unique_id=832963934]
+transform = Transform3D(0.58711934, -0.58806676, 0.55629873, 0.541113, 0.7962236, 0.27060044, -0.6020693, 0.14214574, 0.78568894, 2.35, 0.843, 1.266)
+light_energy = 1.727
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = 0.0
+spot_angle = 180.0
+spot_angle_attenuation = 3.7656317
+
+[node name="Brick" parent="ItemViewport/Root/ItemRoot" unique_id=768764637 instance=ExtResource("8_8hqjo")]
+transform = Transform3D(0.879709, -0.20815073, 0.4275338, 0.45342037, 0.6380595, -0.622326, -0.14325444, 0.7413182, 0.65568674, -0.25523114, 0.55247426, -0.07194018)
+visible = false
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Brick" unique_id=1605178848]
+transform = Transform3D(0.53741187, -2.4553185, 0.033758506, 0.8927189, 0.22755118, 2.3387635, -2.2875283, -0.4880281, 0.92064464, 0.168, 2.807, 1.307)
+light_energy = 20.0
+light_size = 1.0
+light_specular = 0.2
+spot_angle = 26.26
+spot_angle_attenuation = 1.918839
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ItemViewport/Root/ItemRoot/Brick" unique_id=1093963857]
+transform = Transform3D(2.5136712, -3.5762787e-07, -1.7881393e-07, 1.1920929e-07, 2.513671, -2.9802322e-07, -5.9604645e-08, -5.9604645e-08, 2.5136712, 0.59190035, -0.10263634, -0.9318243)
+light_energy = 0.358
+
+[node name="Armadillo" parent="ItemViewport/Root/ItemRoot" unique_id=1877560320 instance=ExtResource("10_jix1e")]
+transform = Transform3D(1.4809349, 0, -0.5923317, 0, 1.595, 0, 0.5923317, 0, 1.4809349, 0.185, 0.215, 0)
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Armadillo" unique_id=222395440]
+transform = Transform3D(1, 0, 0, 0, 0.9754654, 0.22015266, 0, -0.22015266, 0.9754654, 0.4636166, 0.8432065, 1.2656652)
+light_energy = 0.688
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = -4.88
+spot_angle = 118.66
+spot_angle_attenuation = 3.7656317
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Armadillo" unique_id=647787196]
+transform = Transform3D(0.58711934, -0.58806676, 0.55629873, 0.541113, 0.7962236, 0.27060044, -0.6020693, 0.14214574, 0.78568894, 2.35, 0.843, 1.266)
+light_energy = 1.727
+light_size = 1.0
+light_specular = 0.2
+spot_range = 3.0
+spot_attenuation = -4.88
+spot_angle = 180.0
+spot_angle_attenuation = 3.7656317
+
+[editable path="ItemViewport/Root/ItemRoot/Armadillo"]

@@ -1,5 +1,7 @@
 extends Node
 
+signal state_updated(new_state : State)
+
 enum State{
 	NONE,
 	MAIN_MENU,
@@ -8,7 +10,8 @@ enum State{
 	SCOREBOARD,
 	CHARACTER_SELECT,
 	FISHING_MINIGAME,
-	LOBBY_SETTINGS
+	LOBBY_SETTINGS,
+	TUTORIAL
 }
 
 var ui_state : State:
@@ -39,13 +42,13 @@ var ui_state : State:
 				player_mouse_input_blocked = true
 				player_click_input_blocked = true
 				more_ui_blocked = true
-			State.CHARACTER_SELECT, State.LOBBY_SETTINGS:
+			State.CHARACTER_SELECT, State.LOBBY_SETTINGS, State.TUTORIAL:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				player_keyboard_input_blocked = false
 				player_mouse_input_blocked = true
 				player_click_input_blocked = true
 				more_ui_blocked = true
-
+		state_updated.emit(val)
 var player_keyboard_input_blocked : bool
 var player_mouse_input_blocked : bool
 var player_click_input_blocked : bool

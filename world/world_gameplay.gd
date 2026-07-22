@@ -4,8 +4,10 @@ extends WorldBase
 static var fish_shadows : Dictionary[int,FishShadow]
 static var next_fish_shadow_id : int = 0
 
+const MAX_FISH : int = 30
+
 static var fish_shadow : PackedScene = load("res://world/fish_spawner/fish_shadow.tscn")
-const FISH_SPAWN_RATE : float = 0.2
+static var fish_spawn_rate : LobbySettings.SpawnRate = LobbySettings.SpawnRate.MEDIUM
 
 static var song : Song
 static var round_time : float
@@ -24,8 +26,13 @@ var hud : GameHud
 @onready var remaining_time : float = LobbySettings.roundTime
 var fish_rng : RandomNumberGenerator
 
+var fish_count : int = 0
 
 func _ready() -> void:
+	
+	var connection : ServerConnection = Multiplayer.player_list.get(multiplayer.get_unique_id())
+	if connection:
+		FishDex.caught_fish(CharacterSelect.character_bios[connection.character_texture_id])
 	MainMusicPlayer.play_song(song)
 	assert(fish_spawner_weights.size() == fish_spawners.size(), "water pool count and weight counts are not equal")
 	hud = %GameHud
@@ -42,10 +49,22 @@ func _ready() -> void:
 	if multiplayer.is_server():
 		fish_rng = RandomNumberGenerator.new()
 		
+		##Reset fish shadow data
+		fish_shadows.clear()
+		next_fish_shadow_id = 0
+		
+		##Fish spawn timer
 		var fish_timer : Timer = Timer.new()
 		fish_timer.timeout.connect(_spawn_fish)
 		fish_timer.one_shot = false
-		fish_timer.wait_time = FISH_SPAWN_RATE ##This might need to be different per map?
+		match fish_spawn_rate:
+			LobbySettings.SpawnRate.LOW:
+				fish_timer.wait_time = 10
+			LobbySettings.SpawnRate.MEDIUM:
+				fish_timer.wait_time = 5
+			LobbySettings.SpawnRate.HIGH:
+				fish_timer.wait_time = 3
+
 		add_child(fish_timer)
 		fish_timer.start()
 	
@@ -57,7 +76,7 @@ func _process(delta: float) -> void:
 	#super._process(delta)
 	remaining_time -= delta
 	hud.update_time(remaining_time)
-	hud.find_child("ActiveBuffs").update_buffs(delta)
+	hud.get_node("%ActiveBuffs").update_buffs(delta)
 
 	if remaining_time < 60. and almost_over_not_triggered:
 		almost_over_not_triggered = false
@@ -73,15 +92,27 @@ func _process(delta: float) -> void:
 	if remaining_time < 0. and round_going and multiplayer.is_server():
 		round_going = false
 		
-		Multiplayer.results_screen.rpc()
+		
 		var players : Array[Player]
 		for p in get_tree().get_nodes_in_group("Player"):
 			players.append(p)
 		players.sort_custom(sort_by_score)
 		
+		var ids : Array[int]
+		var scores : Array[int]
 		for i in players.size():
 			var id := players[i].get_multiplayer_authority()
-			Multiplayer.results_screen.rpc_id(id, i+1)
+			ids.append(id)
+			scores.append(players[i].score)
+		
+		while ids.size() < 4:
+			ids.append(-1)
+			scores.append(-1)
+		
+		Multiplayer.results_screen.rpc(
+			ids[0],ids[1],ids[2],ids[3],
+			scores[0],scores[1],scores[2],scores[3],
+		)
 
 func sort_by_score(a : Player, b : Player) -> bool:
 	return a.score > b.score
@@ -91,32 +122,17 @@ func _spawn_fish() -> void:
 		return
 	if fish_spawners.is_empty():
 		return
+	if fish_count >= MAX_FISH:
+		return
 	
+	Debug.log("Spawning fish")
 	##Choose pool
 	var index : int = fish_rng.rand_weighted(fish_spawner_weights)
-	#var rand : int = randi_range(1,water_pool_weight_total)
-	#var target_pool : WaterPool = null
-	#
-	#for i in range(water_pool_weights.size()):
-		#var curr_weight : int = water_pool_weights[i]
-		#if rand <= curr_weight:
-			##Found Pol
-			#target_pool = water_pools[i]
-		## Try the next pool
-		#rand -= curr_weight
 	assert(index != -1, "weights empty")
 	var target_spawner = fish_spawners[index]
 	
 	
 	assert(target_spawner != null, "No pool selected?")
-	
-	##Pick random point in pool
-	#var test : Sprite3D = Sprite3D.new()
-	#test.texture = load("res://temp/temp_art/icon.svg")
-	#test.scale = Vector3(0.25,0.25,0.25)
-	#add_child(test)
-	#test.global_position = target_spawner.get_random_point()
-	#print(target_spawner.get_random_point())
 	
 	##Pick Specific fish
 	var grade : Fish.Grade = target_spawner.pick_rarity()

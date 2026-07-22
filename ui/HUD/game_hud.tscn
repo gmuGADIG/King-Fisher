@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://belf74xnjd8p8"]
 
 [ext_resource type="Script" uid="uid://dcf8prpy057vk" path="res://ui/HUD/game_hud.gd" id="1_1c5in"]
+[ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_22ess"]
 [ext_resource type="Texture2D" uid="uid://cidywq0cy3pl6" path="res://temp/item.png" id="1_aipem"]
+[ext_resource type="Texture2D" uid="uid://qyqpyx1t6vsk" path="res://temp/scoreboard_icon.png" id="3_7f6fh"]
+[ext_resource type="PackedScene" uid="uid://dda6d1o25sxn0" path="res://ui/HUD/score_change_label.tscn" id="3_17e2f"]
+[ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="3_76rk5"]
 [ext_resource type="PackedScene" uid="uid://gskq3ns5ix4c" path="res://ui/HUD/Buffs/displayed_buffs.tscn" id="3_ekma4"]
+[ext_resource type="Texture2D" uid="uid://cl7ovfgsq88pn" path="res://temp/livewell_icon.png" id="3_qujba"]
+[ext_resource type="Texture2D" uid="uid://hgjg2pb6w4ss" path="res://systems/rhythm/art/fishing_minigame_backboard.png" id="8_1a4iy"]
 
 [node name="GameHud" type="Control" unique_id=207102908 node_paths=PackedStringArray("time_remaining_label")]
 layout_mode = 3
@@ -11,8 +17,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_22ess")
 script = ExtResource("1_1c5in")
-time_remaining_label = NodePath("MarginContainer/TimeRemaining")
+score_changed_label_packed = ExtResource("3_17e2f")
+time_remaining_label = NodePath("TimeRemaining/MarginContainer/TimeRemaining")
 
 [node name="ButtomPrompts" type="MarginContainer" parent="." unique_id=1558955761]
 layout_mode = 1
@@ -32,56 +40,82 @@ theme_override_constants/separation = 30
 [node name="VBoxContainer" type="VBoxContainer" parent="ButtomPrompts/HBoxContainer" unique_id=782331868]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="ButtomPrompts/HBoxContainer/VBoxContainer" unique_id=795119505]
+[node name="ColorRect" type="Panel" parent="ButtomPrompts/HBoxContainer/VBoxContainer" unique_id=835552417]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_76rk5")
 
-[node name="Label" type="Label" parent="ButtomPrompts/HBoxContainer/VBoxContainer/ColorRect" unique_id=646587804]
+[node name="MarginContainer" type="MarginContainer" parent="ButtomPrompts/HBoxContainer/VBoxContainer/ColorRect" unique_id=780485688]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "TAB"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="ButtomPrompts/HBoxContainer/VBoxContainer/ColorRect/MarginContainer" unique_id=808955055]
+layout_mode = 2
+texture = ExtResource("3_7f6fh")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="ButtomPrompts/HBoxContainer/VBoxContainer" unique_id=1813317575]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 10
-text = "Scoreboard"
+text = "Scoreboard
+[Tab]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ButtomPrompts/HBoxContainer" unique_id=931628419]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="ButtomPrompts/HBoxContainer/VBoxContainer2" unique_id=77782950]
+[node name="ColorRect" type="Panel" parent="ButtomPrompts/HBoxContainer/VBoxContainer2" unique_id=819626005]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_76rk5")
 
-[node name="Label" type="Label" parent="ButtomPrompts/HBoxContainer/VBoxContainer2/ColorRect" unique_id=1943067118]
+[node name="MarginContainer" type="MarginContainer" parent="ButtomPrompts/HBoxContainer/VBoxContainer2/ColorRect" unique_id=1022939819]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "SHIFT"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="ButtomPrompts/HBoxContainer/VBoxContainer2/ColorRect/MarginContainer" unique_id=905445511]
+layout_mode = 2
+texture = ExtResource("3_qujba")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScoreChangeLocation" type="Control" parent="ButtomPrompts/HBoxContainer/VBoxContainer2/ColorRect" unique_id=1525430220]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
 
 [node name="Label" type="Label" parent="ButtomPrompts/HBoxContainer/VBoxContainer2" unique_id=1244768666]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 10
-text = "Livewell"
+text = "Livewell
+[Shift]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -107,41 +141,54 @@ offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="." unique_id=2139926350]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -83.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "Pts: XXXXX"
-
-[node name="ActiveBuffs" parent="." unique_id=351441021 instance=ExtResource("3_ekma4")]
-layout_mode = 1
-offset_left = 1044.0
-offset_top = 22.000002
-offset_right = 433.66675
-offset_bottom = -401.0
-scale = Vector2(0.1978254, 0.1978254)
-
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2010545455]
+[node name="TimeRemaining" type="TextureRect" parent="." unique_id=444515966]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -80.5
-offset_right = 80.5
-offset_bottom = 59.0
+offset_left = -112.0
+offset_right = 112.0
+offset_bottom = 80.0
 grow_horizontal = 2
+texture = ExtResource("8_1a4iy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="TimeRemaining" unique_id=2010545455]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_top = 10
 
-[node name="TimeRemaining" type="Label" parent="MarginContainer" unique_id=1691315711]
+[node name="TimeRemaining" type="Label" parent="TimeRemaining/MarginContainer" unique_id=1691315711]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 20
 text = "Time Remaining:
 15:00"
 horizontal_alignment = 1
+
+[node name="TextureRect" type="VBoxContainer" parent="." unique_id=1025410095]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_bottom = 80.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=2139926350]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 20
+text = "Statuses:  "
+horizontal_alignment = 1
+
+[node name="ActiveBuffs" parent="TextureRect" unique_id=351441021 instance=ExtResource("3_ekma4")]
+unique_name_in_owner = true
+layout_mode = 2

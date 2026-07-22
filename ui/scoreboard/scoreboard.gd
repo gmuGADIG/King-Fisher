@@ -14,7 +14,7 @@ func _ready() -> void:
 		$BackPanel/VBoxContainer/Players.add_child(new_player_score)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("scoreboard"):
+	if event.is_action_pressed("scoreboard") and not UIState.more_ui_blocked:
 		show()
 	elif event.is_action_released("scoreboard"):
 		hide()

@@ -7,7 +7,7 @@ signal closed
 
 @onready var lobby_creation_window : TextureRect = $LobbyCreationWindow
 @onready var lobby_join_window : TextureRect = $LobbyJoinWindow
-@onready var name_text := $DisplayName/NameInput
+
 var seen_ips: Dictionary[String, bool]
 var infos: Dictionary[String, ServerInfo]
 
@@ -18,6 +18,11 @@ func _ready() -> void:
 	Multiplayer.found_server.connect(_on_found_server)
 	lobby_creation_window.hide()
 	lobby_join_window.hide()
+	
+	##If the player has already set a name, retrieve it
+	if Multiplayer.playerDisplayName != "":
+		%HostNameInput.text = Multiplayer.playerDisplayName
+		%ClientNameInput.text = Multiplayer.playerDisplayName
 
 func _on_host_button_pressed() -> void:
 	lobby_creation_window.show()
@@ -42,6 +47,7 @@ func _on_create_lobby_button_pressed() -> void:
 func _on_found_server(ip: String, hostname: String, playerCount: String, status: String) -> void:
 	if ip in seen_ips: 
 		infos[ip].status = status
+		infos[ip].playerCount = playerCount
 		return
 	seen_ips[ip] = true
 

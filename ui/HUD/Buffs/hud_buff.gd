@@ -11,12 +11,12 @@ var buff_progress : float = 0
 signal buff_ended(name : String)
 
 func _ready() -> void:
-	$Placeholder.hide()
+	pass
 
 func start_buff(tmp_name: String, duration : float = 0, image: Texture = null) -> void:
 	active = true
 	buff_name = tmp_name
-	$Placeholder.text = buff_name
+	#$Placeholder.text = buff_name
 	buff_duration = duration
 	
 	if image != null:

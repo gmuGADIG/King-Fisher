@@ -157,6 +157,10 @@ var moai_fish_active: bool = false
 
 var fishing_minigame : FishingMinigame
 
+var ready_state := false:
+	set(v):
+		ready_state = v
+		Multiplayer._handle_ready_up(v)
 
 ##The angle in degrees of the camera
 @onready var camera_yaw : float = 0:
@@ -182,7 +186,8 @@ func _ready() -> void:
 	_last_played_jump_event_id = -1
 	fishing_minigame = %FishingMiniGame
 	fishing_minigame.fishing_finished.connect(on_fishing_finished)
-
+	Livewell.update_inventory_visuals(fish_inventory,score)
+	
 func _process(delta: float) -> void:
 	# Prevents errors when disconnection happens
 	if not multiplayer.has_multiplayer_peer(): return
@@ -211,13 +216,15 @@ func _process(delta: float) -> void:
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump") and not UIState.player_keyboard_input_blocked:
 		velocity.y = jump_height
+		if slow_timer > 0:
+			velocity.y *= speed_multiplier
 		_jump_event_id += 1
 		_on_jump_event(_jump_event_id)
 		sync_jump_event.rpc(_jump_event_id)
 
 	if input != Vector2.ZERO:
 		player_mesh.turn_towards(movement_dir.rotated(-PI/2), delta)
-	
+		sync_rotation.rpc(player_mesh.rotation)
 	
 		
 
@@ -228,6 +235,7 @@ func _physics_process(delta: float) -> void:
 	var pre_velocity_y := velocity.y
 	if is_multiplayer_authority():
 		sync_velocity.rpc(velocity)
+		sync_position.rpc(position)
 		handle_camera_position()
 	
 	#Debug.log("velocity ", velocity)
@@ -280,7 +288,7 @@ func _keyboard_input(event : InputEvent) -> void:
 	
 	if event.is_action_pressed("scoreboard"):
 		pass
-	if event.is_action_pressed("test1"):
+	if event.is_action_pressed("debug_test1"):
 		ragdoll_phys.ragdoll(1)
 		# force_respawn = true
 		pass
@@ -291,6 +299,15 @@ func _keyboard_input(event : InputEvent) -> void:
 func _mouse_input(event : InputEvent) -> void:
 	if UIState.player_click_input_blocked:
 		return
+	
+	## TODO remove these two debug actions
+	if event.is_action_pressed("debug_add_fish"):
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		give_fish_serialized.rpc(newFish.serialize())
+	if event.is_action_pressed("debug_remove_fish"):
+		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
+		take_fish_serialized.rpc(newFish.serialize())
+		#take_fish(nes
 	
 	match aim_mode:
 		AimMode.NONE:
@@ -332,7 +349,7 @@ func _mouse_input(event : InputEvent) -> void:
 						fishing_minigame.start(body.fish)
 					else:
 						# Fishing in the lobby is equivalent to readying up.
-						Multiplayer._handle_ready_up()
+						ready_state = not ready_state
 					
 		AimMode.ITEM:
 			##This point should only reachable if the item held is throwable
@@ -343,6 +360,7 @@ func _mouse_input(event : InputEvent) -> void:
 				var throw_item : ThrowableItem = held_item
 				throw_item.use_throwable.rpc(%Aiming.get_aim_pos())
 				held_item = null
+				held_item_ui.clear_item()
 				%Aiming.stop_aiming()
 			pass
 		_:
@@ -368,14 +386,7 @@ func _mouse_input(event : InputEvent) -> void:
 		#item = null
 		#%Aiming.stop_aiming()
 	
-	## TODO remove these two debug actions
-	if event.is_action_pressed("add_fish"):
-		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
-		give_fish_serialized.rpc(newFish.serialize())
-	if event.is_action_pressed("remove_fish"):
-		var newFish : Fish = load("res://fish/sushi/fish_seven.tres")
-		take_fish_serialized.rpc(newFish.serialize())
-		#take_fish(nes
+	
 
 ## Interrupts and cancels the fishing minigame if active.
 ## Called by the Ragdoll system to interrupt fishing when ragdolled.
@@ -387,15 +398,28 @@ func cancel_fishing_minigame():
 		current_fishing_shadow.current_fishing_state.rpc(false)
 		current_fishing_shadow = null
 
+@rpc("call_local","authority","reliable")
+func set_has_ziplock(val : bool) -> void:
+	has_ziplock_bag = val
+
 @rpc("call_local")
 func slow(time : float, speed_debuf : float):
 	slow_timer = time
 	speed_multiplier = 1-speed_debuf
 	
 	
-@rpc("unreliable_ordered")
+@rpc("authority","unreliable_ordered","call_remote")
 func sync_velocity(vel: Vector3) -> void:
 	velocity = vel
+
+@rpc("authority","unreliable_ordered","call_remote")
+func sync_position(new_pos : Vector3) -> void:
+	if position.distance_squared_to(new_pos) > 1:
+		position = new_pos
+
+@rpc("authority","unreliable_ordered","call_remote")
+func sync_rotation(new_rotation : Vector3) -> void:
+	player_mesh.rotation = new_rotation
 
 @rpc("unreliable")
 func sync_jump_event(event_id: int) -> void:
@@ -517,13 +541,15 @@ func pick_up_item(item: Item) -> void:
 	# TODO: Parent to player hand instead, with an offset for appropriate placement.
 	# Item origin is center/pickup area. Item hold point is offset in pos+rot.
 	item.reparent(player_mesh, false)
+	item.stop_spin()
 	held_item = item
 	held_item.player = self
 	held_item.is_held = true
 	held_item.position = Vector3.ZERO + Vector3(0,1,0)
 	# Hide the item. Nobody will know you have it until you use it.
 	held_item.visible=false
-	held_item_ui.hold_item(held_item.item_name)
+	if is_multiplayer_authority():
+		held_item_ui.hold_item(held_item)
 	# Don't play the sound unless we're the owning client
 	if is_multiplayer_authority():
 		$Sounds/PlayerPickupItem.play()
@@ -534,6 +560,7 @@ func pick_up_item(item: Item) -> void:
 func use_held_item() -> void:
 	# If you don't have an item, don't try and use a nonexistent item.
 	if held_item==null:return
+	if is_ragdolled: return
 	#Apply to self anim
 	play_action(&"ApplyToSelf")
 	held_item.visible = true
@@ -555,7 +582,7 @@ func unequip_helmet() -> void:
 		return
 	wearing_helmet = false
 	helmet_node.queue_free()
-	get_tree().current_scene.get_node("%GameHud").get_node("ActiveBuffs").remove_buff("Helmet")
+	get_tree().current_scene.get_node("%GameHud").get_node("%ActiveBuffs").remove_buff("Helmet")
 
 
 ##NOTICE: This is abusable as it is any_peer
@@ -563,7 +590,10 @@ func unequip_helmet() -> void:
 func give_fish(fish : Fish) -> void:
 	Debug.log("Player " + self.name + " got a " + fish.fish_name)
 	fish_inventory.append(fish)
+	fish_catch_sound(fish.grade)
 	score+=fish.get_score()
+	if is_multiplayer_authority():
+		get_tree().current_scene.get_node("%GameHud").show_score_change(fish.get_score())
 	if fish.grade == Fish.Grade.SUSHI:
 		buff_player(fish)
 	#livewell.addFish(fish)
@@ -575,7 +605,11 @@ func give_fish(fish : Fish) -> void:
 func take_fish(fish: Fish) -> void:
 	if fish_inventory.has(fish):
 		fish_inventory.erase(fish)
+		if is_multiplayer_authority():
+			$Sounds/FishCatchFail.play()
 		score-=fish.get_score()
+		if is_multiplayer_authority():
+			get_tree().current_scene.get_node("%GameHud").show_score_change(-fish.get_score())
 		#TODO update livewell ui
 		if is_multiplayer_authority():
 			Livewell.update_inventory_visuals(fish_inventory,score)
@@ -586,6 +620,7 @@ func take_fish(fish: Fish) -> void:
 ##NOTICE: This is abusable as it is any_peer
 @rpc("any_peer","reliable","call_local")
 func give_fish_serialized(data : Array) -> void:
+	
 	give_fish(Fish.create(data[0],data[1]))
 
 ##NOTICE: This is abusable as it is any_peer
@@ -602,19 +637,14 @@ func on_fishing_finished(succeeded:bool) -> void:
 	if succeeded:
 		#animation reel in
 		play_action(	&"ReelIn")
+		if golden_worm_active:
+			current_fishing_shadow.fish = Fish.sushi_fishes.pick_random()
+
 		var fish : Fish = current_fishing_shadow.fish
 		if is_multiplayer_authority():
-			match fish.grade:
-				Fish.Grade.LEFTOVERS:
-					$Sounds/LeftoverCatch.play()
-				Fish.Grade.FRESH:
-					$Sounds/FreshCatch.play()
-				Fish.Grade.PREMIUM:
-					$Sounds/PremiumCatch.play()
-				Fish.Grade.SUSHI:
-					$Sounds/SushiCatch.play()
-				_:
-					$Sounds/LeftoverCatch.play()
+			FishDex.caught_fish(fish)
+			
+			#fish_catch_sound(fish.grade)
 				
 		current_fishing_shadow.kill_fish_shadow.rpc()
 		give_fish_serialized.rpc(fish.serialize())
@@ -627,6 +657,22 @@ func on_fishing_finished(succeeded:bool) -> void:
 		current_fishing_shadow.current_fishing_state.rpc(false)
 	current_fishing_shadow = null
 
+func fish_catch_sound(grade : Fish.Grade) -> void:
+	if not is_multiplayer_authority():
+		return
+	match grade:
+		Fish.Grade.LEFTOVERS:
+			$Sounds/LeftoverCatch.play()
+		Fish.Grade.FRESH:
+			$Sounds/FreshCatch.play()
+		Fish.Grade.PREMIUM:
+			$Sounds/PremiumCatch.play()
+		Fish.Grade.SUSHI:
+			$Sounds/SushiCatch.play()
+		_:
+			$Sounds/LeftoverCatch.play()
+
+
 @rpc("any_peer","call_local","reliable")
 func apply_bone_force(vec : Vector3) -> void:
 	for node : Node in ragdoll_phys.get_children():
@@ -635,7 +681,10 @@ func apply_bone_force(vec : Vector3) -> void:
 			node.apply_central_impulse(vec)
 
 func add_item_buff(buff_name : String, duration : float, texture : Texture2D) -> void:
-	get_tree().current_scene.get_node("%GameHud").get_node("ActiveBuffs").add_buff(buff_name, duration, texture)
+	if not is_multiplayer_authority():
+		return
+	
+	get_tree().current_scene.get_node("%GameHud").get_node("%ActiveBuffs").add_buff(buff_name, duration, texture)
 
 ##Incredibly evil function of bad code design
 func remove_item_buff(buff_name : String) -> void:
@@ -643,7 +692,7 @@ func remove_item_buff(buff_name : String) -> void:
 		"Golden Worm":
 			golden_worm_active = false
 		"Ziplock Bag":
-			has_ziplock_bag = false
+			set_has_ziplock.rpc(false)
 		"Helmet", "Ragdoll", "Glue":
 			pass
 		_:

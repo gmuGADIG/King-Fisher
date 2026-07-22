@@ -29,16 +29,16 @@ content_margin_bottom = 20.0
 texture = ExtResource("2_l6pnj")
 modulate_color = Color(0.9529412, 0.78431374, 0.5568628, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qak5"]
+content_margin_left = 0.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("2_l6pnj")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dacd"]
 content_margin_left = 30.0
 content_margin_top = 20.0
 content_margin_right = 30.0
-content_margin_bottom = 20.0
-texture = ExtResource("2_l6pnj")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qak5"]
-content_margin_left = 0.0
-content_margin_top = 20.0
 content_margin_bottom = 20.0
 texture = ExtResource("2_l6pnj")
 
@@ -162,6 +162,20 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 corner_detail = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8fdx"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5ssk"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3yal4"]
 content_margin_left = 0.0
 content_margin_top = 20.0
@@ -200,6 +214,7 @@ content_margin_left = 0.0
 content_margin_top = 20.0
 content_margin_bottom = 20.0
 texture = ExtResource("5_q7tkq")
+region_rect = Rect2(0, 0, 512, 244)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abcvk"]
 content_margin_left = 0.0
@@ -243,6 +258,7 @@ Button/fonts/font = ExtResource("1_3cepj")
 Button/styles/disabled = SubResource("StyleBoxTexture_tafe6")
 Button/styles/focus = SubResource("StyleBoxTexture_hrw3r")
 Button/styles/hover = SubResource("StyleBoxTexture_hrw3r")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_7qak5")
 Button/styles/normal = SubResource("StyleBoxTexture_5dacd")
 Button/styles/pressed = SubResource("StyleBoxTexture_7qak5")
 CheckBox/font_sizes/font_size = 24
@@ -420,8 +436,8 @@ PopupMenu/styles/separator = null
 PopupPanel/styles/panel = null
 ProgressBar/font_sizes/font_size = 24
 ProgressBar/fonts/font = ExtResource("1_3cepj")
-ProgressBar/styles/background = null
-ProgressBar/styles/fill = null
+ProgressBar/styles/background = SubResource("StyleBoxFlat_q8fdx")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_r5ssk")
 QuitButton/base_type = &"Button"
 QuitButton/styles/disabled = SubResource("StyleBoxTexture_3yal4")
 QuitButton/styles/focus = SubResource("StyleBoxTexture_0b2c0")

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://belf74xnjd8p8" path="res://ui/HUD/game_hud.tscn" id="5_7trks"]
 [ext_resource type="PackedScene" uid="uid://3jux6npjxhxf" path="res://systems/item_spawner.tscn" id="5_lgvll"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="8_ddkgs"]
-[ext_resource type="PackedScene" uid="uid://e0xpyuvnvcs5" path="res://items/item_butterfly_net/item_butterfly_net.tscn" id="8_xvf6j"]
+[ext_resource type="PackedScene" uid="uid://d1jfxq12olkv2" path="res://items/item_butterfly_net/new_fishing_net.tscn" id="8_xvf6j"]
 [ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="9_32lhn"]
 [ext_resource type="Resource" path="res://world/lobby/data.hterrain" id="9_hpp7h"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="10_7trks"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="13_k5ckw"]
 [ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="14_34arh"]
 [ext_resource type="Environment" uid="uid://byjvy8xudhe0n" path="res://world/environment.tres" id="14_48nxm"]
+[ext_resource type="PackedScene" uid="uid://oeceqna2vrke" path="res://items/item_brick/brick_item.tscn" id="16_belcf"]
 [ext_resource type="PackedScene" uid="uid://drb1uf1i8esqm" path="res://world/killbox/killbox.tscn" id="21_uaf31"]
 [ext_resource type="AudioStream" uid="uid://chsdonglah64k" path="res://sound/sfx/one.minute.remaining.final.wav" id="23_cq2ek"]
 
@@ -39,14 +40,6 @@ player = ExtResource("2_bl271")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=729566259]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1460678116]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=174632698]
-layout_mode = 2
-text = "Hello"
-
 [node name="Scoreboard" parent="CanvasLayer" unique_id=1670028390 instance=ExtResource("3_7di53")]
 visible = false
 
@@ -61,6 +54,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 0.5577596, 0.83000255, 0, -0.83000255, 0.5577596, 0, 11.385282, 8.448111)
 
 [node name="Players" type="Node3D" parent="." unique_id=1891362098 groups=["Spawnpoints"]]
+unique_name_in_owner = true
 script = ExtResource("3_3xj4d")
 
 [node name="PlayerSpawnPoint" parent="Players" unique_id=1956364351 instance=ExtResource("4_lgvll")]
@@ -77,7 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7846797, 0, 1.7462559)
 
 [node name="ItemSpawner" parent="." unique_id=1588789630 instance=ExtResource("5_lgvll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
-items = Array[PackedScene]([ExtResource("8_xvf6j"), ExtResource("9_32lhn"), ExtResource("10_cq2ek"), ExtResource("11_uaf31"), ExtResource("12_belcf"), ExtResource("13_k5ckw"), ExtResource("14_34arh")])
+items = Array[PackedScene]([ExtResource("8_xvf6j"), ExtResource("9_32lhn"), ExtResource("10_cq2ek"), ExtResource("11_uaf31"), ExtResource("12_belcf"), ExtResource("13_k5ckw"), ExtResource("14_34arh"), ExtResource("16_belcf")])
 
 [node name="IslandTerrain" type="Node3D" parent="." unique_id=1398597706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -32)

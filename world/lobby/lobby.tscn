@@ -53,13 +53,10 @@ _data = {
 
 [node name="Lobby" unique_id=1751753838 groups=["Lobby"] instance=ExtResource("1_cv4rh")]
 
-[node name="VBoxContainer" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="0" unique_id=1460678116]
+[node name="GameHud" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="1" unique_id=207102908]
 visible = false
 
-[node name="GameHud" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="2" unique_id=207102908]
-visible = false
-
-[node name="LobbySettings" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="4" unique_id=1718361729 instance=ExtResource("3_vh6de")]
+[node name="LobbySettings" parent="CanvasLayer" parent_id_path=PackedInt32Array(729566259) index="3" unique_id=1718361729 instance=ExtResource("3_vh6de")]
 visible = false
 
 [node name="DirectionalLight3D" parent="." index="1" unique_id=1620714622]
@@ -86,55 +83,79 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.467327, 100, 0)
 disable_spawning = true
 spawn_rate = 1.0
 
-[node name="Label3D" type="Label3D" parent="." index="4" unique_id=1976693241]
-transform = Transform3D(11.387628, 0, 0, 0, 4.2672796, 0, 0, 0, 1, 32, -8.628, 6.105)
-text = "#myawesomelobby"
-
-[node name="LobbyHud" parent="." index="5" unique_id=510906849 instance=ExtResource("6_56mmg")]
+[node name="LobbyHud" parent="." index="4" unique_id=510906849 instance=ExtResource("6_56mmg")]
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="IslandTerrain" parent="." index="6" unique_id=1398597706]
+[node name="IslandTerrain" parent="." index="5" unique_id=1398597706]
 visible = false
 
-[node name="ReadyUpFishShadow" type="Area3D" parent="Water/Water3" parent_id_path=PackedInt32Array(1778158506) index="2" unique_id=771290171]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 1, 0, 0.32783696)
+[node name="ReadyUp" type="Node3D" parent="Water/Water3" parent_id_path=PackedInt32Array(1778158506) index="2" unique_id=693144960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="ReadyUpFishShadow" type="Area3D" parent="Water/Water3/ReadyUp" index="0" unique_id=771290171]
+transform = Transform3D(0.09999999, 0, 0, 0, 0.09999999, 0, 0, 0, 0.09999999, 0.17499995, 0, 0.19712532)
 script = ExtResource("4_56mmg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/Water3/ReadyUpFishShadow" index="0" unique_id=1649717876]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/Water3/ReadyUp/ReadyUpFishShadow" index="0" unique_id=1649717876]
 shape = SubResource("CylinderShape3D_l6qdk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Water/Water3/ReadyUpFishShadow" index="1" unique_id=369600579]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Water/Water3/ReadyUp/ReadyUpFishShadow" index="1" unique_id=369600579]
 libraries/ = SubResource("AnimationLibrary_at2c7")
 
-[node name="FishSprites" type="Node3D" parent="Water/Water3/ReadyUpFishShadow" index="2" unique_id=187028224]
+[node name="FishSprites" type="Node3D" parent="Water/Water3/ReadyUp/ReadyUpFishShadow" index="2" unique_id=187028224]
 transform = Transform3D(1.855, 0, 0, 0, 1.855, 0, 0, 0, 1.855, 0, 0, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="Water/Water3/ReadyUpFishShadow/FishSprites" index="0" unique_id=286291941]
+[node name="Sprite3D" type="Sprite3D" parent="Water/Water3/ReadyUp/ReadyUpFishShadow/FishSprites" index="0" unique_id=286291941]
 transform = Transform3D(-0.049999993, -0.086602546, 3.7855172e-09, 0, -4.371139e-09, -0.1, 0.086602546, -0.049999993, 2.185569e-09, -0.35406983, 0, -0.23383504)
 texture = ExtResource("5_cuuia")
 
-[node name="Sprite3D2" type="Sprite3D" parent="Water/Water3/ReadyUpFishShadow/FishSprites" index="1" unique_id=2095011726]
+[node name="Sprite3D2" type="Sprite3D" parent="Water/Water3/ReadyUp/ReadyUpFishShadow/FishSprites" index="1" unique_id=2095011726]
 transform = Transform3D(-0.05000001, 0.08660254, -3.7855172e-09, 0, -4.371139e-09, -0.099999994, -0.08660254, -0.05000001, 2.1855695e-09, 0.34414685, 0, -0.21523058)
 texture = ExtResource("5_cuuia")
 
-[node name="Sprite3D3" type="Sprite3D" parent="Water/Water3/ReadyUpFishShadow/FishSprites" index="2" unique_id=1133154699]
+[node name="Sprite3D3" type="Sprite3D" parent="Water/Water3/ReadyUp/ReadyUpFishShadow/FishSprites" index="2" unique_id=1133154699]
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0.47722334)
 texture = ExtResource("5_cuuia")
 
-[node name="Label3D" type="Label3D" parent="Water/Water3/ReadyUpFishShadow" index="3" unique_id=1413871310]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+[node name="ReadyUpFishShadow2" type="Area3D" parent="Water/Water3/ReadyUp" index="1" unique_id=1895316603]
+transform = Transform3D(0.09999999, 0, 0, 0, 0.09999999, 0, 0, 0, 0.09999999, -0.17499995, 0, 0.1967704)
+script = ExtResource("4_56mmg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/Water3/ReadyUp/ReadyUpFishShadow2" index="0" unique_id=314883212]
+shape = SubResource("CylinderShape3D_l6qdk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Water/Water3/ReadyUp/ReadyUpFishShadow2" index="1" unique_id=397495314]
+libraries/ = SubResource("AnimationLibrary_at2c7")
+
+[node name="FishSprites" type="Node3D" parent="Water/Water3/ReadyUp/ReadyUpFishShadow2" index="2" unique_id=167922490]
+transform = Transform3D(1.855, 0, 0, 0, 1.855, 0, 0, 0, 1.855, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Water/Water3/ReadyUp/ReadyUpFishShadow2/FishSprites" index="0" unique_id=970975752]
+transform = Transform3D(-0.049999993, -0.086602546, 3.7855172e-09, 0, -4.371139e-09, -0.1, 0.086602546, -0.049999993, 2.185569e-09, -0.35406983, 0, -0.23383504)
+texture = ExtResource("5_cuuia")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Water/Water3/ReadyUp/ReadyUpFishShadow2/FishSprites" index="1" unique_id=1538215737]
+transform = Transform3D(-0.05000001, 0.08660254, -3.7855172e-09, 0, -4.371139e-09, -0.099999994, -0.08660254, -0.05000001, 2.1855695e-09, 0.34414685, 0, -0.21523058)
+texture = ExtResource("5_cuuia")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Water/Water3/ReadyUp/ReadyUpFishShadow2/FishSprites" index="2" unique_id=1856716958]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0.47722334)
+texture = ExtResource("5_cuuia")
+
+[node name="Label3D" type="Label3D" parent="Water/Water3/ReadyUp" index="2" unique_id=1413871310]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.271, 0.118)
 text = "Fish here to ready up!"
 font = ExtResource("6_gc6gh")
-font_size = 48
+font_size = 100
 
-[node name="LobbyBoat" parent="." index="9" unique_id=245968247]
+[node name="LobbyBoat" parent="." index="8" unique_id=245968247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
 
 [node name="SettingsControlPanel" parent="LobbyBoat/TallRoofBoat" parent_id_path=PackedInt32Array(245968247, 1656329038) index="2" unique_id=1429996587 node_paths=PackedStringArray("lobby_settings_menu")]
 lobby_settings_menu = NodePath("../../../CanvasLayer/LobbySettings")
 
-[node name="OceanAmbience" type="AudioStreamPlayer" parent="." index="10" unique_id=478886836]
+[node name="OceanAmbience" type="AudioStreamPlayer" parent="." index="9" unique_id=478886836]
 stream = ExtResource("5_vh6de")
 autoplay = true
 bus = &"SFX"

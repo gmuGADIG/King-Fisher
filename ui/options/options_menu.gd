@@ -67,6 +67,7 @@ func save_settings() -> void:
 	config.set_value("options", "aim_sensitivity", aim_senstivity)
 	config.set_value("options", "sfx_volume", sfx_volume)
 	config.set_value("options", "music_volume", music_volume)
+	config.set_value("rhythm", "audio_offset", RhythmSettings.manual_audio_offset)
 	config.save("user://settings.cfg")
 	Debug.log("Saving Settings")
 
@@ -79,7 +80,8 @@ func load_settings() -> void:
 	aim_senstivity = config.get_value("options", "aim_sensitivity", 1)
 	sfx_volume = config.get_value("options", "sfx_volume", 1)
 	music_volume = config.get_value("options", "music_volume", 1)
-
+	$RhythmSettings.load_settings(config) 
+	
 func _on_slider_released(_value : float) -> void:
 	save_settings()
 
@@ -109,3 +111,15 @@ func _on_reset_pressed() -> void:
 	music_volume = 1
 	update_sliders()
 	save_settings()
+
+func _on_rhythm_settings_closed() -> void:
+	$OptionsPanel.show()
+	$RhythmSettings.hide()
+	$ExitButton.show()
+	save_settings()
+
+
+func _on_rhythm_settings_pressed() -> void:
+	$OptionsPanel.hide()
+	$RhythmSettings.show()
+	$ExitButton.hide()

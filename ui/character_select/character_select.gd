@@ -1,5 +1,12 @@
 extends Control
 
+static var character_bios : Array[Fish] = [
+	load("res://fish/playable_characters/cye_char.tres"),
+	load("res://fish/playable_characters/frank_miller_char.tres"),
+	load("res://fish/playable_characters/zthan_char.tres"),
+	load("res://fish/playable_characters/the_mass_char.tres")
+]
+
 @export var character_textures : Array[Texture]
 
 @export var spin_speed : float = 1.0
@@ -10,6 +17,7 @@ var selected_skin : int
 @onready var mat := player_mesh.material_override as StandardMaterial3D
 
 func _ready() -> void:
+	Multiplayer.start_game.connect(close)
 	hide()
 
 func _input(event: InputEvent) -> void:

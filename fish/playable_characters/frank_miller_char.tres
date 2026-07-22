@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Fish" format=3 uid="uid://bbv6ne77jtj76"]
+
+[ext_resource type="Script" uid="uid://cr3nmjdvpgh0a" path="res://fish/fish.gd" id="1_7witg"]
+[ext_resource type="Texture2D" uid="uid://xlvirtwuoueb" path="res://art/UI/frank_book.png" id="2_8fmof"]
+
+[resource]
+script = ExtResource("1_7witg")
+fish_name = "Frank Miller"
+grade = 5
+sprite = ExtResource("2_8fmof")
+description = "Most contestants or Intergalactic Fishbowl fans will be familiar with Frank Miller’s type, as a fisher of this variety ends up making it into the tournament nearly every other year. Hopefully, he doesn’t need too long a description.
+
+Frank Miller is a human male, raised in Earth’s “American South.” He has been fishing “since he could walk.” He is often quoted as saying “I say morning, not good morning, because if it was a good morning I’d be fishin’!” His skin is naturally pale, but often burnt to a reddish salmon color from extended sun exposure (“If your neck’s not as red as the snappers in your bucket, you’re not a real fisher!”). He is the father of four children, two male and two female. He is mated for life to his “smokin’ hot wife Bonnie.” 
+
+Frank comes from a long line of Fishbowl contestants, claiming that his father, grandfather, and great grandfather all participated in the tournament. A disproportionately high number of participants hail from his homeland—statisticians suggest the natural water formations, scarcity of food resources for purchase, and cultural tradition as factors that drive that particular population to fishing. However, it’s remarkable that no other region in the universe produces near as many capable fishers as “Sweet Home Alabama” and its neighbors (Frank is “as Georgian as a peach!”).
+
+Frank himself has caught multiple Earth record-setting fish, eats fish every day, and habitually wears fish-themed clothing (including sometimes shockingly realistic fish-scale shirts—several staff members have reported being startled by mistaking him for an escaped fish.) As the humans say, if “you are what you eat,” Frank must be mostly fish by now. He was the first to receive his invitation from F.I.S.H.E. HQ, and the first to arrive. He claims that he’s not in it for money or personal fame, but rather “to show the galaxy what a real Southern man is made of,” and to honor his ancestral legacy—as “the biggest and best fish people in the United States of America.”
+
+"
+metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

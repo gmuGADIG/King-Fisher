@@ -8,9 +8,11 @@ script = ExtResource("1_guyid")
 fish_name = "Moai Fish"
 grade = 4
 sprite = ExtResource("2_ufy4t")
-catch_blurb = "Meets you face to face"
-description = "Moai Fish are typically found near volcanoes. They have almost human faces with stoic, unchanging expressions. Because they're filter feeders and their stony skin are a deterrent to most predators, Moai Fish are rather peaceful creatures.
+catch_blurb = "You meet face-to-face..."
+description = "It is rare that Moai Fish are found so far from volcanic islands. They are shaped from the ash produced by eruptions, which compacts into rock where the water pressure is just right. However, local explosions of a nuclear variety have produced adequate amounts of soft debris which has undergone a similar compaction process—finally, the Moai Fish are part of the Intergalactic Fishbowl!
 
-Evidence suggests that the Moai Fish have existed for 11000 years. The face of the Moai fish is a topic of furious debate. Ancient Pwaaga once thought these fish were craved by their deity \"Alcedo Atthis\" and shaped in its image, but Pwaaga pilgrims eventually popularized a different idea. They believed that Moai Fish bore the face of their ancestors and that they would watch over them though the Fish. In modern times they have lost most of their spiritual significance and are just considered funny looking. Even still, some people will reserve food for the Moai Fish, and talk to them as if they can understand. No one can deny, there's something alive behind that stony expression.
+Moai Fish are one of the most docile organisms in the universe. Their stony skin is a deterrent to most predators, and as filter feeders, they are hardly a bother to others. Since their kin are formed from the earth, they are never territorial over breeding grounds. The waters are said to be warm not just because of the tropical climate, but because of the Moai Fish’s comforting presence.
+
+The face of the Moai Fish is a topic of furious debate, and has held many popular interpretations across the species’ 11,000 years of existence. Ancient Pwaaga once believed these fish were carved by their deity, Alcedo Atthis, in her image. Pwaaga pilgrims eventually popularized the idea that the species bore the faces of their ancestors, supposedly allowing those who perished to watch over their descendants from below. In modern times, they are just considered funny-looking. Still, some people will reserve food for the Moai Fish and talk to them. Few can deny—there’s something alive behind that stony expression.
 "
 metadata/_custom_type_script = "uid://cr3nmjdvpgh0a"

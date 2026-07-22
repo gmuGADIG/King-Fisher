@@ -11,22 +11,19 @@ radius = 0.80999196
 script = ExtResource("2_v1bhe")
 item_name = "Brick"
 description = "When used, the player throws the brick. When it hits the player it causes one fish in their inventory to leave and return to the nearest body of water, able to be caught again. It can only affect one player in the hitbox."
-lore = "\"For nearly 12 parsecs I've tracked him down, the smug son of a gun on the run with Tnatalian Warlord Imtanitus’s heart.
+lore = "The Pwaagan natives of Pollywood are highly regarded for their relationships with local organisms. Perhaps the most adorable example of these relationships is with the slorbdillo, who are naturally buoyant and help the Pwaaga swim long distances. The most consequential example is their relationship with flung beetles. 
 
-He was a bloodthirsty, cruel tyrant who had the eastern side of Tnatalon under his grisly thumb. He cannot be allowed to be saved. I’ve tracked down the carrier to a port somewhere in (PLANET NAME). I’m sitting far away from the carrier’s ship.
+Flung beetles are antagonistic to others around them. They will pack mud into solid bricks, and launch them from their slingshot-like horns. They will throw them at just about anything that looks like it can be knocked over, including Pwaaga and other peaceful lifeforms. Nobody knows the reason behind their aggression.
 
- I’m stalking him in the marketplace by the pond. I don’t see any…wait, I think he saw me…
+However, the Pwaaga relied on flung beetles for mass-production of building materials. Their sturdy, four-armed bodies made catching a flying brick exceptionally harmless to them. Without fully considering the difficulties others might endure, the Pwaaga ushered in the inclusion of flung beetles in Fishbowl XXIV. Audience engagement skyrocketed, but so did the risk of injury for competitors. Soon after, the Pwaaga asked to have the flung beetles removed—F.I.S.H.E. obliged, but kept the bricks.
+"
 
-HE’S BOLTING. I have no choice, I have to chase after him! We ran out onto the pier. I find a brick lying by the pier bridge. I throw it at him and he drops it into the dark blue lake. He dives after it, only to later resurface empty handed. The dark lords’ heart, forever sinking to the bottom of the lagoon. Mission success.\"
-
-This legendary tale has cemented \"brick-throwing\" as \"incredibly hype.\" F.I.S.H.E. found such notions perfectly suitable for its 10-step plan to improve the Intergalactic Fishbowl."
+[node name="Brick" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=1628203237 instance=ExtResource("3_ry2hy")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.65271723)
 
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=423811974]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=970838849]
 shape = SubResource("SphereShape3D_ofeen")
-
-[node name="Brick" parent="." index="2" unique_id=1628203237 instance=ExtResource("3_ry2hy")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.65271723)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
