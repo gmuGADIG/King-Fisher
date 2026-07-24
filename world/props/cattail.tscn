@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://gpcvf0ox46m1"]
 
 [ext_resource type="PackedScene" uid="uid://do6mdjolyq0k2" path="res://art/3d-assets/raw_assets/cattail_edit.glb" id="1_0q21u"]
-[ext_resource type="Material" uid="uid://bqcovvjh8efhh" path="res://art/3d-materials/Material.010.tres" id="2_g7f7p"]
+[ext_resource type="Material" uid="uid://bqcovvjh8efhh" path="res://art/3d-materials/Cattail_Green8.tres" id="2_g7f7p"]
 [ext_resource type="Material" uid="uid://cjo8goo43hf8" path="res://art/3d-materials/brown_bark.tres" id="3_co4n7"]
-[ext_resource type="Material" uid="uid://bhswnlh6gx86j" path="res://art/3d-materials/Material.009.tres" id="4_ngl5k"]
+[ext_resource type="Material" uid="uid://16ooncdsw2ay" path="res://art/3d-materials/Cattail_Green5.tres" id="3_g7f7p"]
 
 [node name="Cattail" type="Node3D" unique_id=860308089]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
@@ -11,25 +11,31 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 [node name="cattail_edit" parent="." unique_id=923720596 instance=ExtResource("1_0q21u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07713592, -1.1920929e-07, -0.11217666)
 
-[node name="Cylinder_005" parent="cattail_edit" index="1" unique_id=1829190803]
+[node name="Cylinder_005" parent="cattail_edit" index="1" unique_id=299526041]
 material_override = ExtResource("2_g7f7p")
 
-[node name="Cylinder" parent="cattail_edit" index="7" unique_id=1787067343]
+[node name="Cylinder_006" parent="cattail_edit" index="2" unique_id=1260798743]
+material_override = ExtResource("3_g7f7p")
+
+[node name="Cylinder_007" parent="cattail_edit" index="3" unique_id=1614206099]
+material_override = ExtResource("3_g7f7p")
+
+[node name="Cylinder" parent="cattail_edit" index="7" unique_id=252524686]
 material_override = ExtResource("2_g7f7p")
 
-[node name="Sphere" parent="cattail_edit" index="8" unique_id=162025676]
+[node name="Sphere" parent="cattail_edit" index="8" unique_id=1830182031]
 material_override = ExtResource("3_co4n7")
 
-[node name="Cylinder_001" parent="cattail_edit" index="9" unique_id=2020625901]
-material_override = ExtResource("4_ngl5k")
+[node name="Cylinder_001" parent="cattail_edit" index="9" unique_id=291884895]
+material_override = ExtResource("3_g7f7p")
 
-[node name="Sphere_002" parent="cattail_edit" index="10" unique_id=778430127]
+[node name="Sphere_002" parent="cattail_edit" index="10" unique_id=2136310482]
 material_override = ExtResource("3_co4n7")
 
-[node name="Cylinder_002" parent="cattail_edit" index="11" unique_id=313804186]
+[node name="Cylinder_002" parent="cattail_edit" index="11" unique_id=333062166]
 material_override = ExtResource("2_g7f7p")
 
-[node name="Sphere_004" parent="cattail_edit" index="12" unique_id=1295341940]
+[node name="Sphere_004" parent="cattail_edit" index="12" unique_id=1755281600]
 material_override = ExtResource("3_co4n7")
 
 [editable path="cattail_edit"]

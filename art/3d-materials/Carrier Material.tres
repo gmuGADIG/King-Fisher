@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://blqsui4xthxsy"]
+
+[ext_resource type="Texture2D" uid="uid://gojs6uaht045" path="res://art/3d-assets/aircraft_carrier_AircraftCarrierTexture.png" id="1_7vuaj"]
+
+[resource]
+resource_name = "Carrier Material"
+transparency = 4
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_7vuaj")
+roughness = 0.5

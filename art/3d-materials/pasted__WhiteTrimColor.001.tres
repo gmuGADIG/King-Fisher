@@ -3,6 +3,8 @@
 [resource]
 resource_name = "pasted__WhiteTrimColor.001"
 cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
 albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 roughness = 0.2
 emission_enabled = true

@@ -2,5 +2,7 @@
 
 [resource]
 resource_name = "Dock_Shading"
+diffuse_mode = 3
+specular_mode = 1
 albedo_color = Color(0.32400495, 0.2767701, 0.20095374, 1)
 roughness = 0.0

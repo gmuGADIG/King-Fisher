@@ -9,7 +9,7 @@ data = PackedVector3Array(0.0814, -0.14109999, -0.606, -0.1629, -0.28219998, -0.
 
 [node name="KF_smooth_small-mushroom1" parent="." unique_id=1201331833 instance=ExtResource("1_gqseb")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001" parent_id_path=PackedInt32Array(1201331833, 695862414) index="0" unique_id=2125205591]
+[node name="StaticBody3D" type="StaticBody3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001" parent_id_path=PackedInt32Array(1201331833, 2003459353) index="0" unique_id=2125205591]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KF_smooth_small-mushroom1/group_001/pasted__small_mushroom_001/StaticBody3D" unique_id=383595242]
 shape = SubResource("ConcavePolygonShape3D_5o5os")
