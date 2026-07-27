@@ -8,6 +8,7 @@ enum AnimationState{
 	CASTING,
 	FISHING,
 	REELING,
+	USING_ITEM
 }
 
 enum AimMode{
@@ -383,6 +384,11 @@ func _mouse_input(event : InputEvent) -> void:
 				else:
 					#swing anim
 					#play_action(&"Swing")
+					animation_state = AnimationState.USING_ITEM
+					anim_player.play_section(&"ApplyToSelf",
+						1.0,-1,
+						0.3,2.0
+					)
 					use_held_item.rpc()
 			if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 				camera_yaw += -event.relative.x * Options.mouse_sensitivity
@@ -866,5 +872,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		input_locked = false
 		animation_state = AnimationState.NORMAL
 		print("DONE REELING")
-	#if anim_name == "CastRod" and animation_state != AnimationState.FISHING:
+	if anim_name == "ApplyToSelf" and animation_state == AnimationState.USING_ITEM:
+		animation_state = AnimationState.NORMAL
 		#%Rod.hide()
