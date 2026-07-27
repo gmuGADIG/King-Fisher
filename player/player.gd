@@ -7,6 +7,7 @@ enum AnimationState{
 	AIMING,
 	CASTING,
 	FISHING,
+	REELING,
 }
 
 enum AimMode{
@@ -17,7 +18,6 @@ enum AimMode{
 
 # Animation
 @onready var anim_player: AnimationPlayer =  $Player_Animated/AnimationPlayer
-
 #var current_anim: StringName = &""
 var animation_state := AnimationState.NORMAL
 
@@ -126,6 +126,8 @@ var aim_mode : AimMode = AimMode.NONE
 @export var landing_velocity_threshold: float = 6.0
 @export var min_landing_period: float = 0.15
 
+@export var throw_and_cast_input_lock_time : float = 0.3
+
 enum FootstepState {GRASS, STONE, SNOW}
 var footstep_state : FootstepState = FootstepState.GRASS
 
@@ -197,8 +199,10 @@ func _ready() -> void:
 	fishing_minigame = %FishingMiniGame
 	fishing_minigame.fishing_finished.connect(on_fishing_finished)
 	Livewell.update_inventory_visuals(fish_inventory,score)
+	%Rod.hide()
 	
 func _process(delta: float) -> void:
+	#print(animation_state)
 	# Prevents errors when disconnection happens
 	if not multiplayer.has_multiplayer_peer(): return
 	# don't process input if ragdolled
@@ -224,6 +228,9 @@ func _process(delta: float) -> void:
 		velocity *= Vector3(speed_multiplier,1,speed_multiplier)
 		slow_timer -= delta
 	
+	##Animations
+	
+		
 	if input.is_zero_approx():
 		##Not moving
 		if aim_mode != AimMode.NONE and animation_state == AnimationState.NORMAL:
@@ -235,7 +242,7 @@ func _process(delta: float) -> void:
 			elif aim_mode == AimMode.ITEM:
 				anim_player.play_section("Throw",
 					0, 0.4,
-					0.0, 1.0
+					0.0, 1.5
 				)
 			animation_state = AnimationState.AIMING
 		elif animation_state == AnimationState.NORMAL:
@@ -257,11 +264,13 @@ func _process(delta: float) -> void:
 		if input != Vector2.ZERO:
 			player_mesh.turn_towards(movement_dir.rotated(-PI/2), delta)
 			sync_rotation.rpc(player_mesh.rotation)
-	else:
+	elif animation_state == AnimationState.AIMING:
 		##Rotate towards aim dir
 		var dir : Vector3 = global_position.direction_to(%Aiming.get_aim_pos())
 		player_mesh.turn_towards(Vector2(dir.x,dir.z).rotated(-PI/2), delta)
-		
+	elif animation_state == AnimationState.FISHING:
+		anim_player.play("FishingIdle")
+	
 
 func _physics_process(delta: float) -> void:
 	# Prevents errors when disconnection happens
@@ -386,13 +395,11 @@ func _mouse_input(event : InputEvent) -> void:
 				$Sounds/CastRod.play()
 				input_locked = true
 				anim_player.stop()
-				var seg_time : Array[float] = [1.1,1.45]
-				var anim_speed : float = 2
 				anim_player.play_section("CastRod",
-					seg_time[0],seg_time[1],
-					0,anim_speed
+					1.1,1.45,
+					0,2
 				)
-				await get_tree().create_timer(anim_speed*(seg_time[1]-seg_time[0])).timeout
+				await get_tree().create_timer(throw_and_cast_input_lock_time).timeout
 				Debug.log("anim stopped")
 				var next_anim_state : AnimationState = AnimationState.NORMAL
 				var body : Node = $Aiming/AimRayCast.get_collider()
@@ -406,7 +413,6 @@ func _mouse_input(event : InputEvent) -> void:
 						#animation cast idle
 						#play_loop_action(&"FisingIdle")
 						
-						##TODO: Play Fishing Minigame
 						Debug.log("fish: ",body.fish)
 						fishing_minigame.start(body.fish)
 						next_anim_state = AnimationState.FISHING
@@ -431,7 +437,7 @@ func _mouse_input(event : InputEvent) -> void:
 				anim_player.stop()
 				anim_player.play_section("Throw",
 					0.4, -1,
-					0.0, 2.0
+					0.0, 1.5
 				)
 				await anim_player.animation_finished
 				input_locked = false
@@ -706,6 +712,13 @@ func set_name_visible(val : bool) -> void:
 	player_id.visible = val
 
 func on_fishing_finished(succeeded:bool) -> void:
+	print("fishing finished")
+	input_locked = true
+	animation_state = AnimationState.REELING
+	anim_player.play_section("ReelIn",
+	0.3,-1,
+	-1,1.0)
+	
 	#stopping cast idle anim
 	#stop_loop_action()
 	if succeeded:
@@ -713,8 +726,12 @@ func on_fishing_finished(succeeded:bool) -> void:
 		#play_action(	&"ReelIn")
 		if golden_worm_active:
 			current_fishing_shadow.fish = Fish.sushi_fishes.pick_random()
-
+		
 		var fish : Fish = current_fishing_shadow.fish
+		
+		player_mesh.fish_reel_in(current_fishing_shadow)
+		
+		
 		if is_multiplayer_authority():
 			FishDex.caught_fish(fish)
 			
@@ -844,3 +861,10 @@ func get_sushi_count() -> int:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Jump" and animation_state == AnimationState.JUMPING:
 		animation_state = AnimationState.NORMAL
+	if anim_name == "ReelIn" and animation_state:
+		%Rod.hide()
+		input_locked = false
+		animation_state = AnimationState.NORMAL
+		print("DONE REELING")
+	#if anim_name == "CastRod" and animation_state != AnimationState.FISHING:
+		#%Rod.hide()
