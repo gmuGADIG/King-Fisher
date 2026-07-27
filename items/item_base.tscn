@@ -70,3 +70,5 @@ shape = SubResource("SphereShape3D_et2oy")
 
 [node name="ItemAnimation" type="AnimationPlayer" parent="." unique_id=1233203440]
 libraries/ = SubResource("AnimationLibrary_5ufc5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
