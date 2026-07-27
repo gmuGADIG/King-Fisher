@@ -14,9 +14,11 @@ func turn_towards(target_direction : Vector2, delta : float) -> void:
 	angle = clampf(angle,-rotation_speed,rotation_speed)
 	rotation.y += angle
 
-func fish_reel_in(fish_shadow : FishShadow) -> void:
-	fish_dummy.global_position = fish_shadow.global_position
-	fish_dummy.texture = fish_shadow.fish.sprite
+@rpc("reliable","any_peer","call_local")
+func fish_reel_in(fish_shadow_id : int) -> void:
+	var shadow : FishShadow = WorldGameplay.fish_shadows[fish_shadow_id]
+	fish_dummy.global_position = shadow.global_position
+	fish_dummy.texture = shadow.fish.sprite
 	fish_dummy.show()
 	var tween : Tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
