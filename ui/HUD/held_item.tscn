@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://ddyo36leg583m"]
 
-[ext_resource type="Texture2D" uid="uid://bssaflca1lsgi" path="res://temp/temp_art/smiley_white.png" id="1_m2mvq"]
 [ext_resource type="Script" uid="uid://dxtdp88sp85d6" path="res://ui/HUD/held_item.gd" id="1_r4vgt"]
+[ext_resource type="Texture2D" uid="uid://dy3aftvignsyf" path="res://temp/temp_art/orb.png" id="2_pk4qh"]
 [ext_resource type="PackedScene" uid="uid://bhigax78q6y2v" path="res://ui/item_sprite/item_sprite.tscn" id="3_pk4qh"]
+[ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="4_g00et"]
 [ext_resource type="Texture2D" uid="uid://byryan5kq80g" path="res://temp/temp_art/hook.png" id="7_eaj86"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pk4qh"]
@@ -29,7 +30,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("1_m2mvq")
+texture = ExtResource("2_pk4qh")
 expand_mode = 1
 
 [node name="ItemSprite" parent="ItemBG" unique_id=1460935429 instance=ExtResource("3_pk4qh")]
@@ -41,7 +42,30 @@ offset_right = 81.0
 offset_bottom = 81.0
 texture = SubResource("ViewportTexture_pk4qh")
 
-[node name="ItemHook" type="TextureRect" parent="." unique_id=223968066]
+[node name="ItemHookMask" type="TextureRect" parent="." unique_id=223968066]
+clip_children = 1
+layout_mode = 1
+offset_left = 88.0
+offset_right = 150.0
+offset_bottom = 150.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_g00et")
+expand_mode = 1
+
+[node name="ItemHookFront" type="TextureRect" parent="ItemHookMask" unique_id=1040260380]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 150.0
+grow_horizontal = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("7_eaj86")
+expand_mode = 1
+
+[node name="ItemHookBack" type="TextureRect" parent="." unique_id=1572101098]
+z_index = -1
 layout_mode = 1
 offset_right = 150.0
 offset_bottom = 150.0
