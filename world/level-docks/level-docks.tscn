@@ -27,7 +27,7 @@ textures = [[ExtResource("8_hbmjt")], [null]]
 [sub_resource type="BoxShape3D" id="BoxShape3D_4i5qn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdhgo"]
-size = Vector3(9.422852, 0.74194336, 9.098633)
+size = Vector3(9.422852, 0.56188965, 9.098633)
 
 [node name="Docks" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_sgynd")]
 script = ExtResource("2_nx4m1")
@@ -862,6 +862,7 @@ transform = Transform3D(-0.24999754, 0, -0.0011082633, 0, 0.25, 0, 0.0011082633,
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 32, 5.5, 32)
 
 [node name="CollisionBox" parent="Water/Killbox2" index="0" unique_id=2090026275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.090026855, 0)
 shape = SubResource("BoxShape3D_fdhgo")
 
 [editable path="Water/Killbox"]
