@@ -30,6 +30,7 @@ There’s a few leading theories about its unique golden exterior, but the likel
 
 Regardless, it’s as likely as not that the “alien worm” theory is true. Interestingly, the idea of worms in old feces does make sense… But it’s impossible that there’s actually a monstrous turtle treating the galaxy as its ocean, right?
 "
+sprite = ExtResource("3_p653s")
 
 [node name="GoldWorm" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=1151117212 instance=ExtResource("2_kahv6")]
 

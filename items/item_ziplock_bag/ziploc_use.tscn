@@ -4,3 +4,4 @@
 
 [node name="ZiplocUse" type="AudioStreamPlayer3D" unique_id=118816862]
 stream = ExtResource("1_o6jcg")
+bus = &"SFX"

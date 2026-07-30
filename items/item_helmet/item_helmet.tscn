@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://co3jb4h8t4qlo"]
 
 [ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_blfdr"]
+[ext_resource type="Texture2D" uid="uid://cptgyi51dgghr" path="res://art/ui assets/helmet_sprite.png" id="2_ubknq"]
 [ext_resource type="PackedScene" uid="uid://c5ycm85kmus1n" path="res://art/3d-assets/Hardhat.fbx" id="3_ubknq"]
 
 [node name="HardHat" unique_id=1566519324 instance=ExtResource("1_blfdr")]
+description = "This protective head covering is traditional on Earth. It’s used by menial laborers in dangerous jobs, such as “construction work,” where employees tirelessly dig, demolish, and build infrastructure and housing to support Earth’s huge population. They use these helmets to guard their fragile skulls, which, as in many of our cases, contain all of their brain material."
+lore = "F.I.S.H.E. has adapted these creative pieces of equipment to serve our purposes in the Intergalactic Fishbowl. They will now protect contestants from a variety of different harms! Earth scientists developed the basic form, which protected humans from falling debris, and F.I.S.H.E. innovators have perfected it.
+
+Contact one of the tournament organizers for help if the helmet shape is incompatible with your head structure."
+sprite = ExtResource("2_ubknq")
 
 [node name="Hardhat" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=1960061355 instance=ExtResource("3_ubknq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

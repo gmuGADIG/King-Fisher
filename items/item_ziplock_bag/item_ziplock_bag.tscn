@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_w4wpe"]
 [ext_resource type="Script" uid="uid://bgxsg85kpe30" path="res://items/item_ziplock_bag/item_ziplock_bag.gd" id="2_bgvyy"]
-[ext_resource type="Texture2D" uid="uid://cxbplhxrtwvvj" path="res://temp/ziplock_icon.png" id="3_o6s8v"]
+[ext_resource type="Texture2D" uid="uid://crr4fqpx0u8a4" path="res://art/ui assets/ziplock_sprite.png" id="3_o6s8v"]
 [ext_resource type="PackedScene" uid="uid://do3oi2lvqqabb" path="res://art/3d-assets/PlasticZipBag_Edit.glb" id="3_vb82l"]
 [ext_resource type="PackedScene" uid="uid://60065kuney3p" path="res://items/item_ziplock_bag/ziploc_use.tscn" id="4_v6unp"]
 
@@ -14,12 +14,12 @@ item_name = "Ziplock Bag"
 description = "When used, the player plays an animation. It protects their sushi grade fish from being affected by stealing or discard effects from other players for 10 seconds. After that time the bag gets discarded."
 lore = "The original contents of this mysterious bag are unknown. However, it’s conveniently (some might say even magically) sized to hold the most valuable fish you might be carrying, whatever they may be! It’s made of a highly modern plastic material that even gives your prized fish additional protection from ill-wishers.
 Some of the Pollywood’s natives might complain about their planet being “clogged up with garbage” from F.I.S.H.E.’s industry, but this is a perfect example of how those complaints are absolutely meritless! Even if this “trash” were a byproduct of F.I.S.H.E.’s developmental upgrades (which is not confirmed), it’s perfectly useful, both to natives and contestants! Debates about pollution are only a distraction from progress, when really, the leaders of F.I.S.H.E. have worked tirelessly to improve Pollywood AND the Intergalactic Fishbowl. The authors consider it bad-spirited to focus on such meager gripes."
+sprite = ExtResource("3_o6s8v")
 
 [node name="PlasticZipBag_Edit" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=628559893 instance=ExtResource("3_vb82l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)
 
 [node name="ZiplocUse" parent="." index="1" unique_id=118816862 instance=ExtResource("4_v6unp")]
-bus = &"SFX"
 
 [node name="PickupShape" parent="." index="2" unique_id=829023768]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

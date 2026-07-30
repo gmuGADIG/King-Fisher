@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wxoi06uuc45h" path="res://items/item_base.tscn" id="1_yxs0q"]
 [ext_resource type="Script" uid="uid://bv51xetocvtvt" path="res://items/item_rubbermallet/item_rubber_mallet.gd" id="2_yxs0q"]
+[ext_resource type="Texture2D" uid="uid://dj4x4puku82ip" path="res://art/ui assets/hammer_sprite.png" id="3_kvrfg"]
 [ext_resource type="PackedScene" uid="uid://ci63k6qi746cg" path="res://art/3d-assets/Rubber Mallet.glb" id="3_r4hne"]
 [ext_resource type="AudioStream" uid="uid://b3l0s613yd6ae" path="res://sound/sfx/items/Hit.mp3" id="4_tfoe6"]
 [ext_resource type="AudioStream" uid="uid://sy17fgknvt2n" path="res://sound/sfx/items/SwingHammer.mp3" id="5_kvrfg"]
@@ -22,6 +23,7 @@ The inhabitants of said planet are something of a ‘glass cannon’ of intellig
 Of course, most fisherfolk with unprotected vital organs do not live long enough to make it to the Intergalactic Fishbowl. So if you, the competitor, are reading this, do not fret!
 
 If, against our expectations, you indeed have an unprotected brain, the best we can do is tell you to stand proud. You are strong to have made it this far. And, if necessary, we have funds to make a statue of you."
+sprite = ExtResource("3_kvrfg")
 
 [node name="Visuals" parent="." index="0" unique_id=1993111827]
 transform = Transform3D(1, 0, 0, 0, 0.56784374, 0.8231364, 0, -0.8231364, 0.56784374, 0, 0, 0)

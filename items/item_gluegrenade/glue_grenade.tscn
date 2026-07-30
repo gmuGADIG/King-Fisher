@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="1_1ny5p"]
 [ext_resource type="Script" uid="uid://ssx7ri0ins75" path="res://items/item_gluegrenade/item_glue_grenade.gd" id="2_1e24p"]
-[ext_resource type="Texture2D" uid="uid://2dxp6q4887l5" path="res://temp/temp_art/gleep.png" id="2_xhcbl"]
+[ext_resource type="Texture2D" uid="uid://bqbqby4t3y47p" path="res://art/ui assets/glue_grenade_sprite.png" id="3_dxa6s"]
 [ext_resource type="PackedScene" uid="uid://bexjqusttkrm6" path="res://art/3d-assets/GlueGranadine.glb" id="4_dxa6s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1e24p"]
@@ -48,13 +48,14 @@ collision_layer = 1
 script = ExtResource("2_1e24p")
 slow_time = 15.0
 slow_amount = 0.6
-glue_icon = ExtResource("2_xhcbl")
+glue_icon = ExtResource("3_dxa6s")
 item_name = "Glue Grenade"
 description = "When used, the player throws the grenade. When thrown if it hits a player it will explode covering them in glue and giving them a debuff to their speed. Any other players within the explosion radius will also be given a debuff. "
 lore = "This sticky contraption was originally designed for arts and crafts projects. After coming under fire for their \"totally not shady\" practices and \"perfectly legit\" business tactics, F.I.S.H.E. began to invest in creative endeavors to win over their \"completely baseless\" critics. Unfortunately, the device worked better than expected and consumers complained that it was a \"safety hazard\".
 As they always do, F.I.S.H.E. turned this sticky situation into an opportunity. Now the Glue Grenade can be found in the Intergalactic Fishbowl.
 When asked how they felt about the increasingly negative feedback F.I.S.H.E. been receiving, their CEO said \"I'm rubber, you’re glue\"
 "
+sprite = ExtResource("3_dxa6s")
 
 [node name="GlueGranadine" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=82581485 instance=ExtResource("4_dxa6s")]
 transform = Transform3D(1, 0, 0, 0, 0.8829886, -0.4693945, 0, 0.4693945, 0.8829886, 0, -0.11261624, 0)
