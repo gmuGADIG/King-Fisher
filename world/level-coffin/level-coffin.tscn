@@ -111,7 +111,7 @@ polygon = PackedVector2Array(-15.384072, -7.397064, -4.606285, -18.237041, 19.71
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.007137, 2.3841858e-07, 16.364979)
 
 [node name="PlayerSpawnPoint2" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="1" unique_id=927445426]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.57922, 0, 18.15268)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.00996, 0, 29.39999)
 
 [node name="PlayerSpawnPoint3" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="2" unique_id=805091295]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.340607, 2.3841858e-07, 29.820057)

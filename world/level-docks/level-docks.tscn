@@ -41,16 +41,16 @@ metadata/_edit_use_anchors_ = true
 transform = Transform3D(0.59285706, -0.4491682, -0.66840756, 0.805308, 0.33067176, 0.49207285, 1.2519363e-08, -0.83000255, 0.55775964, 0, 11.385282, 8.448111)
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13561, 2.3639078, 9.360338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7504334, 0.61820674, 8.440556)
 
 [node name="PlayerSpawnPoint2" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="1" unique_id=927445426]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.116386, 0.7267227, 8.699876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.417637, 0.7267227, 14.510935)
 
 [node name="PlayerSpawnPoint3" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="2" unique_id=805091295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.620895, 0.30537033, 55.58141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.330425, 0.30537033, 53.458168)
 
 [node name="PlayerSpawnPoint4" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="3" unique_id=909904993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5899878, 0.988328, 56.146492)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.262413, 0.21738982, 56.90438)
 
 [node name="ItemSpawner" parent="." index="3" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.191938, 3.1172204, 33.10114)
