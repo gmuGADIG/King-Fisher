@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bo2n27tvtghjb" path="res://sound/music/song_files/OceanWaveLoop.mp3" id="5_vh6de"]
 [ext_resource type="PackedScene" uid="uid://dk160giqp5v2a" path="res://ui/HUD/Lobby/LobbyHUD.tscn" id="6_56mmg"]
 [ext_resource type="FontFile" uid="uid://m4tsacqphblt" path="res://ui/themes/fonts/share_tech_mono/ShareTechMono-Regular.ttf" id="6_gc6gh"]
+[ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="8_2ii5k"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l6qdk"]
 height = 0.3
@@ -193,6 +194,9 @@ lobby_settings_menu = NodePath("../../../CanvasLayer/LobbySettings")
 stream = ExtResource("5_vh6de")
 autoplay = true
 bus = &"SFX"
+
+[node name="Golden Worm" parent="." index="11" unique_id=1566519324 instance=ExtResource("8_2ii5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.559801, -7.321853, 28.93255)
 
 [editable path="Water/Killbox"]
 [editable path="LobbyBoat"]
