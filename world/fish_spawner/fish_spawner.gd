@@ -32,9 +32,9 @@ func _ready() -> void:
 	
 	match fish_spawnrate:
 		Rates.NORMAL:
-			rates = [1,1,1,1]
+			rates = [50,35,10,5]
 		Rates.HIGH:
-			rates = [1,1,1,1]
+			rates = [35,15,30,20]
 	
 	area = get_poly_area()
 	
