@@ -48,7 +48,7 @@ textures = [[ExtResource("5_dowhw")], [null]]
 [node name="Mushroom" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_w5lkn")]
 script = ExtResource("2_lnltq")
 fish_spawners = [NodePath("FishSpawners/FishSpawner"), NodePath("FishSpawners/FishSpawner2"), NodePath("FishSpawners/FishSpawner3"), NodePath("FishSpawners/FishSpawner4"), NodePath("FishSpawners/FishSpawner5")]
-fish_spawner_weights = Array[int]([1, 1, 1, 1, 1])
+fish_spawner_weights = Array[int]([2, 2, 2, 2, 1])
 
 [node name="Killboxes" type="Node3D" parent="." index="0" unique_id=1198904641]
 
@@ -108,6 +108,7 @@ polygon = PackedVector2Array(2.5827103, 3.5373077, 1.9536743, 3.1588745, 1.41981
 [node name="FishSpawner5" parent="FishSpawners" index="4" unique_id=448894828 instance=ExtResource("3_q8niw")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.904, -4.325, 19.58)
 polygon = PackedVector2Array(20.685152, 6.3088627, 23.136467, 3.8015232, 26.396328, 3.1824036, 28.796795, 3.9854336, 30.780716, 3.624632, 32.41211, 5.156639, 32.251457, 6.354229, 34.35915, 9.257929, 35.01959, 12.604635, 33.165073, 15.078657, 32.81129, 17.352976, 32.02305, 18.287806, 30.770393, 18.139544, 29.988792, 19.184896, 25.993996, 20.29175, 24.901697, 19.517744, 25.433905, 15.477037, 23.583008, 12.469015, 25.218723, 9.402908, 28.682903, 9.476448, 30.548046, 12.373302, 28.880764, 15.408682, 25.492079, 15.446291, 24.8442, 19.52101, 23.252176, 20.064318, 21.789948, 18.296484, 21.514175, 16.75268, 19.27776, 15.274374, 19.492558, 13.202215, 18.476273, 11.799498, 19.80296, 9.462)
+fish_spawnrate = 1
 
 [node name="DirectionalLight3D" parent="." index="3" unique_id=1620714622]
 light_energy = 2.5
