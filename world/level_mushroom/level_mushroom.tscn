@@ -9,16 +9,24 @@
 [ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="3_q8niw"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_of031"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_dowhw"]
+[ext_resource type="PackedScene" uid="uid://d1jfxq12olkv2" path="res://items/item_butterfly_net/new_fishing_net.tscn" id="6_53neg"]
 [ext_resource type="PackedScene" uid="uid://pqpwm6albbas" path="res://world/water/water.tscn" id="6_of031"]
+[ext_resource type="PackedScene" uid="uid://co3jb4h8t4qlo" path="res://items/item_helmet/item_helmet.tscn" id="7_cej0t"]
 [ext_resource type="PackedScene" uid="uid://40pt1n3rbofp" path="res://world/props/crystals/aqua/crystal_aqua04.tscn" id="8_2qfol"]
 [ext_resource type="PackedScene" uid="uid://boe835aeroy0f" path="res://art/3d-assets/raw_assets/mushrooms/KF_tall_mushroom.glb" id="8_i3fk3"]
+[ext_resource type="PackedScene" uid="uid://b3ebo5famew2u" path="res://items/item_goldenworm/item_golden_worm.tscn" id="8_kcysu"]
+[ext_resource type="PackedScene" uid="uid://bb0kv7atap455" path="res://items/item_rubbermallet/item_rubber_mallet.tscn" id="9_8skaf"]
 [ext_resource type="PackedScene" uid="uid://bpcbgus4iu0vi" path="res://world/props/rock_1.tscn" id="9_n6k5e"]
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="10_gu2qp"]
+[ext_resource type="PackedScene" uid="uid://pkvxbw6wyjxu" path="res://items/item_ziplock_bag/item_ziplock_bag.tscn" id="10_yrwnb"]
 [ext_resource type="PackedScene" uid="uid://bdmy6bwurdgvx" path="res://world/props/crystals/green/crystal_green01.tscn" id="11_fnp4k"]
 [ext_resource type="PackedScene" uid="uid://cbats1hb1odgx" path="res://world/props/crystals/magenta/crystal_magenta04.tscn" id="11_g5p3t"]
 [ext_resource type="PackedScene" uid="uid://chdjv4pfi24ch" path="res://world/props/waste_barrel.tscn" id="11_himr8"]
+[ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="11_u7m12"]
 [ext_resource type="PackedScene" uid="uid://c16dgg4echeu6" path="res://world/props/lilypad.tscn" id="12_nk5xi"]
 [ext_resource type="PackedScene" uid="uid://dx8xskacp62jy" path="res://world/props/crystals/green/crystal_green03.tscn" id="12_qoa46"]
+[ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="12_r0aue"]
+[ext_resource type="PackedScene" uid="uid://oeceqna2vrke" path="res://items/item_brick/brick_item.tscn" id="13_27pf5"]
 [ext_resource type="PackedScene" uid="uid://bxi66j138td6p" path="res://world/props/crystals/aqua/crystal_aqua01.tscn" id="13_nk5xi"]
 [ext_resource type="PackedScene" uid="uid://q0sfl3xq0wbw" path="res://world/props/crystals/purple/crystal_purple01.tscn" id="13_qsdgx"]
 [ext_resource type="PackedScene" uid="uid://b1u2ccy6e2gme" path="res://world/props/crystals/pink/cylinder_pink03.tscn" id="14_qblhn"]
@@ -128,6 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.25886, -2.0488822, 44.0084
 [node name="ItemSpawner2" parent="." index="5" unique_id=1841174324 instance=ExtResource("2_ay7c0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.163055, 0, 50.63687)
 shape = SubResource("BoxShape3D_ay7c0")
+items = Array[PackedScene]([ExtResource("6_53neg"), ExtResource("7_cej0t"), ExtResource("8_kcysu"), ExtResource("9_8skaf"), ExtResource("10_yrwnb"), ExtResource("11_u7m12"), ExtResource("12_r0aue"), ExtResource("13_27pf5")])
 
 [node name="ItemSpawner" parent="." index="6" unique_id=1588789630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.083595, 0, 12.705284)
