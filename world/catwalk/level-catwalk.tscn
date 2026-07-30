@@ -51,16 +51,16 @@ fish_spawner_weights = Array[int]([2, 2, 2, 1])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.346844, 0.010801315, 30.659712)
 
 [node name="PlayerSpawnPoint" parent="Players" index="0" unique_id=1956364351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.023449, 2.1457672e-06, -23.505806)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.306356, 2.1457672e-06, -21.347935)
 
 [node name="PlayerSpawnPoint2" parent="Players" index="1" unique_id=927445426]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.898296, 0, -27.958923)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.007664, 0, -22.50711)
 
 [node name="PlayerSpawnPoint3" parent="Players" index="2" unique_id=805091295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.702513, -7.1525574e-07, 27.901598)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.418896, -7.1525574e-07, 24.688147)
 
 [node name="PlayerSpawnPoint4" parent="Players" index="3" unique_id=909904993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.843475, 0, 22.082163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.71296, 0, 16.428476)
 
 [node name="HTerrain2" type="Node3D" parent="." index="3" unique_id=2028849765]
 script = ExtResource("2_l3gfr")
