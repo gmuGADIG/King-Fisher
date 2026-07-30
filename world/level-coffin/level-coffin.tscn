@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dgc3ns38srdbd" path="res://world/props/rock_2.tscn" id="8_f57ih"]
 [ext_resource type="PackedScene" uid="uid://bcdu3eu5jmtu2" path="res://world/props/rock_3.tscn" id="9_dit1s"]
 [ext_resource type="PackedScene" uid="uid://dksp23m0whynn" path="res://world/props/Column.tscn" id="10_16b6m"]
-[ext_resource type="PackedScene" path="res://world/props/Crystals.tscn" id="10_agwqa"]
+[ext_resource type="PackedScene" uid="uid://dvhv6mtwaavpf" path="res://world/props/Crystals.tscn" id="10_agwqa"]
 [ext_resource type="PackedScene" uid="uid://4v7stc24gl87" path="res://art/3d-assets/props/trees/conical_tree.tscn" id="11_dit1s"]
 [ext_resource type="PackedScene" uid="uid://bcffiks2ppdfu" path="res://art/3d-assets/props/trees/pine_tree.tscn" id="12_koh0r"]
 [ext_resource type="PackedScene" uid="uid://b3gdt0wc7vlco" path="res://art/3d-assets/props/trees/round_tree.tscn" id="13_avryw"]
@@ -40,10 +40,16 @@ mode = 0
 textures = [[ExtResource("5_5xfro")], [null]]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_81e78"]
-size = Vector3(9.422852, 0.74194336, 9.098633)
+size = Vector3(12.546875, 0.8387734, 12.947266)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ipx2"]
 size = Vector3(64.08448, 0.001, 64.084114)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4urx3"]
+size = Vector3(0.31591797, 0.39294434, 0.42651367)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a2c0j"]
+size = Vector3(0.792, 0.742, 0.382)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jxoct"]
 _surfaces = [{
@@ -84,8 +90,8 @@ data = PackedVector3Array(0, -3.5990999, -0.801, 0.2649, 3.5990999, -0.6396, 0, 
 
 [node name="Coffin" unique_id=1821617715 node_paths=PackedStringArray("fish_spawners") instance=ExtResource("1_shlee")]
 script = ExtResource("2_16b6m")
-fish_spawners = []
-fish_spawner_weights = []
+fish_spawners = [NodePath("FishSpawners/FishSpawner"), NodePath("FishSpawners/FishSpawner2"), NodePath("FishSpawners/FishSpawner3")]
+fish_spawner_weights = Array[int]([3, 3, 1])
 
 [node name="FishSpawners" type="Node3D" parent="." index="0" unique_id=677276828]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.077, 0.005, 13.1)
@@ -134,9 +140,10 @@ shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
 
 [node name="Killbox2" parent="HTerrain2" index="0" unique_id=407025254 instance=ExtResource("17_vna8e")]
-transform = Transform3D(8, 0, 0, 0, 10, 0, 0, 0, 8, 32, -4.3736153, 32)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 32, 4.3436213, 32)
 
 [node name="CollisionBox" parent="HTerrain2/Killbox2" index="0" unique_id=2090026275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5430841, 0)
 shape = SubResource("BoxShape3D_81e78")
 
 [node name="ItemSpawner" parent="." index="5" unique_id=1588789630]
@@ -390,14 +397,20 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 76.13129, -0.13972485, 
 [node name="Water3" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="19" unique_id=1949648763 instance=ExtResource("6_5knv3")]
 transform = Transform3D(5.665733, 0, -9.883933, 0, 1, 0, 5.6479616, 0, 9.915032, 81.29247, -0.17352629, 82.08832)
 
+[node name="Killbox" parent="IslandTerrain/Water3" index="2" unique_id=742556206 instance=ExtResource("17_vna8e")]
+
+[node name="CollisionBox" parent="IslandTerrain/Water3/Killbox" index="0" unique_id=2090026275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039794803, -0.30352783, -0.0035401285)
+shape = SubResource("BoxShape3D_4urx3")
+
 [node name="Node3D2" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="20" unique_id=510002793 instance=ExtResource("11_dit1s")]
 transform = Transform3D(0.0759881, -0.99710876, 0, 0.99710876, 0.0759881, 0, 0, 0, 1, 60.39267, -12.66031, 92.75215)
 visible = false
 
-[node name="Cylinder" parent="IslandTerrain/Node3D2/tree_cone" parent_id_path=PackedInt32Array(510002793, 1031717448) index="0" unique_id=20603786]
+[node name="Cylinder" parent="IslandTerrain/Node3D2/tree_cone" parent_id_path=PackedInt32Array(510002793, 1031717448) index="0" unique_id=661351753]
 transform = Transform3D(0.9998038, 0.0028599491, -0.01963898, 0.00257423, 1.0734718, 0.25770092, 0.019638976, -0.2863057, 0.9660251, -1.8262959, 18.329975, -5.849251)
 
-[node name="Cylinder_001" parent="IslandTerrain/Node3D2/tree_cone" parent_id_path=PackedInt32Array(510002793, 1031717448) index="1" unique_id=1644423407]
+[node name="Cylinder_001" parent="IslandTerrain/Node3D2/tree_cone" parent_id_path=PackedInt32Array(510002793, 1031717448) index="1" unique_id=1277160027]
 visible = false
 
 [node name="Node3D3" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="21" unique_id=2088922159 instance=ExtResource("12_koh0r")]
@@ -416,10 +429,10 @@ transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 9, -19.033497, 4.877394, -0.9207
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9988241, 0, -0.00044178963)
 
 [node name="Killbox2" parent="IslandTerrain/Coffin/Water4" index="3" unique_id=765901525 instance=ExtResource("17_vna8e")]
-transform = Transform3D(0.42, 0, 0, 0, 5, 0, 0, 0, 0.21, 0.99999905, -2.7798982, -4.7683716e-07)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.99999905, -2.7798982, -4.7683716e-07)
 
 [node name="CollisionBox" parent="IslandTerrain/Coffin/Water4/Killbox2" index="0" unique_id=2090026275]
-shape = SubResource("BoxShape3D_81e78")
+shape = SubResource("BoxShape3D_a2c0j")
 
 [node name="TreeTriangle16" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="34" unique_id=976754345]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 81.612946, 0.0065234005, 27.572659)
@@ -461,28 +474,28 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 31.96099, 0.07546258
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.972828, 0.5455138, 18.624437)
 visible = false
 
-[node name="Cube" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="0" unique_id=326142112]
+[node name="Cube" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="0" unique_id=1096364125]
 transform = Transform3D(1, 0, 0, 0, 0.9809755, 0.19413161, 0, -0.19413161, 0.9809755, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="1" unique_id=1485152595]
+[node name="Cylinder" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="1" unique_id=495041777]
 transform = Transform3D(1, 0, 0, 0, 0.9809755, 0.19413161, 0, -0.19413161, 0.9809755, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_001" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="2" unique_id=656225098]
+[node name="Cylinder_001" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="2" unique_id=1011324263]
 transform = Transform3D(0.67345965, -0.12992904, 0.00089813117, 0.102858156, 0.5360148, 0.41537774, -0.079388656, -0.40772167, 0.5457938, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_002" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="3" unique_id=34923170]
+[node name="Cylinder_002" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="3" unique_id=1335475]
 transform = Transform3D(0.59347767, 0.23118748, 0.89555085, -0.6245017, 0.88504624, 0.18537888, -0.6822438, -0.60903215, 0.60934234, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_003" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="4" unique_id=1437666597]
+[node name="Cylinder_003" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="4" unique_id=1312874155]
 transform = Transform3D(0.7496025, -0.0030613854, -0.004831782, 0.0034712472, 0.8149804, 0.11130215, 0.0043647178, -0.12238506, 0.7412985, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_004" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="5" unique_id=896475202]
+[node name="Cylinder_004" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="5" unique_id=831711432]
 transform = Transform3D(0.58010066, -0.1119175, 0.0007736137, 0.088599354, 0.46170926, 0.3577956, -0.06838333, -0.35120085, 0.47013262, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_005" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="6" unique_id=487621990]
+[node name="Cylinder_005" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="6" unique_id=507012344]
 transform = Transform3D(0.39585117, 0.1542027, 0.5973348, -0.41654435, 0.5903283, 0.12364822, -0.45505837, -0.40622604, 0.40643296, 12.381809, 0.36348057, 9.718349)
 
-[node name="Cylinder_073" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="37" unique_id=1930231840]
+[node name="Cylinder_073" parent="Crystals/Crystals" parent_id_path=PackedInt32Array(146006691, 1471994258) index="37" unique_id=938212044]
 transform = Transform3D(0.29420894, 0.11460822, 0.4439578, -0.23804101, 0.4890155, 0.031508822, -0.3918802, -0.21100067, 0.31416735, 8.248783, -0.07095361, 8.597744)
 
 [node name="Water2" parent="." index="9" unique_id=1764942666 instance=ExtResource("6_5knv3")]
@@ -492,7 +505,7 @@ visible = false
 [node name="Node3D" parent="." index="12" unique_id=456646 instance=ExtResource("11_dit1s")]
 transform = Transform3D(0.015856473, 0.46812397, -0.8835205, -0.99942696, 0.033852965, 0, 0.02990979, 0.8830142, 0.4683925, 52.286312, -13.278926, 7.3843703)
 
-[node name="Cylinder_001" parent="Node3D/tree_cone" parent_id_path=PackedInt32Array(456646, 1031717448) index="1" unique_id=1644423407]
+[node name="Cylinder_001" parent="Node3D/tree_cone" parent_id_path=PackedInt32Array(456646, 1031717448) index="1" unique_id=1277160027]
 visible = false
 
 [node name="Node3D2" parent="." index="13" unique_id=637064028 instance=ExtResource("11_dit1s")]
@@ -516,10 +529,10 @@ shape = SubResource("ConcavePolygonShape3D_v2oeq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.329756, 0)
 visible = false
 
-[node name="Cylinder" parent="Node3D2/tree_cone" index="0" unique_id=20603786]
+[node name="Cylinder" parent="Node3D2/tree_cone" index="0" unique_id=661351753]
 transform = Transform3D(-3.5470602e-08, -1.1113874, 0, 0.8114728, -4.8580286e-08, 0, 0, 0, 0.8114728, 1.1306634, 1.4727097, 0.1742611)
 
-[node name="Cylinder_001" parent="Node3D2/tree_cone" index="1" unique_id=1644423407]
+[node name="Cylinder_001" parent="Node3D2/tree_cone" index="1" unique_id=1277160027]
 visible = false
 
 [node name="Node3D18" parent="." index="14" unique_id=1261240969 instance=ExtResource("11_dit1s")]
@@ -542,13 +555,13 @@ shape = SubResource("ConcavePolygonShape3D_v2oeq")
 [node name="tree_cone" parent="Node3D18" index="1" unique_id=1031717448]
 transform = Transform3D(1, 1.1641532e-09, 0, 0, 0.9999999, 0, 5.9604645e-08, 9.313226e-10, 0.9999999, 0.28896713, -33.30147, 0.12154007)
 
-[node name="Cylinder" parent="Node3D18/tree_cone" index="0" unique_id=20603786]
+[node name="Cylinder" parent="Node3D18/tree_cone" index="0" unique_id=661351753]
 transform = Transform3D(-3.5470602e-08, -1.1113874, 0, 0.8114728, -4.8580286e-08, 0, 0, 0, 0.8114728, 1.1306634, 1.4727097, 0.1742611)
 
 [node name="CollisionShape3D" parent="Node3D18/tree_cone/Cylinder/StaticBody3D" parent_id_path=PackedInt32Array(1261240969, 1618498021) index="0" unique_id=119727207]
 shape = SubResource("ConcavePolygonShape3D_v2oeq")
 
-[node name="Cylinder_001" parent="Node3D18/tree_cone" index="1" unique_id=1644423407]
+[node name="Cylinder_001" parent="Node3D18/tree_cone" index="1" unique_id=1277160027]
 visible = false
 
 [node name="Node3D19" parent="." index="15" unique_id=537595223 instance=ExtResource("11_dit1s")]
@@ -572,13 +585,13 @@ shape = SubResource("ConcavePolygonShape3D_v2oeq")
 transform = Transform3D(1, -1.8626451e-09, 0, 0, 1.0000001, 0, 2.9802322e-08, 1.8626451e-09, 1, 0.5707245, -32.408794, 0.14979553)
 visible = false
 
-[node name="Cylinder" parent="Node3D19/tree_cone" index="0" unique_id=20603786]
+[node name="Cylinder" parent="Node3D19/tree_cone" index="0" unique_id=661351753]
 transform = Transform3D(-3.5470602e-08, -1.1113874, 0, 0.8114728, -4.8580286e-08, 0, 0, 0, 0.8114728, 1.1306634, 1.4727097, 0.1742611)
 
 [node name="CollisionShape3D" parent="Node3D19/tree_cone/Cylinder/StaticBody3D" parent_id_path=PackedInt32Array(537595223, 1618498021) index="0" unique_id=119727207]
 shape = SubResource("ConcavePolygonShape3D_v2oeq")
 
-[node name="Cylinder_001" parent="Node3D19/tree_cone" index="1" unique_id=1644423407]
+[node name="Cylinder_001" parent="Node3D19/tree_cone" index="1" unique_id=1277160027]
 visible = false
 
 [node name="Node3D3" parent="." index="16" unique_id=856514420 instance=ExtResource("17_jepsa")]
@@ -630,6 +643,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.696068, 2.1204445, 11.3874
 transform = Transform3D(0.04122705, 0, 0.0282901, 0, 0.04999999, 0, -0.0282901, 0, 0.04122705, 40.299866, 0.06471896, 0.22099662)
 
 [editable path="HTerrain2/Killbox2"]
+[editable path="IslandTerrain/Water3/Killbox"]
 [editable path="IslandTerrain/Node3D2"]
 [editable path="IslandTerrain/Node3D2/tree_cone"]
 [editable path="IslandTerrain/Coffin/Water4/Killbox2"]
