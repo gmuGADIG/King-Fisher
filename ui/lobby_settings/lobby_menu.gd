@@ -18,7 +18,7 @@ static var song_pool : Dictionary[String,Song] = {
 }
 
 static var mapPool = [
-	"res://world/catwalk/catwalk.tscn",
+	"res://world/catwalk/level-catwalk.tscn",
 	"res://world/ship/level-ship.tscn",
 	"res://world/level-coffin/level-coffin.tscn",
 	"res://world/level-docks/level-docks.tscn",
