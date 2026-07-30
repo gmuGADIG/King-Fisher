@@ -91,40 +91,46 @@ metadata/_edit_lock_ = true
 [node name="IslandTerrain" parent="." index="5" unique_id=1398597706]
 visible = false
 
-[node name="RockForm1" parent="." index="7" unique_id=1542011646]
+[node name="RockForm1" parent="." index="6" unique_id=1542011646]
 visible = false
 
-[node name="RockForm2" parent="." index="8" unique_id=1950932462]
+[node name="RockForm2" parent="." index="7" unique_id=1950932462]
 visible = false
 
-[node name="RockForm3" parent="." index="9" unique_id=275666059]
+[node name="RockForm3" parent="." index="8" unique_id=275666059]
 visible = false
 
-[node name="OceanAmbience" type="AudioStreamPlayer" parent="." index="10" unique_id=478886836]
+[node name="OceanAmbience2" type="AudioStreamPlayer" parent="." index="9" unique_id=478886836]
 stream = ExtResource("5_vh6de")
 autoplay = true
 bus = &"SFX"
 
-[node name="RockForm4" parent="." index="11" unique_id=1085107682]
+[node name="RockForm4" parent="." index="10" unique_id=1085107682]
 visible = false
 
-[node name="Tent" parent="." index="12" unique_id=422062785]
+[node name="Golden Worm" parent="." index="11" unique_id=1566519324 instance=ExtResource("8_2ii5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.559801, -7.321853, 28.93255)
+
+[node name="OceanAmbience" type="AudioStreamPlayer" parent="." index="12" unique_id=431762686]
+stream = ExtResource("5_vh6de")
+autoplay = true
+bus = &"SFX"
+
+[node name="Tent" parent="." index="13" unique_id=422062785]
 visible = false
 
-[node name="Campfire" parent="." index="13" unique_id=1236529479]
+[node name="Campfire" parent="." index="14" unique_id=1236529479]
 visible = false
 
-[node name="Tent2" parent="." index="14" unique_id=1565571505]
+[node name="Tent2" parent="." index="15" unique_id=1565571505]
 visible = false
 
-[node name="Campfire2" parent="." index="15" unique_id=198068458]
+[node name="Campfire2" parent="." index="16" unique_id=198068458]
 visible = false
 
-[node name="Water" parent="." index="16" unique_id=1426951503]
+[node name="Water" parent="." index="17" unique_id=1426951503]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
 
-[node name="ReadyUpFishShadow" type="Area3D" parent="Water/Water3" parent_id_path=PackedInt32Array(1778158506) index="2" unique_id=771290171]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 1, 0, 0.32783696)
 [node name="ReadyUp" type="Node3D" parent="Water/Water3" parent_id_path=PackedInt32Array(1778158506) index="2" unique_id=693144960]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
@@ -184,19 +190,14 @@ text = "Fish here to ready up!"
 font = ExtResource("6_gc6gh")
 font_size = 100
 
-[node name="LobbyBoat" parent="." index="18" unique_id=245968247]
+[node name="ReadyUpFishShadow" type="Area3D" parent="Water/Water3" parent_id_path=PackedInt32Array(1778158506) index="3" unique_id=1003526165]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 1, 0, 0.32783696)
+
+[node name="LobbyBoat" parent="." index="19" unique_id=245968247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
 
 [node name="SettingsControlPanel" parent="LobbyBoat/TallRoofBoat" parent_id_path=PackedInt32Array(245968247, 1656329038) index="2" unique_id=1429996587 node_paths=PackedStringArray("lobby_settings_menu")]
 lobby_settings_menu = NodePath("../../../CanvasLayer/LobbySettings")
-
-[node name="OceanAmbience" type="AudioStreamPlayer" parent="." index="9" unique_id=478886836]
-stream = ExtResource("5_vh6de")
-autoplay = true
-bus = &"SFX"
-
-[node name="Golden Worm" parent="." index="11" unique_id=1566519324 instance=ExtResource("8_2ii5k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.559801, -7.321853, 28.93255)
 
 [editable path="Water/Killbox"]
 [editable path="LobbyBoat"]

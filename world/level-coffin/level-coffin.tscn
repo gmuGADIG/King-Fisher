@@ -106,6 +106,7 @@ polygon = PackedVector2Array(-8.910107, 7.971302, -8.975534, 6.546795, -5.107343
 [node name="FishSpawner3" parent="FishSpawners" index="2" unique_id=329435590 instance=ExtResource("3_hydvg")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12.814999, 4.156537, 19.331999)
 polygon = PackedVector2Array(-15.384072, -7.397064, -4.606285, -18.237041, 19.718185, 6.1036644, 8.941734, 16.95308)
+fish_spawnrate = 1
 
 [node name="PlayerSpawnPoint" parent="Players" parent_id_path=PackedInt32Array(1891362098) index="0" unique_id=1956364351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.007137, 2.3841858e-07, 16.364979)
