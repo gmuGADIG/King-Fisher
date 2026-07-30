@@ -18,6 +18,9 @@ func _on_body_entered(body: Node3D) -> void:
 	print(body)
 	if body is not Player: return
 	
+	if body.force_respawn:
+		return
+	
 	body.force_respawn = true
 	
 	if not body.is_ragdolled:
