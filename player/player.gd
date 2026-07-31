@@ -337,6 +337,13 @@ func _mouse_input(event : InputEvent) -> void:
 				camera_yaw += -event.relative.x * Options.mouse_sensitivity
 				$CameraMount.rotation.y = deg_to_rad(camera_yaw)
 		AimMode.FISHING_ROD:
+			var body : Node = $Aiming/AimRayCast.get_collider()
+			if body is FishShadow:
+				%Aiming/AimIndicator/AimIndicatorY.show()
+				%Aiming/AimIndicator/AimIndicatorR.hide()
+			else:
+				%Aiming/AimIndicator/AimIndicatorR.show()
+				%Aiming/AimIndicator/AimIndicatorY.hide()
 			if event.is_action_released("cast_rod"):
 				#last int is anim speed
 				#play_action(&"CastRod", .15, 2)
@@ -351,7 +358,6 @@ func _mouse_input(event : InputEvent) -> void:
 				await get_tree().create_timer(throw_and_cast_input_lock_time).timeout
 				Debug.log("anim stopped")
 				var next_anim_state : AnimationState = AnimationState.NORMAL
-				var body : Node = $Aiming/AimRayCast.get_collider()
 				if body is FishShadow:
 					if get_tree().get_first_node_in_group("Lobby") == null:
 						# This is normal fishing behaviour during the game.
