@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bfl87ea0ws3h7" path="res://world/props/mushroom_tall.tscn" id="14_ff6jl"]
 [ext_resource type="PackedScene" uid="uid://xrliek427mtt" path="res://world/props/cargo_box.tscn" id="15_kixhr"]
 [ext_resource type="PackedScene" uid="uid://7pg60uc0tj5" path="res://world/props/mushroom_small.tscn" id="16_4j17c"]
+[ext_resource type="PackedScene" uid="uid://ckc2j3uk2rai8" path="res://mudman.tscn" id="16_osct5"]
 [ext_resource type="PackedScene" uid="uid://bhga7vwbqbych" path="res://world/props/tree_cone.tscn" id="17_osct5"]
 [ext_resource type="PackedScene" uid="uid://bhgnooactcump" path="res://world/props/tree_triangle.tscn" id="20_4j17c"]
 [ext_resource type="PackedScene" uid="uid://c16dgg4echeu6" path="res://world/props/lilypad.tscn" id="21_osct5"]
@@ -166,6 +167,9 @@ transform = Transform3D(0.6811427, 0, -0.73215073, 0, 1, 0, 0.73215073, 0, 0.681
 
 [node name="Aircraft" parent="." index="7" unique_id=581678662 instance=ExtResource("7_8dgjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.138123, -2.5958943, 35.618164)
+
+[node name="Mudman" parent="Water" parent_id_path=PackedInt32Array(1426951503) index="17" unique_id=347740268 instance=ExtResource("16_osct5")]
+transform = Transform3D(0.28705955, 0, 0.95791274, 0, 1, 0, -0.95791274, 0, 0.28705955, 7.29196, 11.075858, 21.930338)
 
 [node name="tree_round" parent="." index="10" unique_id=42365073 instance=ExtResource("9_a8xj4")]
 transform = Transform3D(0.007417567, 0, 0.99997246, 0, 1, 0, -0.99997246, 0, 0.007417567, 59.102974, -1.7836552, 2.766653)

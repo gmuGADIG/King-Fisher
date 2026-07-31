@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b3gdt0wc7vlco" path="res://art/3d-assets/props/trees/round_tree.tscn" id="13_avryw"]
 [ext_resource type="PackedScene" uid="uid://dche7r4hjft4o" path="res://art/3d-assets/raw_assets/Coffin.tscn" id="14_koh0r"]
 [ext_resource type="Script" uid="uid://ct4ard841jdqa" path="res://world/lobby/boatRocking.gd" id="16_avryw"]
+[ext_resource type="PackedScene" uid="uid://cjn7h3ws404xm" path="res://fishgear.tscn" id="16_vna8e"]
 [ext_resource type="PackedScene" uid="uid://42jf3ok2me41" path="res://world/props/wooden_crate.tscn" id="17_jepsa"]
 [ext_resource type="PackedScene" uid="uid://bxi66j138td6p" path="res://world/props/crystals/aqua/crystal_aqua01.tscn" id="18_ddkw3"]
 [ext_resource type="PackedScene" uid="uid://ceto02c21y6kh" path="res://world/props/crystals/green/crystal_green02.tscn" id="19_hydvg"]
@@ -28,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bdmy6bwurdgvx" path="res://world/props/crystals/green/crystal_green01.tscn" id="25_0t8ow"]
 [ext_resource type="PackedScene" uid="uid://dx8xskacp62jy" path="res://world/props/crystals/green/crystal_green03.tscn" id="26_e2q8b"]
 [ext_resource type="PackedScene" uid="uid://65vcl3um8ss8" path="res://world/props/crystals/aqua/crystal_aqua03.tscn" id="27_ca7ok"]
+[ext_resource type="PackedScene" uid="uid://ckc2j3uk2rai8" path="res://mudman.tscn" id="29_hydvg"]
 
 [sub_resource type="Resource" id="Resource_7o8e7"]
 script = ExtResource("4_d5165")
@@ -173,6 +175,9 @@ transform = Transform3D(0.69801545, 0, -0.7160827, 0, 1, 0, 0.7160827, 0, 0.6980
 [node name="Water4" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="27" unique_id=2112005034 instance=ExtResource("6_5knv3")]
 transform = Transform3D(12.822485, 0, -6.731546, 0, 1, 0, 12.781818, 0, 6.752963, 65.12712, 2.4949098, 63.266476)
 
+[node name="Fishgear" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="29" unique_id=1064983720 instance=ExtResource("16_vna8e")]
+transform = Transform3D(0.21296214, 0, 0.97706044, 0, 1, 0, -0.97706044, 0, 0.21296214, 32.80973, -0.06477736, 72.4792)
+
 [node name="Crystals" parent="." index="6" unique_id=146006691 instance=ExtResource("10_agwqa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.972828, 0.5455138, 18.624437)
 visible = false
@@ -262,6 +267,9 @@ transform = Transform3D(0.6987676, 0.21931536, -0.68089986, -0.29945713, 0.95410
 
 [node name="Node3D17" parent="." index="27" unique_id=1306359248 instance=ExtResource("27_ca7ok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.696068, 2.0377402, 11.387406)
+
+[node name="Mudman" parent="." index="29" unique_id=347740268 instance=ExtResource("29_hydvg")]
+transform = Transform3D(-0.09367283, 0.1694011, -0.9810855, 0.016100984, 0.9855472, 0.16863419, 0.99547285, 0, -0.09504652, 61.536674, -0.11513966, 30.136852)
 
 [editable path="IslandTerrain/Node3D2"]
 [editable path="IslandTerrain/Node3D2/tree_cone"]

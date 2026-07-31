@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://c16dgg4echeu6" path="res://world/props/lilypad.tscn" id="22_vgm68"]
 [ext_resource type="PackedScene" uid="uid://gpcvf0ox46m1" path="res://world/props/cattail.tscn" id="23_rxol8"]
 [ext_resource type="PackedScene" uid="uid://42jf3ok2me41" path="res://world/props/wooden_crate.tscn" id="24_lkfwd"]
+[ext_resource type="PackedScene" uid="uid://ckc2j3uk2rai8" path="res://mudman.tscn" id="26_6uol1"]
+[ext_resource type="PackedScene" uid="uid://cjn7h3ws404xm" path="res://fishgear.tscn" id="27_xtet8"]
 
 [sub_resource type="Resource" id="Resource_mnoo0"]
 script = ExtResource("4_5gcag")
@@ -337,5 +339,11 @@ transform = Transform3D(0.24661385, -0.03887505, -0.013051412, 0.0368094, 0.2449
 
 [node name="Cattail9" parent="Props/Vegitation" index="18" unique_id=474332564 instance=ExtResource("23_rxol8")]
 transform = Transform3D(0.24977249, 0.008010898, -0.007036649, -0.007029619, 0.24777181, 0.032552924, 0.00801705, -0.032325495, 0.24777162, 5.2873077, -0.6501405, 61.994217)
+
+[node name="Mudman" parent="." index="11" unique_id=347740268 instance=ExtResource("26_6uol1")]
+transform = Transform3D(-0.60380644, 0, -0.797131, 0, 1, 0, 0.797131, 0, -0.60380644, 54.001015, -0.11520541, 61.6208)
+
+[node name="Fishgear" parent="." index="12" unique_id=1064983720 instance=ExtResource("27_xtet8")]
+transform = Transform3D(-0.8977356, 0, 0.4405346, 0, 1, 0, -0.4405346, 0, -0.8977356, 29.274036, -0.059030697, 61.1637)
 
 [editable path="Water/Killbox"]

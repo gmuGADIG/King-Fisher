@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://btokpd3l75yyc" path="res://world/props/crystals/pink/cylinder_pink01.tscn" id="16_f2scp"]
 [ext_resource type="PackedScene" uid="uid://7pg60uc0tj5" path="res://world/props/mushroom_small.tscn" id="23_24r8q"]
 [ext_resource type="PackedScene" uid="uid://gpcvf0ox46m1" path="res://world/props/cattail.tscn" id="24_qdj0g"]
+[ext_resource type="PackedScene" uid="uid://cjn7h3ws404xm" path="res://fishgear.tscn" id="27_ldwln"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ay7c0"]
 size = Vector3(17.19535, 0.001, 16.858868)
@@ -1262,6 +1263,9 @@ transform = Transform3D(0.23835433, 0, 0.075413615, 0, 0.25, 0, -0.075413615, 0,
 
 [node name="Cattail16" parent="Cattails/Group03" index="15" unique_id=1495280342 instance=ExtResource("24_qdj0g")]
 transform = Transform3D(0.23742205, 0, -0.07829925, 0, 0.25, 0, 0.07829925, 0, 0.23742205, 0.32211304, -4.900538, -1.8276825)
+
+[node name="Fishgear" parent="." index="20" unique_id=1064983720 instance=ExtResource("27_ldwln")]
+transform = Transform3D(0.9752884, -0.22093575, 0, 0.22093575, 0.9752884, 0, 0, 0, 1, 59.595863, -0.36864114, 24.703058)
 
 [editable path="Crystals/LakeCrystal01"]
 [editable path="Water/Killbox"]
