@@ -25,7 +25,7 @@ func use_throwable(targetPos) -> void:
 	reparent(get_tree().current_scene,true)
 	show()
 	targetPosition = targetPos
-	
+	thrown = true
 	var dist : float = global_position.distance_to(targetPosition)
 	var throw_time : float = TWEEN_TIME_MULTIPLIER * dist
 	time_thrown = throw_time

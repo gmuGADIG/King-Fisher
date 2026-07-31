@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bpniafppuqsch" path="res://art/3d-assets/Brick.glb" id="3_ry2hy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ofeen"]
-radius = 0.80999196
+radius = 1.7062403
 
 [node name="Brick" unique_id=1566519324 instance=ExtResource("1_ofeen")]
 script = ExtResource("2_v1bhe")
@@ -24,6 +24,8 @@ sprite = ExtResource("3_8o1vg")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.65271723)
 
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=423811974]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=970838849]
 shape = SubResource("SphereShape3D_ofeen")

@@ -10,6 +10,10 @@ func _ready() -> void:
 	hide()
 	display_pages()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause") and UIState.ui_state == UIState.State.TUTORIAL:
+		close()
+
 func open() -> void:
 	show()
 	UIState.ui_state = UIState.State.TUTORIAL
