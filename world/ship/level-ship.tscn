@@ -159,6 +159,9 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.984195, 0.15933904, 3
 [node name="Column" parent="HTerrain2" index="10" unique_id=391458853 instance=ExtResource("12_dd10w")]
 transform = Transform3D(0.99488187, 0.02028213, -0.09898804, 0.063806266, 0.6335194, 0.7710914, 0.078350216, -0.773461, 0.62898284, 40.717545, -6.596572, 49.491898)
 
+[node name="ItemSpawner" parent="." index="5" unique_id=1588789630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.191938, 3.1172204, 33.10114)
+
 [node name="tree_round" parent="IslandTerrain" parent_id_path=PackedInt32Array(1398597706) index="0" unique_id=791108612 instance=ExtResource("9_a8xj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.613285, -0.22193694, 40.126682)
 

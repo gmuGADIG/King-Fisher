@@ -356,7 +356,10 @@ func _mouse_input(event : InputEvent) -> void:
 					if get_tree().get_first_node_in_group("Lobby") == null:
 						# This is normal fishing behaviour during the game.
 						if body.currently_fishing:
+							next_anim_state = AnimationState.NORMAL
+							input_locked = false
 							return
+						print("VALID FISHINFG")
 						body.current_fishing_state.rpc(true)
 						current_fishing_shadow = body
 						#animation cast idle
@@ -420,13 +423,16 @@ func _mouse_input(event : InputEvent) -> void:
 ## Interrupts and cancels the fishing minigame if active.
 ## Called by the Ragdoll system to interrupt fishing when ragdolled.
 func cancel_fishing_minigame():
+	
 	if fishing_minigame.state != FishingMinigame.Phase.MINIGAME_INACTIVE:
 		fishing_minigame.finish()
 		fishing_minigame.state = FishingMinigame.Phase.MINIGAME_INACTIVE
 	if current_fishing_shadow:
 		current_fishing_shadow.current_fishing_state.rpc(false)
 		current_fishing_shadow = null
-
+		animation_state = AnimationState.NORMAL
+		input_locked = false
+	
 @rpc("call_local","authority","reliable")
 func set_has_ziplock(val : bool) -> void:
 	has_ziplock_bag = val

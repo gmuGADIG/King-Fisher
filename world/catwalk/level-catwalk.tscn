@@ -82,7 +82,7 @@ shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://cb6f5am52xc7"
 
 [node name="ItemSpawner" parent="." index="4" unique_id=1588789630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.646378, 28.798199, 30.433125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.191938, 3.1172204, 33.10114)
 shape = SubResource("BoxShape3D_lkfwd")
 spawn_rate = 0.4
 max_items = 24
