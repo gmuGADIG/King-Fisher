@@ -35,12 +35,20 @@ func display_pages():
 	$Background/Page2/Text.get_v_scroll_bar().value = 0
 	page1.get_child(0).text = tutorial_pages[current_page].title
 	page1.get_child(1).text = tutorial_pages[current_page].description
-	page1.get_child(2).texture = tutorial_pages[current_page].image
+	if tutorial_pages[current_page].image == null:
+		page1.get_child(2).hide()
+	else:
+		page1.get_child(2).show()
+		page1.get_child(2).texture = tutorial_pages[current_page].image
 
 	if (current_page + 1 < tutorial_pages.size()):
 		page2.get_child(0).text = tutorial_pages[current_page + 1].title
 		page2.get_child(1).text = tutorial_pages[current_page + 1].description
-		page2.get_child(2).texture = tutorial_pages[current_page + 1].image
+		if tutorial_pages[current_page + 1].image == null:
+			page2.get_child(2).hide()
+		else:
+			page2.get_child(2).show()
+			page2.get_child(2).texture = tutorial_pages[current_page + 1].image
 	else:
 		page2.get_child(0).text = ""
 		page2.get_child(1).text = ""

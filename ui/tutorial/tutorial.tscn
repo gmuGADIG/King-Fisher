@@ -4,16 +4,18 @@
 [ext_resource type="Script" uid="uid://vxybv4dcl8tg" path="res://ui/tutorial/tutorial.gd" id="2_3nh40"]
 [ext_resource type="Script" uid="uid://6nq2iqnl4gt3" path="res://ui/tutorial/page.gd" id="3_leiwb"]
 [ext_resource type="Texture2D" uid="uid://bw6cuoglpu530" path="res://ui/itemdex/itemdex-background.png" id="3_lqqlb"]
-[ext_resource type="Texture2D" uid="uid://d0iq6ivnp0gvc" path="res://temp/micheals_mansion/MichealsMansionBackground.webp" id="4_jhac3"]
+[ext_resource type="Texture2D" uid="uid://cljwuisa8m7sj" path="res://art/company_logo.png" id="4_leiwb"]
 [ext_resource type="Texture2D" uid="uid://c7fyt1h4ljmf3" path="res://ui/itemdex/box.png" id="4_pxdlg"]
 [ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="4_xpy58"]
 [ext_resource type="Texture2D" uid="uid://bsphqh5kvj7g0" path="res://ui/itemdex/arrow.png" id="5_do47i"]
-[ext_resource type="Texture2D" uid="uid://cw036ankdpuo5" path="res://temp/temp_art/silk.png" id="5_j0hjb"]
-[ext_resource type="Texture2D" uid="uid://dmu8fcsfr37py" path="res://temp/temp_art/catboy.png" id="6_jhac3"]
-[ext_resource type="Texture2D" uid="uid://cjnwf45j1c0rv" path="res://temp/temp_art/king-fisher.png" id="7_vy52c"]
-[ext_resource type="Texture2D" uid="uid://bm7m1kt2nq2q1" path="res://temp/temp_art/ghostfriend.png" id="8_ajco1"]
-[ext_resource type="Texture2D" uid="uid://buwht7m5hgjwk" path="res://fish/sprites/star_fish.png" id="9_u6ate"]
 [ext_resource type="Texture2D" uid="uid://tm0h3rinwtna" path="res://fish/sprites/fish_seven.png" id="10_ss0bh"]
+
+[sub_resource type="Resource" id="Resource_ggehi"]
+script = ExtResource("3_leiwb")
+title = "The Art Of Angling"
+description = "This book is comprised of entries to inform contestants on the know-how of king fishing"
+image = ExtResource("4_leiwb")
+metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_vy52c"]
 script = ExtResource("3_leiwb")
@@ -26,7 +28,6 @@ While the entries for each fish are simply compiled summaries of wiki entries, f
 
 © F.I.S.H.E. Corporation
 "
-image = ExtResource("4_jhac3")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_sqq7s"]
@@ -40,7 +41,6 @@ description = "“We’ve discovered that the further you venture out from the s
 —King Fisher
 
 © F.I.S.H.E. Corporation"
-image = ExtResource("5_j0hjb")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_jg6hm"]
@@ -55,7 +55,6 @@ description = "“It is taught that the aqueous Alcedo Atthis was once whole, bu
 
 © F.I.S.H.E. Corporation
 "
-image = ExtResource("6_jhac3")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_otvs0"]
@@ -66,7 +65,6 @@ description = "“Fishing’s more about focus than patience, my friends. If you
 
 © F.I.S.H.E. Corporation
 "
-image = ExtResource("7_vy52c")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_6cimi"]
@@ -77,7 +75,6 @@ description = "“Once you’ve hooked a fish, you’ll need to gracefully reel 
 
 © F.I.S.H.E. Corporation
 "
-image = ExtResource("8_ajco1")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_kw5rs"]
@@ -87,7 +84,6 @@ description = "Your score is calculated from your livewell based on the number o
 
 © F.I.S.H.E. Corporation
 "
-image = ExtResource("9_u6ate")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
 [sub_resource type="Resource" id="Resource_wseuc"]
@@ -106,7 +102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_aybw7")
 script = ExtResource("2_3nh40")
-tutorial_pages = Array[ExtResource("3_leiwb")]([SubResource("Resource_vy52c"), SubResource("Resource_sqq7s"), SubResource("Resource_jg6hm"), SubResource("Resource_otvs0"), SubResource("Resource_6cimi"), SubResource("Resource_kw5rs"), SubResource("Resource_wseuc")])
+tutorial_pages = Array[ExtResource("3_leiwb")]([SubResource("Resource_ggehi"), SubResource("Resource_vy52c"), SubResource("Resource_sqq7s"), SubResource("Resource_jg6hm"), SubResource("Resource_otvs0"), SubResource("Resource_6cimi"), SubResource("Resource_kw5rs"), SubResource("Resource_wseuc")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1440524425]
 layout_mode = 0
@@ -127,7 +123,7 @@ anchor_bottom = 1.0
 offset_left = 315.67252
 offset_top = 44.28272
 offset_right = -593.40515
-offset_bottom = -335.49054
+offset_bottom = -370.91672
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -141,17 +137,17 @@ text = "Chapter Title"
 horizontal_alignment = 1
 
 [node name="Text" type="RichTextLabel" parent="Background/Page" unique_id=260057619]
-custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("4_xpy58")
 theme_type_variation = &"TooltipLabel"
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/normal_font_size = 17
-bbcode_enabled = true
 text = "Lots of little text here"
 
 [node name="Image" type="TextureRect" parent="Background/Page" unique_id=1727927341]
+custom_minimum_size = Vector2(0, 102)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("4_pxdlg")
@@ -166,7 +162,7 @@ anchor_bottom = 1.0
 offset_left = 578.8384
 offset_top = 44.28272
 offset_right = -330.23926
-offset_bottom = -335.49054
+offset_bottom = -370.91672
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -180,8 +176,8 @@ text = "Chapter Title"
 horizontal_alignment = 1
 
 [node name="Text" type="RichTextLabel" parent="Background/Page2" unique_id=982654346]
-custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("4_xpy58")
 theme_type_variation = &"TooltipLabel"
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -191,6 +187,7 @@ bbcode_enabled = true
 text = "Lots of little text here"
 
 [node name="Image" type="TextureRect" parent="Background/Page2" unique_id=1241950258]
+custom_minimum_size = Vector2(0, 102)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("4_pxdlg")
