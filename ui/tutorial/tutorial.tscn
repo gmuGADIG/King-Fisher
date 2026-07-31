@@ -12,8 +12,8 @@
 
 [sub_resource type="Resource" id="Resource_ggehi"]
 script = ExtResource("3_leiwb")
-title = "The Art Of Angling"
-description = "This book is comprised of entries to inform contestants on the know-how of king fishing"
+title = "The Art of Angling"
+description = "A firsthand collection of the King Fisher's wisdom, GREATLY enhanced by  F.I.S.H.E. Corp."
 image = ExtResource("4_leiwb")
 metadata/_custom_type_script = "uid://6nq2iqnl4gt3"
 
