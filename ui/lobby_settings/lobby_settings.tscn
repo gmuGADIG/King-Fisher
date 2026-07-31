@@ -3,11 +3,11 @@
 [ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="1_6lp2s"]
 [ext_resource type="Script" uid="uid://c12k8l1exwkfs" path="res://ui/lobby_settings/lobby_menu.gd" id="1_fh8yv"]
 [ext_resource type="Texture2D" uid="uid://b811kd3qst5nb" path="res://ui/fish_dex/fishdex-hologram.png" id="3_g47ou"]
-[ext_resource type="Texture2D" uid="uid://1eediuddjlw5" path="res://temp/micheals_mansion/MichealsMansionLoss.webp" id="3_yshnh"]
-[ext_resource type="Texture2D" uid="uid://d0iq6ivnp0gvc" path="res://temp/micheals_mansion/MichealsMansionBackground.webp" id="4_6lp2s"]
-[ext_resource type="Texture2D" uid="uid://dhcolnyal1vst" path="res://temp/micheals_mansion/MichaelsMansionLogo.webp" id="5_g47ou"]
-[ext_resource type="Texture2D" uid="uid://w3kwucyj45eg" path="res://temp/micheals_mansion/mmts.webp" id="6_5ffiu"]
-[ext_resource type="Texture2D" uid="uid://iuoaof0oh7dp" path="res://temp/temp_art/evil-burger2.png" id="6_i0nya"]
+[ext_resource type="Texture2D" uid="uid://bgfvyqx8b55cj" path="res://ui/Catwalk_Icon.png" id="5_i0nya"]
+[ext_resource type="Texture2D" uid="uid://dtvgl5sx82brk" path="res://ui/Ship_Level_Icon.png" id="6_fh8yv"]
+[ext_resource type="Texture2D" uid="uid://bpk0gdwu33k4a" path="res://ui/Coffin_Icon.png" id="7_i0nya"]
+[ext_resource type="Texture2D" uid="uid://v25ryn3nshgj" path="res://ui/Docks_Level_Icon.png" id="8_i0nya"]
+[ext_resource type="Texture2D" uid="uid://duyx0eldje2p0" path="res://ui/Mushroom_Level_Icon.png" id="9_i0nya"]
 [ext_resource type="Shader" uid="uid://cugbpyl6n0pk2" path="res://ui/lobby_settings/greyed_out.gdshader" id="9_yshnh"]
 [ext_resource type="Script" uid="uid://i1pqjmcrryv6" path="res://ui/lobby_settings/radio_button.gd" id="10_5ffiu"]
 [ext_resource type="Texture2D" uid="uid://dg8eepua0mmw2" path="res://art/ui assets/Fish_Button.png" id="10_g47ou"]
@@ -20,7 +20,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sgmg3"]
 shader = ExtResource("9_yshnh")
-shader_parameter/greyed_out = false
+shader_parameter/greyed_out = true
 shader_parameter/intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lfejf"]
@@ -59,7 +59,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i0nya"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fh8yv"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g47ou"]
@@ -67,7 +67,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_fh8yv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1b0y7"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ffiu"]
@@ -75,7 +75,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1b0y7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_m2d5r"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0nya"]
@@ -83,7 +83,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_m2d5r"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sgmg3"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fh8yv"]
@@ -91,7 +91,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sgmg3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lfejf"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1b0y7"]
@@ -99,7 +99,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lfejf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rnt8h"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m2d5r"]
@@ -107,7 +107,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rnt8h"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0u54a"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6lp2s"]
@@ -115,7 +115,7 @@ shader = ExtResource("9_yshnh")
 shader_parameter/greyed_out = false
 shader_parameter/intensity = 0.818000038855
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0u54a"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kcr2c"]
 viewport_path = NodePath("ItemViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cybch"]
@@ -205,10 +205,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 22.0
+offset_left = 98.0
 offset_top = 13.0
-offset_right = -22.0
-offset_bottom = -13.0
+offset_right = -88.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -226,9 +226,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-texture_normal = ExtResource("3_yshnh")
+texture_normal = ExtResource("5_i0nya")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="Map2" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=332136863]
 material = SubResource("ShaderMaterial_lfejf")
@@ -236,9 +236,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-texture_normal = ExtResource("4_6lp2s")
+texture_normal = ExtResource("6_fh8yv")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="Map3" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=1300675293]
 material = SubResource("ShaderMaterial_rnt8h")
@@ -246,9 +246,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-texture_normal = ExtResource("5_g47ou")
+texture_normal = ExtResource("7_i0nya")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="Map4" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=578539672]
 material = SubResource("ShaderMaterial_0u54a")
@@ -256,9 +256,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-texture_normal = ExtResource("6_5ffiu")
+texture_normal = ExtResource("8_i0nya")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="Map5" type="TextureButton" parent="Background/SettingsMenu/MapSelection/HBoxContainer" unique_id=1511769561]
 material = SubResource("ShaderMaterial_kcr2c")
@@ -266,9 +266,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-texture_normal = ExtResource("6_i0nya")
+texture_normal = ExtResource("9_i0nya")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="SongTimer" type="NinePatchRect" parent="Background/SettingsMenu" unique_id=611751636]
 layout_mode = 0
@@ -637,7 +637,7 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_i0nya")
+texture = SubResource("ViewportTexture_fh8yv")
 visible_item = 6
 
 [node name="ButterflyNet" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1208334514]
@@ -660,7 +660,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_fh8yv")
+texture = SubResource("ViewportTexture_1b0y7")
 visible_item = 2
 
 [node name="BananaPeel" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=2050551459]
@@ -683,7 +683,7 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_1b0y7")
+texture = SubResource("ViewportTexture_m2d5r")
 visible_item = 1
 
 [node name="Brick" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1021693364]
@@ -706,7 +706,7 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_m2d5r")
+texture = SubResource("ViewportTexture_sgmg3")
 
 [node name="GlueGrenade" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=504065254]
 material = SubResource("ShaderMaterial_fh8yv")
@@ -726,7 +726,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_sgmg3")
+texture = SubResource("ViewportTexture_lfejf")
 visible_item = 7
 
 [node name="Helmet" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=776286025]
@@ -749,7 +749,7 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_lfejf")
+texture = SubResource("ViewportTexture_rnt8h")
 visible_item = 4
 
 [node name="ZiplockBag" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1588063442]
@@ -772,7 +772,7 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_rnt8h")
+texture = SubResource("ViewportTexture_0u54a")
 visible_item = 5
 
 [node name="GoldenWorm" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=1578861966]
@@ -793,7 +793,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("ViewportTexture_0u54a")
+texture = SubResource("ViewportTexture_kcr2c")
 visible_item = 3
 
 [node name="ExitButton" type="TextureButton" parent="Background" unique_id=1099861076]

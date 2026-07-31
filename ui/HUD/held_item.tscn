@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dy3aftvignsyf" path="res://temp/temp_art/orb.png" id="2_pk4qh"]
 [ext_resource type="PackedScene" uid="uid://bhigax78q6y2v" path="res://ui/item_sprite/item_sprite.tscn" id="3_pk4qh"]
 [ext_resource type="Texture2D" uid="uid://c4bcw1f4x3ex5" path="res://temp/temp_art/icon.svg" id="4_g00et"]
-[ext_resource type="Texture2D" uid="uid://byryan5kq80g" path="res://temp/temp_art/hook.png" id="7_eaj86"]
+[ext_resource type="Texture2D" uid="uid://b2e46kkuruawa" path="res://art/ui assets/hook.png" id="5_g00et"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pk4qh"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qp54y"]
 viewport_path = NodePath("ItemViewport")
 
 [node name="HeldItem" type="Control" unique_id=1114095646]
@@ -35,12 +35,19 @@ expand_mode = 1
 
 [node name="ItemSprite" parent="ItemBG" unique_id=1460935429 instance=ExtResource("3_pk4qh")]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 19.0
-offset_top = 20.0
-offset_right = 81.0
-offset_bottom = 81.0
-texture = SubResource("ViewportTexture_pk4qh")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.999992
+offset_top = -30.5
+offset_right = 30.999992
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_qp54y")
 
 [node name="ItemHookMask" type="TextureRect" parent="." unique_id=223968066]
 clip_children = 1
@@ -57,18 +64,24 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -150.0
+offset_left = -144.0
+offset_top = -16.0
+offset_right = 6.0
 offset_bottom = 150.0
 grow_horizontal = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("7_eaj86")
+texture = ExtResource("5_g00et")
 expand_mode = 1
+stretch_mode = 5
 
 [node name="ItemHookBack" type="TextureRect" parent="." unique_id=1572101098]
 z_index = -1
 layout_mode = 1
-offset_right = 150.0
+offset_left = 6.0
+offset_top = -16.0
+offset_right = 156.0
 offset_bottom = 150.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("7_eaj86")
+texture = ExtResource("5_g00et")
 expand_mode = 1
+stretch_mode = 5
