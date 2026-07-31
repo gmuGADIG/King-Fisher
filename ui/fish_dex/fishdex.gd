@@ -164,10 +164,12 @@ func update_info(fish : Fish) -> void:
 			current_fish_worth.add_theme_font_size_override("font_size",13)
 			current_fish_worth.text = str("1,000,000,000,000¤")
 			var playcount : int = fishdex_entries.get(fish.fish_name)
+			current_fish_caught.add_theme_font_size_override("font_size",20)
 			current_fish_caught.text = str("Played ",playcount," time", "" if playcount == 1 else "s")
 		else:
 			current_fish_worth.add_theme_font_size_override("font_size",25)
 			current_fish_worth.text = str(fish.get_score(),"¤")
+			current_fish_caught.add_theme_font_size_override("font_size",25)
 			current_fish_caught.text = str(fishdex_entries.get(fish.fish_name)," Caught")
 		current_fish_description.text = fish.description
 	else:

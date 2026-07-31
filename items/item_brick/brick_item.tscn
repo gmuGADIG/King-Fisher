@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="1_ofeen"]
 [ext_resource type="Script" uid="uid://bedwb08bwgse8" path="res://items/item_brick/brick.gd" id="2_v1bhe"]
+[ext_resource type="Texture2D" uid="uid://bu0qepb4qjc37" path="res://art/ui assets/brick.png" id="3_8o1vg"]
 [ext_resource type="PackedScene" uid="uid://bpniafppuqsch" path="res://art/3d-assets/Brick.glb" id="3_ry2hy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ofeen"]
@@ -17,6 +18,7 @@ Flung beetles are antagonistic to others around them. They will pack mud into so
 
 However, the Pwaaga relied on flung beetles for mass-production of building materials. Their sturdy, four-armed bodies made catching a flying brick exceptionally harmless to them. Without fully considering the difficulties others might endure, the Pwaaga ushered in the inclusion of flung beetles in Fishbowl XXIV. Audience engagement skyrocketed, but so did the risk of injury for competitors. Soon after, the Pwaaga asked to have the flung beetles removed—F.I.S.H.E. obliged, but kept the bricks.
 "
+sprite = ExtResource("3_8o1vg")
 
 [node name="Brick" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=1628203237 instance=ExtResource("3_ry2hy")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.65271723)

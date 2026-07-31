@@ -125,10 +125,10 @@ stretch_mode = 5
 [node name="Image" type="TextureRect" parent="Background/Item1Container/HBoxContainer/Box" unique_id=49021947]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.053333335
-anchor_top = 0.046511628
-anchor_right = 0.96
-anchor_bottom = 0.9767442
+anchor_left = 0.1
+anchor_top = 0.106666245
+anchor_right = 0.9
+anchor_bottom = 0.90666705
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
@@ -223,13 +223,13 @@ layout_mode = 2
 texture = ExtResource("3_dfsup")
 stretch_mode = 5
 
-[node name="Image" type="TextureRect" parent="Background/Item2Container/HBoxContainer/Box" unique_id=363916943]
+[node name="Image" type="TextureRect" parent="Background/Item2Container/HBoxContainer/Box" unique_id=1406157941]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.053333335
-anchor_top = 0.046511628
-anchor_right = 0.96
-anchor_bottom = 0.9767442
+anchor_left = 0.1
+anchor_top = 0.106666245
+anchor_right = 0.9
+anchor_bottom = 0.90666705
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1

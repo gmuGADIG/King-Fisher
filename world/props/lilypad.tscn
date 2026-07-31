@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c16dgg4echeu6"]
 
-[ext_resource type="PackedScene" uid="uid://vuh2ijjyfl3x" path="res://art/3d-assets/lilypad_edit.glb" id="1_yhuh2"]
+[ext_resource type="PackedScene" uid="uid://vuh2ijjyfl3x" path="res://art/3d-assets/raw_assets/lilypad_edit.glb" id="1_yhuh2"]
 [ext_resource type="Material" uid="uid://sgy5gqc0a0w6" path="res://art/3d-materials/green_leaf.tres" id="2_cmvlb"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cmvlb"]
@@ -9,7 +9,7 @@ data = PackedVector3Array(26.4734, 3.2981, 0, 24.8762, 16.3713, 2.7652, 24.8762,
 [node name="lilypad" unique_id=1129798217 instance=ExtResource("1_yhuh2")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
-[node name="LilyPad" parent="Node_1" parent_id_path=PackedInt32Array(1978169229) index="0" unique_id=1797142392]
+[node name="LilyPad" parent="Node_1" parent_id_path=PackedInt32Array(994012504) index="0" unique_id=2006987478]
 material_override = ExtResource("2_cmvlb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node_1/LilyPad" index="0" unique_id=1864567791]

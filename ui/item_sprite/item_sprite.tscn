@@ -26,6 +26,7 @@ texture = SubResource("ViewportTexture_cemo4")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("1_rdw6a")
+visible_item = 8
 
 [node name="ItemViewport" type="SubViewport" parent="." unique_id=1275166423]
 own_world_3d = true
@@ -194,7 +195,6 @@ spot_angle_attenuation = 3.7656317
 
 [node name="Brick" parent="ItemViewport/Root/ItemRoot" unique_id=768764637 instance=ExtResource("8_8hqjo")]
 transform = Transform3D(0.879709, -0.20815073, 0.4275338, 0.45342037, 0.6380595, -0.622326, -0.14325444, 0.7413182, 0.65568674, -0.25523114, 0.55247426, -0.07194018)
-visible = false
 
 [node name="SpotLight3D7" type="SpotLight3D" parent="ItemViewport/Root/ItemRoot/Brick" unique_id=1605178848]
 transform = Transform3D(0.53741187, -2.4553185, 0.033758506, 0.8927189, 0.22755118, 2.3387635, -2.2875283, -0.4880281, 0.92064464, 0.168, 2.807, 1.307)

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://pkvxbw6wyjxu" path="res://items/item_ziplock_bag/item_ziplock_bag.tscn" id="6_v5t5i"]
 [ext_resource type="PackedScene" uid="uid://bu8wfm8mf6bal" path="res://items/item_gluegrenade/glue_grenade.tscn" id="7_3ln1v"]
 [ext_resource type="PackedScene" uid="uid://bvrq1j7723ugh" path="res://items/item_bananapeel/banana_peel.tscn" id="8_b0310"]
+[ext_resource type="PackedScene" uid="uid://oeceqna2vrke" path="res://items/item_brick/brick_item.tscn" id="9_3ln1v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r7rn"]
 size = Vector3(51.594765, 0.001, 51.320484)
@@ -15,7 +16,7 @@ size = Vector3(51.594765, 0.001, 51.320484)
 [node name="ItemSpawner" type="CollisionShape3D" unique_id=1588789630 node_paths=PackedStringArray("spawn_timer")]
 shape = SubResource("BoxShape3D_4r7rn")
 script = ExtResource("1_ptd0p")
-items = Array[PackedScene]([ExtResource("2_ekl74"), ExtResource("3_h2xnj"), ExtResource("4_ekl74"), ExtResource("5_ekl74"), ExtResource("6_v5t5i"), ExtResource("7_3ln1v"), ExtResource("8_b0310")])
+items = Array[PackedScene]([ExtResource("2_ekl74"), ExtResource("3_h2xnj"), ExtResource("4_ekl74"), ExtResource("5_ekl74"), ExtResource("6_v5t5i"), ExtResource("7_3ln1v"), ExtResource("8_b0310"), ExtResource("9_3ln1v")])
 spawn_rate = 0.8
 spawn_timer = NodePath("SpawnTimer")
 

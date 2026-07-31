@@ -18,11 +18,11 @@ static var song_pool : Dictionary[String,Song] = {
 }
 
 static var mapPool = [
-	"res://world/catwalk/catwalk.tscn",
-	"res://world/heightmap_test/heightmap_test.tscn",
+	"res://world/catwalk/level-catwalk.tscn",
+	"res://world/ship/level-ship.tscn",
 	"res://world/level-coffin/level-coffin.tscn",
 	"res://world/level-docks/level-docks.tscn",
-	"res://world/catwalk/catwalk.tscn"
+	"res://world/level_mushroom/level_mushroom.tscn"
 ]
 
 ## The maximum time allowed for a round, in seconds.
@@ -33,7 +33,7 @@ static var mapPool = [
 
 # TODO: replace with names of actual maps
 ## The default maps selected for a round.
-@export_flags("Catwalks","Heightmap Test","Coffin","Docks","Map5")
+@export_flags("Catwalk","Ship","Coffin","Docks","Mushroom")
 var defaultMapSelect: int
 
 ## The default song selection for the round.

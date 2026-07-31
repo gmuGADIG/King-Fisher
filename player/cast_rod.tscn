@@ -4,3 +4,4 @@
 
 [node name="CastRod" type="AudioStreamPlayer3D" unique_id=1110289813]
 stream = ExtResource("1_4jlde")
+bus = &"SFX"

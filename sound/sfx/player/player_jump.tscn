@@ -26,3 +26,4 @@ stream_9/stream = ExtResource("10_a75tl")
 
 [node name="PlayerJump" type="AudioStreamPlayer3D" unique_id=1032111526]
 stream = SubResource("AudioStreamRandomizer_eja1o")
+bus = &"SFX"

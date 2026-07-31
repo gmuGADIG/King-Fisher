@@ -32,18 +32,13 @@ var status: String:
 		status_changed.emit()
 	
 #Allowed maps starts with a safety in case start game is loaded without going into lobby menu
-var allowedMaps:Array = [
-	"res://world/catwalk/catwalk.tscn",
-	"res://world/heightmap_test/heightmap_test.tscn",
-	"res://world/level-coffin/level-coffin.tscn",
-	"res://world/level-docks/level-docks.tscn",
-	"res://world/catwalk/catwalk.tscn"
-]
+var allowedMaps : Array[String]
 
 #var HUD = LobbyHUD.new();
 var game_starting : bool = false
 
 func _ready() -> void:
+	allowedMaps.append_array(LobbySettings.mapPool)
 	# listen for when clients connect -- runs on both client and server
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)

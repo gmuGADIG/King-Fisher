@@ -707,7 +707,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_m2d5r")
-visible_item = 8
 
 [node name="GlueGrenade" type="Button" parent="Background/SettingsMenu/ItemSelection/HBoxContainer" unique_id=504065254]
 material = SubResource("ShaderMaterial_fh8yv")

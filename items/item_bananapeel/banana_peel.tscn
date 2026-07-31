@@ -2,12 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bivry6ihrxe25" path="res://items/throwable_item.tscn" id="1_cv4ru"]
 [ext_resource type="Script" uid="uid://ccp6kqlvf8mtj" path="res://items/item_bananapeel/item_banana_peel.gd" id="2_k385h"]
+[ext_resource type="Texture2D" uid="uid://bgtrylchjqyng" path="res://art/ui assets/banana_peel_sprite.png" id="3_52u3r"]
 [ext_resource type="PackedScene" uid="uid://bvdat3iyqqhl4" path="res://art/3d-assets/BANANNA2.glb" id="3_k385h"]
 [ext_resource type="PackedScene" uid="uid://cdhxlejoa2q26" path="res://sound/sfx/items/bana_slip_sound.tscn" id="4_mwydt"]
 [ext_resource type="PackedScene" uid="uid://bbr4yioeph7xy" path="res://art/3d-assets/Armadillo.glb" id="5_3j6y8"]
 [ext_resource type="Texture2D" uid="uid://cng8lbdfkrhmy" path="res://art/3d-materials/Slopadillo.png" id="6_3j6y8"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3j6y8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lvrn"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 1
@@ -36,7 +37,6 @@ radius = 0.9446206
 [node name="BananaPeel" unique_id=1566519324 instance=ExtResource("1_cv4ru")]
 script = ExtResource("2_k385h")
 ragdollTime = 3.0
-type = 1
 description = "When used, the player throws the peel, playing an animation. When the peel lands on the ground it becomes a hazard that will cause the next player to walk on top of it to ragdoll."
 lore = "King Fisher loved bananas. As a Pwaaga born with only one arm, he struggled to enjoy most of his culture’s dining experiences, which often required all four hands to hold some kind of utensil. King Fisher gives a firsthand account on the convenience of snacking on a banana in his most famous written work, the Art of Angling, which is graciously provided to all Fishbowl competitors.
 
@@ -44,6 +44,7 @@ Presumably, a fanatic found a fresh banana peel in King Fisher’s trash can aft
 
 If you find a banana peel, you’re better off throwing it back on the ground than banking on it carrying traces of King Fisher’s saliva on it. And, no—saliva is not sufficient for cloning.
 "
+sprite = ExtResource("3_52u3r")
 
 [node name="BANANNA2" parent="Visuals" parent_id_path=PackedInt32Array(1993111827) index="0" unique_id=1955039305 instance=ExtResource("3_k385h")]
 unique_name_in_owner = true
@@ -54,8 +55,8 @@ unique_name_in_owner = true
 transform = Transform3D(1.74, 0, 0, 0, 1.74, 0, 0, 0, 1.74, 0, 0, -0.21022841)
 visible = false
 
-[node name="Armadillo" parent="Visuals/Armadillo/Node" parent_id_path=PackedInt32Array(1877560320, 1857077457) index="0" unique_id=1612515961]
-material_override = SubResource("StandardMaterial3D_3j6y8")
+[node name="Armadillo" parent="Visuals/Armadillo/Node" parent_id_path=PackedInt32Array(1877560320, 305163266) index="0" unique_id=668979398]
+material_override = SubResource("StandardMaterial3D_8lvrn")
 
 [node name="Outline" type="MeshInstance3D" parent="Visuals/Armadillo/Node/Armadillo" index="0" unique_id=978573820]
 unique_name_in_owner = true
