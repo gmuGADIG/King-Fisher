@@ -17,3 +17,4 @@ stream_4/stream = ExtResource("5_land_grass_005")
 [node name="PlayerLandGrass" type="AudioStreamPlayer3D" unique_id=301000001]
 stream = SubResource("AudioStreamRandomizer_land_grass")
 volume_db = -6.0
+bus = &"SFX"

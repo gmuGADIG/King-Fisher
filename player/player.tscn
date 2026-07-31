@@ -495,6 +495,7 @@ skeleton = NodePath("")
 [node name="FootstepsGrass" parent="Sounds" unique_id=1032111526 instance=ExtResource("7_rgyib")]
 
 [node name="FootstepsStone" parent="Sounds" unique_id=728023090 instance=ExtResource("8_hg6s5")]
+bus = &"SFX"
 
 [node name="PlayerJump" parent="Sounds" unique_id=229356321 instance=ExtResource("9_hg6s5")]
 
@@ -503,29 +504,36 @@ skeleton = NodePath("")
 [node name="PlayerLandGrass" parent="Sounds" unique_id=301000001 instance=ExtResource("11_2ieo8")]
 
 [node name="PlayerPickupItem" parent="Sounds" unique_id=1633662803 instance=ExtResource("9_e7oew")]
+bus = &"SFX"
 
 [node name="CastRod" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1264743241]
 stream = ExtResource("10_65viv")
+bus = &"SFX"
 
 [node name="LeftoverCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=1803346818]
 stream = ExtResource("11_g4c7l")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="FreshCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=2037820873]
 stream = ExtResource("12_knn7v")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="PremiumCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=1615553549]
 stream = ExtResource("13_7pqkx")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="SushiCatch" type="AudioStreamPlayer" parent="Sounds" unique_id=1648040884]
 stream = ExtResource("14_uw77l")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="FishCatchFail" type="AudioStreamPlayer" parent="Sounds" unique_id=372674188]
 stream = ExtResource("15_knn7v")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="HeldItem" parent="." unique_id=1114095646 instance=ExtResource("9_kb6p2")]
 
@@ -535,7 +543,7 @@ mesh = NodePath("PlayerSkeleton/Skeleton3D/DefaultPlayer")
 rotation_speed_curve = ExtResource("4_kb6p2")
 bones = NodePath("PlayerSkeleton/Skeleton3D/Bones")
 
-[node name="Skeleton3D" parent="Player_Animated/PlayerSkeleton" parent_id_path=PackedInt32Array(1186658418, 849181700) index="0" unique_id=99015465]
+[node name="Skeleton3D" parent="Player_Animated/PlayerSkeleton" parent_id_path=PackedInt32Array(1186658418, 829205644) index="0" unique_id=611762453]
 bones/0/position = Vector3(0, 0.56244946, 0)
 bones/0/rotation = Quaternion(0.011873922, 0.00014193311, -0.009116781, 0.99988794)
 bones/2/rotation = Quaternion(0.014367346, 0.0035818801, 0.0035817616, 0.999884)
@@ -598,7 +606,7 @@ bones/46/scale = Vector3(1, 1, 3.5762787e-07)
 bones/47/position = Vector3(-0.16337353, 0.05986797, -0.03406023)
 bones/47/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
 
-[node name="DefaultPlayer" parent="Player_Animated/PlayerSkeleton/Skeleton3D" index="0" unique_id=907685639]
+[node name="DefaultPlayer" parent="Player_Animated/PlayerSkeleton/Skeleton3D" index="0" unique_id=56690018]
 material_override = SubResource("StandardMaterial3D_b8hi5")
 
 [node name="Bones" type="PhysicalBoneSimulator3D" parent="Player_Animated/PlayerSkeleton/Skeleton3D" index="1" unique_id=80263050 node_paths=PackedStringArray("player")]
@@ -661,11 +669,11 @@ shape = SubResource("SphereShape3D_kb6p2")
 debug_color = Color(1, 0, 0.7833333, 1)
 
 [node name="Physical Bone Head" type="PhysicalBone3D" parent="Player_Animated/PlayerSkeleton/Skeleton3D/Bones" unique_id=374387147]
-transform = Transform3D(0.99991417, -0.009603434, -0.008915764, -0.01310165, -0.7457513, -0.66609555, -0.00025213818, 0.6661552, -0.74581313, 0.012899187, 1.2670116, 0.12995829)
+transform = Transform3D(0.99991417, -0.009603434, -0.008915766, -0.01310165, -0.7457513, -0.6660957, -0.00025213818, 0.6661552, -0.74581313, 0.012899187, 1.2670116, 0.12995829)
 collision_layer = 0
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9355575e-05, -0.080630675, 0.07956509)
-body_offset = Transform3D(0.99998724, 0.0036583827, 0.0036007485, 0.005114228, -0.77022123, -0.63775647, 0.00044022044, 0.6377667, -0.7702298, -1.0871328e-05, -0.011360407, 0.11270696)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9355528e-05, -0.080630675, 0.079565085)
+body_offset = Transform3D(0.99998724, 0.0036583827, 0.0036007494, 0.005114228, -0.77022123, -0.6377565, 0.00044022044, 0.6377667, -0.7702299, -1.0871328e-05, -0.011360407, 0.11270696)
 bone_name = "Head"
 joint_constraints/swing_span = 19.999992
 joint_constraints/twist_span = 19.999992
@@ -736,7 +744,7 @@ unique_name_in_owner = true
 transform = Transform3D(0.110068, -0.49737558, -0.6168489, 0.21570218, 0.61806023, -0.45986336, 0.7624681, -0.10304927, 0.21914193, -0.23010814, -0.8031634, -2.2511628)
 visible = false
 
-[node name="Skeleton3D" parent="Player_Animated/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Forearm L/Rod/FishingRodSkeleton" parent_id_path=PackedInt32Array(326540217, 802846764) index="0" unique_id=908316505]
+[node name="Skeleton3D" parent="Player_Animated/PlayerSkeleton/Skeleton3D/Bones/Physical Bone Forearm L/Rod/FishingRodSkeleton" parent_id_path=PackedInt32Array(326540217, 1494602303) index="0" unique_id=642418998]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9350865, 0, 0)
 
 [node name="Physical Bone UpperArm R" type="PhysicalBone3D" parent="Player_Animated/PlayerSkeleton/Skeleton3D/Bones" unique_id=475627485]
@@ -847,7 +855,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0
 shape = SubResource("SphereShape3D_yllr7")
 debug_color = Color(1, 0, 0.7833333, 1)
 
-[node name="AnimationPlayer" parent="Player_Animated" index="1" unique_id=281855062]
+[node name="AnimationPlayer" parent="Player_Animated" index="1" unique_id=1580582401]
 playback_default_blend_time = 0.15
 
 [node name="FishReelIn" type="Sprite3D" parent="Player_Animated" unique_id=561731693]

@@ -19,3 +19,4 @@ stream_5/stream = ExtResource("6_land_stone_006")
 [node name="PlayerLandStone" type="AudioStreamPlayer3D" unique_id=301000002]
 stream = SubResource("AudioStreamRandomizer_land_stone")
 volume_db = -6.0
+bus = &"SFX"
