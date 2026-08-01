@@ -157,6 +157,11 @@ func _on_fish_selected(node: Node) -> void:
 
 func update_info(fish : Fish) -> void:
 	if fish != null:
+		if fish.fish_name.length() >= 16:
+			current_fish_name.add_theme_font_size_override("font_size",23)
+		else:
+			current_fish_name.add_theme_font_size_override("font_size",28)
+		
 		current_fish_name.text = fish.fish_name
 		current_fish_texture.texture = fish.sprite
 		current_fish_rarity.text = fish.grade_string()
