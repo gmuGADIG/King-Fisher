@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://dcf8prpy057vk" path="res://ui/HUD/game_hud.gd" id="1_1c5in"]
 [ext_resource type="Theme" uid="uid://b2g0k405s5r7p" path="res://ui/themes/finger_paint.tres" id="1_22ess"]
 [ext_resource type="Texture2D" uid="uid://cidywq0cy3pl6" path="res://temp/item.png" id="1_aipem"]
-[ext_resource type="Texture2D" uid="uid://qyqpyx1t6vsk" path="res://temp/scoreboard_icon.png" id="3_7f6fh"]
 [ext_resource type="PackedScene" uid="uid://dda6d1o25sxn0" path="res://ui/HUD/score_change_label.tscn" id="3_17e2f"]
 [ext_resource type="Theme" uid="uid://dh53sqaw2xh6v" path="res://ui/themes/share_tech_mono.tres" id="3_76rk5"]
 [ext_resource type="PackedScene" uid="uid://gskq3ns5ix4c" path="res://ui/HUD/Buffs/displayed_buffs.tscn" id="3_ekma4"]
-[ext_resource type="Texture2D" uid="uid://cl7ovfgsq88pn" path="res://temp/livewell_icon.png" id="3_qujba"]
+[ext_resource type="Texture2D" uid="uid://bk0ng1ky7vq1s" path="res://ui/Podium_Icon.png" id="5_17e2f"]
+[ext_resource type="Texture2D" uid="uid://y7tuppn3yaga" path="res://ui/LivewelI_Icon.png" id="6_ibh6r"]
 [ext_resource type="Texture2D" uid="uid://hgjg2pb6w4ss" path="res://systems/rhythm/art/fishing_minigame_backboard.png" id="8_1a4iy"]
 
 [node name="GameHud" type="Control" unique_id=207102908 node_paths=PackedStringArray("time_remaining_label")]
@@ -53,14 +53,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="TextureRect" type="TextureRect" parent="ButtomPrompts/HBoxContainer/VBoxContainer/ColorRect/MarginContainer" unique_id=808955055]
 layout_mode = 2
-texture = ExtResource("3_7f6fh")
+texture = ExtResource("5_17e2f")
 expand_mode = 1
 stretch_mode = 5
 
@@ -90,14 +90,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="TextureRect" type="TextureRect" parent="ButtomPrompts/HBoxContainer/VBoxContainer2/ColorRect/MarginContainer" unique_id=905445511]
 layout_mode = 2
-texture = ExtResource("3_qujba")
+texture = ExtResource("6_ibh6r")
 expand_mode = 1
 stretch_mode = 5
 
