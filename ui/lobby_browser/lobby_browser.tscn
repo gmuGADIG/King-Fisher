@@ -267,7 +267,8 @@ anchor_top = 1.94
 anchor_right = 0.48000002
 anchor_bottom = 2.66
 offset_left = 0.19999981
-placeholder_text = "Debug: Scan Extra IP"
+offset_right = 33.919983
+placeholder_text = "Advanced: Scan Extra IP"
 alignment = 1
 
 [node name="LobbyCreationWindow" type="TextureRect" parent="." unique_id=1549874564]
