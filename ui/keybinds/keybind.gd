@@ -18,6 +18,8 @@ var current_button: Button
 func _ready() -> void:
 	load_keybinds()
 	reflow_ui()
+	if OS.is_debug_build():
+		_kill_debug_keybinds()
 
 func reflow_ui() -> void:
 	binding_prototype.visible = true
@@ -39,6 +41,11 @@ func _on_keybind_button_pressed(keybind: StringName, button: Button) -> void:
 	button.text = "Listening..."
 	current_action = keybind
 	current_button = button
+
+func _kill_debug_keybinds() -> void:
+	for action in InputMap.get_actions():
+		if action.begins_with("debug_"):
+			InputMap.action_erase_events(action)
 
 func _input(event: InputEvent) -> void:
 	if current_action and event.is_action_type():
@@ -77,7 +84,7 @@ static func load_keybinds() -> void:
 				InputMap.action_erase_events(action)
 				InputMap.action_add_event(action, keybind_dict[action])
 		print("KEYBINDS LOADED")
-
+	
 func _on_reset_button_pressed() -> void:
 	InputMap.load_from_project_settings()
 	reflow_ui()
