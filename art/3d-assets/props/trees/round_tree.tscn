@@ -12,12 +12,12 @@ data = PackedVector3Array(-0.0001, 0, -2.0001, 1.2247, 1, -1.2248, -0.0001, 1, -
 
 [node name="tree_round" parent="." unique_id=1091003784 instance=ExtResource("1_hujr8")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="tree_round/Cylinder_001" parent_id_path=PackedInt32Array(1091003784, 748135526) index="0" unique_id=475783928]
+[node name="StaticBody3D" type="StaticBody3D" parent="tree_round/Cylinder_001" parent_id_path=PackedInt32Array(1091003784, 1124313076) index="0" unique_id=475783928]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tree_round/Cylinder_001/StaticBody3D" unique_id=1128423952]
 shape = SubResource("ConcavePolygonShape3D_hujr8")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="tree_round/Sphere" parent_id_path=PackedInt32Array(1091003784, 1249731082) index="0" unique_id=1003893351]
+[node name="StaticBody3D" type="StaticBody3D" parent="tree_round/Sphere" parent_id_path=PackedInt32Array(1091003784, 1385824496) index="0" unique_id=1003893351]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tree_round/Sphere/StaticBody3D" unique_id=1665565326]
 shape = SubResource("ConcavePolygonShape3D_qygh5")

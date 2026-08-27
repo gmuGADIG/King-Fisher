@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dot3qmugnfdcx" path="res://world/props/dock.tscn" id="13_vt4r5"]
 [ext_resource type="PackedScene" uid="uid://gpcvf0ox46m1" path="res://world/props/cattail.tscn" id="21_s3jgv"]
 [ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="23_loicf"]
+[ext_resource type="PackedScene" uid="uid://m1wne8d5ewrk" path="res://art/3d-assets/Fishgear.glb" id="25_vs71a"]
 
 [sub_resource type="Resource" id="Resource_qen0n"]
 script = ExtResource("4_4k232")
@@ -152,6 +153,39 @@ polygon = PackedVector2Array(29.53931, 47.446995, 27.690466, 47.4539, 27.639992,
 
 [node name="IslandTerrain" parent="." index="21" unique_id=1398597706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, -0.01, -32)
+
+[node name="TreeRound" parent="IslandTerrain" index="5" unique_id=1033378230]
+transform = Transform3D(-1.247014, 0, 0.08634678, 0, 1.25, 0, -0.08634678, 0, -1.247014, 34.492535, 1.1920929e-06, 31.663654)
+
+[node name="TreeRound3" parent="IslandTerrain" index="6" unique_id=2021829471]
+transform = Transform3D(0.79086477, 0, 0.9680046, 0, 1.25, 0, -0.9680046, 0, 0.79086477, 27.085146, -1.822459, 54.3179)
+
+[node name="TreeRound4" parent="IslandTerrain" index="7" unique_id=1407194317]
+transform = Transform3D(-0.5403038, 0, 1.1271964, 0, 1.25, 0, -1.1271964, 0, -0.5403038, 24.747019, -0.64491534, 72.74562)
+
+[node name="TreeRound6" parent="IslandTerrain" index="8" unique_id=1338264390]
+transform = Transform3D(-0.041313153, 0, 1.249317, 0, 1.25, 0, -1.249317, 0, -0.041313153, 31.27104, -1.0669076, 98.87776)
+
+[node name="TreeRound2" parent="IslandTerrain" index="23" unique_id=732783207]
+transform = Transform3D(1.1577089, 0, 0.47139192, 0, 1.25, 0, -0.47139192, 0, 1.1577089, 95.2928, -1.158694, 94.695786)
+
+[node name="TreeRound9" parent="IslandTerrain" index="24" unique_id=1522224060]
+transform = Transform3D(1.224192, 0, 0.25269362, 0, 1.25, 0, -0.25269362, 0, 1.224192, 70.85895, -0.9314277, 99.75787)
+
+[node name="TreeRound10" parent="IslandTerrain" index="25" unique_id=399596788]
+transform = Transform3D(0.0077667832, 0, 1.249976, 0, 1.25, 0, -1.249976, 0, 0.0077667832, 51.831894, -1.5078418, 101.045166)
+
+[node name="TreeRound5" parent="IslandTerrain" index="26" unique_id=550995593]
+transform = Transform3D(1.0760385, 0, -0.636114, 0, 1.25, 0, 0.636114, 0, 1.0760385, 97.65196, -0.8136356, 73.09094)
+
+[node name="TreeRound7" parent="IslandTerrain" index="27" unique_id=897642632]
+transform = Transform3D(1.1509718, 0, 0.4876105, 0, 1.25, 0, -0.4876105, 0, 1.1509718, 97.55634, 1.1920929e-06, 45.865685)
+
+[node name="TreeRound8" parent="IslandTerrain" index="28" unique_id=1521078967]
+transform = Transform3D(1.0374058, 0, -0.6973445, 0, 1.2499999, 0, 0.6973445, 0, 1.0374058, 87.53065, -1.9016874, 30.758312)
+
+[node name="TreeRound12" parent="IslandTerrain" index="30" unique_id=90063741]
+transform = Transform3D(0.80467045, 0, 0.9565593, 0, 1.2499999, 0, -0.9565593, 0, 0.80467045, 51.683266, -0.8455446, 33.85157)
 
 [node name="RockForms" type="Node3D" parent="." index="22" unique_id=2064237674]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.0690465, 0)
@@ -864,6 +898,9 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 32, 5.5, 32)
 [node name="CollisionBox" parent="Water/Killbox2" index="0" unique_id=2090026275]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.090026855, 0)
 shape = SubResource("BoxShape3D_fdhgo")
+
+[node name="Fishgear" parent="." index="238" unique_id=1064983720 instance=ExtResource("25_vs71a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.72028, 0.019241992, 21.583025)
 
 [editable path="Water/Killbox"]
 [editable path="Water/Killbox2"]

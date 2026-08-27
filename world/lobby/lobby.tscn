@@ -192,7 +192,7 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 1, 0, 0.32783696)
 [node name="LobbyBoat" parent="." index="18" unique_id=245968247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -11, 32)
 
-[node name="SettingsControlPanel" parent="LobbyBoat/TallRoofBoat" parent_id_path=PackedInt32Array(245968247, 1656329038) index="2" unique_id=1429996587 node_paths=PackedStringArray("lobby_settings_menu")]
+[node name="SettingsControlPanel" parent="LobbyBoat/TallRoofBoat" parent_id_path=PackedInt32Array(245968247, 1656329038) index="1" unique_id=1429996587 node_paths=PackedStringArray("lobby_settings_menu")]
 lobby_settings_menu = NodePath("../../../CanvasLayer/LobbySettings")
 
 [editable path="Water/Killbox"]

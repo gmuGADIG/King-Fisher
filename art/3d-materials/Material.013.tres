@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bimynyitbpfam"]
+
+[resource]
+resource_name = "Material.013"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.18867914, 0.28821284, 0.37215587, 1)
+roughness = 0.4

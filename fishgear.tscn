@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cjn7h3ws404xm"]
+
+[ext_resource type="PackedScene" uid="uid://m1wne8d5ewrk" path="res://art/3d-assets/Fishgear.glb" id="1_dbmus"]
+[ext_resource type="Material" uid="uid://dieyntd8x27r6" path="res://art/3d-materials/DockBrown3.tres" id="2_0nayc"]
+[ext_resource type="Material" uid="uid://dp60axrmvdw8e" path="res://art/3d-materials/pasted__WhiteTrimColor.001.tres" id="2_two2y"]
+[ext_resource type="Material" uid="uid://dkq6il1pvolfp" path="res://art/3d-materials/BoatRed.tres" id="3_1cfk3"]
+[ext_resource type="Material" uid="uid://db0hom2swt1va" path="res://art/3d-materials/Material.009.tres" id="3_i0gxj"]
+[ext_resource type="Material" uid="uid://li3fajli3k8f" path="res://art/3d-materials/M_01___Default.material" id="6_nwswv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0nayc"]
+size = Vector3(1.6941297, 0.5736703, 1.5448914)
+
+[node name="Fishgear" unique_id=1064983720 instance=ExtResource("1_dbmus")]
+
+[node name="BoxWorms" parent="." index="0" unique_id=557183044]
+surface_material_override/1 = ExtResource("2_0nayc")
+surface_material_override/2 = ExtResource("3_i0gxj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BoxWorms" index="0" unique_id=86936053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14535095, 0.6523853)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxWorms/StaticBody3D" index="0" unique_id=465533835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36240777, 0.15274005, -0.34669492)
+shape = SubResource("BoxShape3D_0nayc")
+
+[node name="Locker" parent="." index="1" unique_id=851378467]
+surface_material_override/1 = ExtResource("2_two2y")
+surface_material_override/2 = ExtResource("3_1cfk3")
+
+[node name="HooksCans" parent="." index="3" unique_id=225361250]
+surface_material_override/1 = ExtResource("2_0nayc")
+surface_material_override/4 = ExtResource("6_nwswv")

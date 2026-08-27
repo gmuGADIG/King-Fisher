@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ckc2j3uk2rai8"]
+
+[ext_resource type="PackedScene" uid="uid://cfrqmv2gmea1q" path="res://art/3d-assets/Mudman.glb" id="1_4h7v5"]
+[ext_resource type="Material" uid="uid://dieyntd8x27r6" path="res://art/3d-materials/DockBrown3.tres" id="2_su80d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4h7v5"]
+size = Vector3(2.796753, 3.1279297, 4.105896)
+
+[node name="Mudman" unique_id=347740268 instance=ExtResource("1_4h7v5")]
+
+[node name="Box001" parent="Node" parent_id_path=PackedInt32Array(528767709) index="0" unique_id=898560298]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_su80d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node/Box001" index="0" unique_id=617052864]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Box001/StaticBody3D" index="0" unique_id=839428728]
+transform = Transform3D(18.995, 0, 0, 0, 18.995, 0, 0, 0, 18.995, 0.8243069, 20.21001, 36.75915)
+shape = SubResource("BoxShape3D_4h7v5")

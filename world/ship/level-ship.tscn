@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ctsviqutuqw5l" path="res://world/world_base.tscn" id="1_liscy"]
 [ext_resource type="Script" uid="uid://gcho7uv032l6" path="res://world/world_gameplay.gd" id="2_a8xj4"]
 [ext_resource type="Script" uid="uid://cb6f5am52xc7" path="res://addons/zylann.hterrain/hterrain.gd" id="2_prlaw"]
-[ext_resource type="Resource" path="res://world/data.hterrain" id="3_ke6vo"]
+[ext_resource type="Resource" uid="uid://barqr64i821s5" path="res://world/data.hterrain" id="3_ke6vo"]
 [ext_resource type="PackedScene" uid="uid://ctdj3ibc075jn" path="res://world/fish_spawner/fish_spawner.tscn" id="3_osct5"]
 [ext_resource type="Script" uid="uid://bwqvwx37svsd8" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_8dgjh"]
 [ext_resource type="Texture2D" uid="uid://jxq7t8najssr" path="res://temp/tmp_grass.tres" id="5_1uk8t"]
@@ -19,8 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://bfl87ea0ws3h7" path="res://world/props/mushroom_tall.tscn" id="14_ff6jl"]
 [ext_resource type="PackedScene" uid="uid://xrliek427mtt" path="res://world/props/cargo_box.tscn" id="15_kixhr"]
 [ext_resource type="PackedScene" uid="uid://7pg60uc0tj5" path="res://world/props/mushroom_small.tscn" id="16_4j17c"]
+[ext_resource type="PackedScene" uid="uid://ckc2j3uk2rai8" path="res://mudman.tscn" id="16_osct5"]
 [ext_resource type="PackedScene" uid="uid://bhga7vwbqbych" path="res://world/props/tree_cone.tscn" id="17_osct5"]
-[ext_resource type="PackedScene" uid="uid://cdq820vurkg0t" path="res://world/props/tree_round.tscn" id="19_kixhr"]
 [ext_resource type="PackedScene" uid="uid://bhgnooactcump" path="res://world/props/tree_triangle.tscn" id="20_4j17c"]
 [ext_resource type="PackedScene" uid="uid://c16dgg4echeu6" path="res://world/props/lilypad.tscn" id="21_osct5"]
 [ext_resource type="PackedScene" uid="uid://drb1uf1i8esqm" path="res://world/killbox/killbox.tscn" id="24_osct5"]
@@ -223,8 +223,11 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 39.735844, 0.0033065
 [node name="Aircraft" parent="." index="7" unique_id=581678662 instance=ExtResource("7_8dgjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.138123, -2.5958943, 35.618164)
 
+[node name="Mudman" parent="Water" parent_id_path=PackedInt32Array(1426951503) index="17" unique_id=347740268 instance=ExtResource("16_osct5")]
+transform = Transform3D(0.28705955, 0, 0.95791274, 0, 1, 0, -0.95791274, 0, 0.28705955, 7.29196, 11.075858, 21.930338)
+
 [node name="tree_round" parent="." index="10" unique_id=42365073 instance=ExtResource("9_a8xj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.102974, 0, 2.766653)
+transform = Transform3D(0.007417567, 0, 0.99997246, 0, 1, 0, -0.99997246, 0, 0.007417567, 59.102974, -1.7836552, 2.766653)
 
 [node name="Tent3" parent="." index="12" unique_id=126067886 instance=ExtResource("7_74kgb")]
 transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 37.83409, -0.26273537, 30.272324)
@@ -281,7 +284,7 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 36.21415, -2.3115368
 transform = Transform3D(0.1, 0, 0, 0, 0.084, 0, 0, 0, 0.101, 10.334541, -0.40893564, 21.194439)
 
 [node name="TreeCone" parent="." index="30" unique_id=1632311398 instance=ExtResource("17_osct5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.240864, -0.020178586, 30.271685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.240864, -0.30425432, 30.271685)
 
 [node name="TreeCone2" parent="." index="31" unique_id=863466123 instance=ExtResource("17_osct5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.869328, -0.2521109, 50.920918)
@@ -293,10 +296,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.21267, -0.4898802, 65.4251
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0141392, -1.2262316, 23.56351)
 
 [node name="TreeCone5" parent="." index="34" unique_id=694879021 instance=ExtResource("17_osct5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.62555, 0.18873934, 10.036662)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.62555, -0.38875812, 10.036662)
 
 [node name="TreeCone6" parent="." index="35" unique_id=961925450 instance=ExtResource("17_osct5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.070732, 0.091256194, 0.34810057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.070732, -0.48624128, 0.34810057)
 
 [node name="TreeRound" parent="." index="36" unique_id=1033378230 instance=ExtResource("19_kixhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6672516, -7.390976e-06, 17.23547)
@@ -310,13 +313,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.452784, 2.3841858e-07, -0.
 [node name="TreeTriangle" parent="." index="39" unique_id=1935095259 instance=ExtResource("20_4j17c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.950132, 2.026558e-06, 26.10756)
 
-[node name="TreeTriangle2" parent="." index="40" unique_id=71263374 instance=ExtResource("20_4j17c")]
+[node name="TreeTriangle2" parent="." index="38" unique_id=71263374 instance=ExtResource("20_4j17c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.608198, 0.0005723238, -0.29235172)
 
-[node name="TreeTriangle3" parent="." index="41" unique_id=2096743043 instance=ExtResource("20_4j17c")]
+[node name="TreeTriangle3" parent="." index="39" unique_id=2096743043 instance=ExtResource("20_4j17c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8753443, 1.1920929e-07, 0.45517826)
 
-[node name="TreeCone8" parent="." index="42" unique_id=1102667340 instance=ExtResource("17_osct5")]
+[node name="TreeCone8" parent="." index="40" unique_id=1102667340 instance=ExtResource("17_osct5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.241005, -0.00024986267, 8.325056)
 
 [node name="TreeRound3" parent="." index="43" unique_id=1083504908 instance=ExtResource("19_kixhr")]
